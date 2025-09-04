@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { mount } from '@vue/test-utils';
-import URL from 'url-parse';
 
 import { imageField as eeImageData } from '../test/data/field-data-EE-on';
 import { Image } from './Image';
@@ -16,7 +15,7 @@ describe('<Image />', () => {
     };
     const attrs = { id: 'some-id' };
 
-    const rendered = mount(Image, { context: { props, attrs } }).find('img');
+    const rendered = mount(Image, { props, attrs });
     const renderedAttrs = rendered.attributes();
 
     it('should render <img /> with url', () => {
@@ -39,7 +38,7 @@ describe('<Image />', () => {
     };
     const attrs = { id: 'some-id' };
 
-    const rendered = mount(Image, { context: { props, attrs } }).find('img');
+    const rendered = mount(Image, { props, attrs });
     const renderedAttrs = rendered.attributes();
 
     it('should render <img /> component with "value" properties', () => {
@@ -57,7 +56,7 @@ describe('<Image />', () => {
         editable: eeImageData,
       },
     };
-    const rendered = mount(Image, { context: { props } }).find('.sc-image-wrapper');
+    const rendered = mount(Image, { props }).find('.sc-image-wrapper');
 
     it('should render wrapper containing experience editor value', () => {
       expect(rendered.html().indexOf('<img')).toBeGreaterThan(-1);
@@ -77,9 +76,9 @@ describe('<Image />', () => {
     };
     const attrs = { id: 'some-id', height: '100', width: '150' };
 
-    const rendered = mount(Image, { context: { props, attrs } }).find('.sc-image-wrapper');
-    const img = rendered.find('img');
-    const imgAttrs = img.attributes();
+    const rendered = mount(Image, { props, attrs }).find('img');
+
+    const imgAttrs = rendered.attributes();
 
     it('should render img with additional props', () => {
       expect(imgAttrs).toMatchObject(attrs);
@@ -103,13 +102,12 @@ describe('<Image />', () => {
         },
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      const url = new URL(img.attributes().src, {}, true);
+      const url = new URL(rendered.attributes().src, 'http://test.com');
       expect(url.pathname).toContain('/-/jssmedia/');
-      expect(url.query.h).toBe(props.imageParams.h);
-      expect(url.query.w).toBe(props.imageParams.w);
+      expect(url.searchParams.get('h')).toBe(props.imageParams.h);
+      expect(url.searchParams.get('w')).toBe(props.imageParams.w);
     });
 
     it('should handle /~/media', () => {
@@ -126,13 +124,12 @@ describe('<Image />', () => {
         },
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      const url = new URL(img.attributes().src, {}, true);
+      const url = new URL(rendered.attributes().src, 'http://test.com');
       expect(url.pathname).toContain('/~/jssmedia/');
-      expect(url.query.h).toBe(props.imageParams.h);
-      expect(url.query.w).toBe(props.imageParams.w);
+      expect(url.searchParams.get('h')).toBe(props.imageParams.h);
+      expect(url.searchParams.get('w')).toBe(props.imageParams.w);
     });
 
     it('should handle custom mediaUrlPrefix, /-assets', () => {
@@ -150,13 +147,12 @@ describe('<Image />', () => {
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      const url = new URL(img.attributes().src, {}, true);
+      const url = new URL(rendered.attributes().src, 'http://test.com');
       expect(url.pathname).toContain('/-/jssmedia/');
-      expect(url.query.h).toBe(props.imageParams.h);
-      expect(url.query.w).toBe(props.imageParams.w);
+      expect(url.searchParams.get('h')).toBe(props.imageParams.h);
+      expect(url.searchParams.get('w')).toBe(props.imageParams.w);
     });
 
     it('should handle custom mediaUrlPrefix, /~assets', () => {
@@ -174,13 +170,12 @@ describe('<Image />', () => {
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      const url = new URL(img.attributes().src, {}, true);
+      const url = new URL(rendered.attributes().src, 'http://test.com');
       expect(url.pathname).toContain('/~/jssmedia/');
-      expect(url.query.h).toBe(props.imageParams.h);
-      expect(url.query.w).toBe(props.imageParams.w);
+      expect(url.searchParams.get('h')).toBe(props.imageParams.h);
+      expect(url.searchParams.get('w')).toBe(props.imageParams.w);
     });
   });
 
@@ -203,10 +198,9 @@ describe('<Image />', () => {
         },
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      expect(img.attributes().srcset).toBe(
+      expect(rendered.attributes().srcset).toBe(
         '/-/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /-/jssmedia/img/test0.png?h=100&w=150&mw=300 150w'
       );
     });
@@ -225,10 +219,9 @@ describe('<Image />', () => {
         },
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      expect(img.attributes().srcset).toBe(
+      expect(rendered.attributes().srcset).toBe(
         '/~/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /~/jssmedia/img/test0.png?h=100&w=150&mw=300 150w'
       );
     });
@@ -248,10 +241,9 @@ describe('<Image />', () => {
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      expect(img.attributes().srcset).toBe(
+      expect(rendered.attributes().srcset).toBe(
         '/-/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /-/jssmedia/img/test0.png?h=100&w=150&mw=300 150w'
       );
     });
@@ -271,10 +263,9 @@ describe('<Image />', () => {
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      expect(img.attributes().srcset).toBe(
+      expect(rendered.attributes().srcset).toBe(
         '/~/jssmedia/img/test0.png?h=100&w=150&mw=100 150w, /~/jssmedia/img/test0.png?h=100&w=150&mw=300 150w'
       );
     });
@@ -294,10 +285,9 @@ describe('<Image />', () => {
         mediaUrlPrefix: /\/([-~]{1})assets\//i,
       };
 
-      const rendered = mount(Image, { context: { props, attrs } }).find('img');
-      const img = rendered.find('img');
+      const rendered = mount(Image, { props, attrs });
 
-      expect(img.attributes().srcset).toBe(
+      expect(rendered.attributes().srcset).toBe(
         '/~invalid/img/test0.png?h=100&w=150&mw=100 150w, /~invalid/img/test0.png?h=100&w=150&mw=300 150w'
       );
     });
@@ -314,7 +304,7 @@ describe('<Image />', () => {
       },
       editable: false,
     };
-    const rendered = mount(Image, { context: { props } }).find('img');
+    const rendered = mount(Image, { props }).find('img');
 
     it('should render <img /> component with "value" properties', () => {
       const renderedAttrs = rendered.attributes();
@@ -330,8 +320,11 @@ describe('<Image />', () => {
     // that is marked as required.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const rendered = mount(Image, { context: { props } });
-    expect(rendered.isEmpty()).toBe(true);
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
+    const rendered = mount(Image, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 });

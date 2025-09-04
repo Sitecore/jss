@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { FileDirective } from './file.directive';
+import { FileField } from './rendering-field';
 
 @Component({
   selector: 'test-file',
@@ -11,7 +12,7 @@ import { FileDirective } from './file.directive';
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: FileField;
 }
 
 describe('<a *scFile />', () => {

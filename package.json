@@ -1,38 +1,49 @@
 {
+  "private": true,
   "scripts": {
-    "reset": "lerna clean --yes && npm run bootstrap && npm run build-packages",
-    "bootstrap": "lerna bootstrap && npm run bootstrap-react && npm run bootstrap-react-dom",
-    "bootstrap:ci": "lerna bootstrap --ci",
-    "bootstrap-react": "cd ./packages/sitecore-jss-react/node_modules/react && npm link && cd ../../../sitecore-jss-nextjs && npm link react && npm link react && cd ../../samples/nextjs && npm link react && cd ../react && npm link react",
-    "bootstrap-react-dom": "cd ./packages/sitecore-jss-react/node_modules/react-dom && npm link && cd ../../../sitecore-jss-nextjs && npm link react-dom && cd ../../samples/nextjs && npm link react-dom && cd ../react && npm link react-dom",
-    "build-packages": "lerna run build --ignore *-sample*",
-    "build-apps": "lerna run build --scope *-sample*",
-    "lint-packages": "lerna run lint --ignore *-sample*",
-    "lint-apps": "lerna run lint --ignore @sitecore-jss/*",
-    "test-packages": "lerna run test --ignore *-sample*",
-    "test": "lerna run test",
-    "coverage-packages": "lerna run coverage --ignore *-sample*"
+    "reset": "lerna clean --yes && yarn dlx rimraf node_modules && yarn install && yarn build",
+    "build": "lerna run build",
+    "lint-packages": "lerna run lint",
+    "scaffold-samples": "node ./scripts/scaffold-samples.js",
+    "lint-samples": "node ./scripts/lint-samples.js",
+    "coverage-packages": "lerna run coverage",
+    "test-packages": "lerna run test",
+    "install-git-hooks": "node ./scripts/install-hooks.js",
+    "generate-docs": "lerna run generate-docs",
+    "version": "yarn install && git stage yarn.lock"
   },
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "license": "Apache-2.0",
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.10.0",
-    "@typescript-eslint/parser": "^4.10.0",
-    "eslint": "^7.16.0",
+    "@stylistic/eslint-plugin-ts": "^2.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "eslint": "^8.56.0",
     "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-jsdoc": "^30.7.9",
+    "eslint-plugin-jsdoc": "^50.5.0",
     "eslint-plugin-prettier": "^3.3.0",
-    "lerna": "^3.4.0",
-    "metro": "^0.60.0",
-    "nyc": "^14.1.1",
+    "lerna": "^5.6.2",
     "prettier": "^1.14.3",
-    "typescript": "^3.9.6"
-  }
+    "typedoc": "^0.28.10",
+    "typedoc-plugin-markdown": "^4.8.0",
+    "typescript": "~5.6.3"
+  },
+  "resolutions": {
+    "cheerio": "1.0.0-rc.3",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "@types/react-native/@types/react": "17.0.34",
+    "@types/react-native-htmlview/@types/react": "17.0.34"
+  },
+  "workspaces": [
+    "packages/*",
+    "samples/*"
+  ],
+  "packageManager": "yarn@3.1.0"
 }

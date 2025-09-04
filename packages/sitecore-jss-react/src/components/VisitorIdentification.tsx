@@ -1,14 +1,14 @@
 import React from 'react';
-import { withSitecoreContext } from '../enhancers/withSitecoreContext';
+import { useSitecoreContext } from '../enhancers/withSitecoreContext';
 
-interface VIProps {
-  sitecoreContext: {
-    visitorIdentificationTimestamp?: string;
-  };
+interface VisitorIdentificationProps {
+  defer?: boolean;
 }
 
 let emittedVI = false;
-const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
+const VIComponent: React.FC<VisitorIdentificationProps> = (props) => {
+  const { sitecoreContext } = useSitecoreContext();
+
   if (
     emittedVI ||
     typeof document === 'undefined' ||
@@ -23,10 +23,11 @@ const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
   const script = document.createElement('script');
   script.src = '/layouts/system/VisitorIdentification.js';
   script.type = 'text/javascript';
+  script.defer = props.defer;
 
   const meta = document.createElement('meta');
   meta.name = 'VIcurrentDateTime';
-  meta.content = sitecoreContext.visitorIdentificationTimestamp;
+  meta.content = sitecoreContext.visitorIdentificationTimestamp.toString();
 
   const head = document.querySelector('head');
   head && head.appendChild(script);
@@ -37,4 +38,12 @@ const VIComponent: React.FC<VIProps> = ({ sitecoreContext }) => {
 
 VIComponent.displayName = 'VisitorIdentification';
 
-export const VisitorIdentification = withSitecoreContext()(VIComponent);
+/**
+ * Reset the VI switch to allow VIComponent to render
+ * Mainly for unit testing
+ */
+export function resetEmittedVI() {
+  emittedVI = false;
+}
+
+export const VisitorIdentification = VIComponent;

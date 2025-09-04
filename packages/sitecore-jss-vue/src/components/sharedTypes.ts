@@ -1,3 +1,3 @@
-import { Component } from 'vue';
+import { DefineComponent } from 'vue';
 
-export type ComponentFactory = (componentName: string) => Component;
+export type ComponentFactory = (componentName: string) => DefineComponent;

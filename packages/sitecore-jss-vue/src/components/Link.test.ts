@@ -11,9 +11,12 @@ describe('<Link />', () => {
     // that is marked as required.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const rendered = mount(Link);
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('should render nothing with missing editable and value', () => {
@@ -24,9 +27,12 @@ describe('<Link />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const rendered = mount(Link, { context: { props } });
-    expect(rendered.isEmpty()).toBe(true);
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
+    const rendered = mount(Link, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('should render editable with an editable value', () => {
@@ -36,7 +42,7 @@ describe('<Link />', () => {
         editableLastPart: '</a>',
       },
     };
-    const rendered = mount(Link, { context: { props } }).find('.sc-link-wrapper > a');
+    const rendered = mount(Link, { props }).find('.sc-link-wrapper > a');
     expect(rendered.html()).toContain(props.field.editableFirstPart);
   });
 
@@ -53,7 +59,7 @@ describe('<Link />', () => {
       editable: false,
     };
 
-    const rendered = mount(Link, { context: { props } }).find('a');
+    const rendered = mount(Link, { props }).find('a');
     expect(rendered.attributes().href).toBe(props.field.value.href);
     expect(rendered.html()).toContain(props.field.value.text);
   });
@@ -65,9 +71,46 @@ describe('<Link />', () => {
         text: 'ipsum',
       },
     };
-    const rendered = mount(Link, { context: { props } }).find('a');
+    const rendered = mount(Link, { props }).find('a');
     expect(rendered.attributes().href).toBe(props.field.href);
     expect(rendered.text()).toBe(props.field.text);
+  });
+
+  it('should render with provided children', () => {
+    const props = {
+      field: {
+        href: '/lorem',
+        text: '[ipsum]',
+      },
+    };
+    const rendered = mount(Link, {
+      props,
+      slots: {
+        default: ['<p>Custom description</p>'],
+      },
+    }).find('a');
+
+    expect(rendered.attributes().href).toBe(props.field.href);
+    expect(rendered.text()).toBe('Custom description');
+  });
+
+  it('should render link text with provided children', () => {
+    const props = {
+      field: {
+        href: '/lorem',
+        text: '[ipsum]',
+      },
+      showLinkTextWithChildrenPresent: true,
+    };
+    const rendered = mount(Link, {
+      props,
+      slots: {
+        default: ['<p>Custom description</p>'],
+      },
+    }).find('a');
+
+    expect(rendered.attributes().href).toBe(props.field.href);
+    expect(rendered.text()).toBe('[ipsum]Custom description');
   });
 
   it('should render ee HTML', () => {
@@ -77,7 +120,7 @@ describe('<Link />', () => {
         editableLastPart: '</a>',
       },
     };
-    const rendered = mount(Link, { context: { props } }).find('span');
+    const rendered = mount(Link, { props }).find('span');
     expect(rendered.html().indexOf('<input')).toBeGreaterThan(-1);
     expect(rendered.html().indexOf('chrometype="field"')).toBeGreaterThan(-1);
   });
@@ -91,13 +134,18 @@ describe('<Link />', () => {
           class: 'my-link',
           title: 'My Link',
           target: '_blank',
+          querystring: 'foo=bar',
+          anchor: 'sample-anchor',
         },
       },
     };
-    const rendered = mount(Link, { context: { props } }).find('a');
-    const renderedAttrs = rendered.attributes();
-    // note: order of comparison is important for `toMatchObject` as renderedAttrs won't fully match props.field.value
-    expect(props.field.value).toMatchObject(renderedAttrs);
+    const rendered = mount(Link, { props }).find('a');
+    expect(rendered.html()).toContain(
+      `href="${props.field.value.href}?${props.field.value.querystring}#${props.field.value.anchor}"`
+    );
+    expect(rendered.html()).toContain(`class="${props.field.value.class}"`);
+    expect(rendered.html()).toContain(`title="${props.field.value.title}"`);
+    expect(rendered.html()).toContain(`target="${props.field.value.target}"`);
   });
 
   it('should render other attributes with other props provided', () => {
@@ -113,10 +161,10 @@ describe('<Link />', () => {
       id: 'my-link',
       disabled: true,
     };
-    const rendered = mount(Link, { context: { props, attrs } }).find('a');
+    const rendered = mount(Link, { props, attrs }).find('a');
     const renderedAttrs = rendered.attributes();
     expect(renderedAttrs.id).toBe(attrs.id);
-    expect(renderedAttrs.disabled).toBe('disabled');
+    expect(renderedAttrs.disabled).toBe('true');
   });
 
   it('should render other attributes on wrapper span with other props provided with editable', () => {
@@ -129,7 +177,7 @@ describe('<Link />', () => {
     const attrs = {
       id: 'my-link',
     };
-    const rendered = mount(Link, { context: { props, attrs } }).find('span.sc-link-wrapper');
+    const rendered = mount(Link, { props, attrs }).find('span.sc-link-wrapper');
     expect(rendered.attributes().id).toBe(attrs.id);
   });
 });

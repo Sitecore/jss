@@ -1,0 +1,4 @@
+# in order to demonstrate translation on the Styleguide page, we need to have a stub on the homepage for that language.
+# this can be deleted safely if not using multiple languages.
+name: home
+id: home-page

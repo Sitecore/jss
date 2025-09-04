@@ -1,0 +1,20 @@
+name: Create Jira Issue
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Create issue
+        run: node ./scripts/create-jira-issue.js
+        env:
+          GITHUB: ${{ toJson(github) }}
+          JIRA_WEBHOOK_URL: ${{ vars.JIRA_WEBHOOK_URL }}

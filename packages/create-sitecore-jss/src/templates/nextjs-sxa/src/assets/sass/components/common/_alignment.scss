@@ -1,0 +1,53 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+$breakpoints: sm, md, lg, xl, xxl;
+
+.position-left,
+.position-left * {
+  text-align: left !important;
+}
+
+.position-right,
+.position-right * {
+  text-align: right !important;
+}
+
+.position-center,
+.position-center * {
+  text-align: center !important;
+}
+
+.position-left select {
+  direction: ltr !important;
+}
+
+.position-right select {
+  direction: rtl !important;
+}
+
+.position-center select {
+  text-align-last: center !important;
+}
+
+@mixin auto-margins($breakpoint) {
+  @include media-breakpoint-up(#{$breakpoint}) {
+    .ms-#{$breakpoint}-auto {
+      margin-left: auto !important;
+      margin-right: 0 !important;
+    }
+    .me-#{$breakpoint}-auto {
+      margin-right: auto !important;
+      margin-left: 0 !important;
+    }
+    .mx-#{$breakpoint}-auto {
+      margin-right: auto !important;
+      margin-left: auto !important;
+    }
+  }
+}
+
+@each $breakpoint in $breakpoints {
+  @include auto-margins($breakpoint);
+}

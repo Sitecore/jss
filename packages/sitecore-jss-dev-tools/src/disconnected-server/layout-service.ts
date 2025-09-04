@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ManifestInstance, RouteDefinition } from '@sitecore-jss/sitecore-jss-manifest';
+import { ManifestInstance, RouteDefinition } from '../index';
 import chalk from 'chalk';
 import { Request, Response } from 'express';
 import {

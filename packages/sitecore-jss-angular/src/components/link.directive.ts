@@ -6,26 +6,43 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
 import { LinkField } from './rendering-field';
+import { BaseFieldDirective } from './base-field.directive';
+import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({ selector: '[scLink]' })
-export class LinkDirective implements OnChanges {
-  private inlineRef: HTMLSpanElement | null = null;
-
+export class LinkDirective extends BaseFieldDirective implements OnChanges {
   @Input('scLinkEditable') editable = true;
 
-  @Input('scLinkAttrs') attrs: any = {};
+  @Input('scLinkAttrs') attrs: { [attr: string]: string } = {};
 
   @Input('scLink') field: LinkField;
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scLinkEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
+
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
+  protected defaultFieldEditingComponent: Type<unknown>;
+
+  private inlineRef: HTMLSpanElement | null = null;
+
   constructor(
-    protected viewContainer: ViewContainerRef,
-    protected templateRef: TemplateRef<any>,
+    viewContainer: ViewContainerRef,
+    protected templateRef: TemplateRef<unknown>,
     protected renderer: Renderer2,
     private elementRef: ElementRef
-  ) {}
+  ) {
+    super(viewContainer);
+    this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.attrs) {
@@ -39,46 +56,79 @@ export class LinkDirective implements OnChanges {
     }
   }
 
-  private updateView() {
-    const field = this.field;
-    if (this.editable && field && field.editableFirstPart && field.editableLastPart) {
-      this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
-    } else if (field && (field.href || field.value)) {
-      const props = field.href ? field : field.value;
-      const linkText = field.text || field.value.text || field.href || field.value.href;
-      const mergedAttrs = { ...props, ...this.attrs };
-      this.renderTemplate(mergedAttrs, linkText);
-    }
-  }
-
-  protected renderTemplate(props: any, linkText: string) {
+  protected renderTemplate(props: { [prop: string]: unknown }, linkText?: string) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.entries(props).forEach(([key, propValue]: [string, any]) => {
-        if (key === 'href') {
-          const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
-
-          if (isInvalidLink) {
-            if (!node.href) {
-              return;
-            }
-
-            propValue = node.href;
-          }
-        }
-
-        if (key === 'class' && node.className) {
-          propValue += ` ${node.className}`;
-        }
-
-        this.renderer.setAttribute(node, key, propValue);
+      Object.entries(props).forEach(([key, propValue]) => {
+        this.updateAttribute(node, key, propValue);
       });
 
       if (node.childNodes && node.childNodes.length === 0 && linkText) {
         node.textContent = linkText;
       }
     });
+  }
+
+  protected updateAttribute(node: HTMLElement, key: string, propValue?: unknown) {
+    if (typeof propValue !== 'string' || !propValue || propValue === '') {
+      return;
+    }
+
+    if (key === 'href') {
+      const isInvalidLink = !propValue || /^https?:\/\/$/.test(propValue);
+
+      if (isInvalidLink) {
+        if (!(node as HTMLLinkElement).href) {
+          return;
+        }
+
+        propValue = (node as HTMLLinkElement).href as string;
+      }
+      this.renderer.setAttribute(node, key, propValue as string);
+    } else if (key === 'class' && node.className !== '') {
+      this.renderer.setAttribute(node, key, `${node.className} ${propValue}`);
+    } else {
+      this.renderer.setAttribute(node, key, propValue);
+    }
+  }
+
+  /**
+   * Determines if directive should render the field as is
+   * Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
+   * or link field text is present and we are not in edit mode 'metadata'
+   * The right side of the expression was added to preserve existing functionality
+   */
+  protected shouldRender() {
+    return (
+      super.shouldRender() ||
+      !!((this.field?.text || this.field?.value?.text) && !this.field?.metadata)
+    );
+  }
+
+  private updateView() {
+    const field = this.field;
+    if (this.editable && field && field.editableFirstPart && field.editableLastPart) {
+      this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
+    } else {
+      if (!this.shouldRender()) {
+        super.renderEmpty();
+        return;
+      }
+
+      const props = field.href ? field : field.value;
+
+      const linkText = field.text || field.value?.text || field.href || field.value?.href;
+      const anchor = props?.anchor ? `#${props.anchor}` : '';
+      const href = `${props?.href}${anchor}`;
+
+      const mergedAttrs = { ...props, ...this.attrs, href };
+
+      delete mergedAttrs.anchor;
+      this.renderMetadata(MetadataKind.Open);
+      this.renderTemplate(mergedAttrs, linkText);
+      this.renderMetadata(MetadataKind.Close);
+    }
   }
 
   private renderInlineWrapper(editableFirstPart: string, editableLastPart: string) {
@@ -91,9 +141,7 @@ export class LinkDirective implements OnChanges {
       ...this.getElementAttrs(),
       ...this.attrs,
     };
-    Object.entries(attrs).forEach(([key, attrValue]: [string, any]) =>
-      this.renderer.setAttribute(span, key, attrValue)
-    );
+    Object.entries(attrs).forEach(([key, attrValue]) => this.updateAttribute(span, key, attrValue));
 
     this.viewContainer.createEmbeddedView(this.templateRef);
 
@@ -103,19 +151,21 @@ export class LinkDirective implements OnChanges {
     this.inlineRef = span;
   }
 
-  private getElementAttrs(): { [key: string]: any } {
+  private getElementAttrs() {
     const view = this.templateRef.createEmbeddedView(null);
     const element: Element = view.rootNodes[0];
     if (!element) {
+      view.destroy();
       return {};
     }
-    const attrs: { [key: string]: any } = {};
+    const attrs: { [key: string]: string } = {};
     for (let i = 0; i < element.attributes.length; i++) {
       const attr = element.attributes.item(i);
       if (attr) {
         attrs[attr.name] = attr.value;
       }
     }
+    view.destroy();
     return attrs;
   }
 }

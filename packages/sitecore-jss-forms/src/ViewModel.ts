@@ -30,6 +30,7 @@ export interface ConditionSettingsModel {
 }
 
 export interface ViewModel {
+  [key: string]: unknown;
   itemId: string;
   name: string;
   templateId: string;

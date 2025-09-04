@@ -1,7 +1,6 @@
-import { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+import { ManifestInstance, ManifestManager } from '../manifest/index';
 import Express from 'express';
 import { join } from 'path';
-import { ManifestManager } from '../manifest-manager';
 import { createDisconnectedDictionaryService } from './dictionary-service';
 import {
   CustomizeContextFunction,
@@ -32,7 +31,7 @@ export interface DisconnectedServerOptions {
   /**
    * Module to require before starting the disconnected server (i.e. a transpiler, or a config script that loads one)
    */
-  requireArg?: string;
+  requireArg?: string | null;
 
   /**
    * Express-like server instance to attach to. Defaults to a new Express instance if not passed.

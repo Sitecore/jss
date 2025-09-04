@@ -4,5 +4,5 @@ import { Directive, TemplateRef } from '@angular/core';
   selector: '[renderEmpty]',
 })
 export class RenderEmptyDirective {
-  constructor(public templateRef: TemplateRef<any>) {}
+  constructor(public templateRef: TemplateRef<unknown>) {}
 }

@@ -14,13 +14,20 @@ import { LinkField } from './rendering-field';
 export class RouterLinkDirective extends LinkDirective {
   @Input('scRouterLinkEditable') editable = true;
 
-  @Input('scRouterLinkAttrs') attrs: any = {};
+  @Input('scRouterLinkAttrs') attrs: { [attr: string]: string } = {};
 
-  @Input('scRouterLink') field: LinkField;
+  @Input('scRouterLink') declare field: LinkField;
+
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scRouterLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
+    unknown
+  >;
 
   constructor(
     viewContainer: ViewContainerRef,
-    templateRef: TemplateRef<any>,
+    templateRef: TemplateRef<unknown>,
     renderer: Renderer2,
     elementRef: ElementRef,
     private router: Router
@@ -28,17 +35,21 @@ export class RouterLinkDirective extends LinkDirective {
     super(viewContainer, templateRef, renderer, elementRef);
   }
 
-  protected renderTemplate(props: any, linkText: string) {
+  protected renderTemplate(props: { [prop: string]: string }, linkText: string) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.entries(props).forEach(([key, propValue]: [string, any]) => {
-        this.renderer.setAttribute(node, key, propValue);
+      Object.entries(props).forEach(([key, propValue]) => {
+        this.updateAttribute(node, key, propValue);
 
         if (key === 'href') {
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([propValue]);
-            event.preventDefault();
+            this.router.navigateByUrl(propValue);
+
+            // shouldn't prevent default if the link includes a fragment
+            if (!propValue.includes('#')) {
+              event.preventDefault();
+            }
           });
         }
       });

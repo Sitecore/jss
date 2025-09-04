@@ -1,18 +1,29 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import zlib from 'zlib'; // node.js standard lib
 
-export type RenderCallback = (errorValue: Error, successValue?: any) => void;
+export type RenderCallback = (
+  errorValue: Error,
+  successValue?: string | { [key: string]: unknown } | null
+) => void;
 
-export type RenderFunction = (callback: RenderCallback, ...args: any[]) => void;
+export type RenderFunction = (callback: RenderCallback, ...args: unknown[]) => void;
 
 export interface AppInvocationInfo {
   renderFunction: RenderFunction;
-  renderFunctionArgs: any[];
+  renderFunctionArgs: unknown[];
   renderFunctionCallback?: RenderCallback;
 }
 
+export type JsonObject = {
+  [key: string]: unknown;
+  id: string;
+  functionName: string;
+  moduleName: string;
+  args: string[];
+};
+
 export type AppInvocationInfoResolver = (
-  bodyJson: string,
+  bodyJson: string | JsonObject,
   req: IncomingMessage,
   res: ServerResponse
 ) => AppInvocationInfo;
@@ -24,13 +35,12 @@ export interface SSRMiddlewareOptions {
 export type WebServerMiddleware = (
   req: IncomingMessage,
   res: ServerResponse,
-  next?: (err?: any) => void
+  next?: (err?: unknown) => void
 ) => void;
 
 export type SSRMiddleware = (options: SSRMiddlewareOptions) => WebServerMiddleware;
 
-// don't assume this middleware will always be used by WebpackDevServer
-// it may also be used by a "standalone" JSS rendering host / express server.
+// may be used by a "standalone" JSS rendering host / express server.
 export const ssrMiddleware: SSRMiddleware = ({
   appInvocationInfoResolver,
 }: SSRMiddlewareOptions) => {
@@ -40,7 +50,7 @@ export const ssrMiddleware: SSRMiddleware = ({
   return (req: IncomingMessage, res: ServerResponse) => {
     let callback: RenderCallback;
     readRequestBodyAsJson(req)
-      .then((bodyJson: any) => {
+      .then((bodyJson) => {
         if (!bodyJson) {
           throw new Error(`Request body was not JSON: ${req.url}`);
         }
@@ -60,7 +70,7 @@ export const ssrMiddleware: SSRMiddleware = ({
  * @param {ServerResponse} res
  */
 export function getDefaultAppRendererCallback(res: ServerResponse) {
-  const callback: RenderCallback = (errorValue: Error, successValue?: any) => {
+  const callback: RenderCallback = (errorValue, successValue) => {
     if (errorValue) {
       respondWithError(res, errorValue);
     } else if (typeof successValue !== 'string') {
@@ -70,7 +80,7 @@ export function getDefaultAppRendererCallback(res: ServerResponse) {
         successValueJson = JSON.stringify(successValue);
       } catch (ex) {
         // JSON serialization error - pass it back to http caller.
-        respondWithError(res, ex);
+        respondWithError(res, ex as Error);
         return;
       }
       res.setHeader('Content-Type', 'application/json');
@@ -87,7 +97,7 @@ export function getDefaultAppRendererCallback(res: ServerResponse) {
 /**
  * @param {IncomingMessage} request
  */
-export function readRequestBodyAsJson(request: IncomingMessage) {
+export function readRequestBodyAsJson(request: IncomingMessage): Promise<string | JsonObject> {
   const dataWriter = { output: Buffer.from('') };
   request.on('data', onReadableStreamDataHandler(dataWriter));
 
@@ -117,11 +127,11 @@ export function respondWithError(res: ServerResponse, errorValue: Error) {
 }
 
 /**
- * @param {Object} dataWriter
+ * @param {object} dataWriter
  * @param {Buffer} dataWriter.output
  */
 export function onReadableStreamDataHandler(dataWriter: { output: Buffer }) {
-  return (data: any) => {
+  return (data: Buffer) => {
     if (Buffer.isBuffer(data)) {
       dataWriter.output = Buffer.concat([dataWriter.output, data]); // append raw buffer
     } else {
@@ -134,7 +144,10 @@ export function onReadableStreamDataHandler(dataWriter: { output: Buffer }) {
  * @param {Buffer} data
  * @param {string} [contentEncoding]
  */
-export function extractJsonFromStreamData(data: Buffer, contentEncoding?: string): Promise<any> {
+export function extractJsonFromStreamData(
+  data: Buffer,
+  contentEncoding?: string
+): Promise<string | JsonObject> {
   let responseString: Promise<string>;
 
   if (

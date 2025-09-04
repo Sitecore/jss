@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "es6",
+    "outDir": "dist/esm",
+  },
+  "exclude": [
+    "src/bin",
+    "node_modules",
+    "types",
+    "dist",
+    "src/test",
+    "src/**/*.test.ts",
+  ]
+}

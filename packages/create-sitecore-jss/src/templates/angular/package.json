@@ -1,0 +1,119 @@
+{
+  "name": "<%- appName %>",
+  "version": "0.1.0",
+  "description": "Application utilizing Sitecore JavaScript Services and Angular (angular-cli).",
+  "config": {
+    "appName": "<%- appName %>",
+    "rootPlaceholders": [
+      "<%- helper.getAppPrefix(appPrefix, appName) %>jss-main"
+    ],
+    "sitecoreDistPath": "/dist/<%- appName %>",
+    "sitecoreConfigPath": "/App_Config/Include/zzz",
+    "buildArtifactsPath": "./dist",
+    "graphQLEndpointPath": "/sitecore/api/graph/edge",
+    "language": "en"
+  },
+  "scripts": {
+    "ng": "ng",
+    "lint": "ng lint <%- appName %> --fix",
+    "jss": "jss",
+    "start:connected": "npm-run-all --serial bootstrap start:angular start:watch-components",
+    "build": "npm-run-all --serial bootstrap build:client build:server",
+    "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component --no-manifest",
+    "start:angular": "ng serve -o",
+    "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory/index.ts --watch",
+    "build:client": "cross-env-shell ng build --configuration=production --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
+    "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath",
+    "postbuild:server": "move-cli ./dist/main.js ./dist/server.bundle.js",
+    "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
+    "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts",
+    "install-pre-push-hook": "ts-node --project src/tsconfig.webpack-server.json ./scripts/install-pre-push-hook.ts"
+  },
+  "private": true,
+  "author": {
+    "name": "Sitecore Corporation",
+    "url": "https://jss.sitecore.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitecore/jss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "homepage": "https://jss.sitecore.com",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@angular/animations": "~18.2.13",
+    "@angular/common": "~18.2.13",
+    "@angular/compiler": "~18.2.13",
+    "@angular/core": "~18.2.13",
+    "@angular/forms": "~18.2.13",
+    "@angular/platform-browser": "~18.2.13",
+    "@angular/platform-browser-dynamic": "~18.2.13",
+    "@angular/platform-server": "~18.2.13",
+    "@angular/router": "~18.2.13",
+    "@apollo/client": "^3.12.9",
+    "@ngx-translate/core": "~15.0.0",
+    "@ngx-translate/http-loader": "~8.0.0",
+    "@sitecore-jss/sitecore-jss-angular": "<%- version %>",
+    "apollo-angular": "~8.0.2",
+    "bootstrap": "^5.3.3",
+    "core-js": "~3.45.0",
+    "graphql": "15.10.1",
+    "graphql-tag": "~2.11.0",
+    "rxjs": "~7.8.2",
+    "tslib": "^2.8.1",
+    "zone.js": "~0.14.7",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^18.0.0",
+    "@angular-devkit/build-angular": "^18.2.14",
+    "@angular-eslint/builder": "^18.4.3",
+    "@angular-eslint/eslint-plugin": "^18.4.3",
+    "@angular-eslint/eslint-plugin-template": "^18.4.3",
+    "@angular-eslint/schematics": "^18.4.3",
+    "@angular-eslint/template-parser": "^18.4.3",
+    "@angular/cli": "~18.2.13",
+    "@angular/compiler-cli": "~18.2.13",
+    "@angular/language-service": "~18.2.13",
+    "@sitecore-jss/sitecore-jss-angular-schematics": "<%- version %>",
+    "@sitecore-jss/sitecore-jss-cli": "<%- version %>",
+    "@sitecore-jss/sitecore-jss-dev-tools": "<%- version %>",
+    "@types/jasmine": "~3.6.7",
+    "@types/node": "~22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "chalk": "~4.1.0",
+    "chokidar": "^4.0.3",
+    "codelyzer": "~6.0.1",
+    "constant-case": "^3.0.4",
+    "cross-env": "~7.0.3",
+    "del-cli": "^5.0.0",
+    "dotenv": "^17.2.1",
+    "dotenv-webpack": "^8.1.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jsdoc": "48.7.0",
+    "eslint-plugin-prefer-arrow": "1.2.3",
+    "jasmine-core": "~3.7.1",
+    "jasmine-spec-reporter": "~6.0.0",
+    "karma": "^6.3.2",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-cli": "~2.0.0",
+    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-jasmine": "~4.0.1",
+    "karma-jasmine-html-reporter": "~1.5.4",
+    "move-cli": "^2.0.0",
+    "npm-run-all2": "^7.0.1",
+    
+    "ts-node": "~10.9.2",
+    "typescript": "~5.4.0"
+  },
+  "overrides": {
+    "request": {
+      "form-data": "^2.5.5"
+    }
+  }
+}

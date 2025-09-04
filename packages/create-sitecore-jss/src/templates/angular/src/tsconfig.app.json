@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "newLine": "LF"
+  },
+  "lib": [
+    "esnext.asynciterable"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "**/*.sitecore.ts",
+    "./app/jss-context.server-side.service.ts",
+    "./app/i18n/jss-translation-server-loader.service.ts",
+    "./app/app.server.module.ts",
+    "./main.server.ts",
+    "./environments/environment.prod.js"
+  ],
+}

@@ -29,6 +29,10 @@ export const DateField: React.FunctionComponent<DateFieldProps> = ({
     return null;
   }
 
+  if (field.editable && editable) {
+    return <HtmlView value={field.editable} {...otherProps} />;
+  }
+
   let children;
 
   if (render) {
@@ -37,9 +41,6 @@ export const DateField: React.FunctionComponent<DateFieldProps> = ({
     children = field.value as string;
   }
 
-  if (field.editable && editable) {
-    return <HtmlView value={children as string} {...otherProps} />;
-  }
   return render ? <>{children}</> : <Text>{children}</Text>;
 };
 

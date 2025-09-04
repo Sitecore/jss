@@ -1,7 +1,12 @@
 import React from 'react';
-import { ComponentRendering, RouteData, HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import {
+  ComponentRendering,
+  RouteData,
+  HtmlElementRendering,
+} from '@sitecore-jss/sitecore-jss/layout';
 import { PlaceholderProps, PlaceholderCommon } from '../components/PlaceholderCommon';
 import { withComponentFactory } from './withComponentFactory';
+import { withSitecoreContext } from './withSitecoreContext';
 
 export interface WithPlaceholderOptions {
   /**
@@ -42,8 +47,11 @@ export function withPlaceholder(
   placeholders: WithPlaceholderSpec,
   options?: WithPlaceholderOptions
 ) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (WrappedComponent: React.ComponentClass<any> | React.SFC<any>) => {
+  return (
+    WrappedComponent:
+      | React.ComponentClass<PlaceholderProps>
+      | React.FunctionComponent<PlaceholderProps>
+  ) => {
     class WithPlaceholder extends PlaceholderCommon<PlaceholderProps> {
       static propTypes = PlaceholderCommon.propTypes;
 
@@ -87,7 +95,8 @@ export function withPlaceholder(
           if (typeof placeholder !== 'string' && placeholder.placeholder && placeholder.prop) {
             placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
               renderingData,
-              placeholder.placeholder
+              placeholder.placeholder,
+              childProps.sitecoreContext.editMode
             );
             if (placeholderData) {
               childProps[placeholder.prop] = this.getComponentsForRenderingData(placeholderData);
@@ -95,7 +104,8 @@ export function withPlaceholder(
           } else {
             placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
               renderingData,
-              placeholder as string
+              placeholder as string,
+              childProps.sitecoreContext.editMode
             );
             if (placeholderData) {
               childProps[placeholder as string] = this.getComponentsForRenderingData(
@@ -109,6 +119,6 @@ export function withPlaceholder(
       }
     }
 
-    return withComponentFactory(WithPlaceholder);
+    return withSitecoreContext()(withComponentFactory(WithPlaceholder));
   };
 }

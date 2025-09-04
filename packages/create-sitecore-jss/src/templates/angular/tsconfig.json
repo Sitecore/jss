@@ -1,0 +1,38 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "target": "es2022",
+    "module": "es2022",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "newLine": "LF",
+    "types": ["node"],
+    // add additional type root in case of monorepo where dependencies are hoisted to root node_modules
+    "typeRoots": ["node_modules/@types", "../node_modules/@types"],
+    "lib": ["es2019", "dom", "esnext.asynciterable"],
+    "paths": {
+      "@angular/*": ["../node_modules/@angular/*"],
+      "rxjs": ["node_modules/rxjs", "../node_modules/rxjs"],
+      "lib/*": ["src/app/lib/*"],
+    },
+    "baseUrl": "./",
+    "esModuleInterop": true
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

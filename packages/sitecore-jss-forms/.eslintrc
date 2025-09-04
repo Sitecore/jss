@@ -1,6 +1,6 @@
 {
-  "extends": "../../.eslintrc",
-  "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off"
-  }
+  "extends": [
+    "../../.eslintrc",
+    "../../eslint-configs/typescript"
+  ]
 }

@@ -19,8 +19,10 @@ enum EventIds {
   FieldError = 'ea27aca5-432f-424a-b000-26ba5f8ae60a',
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type TrackerFetcher = (formData: TrackingEvent[], endpoint: string) => Promise<any> | void;
+export type TrackerFetcher = (
+  formData: TrackingEvent[],
+  endpoint: string
+) => Promise<unknown> | void;
 
 export interface FormTrackerOptions {
   endpoint: string;

@@ -1,21 +1,56 @@
-import { Component, DebugElement, Input } from '@angular/core';
+import { Component, DebugElement, Input, TemplateRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { generalLinkField as eeLinkData } from '../testData/ee-data';
+import { generalLinkField as eeLinkData } from '../test-data/ee-data';
 import { RouterLinkDirective } from './router-link.directive';
 import { RouterTestingModule } from '@angular/router/testing';
+import { LinkField } from './rendering-field';
 
 @Component({
   selector: 'test-router-link',
   template: `
-    <a *scRouterLink="field; editable: editable; attrs: attrs" id="my-link"></a>
+    <a
+      *scRouterLink="field; editable: editable; attrs: attrs"
+      class="external-css-class"
+      id="my-link"
+    ></a>
   `,
 })
 class TestComponent {
-  @Input() field: any;
+  @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
+}
+
+const emptyLinkFieldEditingTemplateId = 'emptyLinkFieldEditingTemplate';
+const emptyLinkFieldEditingTemplate = '<span>[This is a *custom* empty field template]</span>';
+const emptyLinkFieldEditingTemplateDefaultTestString =
+  '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>';
+
+@Component({
+  selector: 'test-empty-template-router-link',
+  template: `
+    <a
+      *scRouterLink="
+        field;
+        editable: editable;
+        attrs: attrs;
+        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
+      "
+      class="external-css-class"
+      id="my-link"
+    ></a>
+    <ng-template #${emptyLinkFieldEditingTemplateId}>
+      ${emptyLinkFieldEditingTemplate}
+    </ng-template>
+  `,
+})
+class TestEmptyTemplateComponent {
+  @Input() field: LinkField;
+  @Input() editable = true;
+  @Input() attrs = {};
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
 }
 
 describe('<a *scRouterLink />', () => {
@@ -25,7 +60,7 @@ describe('<a *scRouterLink />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RouterLinkDirective, TestComponent],
+      declarations: [RouterLinkDirective, TestComponent, TestEmptyTemplateComponent],
       imports: [RouterTestingModule],
     });
 
@@ -56,7 +91,7 @@ describe('<a *scRouterLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    expect(de.query(By.css('span')).nativeElement.innerHTML).toContain(field.editableFirstPart);
+    expect(de.nativeElement.querySelector('span').innerHTML).toContain(field.editableFirstPart);
   });
 
   it('should render value with editing explicitly disabled', () => {
@@ -72,6 +107,7 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.href).toContain(field.value.href);
     expect(rendered.nativeElement.innerHTML).toBe(field.value.text);
   });
 
@@ -84,6 +120,7 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.href).toContain(field.href);
     expect(rendered.nativeElement.innerHTML).toBe(field.text);
   });
 
@@ -95,15 +132,16 @@ describe('<a *scRouterLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
+    const rendered = de.nativeElement.querySelector('span');
     expect(rendered).not.toBeNull();
-    expect(rendered.nativeElement.innerHTML).toContain('<input');
-    expect(rendered.nativeElement.innerHTML).toContain('chrometype="field"');
+    expect(rendered.innerHTML).toContain('<input');
+    expect(rendered.innerHTML).toContain('chrometype="field"');
   });
 
   it('should render all value attributes', () => {
     const field = {
       value: {
+        anchor: 'sample-anchor',
         href: '/lorem',
         text: 'ipsum',
         class: 'my-link',
@@ -115,7 +153,8 @@ describe('<a *scRouterLink />', () => {
     fixture.detectChanges();
 
     const rendered = de.query(By.css('a'));
-    expect(rendered.nativeElement.className).toContain(field.value.class);
+    expect(rendered.nativeElement.href).toContain(`${field.value.href}#${field.value.anchor}`);
+    expect(rendered.nativeElement.className).toBe('external-css-class my-link');
     expect(rendered.nativeElement.title).toContain(field.value.title);
     expect(rendered.nativeElement.target).toContain(field.value.target);
   });
@@ -128,8 +167,8 @@ describe('<a *scRouterLink />', () => {
     comp.field = field;
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
-    expect(rendered.nativeElement.id).toBe('my-link');
+    const rendered = de.nativeElement.querySelector('span');
+    expect(rendered.id).toBe('my-link');
   });
 
   it('should apply attributes from attrs on wrapper span when rendering in editable mode', () => {
@@ -141,8 +180,8 @@ describe('<a *scRouterLink />', () => {
     comp.attrs = { title: 'footip' };
     fixture.detectChanges();
 
-    const rendered = de.query(By.css('span'));
-    expect(rendered.nativeElement.title).toBe('footip');
+    const rendered = de.nativeElement.querySelector('span');
+    expect(rendered.title).toBe('footip');
   });
 
   it('should merge attributes from attrs on link when rendering standard (non-editable mode) field', () => {
@@ -162,6 +201,103 @@ describe('<a *scRouterLink />', () => {
     const rendered = de.query(By.css('a'));
     expect(rendered.nativeElement.target).toBe('_blank');
     expect(rendered.nativeElement.title).toBe('footip');
+    expect(rendered.nativeElement.className).toBe('external-css-class my-link');
+  });
+
+  describe('editMode metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'link',
+      rawValue: 'Test1',
+    };
+
+    it('should render default empty field component when field value href is not present', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render default empty field component when field href is not present', () => {
+      const field = {
+        hred: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render custom empty field component when provided, when field value href is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplate);
+    });
+
+    it('should render custom empty field component when provided, when field href is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplate);
+    });
+
+    it('should render nothing when field value href is not present, when editing is explicitly disabled', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+      expect(de.children.length).toBe(0);
+    });
+
+    it('should render nothing when field href is empty, when editing is explicitly disabled', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+      expect(de.children.length).toBe(0);
+    });
   });
 });
 
@@ -174,9 +310,34 @@ describe('<a *scRouterLink />', () => {
   `,
 })
 class TestWithChildrenComponent {
-  @Input() field: any;
+  @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
+}
+
+@Component({
+  selector: 'test-empty-template-link',
+  template: `
+    <a
+      *scRouterLink="
+        field;
+        editable: editable;
+        attrs: attrs;
+        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
+      "
+      id="my-link"
+      ><span *ngIf="true">hello world</span></a
+    >
+    <ng-template #${emptyLinkFieldEditingTemplateId}>
+      ${emptyLinkFieldEditingTemplate}
+    </ng-template>
+  `,
+})
+class TestEmptyTemplateWithChildrenComponent {
+  @Input() field: LinkField;
+  @Input() editable = true;
+  @Input() attrs = {};
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
 }
 
 describe('<a *scRouterLink>children</a>', () => {
@@ -186,7 +347,11 @@ describe('<a *scRouterLink>children</a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RouterLinkDirective, TestWithChildrenComponent],
+      declarations: [
+        RouterLinkDirective,
+        TestWithChildrenComponent,
+        TestEmptyTemplateWithChildrenComponent,
+      ],
       imports: [RouterTestingModule],
     });
 
@@ -218,5 +383,101 @@ describe('<a *scRouterLink>children</a>', () => {
 
     const rendered = de.query(By.css('a'));
     expect(rendered.nativeElement.innerHTML).toContain('<span>hello world</span>');
+  });
+
+  describe('editMode metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'link',
+      rawValue: 'Test1',
+    };
+
+    it('should render default empty field component when field value href is not present', () => {
+      const field = {
+        value: { src: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render default empty field component when field href is not present', () => {
+      const field = {
+        hred: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplateDefaultTestString);
+    });
+
+    it('should render custom empty field component when provided, when field value href is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateWithChildrenComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplate);
+    });
+
+    it('should render custom empty field component when provided, when field href is not present', () => {
+      fixture = TestBed.createComponent(TestEmptyTemplateWithChildrenComponent);
+      fixture.detectChanges();
+
+      de = fixture.debugElement;
+      comp = fixture.componentInstance;
+
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      fixture.detectChanges();
+
+      const rendered = de.nativeElement.innerHTML;
+      expect(rendered).toContain(emptyLinkFieldEditingTemplate);
+    });
+
+    it('should render nothing when field value href is not present, when editing is explicitly disabled', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+      expect(de.children.length).toBe(0);
+    });
+
+    it('should render nothing when field href is empty, when editing is explicitly disabled', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      comp.field = field;
+      comp.editable = false;
+      fixture.detectChanges();
+      expect(de.children.length).toBe(0);
+    });
   });
 });

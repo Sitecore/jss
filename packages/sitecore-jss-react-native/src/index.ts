@@ -1,20 +1,19 @@
+export { isEditorActive, resetEditorChromes } from '@sitecore-jss/sitecore-jss/editing';
+export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
-  dataApi,
-  mediaApi,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
+  RestLayoutService,
+  LayoutService,
   LayoutServiceData,
   LayoutServiceContextData,
   RouteData,
   Field,
   HtmlElementRendering,
-  LayoutServiceRequestOptions,
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/layout';
 
 export { Placeholder } from './components/Placeholder';
 export { SitecoreContext } from './components/SitecoreContext';
@@ -23,7 +22,3 @@ export { RichText } from './components/RichText';
 export { Text } from './components/Text';
 export { DateField } from './components/Date';
 export { Link } from './components/Link';
-export {
-  convertPropDataToLayoutServiceFormat,
-  convertRouteToLayoutServiceFormat,
-} from './dataConversion';

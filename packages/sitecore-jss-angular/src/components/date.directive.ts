@@ -1,21 +1,22 @@
 import { DatePipe } from '@angular/common';
 import {
   Directive,
-  EmbeddedViewRef,
   Input,
   OnChanges,
   SimpleChanges,
   TemplateRef,
+  Type,
   ViewContainerRef,
 } from '@angular/core';
-import { TextField } from './rendering-field';
+import { DateField } from './rendering-field';
+import { BaseFieldDirective } from './base-field.directive';
+import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
+import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({
   selector: '[scDate]',
 })
-export class DateDirective implements OnChanges {
-  private viewRef: EmbeddedViewRef<any>;
-
+export class DateDirective extends BaseFieldDirective implements OnChanges {
   @Input('scDateFormat') format?: string;
 
   @Input('scDateTimezone') timezone?: string;
@@ -24,35 +25,48 @@ export class DateDirective implements OnChanges {
 
   @Input('scDateEditable') editable = true;
 
-  @Input('scDate') field: TextField;
+  @Input('scDate') field: DateField;
+
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scDateEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
+
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
+  protected defaultFieldEditingComponent: Type<unknown>;
 
   constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<any>,
+    viewContainer: ViewContainerRef,
+    private templateRef: TemplateRef<unknown>,
     private datePipe: DatePipe
-  ) {}
+  ) {
+    super(viewContainer);
+    this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.format) {
-      if (!this.viewRef) {
-        this.viewContainer.clear();
-        this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
-      }
-
+      this.viewContainer.clear();
       this.updateView();
     }
   }
 
   private updateView() {
-    const field = this.field;
-
-    if (!field || (!field.editable && !field.value)) {
+    if (!this.shouldRender()) {
+      super.renderEmpty();
       return;
     }
 
+    this.renderMetadata(MetadataKind.Open);
+    this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
+    this.renderMetadata(MetadataKind.Close);
+
+    const field = this.field;
+
     const html = field.editable && this.editable ? field.editable : field.value;
     const setDangerously = field.editable && this.editable;
-
     this.viewRef.rootNodes.forEach((node) => {
       if (setDangerously) {
         node.innerHTML = html;

@@ -1,0 +1,22 @@
+{
+  "extension": [
+    ".ts"
+  ],
+  "exclude": [
+    "**/index.ts",
+    "**/*.d.ts",
+    "**/*.test.ts",
+    "scripts",
+    "src/templates/**/*",
+    "src/common/prompts",
+    "src/common/test-data",
+    "src/initializers/**/*",
+    "dist"
+  ],
+  "all": true,
+  "reporter": [
+    "cobertura",
+    "text"
+  ],
+  "require": ["ts-node/register"]
+}

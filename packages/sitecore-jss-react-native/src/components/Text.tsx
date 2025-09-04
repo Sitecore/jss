@@ -6,13 +6,13 @@ export interface TextProps {
   [nativeTextProps: string]: unknown;
   /** The text field data. */
   field: {
-    value?: string;
+    value?: string | number;
     editable?: string;
   } | null;
 }
 
 export const Text: React.SFC<TextProps> = ({ field, ...otherProps }) => {
-  if (!field || (!field.editable && !field.value)) {
+  if (!field || (!field.editable && (field.value === undefined || field.value === ''))) {
     return null;
   }
 

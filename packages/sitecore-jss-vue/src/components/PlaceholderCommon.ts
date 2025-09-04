@@ -5,9 +5,12 @@ import {
   HtmlElementRendering,
   Item,
   RouteData,
-} from '@sitecore-jss/sitecore-jss';
-import { Component, CreateElement, VNode } from 'vue';
+} from '@sitecore-jss/sitecore-jss/layout';
+import { resetEditorChromes } from '@sitecore-jss/sitecore-jss/editing';
+import { constants } from '@sitecore-jss/sitecore-jss';
+import { Component, h, VNode, DefineComponent, ref, onMounted } from 'vue';
 import { MissingComponent } from './MissingComponent';
+import { HiddenRendering } from './HiddenRendering';
 import { ComponentFactory } from './sharedTypes';
 
 export interface PlaceholderProps {
@@ -40,13 +43,18 @@ export interface PlaceholderProps {
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
-  missingComponentComponent?: Component;
+  missingComponentComponent?: DefineComponent;
+
+  /**
+   * A component that is rendered in place of any components that are hidden.
+   */
+  hiddenRenderingComponent?: DefineComponent;
 
   /**
    * A component that is rendered in place of the placeholder when an error occurs rendering
    * the placeholder
    */
-  errorComponent?: Component;
+  errorComponent?: DefineComponent;
 }
 
 export type JssDynamicComponent = Component & { isxEditorComponent?: boolean };
@@ -81,14 +89,12 @@ export const getPlaceholderDataFromRenderingData = (
  * @see convertVNodesToDynamicComponents or @see getDynamicComponentsFromRenderingData for options.
  * @param {Array<ComponentRendering | HtmlElementRendering>} placeholderData
  * @param {PlaceholderProps} placeholderProps
- * @param {CreateElement} createVueElement
  * @param {ComponentFactory} [componentFactory]
  * @returns {VNode[]} vnodes
  */
 export function getVNodesForRenderingData(
   placeholderData: Array<ComponentRendering | HtmlElementRendering>,
   placeholderProps: PlaceholderProps,
-  createVueElement: CreateElement,
   componentFactory?: ComponentFactory
 ) {
   const {
@@ -96,6 +102,7 @@ export function getVNodesForRenderingData(
     fields: placeholderFields,
     params: placeholderParams,
     missingComponentComponent,
+    hiddenRenderingComponent,
     ...unmappedPlaceholderProps
   } = placeholderProps;
 
@@ -105,11 +112,18 @@ export function getVNodesForRenderingData(
 
       // if the element is not a 'component rendering', render it 'raw'
       if (!rendering.componentName && rendering.name) {
-        return createRawElement(rendering, createVueElement);
+        return createRawElement(rendering);
       }
 
-      let component = getComponentForRendering(rendering, componentFactory);
-      if (!component) {
+      let component: any;
+
+      if (rendering.componentName === constants.HIDDEN_RENDERING_NAME) {
+        component = hiddenRenderingComponent || HiddenRendering;
+      } else {
+        component = getComponentForRendering(rendering, componentFactory);
+      }
+
+      if (rendering.componentName && !component) {
         console.error(
           `Placeholder ${placeholderName} contains unknown component ${rendering.componentName}. Ensure that a Vue component exists for it, and that it is mapped in your component factory.`
         );
@@ -125,7 +139,7 @@ export function getVNodesForRenderingData(
         finalProps.params = { ...placeholderParams, ...rendering.params };
       }
 
-      return createVueElement(component, { props: finalProps, key });
+      return h(component, { ...finalProps, key });
     })
     .filter((element) => element) as VNode[]; // remove nulls;
 }
@@ -135,23 +149,21 @@ export function getVNodesForRenderingData(
  * to return "renderable" components, i.e. components that can be rendered in a Vue template, a.k.a. dynamic components.
  * @param {Array<ComponentRendering | HtmlElementRendering>} placeholderData
  * @param {PlaceholderProps} placeholderProps
- * @param {CreateElement} createVueElement
  * @param {ComponentFactory} componentFactory
  * @returns {JssDynamicComponent[]} dynamic components
  */
 export function getDynamicComponentsFromRenderingData(
   placeholderData: Array<ComponentRendering | HtmlElementRendering>,
   placeholderProps: PlaceholderProps,
-  createVueElement: CreateElement,
   componentFactory?: ComponentFactory
 ) {
   return convertVNodesToDynamicComponents(
-    getVNodesForRenderingData(placeholderData, placeholderProps, createVueElement, componentFactory)
+    getVNodesForRenderingData(placeholderData, placeholderProps, componentFactory)
   );
 }
 
 /**
- * Converts VNodes to simple functional components that render the vnode.
+ * Converts VNodes to components that render the vnode.
  * Also evaluates VNodes to determine if they are Experience Editor components/elements and if so,
  * adds an identifying property to the component.
  * @param {VNode[]} vnodes
@@ -160,18 +172,15 @@ export function getDynamicComponentsFromRenderingData(
 export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
   return vnodes.map((vnode) => {
     const component = {
-      functional: true,
-      props: vnode.data && vnode.data.props,
+      $props: vnode.props,
+      inheritAttrs: false,
+
       render() {
         return vnode;
       },
     } as JssDynamicComponent;
-    if (
-      vnode.tag === 'code' &&
-      vnode.data &&
-      vnode.data.attrs &&
-      vnode.data.attrs.type === 'text/sitecore'
-    ) {
+
+    if (vnode.props.elem?.name === 'code' && vnode.props.elem?.type === 'text/sitecore') {
       component.isxEditorComponent = true;
     }
     return component;
@@ -180,9 +189,8 @@ export function convertVNodesToDynamicComponents(vnodes: VNode[]) {
 
 /**
  * @param {any} elem
- * @param {CreateElement} createVueElement
  */
-function createRawElement(elem: any, createVueElement: CreateElement) {
+function createRawElement(elem: any) {
   if (!elem.name) {
     console.error(
       '"elem.name" is undefined in "createRawElement". ' +
@@ -191,19 +199,48 @@ function createRawElement(elem: any, createVueElement: CreateElement) {
     return null;
   }
 
-  const attrs = elem.attributes;
+  const component = {
+    setup() {
+      const elRef = ref(null);
 
-  const domProps = {
-    innerHTML: elem.contents,
+      onMounted(() => {
+        /*
+         * Since we can't set the "key" via Vue attributes
+         * so we can set in the DOM after render.
+         * onMounted is called when the initial page load is happening
+         * onMounted is not called when we add new rendering on the page,
+         * so we will replace phkey by key
+         */
+        if (
+          !Array.isArray(elem.attributes) &&
+          elem.attributes &&
+          elem.attributes.chrometype === 'placeholder' &&
+          elem.attributes.key
+        ) {
+          elRef.value.setAttribute('key', elem.attributes.key);
+
+          // Reset chromes since sometimes experience editor script is executed earlier
+          // than Vue script and EE can't set required attributes and chromes aren't visible
+          // Also required for Horizon
+          resetEditorChromes();
+        }
+      });
+
+      return () =>
+        h(elem.name, {
+          ...elem.attributes,
+          innerHTML: elem.contents,
+          phkey: elem.attributes?.key,
+          ref: elRef,
+        });
+    },
   };
 
-  const component = createVueElement(elem.name, { attrs, domProps });
-
-  return component;
+  return h(component, { elem });
 }
 
 /**
- * @param {Object} renderingDefinition
+ * @param {object} renderingDefinition
  * @param {string} renderingDefinition.componentName
  * @param {ComponentFactory} [componentFactory]
  */

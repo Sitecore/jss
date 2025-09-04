@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { expect, use, spy } from 'chai';
-import spies from 'chai-spies';
-import { mount } from 'enzyme';
+import { expect, use } from 'chai';
+import { fireEvent, render } from '@testing-library/react';
+import { spy } from 'sinon';
+import sinonChai from 'sinon-chai';
 
 import { useSitecoreContext, withSitecoreContext } from '../enhancers/withSitecoreContext';
 import { SitecoreContextReactContext } from '../components/SitecoreContext';
 
-use(spies);
+use(sinonChai);
 
 describe('withSitecoreContext', () => {
   it('withSitecoreContext()', () => {
@@ -17,42 +18,56 @@ describe('withSitecoreContext', () => {
       context: {
         text: 'value',
       },
+      api: {
+        edge: {
+          contextId: 'id',
+          edgeUrl: 'url',
+        },
+      },
       setContext,
     };
 
     const TestComponent: React.FC<any> = (props: any) => (
-      <div onClick={props.updateSitecoreContext}>
-        {props.sitecoreContext.text}
-        {props.customProp}
-      </div>
+      <>
+        <div onClick={props.updateSitecoreContext}>
+          {props.sitecoreContext.text}
+          {props.customProp}
+        </div>
+        <span>
+          {props.api.edge.contextId} {props.api.edge.edgeUrl}
+        </span>
+      </>
     );
 
     let TestComponentWithContext: React.FC<any> = withSitecoreContext()(TestComponent);
 
-    let wrapper = mount(
+    let wrapper = render(
       <SitecoreContextReactContext.Provider value={testComponentProps}>
         <TestComponentWithContext customProp="xxx" />
       </SitecoreContextReactContext.Provider>
     );
 
-    expect(wrapper).to.have.length(1);
+    expect(wrapper.container.querySelector('span')?.textContent).equal('id url');
+    expect(wrapper.container.querySelector('div')?.textContent).equal(
+      testComponentProps.context.text + 'xxx'
+    );
+    fireEvent.click(wrapper.container.querySelector('div') as Element);
 
-    expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
-    wrapper.find('div').simulate('click');
-
-    expect(testComponentProps.setContext).not.to.be.called();
+    // eslint-disable-next-line no-unused-expressions
+    expect(testComponentProps.setContext).not.to.be.called;
 
     TestComponentWithContext = withSitecoreContext({ updatable: true })(TestComponent);
 
-    wrapper = mount(
+    wrapper = render(
       <SitecoreContextReactContext.Provider value={testComponentProps}>
         <TestComponentWithContext customProp="xxx" />
       </SitecoreContextReactContext.Provider>
     );
 
-    wrapper.find('div').simulate('click');
+    fireEvent.click(wrapper.container.querySelector('div') as Element);
 
-    expect(testComponentProps.setContext).to.be.called();
+    // eslint-disable-next-line no-unused-expressions
+    expect(testComponentProps.setContext).to.have.been.called;
   });
 
   describe('useSitecoreContext()', () => {
@@ -63,6 +78,12 @@ describe('withSitecoreContext', () => {
         context: {
           text: 'value',
         },
+        api: {
+          edge: {
+            contextId: 'id',
+            edgeUrl: 'url',
+          },
+        },
         setContext,
       };
 
@@ -71,25 +92,32 @@ describe('withSitecoreContext', () => {
         const context = reactContext.sitecoreContext as { text: string };
 
         return (
-          <div onClick={reactContext.updateSitecoreContext}>
-            {context.text}
-            {props.customProp}
-          </div>
+          <>
+            <div onClick={reactContext.updateSitecoreContext}>
+              {context.text}
+              {props.customProp}
+            </div>
+            <span>
+              {reactContext.api?.edge?.contextId} {reactContext.api?.edge?.edgeUrl}
+            </span>
+          </>
         );
       };
 
-      const wrapper = mount(
+      const wrapper = render(
         <SitecoreContextReactContext.Provider value={testComponentProps}>
           <TestComponent customProp="xxx" />
         </SitecoreContextReactContext.Provider>
       );
 
-      expect(wrapper).to.have.length(1);
+      expect(wrapper.container.querySelector('span')?.textContent).equal('id url');
+      expect(wrapper.container.querySelector('div')?.textContent).equal(
+        testComponentProps.context.text + 'xxx'
+      );
+      fireEvent.click(wrapper.container.querySelector('div') as Element);
 
-      expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'xxx');
-      wrapper.find('div').simulate('click');
-
-      expect(testComponentProps.setContext).not.to.be.called();
+      // eslint-disable-next-line no-unused-expressions
+      expect(testComponentProps.setContext).to.not.have.been.called;
     });
 
     it('updatable', () => {
@@ -114,18 +142,19 @@ describe('withSitecoreContext', () => {
         );
       };
 
-      const wrapper = mount(
+      const wrapper = render(
         <SitecoreContextReactContext.Provider value={testComponentProps}>
           <TestComponent customProp="bbb" />
         </SitecoreContextReactContext.Provider>
       );
 
-      expect(wrapper).to.have.length(1);
+      expect(wrapper.container.querySelector('div')?.textContent).equal(
+        testComponentProps.context.text + 'bbb'
+      );
+      fireEvent.click(wrapper.container.querySelector('div') as Element);
 
-      expect(wrapper.find('div').text()).equal(testComponentProps.context.text + 'bbb');
-      wrapper.find('div').simulate('click');
-
-      expect(testComponentProps.setContext).to.be.called();
+      // eslint-disable-next-line no-unused-expressions
+      expect(testComponentProps.setContext).to.have.been.called;
     });
   });
 });

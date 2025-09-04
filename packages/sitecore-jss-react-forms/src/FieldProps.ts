@@ -1,4 +1,4 @@
-import { ReactNode, ComponentType } from 'react';
+import React, { ReactNode, ComponentType } from 'react';
 import {
   FormField,
   ValueFormField,
@@ -47,11 +47,13 @@ export interface FieldWithValueProps<
   tracker: FormTracker;
 
   key?: string;
+
+  children?: React.ReactNode;
 }
 
 export type FieldChangeCallback = (
   fieldName: string,
-  newValue: string | string[] | File[],
+  newValue: string | string[] | File[] | boolean,
   isValid: boolean,
   errorMessages: string[]
 ) => void;
@@ -66,6 +68,5 @@ export type ValueFieldProps<
 
 export type LabelProps<TViewModel extends InputViewModel = InputViewModel> = FieldWithValueProps<
   ValueFormField<TViewModel>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any
+  string | string[]
 >;

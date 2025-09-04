@@ -1,0 +1,26 @@
+{
+  "name": "node-xmcloud-sample",
+  "version": "0.1.0",
+  "description": "Node XM Cloud Proxy sample for running XM Cloud JSS SPA apps",
+  "author": {
+    "name": "Sitecore Corporation",
+    "url": "https://jss.sitecore.com"
+  },
+  "scripts": {
+    "start": "ts-node ./src/index.ts"
+  },
+  "dependencies": {
+    "@sitecore-jss/sitecore-jss-proxy": "<%- version %>",
+    "compression": "^1.8.1",
+    "express": "^5.1.0",
+    "dotenv": "^17.2.1",
+    "http-proxy-middleware": "^3.0.5"
+  },
+  "devDependencies": {
+    "@sitecore-jss/sitecore-jss": "<%- version %>",
+    "@types/compression": "^1.8.1",
+    "@types/express": "^5.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.9.2"
+  }
+}

@@ -1,19 +1,10 @@
 {
   "extends": [
-    "plugin:react/recommended",
-    "../../.eslintrc"
+    "../../.eslintrc",
+    "../../eslint-configs/react",
+    "../../eslint-configs/typescript"
   ],
-  "plugins": ["react"],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "globals": {
-    "React": "writable"
-	},
-	"rules": {
-    "react/prop-types": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off"
-	}
+  "rules": {
+    "react/prop-types": "off"
+  }
 }

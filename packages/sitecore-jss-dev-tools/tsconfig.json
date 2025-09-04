@@ -1,35 +1,22 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
-    "newLine": "LF",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "outDir": "dist",
-    "declaration": true,
-    "declarationDir": "./types",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "skipLibCheck": true,
+    "outDir": "dist/cjs",
+    "types": ["node", "mocha"],
+    "typeRoots": ["node_modules/@types"],
+    "declarationDir": "./types"
   },
   "exclude": [
     "node_modules",
     "types",
     "dist",
     "src/test",
-    "src/**/*.test.ts"
+    "src/**/*.test.ts",
+    "react.d.ts",
+    "nextjs.d.ts",
+    "nextjs-component-props-loader.d.ts",
   ]
 }

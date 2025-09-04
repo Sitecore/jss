@@ -1,0 +1,33 @@
+{
+  "data": {
+    "site": {
+      "siteInfo": {
+        "routes": {
+          "total": 6,
+          "pageInfo": {
+            "endCursor": "Ng==",
+            "hasNext": false
+          },
+          "results": [
+            {
+              "path": "/",
+              "route": {
+                "personalization": {
+                  "variantIds": ["green"]
+                }
+              }              
+            },
+            {
+              "path": "/y1/y2/y3/y4",
+              "route": {
+                "personalization": {
+                  "variantIds": ["green", "red", "purple"]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

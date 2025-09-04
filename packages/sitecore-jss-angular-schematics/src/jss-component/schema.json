@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "SchematicsAngularComponent",
+  "$id": "SchematicsAngularComponent",
   "title": "JSS Angular Component Options Schema",
   "type": "object",
   "properties": {

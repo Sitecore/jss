@@ -1,36 +1,28 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
+    "useUnknownInCatchVariables": false,
     "module": "commonjs",
-    "newLine": "LF",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "outDir": "dist",
-    "declaration": true,
-    "declarationDir": "./types",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "outDir": "dist/cjs",
+    "typeRoots": ["node_modules/@types"],
+    "declarationDir": "./types"
   },
   "exclude": [
     "node_modules",
     "types",
     "dist",
-    "src/customTypes",
+    "editing.d.ts",
+    "layout.d.ts",
+    "media.d.ts",
+    "utils.d.ts",
+    "graphql.d.ts",
+    "i18n.d.ts",
+    "tracking.d.ts",
+    "site.d.ts",
+    "personalize.d.ts",
+    "feaas.d.ts",
     "src/**/*.test.ts",
-    "src/testData/*.ts"
+    "src/test-data/*"
   ]
 }

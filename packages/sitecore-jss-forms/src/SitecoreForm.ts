@@ -11,6 +11,5 @@ export interface SitecoreForm {
   pageItemId: HtmlFormField;
   antiForgeryToken: HtmlFormField;
   metadata: FormModel;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fields: Array<FormField<any>>;
+  fields: Array<FormField>;
 }

@@ -30,13 +30,13 @@ export function resolveScJssConfig({
             'The scjssconfig.json file was missing, and is required. Please set up your connection with `jss setup` and try again.'
           );
         }
-        rejectPromise();
+        rejectPromise('config is missing');
       } else {
         const json = require(jssConfigJson as string);
 
         if (!json[configName]) {
           console.error(`The scjssconfig.json did not contain the ${configName} configuration.`);
-          rejectPromise();
+          rejectPromise('config is invalid');
         }
 
         resolvePromise({

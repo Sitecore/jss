@@ -4,5 +4,5 @@ import { Directive, TemplateRef } from '@angular/core';
   selector: '[renderEach]',
 })
 export class RenderEachDirective {
-  constructor(public templateRef: TemplateRef<any>) {}
+  constructor(public templateRef: TemplateRef<unknown>) {}
 }

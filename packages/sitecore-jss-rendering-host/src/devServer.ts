@@ -1,11 +1,11 @@
-import { sync as delSync } from 'del';
+import { deleteSync as delSync } from 'del';
 import { Application } from 'express';
 import { PathParams } from 'express-serve-static-core';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import openBrowser from 'opn';
+import open from 'open';
+
 import path from 'path';
 import webpack from 'webpack';
+import { MultiCompiler } from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackDevServer from 'webpack-dev-server';
 import {
@@ -71,7 +71,7 @@ export interface DevServerOptions {
 }
 
 /**
- * @param {any} config
+ * @param {DevServerOptions} config
  */
 export function startDevServer({
   port = 0,
@@ -144,14 +144,14 @@ export function startDevServer({
   // timeout while the WDS server is busy compiling.
   // Therefore, attach a custom plugin to the `done` hook of the last compiler that is defined. Webpack
   // executes compilers serially, and we only want the plugin to run after everything is done.
-  if (urlToOpenOnStart) {
+  if (urlToOpenOnStart && compiler) {
     let browserOpened = false;
     compiler.compilers[compiler.compilers.length - 1].hooks.done.tap(
       'OpenBrowserAfterCompilationPlugin',
       (stats) => {
         if (!browserOpened) {
           console.log('opening browser', stats.compilation.compiler.name);
-          openBrowser(urlToOpenOnStart).then(() => {
+          open(urlToOpenOnStart).then(() => {
             browserOpened = true;
           });
         }
@@ -195,7 +195,15 @@ export function startDevServer({
     serverOptions.public = tunnelUrl;
   }
 
-  const modulePath = path.join(buildArtifactsPath, serverBundleFileName);
+  let resolvedServerBundleFilename: string;
+  if (typeof serverBundleFileName === 'function') {
+    resolvedServerBundleFilename = serverBundleFileName({ filename: 'server.bundle.js' });
+  } else {
+    resolvedServerBundleFilename = serverBundleFileName;
+  }
+
+  const modulePath = path.join(buildArtifactsPath, resolvedServerBundleFilename);
+
   console.log('Resolved server bundle path', modulePath);
   const appInvocationInfoResolver =
     customAppInvocationInfoResolver ||
@@ -239,7 +247,10 @@ export function startDevServer({
 
   // WDS types don't expose the `use` method from the underlying Express interface.
   // So declare as `any` to make the compiler happy.
-  const server: WebpackDevServer = new WebpackDevServer(compiler, serverOptions);
+  const server: WebpackDevServer = new WebpackDevServer(
+    (compiler as unknown) as MultiCompiler,
+    serverOptions
+  );
 
   // Give devs a chance to add more middleware or whatever prior to starting the server.
   invokeHook(hooks.beforeDevServerStarted, server);
@@ -258,10 +269,10 @@ export function startDevServer({
 
 /**
  * @param {Function | undefined} hook
- * @param {...any} args
+ * @param {...unknown} args
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
-function invokeHook(hook: Function | undefined, ...args: any[]) {
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+function invokeHook(hook: Function | undefined, ...args: unknown[]) {
   if (hook && typeof hook === 'function') {
     hook(...args);
   }

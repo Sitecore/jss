@@ -1,8 +1,0 @@
-query GetChildten($contextItem: String!) {
-  item(path: $contextItem) {
-    children(requirePresentation: true) {
-		  displayName
-      url(options: {disableLanguageEmbedding: true})
-    }
-  }
-}

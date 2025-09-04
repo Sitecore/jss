@@ -1,21 +1,65 @@
 export {
-  dataApi,
-  mediaApi,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
+  isEditorActive,
+  resetEditorChromes,
+  handleEditorAnchors,
+  DefaultEditFrameButton,
+  DefaultEditFrameButtons,
+  EditFrameDataSource,
+  FieldEditButton,
+  WebEditButton,
+  EditButtonTypes,
+} from '@sitecore-jss/sitecore-jss/editing';
+export {
+  constants,
+  enableDebug,
+  ClientError,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
+  HttpDataFetcher,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
+} from '@sitecore-jss/sitecore-jss';
+export {
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
+} from '@sitecore-jss/sitecore-jss/tracking';
+export {
+  LayoutService,
   LayoutServiceData,
   LayoutServiceContextData,
+  GraphQLLayoutService,
+  RestLayoutService,
   RouteData,
   Field,
   HtmlElementRendering,
-  LayoutServiceRequestOptions,
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-} from '@sitecore-jss/sitecore-jss';
-
+} from '@sitecore-jss/sitecore-jss/layout';
+export {
+  DictionaryService,
+  GraphQLDictionaryService,
+  RestDictionaryService,
+} from '@sitecore-jss/sitecore-jss/i18n';
+export {
+  RetryStrategy,
+  DefaultRetryStrategy,
+  GraphQLClientError,
+  GraphQLRequestClientFactoryConfig,
+  GraphQLRequestClient,
+} from '@sitecore-jss/sitecore-jss/graphql';
+export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
+export { EditFrame } from './components/EditFrame';
 export { Placeholder } from './components/Placeholder';
 export { Image } from './components/Image';
 export { RichText } from './components/RichText';

@@ -4,6 +4,8 @@ src/*/*.ts
 
 *.tgz
 .nycrc
+.nyc_output
+coverage
 
 # IDEs
 .idea/

@@ -5,6 +5,7 @@ const coverageConfig = {
   collectCoverageFrom: ['**/*.ts'],
   coverageDirectory: './coverage',
   coveragePathIgnorePatterns: [
+    '/index.ts',
     '/node_modules/',
     '/dist/',
     '/test/',
@@ -14,7 +15,7 @@ const coverageConfig = {
     '.d.ts',
     '.test.ts',
   ],
-  coverageReporters: ['json-summary', 'text'],
+  coverageReporters: ['cobertura', 'text'],
 };
 
 module.exports = Object.assign({}, baseConfig, coverageConfig);

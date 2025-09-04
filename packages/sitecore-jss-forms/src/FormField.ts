@@ -1,16 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { HtmlFormField } from './HtmlFormField';
 import { InputViewModel, TitleFieldViewModel, ViewModel, FieldViewModel } from './ViewModel';
 
 export interface FormField<TViewModel extends ViewModel = ViewModel> {
+  [key: string]: unknown;
   model: TViewModel;
 }
 
 /**
- * @param {any} object
+ * @param {object} object
  */
-export function instanceOfFormField<T extends ViewModel>(object: any): object is FormField<T> {
+export function instanceOfFormField<T extends ViewModel>(object: {
+  [key: string]: unknown;
+}): object is FormField<T> {
   return 'model' in object;
 }
 
@@ -24,7 +25,9 @@ export interface ValueFormField<TViewModel extends InputViewModel = InputViewMod
 /**
  * @param {FormField} object
  */
-export function instanceOfValueFormField(object: FormField<any>): object is ValueFormField<any> {
+export function instanceOfValueFormField<T extends InputViewModel>(
+  object: FormField<ViewModel>
+): object is ValueFormField<T> {
   return 'indexField' in object;
 }
 

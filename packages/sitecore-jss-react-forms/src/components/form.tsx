@@ -23,13 +23,14 @@ export interface ErrorComponentProps {
 
 export interface FormProps {
   form: SitecoreForm;
+  language?: string;
+  className?: string;
   fieldFactory?: FieldFactory;
   sitecoreApiHost: string;
   sitecoreApiKey: string;
   onRedirect?: (url: string) => void;
   errorComponent?: ComponentType<ErrorComponentProps>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fieldWrapperComponent?: ComponentType<FieldWithValueProps<any>>;
+  fieldWrapperComponent?: ComponentType<FieldWithValueProps>;
 
   /** Optionally override the label component for any field components that render a label */
   labelComponent?: ComponentType<LabelProps>;
@@ -54,6 +55,7 @@ export interface FormState {
   errors: string[];
   nextForm: SitecoreForm | null;
   submitButton: string | null;
+  submitInProgress?: boolean;
 }
 
 export interface FieldStateCollection {
@@ -66,15 +68,14 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
   constructor(props: FormProps) {
     super(props);
 
-    this.state = {
+    this.state = ({
       errors: [],
       // in a multistep form the server can reset the form schema
       // to display further steps; this state property overrides
       // the form passed in from props if present
       nextForm: null,
       submitButton: null,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } as any; // workaround index type limitations in TS
+    } as unknown) as FieldStateCollection & FormState;
 
     this.createFieldComponent = this.createFieldComponent.bind(this);
     this.getCurrentFieldState = this.getCurrentFieldState.bind(this);
@@ -97,7 +98,9 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
       return <div>Form data invalid. Forget to set the rendering contents resolver?</div>;
     }
 
-    const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}&sc_itemid=${form.contextItemId}`;
+    const qsLanguage = this.props.language ? `&sc_lang=${this.props.language}` : '';
+
+    const action = `${this.props.sitecoreApiHost}/api/jss/formbuilder?fxb.FormItemId=${form.metadata.itemId}&fxb.HtmlPrefix=${form.htmlPrefix}&sc_apikey=${this.props.sitecoreApiKey}&sc_itemid=${form.contextItemId}${qsLanguage}`;
 
     this._tracker.setFormData(
       form.formItemId.value,
@@ -108,9 +111,24 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
     const fieldComponents = form.fields.map(this.createFieldComponent);
     const ErrorComponent = this.props.errorComponent || DefaultError;
     const fieldErrors = this.collectCurrentFieldValues().filter((field) => !field.state.isValid);
-
+    const isInert = this.state.submitInProgress;
+    // react does not support inert natively yet - so we use a workaround to block the form while it's submitting
     return (
-      <form action={action} method="POST" onSubmit={this.onSubmit.bind(this)}>
+      <form
+        className={this.props.className}
+        action={action}
+        method="POST"
+        onSubmit={this.onSubmit.bind(this)}
+        inert={isInert}
+      >
+        {process.env.TEST && (
+          <>
+            <script id="test-form-state">{JSON.stringify(this.state)}</script>
+            <script id="test-collect-fields">
+              {JSON.stringify(this.collectCurrentFieldValues())}
+            </script>
+          </>
+        )}
         <ErrorComponent form={form} formErrors={this.state.errors} fieldErrors={fieldErrors} />
         {fieldComponents}
       </form>
@@ -152,7 +170,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    * - This component's state (the mutated state of the field after user changes)
    * The field state includes both current value as well as current validity.
    * @param {FormField} field
-   * @returns {Object | null} field state
+   * @returns {object | null} field state
    */
   getCurrentFieldState(field: FormField) {
     // non-valued fields, i.e. text, section, do not have a value or validity state
@@ -228,6 +246,11 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    */
   onSubmit(e: FormEvent) {
     e.preventDefault();
+    if (this.state.submitInProgress) {
+      return;
+    }
+
+    this.setState({ submitInProgress: true });
 
     const form = this.state.nextForm || this.props.form;
 
@@ -259,6 +282,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
 
     submitForm(formData, submitUrl, { fetcher: this.props.formFetcher })
       .then((result) => {
+        this.setState({ submitInProgress: false });
         if (result.success && result.redirectUrl) {
           // Process redirect-on-success action.
           if (this.props.onRedirect) {
@@ -296,6 +320,7 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
         this.setState({ errors: [] });
       })
       .catch((error: Error | string[] | string) => {
+        this.setState({ submitInProgress: false });
         if (Array.isArray(error)) {
           this.setState({ errors: error });
         } else if (typeof error === 'string') {
@@ -323,7 +348,11 @@ export class Form extends Component<FormProps, FormState & FieldStateCollection>
    */
   resetFieldsState() {
     const keys = Object.keys(this.state).filter(
-      (key) => key !== 'nextForm' && key !== 'errors' && key !== 'submitButton'
+      (key) =>
+        key !== 'nextForm' &&
+        key !== 'errors' &&
+        key !== 'submitButton' &&
+        key !== 'submitInProgress'
     );
     const stateReset = keys.reduce((acc, v) => ({ ...acc, [v]: undefined }), {});
     this.setState({ ...stateReset, errors: [] });

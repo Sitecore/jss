@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef, JSX } from 'react';
 import { useRouter } from 'next/router';
 import {
   RichText as ReactRichText,
-  RichTextPropTypes,
   RichTextProps as ReactRichTextProps,
 } from '@sitecore-jss/sitecore-jss-react';
 
@@ -13,31 +11,46 @@ export type RichTextProps = ReactRichTextProps & {
    * @default 'a[href^="/"]'
    */
   internalLinksSelector?: string;
+
+  /**
+   * Controls the prefetch of internal links. This can be beneficial if you have RichText fields
+   * with large numbers of internal links in them.
+   * - `true` (default): The full route & its data will be prefetched.
+   * - `hover`: Prefetching will happen on hover.
+   * - `false`: Prefetching will not happen.
+   * @default true
+   */
+  prefetchLinks?: boolean | 'hover';
 };
 
-const prefetched: { [cacheKey: string]: boolean } = {};
+export const prefetched: { [cacheKey: string]: boolean } = {};
 
 export const RichText = (props: RichTextProps): JSX.Element => {
-  const { internalLinksSelector = 'a[href^="/"]', ...rest } = props;
+  const {
+    internalLinksSelector = 'a[href^="/"]',
+    prefetchLinks = true,
+    editable = true,
+    ...rest
+  } = props;
   const hasText = props.field && props.field.value;
-  const isEditing = props.editable && props.field && props.field.editable;
+  const isEditing = editable && props.field && (props.field.editable || props.field.metadata);
 
   const router = useRouter();
   const richTextRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // NOT IN EXPERIENCE EDITOR
+    // NOT IN EDIT MODE
     if (hasText && !isEditing) {
       initializeLinks();
     }
-  });
+  }, [hasText]);
 
   const routeHandler = (ev: MouseEvent) => {
-    if (!ev.target) return;
+    if (!ev.currentTarget) return;
 
     ev.preventDefault();
 
-    const pathname = (ev.target as HTMLAnchorElement).pathname;
+    const pathname = (ev.currentTarget as HTMLAnchorElement).href;
 
     router.push(pathname, pathname, { locale: false });
   };
@@ -51,27 +64,35 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     if (!internalLinks || !internalLinks.length) return;
 
     internalLinks.forEach((link) => {
-      if (!prefetched[link.pathname]) {
+      if (link.target === '_blank') return;
+
+      const prefetch = () => {
         router.prefetch(link.pathname, undefined, { locale: false });
+
         prefetched[link.pathname] = true;
+      };
+
+      if (!prefetched[link.pathname] && prefetchLinks !== false) {
+        if (prefetchLinks === true) {
+          prefetch();
+        }
+
+        if (prefetchLinks === 'hover') {
+          const mouseOverHandler = () => {
+            prefetch();
+
+            link.removeEventListener('mouseover', mouseOverHandler);
+          };
+
+          link.addEventListener('mouseover', mouseOverHandler, false);
+        }
       }
 
-      link.removeEventListener('click', routeHandler, false);
       link.addEventListener('click', routeHandler, false);
     });
   };
 
-  return <ReactRichText ref={richTextRef} {...rest} />;
-};
-
-RichText.propTypes = {
-  internalLinksSelector: PropTypes.string,
-  ...RichTextPropTypes,
-};
-
-RichText.defaultProps = {
-  tag: 'div',
-  editable: true,
+  return <ReactRichText ref={richTextRef} editable={editable} {...rest} />;
 };
 
 RichText.displayName = 'NextRichText';

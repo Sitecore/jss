@@ -1,19 +1,20 @@
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
+import chalk from 'chalk';
 import {
   LayoutServiceData,
   ComponentRendering,
   PlaceholdersData,
-} from '@sitecore-jss/sitecore-jss';
+} from '@sitecore-jss/sitecore-jss/layout';
 import {
   ComponentPropsCollection,
   ComponentPropsFetchFunction,
 } from '../sharedTypes/component-props';
-import { ComponentModule } from '../sharedTypes/component-module';
+import { ModuleFactory } from '../sharedTypes/module-factory';
 
 export type FetchComponentPropsArguments<NextContext> = {
   layoutData: LayoutServiceData;
   context: NextContext;
-  componentModule: ComponentModule;
+  moduleFactory: ModuleFactory;
 };
 
 export type ComponentPropsRequest<NextContext> = {
@@ -25,7 +26,7 @@ export type ComponentPropsRequest<NextContext> = {
 
 type FetchFunctionFactory<NextContext> = (
   componentName: string
-) => ComponentPropsFetchFunction<NextContext> | undefined;
+) => Promise<ComponentPropsFetchFunction<NextContext> | undefined>;
 
 export class ComponentPropsService {
   /**
@@ -37,10 +38,10 @@ export class ComponentPropsService {
   async fetchServerSideComponentProps(
     params: FetchComponentPropsArguments<GetServerSidePropsContext>
   ): Promise<ComponentPropsCollection> {
-    const { componentModule, layoutData, context } = params;
+    const { moduleFactory, layoutData, context } = params;
 
-    const fetchFunctionFactory = (componentName: string) => {
-      const module = componentModule(componentName);
+    const fetchFunctionFactory = async (componentName: string) => {
+      const module = await moduleFactory(componentName);
 
       return module?.getServerSideProps;
     };
@@ -61,10 +62,10 @@ export class ComponentPropsService {
   async fetchStaticComponentProps(
     params: FetchComponentPropsArguments<GetStaticPropsContext>
   ): Promise<ComponentPropsCollection> {
-    const { componentModule, layoutData, context } = params;
+    const { moduleFactory, layoutData, context } = params;
 
-    const fetchFunctionFactory = (componentName: string) => {
-      const module = componentModule(componentName);
+    const fetchFunctionFactory = async (componentName: string) => {
+      const module = await moduleFactory(componentName);
 
       return module?.getStaticProps;
     };
@@ -84,14 +85,14 @@ export class ComponentPropsService {
    * @param {NextContext} context next context
    * @returns {Promise<ComponentPropsCollection>} component props
    */
-  async fetchComponentProps<NextContext>(
+  protected async fetchComponentProps<NextContext>(
     fetchFunctionFactory: FetchFunctionFactory<NextContext>,
     layoutData: LayoutServiceData,
     context: NextContext
   ): Promise<ComponentPropsCollection> {
     // Array of side effect functions
-    const requests = this.collectRequests({
-      placeholders: layoutData.sitecore.route.placeholders,
+    const requests = await this.collectRequests({
+      placeholders: layoutData.sitecore.route?.placeholders,
       fetchFunctionFactory,
       layoutData,
       context,
@@ -103,22 +104,22 @@ export class ComponentPropsService {
   /**
    * Go through layout service data, check all renderings using displayName, which should make some side effects.
    * Write result in requests variable
-   * @param {Object} params params
-   * @param {PlaceholdersData} params.placeholders
+   * @param {object} params params
+   * @param {PlaceholdersData} [params.placeholders]
    * @param {FetchFunctionFactory<NextContext>} params.fetchFunctionFactory
    * @param {LayoutServiceData} params.layoutData
    * @param {NextContext} params.context
    * @param {ComponentPropsRequest<NextContext>[]} params.requests
    * @returns {ComponentPropsRequest<NextContext>[]} array of requests
    */
-  collectRequests<NextContext>(params: {
-    placeholders: PlaceholdersData;
+  protected async collectRequests<NextContext>(params: {
+    placeholders?: PlaceholdersData;
     fetchFunctionFactory: FetchFunctionFactory<NextContext>;
     layoutData: LayoutServiceData;
     context: NextContext;
     requests?: ComponentPropsRequest<NextContext>[];
-  }): ComponentPropsRequest<NextContext>[] {
-    const { placeholders, fetchFunctionFactory, layoutData, context } = params;
+  }): Promise<ComponentPropsRequest<NextContext>[]> {
+    const { placeholders = {}, fetchFunctionFactory, layoutData, context } = params;
 
     // Will be called on first round
     if (!params.requests) {
@@ -127,8 +128,8 @@ export class ComponentPropsService {
 
     const renderings = this.flatRenderings(placeholders);
 
-    renderings.map((r) => {
-      const fetchFunc = fetchFunctionFactory(r.componentName);
+    const actions = renderings.map(async (r) => {
+      const fetchFunc = await fetchFunctionFactory(r.componentName);
 
       if (fetchFunc) {
         params.requests &&
@@ -142,12 +143,14 @@ export class ComponentPropsService {
 
       // If placeholders exist in current rendering
       if (r.placeholders) {
-        this.collectRequests({
+        await this.collectRequests({
           ...params,
           placeholders: r.placeholders,
         });
       }
     });
+
+    await Promise.all(actions);
 
     return params.requests;
   }
@@ -157,7 +160,7 @@ export class ComponentPropsService {
    * @param {ComponentPropsRequest<NextContext>[]} requests requests
    * @returns {Promise<ComponentPropsCollection>} requests result
    */
-  async execRequests<NextContext>(
+  protected async execRequests<NextContext>(
     requests: ComponentPropsRequest<NextContext>[]
   ): Promise<ComponentPropsCollection> {
     const componentProps: ComponentPropsCollection = {};
@@ -179,9 +182,15 @@ export class ComponentPropsService {
           componentProps[uid] = result;
         })
         .catch((error) => {
-          console.log(`Error during preload data for component ${uid}:`, error);
+          const errLog = `Error during preload data for component ${
+            req.rendering.componentName
+          } (${uid}): ${error.message || error}`;
+
+          console.error(chalk.red(errLog));
+
           componentProps[uid] = {
-            error,
+            error: error.message || errLog,
+            componentName: req.rendering.componentName,
           };
         });
     });
@@ -202,11 +211,10 @@ export class ComponentPropsService {
    * flatRenderings(placeholders);
    *
    * RESULT: [{ uid: 1 }, { uid: 2 }, { uid: 11 }, { uid: 22 }]
-   *
    * @param {PlaceholdersData} placeholders placeholders
    * @returns {ComponentRendering[]} renderings
    */
-  flatRenderings(placeholders: PlaceholdersData): ComponentRendering[] {
+  protected flatRenderings(placeholders: PlaceholdersData): ComponentRendering[] {
     const allComponentRenderings: ComponentRendering[] = [];
     const placeholdersArr = Object.values(placeholders);
 

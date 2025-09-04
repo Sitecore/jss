@@ -9,4 +9,4 @@
 *.ts text eol=crlf
 *.tsx text eol=crlf
 *.js text eol=crlf
-
+*.vue text eol=crlf

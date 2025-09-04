@@ -1,22 +1,20 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { createRef } from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
-
-import { Link } from './Link';
-import { generalLinkField as eeLinkData } from '../testData/ee-data';
+import { render } from '@testing-library/react';
+import { Link, LinkField } from './Link';
+import { generalLinkField as eeLinkData } from '../test-data/ee-data';
 
 describe('<Link />', () => {
   it('should render nothing with missing field', () => {
-    const field: any = null;
-    const rendered = mount(<Link field={field} />).children();
-    expect(rendered).to.have.length(0);
+    const field = (null as unknown) as LinkField;
+    const rendered = render(<Link field={field} />);
+    expect(rendered.container.innerHTML).to.equal('');
   });
 
   it('should render nothing with missing editable and value', () => {
     const field = {};
-    const rendered = mount(<Link field={field} />).children();
-    expect(rendered).to.have.length(0);
+    const rendered = render(<Link field={field} />);
+    expect(rendered.container.innerHTML).to.equal('');
   });
 
   it('should render editable with an editable value', () => {
@@ -24,9 +22,9 @@ describe('<Link />', () => {
       editableFirstPart: '<a href="/services" class="yo">Lorem',
       editableLastPart: '</a>',
     };
-    const rendered = mount(<Link field={field} />);
+    const rendered = render(<Link field={field} />);
 
-    expect(rendered.html()).to.contain(field.editableFirstPart);
+    expect(rendered.container.innerHTML).to.contain(field.editableFirstPart);
   });
 
   it('should render value with editing explicitly disabled', () => {
@@ -37,9 +35,9 @@ describe('<Link />', () => {
       },
       editable: '<a href="/services" class="yo">Lorem</a>',
     };
-    const rendered = mount(<Link field={field} editable={false} />).find('a');
-    expect(rendered.html()).to.contain(field.value.href);
-    expect(rendered.html()).to.contain(field.value.text);
+    const rendered = render(<Link field={field} editable={false} />).container.querySelector('a');
+    expect(rendered?.outerHTML).to.contain(field.value.href);
+    expect(rendered?.outerHTML).to.contain(field.value.text);
   });
 
   it('should render with href directly on provided field', () => {
@@ -47,35 +45,51 @@ describe('<Link />', () => {
       href: '/lorem',
       text: 'ipsum',
     };
-    const rendered = mount(<Link field={field} />).find('a');
-    expect(rendered.html()).to.contain(field.href);
-    expect(rendered.html()).to.contain(field.text);
+    const rendered = render(<Link field={field} />).container.querySelector('a');
+    expect(rendered?.outerHTML).to.contain(field.href);
+    expect(rendered?.outerHTML).to.contain(field.text);
+  });
+
+  it('should not add extra hash when linktype is anchor', () => {
+    const field = {
+      linktype: 'anchor',
+      href: '#anchor',
+      text: 'anchor link',
+      anchor: 'anchor',
+    };
+    const rendered = render(<Link field={field} />).container.querySelector('a');
+    expect(rendered?.outerHTML).to.contain(`href="${field.href}"`);
+    expect(rendered?.text).to.equal(field.text);
   });
 
   it('should render ee HTML', () => {
     const field = {
       editableFirstPart: eeLinkData,
     };
-    const rendered = mount(<Link field={field} />);
-    expect(rendered.html()).to.contain('<input');
-    expect(rendered.html()).to.contain('chrometype="field"');
+    const rendered = render(<Link field={field} />);
+    expect(rendered.container.innerHTML).to.contain('<input');
+    expect(rendered.container.innerHTML).to.contain('chrometype="field"');
   });
 
   it('should render all value attributes', () => {
     const field = {
       value: {
         href: '/lorem',
+        anchor: 'foo',
         text: 'ipsum',
         class: 'my-link',
         title: 'My Link',
         target: '_blank',
+        querystring: 'foo=bar',
       },
     };
-    const rendered = mount(<Link field={field} />).find('a');
-    expect(rendered.html()).to.contain(`href="${field.value.href}"`);
-    expect(rendered.html()).to.contain(`class="${field.value.class}"`);
-    expect(rendered.html()).to.contain(`title="${field.value.title}"`);
-    expect(rendered.html()).to.contain(`target="${field.value.target}"`);
+    const rendered = render(<Link field={field} />).container.querySelector('a');
+    expect(rendered?.outerHTML).to.contain(
+      `href="${field.value.href}?${field.value.querystring}#${field.value.anchor}"`
+    );
+    expect(rendered?.outerHTML).to.contain(`class="${field.value.class}"`);
+    expect(rendered?.outerHTML).to.contain(`title="${field.value.title}"`);
+    expect(rendered?.outerHTML).to.contain(`target="${field.value.target}"`);
   });
 
   it('should render other attributes with other props provided', () => {
@@ -85,9 +99,11 @@ describe('<Link />', () => {
         text: 'ipsum',
       },
     };
-    const rendered = mount(<Link field={field} id="my-link" accessKey="a" />).find('a');
-    expect(rendered.html()).to.contain('id="my-link"');
-    expect(rendered.html()).to.contain('accesskey="a"');
+    const rendered = render(
+      <Link field={field} id="my-link" accessKey="a" />
+    ).container.querySelector('a');
+    expect(rendered?.outerHTML).to.contain('id="my-link"');
+    expect(rendered?.outerHTML).to.contain('accesskey="a"');
   });
 
   it('should render other attributes on wrapper span with other props provided with editable', () => {
@@ -95,7 +111,160 @@ describe('<Link />', () => {
       editableFirstPart: '<a href="/services" class="yo">Lorem',
       editableLastPart: '</a>',
     };
-    const rendered = mount(<Link field={field} id="my-link" />);
-    expect(rendered.html()).to.contain('id="my-link"');
+    const rendered = render(<Link field={field} id="my-link" />);
+    expect(rendered.container.innerHTML).to.contain('id="my-link"');
+  });
+
+  it('should render with a ref to the anchor', () => {
+    const field = {
+      href: '/lorem',
+      text: 'ipsum',
+    };
+    const ref = createRef<HTMLAnchorElement>();
+
+    const c = render(<Link field={field} ref={ref} id="my-link" />);
+
+    const link = c.container.querySelector('a');
+    expect(ref.current?.id).to.equal(link?.getAttribute('id'));
+  });
+  describe('editMode metadata', () => {
+    const testMetadata = {
+      contextItem: {
+        id: '{09A07660-6834-476C-B93B-584248D3003B}',
+        language: 'en',
+        revision: 'a0b36ce0a7db49418edf90eb9621e145',
+        version: 1,
+      },
+      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
+      fieldType: 'single-line',
+      rawValue: 'Test1',
+    };
+
+    it('should render field metadata component when metadata property is present', () => {
+      const field = {
+        href: '/lorem',
+        text: 'ipsum',
+        metadata: testMetadata,
+      };
+      const rendered = render(<Link field={field} />);
+
+      expect(rendered.container.innerHTML).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<a href="/lorem">ipsum</a>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field component when field value is not present', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+      const rendered = render(<Link field={field} />);
+
+      expect(rendered.container.innerHTML).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span>[No text in field]</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render default empty field component when field value href is not present', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+      const rendered = render(<Link field={field} />);
+
+      expect(rendered.container.innerHTML).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span>[No text in field]</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field component when provided, when field value is not present', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = render(
+        <Link field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+      );
+
+      expect(rendered.container.innerHTML).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render custom empty field component when provided, when field value href is not present', () => {
+      const field = {
+        href: undefined,
+        metadata: testMetadata,
+      };
+
+      const EmptyFieldEditingComponent: React.FC = () => (
+        <span className="empty-field-value-placeholder">Custom Empty field value</span>
+      );
+
+      const rendered = render(
+        <Link field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+      );
+
+      expect(rendered.container.innerHTML).to.equal(
+        [
+          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
+            testMetadata
+          )}</code>`,
+          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
+          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
+        ].join('')
+      );
+    });
+
+    it('should render nothing when field value is not present, when editing is explicitly disabled', () => {
+      const field = {
+        value: undefined,
+        metadata: testMetadata,
+      };
+
+      const rendered = render(<Link field={field} editable={false} />);
+
+      expect(rendered.container.innerHTML).to.equal('');
+    });
+
+    it('should render nothing when field value href is empty, when editing is explicitly disabled', () => {
+      const field = {
+        value: { href: undefined },
+        metadata: testMetadata,
+      };
+
+      const rendered = render(<Link field={field} editable={false} />);
+
+      expect(rendered.container.innerHTML).to.equal('');
+    });
   });
 });

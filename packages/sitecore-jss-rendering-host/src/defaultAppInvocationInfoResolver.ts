@@ -1,6 +1,6 @@
 import importFresh from 'import-fresh';
 import path from 'path';
-import { AppInvocationInfoResolver } from './ssrMiddleware';
+import { AppInvocationInfoResolver, JsonObject } from './ssrMiddleware';
 
 /**
  * Returns the default AppInvocationInfoResolver, which is responsible for resolving the function, within your app bundle,
@@ -12,24 +12,23 @@ import { AppInvocationInfoResolver } from './ssrMiddleware';
  * `JSSAppName` is the `id` property of the JSON request body that is POSTed to the rendering host by Sitecore.
  *
  * `serverBundleName` is the name of the JavaScript file (typically a bundle) that contains the function for rendering your app.
- *
- * @param {string} [baseAppPath='./dist'] The base path to your JSS app(s), defaults to `./dist`
+ * @param {string} [baseAppPath] The base path to your JSS app(s), defaults to `./dist`
  * @returns {AppInvocationInfoResolver} resolver
  */
 export function getDefaultAppInvocationInfoResolver({
-  appPathResolver = (requestJson: any) => {
+  appPathResolver = (requestJson: JsonObject) => {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     return path.resolve(baseAppPath, requestJson.id, serverBundleName);
   },
   baseAppPath = './dist',
   serverBundleName = 'server.bundle',
 }) {
-  const resolver: AppInvocationInfoResolver = (requestJson: any) => {
+  const resolver: AppInvocationInfoResolver = (requestJson) => {
     // default resolution assumes folder structure of:
     // ./dist/{JSSAppName}/{ServerBundleName}.js
-    const modulePath = appPathResolver(requestJson); // path.resolve(baseAppPath, requestJson.id, serverBundleName);
+    const modulePath = appPathResolver(requestJson as JsonObject);
     const resolvedModule = importFresh(modulePath);
-    const resolvedRenderFunctionName = requestJson.functionName || 'renderView';
+    const resolvedRenderFunctionName = (requestJson as JsonObject).functionName || 'renderView';
     const renderFunction = resolvedModule[resolvedRenderFunctionName];
 
     if (!renderFunction) {
@@ -39,7 +38,7 @@ export function getDefaultAppInvocationInfoResolver({
         named "${resolvedRenderFunctionName}".`);
     }
 
-    const renderFunctionArgs = requestJson.args;
+    const renderFunctionArgs = (requestJson as JsonObject).args;
 
     return {
       renderFunction: (...args) => {

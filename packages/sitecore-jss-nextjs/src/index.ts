@@ -1,49 +1,114 @@
 export {
-  dataApi,
-  mediaApi,
-  isExperienceEditorActive,
-  resetExperienceEditorChromes,
-  AxiosDataFetcher,
-  AxiosDataFetcherConfig,
+  constants,
+  // generic data access
+  HttpDataFetcher,
+  NativeDataFetcher,
+  NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
+  HTMLLink,
+  enableDebug,
+  debug,
+  CacheClient,
+  CacheOptions,
+  MemoryCacheClient,
+} from '@sitecore-jss/sitecore-jss';
+
+export {
   LayoutService,
-  LayoutServiceInstanceConfig,
-  DictionaryPhrases,
-  DictionaryServiceData,
-  DictionaryService,
-  DictionaryServiceConfig,
   LayoutServiceData,
   LayoutServicePageState,
   LayoutServiceContext,
   LayoutServiceContextData,
+  GraphQLLayoutService,
+  GraphQLLayoutServiceConfig,
+  RestLayoutService,
+  RestLayoutServiceConfig,
+  PlaceholderData,
   PlaceholdersData,
   RouteData,
   Field,
   Item,
   HtmlElementRendering,
-  LayoutServiceRequestOptions,
   getChildPlaceholder,
   getFieldValue,
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-} from '@sitecore-jss/sitecore-jss';
-
-export * from './constants';
+  getContentStylesheetLink,
+  EditMode,
+  RenderingType,
+} from '@sitecore-jss/sitecore-jss/layout';
+export { RestComponentLayoutService } from '@sitecore-jss/sitecore-jss/editing';
+export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
+export {
+  trackingApi,
+  TrackingRequestOptions,
+  CampaignInstance,
+  GoalInstance,
+  OutcomeInstance,
+  EventInstance,
+  PageViewInstance,
+} from '@sitecore-jss/sitecore-jss/tracking';
+export {
+  DictionaryPhrases,
+  DictionaryService,
+  GraphQLDictionaryService,
+  GraphQLDictionaryServiceConfig,
+  RestDictionaryService,
+  RestDictionaryServiceConfig,
+} from '@sitecore-jss/sitecore-jss/i18n';
+export {
+  personalizeLayout,
+  getPersonalizedRewrite,
+  getPersonalizedRewriteData,
+  getGroomedVariantIds,
+  normalizePersonalizedRewrite,
+  CdpHelper,
+} from '@sitecore-jss/sitecore-jss/personalize';
 
 export {
   ComponentPropsCollection,
+  ComponentPropsError,
   GetStaticComponentProps,
   GetServerSideComponentProps,
 } from './sharedTypes/component-props';
 
-export { ComponentModule } from './sharedTypes/component-module';
+export { ModuleFactory, Module } from './sharedTypes/module-factory';
 
 export { ComponentPropsService } from './services/component-props-service';
+
+export { DisconnectedSitemapService } from './services/disconnected-sitemap-service';
 
 export {
   GraphQLSitemapService,
   GraphQLSitemapServiceConfig,
 } from './services/graphql-sitemap-service';
+
+export {
+  MultisiteGraphQLSitemapService,
+  MultisiteGraphQLSitemapServiceConfig,
+} from './services/mutisite-graphql-sitemap-service';
+
+export {
+  GraphQLSitemapXmlService,
+  GraphQLSitemapXmlServiceConfig,
+  GraphQLErrorPagesService,
+  GraphQLErrorPagesServiceConfig,
+  RobotsQueryResult,
+  GraphQLRobotsService,
+  GraphQLRobotsServiceConfig,
+  ErrorPages,
+  SiteInfo,
+  SiteResolver,
+  GraphQLSiteInfoService,
+  GraphQLSiteInfoServiceConfig,
+  getSiteRewrite,
+  getSiteRewriteData,
+  normalizeSiteRewrite,
+} from '@sitecore-jss/sitecore-jss/site';
+
+export { StaticPath } from './services/graphql-sitemap-service';
 
 export {
   ComponentPropsReactContext,
@@ -52,35 +117,60 @@ export {
   useComponentProps,
 } from './components/ComponentPropsContext';
 
-export { handleExperienceEditorFastRefresh } from './utils';
+export { Link, LinkProps } from './components/Link';
+export { RichText, RichTextProps } from './components/RichText';
+export { Placeholder } from './components/Placeholder';
+export { NextImage } from './components/NextImage';
+import * as FEaaSWrapper from './components/FEaaSWrapper';
+import * as BYOCWrapper from './components/BYOCWrapper';
+export { FEaaSWrapper };
+export { BYOCWrapper };
 
-export { EditingData, EditingPreviewData, isEditingData } from './sharedTypes/editing-data';
-export {
-  EditingDataService,
-  EditingDataServiceConfig,
-  editingDataService,
-} from './services/editing-data-service';
-
-export { Link } from './components/Link';
-export { RichText } from './components/RichText';
+export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
 export {
   ComponentFactory,
-  Placeholder,
+  Form,
   Image,
   ImageField,
+  ImageFieldValue,
+  ImageProps,
   LinkField,
   LinkFieldValue,
   Text,
+  TextField,
   DateField,
+  EditFrame,
+  FEaaSComponent,
+  FEaaSComponentProps,
+  FEaaSComponentParams,
+  fetchFEaaSComponentServerProps,
+  BYOCComponentParams,
+  BYOCComponent,
+  BYOCComponentProps,
+  getDesignLibraryStylesheetLinks,
   File,
   FileField,
+  RichTextField,
+  DesignLibrary,
+  DefaultEmptyFieldEditingComponentImage,
+  DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,
+  PlaceholderComponentProps,
   SitecoreContext,
   SitecoreContextState,
+  SitecoreContextValue,
   SitecoreContextReactContext,
   withSitecoreContext,
   useSitecoreContext,
-  withExperienceEditorChromes,
+  withEditorChromes,
   withPlaceholder,
+  withDatasourceCheck,
+  ImageSizeParameters,
+  WithSitecoreContextOptions,
+  WithSitecoreContextProps,
+  WithSitecoreContextHocProps,
+  withFieldMetadata,
+  withEmptyFieldEditingComponent,
+  EditingScripts,
 } from '@sitecore-jss/sitecore-jss-react';

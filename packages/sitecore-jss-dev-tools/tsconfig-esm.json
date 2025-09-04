@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "es2020",
+    "outDir": "dist/esm"
+  },
+  "exclude": [
+    "dist",
+    "types",
+    "src/bin",
+    "src/test*",
+    "node_modules",
+    "src/**/*.test.ts",
+    "react.d.ts",
+    "nextjs.d.ts",
+    "nextjs-component-props-loader.d.ts",
+  ]
+}

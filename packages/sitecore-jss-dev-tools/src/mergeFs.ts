@@ -6,7 +6,7 @@ const IS_HIDDEN_FILE = (file: string): boolean => path.basename(file).startsWith
 
 const tryParseJsonOrYaml = (jsonString: string) => {
   try {
-    const json = yaml.safeLoad(jsonString);
+    const json = yaml.load(jsonString);
     // handle non-exception-throwing cases
     if (json && typeof json === 'object' && json !== null) {
       return json;

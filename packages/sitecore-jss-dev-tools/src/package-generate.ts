@@ -1,4 +1,4 @@
-import { createPackage } from '@sitecore-jss/sitecore-jss-update-package';
+import { createPackage } from './update';
 import fsExtra from 'fs-extra';
 import path from 'path';
 
@@ -29,6 +29,6 @@ export function packageGenerate(options: PackageGenerateOptions) {
   );
 
   return new Promise((resolve) => {
-    createPackage(packageManifestPath, updatePackage, resolve);
+    createPackage(packageManifestPath, updatePackage, () => resolve(null));
   });
 }

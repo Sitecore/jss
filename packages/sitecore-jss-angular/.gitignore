@@ -1,3 +1,4 @@
 # compiled output
 .ng_build
 coverage
+.angular

@@ -11,9 +11,12 @@ describe('<Text />', () => {
     // that is marked as required.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const rendered = mount(Text);
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('should render nothing with missing editable and value', () => {
@@ -22,8 +25,26 @@ describe('<Text />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const rendered = mount(Text, { context: { props } });
-    expect(rendered.isEmpty()).toBe(true);
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
+    const rendered = mount(Text, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
+    errorSpy.mockRestore();
+    warnSpy.mockRestore();
+  });
+
+  it('should render nothing with empty value', () => {
+    const props = {
+      field: {
+        value: '',
+      },
+    };
+    // Need to mock console.error as Vue will log an error for the null "field" prop
+    // that is marked as an Object.
+    const errorSpy = jest.spyOn(console, 'error');
+    errorSpy.mockImplementation(() => {});
+    const rendered = mount(Text, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
   });
 
@@ -34,7 +55,7 @@ describe('<Text />', () => {
         editable: 'editable',
       },
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.editable);
   });
@@ -47,7 +68,7 @@ describe('<Text />', () => {
       },
       editable: false,
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -59,7 +80,7 @@ describe('<Text />', () => {
       },
       editable: false,
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.html().indexOf('&lt; &gt;')).toBeGreaterThan(-1);
   });
@@ -70,9 +91,31 @@ describe('<Text />', () => {
         value: 'value',
       },
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
+  });
+
+  it('should render number value', () => {
+    const props = {
+      field: {
+        value: 1.23,
+      },
+    };
+    const rendered = mount(Text, { props }).find('span');
+    expect(rendered.exists()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(props.field.value.toString());
+  });
+
+  it('should render zero number value', () => {
+    const props = {
+      field: {
+        value: 0,
+      },
+    };
+    const rendered = mount(Text, { props }).find('span');
+    expect(rendered.exists()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(props.field.value.toString());
   });
 
   it('should render embedded html as-is when encoding is disabled', () => {
@@ -82,7 +125,7 @@ describe('<Text />', () => {
       },
       encode: false,
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -93,7 +136,7 @@ describe('<Text />', () => {
         editable: eeTextData,
       },
     };
-    const rendered = mount(Text, { context: { props } }).find('span');
+    const rendered = mount(Text, { props }).find('span');
     expect(rendered.exists()).toBe(true);
     expect(rendered.html().indexOf('<input')).toBeGreaterThan(-1);
     expect(rendered.html().indexOf('<span class="scChromeData">')).toBeGreaterThan(-1);
@@ -106,7 +149,7 @@ describe('<Text />', () => {
       },
       tag: 'h1',
     };
-    const rendered = mount(Text, { context: { props } }).find('h1');
+    const rendered = mount(Text, { props }).find('h1');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -122,7 +165,7 @@ describe('<Text />', () => {
       class: 'cssClass',
       id: 'lorem',
     };
-    const rendered = mount(Text, { context: { props, attrs } }).find('h1');
+    const rendered = mount(Text, { props, attrs }).find('h1');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.tagName).toBe(props.tag.toUpperCase());
     expect(rendered.attributes()).toMatchObject(attrs);

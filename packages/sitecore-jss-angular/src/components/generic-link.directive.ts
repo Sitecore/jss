@@ -7,6 +7,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss/utils';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 
@@ -14,15 +15,22 @@ import { LinkField } from './rendering-field';
 export class GenericLinkDirective extends LinkDirective {
   @Input('scGenericLinkEditable') editable = true;
 
-  @Input('scGenericLinkAttrs') attrs: any = {};
+  @Input('scGenericLinkAttrs') attrs: { [key: string]: string } = {};
 
-  @Input('scGenericLink') field: LinkField;
+  @Input('scGenericLink') declare field: LinkField;
 
   @Input('scGenericLinkExtras') extras?: NavigationExtras;
 
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scGenericLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
+    unknown
+  >;
+
   constructor(
     viewContainer: ViewContainerRef,
-    templateRef: TemplateRef<any>,
+    templateRef: TemplateRef<unknown>,
     renderer: Renderer2,
     elementRef: ElementRef,
     private router: Router
@@ -30,20 +38,33 @@ export class GenericLinkDirective extends LinkDirective {
     super(viewContainer, templateRef, renderer, elementRef);
   }
 
-  protected renderTemplate(props: any, linkText: string) {
+  protected renderTemplate(props: { [key: string]: string }, linkText: string) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
 
     viewRef.rootNodes.forEach((node) => {
-      Object.entries(props).forEach(([key, propValue]: [string, any]) => {
-        if (key === 'href' && !this.isAbsoluteUrl(propValue)) {
-          const urlTree = this.router.createUrlTree([propValue], this.extras);
-          this.renderer.setAttribute(node, key, this.router.serializeUrl(urlTree));
+      Object.entries(props).forEach(([key, propValue]: [string, string]) => {
+        if (key === 'href' && !isAbsoluteUrl(propValue)) {
+          const fragments = propValue.split('#');
+          const url = fragments[0];
+          const anchor = fragments[1];
+          const urlTree = this.router.createUrlTree([url], {
+            fragment: anchor,
+            ...this.extras,
+          });
+          this.updateAttribute(node, key, this.router.serializeUrl(urlTree));
           this.renderer.listen(node, 'click', (event) => {
-            this.router.navigate([propValue], this.extras);
-            event.preventDefault();
+            this.router.navigate([url], {
+              fragment: anchor,
+              ...this.extras,
+            });
+
+            // shouldn't prevent default if the link includes a fragment
+            if (!anchor) {
+              event.preventDefault();
+            }
           });
         } else {
-          this.renderer.setAttribute(node, key, propValue);
+          this.updateAttribute(node, key, propValue);
         }
       });
 
@@ -51,16 +72,5 @@ export class GenericLinkDirective extends LinkDirective {
         node.textContent = linkText;
       }
     });
-  }
-
-  private isAbsoluteUrl(url?: string) {
-    if (url === null) {
-      return false;
-    }
-    if (typeof url !== 'string') {
-      throw new TypeError('Expected a string');
-    }
-
-    return /^[a-z][a-z0-9+.-]*:/.test(url);
   }
 }

@@ -3,6 +3,7 @@
 import { mount } from '@vue/test-utils';
 import { richTextField as eeRichTextData } from '../test/data/field-data-EE-on';
 import { RichText } from './RichText';
+import { describe, it, expect } from '@jest/globals';
 
 describe('<RichText />', () => {
   it('should render nothing with missing field', () => {
@@ -10,9 +11,12 @@ describe('<RichText />', () => {
     // that is marked as required.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
     const rendered = mount(RichText);
-    expect(rendered.isEmpty()).toBe(true);
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 
   it('should render nothing with missing editable and value', () => {
@@ -23,9 +27,23 @@ describe('<RichText />', () => {
     // that is marked as an Object.
     const errorSpy = jest.spyOn(console, 'error');
     errorSpy.mockImplementation(() => {});
-    const rendered = mount(RichText, { context: { props } });
-    expect(rendered.isEmpty()).toBe(true);
+    const warnSpy = jest.spyOn(console, 'warn');
+    warnSpy.mockImplementation(() => {});
+    const rendered = mount(RichText, { props });
+    expect(rendered.element.innerHTML).toBe(undefined);
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
+  });
+
+  it('should render nothing if empty value', () => {
+    const props = {
+      field: {
+        value: '',
+      },
+    };
+    const rendered = mount(RichText, { props });
+    const hasChildNodes = rendered.element.hasChildNodes();
+    expect(hasChildNodes).toBe(false);
   });
 
   it('should render editable with editable value', () => {
@@ -35,7 +53,7 @@ describe('<RichText />', () => {
         editable: 'editable',
       },
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.element.innerHTML).toBe(props.field.editable);
   });
 
@@ -47,7 +65,7 @@ describe('<RichText />', () => {
       },
       editable: false,
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
 
@@ -57,18 +75,21 @@ describe('<RichText />', () => {
         value: 'value',
       },
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
 
-  it('should render embedded html as-is', () => {
+  it('should render embedded html as-is and use default tag', () => {
     const props = {
       field: {
         value: '<input type="text">some crazy stuff<script code="whaaaat">uh oh</script>',
       },
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props });
     expect(rendered.element.innerHTML).toBe(props.field.value);
+
+    const input = rendered.find('input');
+    expect(input.element.parentElement.tagName).toBe('DIV');
   });
 
   it('should render ee HTML', () => {
@@ -77,7 +98,7 @@ describe('<RichText />', () => {
         editable: eeRichTextData,
       },
     };
-    const rendered = mount(RichText, { context: { props } }).find('div');
+    const rendered = mount(RichText, { props }).find('div');
     expect(rendered.html().indexOf('<input')).toBeGreaterThan(-1);
     expect(rendered.html().indexOf('<span class="scChromeData">')).toBeGreaterThan(-1);
   });
@@ -89,7 +110,7 @@ describe('<RichText />', () => {
       },
       tag: 'p',
     };
-    const rendered = mount(RichText, { context: { props } }).find('p');
+    const rendered = mount(RichText, { props }).find('p');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.innerHTML).toBe(props.field.value);
   });
@@ -105,10 +126,82 @@ describe('<RichText />', () => {
       class: 'cssClass',
       id: 'lorem',
     };
-    const rendered = mount(RichText, { context: { props, attrs } }).find('h1');
+    const rendered = mount(RichText, { props, attrs }).find('h1');
     expect(rendered.exists()).toBe(true);
     expect(rendered.element.tagName).toBe(props.tag.toUpperCase());
     expect(rendered.attributes()).toMatchObject(attrs);
     expect(rendered.element.innerHTML).toBe(props.field.value);
+  });
+
+  it('Should render and initialize links', async () => {
+    const mockRouter = {
+      push: jest.fn(),
+    };
+
+    const props = {
+      field: {
+        value:
+          '<div id="test"><h1>Hello!</h1><a href="/styleguide">1<span>nested</span></a><a href="/graphql#hash">2</a></div>',
+      },
+    };
+    const rendered = mount(RichText, {
+      props,
+      global: {
+        mocks: {
+          $router: mockRouter,
+        },
+      },
+    });
+
+    expect(rendered.element.innerHTML).toContain('<a href="/styleguide">1<span>nested</span></a>');
+    expect(rendered.element.innerHTML).toContain('<a href="/graphql#hash">2</a>');
+
+    // Make sure eventListener in not passed to wrong element
+    await rendered.find('#test').trigger('click');
+    expect(mockRouter.push).toHaveBeenCalledTimes(0);
+
+    await rendered.find('span').trigger('click');
+    expect(mockRouter.push).toHaveBeenCalledTimes(1);
+    expect(mockRouter.push).toHaveBeenCalledWith('/styleguide');
+
+    const [link1, link2] = rendered.findAll('a');
+    link1 && (await link1.trigger('click'));
+    expect(mockRouter.push).toHaveBeenCalledTimes(2);
+    expect(mockRouter.push).toHaveBeenCalledWith('/styleguide');
+    link2 && (await link2.trigger('click'));
+    expect(mockRouter.push).toHaveBeenCalledTimes(3);
+    expect(mockRouter.push).toHaveBeenCalledWith('/graphql#hash');
+  });
+
+  it('should not initialize links when editable', async () => {
+    const mockRouter = {
+      push: jest.fn(),
+    };
+
+    const props = {
+      field: {
+        value: '<div>old value</div>',
+        editable:
+          '<div id="test"><a href="/styleguide">1<span>nested</span></a><a href="/graphql#hash">2</a></div>',
+      },
+      editable: true,
+    };
+    const rendered = mount(RichText, {
+      props,
+      global: {
+        mocks: {
+          $router: mockRouter,
+        },
+      },
+    });
+
+    await rendered.find('span').trigger('click');
+    expect(mockRouter.push).toHaveBeenCalledTimes(0);
+
+    const [link1, link2] = rendered.findAll('a');
+    link1 && (await link1.trigger('click'));
+    expect(mockRouter.push).toHaveBeenCalledTimes(0);
+    link2 && (await link2.trigger('click'));
+    expect(mockRouter.push).toHaveBeenCalledTimes(0);
   });
 });

@@ -12,7 +12,7 @@ export const tryParseJson = (jsonString: string) => {
   return null;
 };
 
-export const buildQueryString = (params: any) =>
+export const buildQueryString = (params: { [key: string]: string | number | boolean }) =>
   Object.keys(params)
     .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
     .join('&');

@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+import { ManifestInstance } from '../index';
 
 export type CustomizeRenderFunction = (
   transformedRendering: any,

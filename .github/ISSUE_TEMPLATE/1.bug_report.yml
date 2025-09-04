@@ -1,0 +1,38 @@
+name: Bug Report
+description: Create a bug report for the JSS
+labels: ['🐞 bug']
+body:
+  - type: textarea
+    attributes:
+      label: Describe the Bug
+      description: Provide clear and concise description of the issue, and why you consider it to be a bug.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior, please provide a clear description of how to reproduce the issue, screenshots.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: Provide a clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Possible Fix
+      description: Not obligatory, but suggest a fix or reason for the bug.
+  - type: textarea
+    attributes:
+      label: Provide environment information
+      description: Include as many relevant details about the environment you experienced the bug in.
+      value: |
+        * Sitecore Version:
+        * JSS Version:
+        * Browser Name and version:
+        * Operating System and version (desktop or mobile):
+        * Link to your project (if available):
+    validations:
+      required: true

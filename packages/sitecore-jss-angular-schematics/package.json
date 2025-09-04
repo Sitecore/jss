@@ -1,34 +1,39 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular-schematics",
-  "version": "16.0.0-canary.28",
+  "version": "22.10.0-canary.3",
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "test-package": "jasmine src/**/*_spec.js",
+    "test": "npm run build && npm run test-package",
+    "coverage": "nyc npm run test-package",
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-angular-schematics src/jss-component/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=8.1"
+    "node": ">=22"
   },
   "author": {
     "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "url": "https://jss.sitecore.com"
   },
   "license": "Apache-2.0",
-  "homepage": "https://jss.sitecore.net",
+  "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/schematics": "^10.0.7",
-    "@schematics/angular": "^10.0.7",
-    "chalk": "^2.4.2"
+    "@angular-devkit/core": "~18.2.14",
+    "@angular-devkit/schematics": "~18.2.14",
+    "@schematics/angular": "~18.2.14",
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@types/jasmine": "^2.8.0",
-    "@types/node": "^12.7.8",
+    "@types/node": "^22.9.0",
     "jasmine": "^2.99.0",
-    "typescript": "~3.9.7"
+    "nyc": "^17.1.0",
+    "typescript": "~5.9.2"
   },
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }

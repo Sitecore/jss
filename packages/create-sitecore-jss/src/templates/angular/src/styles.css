@@ -1,0 +1,34 @@
+a[target='_blank']:after {
+  content: '\1F5D7'
+}
+
+.logo {
+  background-image: url('assets/images/sc_logo.svg');
+  display: block;
+  height: 48px;
+  width: 221px;
+}
+
+/*
+  Hides Sitecore Experience Editor markup,
+  if you run the app in connected mode while the Sitecore cookies
+  are set to edit mode.
+*/
+.scChromeData, .scpm { display: none !important; }
+
+/* 
+  Style for default content block
+*/
+.contentTitle {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

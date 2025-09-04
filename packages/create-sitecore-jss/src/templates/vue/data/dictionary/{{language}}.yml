@@ -1,0 +1,7 @@
+styleguide-sample: '[<%- language %>] This is a dictionary entry in English as a demonstration'
+Documentation: '[<%- language %>] Documentation'
+Styleguide: '[<%- language %>] Styleguide'
+GraphQL: '[<%- language %>] GraphQL'
+page-not-found: '[<%- language %>] Page not found'
+hide-context-data: '[<%- language %>] Hide context data'
+show-context-data: '[<%- language %>] Show context data'

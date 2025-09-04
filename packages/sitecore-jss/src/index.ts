@@ -1,38 +1,28 @@
-import * as dataApi from './dataApi';
-import * as mediaApi from './mediaApi';
+// NOTE: all imports are now named as to not make breaking changes
+// and to keep react-native working with cjs modules.
 
-export { dataApi, mediaApi };
+import * as constants from './constants';
+import * as form from './form';
 
-export { GraphQLRequestClient } from './graphql-request-client';
-
-export { LayoutServiceRequestOptions } from './dataApi';
-
-export { AxiosDataFetcher, AxiosDataFetcherConfig } from './data-fetcher';
-
-export { LayoutService, LayoutServiceInstanceConfig, DataFetcherResolver } from './layout-service';
-
-export { DictionaryService, DictionaryServiceConfig } from './dictionary-service';
-
-export { isExperienceEditorActive, isServer, resetExperienceEditorChromes } from './util';
-
+export { default as debug, Debugger, enableDebug } from './debug';
+export { HttpDataFetcher, HttpResponse, fetchData, ResponseError } from './data-fetcher';
 export {
-  DictionaryPhrases,
-  DictionaryServiceData,
-  LayoutServiceData,
-  LayoutServicePageState,
-  LayoutServiceContext,
-  LayoutServiceContextData,
-  RouteData,
-  PlaceholderData,
-  ComponentRendering,
-  HtmlElementRendering,
-  Field,
-  Item,
-  PlaceholdersData,
-  ComponentFields,
-  ComponentParams,
-} from './dataModels';
-
-export { getFieldValue, getChildPlaceholder } from './layoutDataUtils';
-
-export { HttpJsonFetcher, HttpResponse } from './httpClientInterface';
+  RetryStrategy,
+  DefaultRetryStrategy,
+  GraphQLClient,
+  GraphQLRequestClient,
+  GraphQLRequestClientConfig,
+  GraphQLRequestClientFactory,
+  GraphQLRequestClientFactoryConfig,
+} from './graphql-request-client';
+export { CacheClient, CacheOptions, MemoryCacheClient } from './cache-client';
+export { ClientError } from 'graphql-request';
+export {
+  NativeDataFetcher,
+  NativeDataFetcherError,
+  NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+} from './native-fetcher';
+export { HTMLLink } from './models';
+export { constants };
+export { form };

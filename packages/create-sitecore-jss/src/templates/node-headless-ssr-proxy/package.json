@@ -1,0 +1,39 @@
+{
+  "name": "node-headless-ssr-proxy-sample",
+  "version": "0.1.0",
+  "description": "Node server-side-rendering proxy sample for running JSS apps under Node hosting",
+  "scripts": {
+    "start": "ts-node ./src/index.ts"
+  },
+  "author": {
+    "name": "Sitecore Corporation",
+    "url": "https://jss.sitecore.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sitecore/jss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sitecore/jss/issues"
+  },
+  "homepage": "https://jss.sitecore.com",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@sitecore-jss/sitecore-jss": "<%- version %>",
+    "@sitecore-jss/sitecore-jss-proxy": "<%- version %>",
+    "agentkeepalive": "^4.6.0",
+    "compression": "~1.7.4",
+    "express": "~5.1.0",
+    "memory-cache": "^0.2.0",
+    "dotenv": "^17.2.1"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/express": "^5.0.3",
+    "@types/memory-cache": "^0.2.2",
+    "@types/node": "^22.9.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.9.2"
+  },
+  "private": true
+}

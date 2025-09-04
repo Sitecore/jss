@@ -1,0 +1,21 @@
+{
+  "extension": [
+    ".ts",
+    ".tsx"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "src/tests",
+    "src/test-data",
+    "dist",
+    "**/sharedTypes.ts"
+  ],
+  "all": true,
+  "reporter": [
+    "cobertura",
+    "text"
+  ],
+  "require": ["ts-node/register/transpile-only"]
+}

@@ -1,22 +1,29 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { ANALYZE_FOR_ENTRY_COMPONENTS, ModuleWithProviders, NgModule, Type } from '@angular/core';
-import { ROUTES } from '@angular/router';
+import { Injector, ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
+import { ActivatedRoute, Router, ROUTES } from '@angular/router';
+import { dataResolverFactory } from './services/data-resolver-factory';
 import { DateDirective } from './components/date.directive';
 import { FileDirective } from './components/file.directive';
 import { GenericLinkDirective } from './components/generic-link.directive';
+import { guardResolverFactory } from './services/guard-resolver-factory';
 import { ImageDirective } from './components/image.directive';
 import { LinkDirective } from './components/link.directive';
 import { MissingComponentComponent } from './components/missing-component.component';
+import { HiddenRenderingComponent } from './components/hidden-rendering.component';
 import { PlaceholderLoadingDirective } from './components/placeholder-loading.directive';
 import { PlaceholderComponent } from './components/placeholder.component';
+import { EditFrameComponent } from './components/editframe.component';
 import {
   ComponentNameAndModule,
   ComponentNameAndType,
+  DATA_RESOLVER,
   DYNAMIC_COMPONENT,
+  GUARD_RESOLVER,
   PLACEHOLDER_COMPONENTS,
   PLACEHOLDER_LAZY_COMPONENTS,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
-} from './components/placeholder.token';
+  PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
+} from './services/placeholder.token';
 import { RawComponent } from './components/raw.component';
 import { RenderComponentComponent } from './components/render-component.component';
 import { RenderEachDirective } from './components/render-each.directive';
@@ -24,8 +31,10 @@ import { RenderEmptyDirective } from './components/render-empty.directive';
 import { RichTextDirective } from './components/rich-text.directive';
 import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
-import { JssComponentFactoryService } from './jss-component-factory.service';
-import { LayoutService } from './layout.service';
+import { JssComponentFactoryService } from './services/jss-component-factory.service';
+import { JssStateService } from './services/jss-state.service';
+import { EditingScriptsComponent } from './components/editing-scripts.component';
+import { FormComponent } from './components/form.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -45,6 +54,10 @@ import { LayoutService } from './layout.service';
     RichTextDirective,
     TextDirective,
     MissingComponentComponent,
+    HiddenRenderingComponent,
+    EditFrameComponent,
+    EditingScriptsComponent,
+    FormComponent,
   ],
   exports: [
     FileDirective,
@@ -57,11 +70,14 @@ import { LayoutService } from './layout.service';
     RenderEmptyDirective,
     RenderComponentComponent,
     PlaceholderComponent,
+    HiddenRenderingComponent,
     PlaceholderLoadingDirective,
     RichTextDirective,
     TextDirective,
+    EditFrameComponent,
+    EditingScriptsComponent,
+    FormComponent,
   ],
-  entryComponents: [RawComponent, MissingComponentComponent],
 })
 export class JssModule {
   /**
@@ -72,22 +88,37 @@ export class JssModule {
   static forRoot(): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
-      providers: [LayoutService, DatePipe, JssComponentFactoryService],
+      providers: [
+        DatePipe,
+        JssStateService,
+        JssComponentFactoryService,
+        {
+          provide: GUARD_RESOLVER,
+          useFactory: guardResolverFactory,
+          deps: [Injector, ActivatedRoute, Router],
+        },
+        {
+          provide: DATA_RESOLVER,
+          useFactory: dataResolverFactory,
+          deps: [Injector, ActivatedRoute, Router],
+        },
+      ],
     };
   }
 
   /**
-   * Instantiates a module for a lazy-loaded JSS component
-   * @param {Type<any>} component
+   * Instantiates a module for a lazy-loaded JSS component(s)
+   * @param {Type<unknown> | Record<string, Type<unknown>> } value - component or map of components
    * @returns {ModuleWithProviders<JssModule>} module
    */
-  static forChild(component: Type<any>): ModuleWithProviders<JssModule> {
+  static forChild(
+    value: Type<unknown> | { [key: string]: Type<unknown> }
+  ): ModuleWithProviders<JssModule> {
     return {
       ngModule: JssModule,
       providers: [
-        { provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: component, multi: true },
         { provide: ROUTES, useValue: [], multi: true },
-        { provide: DYNAMIC_COMPONENT, useValue: component },
+        { provide: DYNAMIC_COMPONENT, useValue: value },
       ],
     };
   }
@@ -106,16 +137,12 @@ export class JssModule {
     return {
       ngModule: JssModule,
       providers: [
-        {
-          provide: ANALYZE_FOR_ENTRY_COMPONENTS,
-          useValue: components,
-          multi: true,
-        },
         { provide: PLACEHOLDER_COMPONENTS, useValue: components },
         { provide: PLACEHOLDER_LAZY_COMPONENTS, useValue: lazyComponents || [] },
         { provide: ROUTES, useValue: lazyComponents || [], multi: true },
         { provide: PLACEHOLDER_MISSING_COMPONENT_COMPONENT, useValue: MissingComponentComponent },
-        ...(JssModule.forRoot().providers as any[]),
+        { provide: PLACEHOLDER_HIDDEN_RENDERING_COMPONENT, useValue: HiddenRenderingComponent },
+        ...(JssModule.forRoot().providers as Provider[]),
       ],
     };
   }

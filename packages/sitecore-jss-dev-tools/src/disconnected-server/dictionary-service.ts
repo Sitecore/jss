@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { DictionaryDefinition, ManifestInstance } from '@sitecore-jss/sitecore-jss-manifest';
+import { DictionaryDefinition, ManifestInstance } from '../index';
 
 /*
   Implements a fake version of the Sitecore JSS Dictionary Service that is powered by a local manifest file

@@ -107,8 +107,8 @@ describe('processEnv', () => {
 
   it('should not include environment files without NODE_ENV defined', () => {
     const files = [
-        { name: '.env.development', value: 'FOO=foo' },
-        { name: '.env.development.local', value: 'BAR=bar' }
+      { name: '.env.development', value: 'FOO=foo' },
+      { name: '.env.development.local', value: 'BAR=bar' },
     ];
     testTempEnv(files, () => {
       expect(process.env.FOO).to.be.undefined;

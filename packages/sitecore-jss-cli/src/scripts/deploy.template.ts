@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import chalk from 'chalk';
-import { Argv } from '../../node_modules/@types/yargs';
+import { Argv } from 'yargs';
 import microManifest from '../micro-manifest';
 
 /**
@@ -76,7 +76,7 @@ export function args(yargs: Argv) {
  * @param {Argv} argv
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function handler(argv: any) {
+export async function handler(argv: any) {
   // create micro-manifest to deploy from
   const fields: Array<{ name: string; type: string }> = [];
 

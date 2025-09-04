@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "lib": ["es2017"],
+    "typeRoots": ["node_modules/@types"],
+    "outDir": "dist",
+    "declarationDir": "./types"
+  },
+  "exclude": [
+    "node_modules",
+    "types",
+    "dist",
+    "scripts/*",
+    "src/templates/**/*",
+    "src/test",
+    "src/**/*.test.ts",
+    "src/**/test-data/**/*"
+  ]
+}

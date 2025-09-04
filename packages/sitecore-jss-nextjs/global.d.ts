@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-declare module 'style-attr';
-
 declare module 'sync-disk-cache' {
   export default import('sync-disk-cache').default;
 
@@ -14,10 +11,11 @@ declare module 'sync-disk-cache' {
 
 declare namespace NodeJS {
   export interface Global {
-    requestAnimationFrame: any;
-    window: any;
-    document: any;
-    navigator: any;
-    HTMLElement: any;
+    [key: string]: unknown;
+    requestAnimationFrame: (callback: () => void) => void;
+    window: Window;
+    document: Document;
+    navigator: Navigator;
+    HTMLElement: HTMLElement;
   }
 }

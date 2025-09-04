@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { HtmlElementRendering } from '@sitecore-jss/sitecore-jss';
+import { HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 
 @Component({
   selector: 'sc-raw',
@@ -16,7 +16,7 @@ export class RawComponent implements OnInit {
     const attributes = this.rendering.attributes;
     for (const attr in attributes) {
       // eslint-disable-next-line no-prototype-builtins
-      if ((attributes as any).hasOwnProperty(attr)) {
+      if (attributes.hasOwnProperty(attr)) {
         const value = attributes[attr];
         this.renderer.setAttribute(el, attr, value || '');
       }
