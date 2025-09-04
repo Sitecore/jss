@@ -6,7 +6,7 @@ import { EditableFieldProps } from './sharedTypes';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface DateFieldProps extends EditableFieldProps {
+export interface DateFieldProps extends EditableFieldProps<DateFieldProps> {
   /** The date field data. */
   [htmlAttributes: string]: unknown;
   field: FieldMetadata & {

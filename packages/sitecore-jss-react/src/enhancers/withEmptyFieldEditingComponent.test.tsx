@@ -70,6 +70,8 @@ describe('withEmptyFieldEditingComponent', () => {
       const expected = render(<DefaultEmptyFieldEditingComponentText />);
 
       expect(rendered.container.innerHTML).to.equal(expected.container.innerHTML);
+      expect(rendered.container.innerHTML).to.not.contain('field=');
+      expect(rendered.container.innerHTML).to.not.contain('editable');
     });
 
     it('Should render custom empty value component if provided via props if field value is not provided', () => {

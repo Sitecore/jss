@@ -38,7 +38,7 @@ export interface ImageSizeParameters {
   sc?: number;
 }
 
-export interface ImageProps extends EditableFieldProps {
+export interface ImageProps extends EditableFieldProps<ImageProps> {
   [attributeName: string]: unknown;
   /** Image field data (consistent with other field types) */
   field?: (ImageField | ImageFieldValue) & FieldMetadata;

@@ -501,7 +501,7 @@ describe('<Link />', () => {
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
           )}</code>`,
-          '<span>[No text in field]</span>',
+          '<span data-react-link="true">[No text in field]</span>',
           '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
         ].join('')
       );
@@ -524,7 +524,7 @@ describe('<Link />', () => {
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
           )}</code>`,
-          '<span>[No text in field]</span>',
+          '<span data-react-link="true">[No text in field]</span>',
           '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
         ].join('')
       );
