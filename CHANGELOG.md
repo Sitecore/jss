@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🎉 New Features & Improvements
+
+* `[Next.js]` Support component-level data fetching in 404/500 pages ([#2140](https://github.com/Sitecore/jss/pull/2140))
+
 ## 22.9.0
 
 ### 🐛 Bug Fixes
