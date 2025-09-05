@@ -1684,7 +1684,7 @@ describe('RedirectsMiddleware', () => {
           headers: {},
           redirected: undefined,
           status: 301,
-          url,
+          url: finalRes.url,
         });
 
         // ensure final redirect preserves `/en/`
