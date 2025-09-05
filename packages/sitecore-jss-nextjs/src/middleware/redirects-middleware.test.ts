@@ -1641,6 +1641,55 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
       });
+
+      it('should not strip default locale from external absolute URL', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const externalUrl = 'https://example.com/en/some-page';
+        const url = {
+          href: externalUrl,
+          pathname: '/en/some-page',
+          origin: 'https://example.com',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/ra',
+              href: 'http://localhost:3000/ra',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+        setupRedirectStub(301);
+
+        const { finalRes } = await runTestWithRedirect(
+          {
+            pattern: '/ra',
+            target: externalUrl,
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
+          headers: {},
+          redirected: undefined,
+          status: 301,
+          url,
+        });
+
+        // ✅ ensure final redirect preserves `/en/`
+        expect(finalRes.url).to.equal(externalUrl);
+      });
     });
 
     describe('should redirect to normalized path when nextjs specific "path" query string parameter is provided', () => {

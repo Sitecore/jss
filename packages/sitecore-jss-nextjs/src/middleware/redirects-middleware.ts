@@ -235,7 +235,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
         const targetParts = existsRedirect.target.split('/');
         const urlFirstPart = targetParts[1];
 
-        if (this.locales.includes(urlFirstPart)) {
+        if (
+          !REGEXP_ABSOLUTE_URL.test(existsRedirect.target) &&
+          this.locales.includes(urlFirstPart)
+        ) {
           req.nextUrl.locale = urlFirstPart;
           existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }
