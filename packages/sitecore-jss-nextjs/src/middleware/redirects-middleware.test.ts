@@ -1688,8 +1688,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         // ensure final redirect preserves `/en/`
-        const urlObj = (finalRes.url as unknown) as { href: string };
-        expect(urlObj.href).to.equal(externalUrl);
+        expect((finalRes.url as any).href).to.equal(externalUrl);
       });
     });
 
