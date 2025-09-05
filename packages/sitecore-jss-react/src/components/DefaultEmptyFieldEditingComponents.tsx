@@ -1,7 +1,10 @@
 import React from 'react';
 
-export const DefaultEmptyFieldEditingComponentText: React.FC = (props) => {
-  return <span {...props}>[No text in field]</span>;
+export const DefaultEmptyFieldEditingComponentText: React.FC<{
+  [key: string]: unknown;
+  tag?: string;
+}> = (props) => {
+  return React.createElement(props.tag || 'span', props, '[No text in field]');
 };
 
 export const DefaultEmptyFieldEditingComponentImage: React.FC = (props) => {
