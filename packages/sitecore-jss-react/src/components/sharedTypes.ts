@@ -21,7 +21,7 @@ export type JssComponentType = ComponentType & {
 /**
  * Shared editing field props
  */
-export interface EditableFieldProps {
+export interface EditableFieldProps<EmptyFieldEditingComponentProps = unknown> {
   /**
    * Can be used to explicitly disable inline editing.
    * If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
@@ -33,5 +33,7 @@ export interface EditableFieldProps {
    *
    * Custom element to render in Pages in Metadata edit mode if field value is empty
    */
-  emptyFieldEditingComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
+  emptyFieldEditingComponent?:
+    | React.ComponentClass<EmptyFieldEditingComponentProps>
+    | React.FC<EmptyFieldEditingComponentProps>;
 }

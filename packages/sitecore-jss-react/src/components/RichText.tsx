@@ -10,7 +10,7 @@ export interface RichTextField extends FieldMetadata {
   editable?: string;
 }
 
-export interface RichTextProps extends EditableFieldProps {
+export interface RichTextProps extends EditableFieldProps<RichTextProps> {
   [htmlAttributes: string]: unknown;
   /** The rich text field data. */
   field?: RichTextField;

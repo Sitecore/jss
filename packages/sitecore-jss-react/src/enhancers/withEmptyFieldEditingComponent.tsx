@@ -23,11 +23,11 @@ export interface WithEmptyFieldEditingComponentOptions {
 /*
  * represents the WithEmptyFieldEditingComponent HOC's props
  */
-interface WithEmptyFieldEditingComponentProps {
+interface WithEmptyFieldEditingComponentProps<Props> {
   // Partial<T> type is used here because _field.value_ could be required or optional for the different field types
   field?: (Partial<Field> | GenericFieldValue) & FieldMetadata;
   editable?: boolean;
-  emptyFieldEditingComponent?: React.ComponentClass | React.FC;
+  emptyFieldEditingComponent?: React.ComponentClass<Props> | React.FC<Props>;
 }
 
 /**
@@ -36,18 +36,31 @@ interface WithEmptyFieldEditingComponentProps {
  * @param {WithEmptyFieldEditingComponentProps} options the options of the HOC;
  */
 export function withEmptyFieldEditingComponent<
-  FieldComponentProps extends WithEmptyFieldEditingComponentProps,
+  FieldComponentProps extends WithEmptyFieldEditingComponentProps<FieldComponentProps>,
   RefElementType = HTMLElement
 >(
   FieldComponent: ComponentType<FieldComponentProps>,
   options: WithEmptyFieldEditingComponentOptions
 ) {
-  const getEmptyFieldEditingComponent = (
-    props: FieldComponentProps
-  ): React.ComponentClass | React.FC => {
+  const getEmptyFieldEditingComponent = (props: FieldComponentProps) => {
     const { editable = true } = props;
     if (props.field?.metadata && editable && isFieldValueEmpty(props.field)) {
-      return props.emptyFieldEditingComponent || options.defaultEmptyFieldEditingComponent;
+      const Component =
+        props.emptyFieldEditingComponent || options.defaultEmptyFieldEditingComponent;
+
+      let resolvedProps = props;
+
+      // If no custom empty field editing component is provided, we can omit unnecessary props
+      // to do not insert them to html
+      if (!props.emptyFieldEditingComponent) {
+        resolvedProps = {
+          ...props,
+          editable: undefined,
+          field: undefined,
+        };
+      }
+
+      return <Component {...resolvedProps} />;
     }
 
     return null;
@@ -56,28 +69,21 @@ export function withEmptyFieldEditingComponent<
   if (options.isForwardRef) {
     // eslint-disable-next-line react/display-name
     return forwardRef<RefElementType, FieldComponentProps>((props, ref) => {
-      const EmptyFieldEditingComponent = getEmptyFieldEditingComponent(
+      const emptyFieldEditingComponent = getEmptyFieldEditingComponent(
         props as FieldComponentProps
       );
+
       return (
-        <>
-          {(EmptyFieldEditingComponent && <EmptyFieldEditingComponent />) || (
-            <FieldComponent {...(props as FieldComponentProps)} ref={ref} />
-          )}
-        </>
+        emptyFieldEditingComponent || (
+          <FieldComponent {...(props as FieldComponentProps)} ref={ref} />
+        )
       );
     });
   }
 
   // eslint-disable-next-line react/display-name
   return (props: FieldComponentProps) => {
-    const EmptyFieldEditingComponent = getEmptyFieldEditingComponent(props);
-    return (
-      <>
-        {(EmptyFieldEditingComponent && <EmptyFieldEditingComponent />) || (
-          <FieldComponent {...props} />
-        )}
-      </>
-    );
+    const emptyFieldEditingComponent = getEmptyFieldEditingComponent(props);
+    return emptyFieldEditingComponent || <FieldComponent {...props} />;
   };
 }

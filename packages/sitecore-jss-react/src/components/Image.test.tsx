@@ -372,8 +372,10 @@ describe('<Image />', () => {
         metadata: testMetadata,
       };
 
-      const rendered = render(<Image field={field} />);
-      const defaultEmptyImagePlaceholder = render(<DefaultEmptyFieldEditingComponentImage />);
+      const rendered = render(<Image field={field} className="my-custom-class" />);
+      const defaultEmptyImagePlaceholder = render(
+        <DefaultEmptyFieldEditingComponentImage className="my-custom-class" />
+      );
       expect(rendered.container.innerHTML).to.equal(
         [
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
@@ -383,6 +385,8 @@ describe('<Image />', () => {
           '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
         ].join('')
       );
+      expect(rendered.container.innerHTML).to.contain('my-custom-class');
+      expect(rendered.container.innerHTML).to.contain('scEmptyImage');
     });
 
     it('should render custom empty field component when provided, when field value src is not present', () => {
