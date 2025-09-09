@@ -16,7 +16,7 @@ Returns the passed field component or default component in case field value is e
 
 | Type Parameter | Default type |
 | ------ | ------ |
-| `FieldComponentProps` *extends* `WithEmptyFieldEditingComponentProps` | - |
+| `FieldComponentProps` *extends* `WithEmptyFieldEditingComponentProps`\<`FieldComponentProps`\> | - |
 | `RefElementType` | `HTMLElement` |
 
 ## Parameters

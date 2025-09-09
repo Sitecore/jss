@@ -6,7 +6,7 @@
 
 # Class: JssStateService\<State\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:17](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L17)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:17](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L17)
 
 The service that is used to store and retrieve the current state of the app.
 Referenced by the SDK to get the current state of the app.
@@ -23,7 +23,7 @@ Referenced by the SDK to get the current state of the app.
 
 > **new JssStateService**\<`State`\>(`transferState`): `JssStateService`\<`State`\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
 
 #### Parameters
 
@@ -41,7 +41,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20]
 
 > `protected` **transferState**: `TransferState`
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
 
 ## Accessors
 
@@ -51,7 +51,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20]
 
 > **get** **state**(): `Observable`\<`State`\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:27](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L27)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:27](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L27)
 
 Observable JSS state to subscribe to
 
@@ -67,7 +67,7 @@ Observable JSS state to subscribe to
 
 > **get** **stateValue**(): `State`
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:34](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L34)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:34](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L34)
 
 The 'here and now' state value, usable without subscribing
 
@@ -81,7 +81,7 @@ The 'here and now' state value, usable without subscribing
 
 > **setState**(`newState`): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:42](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L42)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:42](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L42)
 
 Set new JSS state
 

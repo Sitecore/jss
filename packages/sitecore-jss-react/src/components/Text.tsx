@@ -10,7 +10,7 @@ export interface TextField extends FieldMetadata {
   editable?: string;
 }
 
-export interface TextProps extends EditableFieldProps {
+export interface TextProps extends EditableFieldProps<TextProps> {
   [htmlAttributes: string]: unknown;
   /** The text field data. */
   field?: TextField;

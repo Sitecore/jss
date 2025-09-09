@@ -69,7 +69,7 @@ declare context: React.ContextType<typeof MyContext>
 
 #### Inherited from
 
-`React.Component.context`
+[`SitecoreContext`](SitecoreContext.md).[`context`](SitecoreContext.md#context)
 
 ***
 

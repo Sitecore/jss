@@ -6,6 +6,6 @@
 
 # Variable: DefaultEmptyFieldEditingComponentImage
 
-> `const` **DefaultEmptyFieldEditingComponentImage**: `React.FC`
+> `const` **DefaultEmptyFieldEditingComponentImage**: `React.FC`\<\{\[`key`: `string`\]: `unknown`; `className?`: `string`; \}\>
 
-Defined in: [packages/sitecore-jss-react/src/components/DefaultEmptyFieldEditingComponents.tsx:7](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss-react/src/components/DefaultEmptyFieldEditingComponents.tsx#L7)
+Defined in: [packages/sitecore-jss-react/src/components/DefaultEmptyFieldEditingComponents.tsx:10](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss-react/src/components/DefaultEmptyFieldEditingComponents.tsx#L10)

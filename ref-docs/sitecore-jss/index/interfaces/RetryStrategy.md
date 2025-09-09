@@ -6,7 +6,7 @@
 
 # Interface: RetryStrategy
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss/src/graphql-request-client.ts#L42)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss/src/graphql-request-client.ts#L42)
 
 Defines the strategy for retrying GraphQL requests based on errors and attempts.
 
@@ -16,7 +16,7 @@ Defines the strategy for retrying GraphQL requests based on errors and attempts.
 
 > **getDelay**(`error`, `attempt`): `number`
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:57](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss/src/graphql-request-client.ts#L57)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:57](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss/src/graphql-request-client.ts#L57)
 
 Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
 
@@ -39,7 +39,7 @@ The delay in milliseconds before the next retry.
 
 > **shouldRetry**(`error`, `attempt`, `retries`): `boolean`
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/bdc8f76064287c910d10b001499db419045ec6ef/packages/sitecore-jss/src/graphql-request-client.ts#L50)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/2dc309bb1fbf301036698606d773ead69d7c1413/packages/sitecore-jss/src/graphql-request-client.ts#L50)
 
 Determines whether a request should be retried based on the given error and attempt count.
 
