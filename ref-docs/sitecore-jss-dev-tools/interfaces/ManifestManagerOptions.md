@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,15 +6,15 @@
 
 # Interface: ManifestManagerOptions
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:12](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L12)
+
 ## Properties
 
 ### appName?
 
 > `optional` **appName**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L19)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L19)
 
 ***
 
@@ -22,9 +22,7 @@
 
 > `optional` **outputPath**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L17)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L17)
 
 ***
 
@@ -32,9 +30,7 @@
 
 > `optional` **pipelinePatchFiles**: `string`[]
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L18)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L18)
 
 ***
 
@@ -42,9 +38,7 @@
 
 > `optional` **requireArg**: `null` \| `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L16)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L16)
 
 ***
 
@@ -52,9 +46,7 @@
 
 > `optional` **rootPath**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L13)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L13)
 
 ***
 
@@ -62,9 +54,7 @@
 
 > `optional` **sourceFiles**: `string`[]
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L14)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L14)
 
 ***
 
@@ -72,6 +62,4 @@
 
 > `optional` **watchOnlySourceFiles**: `string`[]
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:15](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L15)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:15](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L15)

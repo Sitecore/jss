@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,20 +6,24 @@
 
 # Type Alias: GraphQLRequestClientFactoryConfig
 
-> **GraphQLRequestClientFactoryConfig**: `object`
+> **GraphQLRequestClientFactoryConfig** = `object`
+
+Defined in: sitecore-jss/types/graphql-request-client.d.ts:95
 
 Configuration type for
 
-## Type declaration
+## Properties
 
 ### apiKey?
 
 > `optional` **apiKey**: `string`
 
+Defined in: sitecore-jss/types/graphql-request-client.d.ts:97
+
+***
+
 ### endpoint
 
 > **endpoint**: `string`
 
-## Defined in
-
-sitecore-jss/types/graphql-request-client.d.ts:95
+Defined in: sitecore-jss/types/graphql-request-client.d.ts:96

@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef, JSX } from 'react';
 import { useRouter } from 'next/router';
 import {
   RichText as ReactRichText,
-  RichTextPropTypes,
   RichTextProps as ReactRichTextProps,
 } from '@sitecore-jss/sitecore-jss-react';
 
@@ -17,12 +15,15 @@ export type RichTextProps = ReactRichTextProps & {
   /**
    * Controls the prefetch of internal links. This can be beneficial if you have RichText fields
    * with large numbers of internal links in them.
+   * - `true` (default): The full route & its data will be prefetched.
+   * - `hover`: Prefetching will happen on hover.
+   * - `false`: Prefetching will not happen.
    * @default true
    */
-  prefetchLinks?: boolean;
+  prefetchLinks?: boolean | 'hover';
 };
 
-const prefetched: { [cacheKey: string]: boolean } = {};
+export const prefetched: { [cacheKey: string]: boolean } = {};
 
 export const RichText = (props: RichTextProps): JSX.Element => {
   const {
@@ -38,7 +39,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
   const richTextRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // NOT IN EXPERIENCE EDITOR
+    // NOT IN EDIT MODE
     if (hasText && !isEditing) {
       initializeLinks();
     }
@@ -65,9 +66,26 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     internalLinks.forEach((link) => {
       if (link.target === '_blank') return;
 
-      if (prefetchLinks && !prefetched[link.pathname]) {
+      const prefetch = () => {
         router.prefetch(link.pathname, undefined, { locale: false });
+
         prefetched[link.pathname] = true;
+      };
+
+      if (!prefetched[link.pathname] && prefetchLinks !== false) {
+        if (prefetchLinks === true) {
+          prefetch();
+        }
+
+        if (prefetchLinks === 'hover') {
+          const mouseOverHandler = () => {
+            prefetch();
+
+            link.removeEventListener('mouseover', mouseOverHandler);
+          };
+
+          link.addEventListener('mouseover', mouseOverHandler, false);
+        }
       }
 
       link.addEventListener('click', routeHandler, false);
@@ -75,11 +93,6 @@ export const RichText = (props: RichTextProps): JSX.Element => {
   };
 
   return <ReactRichText ref={richTextRef} editable={editable} {...rest} />;
-};
-
-RichText.propTypes = {
-  internalLinksSelector: PropTypes.string,
-  ...RichTextPropTypes,
 };
 
 RichText.displayName = 'NextRichText';

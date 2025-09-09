@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse, Agent } from 'http';
 import { Agent as HttpsAgent } from 'https';
-import { Options } from 'http-proxy-middleware';
+import { LegacyOptions as Options } from 'http-proxy-middleware';
 import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
 import { RouteUrlParser } from '../../types/RouteUrlParser';
 

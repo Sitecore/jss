@@ -1,3 +1,4 @@
+﻿import { NativeDataFetcherFunction } from './native-fetcher';
 import { resolveUrl } from './utils/utils';
 import { ParsedUrlQueryInput } from 'querystring';
 
@@ -16,7 +17,7 @@ export interface HttpResponse<T> {
 
 /**
  * Describes functions that fetch data asynchronously (i.e. from an API endpoint).
- * This interface conforms to Axios' public API, but is adaptable to other HTTP libraries and
+ * This interface conforms to 'fetch' public API, but is adaptable to other HTTP libraries and
  * fetch polyfills.
  * The interface implementation must:
  * - Support SSR
@@ -37,32 +38,15 @@ export class ResponseError extends Error {
 }
 
 /**
- * @param {HttpResponse<T>} response the response to check
- * @throws {ResponseError} if response code is not ok
- */
-export function checkStatus<T>(response: HttpResponse<T>) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-
-  const error = new ResponseError(response.statusText, response);
-  throw error;
-}
-
-/**
  * @param {string} url the URL to request; may include query string
- * @param {HttpDataFetcher} fetcher the fetcher to use to perform the request
+ * @param {HttpDataFetcher<T> | NativeDataFetcherFunction<T>} fetcher the fetcher to use to perform the request
  * @param {ParsedUrlQueryInput} params the query string parameters to send with the request
  */
-export function fetchData<T>(
+export async function fetchData<T>(
   url: string,
-  fetcher: HttpDataFetcher<T>,
+  fetcher: HttpDataFetcher<T> | NativeDataFetcherFunction<T>,
   params: ParsedUrlQueryInput = {}
-) {
-  return fetcher(resolveUrl(url, params))
-    .then(checkStatus)
-    .then((response) => {
-      // axios auto-parses JSON responses, don't need to JSON.parse
-      return response.data;
-    });
+): Promise<T> {
+  const response = await fetcher(resolveUrl(url, params));
+  return response.data;
 }

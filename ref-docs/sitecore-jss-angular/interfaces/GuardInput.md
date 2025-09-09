@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,25 +6,31 @@
 
 # Interface: GuardInput
 
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:86](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L86)
+
 ## Properties
 
 ### activatedRoute
 
 > **activatedRoute**: `ActivatedRouteSnapshot`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:80](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L80)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:87](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L87)
 
 ***
 
 ### rendering
 
-> **rendering**: [`ComponentRendering`](ComponentRendering.md)\<[`ComponentFields`](ComponentFields.md)\>
+> **rendering**: [`ComponentRendering`](ComponentRendering.md)
 
-#### Defined in
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:89](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L89)
 
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:82](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L82)
+***
+
+### router
+
+> **router**: `Router`
+
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:90](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L90)
 
 ***
 
@@ -32,6 +38,4 @@
 
 > **routerState**: `RouterStateSnapshot`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/placeholder.token.ts:81](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L81)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:88](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L88)

@@ -2,12 +2,10 @@ export {
   constants,
   // generic data access
   HttpDataFetcher,
-  HttpResponse,
-  AxiosResponse,
-  AxiosDataFetcher,
-  AxiosDataFetcherConfig,
   NativeDataFetcher,
   NativeDataFetcherConfig,
+  NativeDataFetcherResponse,
+  NativeDataFetcherError,
   HTMLLink,
   enableDebug,
   debug,
@@ -39,7 +37,9 @@ export {
   ComponentParams,
   getContentStylesheetLink,
   EditMode,
+  RenderingType,
 } from '@sitecore-jss/sitecore-jss/layout';
+export { RestComponentLayoutService } from '@sitecore-jss/sitecore-jss/editing';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   trackingApi,
@@ -130,6 +130,7 @@ export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
 export {
   ComponentFactory,
+  Form,
   Image,
   ImageField,
   ImageFieldValue,
@@ -147,10 +148,11 @@ export {
   BYOCComponentParams,
   BYOCComponent,
   BYOCComponentProps,
-  getComponentLibraryStylesheetLinks,
+  getDesignLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,
+  DesignLibrary,
   DefaultEmptyFieldEditingComponentImage,
   DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,

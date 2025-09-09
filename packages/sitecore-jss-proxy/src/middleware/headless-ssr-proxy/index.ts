@@ -1,7 +1,10 @@
 import { IncomingMessage, ServerResponse, ClientRequest, IncomingHttpHeaders } from 'http';
 import { Request, RequestHandler, Response } from 'express';
 import { ServerOptions } from 'http-proxy';
-import { createProxyMiddleware, Options } from 'http-proxy-middleware';
+import {
+  legacyCreateProxyMiddleware as createProxyMiddleware,
+  LegacyOptions as Options,
+} from 'http-proxy-middleware';
 import HttpStatus from 'http-status-codes';
 import setCookieParser, { Cookie } from 'set-cookie-parser';
 import zlib from 'zlib'; // node.js standard lib
@@ -563,7 +566,8 @@ function createOptions(
     target: config.apiHost,
     changeOrigin: true, // required otherwise need to include CORS headers
     ws: config.ws || false,
-    pathRewrite: (reqPath, req) => rewriteRequestPath(reqPath, req, config, parseRouteUrl),
+    pathRewrite: (reqPath, req) =>
+      rewriteRequestPath(reqPath, req as Request, config, parseRouteUrl),
     logLevel: config.debug ? 'debug' : 'info',
     onProxyReq: (proxyReq, req, res, options) =>
       handleProxyRequest(proxyReq, req, res, options, config, customOnProxyReq),

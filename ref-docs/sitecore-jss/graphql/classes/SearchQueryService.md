@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [graphql](../README.md) / SearchQueryService
 
-# Class: ~~SearchQueryService\<T\>~~
+# ~~Class: SearchQueryService\<T\>~~
+
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:87](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql/search-service.ts#L87)
 
 ## Deprecated
 
@@ -22,9 +24,11 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 ## Constructors
 
-### new SearchQueryService()
+### Constructor
 
-> **new SearchQueryService**\<`T`\>(`client`): [`SearchQueryService`](SearchQueryService.md)\<`T`\>
+> **new SearchQueryService**\<`T`\>(`client`): `SearchQueryService`\<`T`\>
+
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql/search-service.ts#L92)
 
 Creates an instance of search query service.
 
@@ -36,11 +40,7 @@ Creates an instance of search query service.
 
 #### Returns
 
-[`SearchQueryService`](SearchQueryService.md)\<`T`\>
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/graphql/search-service.ts#L92)
+`SearchQueryService`\<`T`\>
 
 ## Properties
 
@@ -48,17 +48,17 @@ Creates an instance of search query service.
 
 > `protected` **client**: [`GraphQLClient`](../../index/interfaces/GraphQLClient.md)
 
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql/search-service.ts#L92)
+
 that fetches data from a GraphQL endpoint.
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/graphql/search-service.ts#L92)
 
 ## Methods
 
 ### ~~fetch()~~
 
 > **fetch**(`query`, `args`): `Promise`\<`T`[]\>
+
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:105](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql/search-service.ts#L105)
 
 1. Validates mandatory search query arguments
 2. Executes search query with pagination
@@ -84,7 +84,3 @@ if a valid root item ID is not provided.
 #### Throws
 
 if the provided language(s) is(are) not valid.
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql/search-service.ts:105](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/graphql/search-service.ts#L105)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: GenerateRouteItemPipelineArgs
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:413](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L413)
+
 ## Indexable
 
- \[`key`: `string`\]: `any`
+\[`key`: `string`\]: `any`
 
 ## Properties
 
@@ -16,9 +18,7 @@
 
 > **components**: [`ComponentDefinition`](ComponentDefinition.md)[]
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:416](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L416)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:416](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L416)
 
 ***
 
@@ -26,11 +26,13 @@
 
 > **datasourceDisplayNamer**: (`__namedParameters`) => `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:431](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L431)
+
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | `object` |
+| `__namedParameters` | \{ `index`: `number`; `item`: `any`; `placeholder`: `any`; `rendering`: `any`; \} |
 | `__namedParameters.index` | `number` |
 | `__namedParameters.item` | `any` |
 | `__namedParameters.placeholder` | `any` |
@@ -39,10 +41,6 @@
 #### Returns
 
 `string`
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:431](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L431)
 
 ***
 
@@ -50,11 +48,13 @@
 
 > **datasourceNamer**: (`__namedParameters`) => `string`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:420](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L420)
+
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | `object` |
+| `__namedParameters` | \{ `index`: `number`; `item`: `any`; `placeholder`: `any`; `rendering`: `any`; \} |
 | `__namedParameters.index` | `number` |
 | `__namedParameters.item` | `any` |
 | `__namedParameters.placeholder` | `any` |
@@ -64,15 +64,13 @@
 
 `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:420](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L420)
-
 ***
 
 ### dynamicPlaceholderKeyGenerator()
 
 > **dynamicPlaceholderKeyGenerator**: (`key`, `rendering`, `parentKey`) => `string`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:419](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L419)
 
 #### Parameters
 
@@ -86,25 +84,21 @@
 
 `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:419](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L419)
-
 ***
 
 ### item
 
 > **item**: `any`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:418](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L418)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:418](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L418)
 
 ***
 
 ### onRenderingProcessed()?
 
 > `optional` **onRenderingProcessed**: (`rendering`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:440](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L440)
 
 #### Parameters
 
@@ -116,23 +110,17 @@
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:440](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L440)
-
 ***
 
 ### pipelines
 
 > **pipelines**: `object`
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:417](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L417)
+
 #### Index Signature
 
- \[`key`: `string`\]: [`ExecutablePipeline`](ExecutablePipeline.md)
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:417](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L417)
+\[`key`: `string`\]: [`ExecutablePipeline`](ExecutablePipeline.md)
 
 ***
 
@@ -140,6 +128,4 @@
 
 > **route**: [`RouteDefinition`](RouteDefinition.md)
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:415](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L415)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:415](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L415)

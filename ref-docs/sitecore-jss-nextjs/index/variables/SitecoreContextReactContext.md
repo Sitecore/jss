@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -8,6 +8,4 @@
 
 > `const` **SitecoreContextReactContext**: `React.Context`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md)\>
 
-## Defined in
-
-sitecore-jss-react/types/components/SitecoreContext.d.ts:15
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:34

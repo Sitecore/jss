@@ -1,5 +1,5 @@
 import { BYOCComponentProps, BYOCComponent } from './BYOCComponent';
-import React from 'react';
+import React, { JSX } from 'react';
 
 export const BYOC_WRAPPER_RENDERING_NAME = 'BYOCWrapper';
 

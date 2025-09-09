@@ -6,17 +6,68 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import {
   editingDataService,
+  isDesignLibraryPreviewData,
   isEditingMetadataPreviewData,
 } from '@sitecore-jss/sitecore-jss-nextjs/editing';
 import { SitecorePageProps } from 'lib/page-props';
 import { graphQLEditingService } from 'lib/graphql-editing-service';
 import { Plugin } from '..';
+import { RestComponentLayoutService } from '@sitecore-jss/sitecore-jss-nextjs';
+import config from 'temp/config';
 
 class PreviewModePlugin implements Plugin {
   order = 1;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (!context.preview) return props;
+
+    if (isDesignLibraryPreviewData(context.previewData)) {
+      const {
+        itemId,
+        componentUid,
+        site,
+        language,
+        renderingId,
+        dataSourceId,
+        version,
+        mode,
+      } = context.previewData;
+
+      const componentService = new RestComponentLayoutService({
+        sitecoreEdgeContextId: config.sitecoreEdgeContextId,
+        sitecoreEdgeUrl: config.sitecoreEdgeUrl,
+      });
+
+      const componentData = await componentService.fetchComponentData({
+        siteName: site,
+        itemId,
+        language,
+        componentUid,
+        renderingId,
+        dataSourceId,
+        version,
+        mode,
+      });
+
+      if (!componentData) {
+        throw new Error(
+          `Unable to fetch editing data for preview ${JSON.stringify(context.previewData)}`
+        );
+      }
+
+      // we can reuse editing service, fortunately
+      const dictionaryData = await graphQLEditingService.fetchDictionaryData({
+        siteName: site,
+        language,
+      });
+
+      props.locale = context.previewData.language;
+      props.layoutData = componentData;
+      props.headLinks = [];
+      props.dictionary = dictionaryData;
+
+      return props;
+    }
 
     // If we're in Pages preview (editing) Metadata Edit Mode, prefetch the editing data
     if (isEditingMetadataPreviewData(context.previewData)) {

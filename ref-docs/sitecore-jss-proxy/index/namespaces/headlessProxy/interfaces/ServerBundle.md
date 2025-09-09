@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md)
 
 ***
 
@@ -6,11 +6,13 @@
 
 # Interface: ServerBundle
 
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:20](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L20)
+
 Interface for the server.bundle.js file
 
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -18,9 +20,7 @@ Interface for the server.bundle.js file
 
 > **apiKey**: `string`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:24](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L24)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:24](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L24)
 
 ***
 
@@ -28,9 +28,7 @@ Interface for the server.bundle.js file
 
 > **appName**: `string`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:22](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L22)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:22](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L22)
 
 ***
 
@@ -38,9 +36,7 @@ Interface for the server.bundle.js file
 
 > **parseRouteUrl**: [`RouteUrlParser`](../../../type-aliases/RouteUrlParser.md)
 
-#### Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:26](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L26)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:26](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L26)
 
 ***
 
@@ -48,15 +44,15 @@ Interface for the server.bundle.js file
 
 > **renderView**: [`AppRenderer`](../../../type-aliases/AppRenderer.md)
 
-#### Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:25](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L25)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:25](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L25)
 
 ***
 
 ### setUpDefaultAgents()?
 
 > `optional` **setUpDefaultAgents**: (`httpAgent`, `httpsAgent`) => `void`
+
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:27](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L27)
 
 #### Parameters
 
@@ -69,16 +65,10 @@ Interface for the server.bundle.js file
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:27](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L27)
-
 ***
 
 ### siteName
 
 > **siteName**: `string`
 
-#### Defined in
-
-[sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:23](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L23)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:23](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L23)

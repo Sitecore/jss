@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,34 +6,54 @@
 
 # Type Alias: ChromeCommand
 
-> **ChromeCommand**: `object`
+> **ChromeCommand** = `object`
 
-## Type declaration
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L2)
+
+## Properties
 
 ### click
 
 > **click**: `string`
 
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:4](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L4)
+
+***
+
 ### header
 
 > **header**: `string`
+
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:5](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L5)
+
+***
 
 ### icon
 
 > **icon**: `string`
 
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:6](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L6)
+
+***
+
 ### isDivider
 
 > **isDivider**: `boolean`
+
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:3](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L3)
+
+***
 
 ### tooltip
 
 > **tooltip**: `string` \| `null`
 
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:7](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L7)
+
+***
+
 ### type
 
 > **type**: `string` \| `null`
 
-## Defined in
-
-[packages/sitecore-jss/src/editing/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/editing/edit-frame.ts#L2)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:8](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L8)

@@ -1,5 +1,4 @@
 import React, { ComponentType } from 'react';
-import PropTypes, { Requireable } from 'prop-types';
 import { MissingComponent } from './MissingComponent';
 import { ComponentFactory, JssComponentType } from './sharedTypes';
 import {
@@ -49,7 +48,7 @@ export interface PlaceholderProps {
    * Any component or placeholder rendered by a placeholder will have access to this data via `props.fields`.
    */
   fields?: {
-    [name: string]: Field | Item[];
+    [name: string]: Field | Item | Item[];
   };
   /**
    * An object of rendering parameter names/values that are aggregated and propagated through the component tree created by a placeholder.
@@ -89,37 +88,14 @@ export interface PlaceholderProps {
    * The message that gets displayed while component is loading
    */
   componentLoadingMessage?: string;
+  /**
+   * If true, disables Suspense for the placeholder.
+   * @default false
+   */
+  disableSuspense?: boolean;
 }
 
 export class PlaceholderCommon<T extends PlaceholderProps> extends React.Component<T> {
-  static propTypes = {
-    rendering: PropTypes.oneOfType([
-      PropTypes.object as Requireable<RouteData>,
-      PropTypes.object as Requireable<ComponentRendering>,
-    ]).isRequired,
-    fields: PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.object as Requireable<Field>,
-        PropTypes.object as Requireable<Item[]>,
-      ]).isRequired
-    ),
-    params: PropTypes.objectOf(PropTypes.string.isRequired),
-    missingComponentComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    hiddenRenderingComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    errorComponent: PropTypes.oneOfType([
-      PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-      PropTypes.func as Requireable<React.FC<unknown>>,
-    ]),
-    modifyComponentProps: PropTypes.func,
-    sitecoreContext: PropTypes.object as Requireable<SitecoreContextValue>,
-  };
-
   nodeRefs: Element[];
   state: Readonly<{ error?: Error }>;
 
@@ -287,6 +263,15 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
         if (!isEmpty) {
           // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
           const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
+
+          // the registered BYOC components are imported using dynamic(), so we need to account for that when passing the isDynamic prop to ErrorBoundary
+          const isByocWrapper = componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME;
+
+          // all dynamic elements will have a separate render prop
+          const isDynamicComponent = !!(component as JssComponentType).render?.preload;
+
+          const disableSuspense = this.props.disableSuspense || false;
+
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here
           rendered = (
@@ -295,7 +280,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               errorComponent={this.props.errorComponent}
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
-              isDynamic={(component as JssComponentType).render?.preload ? true : false}
+              isDynamic={isDynamicComponent || isByocWrapper}
+              disableSuspense={disableSuspense}
               {...rendered.props}
             >
               {rendered}

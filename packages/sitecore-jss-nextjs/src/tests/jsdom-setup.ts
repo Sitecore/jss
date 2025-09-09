@@ -32,6 +32,9 @@ function copyProps(src: unknown, target: { [key: string]: unknown }) {
   Object.defineProperties(target, props);
 }
 
+// Can be accessed for custom setup, adding data attributes to the elements, etc.
+process.env.TEST = 'true';
+
 global.window = jsDomWindow;
 global.document = jsDomWindow.document;
 global.navigator['#userAgent'] = 'node.js';

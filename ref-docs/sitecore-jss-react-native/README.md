@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-react-native** • **Docs**
+**@sitecore-jss/sitecore-jss-react-native**
 
 ***
 
@@ -6,7 +6,12 @@
 
 ## Namespaces
 
-- [mediaApi](namespaces/mediaApi/README.md)
+- [DateField](@sitecore-jss/namespaces/DateField/README.md)
+- [Image](@sitecore-jss/namespaces/Image/README.md)
+- [Link](@sitecore-jss/namespaces/Link/README.md)
+- [mediaApi](@sitecore-jss/namespaces/mediaApi/README.md)
+- [RichText](@sitecore-jss/namespaces/RichText/README.md)
+- [Text](@sitecore-jss/namespaces/Text/README.md)
 
 ## Classes
 
@@ -25,15 +30,18 @@
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
 - [RouteData](interfaces/RouteData.md)
 
+## Variables
+
+- [DateField](variables/DateField.md)
+- [Image](variables/Image.md)
+- [isEditorActive](variables/isEditorActive.md)
+- [Link](variables/Link.md)
+- [Placeholder](variables/Placeholder.md)
+- [resetEditorChromes](variables/resetEditorChromes.md)
+- [RichText](variables/RichText.md)
+- [Text](variables/Text.md)
+
 ## Functions
 
-- [DateField](functions/DateField.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
 - [getFieldValue](functions/getFieldValue.md)
-- [Image](functions/Image.md)
-- [isEditorActive](functions/isEditorActive.md)
-- [Link](functions/Link.md)
-- [Placeholder](functions/Placeholder.md)
-- [resetEditorChromes](functions/resetEditorChromes.md)
-- [RichText](functions/RichText.md)
-- [Text](functions/Text.md)

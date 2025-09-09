@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
+    "skipLibCheck": true,
     "outDir": "dist/cjs",
     "types": ["node", "mocha"],
     "typeRoots": ["node_modules/@types"],

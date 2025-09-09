@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: GraphQLRequestClientFactory()
 
-> **GraphQLRequestClientFactory**: (`config`?) => [`GraphQLRequestClient`](../classes/GraphQLRequestClient.md)
+> **GraphQLRequestClientFactory** = (`config?`) => [`GraphQLRequestClient`](../classes/GraphQLRequestClient.md)
+
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:101](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql-request-client.ts#L101)
 
 A GraphQL Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -15,14 +17,10 @@ This factory function is used to create and configure GraphQL clients for making
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `config`? | `Omit`\<[`GraphQLRequestClientConfig`](GraphQLRequestClientConfig.md), `"apiKey"`\> | The configuration object that specifies how the GraphQL client should be set up. |
+| `config?` | `Omit`\<[`GraphQLRequestClientConfig`](GraphQLRequestClientConfig.md), `"apiKey"`\> | The configuration object that specifies how the GraphQL client should be set up. |
 
 ## Returns
 
 [`GraphQLRequestClient`](../classes/GraphQLRequestClient.md)
 
 An instance of a GraphQL Request Client ready to send GraphQL requests.
-
-## Defined in
-
-[packages/sitecore-jss/src/graphql-request-client.ts:101](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/graphql-request-client.ts#L101)

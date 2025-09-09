@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: getSiteRewriteData()
 
 > **getSiteRewriteData**(`pathname`, `defaultSiteName`): [`SiteRewriteData`](../type-aliases/SiteRewriteData.md)
+
+Defined in: [packages/sitecore-jss/src/site/utils.ts:25](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/site/utils.ts#L25)
 
 Get site data from the rewrite path
 
@@ -22,7 +24,3 @@ Get site data from the rewrite path
 [`SiteRewriteData`](../type-aliases/SiteRewriteData.md)
 
 the site data from the rewrite
-
-## Defined in
-
-[packages/sitecore-jss/src/site/utils.ts:25](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/site/utils.ts#L25)

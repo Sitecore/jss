@@ -10,4 +10,4 @@
 @TODO: Verify the link for angular xmcloud when documentation is ready
 -->
 
-[Documentation (XM Cloud)](https://doc.sitecore.com/xmc/en/developers/xm-cloud/sitecore-javascript-rendering-sdk--jss--for-angular.html)
+[Documentation (XM Cloud)](https://doc.sitecore.com/xmc/en/developers/jss/latest/jss-xmc/introducing-sitecore-javascript-rendering-sdk.html)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # Type Alias: EditButtonTypes
 
-> **EditButtonTypes**: [`WebEditButton`](WebEditButton.md) \| [`FieldEditButton`](FieldEditButton.md) \| "\|"
+> **EditButtonTypes** = [`WebEditButton`](WebEditButton.md) \| [`FieldEditButton`](FieldEditButton.md) \| "\|"
 
-## Defined in
-
-[packages/sitecore-jss/src/editing/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/editing/edit-frame.ts#L73)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L73)

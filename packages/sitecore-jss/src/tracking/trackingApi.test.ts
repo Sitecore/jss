@@ -1,13 +1,11 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { trackEvent } from './trackingApi';
-import { AxiosDataFetcher } from '../axios-fetcher';
-import { AxiosResponse } from 'axios';
+import { NativeDataFetcher, NativeDataFetcherResponse } from '../native-fetcher';
 import nock from 'nock';
-import { checkStatus } from './trackingApi';
 
 /**
- * Implements a data fetcher using Axios - replace with your favorite
+ * Implements a data fetcher using Native Fetch - replace with your favorite
  * SSR-capable HTTP or fetch library if you like. See HttpDataFetcher<T> type
  * in sitecore-jss library for implementation details/notes.
  * @param {string} url The URL to request; may include query string
@@ -16,21 +14,9 @@ import { checkStatus } from './trackingApi';
 function dataFetcher<ResponseType>(
   url: string,
   data?: unknown
-): Promise<AxiosResponse<ResponseType>> {
-  return new AxiosDataFetcher().fetch<ResponseType>(url, data);
+): Promise<NativeDataFetcherResponse<ResponseType>> {
+  return new NativeDataFetcher().fetch<ResponseType>(url, data as RequestInit);
 }
-
-describe('checkStatus', () => {
-  it('should throw an error if the response is not OK', () => {
-    const response = {
-      status: 500,
-      statusText: 'Internal Server Error',
-      data: {},
-    };
-
-    expect(() => checkStatus(response)).to.throw(Error);
-  });
-});
 
 describe('trackEvent', () => {
   afterEach(() => {
@@ -54,6 +40,7 @@ describe('trackEvent', () => {
   it('should fetch with querystring', () => {
     // configure 'POST' requests to return config options
     nock('https://www.myhost.net')
+      .persist()
       .post('/sitecore/api/jss/track/event')
       .query({ sc_camp: 123456 })
       .reply(200, (_, requestBody) => requestBody);

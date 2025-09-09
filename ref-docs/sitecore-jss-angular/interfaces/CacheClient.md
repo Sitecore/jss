@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / CacheClient
 
 # Interface: CacheClient\<T\>
+
+Defined in: packages/sitecore-jss/types/cache-client.d.ts:5
 
 An interface for cache clients.
 
@@ -20,6 +22,8 @@ An interface for cache clients.
 
 > **getCacheValue**(`key`): `null` \| `T`
 
+Defined in: packages/sitecore-jss/types/cache-client.d.ts:18
+
 Retrieves a value from the cache.
 
 #### Parameters
@@ -34,15 +38,13 @@ Retrieves a value from the cache.
 
 The cache value as {T}, or null if the specified key was not found in the cache.
 
-#### Defined in
-
-packages/sitecore-jss/types/cache-client.d.ts:18
-
 ***
 
 ### setCacheValue()
 
 > **setCacheValue**(`key`, `value`): `T`
+
+Defined in: packages/sitecore-jss/types/cache-client.d.ts:12
 
 Adds a value to the cache for the specified cache key.
 
@@ -58,7 +60,3 @@ Adds a value to the cache for the specified cache key.
 `T`
 
 The value added to the cache.
-
-#### Defined in
-
-packages/sitecore-jss/types/cache-client.d.ts:12

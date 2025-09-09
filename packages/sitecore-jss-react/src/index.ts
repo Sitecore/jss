@@ -5,6 +5,11 @@ export {
   CacheClient,
   CacheOptions,
   MemoryCacheClient,
+  HttpDataFetcher,
+  NativeDataFetcher,
+  NativeDataFetcherError,
+  NativeDataFetcherResponse,
+  NativeDataFetcherConfig,
 } from '@sitecore-jss/sitecore-jss';
 export { EnhancedOmit } from '@sitecore-jss/sitecore-jss/utils';
 export {
@@ -19,7 +24,7 @@ export {
 } from '@sitecore-jss/sitecore-jss/editing';
 export {
   getContentStylesheetLink,
-  getComponentLibraryStylesheetLinks,
+  getDesignLibraryStylesheetLinks,
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
@@ -63,6 +68,7 @@ export {
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export { ComponentFactory, JssComponentType } from './components/sharedTypes';
 export { Placeholder, PlaceholderComponentProps } from './components/Placeholder';
+export { Form } from './components/Form';
 export {
   Image,
   ImageProps,
@@ -71,7 +77,7 @@ export {
   ImageFieldValue,
   ImageSizeParameters,
 } from './components/Image';
-export { RichText, RichTextProps, RichTextPropTypes, RichTextField } from './components/RichText';
+export { RichText, RichTextProps, RichTextField } from './components/RichText';
 export { Text, TextField } from './components/Text';
 export { DateField, DateFieldProps } from './components/Date';
 export {
@@ -81,6 +87,7 @@ export {
   fetchFEaaSComponentServerProps,
 } from './components/FEaaSComponent';
 export { FEaaSWrapper } from './components/FEaaSWrapper';
+export { DesignLibrary } from './components/DesignLibrary';
 export {
   BYOCComponent,
   BYOCComponentParams,
@@ -88,7 +95,7 @@ export {
   fetchBYOCComponentServerProps,
 } from './components/BYOCComponent';
 export { BYOCWrapper } from './components/BYOCWrapper';
-export { Link, LinkField, LinkFieldValue, LinkProps, LinkPropTypes } from './components/Link';
+export { Link, LinkField, LinkFieldValue, LinkProps } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';
 export {

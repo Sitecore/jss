@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: RestDictionaryServiceConfig
 
-> **RestDictionaryServiceConfig**: [`CacheOptions`](../../index/interfaces/CacheOptions.md) & `object`
+> **RestDictionaryServiceConfig** = [`CacheOptions`](../../index/interfaces/CacheOptions.md) & `object`
+
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:14](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L14)
 
 ## Type declaration
 
@@ -37,7 +39,3 @@ HttpDataFetcher<T>
 > **siteName**: `string`
 
 The JSS application name
-
-## Defined in
-
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:14](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L14)

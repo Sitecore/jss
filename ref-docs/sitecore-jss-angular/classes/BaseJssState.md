@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,15 +6,17 @@
 
 # Class: BaseJssState
 
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:5](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L5)
+
 ## Constructors
 
-### new BaseJssState()
+### Constructor
 
-> **new BaseJssState**(): [`BaseJssState`](BaseJssState.md)
+> **new BaseJssState**(): `BaseJssState`
 
 #### Returns
 
-[`BaseJssState`](BaseJssState.md)
+`BaseJssState`
 
 ## Properties
 
@@ -22,15 +24,13 @@
 
 > `optional` **sitecore**: [`LayoutServiceContextData`](../interfaces/LayoutServiceContextData.md) & `object`
 
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L6)
+
 #### Type declaration
 
 ##### route
 
 > **route**: `null` \| [`RouteData`](../interfaces/RouteData.md)\<`Record`\<`string`, [`Field`](../interfaces/Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]\>\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L6)
 
 ***
 
@@ -38,10 +38,8 @@
 
 > `optional` **viewBag**: `object`
 
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:9](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L9)
+
 #### Index Signature
 
- \[`key`: `string`\]: `unknown`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:9](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L9)
+\[`key`: `string`\]: `unknown`

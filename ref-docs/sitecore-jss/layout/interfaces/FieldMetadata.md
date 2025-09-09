@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / FieldMetadata
 
 # Interface: FieldMetadata
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:139](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/models.ts#L139)
 
 represents the field metadata provided by layout service in editMode 'metadata'
 
@@ -18,10 +20,8 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **metadata**: `object`
 
+Defined in: [packages/sitecore-jss/src/layout/models.ts:140](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/models.ts#L140)
+
 #### Index Signature
 
- \[`key`: `string`\]: `unknown`
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:138](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/layout/models.ts#L138)
+\[`key`: `string`\]: `unknown`

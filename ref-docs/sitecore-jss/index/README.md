@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,33 +6,31 @@
 
 # index
 
-## Index
-
-### Namespaces
+## Namespaces
 
 - [constants](namespaces/constants/README.md)
+- [form](namespaces/form/README.md)
 
-### Classes
+## Classes
 
-- [AxiosDataFetcher](classes/AxiosDataFetcher.md)
 - [ClientError](classes/ClientError.md)
 - [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
 - [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
 - [NativeDataFetcher](classes/NativeDataFetcher.md)
+- [ResponseError](classes/ResponseError.md)
 
-### Interfaces
+## Interfaces
 
-- [AxiosResponse](interfaces/AxiosResponse.md)
 - [CacheClient](interfaces/CacheClient.md)
 - [CacheOptions](interfaces/CacheOptions.md)
 - [GraphQLClient](interfaces/GraphQLClient.md)
 - [HttpResponse](interfaces/HttpResponse.md)
+- [NativeDataFetcherResponse](interfaces/NativeDataFetcherResponse.md)
 - [RetryStrategy](interfaces/RetryStrategy.md)
 
-### Type Aliases
+## Type Aliases
 
-- [AxiosDataFetcherConfig](type-aliases/AxiosDataFetcherConfig.md)
 - [Debugger](type-aliases/Debugger.md)
 - [GraphQLRequestClientConfig](type-aliases/GraphQLRequestClientConfig.md)
 - [GraphQLRequestClientFactory](type-aliases/GraphQLRequestClientFactory.md)
@@ -40,12 +38,13 @@
 - [HTMLLink](type-aliases/HTMLLink.md)
 - [HttpDataFetcher](type-aliases/HttpDataFetcher.md)
 - [NativeDataFetcherConfig](type-aliases/NativeDataFetcherConfig.md)
+- [NativeDataFetcherError](type-aliases/NativeDataFetcherError.md)
 
-### Variables
+## Variables
 
 - [debug](variables/debug.md)
 
-### Functions
+## Functions
 
 - [enableDebug](functions/enableDebug.md)
 - [fetchData](functions/fetchData.md)

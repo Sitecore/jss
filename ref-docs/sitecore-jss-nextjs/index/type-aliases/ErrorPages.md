@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,36 +6,48 @@
 
 # Type Alias: ErrorPages
 
-> **ErrorPages**: `object`
+> **ErrorPages** = `object`
+
+Defined in: sitecore-jss/types/site/graphql-error-pages-service.d.ts:22
 
 Object model of Error Pages result
 
-## Type declaration
+## Properties
 
 ### notFoundPage
 
 > **notFoundPage**: `object`
 
-### notFoundPage.rendered
+Defined in: sitecore-jss/types/site/graphql-error-pages-service.d.ts:23
+
+#### rendered
 
 > **rendered**: [`LayoutServiceData`](../interfaces/LayoutServiceData.md)
+
+***
 
 ### notFoundPagePath
 
 > **notFoundPagePath**: `string`
 
+Defined in: sitecore-jss/types/site/graphql-error-pages-service.d.ts:26
+
+***
+
 ### serverErrorPage
 
 > **serverErrorPage**: `object`
 
-### serverErrorPage.rendered
+Defined in: sitecore-jss/types/site/graphql-error-pages-service.d.ts:27
+
+#### rendered
 
 > **rendered**: [`LayoutServiceData`](../interfaces/LayoutServiceData.md)
+
+***
 
 ### serverErrorPagePath
 
 > **serverErrorPagePath**: `string`
 
-## Defined in
-
-sitecore-jss/types/site/graphql-error-pages-service.d.ts:22
+Defined in: sitecore-jss/types/site/graphql-error-pages-service.d.ts:30

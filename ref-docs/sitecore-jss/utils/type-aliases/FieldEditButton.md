@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,14 +6,12 @@
 
 # Type Alias: FieldEditButton
 
-> **FieldEditButton**: `BaseEditButton` & `object`
+> **FieldEditButton** = `BaseEditButton` & `object`
+
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/edit-frame.ts#L62)
 
 ## Type declaration
 
 ### fields
 
 > **fields**: `string`[]
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/editing/edit-frame.ts#L62)

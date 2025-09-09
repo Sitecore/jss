@@ -1,12 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
-import { AxiosDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
+import { NativeDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import {
   QUERY_PARAM_EDITING_SECRET,
   EDITING_ALLOWED_ORIGINS,
   RenderMetadataQueryParams,
   LayoutKind,
+  isDesignLibraryMode,
+  DesignLibraryMode,
 } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
@@ -22,11 +24,11 @@ export type EditingRenderMiddlewareConfig = {
   /**
    * -- Edit Mode Chromes --
    *
-   * The `AxiosDataFetcher` instance to use for API requests.
-   * @default new AxiosDataFetcher()
-   * @see AxiosDataFetcher
+   * The `NativeDataFetcher` instance to use for API requests.
+   * @default new NativeDataFetcher()
+   * @see NativeDataFetcher
    */
-  dataFetcher?: AxiosDataFetcher;
+  dataFetcher?: NativeDataFetcher;
   /**
    * -- Edit Mode Chromes --
    *
@@ -75,7 +77,7 @@ export type EditingRenderMiddlewareChromesConfig = EditingRenderMiddlewareConfig
  */
 export class ChromesHandler extends RenderMiddlewareBase {
   private editingDataService: EditingDataService;
-  private dataFetcher: AxiosDataFetcher;
+  private dataFetcher: NativeDataFetcher;
   private resolvePageUrl: (args: { serverUrl: string; itemPath: string }) => string;
   private resolveServerUrl: (req: NextApiRequest) => string;
 
@@ -83,7 +85,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
     super();
 
     this.editingDataService = config?.editingDataService ?? editingDataService;
-    this.dataFetcher = config?.dataFetcher ?? new AxiosDataFetcher({ debugger: debug.editing });
+    this.dataFetcher = config?.dataFetcher ?? new NativeDataFetcher({ debugger: debug.editing });
     this.resolvePageUrl = config?.resolvePageUrl ?? this.defaultResolvePageUrl;
     this.resolveServerUrl = config?.resolveServerUrl ?? this.defaultResolveServerUrl;
   }
@@ -123,7 +125,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
       headers.cookie = `${headers.cookie ? headers.cookie + ';' : ''}${cookies.join(';')}`;
 
       // Make actual render request for page route, passing on preview cookies as well as any approved query string parameters.
-      // Note timestamp effectively disables caching the request in Axios (no amount of cache headers seemed to do it)
+      // Note timestamp effectively disables caching the request (no amount of cache headers seemed to do it)
       debug.editing('fetching page route for %s', editingData.path);
       const requestUrl = new URL(this.resolvePageUrl({ serverUrl, itemPath: editingData.path }));
       for (const key in params) {
@@ -132,8 +134,10 @@ export class ChromesHandler extends RenderMiddlewareBase {
         }
       }
       requestUrl.searchParams.append('timestamp', Date.now().toString());
+
       const pageRes = await this.dataFetcher
         .get<string>(requestUrl.toString(), {
+          credentials: 'include',
           headers,
         })
         .catch((err) => {
@@ -176,8 +180,7 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       console.error(error);
 
-      if (error.response || error.request) {
-        // Axios error, which could mean the server or page URL isn't quite right, so provide a more helpful hint
+      if (error.response) {
         console.info(
           // eslint-disable-next-line quotes
           "Hint: for non-standard server or Next.js route configurations, you may need to override the 'resolveServerUrl' or 'resolvePageUrl' available on the 'EditingRenderMiddleware' config."
@@ -217,7 +220,11 @@ export class ChromesHandler extends RenderMiddlewareBase {
    * @param {NextApiRequest} req
    */
   private defaultResolveServerUrl = (req: NextApiRequest) => {
-    return `${process.env.VERCEL ? 'https' : 'http'}://${req.headers.host}`;
+    // to preserve auth headers, use https if we're in our 3 main hosting options
+    const useHttps =
+      (process.env.VERCEL || process.env.SITECORE || process.env.NETLIFY) !== undefined;
+    // use https for requests with auth but also support unsecured http rendering hosts
+    return `${useHttps ? 'https' : 'http'}://${req.headers.host}`;
   };
 
   private extractEditingData(req: NextApiRequest): EditingData {
@@ -269,7 +276,7 @@ export type EditingRenderMiddlewareMetadataConfig = Pick<
 /**
  * Next.js API request with Metadata query parameters.
  */
-type MetadataNextApiRequest = NextApiRequest & {
+export type MetadataNextApiRequest = NextApiRequest & {
   query: RenderMetadataQueryParams;
 };
 
@@ -288,6 +295,22 @@ export type EditingMetadataPreviewData = {
 };
 
 /**
+ * Data for Design Library rendering mode
+ */
+export interface DesignLibraryRenderPreviewData {
+  site: string;
+  itemId: string;
+  renderingId: string;
+  componentUid: string;
+  language: string;
+  pageState: LayoutServicePageState;
+  mode?: DesignLibraryMode;
+  variant?: string;
+  version?: string;
+  dataSourceId?: string;
+}
+
+/**
  * Type guard for EditingMetadataPreviewData
  * @param {object} data preview data to check
  * @returns true if the data is EditingMetadataPreviewData
@@ -299,6 +322,20 @@ export const isEditingMetadataPreviewData = (data: unknown): data is EditingMeta
     data !== null &&
     'editMode' in data &&
     (data as EditingMetadataPreviewData).editMode === EditMode.Metadata
+  );
+};
+
+/**
+ * Type guard for Design Library mode
+ * @param {object} data preview data to check
+ * @returns true if the data is EditingMetadataPreviewData
+ * @see EditingMetadataPreviewData
+ */
+export const isDesignLibraryPreviewData = (
+  data: unknown
+): data is DesignLibraryRenderPreviewData => {
+  return (
+    typeof data === 'object' && data !== null && 'mode' in data && isDesignLibraryMode(data.mode)
   );
 };
 
@@ -315,13 +352,21 @@ export class MetadataHandler {
 
     const startTimestamp = Date.now();
 
-    const requiredQueryParams: (keyof RenderMetadataQueryParams)[] = [
+    const mode = query.mode;
+    const metadataDefaultRequiredParams = ['sc_site', 'sc_itemid', 'sc_lang', 'route', 'mode'];
+
+    const metadataComponentRequiredParams = [
       'sc_site',
       'sc_itemid',
+      'sc_renderingId',
+      'sc_uid',
       'sc_lang',
-      'route',
       'mode',
     ];
+
+    const requiredQueryParams = isDesignLibraryMode(mode)
+      ? metadataComponentRequiredParams
+      : metadataDefaultRequiredParams;
 
     const missingQueryParams = requiredQueryParams.filter((param) => !query[param]);
 
@@ -336,23 +381,42 @@ export class MetadataHandler {
       });
     }
 
-    res.setPreviewData(
-      {
-        site: query.sc_site,
-        itemId: query.sc_itemid,
-        language: query.sc_lang,
-        // for sc_variantId we may employ multiple variants (page-layout + component level)
-        variantIds: query.sc_variant?.split(',') || [DEFAULT_VARIANT],
-        version: query.sc_version,
-        editMode: EditMode.Metadata,
-        pageState: query.mode,
-        layoutKind: query.sc_layoutKind,
-      } as EditingMetadataPreviewData,
-      // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
-      {
-        maxAge: 3,
-      }
-    );
+    if (isDesignLibraryMode(mode)) {
+      res.setPreviewData(
+        {
+          itemId: query.sc_itemid,
+          componentUid: query.sc_uid,
+          renderingId: query.sc_renderingId,
+          language: query.sc_lang,
+          site: query.sc_site,
+          pageState: LayoutServicePageState.Normal,
+          mode,
+          dataSourceId: query.dataSourceId,
+          version: query.sc_version,
+        } as DesignLibraryRenderPreviewData,
+        {
+          maxAge: 3,
+        }
+      );
+    } else {
+      res.setPreviewData(
+        {
+          site: query.sc_site,
+          itemId: query.sc_itemid,
+          language: query.sc_lang,
+          // for sc_variantId we may employ multiple variants (page-layout + component level)
+          variantIds: query.sc_variant?.split(',') || [DEFAULT_VARIANT],
+          version: query.sc_version,
+          editMode: EditMode.Metadata,
+          pageState: query.mode,
+          layoutKind: query.sc_layoutKind,
+        } as EditingMetadataPreviewData,
+        // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
+        {
+          maxAge: 3,
+        }
+      );
+    }
 
     // Cookies with the SameSite=Lax policy set by Next.js setPreviewData function causes CORS issue
     // when Next.js preview mode is activated, resulting the page to render in normal mode instead.
@@ -380,10 +444,12 @@ export class MetadataHandler {
       res.setHeader('Set-Cookie', modifiedCookies);
     }
 
+    const encodedRoute = encodeURI(query.route);
+
     const route =
       this.config.resolvePageUrl?.({
-        itemPath: query.route,
-      }) || query.route;
+        itemPath: encodedRoute,
+      }) || encodedRoute;
 
     debug.editing(
       'editing render middleware end in %dms: redirect %o',

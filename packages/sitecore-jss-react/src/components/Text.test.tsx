@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import { Text, TextField } from './Text';
 import { textField as eeTextData } from '../test-data/ee-data';
@@ -9,24 +9,22 @@ import { textField as eeTextData } from '../test-data/ee-data';
 describe('<Text />', () => {
   it('should render nothing with missing field', () => {
     const field: TextField = null;
-    const rendered = mount(<Text field={field} />);
-    expect(rendered.html()).to.equal('');
+    const rendered = render(<Text field={field} />);
+    expect(rendered.container.innerHTML).to.equal('');
   });
 
   it('should render nothing with missing field', () => {
     const field = {
       value: '',
     };
-    const rendered = mount(<Text field={field} />);
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.equal('');
+    const rendered = render(<Text field={field} />);
+    expect(rendered.container.innerHTML).to.equal('');
   });
 
   it('should render nothing with missing editable and value', () => {
     const field = {};
-    const rendered = mount(<Text field={field} />);
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.equal('');
+    const rendered = render(<Text field={field} />);
+    expect(rendered.container.innerHTML).to.equal('');
   });
 
   it('should render editable with editable value', () => {
@@ -34,9 +32,8 @@ describe('<Text />', () => {
       value: 'value',
       editable: 'editable',
     };
-    const rendered = mount(<Text field={field} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('editable');
+    const rendered = render(<Text field={field} />).container.querySelector('span');
+    expect(rendered?.innerHTML).to.contain('editable');
   });
 
   it('should render value with editing explicitly disabled', () => {
@@ -44,139 +41,128 @@ describe('<Text />', () => {
       value: 'value',
       editable: 'editable',
     };
-    const rendered = mount(<Text tag="span" field={field} editable={false} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('value');
+    const rendered = render(
+      <Text tag="span" field={field} editable={false} />
+    ).container.querySelector('span');
+    expect(rendered?.innerHTML).to.contain('value');
   });
 
   it('should encode values with editing explicitly disabled', () => {
     const field = {
       value: 'value < >',
     };
-    const rendered = mount(<Text tag="span" field={field} editable={false} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('&lt; &gt;');
+    const rendered = render(
+      <Text tag="span" field={field} editable={false} />
+    ).container.querySelector('span');
+    expect(rendered?.innerHTML).to.contain('&lt; &gt;');
   });
 
   it('should render value with just a value', () => {
     const field = {
       value: 'value',
     };
-    const rendered = mount(<Text tag="span" field={field} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('value');
+    const rendered = render(<Text tag="span" field={field} />).container.querySelector('span');
+    expect(rendered?.innerHTML).to.contain('value');
   });
 
   it('should render value without tag', () => {
     const field = {
       value: 'value',
     };
-    const rendered = mount(<Text field={field} />);
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.equal('value');
+    const rendered = render(<Text field={field} />);
+    expect(rendered.container.innerHTML).to.equal('value');
   });
 
   it('should render number value', () => {
     const field = {
       value: 1.23,
     };
-    const rendered = mount(<Text field={field} />);
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.equal('1.23');
+    const rendered = render(<Text field={field} />);
+    expect(rendered.container.innerHTML).to.equal('1.23');
   });
 
   it('should render zero number value', () => {
     const field = {
       value: 0,
     };
-    const rendered = mount(<Text field={field} />);
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.equal('0');
+    const rendered = render(<Text field={field} />);
+    expect(rendered.container.innerHTML).to.equal('0');
   });
 
   it('should render negative number value', () => {
     const field = {
       value: -1.23,
     };
-    const rendered = mount(<Text field={field} />);
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.equal('-1.23');
+    const rendered = render(<Text field={field} />);
+    expect(rendered.container.innerHTML).to.equal('-1.23');
   });
 
   it('should render value without tag', () => {
     const field = {
       value: 'value',
     };
-    const rendered = mount(<Text field={field} />);
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('value');
+    const rendered = render(<Text field={field} />);
+    expect(rendered.container.innerHTML).to.contain('value');
   });
 
   it('should render value with just a value that contains line breaks', () => {
     const field = {
       value: 'xxx\n\naa\nbbb\ndd',
     };
-    const rendered = mount(<Text tag="span" field={field} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('xxx<br><br>aa<br>bbb<br>dd');
+    const rendered = render(<Text tag="span" field={field} />).container.querySelector('span');
+    expect(rendered?.innerHTML).to.contain('xxx<br><br>aa<br>bbb<br>dd');
   });
 
   it('should render value with just a value that contains only one line break', () => {
     const field = {
       value: '\n',
     };
-    const rendered = mount(<Text tag="span" field={field} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('<span><br></span>');
+    const rendered = render(<Text tag="span" field={field} />).container.querySelector('span');
+    expect(rendered?.outerHTML).to.contain('<span><br></span>');
   });
 
   it('should render embedded html as-is when encoding is disabled', () => {
     const field = {
       value: '<input type="text">some crazy stuff<script code="whaaaat">uh oh</script>',
     };
-    const rendered = mount(<Text field={field} encode={false} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain(field.value);
+    const rendered = render(<Text field={field} encode={false} />).container.querySelector('span');
+    expect(rendered?.innerHTML).to.contain(field.value);
   });
 
   it('should render ee HTML', () => {
     const field = {
       editable: eeTextData,
     };
-    const rendered = mount(<Text field={field} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('<input');
-    expect(rendered.html()).to.contain('<span class="scChromeData">');
+    const rendered = render(<Text field={field} />).container.querySelector('span');
+    expect(rendered?.innerHTML).to.contain('<input');
+    expect(rendered?.innerHTML).to.contain('<span class="scChromeData">');
   });
 
   it('should render ee HTML with line breaks', () => {
     const field = {
       editable: 'xxx\n\naa\nbbb\n',
     };
-    const rendered = mount(<Text field={field} />).find('span');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.equal('<span>xxx\n\naa\nbbb\n</span>');
+    const rendered = render(<Text field={field} />).container.querySelector('span');
+    expect(rendered?.outerHTML).to.equal('<span>xxx\n\naa\nbbb\n</span>');
   });
 
   it('should render tag with a tag provided', () => {
     const field = {
       value: 'value',
     };
-    const rendered = mount(<Text field={field} tag="h1" />).find('h1');
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('value');
+    const rendered = render(<Text field={field} tag="h1" />).container.querySelector('h1');
+    expect(rendered?.innerHTML).to.contain('value');
   });
 
   it('should render other attributes with other props provided', () => {
     const field = {
       value: 'value',
     };
-    const rendered = mount(<Text field={field} tag="h1" className="cssClass" id="lorem" />).find(
-      'h1'
-    );
-    expect(rendered).to.have.length(1);
-    expect(rendered.html()).to.contain('<h1 class="cssClass" id="lorem">');
-    expect(rendered.html()).to.contain('value');
+    const rendered = render(
+      <Text field={field} tag="h1" className="cssClass" id="lorem" />
+    ).container.querySelector('h1');
+    expect(rendered?.outerHTML).to.contain('<h1 class="cssClass" id="lorem">');
+    expect(rendered?.outerHTML).to.contain('value');
   });
 
   describe('editMode metadata', () => {
@@ -198,9 +184,9 @@ describe('<Text />', () => {
         metadata: testMetadata,
       };
 
-      const rendered = mount(<Text field={field} />);
+      const rendered = render(<Text field={field} />);
 
-      expect(rendered.html()).to.equal(
+      expect(rendered.container.innerHTML).to.equal(
         [
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
@@ -217,9 +203,9 @@ describe('<Text />', () => {
         metadata: testMetadata,
       };
 
-      const rendered = mount(<Text field={field} />);
+      const rendered = render(<Text field={field} />);
 
-      expect(rendered.html()).to.equal(
+      expect(rendered.container.innerHTML).to.equal(
         [
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
@@ -240,11 +226,11 @@ describe('<Text />', () => {
         <span className="empty-field-value-placeholder">Custom Empty field value</span>
       );
 
-      const rendered = mount(
+      const rendered = render(
         <Text field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
       );
 
-      expect(rendered.html()).to.equal(
+      expect(rendered.container.innerHTML).to.equal(
         [
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
@@ -261,9 +247,9 @@ describe('<Text />', () => {
         metadata: testMetadata,
       };
 
-      const rendered = mount(<Text field={field} editable={false} />);
+      const rendered = render(<Text field={field} editable={false} />);
 
-      expect(rendered.html()).to.equal('');
+      expect(rendered.container.innerHTML).to.equal('');
     });
   });
 });

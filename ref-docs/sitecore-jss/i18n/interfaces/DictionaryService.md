@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [i18n](../README.md) / DictionaryService
 
 # Interface: DictionaryService
+
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:13](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/i18n/dictionary-service.ts#L13)
 
 Service that fetches dictionary data using Sitecore's GraphQL API.
 
@@ -13,6 +15,8 @@ Service that fetches dictionary data using Sitecore's GraphQL API.
 ### fetchDictionaryData()
 
 > **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](DictionaryPhrases.md)\>
+
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:18](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/i18n/dictionary-service.ts#L18)
 
 Fetch dictionary data for a language.
 
@@ -25,7 +29,3 @@ Fetch dictionary data for a language.
 #### Returns
 
 `Promise`\<[`DictionaryPhrases`](DictionaryPhrases.md)\>
-
-#### Defined in
-
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:18](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/i18n/dictionary-service.ts#L18)

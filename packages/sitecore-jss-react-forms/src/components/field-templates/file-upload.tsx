@@ -116,6 +116,15 @@ class FileUpload extends Component<ValueFieldProps<FileInputViewModel>> {
           onBlur={() => tracker.onBlurField(field, value, errors)}
         />
         <FieldValidationErrors {...this.props} />
+        {process.env.TEST && (
+          <script id="file-getEnabledValidation">
+            {JSON.stringify(
+              field.model.validationDataModels.map((validationDM) =>
+                this.getEnabledValidation(validationDM.itemId)
+              )
+            )}
+          </script>
+        )}
       </Fragment>
     );
   }

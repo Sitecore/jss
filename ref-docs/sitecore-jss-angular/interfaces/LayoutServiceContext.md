@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,11 +6,13 @@
 
 # Interface: LayoutServiceContext
 
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:30
+
 Shape of context data from the Sitecore Layout Service
 
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -18,9 +20,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **clientData**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:41
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:43
 
 ***
 
@@ -28,9 +28,7 @@ packages/sitecore-jss/types/layout/models.d.ts:41
 
 > `optional` **clientScripts**: `string`[]
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:40
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:42
 
 ***
 
@@ -38,9 +36,7 @@ packages/sitecore-jss/types/layout/models.d.ts:40
 
 > `optional` **editMode**: [`EditMode`](../enumerations/EditMode.md)
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:39
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:41
 
 ***
 
@@ -48,9 +44,7 @@ packages/sitecore-jss/types/layout/models.d.ts:39
 
 > `optional` **itemPath**: `string`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:33
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:34
 
 ***
 
@@ -58,9 +52,7 @@ packages/sitecore-jss/types/layout/models.d.ts:33
 
 > `optional` **language**: `string`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:32
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:33
 
 ***
 
@@ -68,9 +60,7 @@ packages/sitecore-jss/types/layout/models.d.ts:32
 
 > `optional` **pageEditing**: `boolean`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:31
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:32
 
 ***
 
@@ -78,9 +68,15 @@ packages/sitecore-jss/types/layout/models.d.ts:31
 
 > `optional` **pageState**: [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md)
 
-#### Defined in
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:35
 
-packages/sitecore-jss/types/layout/models.d.ts:34
+***
+
+### renderingType?
+
+> `optional` **renderingType**: `RenderingType`
+
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:40
 
 ***
 
@@ -88,13 +84,11 @@ packages/sitecore-jss/types/layout/models.d.ts:34
 
 > `optional` **site**: `object`
 
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:37
+
 #### name?
 
 > `optional` **name**: `string`
-
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:36
 
 ***
 
@@ -102,6 +96,4 @@ packages/sitecore-jss/types/layout/models.d.ts:36
 
 > `optional` **visitorIdentificationTimestamp**: `number`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:35
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:36

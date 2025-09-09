@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -8,16 +8,14 @@
 
 > **isRawRendering**(`rendering`): `rendering is HtmlElementRendering`
 
+Defined in: [packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `rendering` | [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md) |  |
+| `rendering` | [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> |  |
 
 ## Returns
 
 `rendering is HtmlElementRendering`
-
-## Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering.ts#L6)

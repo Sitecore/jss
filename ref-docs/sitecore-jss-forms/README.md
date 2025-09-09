@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-react-forms** • **Docs**
+**@sitecore-jss/sitecore-jss-react-forms**
 
 ***
 
@@ -29,22 +29,25 @@
 - [ListFieldProps](type-aliases/ListFieldProps.md)
 - [ValueFieldProps](type-aliases/ValueFieldProps.md)
 
+## Variables
+
+- [Button](variables/Button.md)
+- [Checkbox](variables/Checkbox.md)
+- [CheckboxList](variables/CheckboxList.md)
+- [DateField](variables/DateField.md)
+- [DropdownList](variables/DropdownList.md)
+- [Email](variables/Email.md)
+- [Label](variables/Label.md)
+- [ListBox](variables/ListBox.md)
+- [MultipleLineText](variables/MultipleLineText.md)
+- [NumberField](variables/NumberField.md)
+- [Password](variables/Password.md)
+- [RadioButtonList](variables/RadioButtonList.md)
+- [Section](variables/Section.md)
+- [SingleLineText](variables/SingleLineText.md)
+- [Telephone](variables/Telephone.md)
+- [TextField](variables/TextField.md)
+
 ## Functions
 
-- [Button](functions/Button.md)
-- [Checkbox](functions/Checkbox.md)
-- [CheckboxList](functions/CheckboxList.md)
 - [createDefaultFieldFactory](functions/createDefaultFieldFactory.md)
-- [DateField](functions/DateField.md)
-- [DropdownList](functions/DropdownList.md)
-- [Email](functions/Email.md)
-- [Label](functions/Label.md)
-- [ListBox](functions/ListBox.md)
-- [MultipleLineText](functions/MultipleLineText.md)
-- [NumberField](functions/NumberField.md)
-- [Password](functions/Password.md)
-- [RadioButtonList](functions/RadioButtonList.md)
-- [Section](functions/Section.md)
-- [SingleLineText](functions/SingleLineText.md)
-- [Telephone](functions/Telephone.md)
-- [TextField](functions/TextField.md)

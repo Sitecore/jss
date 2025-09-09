@@ -16,6 +16,9 @@ export {
   ComponentParams,
   EditMode,
   FieldMetadata,
+  RenderingType,
+  EDITING_COMPONENT_PLACEHOLDER,
+  EDITING_COMPONENT_ID,
 } from './models';
 
 export {
@@ -43,4 +46,4 @@ export {
   GRAPHQL_LAYOUT_QUERY_NAME,
 } from './graphql-layout-service';
 
-export { getComponentLibraryStylesheetLinks } from './themes';
+export { getDesignLibraryStylesheetLinks } from './themes';

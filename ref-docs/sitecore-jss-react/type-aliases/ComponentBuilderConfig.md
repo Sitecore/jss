@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: ComponentBuilderConfig\<ComponentType\>
 
-> **ComponentBuilderConfig**\<`ComponentType`\>: `object`
+> **ComponentBuilderConfig**\<`ComponentType`\> = `object`
+
+Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)
 
 Configuration for ComponentBuilder
 
@@ -16,14 +18,12 @@ Configuration for ComponentBuilder
 | ------ |
 | `ComponentType` |
 
-## Type declaration
+## Properties
 
 ### components
 
 > **components**: `Map`\<`string`, `ComponentType`\>
 
+Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:11](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react/src/ComponentBuilder.ts#L11)
+
 List of components to be stored
-
-## Defined in
-
-[packages/sitecore-jss-react/src/ComponentBuilder.ts:7](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/ComponentBuilder.ts#L7)

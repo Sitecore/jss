@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes, { Requireable } from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
@@ -7,7 +6,7 @@ import { EditableFieldProps } from './sharedTypes';
 import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface DateFieldProps extends EditableFieldProps {
+export interface DateFieldProps extends EditableFieldProps<DateFieldProps> {
   /** The date field data. */
   [htmlAttributes: string]: unknown;
   field: FieldMetadata & {
@@ -57,20 +56,5 @@ export const DateField: React.FC<DateFieldProps> = withFieldMetadata<DateFieldPr
     { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText }
   )
 );
-
-DateField.propTypes = {
-  field: PropTypes.shape({
-    value: PropTypes.string,
-    editable: PropTypes.string,
-    metadata: PropTypes.objectOf(PropTypes.any),
-  }).isRequired,
-  tag: PropTypes.string,
-  editable: PropTypes.bool,
-  render: PropTypes.func,
-  emptyFieldEditingComponent: PropTypes.oneOfType([
-    PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-    PropTypes.func as Requireable<React.FC<unknown>>,
-  ]),
-};
 
 DateField.displayName = 'Date';

@@ -149,7 +149,6 @@ export class GraphQLEditingService {
       throw new RangeError('The language must be a non-empty string');
     }
 
-    const dictionary: DictionaryPhrases = {};
     let dictionaryResults: { key: string; value: string }[] = [];
     let hasNext = true;
     let after = '';
@@ -177,6 +176,41 @@ export class GraphQLEditingService {
       hasNext = false;
     }
 
+    const dictionary = await this.fetchDictionaryData(
+      { siteName, language },
+      dictionaryResults,
+      hasNext,
+      after
+    );
+
+    return {
+      layoutData: editingData?.item?.rendered || {
+        sitecore: {
+          context: { pageEditing: true, language, editMode: EditMode.Metadata },
+          route: null,
+        },
+      },
+      dictionary,
+    };
+  }
+
+  async fetchDictionaryData(
+    {
+      siteName,
+      language,
+    }: {
+      siteName: string;
+      language: string;
+    },
+    initDictionary: {
+      key: string;
+      value: string;
+    }[] = [],
+    hasNext = true,
+    after?: string
+  ) {
+    let dictionaryResults = initDictionary;
+    const dictionary: DictionaryPhrases = {};
     while (hasNext) {
       const data = await this.graphQLClient.request<GraphQLDictionaryQueryResponse>(
         dictionaryQuery,
@@ -195,18 +229,8 @@ export class GraphQLEditingService {
         hasNext = false;
       }
     }
-
     dictionaryResults.forEach((item) => (dictionary[item.key] = item.value));
-
-    return {
-      layoutData: editingData?.item?.rendered || {
-        sitecore: {
-          context: { pageEditing: true, language, editMode: EditMode.Metadata },
-          route: null,
-        },
-      },
-      dictionary,
-    };
+    return dictionary;
   }
 
   /**

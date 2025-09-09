@@ -140,7 +140,7 @@ export class DefaultRetryStrategy implements RetryStrategy {
   }
 
   getDelay(error: GraphQLClientError, attempt: number): number {
-    const rawHeaders = error.response?.headers;
+    const rawHeaders = error.response?.headers as Headers;
     const retryAfterHeader = rawHeaders?.get('Retry-After');
 
     if (
@@ -230,7 +230,7 @@ export class GraphQLRequestClient implements GraphQLClient {
 
     const retryer = async (): Promise<T> => {
       // Note we don't have access to raw request/response with graphql-request
-      // (or nice hooks like we have with Axios), but we should log whatever we have.
+      // but we should log whatever we have.
       this.debug('request: %o', {
         url: this.endpoint,
         headers: { ...this.headers, ...options?.headers },
@@ -245,10 +245,10 @@ export class GraphQLRequestClient implements GraphQLClient {
       }
 
       return Promise.race(fetchWithOptionalTimeout).then(
-        (data: T) => {
+        (data) => {
           this.abortTimeout?.clear();
           this.debug('response in %dms: %o', Date.now() - startTimestamp, data);
-          return Promise.resolve(data);
+          return Promise.resolve(data as T);
         },
         async (error: GraphQLClientError) => {
           this.abortTimeout?.clear();

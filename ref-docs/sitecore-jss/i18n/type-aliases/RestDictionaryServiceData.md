@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,16 +6,16 @@
 
 # Type Alias: RestDictionaryServiceData
 
-> **RestDictionaryServiceData**: `object`
+> **RestDictionaryServiceData** = `object`
+
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:10](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L10)
 
 A reply from the REST Sitecore Dictionary Service
 
-## Type declaration
+## Properties
 
 ### phrases
 
 > **phrases**: [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
-## Defined in
-
-[packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:10](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L10)
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:11](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L11)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: getSrcSet()
 
-> **getSrcSet**(`url`, `srcSet`, `imageParams`?, `mediaUrlPrefix`?): `string`
+> **getSrcSet**(`url`, `srcSet`, `imageParams?`, `mediaUrlPrefix?`): `string`
+
+Defined in: [packages/sitecore-jss/src/media/media-api.ts:128](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/media/media-api.ts#L128)
 
 Receives an array of `srcSet` parameters that are iterated and used as parameters to generate
 a corresponding set of updated Sitecore media URLs via
@@ -17,8 +19,8 @@ a corresponding set of updated Sitecore media URLs via
 | ------ | ------ | ------ |
 | `url` | `string` | The URL to prepare |
 | `srcSet` | `object`[] | The array of parameters to use |
-| `imageParams`? | `object` | The querystring parameters to use |
-| `mediaUrlPrefix`? | `RegExp` | The regex to match the media URL prefix |
+| `imageParams?` | \{\[`key`: `string`\]: `undefined` \| `string` \| `number`; \} | The querystring parameters to use |
+| `mediaUrlPrefix?` | `RegExp` | The regex to match the media URL prefix |
 
 ## Returns
 
@@ -38,7 +40,3 @@ list of media URLs with respective dimension parameters.
 getSrcSet('/ipsum.jpg', [{ h: 1000, w: 1000 }, { mh: 250, mw: 250 } ])
 More information about `srcSet`: {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img}
 ```
-
-## Defined in
-
-[packages/sitecore-jss/src/media/media-api.ts:128](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/media/media-api.ts#L128)

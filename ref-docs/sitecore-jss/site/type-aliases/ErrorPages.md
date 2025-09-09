@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,36 +6,48 @@
 
 # Type Alias: ErrorPages
 
-> **ErrorPages**: `object`
+> **ErrorPages** = `object`
+
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:47](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L47)
 
 Object model of Error Pages result
 
-## Type declaration
+## Properties
 
 ### notFoundPage
 
 > **notFoundPage**: `object`
 
-### notFoundPage.rendered
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:48](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L48)
+
+#### rendered
 
 > **rendered**: [`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md)
+
+***
 
 ### notFoundPagePath
 
 > **notFoundPagePath**: `string`
 
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:49](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L49)
+
+***
+
 ### serverErrorPage
 
 > **serverErrorPage**: `object`
 
-### serverErrorPage.rendered
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:50](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L50)
+
+#### rendered
 
 > **rendered**: [`LayoutServiceData`](../../layout/interfaces/LayoutServiceData.md)
+
+***
 
 ### serverErrorPagePath
 
 > **serverErrorPagePath**: `string`
 
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-error-pages-service.ts:47](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L47)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)

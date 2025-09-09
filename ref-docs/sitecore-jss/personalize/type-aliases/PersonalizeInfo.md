@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,24 +6,28 @@
 
 # Type Alias: PersonalizeInfo
 
-> **PersonalizeInfo**: `object`
+> **PersonalizeInfo** = `object`
+
+Defined in: [packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:30](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L30)
 
 Object model of personlize info
 
-## Type declaration
+## Properties
 
 ### pageId
 
 > **pageId**: `string`
 
+Defined in: [packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:34](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L34)
+
 The page id
+
+***
 
 ### variantIds
 
 > **variantIds**: `string`[]
 
+Defined in: [packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:38](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L38)
+
 The configured variant ids
-
-## Defined in
-
-[packages/sitecore-jss/src/personalize/graphql-personalize-service.ts:30](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/personalize/graphql-personalize-service.ts#L30)

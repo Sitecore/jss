@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,18 +6,16 @@
 
 # utils
 
-## Index
-
-### Classes
+## Classes
 
 - [ExperienceEditor](classes/ExperienceEditor.md)
 - [HorizonEditor](classes/HorizonEditor.md)
 
-### Interfaces
+## Interfaces
 
 - [Metadata](interfaces/Metadata.md)
 
-### Type Aliases
+## Type Aliases
 
 - [ChromeCommand](type-aliases/ChromeCommand.md)
 - [EditButtonTypes](type-aliases/EditButtonTypes.md)
@@ -26,23 +24,26 @@
 - [FieldEditButton](type-aliases/FieldEditButton.md)
 - [WebEditButton](type-aliases/WebEditButton.md)
 
-### Variables
+## Variables
 
 - [DefaultEditFrameButton](variables/DefaultEditFrameButton.md)
 - [DefaultEditFrameButtonIds](variables/DefaultEditFrameButtonIds.md)
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
 
-### Functions
+## Functions
 
+- [areURLSearchParamsEqual](functions/areURLSearchParamsEqual.md)
 - [enforceCors](functions/enforceCors.md)
+- [escapeNonSpecialQuestionMarks](functions/escapeNonSpecialQuestionMarks.md)
 - [getAllowedOriginsFromEnv](functions/getAllowedOriginsFromEnv.md)
-- [getPermutations](functions/getPermutations.md)
 - [handleEditorAnchors](functions/handleEditorAnchors.md)
 - [isAbsoluteUrl](functions/isAbsoluteUrl.md)
 - [isEditorActive](functions/isEditorActive.md)
+- [isRegexOrUrl](functions/isRegexOrUrl.md)
 - [isServer](functions/isServer.md)
 - [isTimeoutError](functions/isTimeoutError.md)
 - [mapButtonToCommand](functions/mapButtonToCommand.md)
+- [mergeURLSearchParams](functions/mergeURLSearchParams.md)
 - [resetEditorChromes](functions/resetEditorChromes.md)
 - [resolveUrl](functions/resolveUrl.md)
 - [tryParseEnvValue](functions/tryParseEnvValue.md)

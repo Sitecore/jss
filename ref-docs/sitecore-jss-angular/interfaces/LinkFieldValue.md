@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,13 +6,15 @@
 
 # Interface: LinkFieldValue
 
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:32](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/rendering-field.ts#L32)
+
 ## Extended by
 
 - [`LinkField`](LinkField.md)
 
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -20,9 +22,7 @@
 
 > `optional` **anchor**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:36](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L36)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:36](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/rendering-field.ts#L36)
 
 ***
 
@@ -30,9 +30,7 @@
 
 > `optional` **href**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
 
 ***
 
@@ -40,6 +38,4 @@
 
 > `optional` **text**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: getComponentList()
 
 > **getComponentList**(`path`): [`ComponentFile`](../interfaces/ComponentFile.md)[]
+
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
 
 Get list of components from
 
@@ -29,7 +31,3 @@ Returns a list of components in the following format:
  componentName: 'ComponentName',
  moduleName: 'ComponentName'
 }
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)

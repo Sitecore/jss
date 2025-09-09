@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,18 +6,22 @@
 
 # Type Alias: ComponentPropsContextProps
 
-> **ComponentPropsContextProps**: `object`
+> **ComponentPropsContextProps** = `object`
 
-## Type declaration
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+
+## Properties
 
 ### children
 
 > **children**: `ReactNode`
 
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:27](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L27)
+
+***
+
 ### value
 
 > **value**: [`ComponentPropsCollection`](ComponentPropsCollection.md)
 
-## Defined in
-
-[sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:28](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L28)

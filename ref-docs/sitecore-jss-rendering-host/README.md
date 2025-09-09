@@ -1,12 +1,15 @@
-**@sitecore-jss/sitecore-jss-rendering-host** • **Docs**
+**@sitecore-jss/sitecore-jss-rendering-host**
 
 ***
 
 # @sitecore-jss/sitecore-jss-rendering-host
 
+## Variables
+
+- [ssrMiddleware](variables/ssrMiddleware.md)
+
 ## Functions
 
 - [getDefaultAppInvocationInfoResolver](functions/getDefaultAppInvocationInfoResolver.md)
-- [ssrMiddleware](functions/ssrMiddleware.md)
 - [startRenderHostTunnel](functions/startRenderHostTunnel.md)
 - [startRenderingHostServer](functions/startRenderingHostServer.md)

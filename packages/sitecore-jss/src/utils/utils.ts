@@ -1,7 +1,6 @@
-import { AxiosError } from 'axios';
+import { ClientError } from 'graphql-request';
 import { IncomingMessage, OutgoingMessage } from 'http';
 import { ParsedUrlQueryInput } from 'querystring';
-import { ResponseError } from '../data-fetcher';
 import isServer from './is-server';
 
 /**
@@ -75,13 +74,7 @@ export const isAbsoluteUrl = (url: string) => {
  * @returns {boolean} is timeout error
  */
 export const isTimeoutError = (error: unknown) => {
-  return (
-    (error as AxiosError).code === '408' ||
-    (error as AxiosError).code === 'ECONNABORTED' ||
-    (error as AxiosError).code === 'ETIMEDOUT' ||
-    (error as ResponseError).response?.status === 408 ||
-    (error as Error).name === 'AbortError'
-  );
+  return (error as ClientError).response?.status === 408 || (error as Error).name === 'AbortError';
 };
 
 /**
@@ -161,17 +154,81 @@ export const enforceCors = (
   return false;
 };
 
-  /**
-   * Generates all possible permutations of an array of key-value pairs.
-   * This is used to create every possible combination of URL query parameters.
-   * @param {Array<[string, string]>} array - The array of key-value pairs to permute.
-   * @returns {Array<Array<[string, string]>>} - A 2D array where each inner array is a unique permutation of the input.
-   */
- export const getPermutations = (array: [string, string][]): [string, string][][] =>{
-  if (array.length <= 1) return [array];
+/**
+ * Determines whether the given input is a regular expression or resembles a URL.
+ * @param {string} input - The input string to evaluate.
+ * @returns {'regex' | 'url'} - Returns 'url' if the input looks like a URL, otherwise 'regex'.
+ */
+export const isRegexOrUrl = (input: string): 'regex' | 'url' => {
+  // Remove the trailing slash.
+  input = input.slice(0, -1);
 
-  return array.flatMap((current, i) => {
-    const remaining = array.filter((_, idx) => idx !== i);
-    return getPermutations(remaining).map((permutation) => [current, ...permutation]);
-  });
+  // Check if the string resembles a URL.
+  const isUrlLike = /^\/[a-zA-Z0-9\-\/]+(\?([a-zA-Z0-9\-_]+=[a-zA-Z0-9\-_]+)(&[a-zA-Z0-9\-_]+=[a-zA-Z0-9\-_]+)*)?$/.test(input);
+
+  if (isUrlLike) {
+    return 'url';
+  }
+
+  // If it doesn't resemble a URL, it's likely a regular expression.
+  return 'regex';
+};
+
+/**
+ * Compares two URLSearchParams objects to determine if they are equal.
+ * @param {URLSearchParams} params1 - The first set of URL search parameters.
+ * @param {URLSearchParams} params2 - The second set of URL search parameters.
+ * @returns {boolean} - Returns true if the parameters are equal, otherwise false.
+ */
+export const areURLSearchParamsEqual = (params1: URLSearchParams, params2: URLSearchParams): boolean => {
+  // Generates a sorted string representation of URL search parameters.
+  const getSortedParamsString = (params: URLSearchParams): string => {
+    return [...params.entries()]
+      .sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&');
+  };
+
+  // Compare the sorted strings of both parameter sets.
+  return getSortedParamsString(params1) === getSortedParamsString(params2);
+};
+
+/**
+ * Escapes non-special "?" characters in a string or regex.
+ * - For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
+ * - For regex patterns (strings enclosed in `/.../`), it analyzes each "?" to determine if it has special meaning
+ *   (e.g., `?` in `(abc)?`, `.*?`, `(?!...)`) or is just a literal character. Only literal "?" characters are escaped.
+ * @param {string} input - The input string or regex pattern.
+ * @returns {string} - The modified string or regex with non-special "?" characters escaped.
+ */
+export const escapeNonSpecialQuestionMarks = (input: string): string => {
+  // If the input is already a regex pattern (starts with ^ or ends with $), return it unchanged
+  if (input.startsWith('^') || input.endsWith('$')) {
+    return input;
+  }
+
+  // For non-regex strings, escape literal "?" characters
+  return input.replace(/\?/g, '\\?');
+};
+
+/**
+ * Merges two URLSearchParams objects. If both objects contain the same key, the value from the second object overrides the first.
+ * @param {URLSearchParams} params1 - The first set of URL search parameters.
+ * @param {URLSearchParams} params2 - The second set of URL search parameters.
+ * @returns {string} - A string representation of the merged URL search parameters.
+ */
+export const mergeURLSearchParams = (params1: URLSearchParams, params2: URLSearchParams): string => {
+  const merged = new URLSearchParams();
+
+  // Add all keys and values from the first object.
+  for (const [key, value] of params1.entries()) {
+    merged.set(key, value);
+  }
+
+  // Add all keys and values from the second object, replacing existing ones.
+  for (const [key, value] of params2.entries()) {
+    merged.set(key, value);
+  }
+
+  return merged.toString();
 };

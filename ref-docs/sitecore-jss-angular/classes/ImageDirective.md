@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / ImageDirective
 
 # Class: ImageDirective
+
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:19](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L19)
 
 ## Extends
 
@@ -16,9 +18,11 @@
 
 ## Constructors
 
-### new ImageDirective()
+### Constructor
 
-> **new ImageDirective**(`viewContainer`, `templateRef`, `renderer`, `elementRef`): [`ImageDirective`](ImageDirective.md)
+> **new ImageDirective**(`viewContainer`, `templateRef`, `renderer`, `elementRef`): `ImageDirective`
+
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:49](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L49)
 
 #### Parameters
 
@@ -27,19 +31,15 @@
 | `viewContainer` | `ViewContainerRef` |
 | `templateRef` | `TemplateRef`\<`unknown`\> |
 | `renderer` | `Renderer2` |
-| `elementRef` | `ElementRef`\<`any`\> |
+| `elementRef` | `ElementRef` |
 
 #### Returns
 
-[`ImageDirective`](ImageDirective.md)
+`ImageDirective`
 
 #### Overrides
 
 `BaseFieldDirective.constructor`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:49](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L49)
 
 ## Properties
 
@@ -47,13 +47,11 @@
 
 > **attrs**: `object` = `{}`
 
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:35](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L35)
+
 #### Index Signature
 
- \[`param`: `string`\]: `unknown`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:35](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L35)
+\[`param`: `string`\]: `unknown`
 
 ***
 
@@ -61,15 +59,13 @@
 
 > `protected` **defaultFieldEditingComponent**: `Type`\<`unknown`\>
 
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:45](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L45)
+
 Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
 
 #### Overrides
 
 `BaseFieldDirective.defaultFieldEditingComponent`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:45](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L45)
 
 ***
 
@@ -77,13 +73,11 @@ Default component to render in Pages in Metadata edit mode if field value is emp
 
 > **editable**: `boolean` = `true`
 
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:22](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L22)
+
 #### Overrides
 
 `BaseFieldDirective.editable`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:22](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L22)
 
 ***
 
@@ -91,15 +85,13 @@ Default component to render in Pages in Metadata edit mode if field value is emp
 
 > **emptyFieldEditingTemplate**: `TemplateRef`\<`unknown`\>
 
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:40](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L40)
+
 Custom template to render in Pages in Metadata edit mode if field value is empty
 
 #### Overrides
 
 `BaseFieldDirective.emptyFieldEditingTemplate`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:40](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L40)
 
 ***
 
@@ -107,19 +99,19 @@ Custom template to render in Pages in Metadata edit mode if field value is empty
 
 > **field**: [`ImageField`](../interfaces/ImageField.md)
 
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:20](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L20)
+
 #### Overrides
 
 `BaseFieldDirective.field`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:20](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L20)
 
 ***
 
 ### mediaUrlPrefix?
 
 > `optional` **mediaUrlPrefix**: `RegExp`
+
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:31](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L31)
 
 Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
 
@@ -131,23 +123,17 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 /~assets/website -> /~/jssmedia/website
 ```
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:31](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L31)
-
 ***
 
 ### urlParams
 
 > **urlParams**: `object` = `{}`
 
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:33](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L33)
+
 #### Index Signature
 
- \[`param`: `string`\]: `string` \| `number`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:33](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L33)
+\[`param`: `string`\]: `string` \| `number`
 
 ***
 
@@ -155,13 +141,11 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 > `protected` **viewContainer**: `ViewContainerRef`
 
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
+
 #### Inherited from
 
 `BaseFieldDirective.viewContainer`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:24](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L24)
 
 ***
 
@@ -169,19 +153,19 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 > `protected` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
 
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
+
 #### Inherited from
 
 `BaseFieldDirective.viewRef`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:12](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L12)
 
 ## Methods
 
 ### ngOnChanges()
 
 > **ngOnChanges**(`changes`): `void`
+
+Defined in: [packages/sitecore-jss-angular/src/components/image.directive.ts:59](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/image.directive.ts#L59)
 
 A callback method that is invoked immediately after the
 default change detector has checked data-bound properties
@@ -202,15 +186,13 @@ children are checked.
 
 `OnChanges.ngOnChanges`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/image.directive.ts:59](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/image.directive.ts#L59)
-
 ***
 
 ### renderEmpty()
 
 > `protected` **renderEmpty**(): `void`
+
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
 
 Renders the empty field markup which is required by Pages in editMode 'metadata' in case field is empty.
 
@@ -222,15 +204,13 @@ Renders the empty field markup which is required by Pages in editMode 'metadata'
 
 `BaseFieldDirective.renderEmpty`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:37](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L37)
-
 ***
 
 ### renderMetadata()
 
 > `protected` **renderMetadata**(`kind`): `void`
+
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
 
 Renders a metadata chrome marker for the field. Required by Pages in editMode 'metadata'.
 
@@ -248,15 +228,13 @@ Renders a metadata chrome marker for the field. Required by Pages in editMode 'm
 
 `BaseFieldDirective.renderMetadata`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:53](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L53)
-
 ***
 
 ### shouldRender()
 
 > `protected` **shouldRender**(): `boolean`
+
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)
 
 Determines if directive should render the field as is
 Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
@@ -268,7 +246,3 @@ Returns true if we are in edit mode 'chromes' (field.editable is present) or fie
 #### Inherited from
 
 `BaseFieldDirective.shouldRender`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/base-field.directive.ts:30](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L30)

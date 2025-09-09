@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: RichTextProps
 
-> **RichTextProps**: `ReactRichTextProps` & `object`
+> **RichTextProps** = `ReactRichTextProps` & `object`
+
+Defined in: [sitecore-jss-nextjs/src/components/RichText.tsx:8](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L8)
 
 ## Type declaration
 
@@ -24,17 +26,16 @@ Selector which should be used in order to prefetch it and attach event listeners
 
 ### prefetchLinks?
 
-> `optional` **prefetchLinks**: `boolean`
+> `optional` **prefetchLinks**: `boolean` \| `"hover"`
 
 Controls the prefetch of internal links. This can be beneficial if you have RichText fields
 with large numbers of internal links in them.
+- `true` (default): The full route & its data will be prefetched.
+- `hover`: Prefetching will happen on hover.
+- `false`: Prefetching will not happen.
 
 #### Default
 
 ```ts
 true
 ```
-
-## Defined in
-
-[sitecore-jss-nextjs/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L10)

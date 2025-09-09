@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-react** • **Docs**
+**@sitecore-jss/sitecore-jss-react**
 
 ***
 
@@ -6,9 +6,10 @@
 
 ## Namespaces
 
-- [constants](namespaces/constants/README.md)
-- [mediaApi](namespaces/mediaApi/README.md)
-- [trackingApi](namespaces/trackingApi/README.md)
+- [constants](@sitecore-jss/namespaces/constants/README.md)
+- [File](@sitecore-jss/namespaces/File/README.md)
+- [mediaApi](@sitecore-jss/namespaces/mediaApi/README.md)
+- [trackingApi](@sitecore-jss/namespaces/trackingApi/README.md)
 
 ## Enumerations
 
@@ -25,6 +26,7 @@
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
 - [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
+- [NativeDataFetcher](classes/NativeDataFetcher.md)
 - [RestDictionaryService](classes/RestDictionaryService.md)
 - [RestLayoutService](classes/RestLayoutService.md)
 - [SitecoreContext](classes/SitecoreContext.md)
@@ -57,6 +59,7 @@
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
 - [LinkField](interfaces/LinkField.md)
 - [LinkFieldValue](interfaces/LinkFieldValue.md)
+- [NativeDataFetcherResponse](interfaces/NativeDataFetcherResponse.md)
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
 - [PlaceholderComponentProps](interfaces/PlaceholderComponentProps.md)
@@ -84,48 +87,51 @@
 - [FieldEditButton](type-aliases/FieldEditButton.md)
 - [GraphQLClientError](type-aliases/GraphQLClientError.md)
 - [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
+- [HttpDataFetcher](type-aliases/HttpDataFetcher.md)
 - [JssComponentType](type-aliases/JssComponentType.md)
 - [LinkProps](type-aliases/LinkProps.md)
+- [NativeDataFetcherConfig](type-aliases/NativeDataFetcherConfig.md)
+- [NativeDataFetcherError](type-aliases/NativeDataFetcherError.md)
 - [SitecoreContextValue](type-aliases/SitecoreContextValue.md)
 - [WebEditButton](type-aliases/WebEditButton.md)
 - [WithSitecoreContextHocProps](type-aliases/WithSitecoreContextHocProps.md)
 
 ## Variables
 
+- [DateField](variables/DateField.md)
 - [DefaultEditFrameButton](variables/DefaultEditFrameButton.md)
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
-- [LinkPropTypes](variables/LinkPropTypes.md)
-- [RichTextPropTypes](variables/RichTextPropTypes.md)
+- [DefaultEmptyFieldEditingComponentImage](variables/DefaultEmptyFieldEditingComponentImage.md)
+- [DefaultEmptyFieldEditingComponentText](variables/DefaultEmptyFieldEditingComponentText.md)
+- [EditFrame](variables/EditFrame.md)
+- [enableDebug](variables/enableDebug.md)
+- [File](variables/File.md)
+- [getContentStylesheetLink](variables/getContentStylesheetLink.md)
+- [Image](variables/Image.md)
+- [isEditorActive](variables/isEditorActive.md)
+- [Link](variables/Link.md)
+- [Placeholder](variables/Placeholder.md)
+- [resetEditorChromes](variables/resetEditorChromes.md)
+- [RichText](variables/RichText.md)
 - [SitecoreContextReactContext](variables/SitecoreContextReactContext.md)
+- [Text](variables/Text.md)
+- [VisitorIdentification](variables/VisitorIdentification.md)
 
 ## Functions
 
 - [BYOCWrapper](functions/BYOCWrapper.md)
-- [DateField](functions/DateField.md)
-- [DefaultEmptyFieldEditingComponentImage](functions/DefaultEmptyFieldEditingComponentImage.md)
-- [DefaultEmptyFieldEditingComponentText](functions/DefaultEmptyFieldEditingComponentText.md)
-- [EditFrame](functions/EditFrame.md)
+- [DesignLibrary](functions/DesignLibrary.md)
 - [EditingScripts](functions/EditingScripts.md)
-- [enableDebug](functions/enableDebug.md)
 - [FEaaSComponent](functions/FEaaSComponent.md)
 - [FEaaSWrapper](functions/FEaaSWrapper.md)
 - [fetchBYOCComponentServerProps](functions/fetchBYOCComponentServerProps.md)
 - [fetchFEaaSComponentServerProps](functions/fetchFEaaSComponentServerProps.md)
-- [File](functions/File.md)
+- [Form](functions/Form.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
-- [getComponentLibraryStylesheetLinks](functions/getComponentLibraryStylesheetLinks.md)
-- [getContentStylesheetLink](functions/getContentStylesheetLink.md)
+- [getDesignLibraryStylesheetLinks](functions/getDesignLibraryStylesheetLinks.md)
 - [getEEMarkup](functions/getEEMarkup.md)
 - [getFieldValue](functions/getFieldValue.md)
-- [Image](functions/Image.md)
-- [isEditorActive](functions/isEditorActive.md)
-- [Link](functions/Link.md)
-- [Placeholder](functions/Placeholder.md)
-- [resetEditorChromes](functions/resetEditorChromes.md)
-- [RichText](functions/RichText.md)
-- [Text](functions/Text.md)
 - [useSitecoreContext](functions/useSitecoreContext.md)
-- [VisitorIdentification](functions/VisitorIdentification.md)
 - [withDatasourceCheck](functions/withDatasourceCheck.md)
 - [withEditorChromes](functions/withEditorChromes.md)
 - [withEmptyFieldEditingComponent](functions/withEmptyFieldEditingComponent.md)

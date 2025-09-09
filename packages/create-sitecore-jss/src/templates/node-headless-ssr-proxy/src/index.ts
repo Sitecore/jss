@@ -43,7 +43,7 @@ server.use((req, _res, next) => {
 
 // For any other requests, we render app routes server-side and return them
 server.use(
-  '*',
+  '/{*splat}',
   headlessProxy.middleware(
     config.serverBundle.renderView,
     config,

@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-vue** • **Docs**
+**@sitecore-jss/sitecore-jss-vue**
 
 ***
 
@@ -6,9 +6,9 @@
 
 ## Namespaces
 
-- [constants](namespaces/constants/README.md)
-- [mediaApi](namespaces/mediaApi/README.md)
-- [trackingApi](namespaces/trackingApi/README.md)
+- [constants](@sitecore-jss/namespaces/constants/README.md)
+- [mediaApi](@sitecore-jss/namespaces/mediaApi/README.md)
+- [trackingApi](@sitecore-jss/namespaces/trackingApi/README.md)
 
 ## Classes
 
@@ -18,6 +18,7 @@
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
 - [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
+- [NativeDataFetcher](classes/NativeDataFetcher.md)
 - [RestDictionaryService](classes/RestDictionaryService.md)
 - [RestLayoutService](classes/RestLayoutService.md)
 
@@ -37,6 +38,7 @@
 - [LayoutService](interfaces/LayoutService.md)
 - [LayoutServiceContextData](interfaces/LayoutServiceContextData.md)
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
+- [NativeDataFetcherResponse](interfaces/NativeDataFetcherResponse.md)
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
 - [RetryStrategy](interfaces/RetryStrategy.md)
@@ -50,6 +52,9 @@
 - [FieldEditButton](type-aliases/FieldEditButton.md)
 - [GraphQLClientError](type-aliases/GraphQLClientError.md)
 - [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
+- [HttpDataFetcher](type-aliases/HttpDataFetcher.md)
+- [NativeDataFetcherConfig](type-aliases/NativeDataFetcherConfig.md)
+- [NativeDataFetcherError](type-aliases/NativeDataFetcherError.md)
 - [WebEditButton](type-aliases/WebEditButton.md)
 
 ## Variables
@@ -58,10 +63,14 @@
 - [DefaultEditFrameButton](variables/DefaultEditFrameButton.md)
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
 - [EditFrame](variables/EditFrame.md)
+- [enableDebug](variables/enableDebug.md)
 - [File](variables/File.md)
+- [handleEditorAnchors](variables/handleEditorAnchors.md)
 - [Image](variables/Image.md)
+- [isEditorActive](variables/isEditorActive.md)
 - [Link](variables/Link.md)
 - [Placeholder](variables/Placeholder.md)
+- [resetEditorChromes](variables/resetEditorChromes.md)
 - [RichText](variables/RichText.md)
 - [SitecoreContext](variables/SitecoreContext.md)
 - [SitecoreJssPlaceholderPlugin](variables/SitecoreJssPlaceholderPlugin.md)
@@ -69,10 +78,6 @@
 
 ## Functions
 
-- [enableDebug](functions/enableDebug.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
 - [getFieldValue](functions/getFieldValue.md)
-- [handleEditorAnchors](functions/handleEditorAnchors.md)
-- [isEditorActive](functions/isEditorActive.md)
 - [providePlaceholders](functions/providePlaceholders.md)
-- [resetEditorChromes](functions/resetEditorChromes.md)

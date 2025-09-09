@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Variable: debug
 
 > **debug**: `object`
+
+Defined in: [packages/sitecore-jss/src/debug.ts:30](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/debug.ts#L30)
 
 Default Sitecore JSS 'debug' module debuggers. Uses namespace prefix 'sitecore-jss:'.
 See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) for details.
@@ -28,6 +30,10 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 ### errorpages
 
 > **errorpages**: `Debugger`
+
+### form
+
+> **form**: `Debugger`
 
 ### http
 
@@ -60,7 +66,3 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 ### sitemap
 
 > **sitemap**: `Debugger`
-
-## Defined in
-
-[packages/sitecore-jss/src/debug.ts:30](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/debug.ts#L30)

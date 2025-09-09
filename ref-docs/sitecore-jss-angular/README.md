@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-angular** • **Docs**
+**@sitecore-jss/sitecore-jss-angular**
 
 ***
 
@@ -6,9 +6,9 @@
 
 ## Namespaces
 
-- [constants](namespaces/constants/README.md)
-- [mediaApi](namespaces/mediaApi/README.md)
-- [trackingApi](namespaces/trackingApi/README.md)
+- [constants](@sitecore-jss/namespaces/constants/README.md)
+- [mediaApi](@sitecore-jss/namespaces/mediaApi/README.md)
+- [trackingApi](@sitecore-jss/namespaces/trackingApi/README.md)
 
 ## Enumerations
 
@@ -38,6 +38,7 @@
 - [JssStateService](classes/JssStateService.md)
 - [LinkDirective](classes/LinkDirective.md)
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
+- [NativeDataFetcher](classes/NativeDataFetcher.md)
 - [PlaceholderComponent](classes/PlaceholderComponent.md)
 - [PlaceholderLoadingDirective](classes/PlaceholderLoadingDirective.md)
 - [RenderComponentComponent](classes/RenderComponentComponent.md)
@@ -78,6 +79,7 @@
 - [LayoutServiceData](interfaces/LayoutServiceData.md)
 - [LinkField](interfaces/LinkField.md)
 - [LinkFieldValue](interfaces/LinkFieldValue.md)
+- [NativeDataFetcherResponse](interfaces/NativeDataFetcherResponse.md)
 - [OutcomeInstance](interfaces/OutcomeInstance.md)
 - [PageViewInstance](interfaces/PageViewInstance.md)
 - [RenderingField](interfaces/RenderingField.md)
@@ -98,6 +100,8 @@
 - [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
 - [HTMLLink](type-aliases/HTMLLink.md)
 - [HttpDataFetcher](type-aliases/HttpDataFetcher.md)
+- [NativeDataFetcherConfig](type-aliases/NativeDataFetcherConfig.md)
+- [NativeDataFetcherError](type-aliases/NativeDataFetcherError.md)
 - [PersonalizeInfo](type-aliases/PersonalizeInfo.md)
 - [PlaceholdersData](type-aliases/PlaceholdersData.md)
 - [WebEditButton](type-aliases/WebEditButton.md)
@@ -110,18 +114,18 @@
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
 - [DYNAMIC\_COMPONENT](variables/DYNAMIC_COMPONENT.md)
 - [EDGE\_CONFIG](variables/EDGE_CONFIG.md)
+- [enableDebug](variables/enableDebug.md)
+- [getContentStylesheetLink](variables/getContentStylesheetLink.md)
+- [getEdgeProxyContentUrl](variables/getEdgeProxyContentUrl.md)
+- [handleEditorAnchors](variables/handleEditorAnchors.md)
+- [isEditorActive](variables/isEditorActive.md)
+- [resetEditorChromes](variables/resetEditorChromes.md)
 
 ## Functions
 
-- [enableDebug](functions/enableDebug.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
-- [getContentStylesheetLink](functions/getContentStylesheetLink.md)
-- [getEdgeProxyContentUrl](functions/getEdgeProxyContentUrl.md)
 - [getFieldValue](functions/getFieldValue.md)
 - [getGroomedVariantIds](functions/getGroomedVariantIds.md)
-- [handleEditorAnchors](functions/handleEditorAnchors.md)
-- [isEditorActive](functions/isEditorActive.md)
 - [isRawRendering](functions/isRawRendering.md)
 - [isServer](functions/isServer.md)
 - [personalizeLayout](functions/personalizeLayout.md)
-- [resetEditorChromes](functions/resetEditorChromes.md)

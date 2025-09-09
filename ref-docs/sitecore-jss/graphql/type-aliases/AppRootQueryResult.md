@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,24 +6,24 @@
 
 # Type Alias: AppRootQueryResult
 
-> **AppRootQueryResult**: `object`
+> **AppRootQueryResult** = `object`
+
+Defined in: [packages/sitecore-jss/src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)
 
 The schema of data returned in response to an app root query request
 
-## Type declaration
+## Properties
 
 ### layout
 
 > **layout**: `object`
 
-### layout.homePage
+Defined in: [packages/sitecore-jss/src/graphql/app-root-query.ts:28](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql/app-root-query.ts#L28)
+
+#### homePage
 
 > **homePage**: `object`
 
-### layout.homePage.rootItem
+##### homePage.rootItem
 
 > **rootItem**: `object`[]
-
-## Defined in
-
-[packages/sitecore-jss/src/graphql/app-root-query.ts:27](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/graphql/app-root-query.ts#L27)

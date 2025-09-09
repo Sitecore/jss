@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../README.md)
 
 ***
 
@@ -8,6 +8,4 @@
 
 > `const` **GRAPHQL\_LAYOUT\_QUERY\_NAME**: `"JssLayoutQuery"` = `"JssLayoutQuery"`
 
-## Defined in
-
-sitecore-jss/types/layout/graphql-layout-service.d.ts:4
+Defined in: sitecore-jss/types/layout/graphql-layout-service.d.ts:4

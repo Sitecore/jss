@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Interface: LayoutService
 
+Defined in: [packages/sitecore-jss/src/layout/layout-service.ts:4](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/layout-service.ts#L4)
+
 ## Methods
 
 ### fetchLayoutData()
 
-> **fetchLayoutData**(`itemPath`, `language`?, `req`?, `res`?): `Promise`\<[`LayoutServiceData`](LayoutServiceData.md)\>
+> **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`LayoutServiceData`](LayoutServiceData.md)\>
+
+Defined in: [packages/sitecore-jss/src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/layout-service.ts#L13)
 
 Fetch layout data for an item.
 
@@ -19,16 +23,12 @@ Fetch layout data for an item.
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `itemPath` | `string` |  |
-| `language`? | `string` |  |
-| `req`? | `IncomingMessage` | Request instance |
-| `res`? | `ServerResponse`\<`IncomingMessage`\> | Response instance |
+| `language?` | `string` |  |
+| `req?` | `IncomingMessage` | Request instance |
+| `res?` | `ServerResponse`\<`IncomingMessage`\> | Response instance |
 
 #### Returns
 
 `Promise`\<[`LayoutServiceData`](LayoutServiceData.md)\>
 
 layout data
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/layout/layout-service.ts#L13)

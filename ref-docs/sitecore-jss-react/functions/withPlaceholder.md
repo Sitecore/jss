@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,18 +6,20 @@
 
 # Function: withPlaceholder()
 
-> **withPlaceholder**(`placeholders`, `options`?): (`WrappedComponent`) => (`props`) => `Element`
+> **withPlaceholder**(`placeholders`, `options?`): (`WrappedComponent`) => (`props`) => `Element`
+
+Defined in: [packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L46)
 
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `placeholders` | `WithPlaceholderSpec` |  |
-| `options`? | `WithPlaceholderOptions` |  |
+| `options?` | `WithPlaceholderOptions` |  |
 
 ## Returns
 
-`Function`
+> (`WrappedComponent`): (`props`) => `Element`
 
 ### Parameters
 
@@ -27,18 +29,14 @@
 
 ### Returns
 
-`Function`
+> (`props`): `Element`
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `props` | [`EnhancedOmit`](../type-aliases/EnhancedOmit.md)\<`PlaceholderProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
+| `props` | [`WithSitecoreContextHocProps`](../type-aliases/WithSitecoreContextHocProps.md)\<`ComponentProps`\> |
 
 #### Returns
 
 `Element`
-
-## Defined in
-
-[packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L46)

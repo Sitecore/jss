@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 import { expect, use } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import { AxiosDataFetcher } from '@sitecore-jss/sitecore-jss';
+import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingData } from './editing-data';
 import { EditingDataCache } from './editing-data-cache';
 import {
@@ -18,7 +18,7 @@ use(sinonChai);
 use(chaiAsPromised);
 
 const mockFetcher = (data?: unknown) => {
-  const fetcher = {} as AxiosDataFetcher;
+  const fetcher = {} as NativeDataFetcher;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fetcher.get = spy<any>(() => {
     return Promise.resolve({ data });
@@ -89,7 +89,11 @@ describe('ServerlessEditingDataService', () => {
         expect(previewData.key).to.equal(key);
         expect(previewData.serverUrl).to.equal(serverUrl);
         expect(fetcher.put).to.have.been.calledOnce;
-        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
       });
     });
 
@@ -112,7 +116,11 @@ describe('ServerlessEditingDataService', () => {
       return service.setEditingData(data, serverUrl, params).then((previewData) => {
         expect(previewData.params).to.equal(params);
         expect(fetcher.put).to.have.been.calledOnce;
-        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
       });
     });
 
@@ -134,7 +142,11 @@ describe('ServerlessEditingDataService', () => {
 
       return service.setEditingData(data, serverUrl).then(() => {
         expect(fetcher.put).to.have.been.calledOnce;
-        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
       });
     });
 
@@ -156,7 +168,11 @@ describe('ServerlessEditingDataService', () => {
 
       return service.setEditingData(data, serverUrl, { param: superSecret }).then(() => {
         expect(fetcher.put).to.have.been.calledOnce;
-        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
       });
     });
   });

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Interface: ServerlessEditingDataServiceConfig
 
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:113](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L113)
+
 ## Properties
 
 ### apiRoute?
 
 > `optional` **apiRoute**: `string`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:121](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L121)
 
 The Next.js API route to invoke.
 This should be a URL path and include the '[key]' placeholder, which will be replaced with the actual data key.
@@ -26,28 +30,22 @@ This endpoint should run the `EditingDataMiddleware`.
 
 EditingDataMiddleware
 
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:121](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L121)
-
 ***
 
 ### dataFetcher?
 
-> `optional` **dataFetcher**: [`AxiosDataFetcher`](../../index/classes/AxiosDataFetcher.md)
+> `optional` **dataFetcher**: [`NativeDataFetcher`](../../index/classes/NativeDataFetcher.md)
 
-The `AxiosDataFetcher` instance to use for API requests.
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:127](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L127)
+
+The `NativeDataFetcher` instance to use for API requests.
 
 #### Default
 
 ```ts
-new AxiosDataFetcher()
+new NativeDataFetcher()
 ```
 
 #### See
 
-AxiosDataFetcher
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-service.ts:127](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L127)
+NativeDataFetcher

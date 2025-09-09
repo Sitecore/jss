@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: WebEditButton
 
-> **WebEditButton**: `BaseEditButton` & `object`
+> **WebEditButton** = `BaseEditButton` & `object`
+
+Defined in: packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 ## Type declaration
 
@@ -21,7 +23,3 @@
 ### type?
 
 > `optional` **type**: `string`
-
-## Defined in
-
-packages/sitecore-jss/types/editing/edit-frame.d.ts:57

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 export interface MissingComponentProps {
@@ -34,12 +33,6 @@ export const MissingComponent: React.FC<MissingComponentProps> = (props) => {
       <p>{errorMessage}</p>
     </div>
   );
-};
-
-MissingComponent.propTypes = {
-  rendering: PropTypes.shape({
-    componentName: PropTypes.string,
-  }),
 };
 
 MissingComponent.displayName = 'MissingComponent';

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: findEditorImageTag()
 
-> **findEditorImageTag**(`editorMarkup`): `null` \| `object`
+> **findEditorImageTag**(`editorMarkup`): `null` \| \{ `attrs`: \{\[`key`: `string`\]: `string`; \}; `imgTag`: `string`; \}
+
+Defined in: [packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/media/media-api.ts#L18)
 
 Makes a request to Sitecore Content Service for the specified item path.
 
@@ -18,10 +20,6 @@ Makes a request to Sitecore Content Service for the specified item path.
 
 ## Returns
 
-`null` \| `object`
+`null` \| \{ `attrs`: \{\[`key`: `string`\]: `string`; \}; `imgTag`: `string`; \}
 
 found image tag; null in case if not found
-
-## Defined in
-
-[packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/media/media-api.ts#L18)

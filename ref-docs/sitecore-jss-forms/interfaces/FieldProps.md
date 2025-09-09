@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-react-forms**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-forms**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-react-forms](../README.md) / FieldProps
 
 # Interface: FieldProps\<TFormField\>
+
+Defined in: [src/FieldProps.ts:10](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react-forms/src/FieldProps.ts#L10)
 
 ## Extended by
 
@@ -22,11 +24,9 @@
 
 > **field**: `TFormField`
 
+Defined in: [src/FieldProps.ts:12](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react-forms/src/FieldProps.ts#L12)
+
 Form field schema data
-
-#### Defined in
-
-[src/FieldProps.ts:12](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/FieldProps.ts#L12)
 
 ***
 
@@ -34,21 +34,19 @@ Form field schema data
 
 > **fieldFactory**: (`field`) => `ReactNode`
 
+Defined in: [src/FieldProps.ts:14](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react-forms/src/FieldProps.ts#L14)
+
 Function that can be called to create child form field components (used for sections)
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `field` | `FormField`\<`ViewModel`\> |
+| `field` | `FormField` |
 
 #### Returns
 
 `ReactNode`
-
-#### Defined in
-
-[src/FieldProps.ts:14](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/FieldProps.ts#L14)
 
 ***
 
@@ -56,15 +54,15 @@ Function that can be called to create child form field components (used for sect
 
 > `optional` **key**: `string`
 
-#### Defined in
-
-[src/FieldProps.ts:18](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/FieldProps.ts#L18)
+Defined in: [src/FieldProps.ts:18](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react-forms/src/FieldProps.ts#L18)
 
 ***
 
 ### onButtonClick()
 
 > **onButtonClick**: (`buttonFieldName`) => `void`
+
+Defined in: [src/FieldProps.ts:16](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react-forms/src/FieldProps.ts#L16)
 
 Callback for when a submit button is clicked. Tells the parent form which button was clicked when a submit occurs.
 
@@ -77,7 +75,3 @@ Callback for when a submit button is clicked. Tells the parent form which button
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/FieldProps.ts:16](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react-forms/src/FieldProps.ts#L16)

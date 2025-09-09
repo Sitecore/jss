@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,7 +6,10 @@
 
 # Enumeration: LayoutServicePageState
 
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:13
+
 Layout Service page state enum
+library mode would render a single component
 
 ## Enumeration Members
 
@@ -14,9 +17,7 @@ Layout Service page state enum
 
 > **Edit**: `"edit"`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:14
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:15
 
 ***
 
@@ -24,9 +25,7 @@ packages/sitecore-jss/types/layout/models.d.ts:14
 
 > **Normal**: `"normal"`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:15
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:16
 
 ***
 
@@ -34,6 +33,4 @@ packages/sitecore-jss/types/layout/models.d.ts:15
 
 > **Preview**: `"preview"`
 
-#### Defined in
-
-packages/sitecore-jss/types/layout/models.d.ts:13
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:14

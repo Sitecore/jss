@@ -30,7 +30,6 @@ describe('MultisiteGraphQLSitemapService', () => {
   afterEach(() => {
     nock.cleanAll();
   });
-
   const mockPathsRequest = (results?: { url: { path: string } }[]) => {
     nock(endpoint)
       .post('/', /DefaultSitemapQuery/gi)
@@ -345,6 +344,69 @@ describe('MultisiteGraphQLSitemapService', () => {
         return expect(nock.isDone()).to.be.true;
       });
 
+      it('should return encoded paths when special characters are used', async () => {
+        const site = 'test-site';
+        const lang = 'en';
+
+        nock(endpoint)
+          .post('/', /DefaultSitemapQuery/gi)
+          .reply(200, {
+            data: {
+              site: {
+                siteInfo: {
+                  routes: {
+                    total: 3,
+                    pageInfo: {
+                      hasNext: false,
+                    },
+                    results: [
+                      {
+                        path: '/Åbout',
+                      },
+                      {
+                        path: '/Tëâm',
+                      },
+                      {
+                        path: '/',
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          });
+
+        const service = new MultisiteGraphQLSitemapService({
+          clientFactory,
+          sites: [site],
+        });
+
+        const sitemap = await service.fetchSSGSitemap([lang]);
+
+        expect(sitemap).to.deep.equal([
+          {
+            params: {
+              path: ['_site_test-site', 'Åbout'],
+            },
+            locale: 'en',
+          },
+          {
+            params: {
+              path: ['_site_test-site', 'Tëâm'],
+            },
+            locale: 'en',
+          },
+          {
+            params: {
+              path: ['_site_test-site'],
+            },
+            locale: 'en',
+          },
+        ]);
+
+        return expect(nock.isDone()).to.be.true;
+      });
+
       it('should return aggregated paths for multiple sites and personalized sites', async () => {
         const multipleSites = ['site1', 'site2'];
         const lang = 'ua';
@@ -456,133 +518,6 @@ describe('MultisiteGraphQLSitemapService', () => {
             locale: lang,
           },
         ]);
-        return expect(nock.isDone()).to.be.true;
-      });
-
-      it('should work when multiple languages are requested', async () => {
-        const lang1 = 'ua';
-        const lang2 = 'da-DK';
-
-        nock(endpoint)
-          .post('/', (body) => {
-            return body.variables.language === lang1;
-          })
-          .reply(200, {
-            data: {
-              site: {
-                siteInfo: {
-                  routes: {
-                    total: 4,
-                    pageInfo: {
-                      hasNext: false,
-                    },
-                    results: [
-                      {
-                        path: '/',
-                      },
-                      {
-                        path: '/x1',
-                      },
-                      {
-                        path: '/y1/y2/y3/y4',
-                      },
-                      {
-                        path: '/y1/y2',
-                      },
-                    ],
-                  },
-                },
-              },
-            },
-          });
-
-        nock(endpoint)
-          .post('/', (body) => {
-            return body.variables.language === lang2;
-          })
-          .reply(200, {
-            data: {
-              site: {
-                siteInfo: {
-                  routes: {
-                    total: 4,
-                    pageInfo: {
-                      hasNext: false,
-                    },
-                    results: [
-                      {
-                        path: '/',
-                      },
-                      {
-                        path: '/x1-da-DK',
-                      },
-                      {
-                        path: '/y1/y2/y3/y4-da-DK',
-                      },
-                      {
-                        path: '/y1/y2-da-DK',
-                      },
-                    ],
-                  },
-                },
-              },
-            },
-          });
-
-        const service = new MultisiteGraphQLSitemapService({ clientFactory, sites });
-        const sitemap = await service.fetchSSGSitemap([lang1, lang2]);
-
-        expect(sitemap).to.deep.equal([
-          {
-            params: {
-              path: ['_site_site-name'],
-            },
-            locale: 'ua',
-          },
-          {
-            params: {
-              path: ['_site_site-name', 'x1'],
-            },
-            locale: 'ua',
-          },
-          {
-            params: {
-              path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4'],
-            },
-            locale: 'ua',
-          },
-          {
-            params: {
-              path: ['_site_site-name', 'y1', 'y2'],
-            },
-            locale: 'ua',
-          },
-          {
-            params: {
-              path: ['_site_site-name'],
-            },
-            locale: 'da-DK',
-          },
-          {
-            params: {
-              path: ['_site_site-name', 'x1-da-DK'],
-            },
-            locale: 'da-DK',
-          },
-          {
-            params: {
-              path: ['_site_site-name', 'y1', 'y2', 'y3', 'y4-da-DK'],
-            },
-            locale: 'da-DK',
-          },
-          {
-            params: {
-              path: ['_site_site-name', 'y1', 'y2-da-DK'],
-            },
-            locale: 'da-DK',
-          },
-        ]);
-
         return expect(nock.isDone()).to.be.true;
       });
 
@@ -768,6 +703,7 @@ describe('MultisiteGraphQLSitemapService', () => {
       expect(sitemap).to.deep.equal(expectedMultisiteExportSitemap);
       return expect(nock.isDone()).to.be.true;
     });
+
     it('should work if endpoint returns 0 pages', async () => {
       mockPathsRequest([]);
       const service = new MultisiteGraphQLSitemapService({ clientFactory, sites });
@@ -775,6 +711,7 @@ describe('MultisiteGraphQLSitemapService', () => {
       expect(sitemap).to.deep.equal([]);
       return expect(nock.isDone()).to.be.true;
     });
+
     it('should throw error if SitemapQuery fails', async () => {
       nock(endpoint)
         .post('/', /DefaultSitemapQuery/gi)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: getEdgeProxyContentUrl()
 
-> **getEdgeProxyContentUrl**(`sitecoreEdgeContextId`, `sitecoreEdgeUrl`?): `string`
+> **getEdgeProxyContentUrl**(`sitecoreEdgeContextId`, `sitecoreEdgeUrl?`): `string`
+
+Defined in: [packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:11](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L11)
 
 Generates a URL for accessing Sitecore Edge Platform Content using the provided endpoint and context ID.
 
@@ -15,14 +17,10 @@ Generates a URL for accessing Sitecore Edge Platform Content using the provided 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `sitecoreEdgeContextId` | `string` | `undefined` | The unique context id. |
-| `sitecoreEdgeUrl`? | `string` | `SITECORE_EDGE_URL_DEFAULT` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
+| `sitecoreEdgeUrl?` | `string` | `SITECORE_EDGE_URL_DEFAULT` | The base endpoint URL for the Edge Platform. Default is https://edge-platform.sitecorecloud.io |
 
 ## Returns
 
 `string`
 
 The complete URL for accessing content through the Edge Platform.
-
-## Defined in
-
-[packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts:9](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/graphql/graphql-edge-proxy.ts#L9)

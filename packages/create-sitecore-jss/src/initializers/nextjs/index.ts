@@ -11,6 +11,7 @@ import {
 } from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
+import { sharedPrerender } from './prompts';
 
 inquirer.registerPrompt('nextjs-checkbox', NextjsCheckbox);
 
@@ -51,6 +52,7 @@ export default class NextjsInitializer implements Initializer {
 
   async init(args: NextjsArgs) {
     const answers = await inquirer.prompt<NextjsAnswer>(prompts, args);
+    sharedPrerender.prerender = answers.prerender;
 
     const pkgPath = path.resolve(`${answers.destination}${sep}package.json`);
     const templatePath = path.resolve(__dirname, '../../templates/nextjs');

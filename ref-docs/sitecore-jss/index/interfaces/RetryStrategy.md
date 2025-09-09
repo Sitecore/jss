@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [index](../README.md) / RetryStrategy
 
 # Interface: RetryStrategy
+
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:42](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql-request-client.ts#L42)
 
 Defines the strategy for retrying GraphQL requests based on errors and attempts.
 
@@ -13,6 +15,8 @@ Defines the strategy for retrying GraphQL requests based on errors and attempts.
 ### getDelay()
 
 > **getDelay**(`error`, `attempt`): `number`
+
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:57](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql-request-client.ts#L57)
 
 Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
 
@@ -29,15 +33,13 @@ Calculates the delay (in milliseconds) before the next retry based on the given 
 
 The delay in milliseconds before the next retry.
 
-#### Defined in
-
-[packages/sitecore-jss/src/graphql-request-client.ts:57](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/graphql-request-client.ts#L57)
-
 ***
 
 ### shouldRetry()
 
 > **shouldRetry**(`error`, `attempt`, `retries`): `boolean`
+
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/graphql-request-client.ts#L50)
 
 Determines whether a request should be retried based on the given error and attempt count.
 
@@ -54,7 +56,3 @@ Determines whether a request should be retried based on the given error and atte
 `boolean`
 
 A boolean indicating whether to retry the request.
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql-request-client.ts:50](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/graphql-request-client.ts#L50)

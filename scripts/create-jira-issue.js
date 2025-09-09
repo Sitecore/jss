@@ -82,7 +82,7 @@ const JIRA_ISSUE_TYPE = Object.freeze([
       method: 'POST',
       body: JSON.stringify({
         fields: {
-          summary: event.title,
+          summary: `[JSS SDK] ${event.title}`,
           description: formatDescription(event.body),
           link: event.html_url,
           type: jiraIssueType,

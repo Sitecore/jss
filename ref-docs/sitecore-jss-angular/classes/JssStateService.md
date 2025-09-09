@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / JssStateService
 
 # Class: JssStateService\<State\>
+
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:17](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L17)
 
 The service that is used to store and retrieve the current state of the app.
 Referenced by the SDK to get the current state of the app.
@@ -17,9 +19,11 @@ Referenced by the SDK to get the current state of the app.
 
 ## Constructors
 
-### new JssStateService()
+### Constructor
 
-> **new JssStateService**\<`State`\>(`transferState`): [`JssStateService`](JssStateService.md)\<`State`\>
+> **new JssStateService**\<`State`\>(`transferState`): `JssStateService`\<`State`\>
+
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
 
 #### Parameters
 
@@ -29,11 +33,7 @@ Referenced by the SDK to get the current state of the app.
 
 #### Returns
 
-[`JssStateService`](JssStateService.md)\<`State`\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
+`JssStateService`\<`State`\>
 
 ## Properties
 
@@ -41,9 +41,7 @@ Referenced by the SDK to get the current state of the app.
 
 > `protected` **transferState**: `TransferState`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
 
 ## Accessors
 
@@ -53,15 +51,13 @@ Referenced by the SDK to get the current state of the app.
 
 > **get** **state**(): `Observable`\<`State`\>
 
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:27](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L27)
+
 Observable JSS state to subscribe to
 
 ##### Returns
 
 `Observable`\<`State`\>
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:27](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L27)
 
 ***
 
@@ -71,21 +67,21 @@ Observable JSS state to subscribe to
 
 > **get** **stateValue**(): `State`
 
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:34](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L34)
+
 The 'here and now' state value, usable without subscribing
 
 ##### Returns
 
 `State`
 
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:34](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L34)
-
 ## Methods
 
 ### setState()
 
 > **setState**(`newState`): `void`
+
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:42](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L42)
 
 Set new JSS state
 
@@ -98,7 +94,3 @@ Set new JSS state
 #### Returns
 
 `void`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/services/jss-state.service.ts:42](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L42)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,15 +6,17 @@
 
 # Class: HiddenRenderingComponent
 
+Defined in: [packages/sitecore-jss-angular/src/components/hidden-rendering.component.ts:6](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/hidden-rendering.component.ts#L6)
+
 ## Constructors
 
-### new HiddenRenderingComponent()
+### Constructor
 
-> **new HiddenRenderingComponent**(): [`HiddenRenderingComponent`](HiddenRenderingComponent.md)
+> **new HiddenRenderingComponent**(): `HiddenRenderingComponent`
 
 #### Returns
 
-[`HiddenRenderingComponent`](HiddenRenderingComponent.md)
+`HiddenRenderingComponent`
 
 ## Accessors
 
@@ -24,10 +26,8 @@
 
 > **get** **style**(): `string`
 
+Defined in: [packages/sitecore-jss-angular/src/components/hidden-rendering.component.ts:7](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-angular/src/components/hidden-rendering.component.ts#L7)
+
 ##### Returns
 
 `string`
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/hidden-rendering.component.ts:7](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-angular/src/components/hidden-rendering.component.ts#L7)

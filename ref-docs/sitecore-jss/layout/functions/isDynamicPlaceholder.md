@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: isDynamicPlaceholder()
 
 > **isDynamicPlaceholder**(`placeholder`): `boolean`
+
+Defined in: [packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/utils.ts#L96)
 
 Checks if the placeholder name is dynamic.
 
@@ -21,7 +23,3 @@ Checks if the placeholder name is dynamic.
 `boolean`
 
 True if the placeholder name is dynamic
-
-## Defined in
-
-[packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/layout/utils.ts#L96)

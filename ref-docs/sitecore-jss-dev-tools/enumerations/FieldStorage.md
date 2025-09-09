@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,15 +6,15 @@
 
 # Enumeration: FieldStorage
 
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:97](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L97)
+
 ## Enumeration Members
 
 ### Shared
 
 > **Shared**: `"shared"`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:99](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L99)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:99](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L99)
 
 ***
 
@@ -22,9 +22,7 @@
 
 > **Unversioned**: `"unversioned"`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:100](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L100)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:100](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L100)
 
 ***
 
@@ -32,6 +30,4 @@
 
 > **Versioned**: `"versioned"`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:98](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L98)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:98](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L98)

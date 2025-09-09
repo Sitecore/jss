@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react-native**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-native**](../README.md)
 
 ***
 
@@ -6,8 +6,10 @@
 
 # Interface: ComponentFields
 
+Defined in: sitecore-jss/types/layout/models.d.ts:78
+
 Content field data passed to a component
 
 ## Indexable
 
- \[`name`: `string`\]: [`Field`](Field.md) \| `Item` \| `Item`[]
+\[`name`: `string`\]: [`Field`](Field.md)\<`GenericFieldValue`\> \| `Item` \| `Item`[]

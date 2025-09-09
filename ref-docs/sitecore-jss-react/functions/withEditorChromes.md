@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: withEditorChromes()
 
-> **withEditorChromes**(`WrappedComponent`): `ComponentClass`\<`object`, `any`\>
+> **withEditorChromes**(`WrappedComponent`): `ComponentClass`\<\{ \}, `any`\>
+
+Defined in: [packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
 
 ## Parameters
 
@@ -16,8 +18,4 @@
 
 ## Returns
 
-`ComponentClass`\<`object`, `any`\>
-
-## Defined in
-
-[packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
+`ComponentClass`\<\{ \}, `any`\>

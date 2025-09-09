@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,10 +6,8 @@
 
 # Type Alias: GetStaticComponentProps
 
-> **GetStaticComponentProps**: `ComponentPropsFetchFunction`\<`GetStaticPropsContext`\>
+> **GetStaticComponentProps** = `ComponentPropsFetchFunction`\<`GetStaticPropsContext`\>
+
+Defined in: [sitecore-jss-nextjs/src/sharedTypes/component-props.ts:30](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L30)
 
 Shape of getStaticProps function on component level
-
-## Defined in
-
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:30](https://github.com/Sitecore/jss/blob/991c8f57eceef710471966b7c855981e4aac1ded/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L30)

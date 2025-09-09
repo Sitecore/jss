@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / Field
 
 # Interface: Field\<T\>
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:131](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/models.ts#L131)
 
 represents the field metadata provided by layout service in editMode 'metadata'
 
@@ -24,9 +26,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **editable**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:131](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/layout/models.ts#L131)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/models.ts#L133)
 
 ***
 
@@ -34,17 +34,15 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **metadata**: `object`
 
+Defined in: [packages/sitecore-jss/src/layout/models.ts:140](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/models.ts#L140)
+
 #### Index Signature
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 #### Inherited from
 
 [`FieldMetadata`](FieldMetadata.md).[`metadata`](FieldMetadata.md#metadata)
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:138](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/layout/models.ts#L138)
 
 ***
 
@@ -52,6 +50,4 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > **value**: `T`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:130](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/layout/models.ts#L130)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/layout/models.ts#L132)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -8,6 +8,8 @@
 
 > **createDisconnectedAssetMiddleware**(`config`): (`request`, `response`) => `void`
 
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:17](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L17)
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -16,19 +18,15 @@
 
 ## Returns
 
-`Function`
+> (`request`, `response`): `void`
 
 ### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
-| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
+| `request` | `Request` |
+| `response` | `Response` |
 
 ### Returns
 
 `void`
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:17](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L17)

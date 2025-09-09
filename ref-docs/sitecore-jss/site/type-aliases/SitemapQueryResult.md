@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,24 +6,24 @@
 
 # Type Alias: SitemapQueryResult
 
-> **SitemapQueryResult**: `object`
+> **SitemapQueryResult** = `object`
+
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
 
 The schema of data returned in response to sitemaps request
 
-## Type declaration
+## Properties
 
 ### site
 
 > **site**: `object`
 
-### site.siteInfo
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)
+
+#### siteInfo
 
 > **siteInfo**: `object`
 
-### site.siteInfo.sitemap
+##### siteInfo.sitemap
 
 > **sitemap**: `string`[]
-
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:34](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L34)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,10 +6,12 @@
 
 # Type Alias: HttpDataFetcher()\<T\>
 
-> **HttpDataFetcher**\<`T`\>: (`url`, `data`?) => `Promise`\<[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>\>
+> **HttpDataFetcher**\<`T`\> = (`url`, `data?`) => `Promise`\<[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>\>
+
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:27](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/data-fetcher.ts#L27)
 
 Describes functions that fetch data asynchronously (i.e. from an API endpoint).
-This interface conforms to Axios' public API, but is adaptable to other HTTP libraries and
+This interface conforms to 'fetch' public API, but is adaptable to other HTTP libraries and
 fetch polyfills.
 The interface implementation must:
 - Support SSR
@@ -27,12 +29,8 @@ The interface implementation must:
 | Parameter | Type |
 | ------ | ------ |
 | `url` | `string` |
-| `data`? | `unknown` |
+| `data?` | `unknown` |
 
 ## Returns
 
 `Promise`\<[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>\>
-
-## Defined in
-
-[packages/sitecore-jss/src/data-fetcher.ts:26](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/data-fetcher.ts#L26)

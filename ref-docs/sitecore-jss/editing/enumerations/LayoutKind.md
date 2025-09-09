@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [editing](../README.md) / LayoutKind
 
 # Enumeration: LayoutKind
+
+Defined in: [packages/sitecore-jss/src/editing/models.ts:51](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/models.ts#L51)
 
 Represents the Editing Layout variant.
 - shared - shared layout
@@ -16,9 +18,7 @@ Represents the Editing Layout variant.
 
 > **Final**: `"final"`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:26](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/editing/models.ts#L26)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:52](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/models.ts#L52)
 
 ***
 
@@ -26,6 +26,4 @@ Represents the Editing Layout variant.
 
 > **Shared**: `"shared"`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/19bb6642e4427b5db18d1ab2d795fea2aea54ea3/packages/sitecore-jss/src/editing/models.ts#L27)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:53](https://github.com/Sitecore/jss/blob/f052e595eb560433ff6e14addede2d4d85985051/packages/sitecore-jss/src/editing/models.ts#L53)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,34 +6,34 @@
 
 # Class: ClientError
 
+Defined in: packages/sitecore-jss/node\_modules/graphql-request/build/esm/types.d.ts:42
+
 ## Extends
 
 - `Error`
 
 ## Constructors
 
-### new ClientError()
+### Constructor
 
-> **new ClientError**(`response`, `request`): [`ClientError`](ClientError.md)
+> **new ClientError**(`response`, `request`): `ClientError`
+
+Defined in: packages/sitecore-jss/node\_modules/graphql-request/build/esm/types.d.ts:45
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `response` | `GraphQLResponse`\<`any`\> |
-| `request` | `GraphQLRequestContext`\<`Variables`\> |
+| `response` | `GraphQLResponse` |
+| `request` | `GraphQLRequestContext` |
 
 #### Returns
 
-[`ClientError`](ClientError.md)
+`ClientError`
 
 #### Overrides
 
 `Error.constructor`
-
-#### Defined in
-
-packages/sitecore-jss/node\_modules/graphql-request/dist/types.d.ts:29
 
 ## Properties
 
@@ -41,13 +41,11 @@ packages/sitecore-jss/node\_modules/graphql-request/dist/types.d.ts:29
 
 > **message**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1077
+
 #### Inherited from
 
 `Error.message`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1077
 
 ***
 
@@ -55,13 +53,11 @@ node\_modules/typescript/lib/lib.es5.d.ts:1077
 
 > **name**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1076
+
 #### Inherited from
 
 `Error.name`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 ***
 
@@ -69,35 +65,29 @@ node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 > `optional` **originalStack**: `string`
 
+Defined in: packages/sitecore-jss-angular/node\_modules/zone.js/lib/zone.d.ts:38
+
 Original stack trace with no modifications
 
 #### Inherited from
 
 `Error.originalStack`
 
-#### Defined in
-
-packages/sitecore-jss-angular/node\_modules/zone.js/lib/zone.d.ts:38
-
 ***
 
 ### request
 
-> **request**: `GraphQLRequestContext`\<`Variables`\>
+> **request**: `GraphQLRequestContext`
 
-#### Defined in
-
-packages/sitecore-jss/node\_modules/graphql-request/dist/types.d.ts:28
+Defined in: packages/sitecore-jss/node\_modules/graphql-request/build/esm/types.d.ts:44
 
 ***
 
 ### response
 
-> **response**: `GraphQLResponse`\<`any`\>
+> **response**: `GraphQLResponse`
 
-#### Defined in
-
-packages/sitecore-jss/node\_modules/graphql-request/dist/types.d.ts:27
+Defined in: packages/sitecore-jss/node\_modules/graphql-request/build/esm/types.d.ts:43
 
 ***
 
@@ -105,13 +95,11 @@ packages/sitecore-jss/node\_modules/graphql-request/dist/types.d.ts:27
 
 > `optional` **stack**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
+
 #### Inherited from
 
 `Error.stack`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 ***
 
@@ -119,21 +107,21 @@ node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 > `optional` **zoneAwareStack**: `string`
 
+Defined in: packages/sitecore-jss-angular/node\_modules/zone.js/lib/zone.d.ts:34
+
 Stack trace where extra frames have been removed and zone names added.
 
 #### Inherited from
 
 `Error.zoneAwareStack`
 
-#### Defined in
-
-packages/sitecore-jss-angular/node\_modules/zone.js/lib/zone.d.ts:34
-
 ***
 
 ### prepareStackTrace()?
 
 > `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
+
+Defined in: packages/sitecore-jss-angular/node\_modules/@types/node/globals.d.ts:143
 
 Optional override for formatting stack traces
 
@@ -156,29 +144,25 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 `Error.prepareStackTrace`
 
-#### Defined in
-
-packages/sitecore-jss-angular/node\_modules/@types/node/globals.d.ts:143
-
 ***
 
 ### stackTraceLimit
 
 > `static` **stackTraceLimit**: `number`
 
+Defined in: packages/sitecore-jss-angular/node\_modules/@types/node/globals.d.ts:145
+
 #### Inherited from
 
 `Error.stackTraceLimit`
-
-#### Defined in
-
-packages/sitecore-jss-angular/node\_modules/@types/node/globals.d.ts:145
 
 ## Methods
 
 ### captureStackTrace()
 
-> `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
+> `static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Defined in: packages/sitecore-jss-angular/node\_modules/@types/node/globals.d.ts:136
 
 Create .stack property on a target object
 
@@ -187,7 +171,7 @@ Create .stack property on a target object
 | Parameter | Type |
 | ------ | ------ |
 | `targetObject` | `object` |
-| `constructorOpt`? | `Function` |
+| `constructorOpt?` | `Function` |
 
 #### Returns
 
@@ -196,7 +180,3 @@ Create .stack property on a target object
 #### Inherited from
 
 `Error.captureStackTrace`
-
-#### Defined in
-
-packages/sitecore-jss-angular/node\_modules/@types/node/globals.d.ts:136

@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import glob from 'glob';
+import { glob } from 'glob';
 
 const PATTERN = '**/*.@(js|ts?(x))';
 const IGNORE_PATTERN = '@(node_modules|dist|.next|out|.generated)/**';
