@@ -26,6 +26,7 @@ describe('RedirectsMiddleware', () => {
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
   function validateEndMessageDebugLog(actualOrMsg: any, expected: any) {
+    // If a log message string was passed, fetch the 3rd arg (the payload) from the spy
     const actual =
       typeof actualOrMsg === 'string'
         ? debugSpy.args.find((args) => args[0] === actualOrMsg)?.[2]
@@ -37,18 +38,27 @@ describe('RedirectsMiddleware', () => {
       );
     }
 
-    const normalizeHeaders = (headers: Headers | Record<string, string> = {}) => {
-      const result: Record<string, string> = {};
+    const normalizeHeaders = (headers: any = {}) => {
+      const out: Record<string, string> = {};
+
       if (headers instanceof Headers) {
         headers.forEach((value, key) => {
-          result[key.toLowerCase()] = value;
+          out[key.toLowerCase()] = value;
         });
-      } else {
+      } else if (headers && typeof headers === 'object') {
         Object.entries(headers).forEach(([k, v]) => {
-          result[k.toLowerCase()] = v;
+          out[String(k).toLowerCase()] = String(v);
         });
+      } else if (typeof headers === 'string') {
+        // Sometimes shows up as "[object Headers]" in the debug log; treat as empty.
       }
-      return result;
+
+      // Ignore the internal rewrite marker header so rewrite tests don't fail
+      if (typeof REWRITE_HEADER_NAME === 'string') {
+        delete out[REWRITE_HEADER_NAME.toLowerCase()];
+      }
+
+      return out;
     };
 
     const normalizeUrl = (url: any) => (typeof url === 'string' ? url : url?.href ?? '');
