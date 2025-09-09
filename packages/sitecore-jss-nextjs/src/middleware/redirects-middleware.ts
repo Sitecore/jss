@@ -101,9 +101,9 @@ export class RedirectsMiddleware extends MiddlewareBase {
             let patternPath = urlArray[0].toLowerCase();
             // nextjs routes are case-sensitive, but locales should be compared case-insensitively
             const patternParts = patternPath.split('/');
-            const maybeLocale = patternParts[1]?.toLowerCase?.();
+            const maybeLocale = patternParts[1].toLowerCase();
             // case insensitive lookup of locales
-            if (maybeLocale && new RegExp(this.locales.join('|'), 'i').test(maybeLocale)) {
+            if (new RegExp(this.locales.join('|'), 'i').test(maybeLocale)) {
               patternPath = patternPath.replace(`/${patternParts[1]}`, `/${maybeLocale}`);
             }
             return (
@@ -236,10 +236,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
         const targetParts = existsRedirect.target.split('/');
         const urlFirstPart = targetParts[1];
 
-        if (
-          !REGEXP_ABSOLUTE_URL.test(existsRedirect.target) &&
-          this.locales.includes(urlFirstPart)
-        ) {
+        if (this.locales.includes(urlFirstPart)) {
           req.nextUrl.locale = urlFirstPart;
           existsRedirect.target = existsRedirect.target.replace(`/${urlFirstPart}`, '');
         }

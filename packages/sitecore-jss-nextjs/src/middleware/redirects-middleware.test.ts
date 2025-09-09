@@ -1023,6 +1023,53 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should not strip locale from external absolute URLs', async () => {
+        const externalUrl = 'https://example.com/en/this-is-en';
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+
+        const url = {
+          href: externalUrl,
+          pathname: '/en/this-is-en',
+          origin: 'https://example.com',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/ra',
+              href: 'http://localhost:3000/ra',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              clone: cloneUrl,
+            },
+          },
+          status: 302,
+        });
+
+        setupRedirectStub(302);
+
+        const { finalRes } = await runTestWithRedirect(
+          {
+            pattern: '/ra',
+            target: externalUrl,
+            redirectType: REDIRECT_TYPE_302,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        // finalRes.url can be a string (from our redirect stub) or an object in some environments,
+        // so normalize to compare safely.
+        const normalizeUrlValue = (u: any) => (typeof u === 'string' ? u : u?.href ?? '');
+        expect(normalizeUrlValue(finalRes.url)).to.equal(externalUrl);
+      });
+
       it('should redirect uses token $siteLang in target url', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
