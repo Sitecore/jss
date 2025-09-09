@@ -25,35 +25,33 @@ describe('RedirectsMiddleware', () => {
   const debugSpy = spy(debug, 'redirects');
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
-  const validateEndMessageDebugLog = (message, params) => {
-    const logParams = debugSpy.args.find((log) => log[0] === message) as Array<unknown>;
-
-    const normalizeUrl = (u: any) => {
-      if (typeof u === 'string') return u;
-      if (u && typeof u === 'object') return typeof u.href === 'string' ? u.href : String(u);
-      return u;
-    };
-
-    const normalizeHeaders = (h: any) => {
-      if (!h) return h;
-      if (typeof Headers !== 'undefined' && h instanceof Headers) {
-        return Object.fromEntries(h.entries());
+  function validateEndMessageDebugLog(actual: any, expected: any) {
+    const normalizeHeaders = (headers: Headers | Record<string, string> = {}) => {
+      const result: Record<string, string> = {};
+      if (headers instanceof Headers) {
+        headers.forEach((value, key) => {
+          result[key.toLowerCase()] = value;
+        });
+      } else {
+        Object.entries(headers).forEach(([k, v]) => {
+          result[k.toLowerCase()] = v;
+        });
       }
-      if (h === '[object Headers]') return {};
-      return h;
+      return result;
     };
 
-    const actual = { ...(logParams[2] as any) };
-    const expected = { ...(params as any) };
+    const normalizeUrl = (url: any) => (typeof url === 'string' ? url : url?.href ?? '');
 
-    if ('url' in actual) actual.url = normalizeUrl(actual.url);
-    if ('url' in expected) expected.url = normalizeUrl(expected.url);
-
-    if ('headers' in actual) actual.headers = normalizeHeaders(actual.headers);
-    if ('headers' in expected) expected.headers = normalizeHeaders(expected.headers);
-
-    expect(actual).to.deep.equal(expected);
-  };
+    expect({
+      ...actual,
+      url: normalizeUrl(actual.url),
+      headers: normalizeHeaders(actual.headers),
+    }).to.deep.equal({
+      ...expected,
+      url: normalizeUrl(expected.url),
+      headers: normalizeHeaders(expected.headers),
+    });
+  }
 
   const referrer = 'http://localhost:3000';
   const hostname = 'foo.net';
