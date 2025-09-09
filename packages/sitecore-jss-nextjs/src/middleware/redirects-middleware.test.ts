@@ -25,7 +25,18 @@ describe('RedirectsMiddleware', () => {
   const debugSpy = spy(debug, 'redirects');
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
-  function validateEndMessageDebugLog(actual: any, expected: any) {
+  function validateEndMessageDebugLog(actualOrMsg: any, expected: any) {
+    const actual =
+      typeof actualOrMsg === 'string'
+        ? debugSpy.args.find((args) => args[0] === actualOrMsg)?.[2]
+        : actualOrMsg;
+
+    if (!actual || typeof actual !== 'object') {
+      throw new Error(
+        `Invalid 'actual' payload passed to validateEndMessageDebugLog: ${JSON.stringify(actual)}`
+      );
+    }
+
     const normalizeHeaders = (headers: Headers | Record<string, string> = {}) => {
       const result: Record<string, string> = {};
       if (headers instanceof Headers) {
