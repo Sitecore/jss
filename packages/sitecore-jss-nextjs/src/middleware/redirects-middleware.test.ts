@@ -71,7 +71,7 @@ describe('RedirectsMiddleware', () => {
   const getCookies = () => {};
 
   const createRequest = (props: any = {}) => {
-    const req = {
+    const req = ({
       ...props,
       nextUrl: {
         pathname: '/styleguide',
@@ -96,7 +96,7 @@ describe('RedirectsMiddleware', () => {
         ...props.headerValues,
       },
       referrer,
-    } as unknown as NextRequest;
+    } as unknown) as NextRequest;
 
     return req;
   };
@@ -120,7 +120,9 @@ describe('RedirectsMiddleware', () => {
       },
       forEach: {
         value: (cb: (value: string, key: string, obj: any) => void) => {
-          Object.keys(res.headers).forEach((key) => cb((res.headers as any)[key], key, res.headers));
+          Object.keys(res.headers).forEach((key) =>
+            cb((res.headers as any)[key], key, res.headers)
+          );
         },
         enumerable: false,
       },
@@ -200,32 +202,41 @@ describe('RedirectsMiddleware', () => {
     nextRedirectStub = sandbox.stub(NextResponse, 'redirect').callsFake((url: any, init: any) => {
       const statusCode = typeof init === 'number' ? init : init?.status || status;
       const headers = typeof init === 'object' ? init?.headers : {};
-      return {
+      return ({
         url,
         status: statusCode,
         cookies: { set: setCookies, get: getCookies },
         headers: new Headers(headers),
-      } as unknown as NextResponse;
+      } as unknown) as NextResponse;
     });
   };
 
   const setupRewriteStub = (status = 200, res: any) => {
     nextRewriteStub = sandbox.stub(NextResponse, 'rewrite').callsFake((url: any) => {
-      return {
+      return ({
         url,
         status,
         cookies: { set: setCookies, get: getCookies },
         headers: res.headers,
-      } as unknown as NextResponse;
+      } as unknown) as NextResponse;
     });
   };
 
-  const runWithHandler = async (middleware: RedirectsMiddleware, req: NextRequest, res: NextResponse) => {
+  const runWithHandler = async (
+    middleware: RedirectsMiddleware,
+    req: NextRequest,
+    res: NextResponse
+  ) => {
     const handler = middleware.getHandler();
     return handler(req, res);
   };
 
-  const runTestWithRedirect = async (middlewareOptions: any, req: NextRequest, res: NextResponse, _hostname = hostname) => {
+  const runTestWithRedirect = async (
+    middlewareOptions: any,
+    req: NextRequest,
+    res: NextResponse,
+    _hostname = hostname
+  ) => {
     const { middleware, fetchRedirects, siteResolver } = createMiddleware(middlewareOptions);
     const finalRes = await runWithHandler(middleware, req, res);
 
@@ -351,7 +362,7 @@ describe('RedirectsMiddleware', () => {
 
     it('returns same res when no redirect', async () => {
       const res = createResponse({ url: 'http://localhost:3000/found' });
-      const nextStub = sandbox.stub(NextResponse, 'next').returns(res as unknown as NextResponse);
+      const nextStub = sandbox.stub(NextResponse, 'next').returns((res as unknown) as NextResponse);
       const req = createRequest();
       const { middleware, fetchRedirects, siteResolver } = createMiddleware();
 
@@ -471,7 +482,9 @@ describe('RedirectsMiddleware', () => {
         });
 
         // Response should have our custom rewrite header
-        expect((finalRes as any).headers.get(REWRITE_HEADER_NAME)).to.equal('http://localhost:3000/found');
+        expect((finalRes as any).headers.get(REWRITE_HEADER_NAME)).to.equal(
+          'http://localhost:3000/found'
+        );
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         expect(fetchRedirects.called).to.be.true;
