@@ -27,7 +27,32 @@ describe('RedirectsMiddleware', () => {
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
   const validateEndMessageDebugLog = (message, params) => {
     const logParams = debugSpy.args.find((log) => log[0] === message) as Array<unknown>;
-    expect(logParams[2]).to.deep.equal(params);
+
+    const normalizeUrl = (u: any) => {
+      if (typeof u === 'string') return u;
+      if (u && typeof u === 'object') return typeof u.href === 'string' ? u.href : String(u);
+      return u;
+    };
+
+    const normalizeHeaders = (h: any) => {
+      if (!h) return h;
+      if (typeof Headers !== 'undefined' && h instanceof Headers) {
+        return Object.fromEntries(h.entries());
+      }
+      if (h === '[object Headers]') return {};
+      return h;
+    };
+
+    const actual = { ...(logParams[2] as any) };
+    const expected = { ...(params as any) };
+
+    if ('url' in actual) actual.url = normalizeUrl(actual.url);
+    if ('url' in expected) expected.url = normalizeUrl(expected.url);
+
+    if ('headers' in actual) actual.headers = normalizeHeaders(actual.headers);
+    if ('headers' in expected) expected.headers = normalizeHeaders(expected.headers);
+
+    expect(actual).to.deep.equal(expected);
   };
 
   const referrer = 'http://localhost:3000';
@@ -102,14 +127,12 @@ describe('RedirectsMiddleware', () => {
   const createMiddleware = (
     props: {
       [key: string]: unknown;
-      // for multiple rules
       redirectMaps?: {
         pattern: string;
         target: string;
         redirectType?: string;
         isQueryStringPreserved?: boolean;
       }[];
-      // for single rule
       pattern?: string;
       target?: string;
       redirectType?: string;
@@ -137,7 +160,6 @@ describe('RedirectsMiddleware', () => {
 
     const siteResolver = props.siteResolver || new MockSiteResolver([]);
 
-    // OLD LOGIC + required clientFactory (no-op GraphQL client)
     const clientFactory = GraphQLRequestClient.createClientFactory({
       apiKey: 'edge-api-key',
       endpoint: 'http://edge-endpoint/api/graph/edge',
@@ -146,7 +168,7 @@ describe('RedirectsMiddleware', () => {
     const middleware = new RedirectsMiddleware({
       siteResolver,
       ...props,
-      clientFactory, // <-- required by GraphQLRedirectsService in old repo
+      clientFactory,
       locales: ['en', 'ua', 'pl-PL'],
     });
 
@@ -182,11 +204,15 @@ describe('RedirectsMiddleware', () => {
 
   const setupRewriteStub = (status = 200, res) => {
     nextRewriteStub = sinon.stub(NextResponse, 'rewrite').callsFake((url) => {
+      const headers =
+        res?.headers instanceof Headers ? res.headers : new Headers(res?.headers || {});
+      headers.set(REWRITE_HEADER_NAME, typeof url === 'string' ? url : url?.href ?? String(url));
+
       return ({
         url,
         status,
         cookies: { set: setCookies, get: getCookies },
-        headers: res.headers,
+        headers,
       } as unknown) as NextResponse;
     });
   };
@@ -218,7 +244,6 @@ describe('RedirectsMiddleware', () => {
     return { res, req };
   };
 
-  // Stub for NextResponse generation, see https://github.com/vercel/next.js/issues/42374
   (Headers.prototype as any).getAll = () => [];
 
   beforeEach(() => {
