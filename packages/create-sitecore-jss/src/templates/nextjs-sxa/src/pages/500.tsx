@@ -1,17 +1,19 @@
+import { GetStaticProps } from 'next';
 import { JSX } from 'react';
 import Head from 'next/head';
 import {
   GraphQLErrorPagesService,
   SitecoreContext,
+  ComponentPropsContext,
   ErrorPages,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import Layout from 'src/Layout';
 import { componentBuilder } from 'temp/componentBuilder';
-import { GetStaticProps } from 'next';
-import config from 'temp/config';
 import { siteResolver } from 'lib/site-resolver';
 import clientFactory from 'lib/graphql-client-factory';
+import { fetchComponentProps } from 'lib/component-props';
+import config from 'temp/config';
 
 /**
  * Rendered in case if we have 500 error
@@ -35,20 +37,22 @@ const Custom500 = (props: SitecorePageProps): JSX.Element => {
   }
 
   return (
-    <SitecoreContext
-      componentFactory={componentBuilder.getComponentFactory()}
-      layoutData={props.layoutData}
-      <% if (templates.includes('nextjs-xmcloud')) { %>
-        api={{
-          edge: {
-            contextId: config.sitecoreEdgeContextId,
-            edgeUrl: config.sitecoreEdgeUrl,
-          },
-        }}
-      <% } %>
-    >
-      <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
-    </SitecoreContext>
+    <ComponentPropsContext value={props.componentProps}>
+      <SitecoreContext
+        componentFactory={componentBuilder.getComponentFactory()}
+        layoutData={props.layoutData}
+        <% if (templates.includes('nextjs-xmcloud')) { %>
+          api={{
+            edge: {
+              contextId: config.sitecoreEdgeContextId,
+              edgeUrl: config.sitecoreEdgeUrl,
+            },
+          }}
+        <% } %>
+      >
+        <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
+      </SitecoreContext>
+    </ComponentPropsContext>
   );
 };
 
@@ -74,10 +78,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   }
 
+  const layoutData = resultErrorPages?.notFoundPage?.rendered || null;
+
+  let componentProps = {};
+
+  if (layoutData?.sitecore?.route) {
+    componentProps = await fetchComponentProps(layoutData, context);
+  }
+
   return {
     props: {
       headLinks: [],
-      layoutData: resultErrorPages?.serverErrorPage?.rendered || null,
+      layoutData,
+      componentProps,
     },
   };
 };

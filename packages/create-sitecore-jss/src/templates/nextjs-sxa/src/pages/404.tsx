@@ -1,17 +1,19 @@
 import { JSX } from 'react';
-import config from 'temp/config';
+import { GetStaticProps } from 'next';
 import {
   GraphQLErrorPagesService,
   SitecoreContext,
+  ComponentPropsContext,
   ErrorPages,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import NotFound from 'src/NotFound';
 import { componentBuilder } from 'temp/componentBuilder';
 import Layout from 'src/Layout';
-import { GetStaticProps } from 'next';
 import { siteResolver } from 'lib/site-resolver';
+import { fetchComponentProps } from 'lib/component-props';
 import clientFactory from 'lib/graphql-client-factory';
+import config from 'temp/config';
 
 const Custom404 = (props: SitecorePageProps): JSX.Element => {
   if (!(props && props.layoutData)) {
@@ -19,20 +21,22 @@ const Custom404 = (props: SitecorePageProps): JSX.Element => {
   }
 
   return (
-    <SitecoreContext
-      componentFactory={componentBuilder.getComponentFactory()}
-      layoutData={props.layoutData}
-      <% if (templates.includes('nextjs-xmcloud')) { %>
-        api={{
-          edge: {
-            contextId: config.sitecoreEdgeContextId,
-            edgeUrl: config.sitecoreEdgeUrl,
-          },
-        }}
-      <% } %>
-    >
-      <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
-    </SitecoreContext>
+    <ComponentPropsContext value={props.componentProps}>
+      <SitecoreContext
+        componentFactory={componentBuilder.getComponentFactory()}
+        layoutData={props.layoutData}
+        <% if (templates.includes('nextjs-xmcloud')) { %>
+          api={{
+            edge: {
+              contextId: config.sitecoreEdgeContextId,
+              edgeUrl: config.sitecoreEdgeUrl,
+            },
+          }}
+        <% } %>
+      >
+        <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
+      </SitecoreContext>
+    </ComponentPropsContext>
   );
 };
 
@@ -58,10 +62,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   }
 
+  const layoutData = resultErrorPages?.notFoundPage?.rendered || null;
+
+  let componentProps = {};
+
+  if (layoutData?.sitecore?.route) {
+    componentProps = await fetchComponentProps(layoutData, context);
+  }
+
   return {
     props: {
       headLinks: [],
-      layoutData: resultErrorPages?.notFoundPage?.rendered || null,
+      layoutData,
+      componentProps,
     },
   };
 };

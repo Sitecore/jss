@@ -11,6 +11,17 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.9.1
+
+### 🎉 New Features & Improvements
+
+* `[Next.js]` Support component-level data fetching in 404/500 pages ([#2140](https://github.com/Sitecore/jss/pull/2140))
+
+### 🐛 Bug Fixes
+
+* `[React]` Custom properties are not applied to empty field in editing metadata mode ([#2141](https://github.com/Sitecore/jss/pull/2141))
+* `[Next.js]` `[Redirects]` Preserve default locale in external absolute urls ([#2142](https://github.com/Sitecore/jss/pull/2142))
+
 ## 22.9.0
 
 ### 🐛 Bug Fixes
