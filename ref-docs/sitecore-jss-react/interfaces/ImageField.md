@@ -6,7 +6,7 @@
 
 # Interface: ImageField
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:18](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss-react/src/components/Image.tsx#L18)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:18](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-react/src/components/Image.tsx#L18)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:18](https://gi
 
 > `optional` **editable**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:20](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss-react/src/components/Image.tsx#L20)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:20](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-react/src/components/Image.tsx#L20)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:20](https://gi
 
 > `optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:19](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss-react/src/components/Image.tsx#L19)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:19](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-react/src/components/Image.tsx#L19)

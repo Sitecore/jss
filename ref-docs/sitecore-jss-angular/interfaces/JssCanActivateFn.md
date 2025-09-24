@@ -6,11 +6,11 @@
 
 # Interface: JssCanActivateFn()
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:93](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L93)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:93](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L93)
 
 > **JssCanActivateFn**(`input`): `string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand` \| `Observable`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\> \| `Promise`\<`string` \| `boolean` \| `string`[] \| `UrlTree` \| `RedirectCommand`\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:94](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L94)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:94](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L94)
 
 ## Parameters
 

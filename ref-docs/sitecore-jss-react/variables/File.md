@@ -8,4 +8,4 @@
 
 > `const` **File**: `React.FC`\<`FileProps`\>
 
-Defined in: [packages/sitecore-jss-react/src/components/File.tsx:23](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss-react/src/components/File.tsx#L23)
+Defined in: [packages/sitecore-jss-react/src/components/File.tsx:23](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-react/src/components/File.tsx#L23)

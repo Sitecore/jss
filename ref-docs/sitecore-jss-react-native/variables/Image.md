@@ -8,4 +8,4 @@
 
 > `const` **Image**: `React.SFC`\<`ImageProps`\>
 
-Defined in: [sitecore-jss-react-native/src/components/Image.tsx:104](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss-react-native/src/components/Image.tsx#L104)
+Defined in: [sitecore-jss-react-native/src/components/Image.tsx:104](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-react-native/src/components/Image.tsx#L104)

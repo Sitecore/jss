@@ -10,7 +10,7 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:30
 
 ## Extends
 
-- `EditableFieldProps`
+- `EditableFieldProps`\<`ImageProps`\>
 
 ## Indexable
 
@@ -41,7 +41,7 @@ true
 
 ### emptyFieldEditingComponent?
 
-> `optional` **emptyFieldEditingComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+> `optional` **emptyFieldEditingComponent**: `ComponentClass`\<`ImageProps`, `any`\> \| `FC`\<`ImageProps`\>
 
 Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:31
 
