@@ -6,7 +6,7 @@
 
 # Interface: DesignLibraryStatusEvent
 
-Defined in: [packages/sitecore-jss/src/editing/design-library.ts:13](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/editing/design-library.ts#L13)
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:13](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss/src/editing/design-library.ts#L13)
 
 Represents an event indicating the status of a component in the library.
 
@@ -16,7 +16,7 @@ Represents an event indicating the status of a component in the library.
 
 > **message**: `object`
 
-Defined in: [packages/sitecore-jss/src/editing/design-library.ts:15](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/editing/design-library.ts#L15)
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:15](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss/src/editing/design-library.ts#L15)
 
 #### status
 
@@ -32,4 +32,4 @@ Defined in: [packages/sitecore-jss/src/editing/design-library.ts:15](https://git
 
 > **name**: `"component:status"`
 
-Defined in: [packages/sitecore-jss/src/editing/design-library.ts:14](https://github.com/Sitecore/jss/blob/ba8bbd4ac66e20e519cd3fa38115521ade57f534/packages/sitecore-jss/src/editing/design-library.ts#L14)
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:14](https://github.com/Sitecore/jss/blob/4dd7cbd0792d5350ffa0d2befa523e78a67ab41f/packages/sitecore-jss/src/editing/design-library.ts#L14)
