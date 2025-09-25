@@ -71,9 +71,12 @@ const JIRA_ISSUE_TYPE = Object.freeze([
     process.exit(1);
   }
 
-  // don't create Jira issue if PR is created by admin
-  if (github.event.pull_request && userInfoRes.permission === 'admin') {
-    console.log('Skipped Jira issue creation. The Pull Request was created by admin user.');
+  // don't create Jira issue if PR is created by admin or maintainer
+  if (
+    github.event.pull_request &&
+    (userInfoRes.user?.permissions?.admin || userInfoRes.user?.permissions?.maintain)
+  ) {
+    console.log('Skipping Jira issue creation: PR author is admin/maintainer.');
     return;
   }
 
