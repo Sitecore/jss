@@ -8,7 +8,7 @@
 
 > `const` **FETCH\_WITH**: `object`
 
-Defined in: [packages/sitecore-jss/src/constants.ts:9](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss/src/constants.ts#L9)
+Defined in: [packages/sitecore-jss/src/constants.ts:9](https://github.com/Sitecore/jss/blob/43354186b95820421382c0b05ae2cd132f31fcb2/packages/sitecore-jss/src/constants.ts#L9)
 
 ## Type declaration
 

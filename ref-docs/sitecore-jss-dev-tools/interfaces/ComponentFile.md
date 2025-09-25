@@ -6,7 +6,7 @@
 
 # Interface: ComponentFile
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:6](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L6)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:6](https://github.com/Sitecore/jss/blob/43354186b95820421382c0b05ae2cd132f31fcb2/packages/sitecore-jss-dev-tools/src/templating/components.ts#L6)
 
 Describes a file that represents a component definition
 
@@ -16,7 +16,7 @@ Describes a file that represents a component definition
 
 > **componentName**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:9](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L9)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:9](https://github.com/Sitecore/jss/blob/43354186b95820421382c0b05ae2cd132f31fcb2/packages/sitecore-jss-dev-tools/src/templating/components.ts#L9)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:9](https://gith
 
 > **moduleName**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:8](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L8)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:8](https://github.com/Sitecore/jss/blob/43354186b95820421382c0b05ae2cd132f31fcb2/packages/sitecore-jss-dev-tools/src/templating/components.ts#L8)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:8](https://gith
 
 > **path**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:7](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L7)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:7](https://github.com/Sitecore/jss/blob/43354186b95820421382c0b05ae2cd132f31fcb2/packages/sitecore-jss-dev-tools/src/templating/components.ts#L7)

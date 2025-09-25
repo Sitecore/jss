@@ -8,7 +8,7 @@
 
 > **verifySetup**(): `void`
 
-Defined in: [sitecore-jss-dev-tools/src/setup/verify-setup.ts:6](https://github.com/Sitecore/jss/blob/fbe00e6660e3a6cec4ac12dfb40734cd8a9a9d7e/packages/sitecore-jss-dev-tools/src/setup/verify-setup.ts#L6)
+Defined in: [sitecore-jss-dev-tools/src/setup/verify-setup.ts:6](https://github.com/Sitecore/jss/blob/43354186b95820421382c0b05ae2cd132f31fcb2/packages/sitecore-jss-dev-tools/src/setup/verify-setup.ts#L6)
 
 ## Returns
 
