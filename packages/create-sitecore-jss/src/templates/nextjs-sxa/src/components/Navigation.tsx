@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, JSX } from 'react';
 import {
   Link,
   LinkField,

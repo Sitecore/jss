@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,22 +6,30 @@
 
 # Type Alias: EditFrameDataSource
 
-> **EditFrameDataSource**: `object`
+> **EditFrameDataSource** = `object`
 
-## Type declaration
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/edit-frame.ts#L49)
+
+## Properties
 
 ### databaseName?
 
 > `optional` **databaseName**: `string`
 
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:51](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/edit-frame.ts#L51)
+
+***
+
 ### itemId
 
 > **itemId**: `string`
+
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:50](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/edit-frame.ts#L50)
+
+***
 
 ### language?
 
 > `optional` **language**: `string`
 
-## Defined in
-
-[packages/sitecore-jss/src/editing/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/edit-frame.ts#L49)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:52](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/edit-frame.ts#L52)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,8 +6,10 @@
 
 # Interface: DictionaryPhrases
 
+Defined in: packages/sitecore-jss/types/i18n/dictionary-service.d.ts:5
+
 Object model for Sitecore dictionary phrases
 
 ## Indexable
 
- \[`k`: `string`\]: `string`
+\[`k`: `string`\]: `string`

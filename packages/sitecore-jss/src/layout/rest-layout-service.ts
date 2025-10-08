@@ -92,10 +92,7 @@ export class RestLayoutService extends LayoutServiceBase {
       language,
       this.serviceConfig.siteName
     );
-    const fetcher = this.serviceConfig.dataFetcherResolver
-      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
-      : this.getDefaultFetcher<LayoutServiceData>(req, res);
-
+    const fetcher = this.getFetcher(req, res);
     const fetchUrl = this.resolveLayoutServiceUrl('render');
 
     try {
@@ -177,12 +174,18 @@ export class RestLayoutService extends LayoutServiceBase {
     };
   };
 
+  protected getFetcher = (req?: IncomingMessage, res?: ServerResponse) => {
+    return this.serviceConfig.dataFetcherResolver
+      ? this.serviceConfig.dataFetcherResolver<LayoutServiceData>(req, res)
+      : this.getDefaultFetcher<LayoutServiceData>(req, res);
+  };
+
   /**
    * Resolves layout service url
    * @param {string} apiType which layout service API to call ('render' or 'placeholder')
    * @returns the layout service url
    */
-  protected resolveLayoutServiceUrl(apiType: 'render' | 'placeholder'): string {
+  protected resolveLayoutServiceUrl(apiType: 'render' | 'placeholder' | 'component'): string {
     const { apiHost = '', configurationName = 'jss' } = this.serviceConfig;
 
     return `${apiHost}/sitecore/api/layout/${apiType}/${configurationName}`;
@@ -256,10 +259,16 @@ export class RestLayoutService extends LayoutServiceBase {
 
     const headers = serverRes.headers;
 
-    if (headers instanceof Headers) {
-      const setCookieHeader = headers.get('set-cookie');
-      if (setCookieHeader) {
-        res.setHeader('set-cookie', setCookieHeader);
+    if (headers instanceof Headers && headers.has('set-cookie')) {
+      const rawSetCookie = headers.get('set-cookie');
+
+      if (rawSetCookie) {
+        const cookies =
+          rawSetCookie.includes(', ') && rawSetCookie.includes(';')
+            ? rawSetCookie.split(/,(?=\s*\w+=)/)
+            : [rawSetCookie];
+
+        res.setHeader('Set-Cookie', cookies);
       }
     }
 

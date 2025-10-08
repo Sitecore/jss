@@ -31,7 +31,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            plugins: ['@babel/plugin-proposal-export-namespace-from'],
+            plugins: ['@babel/plugin-transform-export-namespace-from'],
           },
         },
       },
@@ -45,10 +45,10 @@ module.exports = {
             presets: [env, reactApp],
             plugins: [
               [
-                '@babel/plugin-proposal-private-methods',
+                '@babel/plugin-transform-private-methods',
                 { loose: true }
               ],
-              ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+              ["@babel/plugin-transform-private-property-in-object", { "loose": true }]
             ]
           },
         },

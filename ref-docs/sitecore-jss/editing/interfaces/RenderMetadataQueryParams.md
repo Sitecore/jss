@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,22 +6,23 @@
 
 # Interface: RenderMetadataQueryParams
 
+Defined in: [packages/sitecore-jss/src/editing/models.ts:8](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L8)
+
 Query parameters appended to the page route URL
 Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
+`mode` is a special case as it serves editing and design library both
 
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
 ### mode
 
-> **mode**: [`Preview`](../../layout/enumerations/LayoutServicePageState.md#preview) \| [`Edit`](../../layout/enumerations/LayoutServicePageState.md#edit)
+> **mode**: [`Preview`](../../layout/enumerations/LayoutServicePageState.md#preview) \| [`Edit`](../../layout/enumerations/LayoutServicePageState.md#edit) \| [`DesignLibraryMode`](../enumerations/DesignLibraryMode.md)
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:14](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L14)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:15](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L15)
 
 ***
 
@@ -29,9 +30,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > **route**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:13](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L13)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:14](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L14)
 
 ***
 
@@ -39,9 +38,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > **sc\_itemid**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:11](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L11)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:12](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L12)
 
 ***
 
@@ -49,9 +46,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > **sc\_lang**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:10](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L10)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:11](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L11)
 
 ***
 
@@ -59,9 +54,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > `optional` **sc\_layoutKind**: [`LayoutKind`](../enumerations/LayoutKind.md)
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:15](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L15)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:16](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L16)
 
 ***
 
@@ -69,9 +62,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > **sc\_site**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:12](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L12)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:13](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L13)
 
 ***
 
@@ -79,9 +70,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > `optional` **sc\_variant**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:16](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L16)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:17](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L17)
 
 ***
 
@@ -89,9 +78,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > `optional` **sc\_version**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:17](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L17)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:18](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L18)
 
 ***
 
@@ -99,6 +86,4 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > **secret**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/editing/models.ts:9](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/models.ts#L9)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:10](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/models.ts#L10)

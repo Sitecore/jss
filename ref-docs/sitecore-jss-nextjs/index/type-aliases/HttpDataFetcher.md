@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: HttpDataFetcher()\<T\>
 
-> **HttpDataFetcher**\<`T`\>: (`url`, `data`?) => `Promise`\<`HttpResponse`\<`T`\>\>
+> **HttpDataFetcher**\<`T`\> = (`url`, `data?`) => `Promise`\<`HttpResponse`\<`T`\>\>
+
+Defined in: sitecore-jss/types/data-fetcher.d.ts:24
 
 Describes functions that fetch data asynchronously (i.e. from an API endpoint).
 This interface conforms to 'fetch' public API, but is adaptable to other HTTP libraries and
@@ -27,12 +29,8 @@ The interface implementation must:
 | Parameter | Type |
 | ------ | ------ |
 | `url` | `string` |
-| `data`? | `unknown` |
+| `data?` | `unknown` |
 
 ## Returns
 
 `Promise`\<`HttpResponse`\<`T`\>\>
-
-## Defined in
-
-sitecore-jss/types/data-fetcher.d.ts:24

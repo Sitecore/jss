@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,23 +6,27 @@
 
 # Type Alias: GraphQLSitemapXmlServiceConfig
 
-> **GraphQLSitemapXmlServiceConfig**: `object`
+> **GraphQLSitemapXmlServiceConfig** = `object`
 
-## Type declaration
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L19)
+
+## Properties
 
 ### clientFactory
 
 > **clientFactory**: [`GraphQLRequestClientFactory`](../../index/type-aliases/GraphQLRequestClientFactory.md)
 
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:28](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L28)
+
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
+
+***
 
 ### siteName
 
 > **siteName**: `string`
 
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:23](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L23)
+
 The JSS application name
-
-## Defined in
-
-[packages/sitecore-jss/src/site/graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L19)

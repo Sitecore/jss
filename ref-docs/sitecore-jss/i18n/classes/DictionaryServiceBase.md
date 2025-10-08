@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [i18n](../README.md) / DictionaryServiceBase
 
-# Class: `abstract` DictionaryServiceBase
+# Abstract Class: DictionaryServiceBase
+
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:24](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/i18n/dictionary-service.ts#L24)
 
 Base implementation of
 
@@ -24,9 +26,11 @@ DictionaryService that handles caching dictionary values
 
 ## Constructors
 
-### new DictionaryServiceBase()
+### Constructor
 
-> **new DictionaryServiceBase**(`options`): [`DictionaryServiceBase`](DictionaryServiceBase.md)
+> **new DictionaryServiceBase**(`options`): `DictionaryServiceBase`
+
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 Initializes a new instance of
 
@@ -38,16 +42,12 @@ Initializes a new instance of
 
 #### Returns
 
-[`DictionaryServiceBase`](DictionaryServiceBase.md)
+`DictionaryServiceBase`
 
 #### See
 
  - DictionaryService using the provided
  - CacheOptions
-
-#### Defined in
-
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 ## Properties
 
@@ -55,17 +55,17 @@ Initializes a new instance of
 
 > **options**: [`CacheOptions`](../../index/interfaces/CacheOptions.md)
 
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
+
 Configuration options
-
-#### Defined in
-
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 ## Methods
 
 ### fetchDictionaryData()
 
 > `abstract` **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
 
 Fetch dictionary data for a language.
 
@@ -83,15 +83,13 @@ Fetch dictionary data for a language.
 
 [`DictionaryService`](../interfaces/DictionaryService.md).[`fetchDictionaryData`](../interfaces/DictionaryService.md#fetchdictionarydata)
 
-#### Defined in
-
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
-
 ***
 
 ### getCacheClient()
 
 > `protected` **getCacheClient**(): [`CacheClient`](../../index/interfaces/CacheClient.md)\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -103,15 +101,13 @@ want to use something else.
 
 implementation
 
-#### Defined in
-
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
-
 ***
 
 ### getCacheValue()
 
 > **getCacheValue**(`key`): `null` \| [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
+
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 Retrieves a
 
@@ -136,15 +132,13 @@ The
 
 [`CacheClient`](../../index/interfaces/CacheClient.md).[`getCacheValue`](../../index/interfaces/CacheClient.md#getcachevalue)
 
-#### Defined in
-
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
-
 ***
 
 ### setCacheValue()
 
 > **setCacheValue**(`key`, `value`): [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
+
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
 
 Caches a
 
@@ -172,7 +166,3 @@ CacheClient<DictionaryPhrases>
 #### Implementation of
 
 [`CacheClient`](../../index/interfaces/CacheClient.md).[`setCacheValue`](../../index/interfaces/CacheClient.md#setcachevalue)
-
-#### Defined in
-
-[packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)

@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / HtmlElementRendering
 
 # Interface: HtmlElementRendering
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:111](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L111)
 
 HTML content used to support Sitecore Experience Editor
 
@@ -14,13 +16,11 @@ HTML content used to support Sitecore Experience Editor
 
 > **attributes**: `object`
 
+Defined in: [packages/sitecore-jss/src/layout/models.ts:115](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L115)
+
 #### Index Signature
 
- \[`name`: `string`\]: `string` \| `undefined`
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:113](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L113)
+\[`name`: `string`\]: `undefined` \| `string`
 
 ***
 
@@ -28,9 +28,7 @@ HTML content used to support Sitecore Experience Editor
 
 > **contents**: `null` \| `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:112](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L112)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:114](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L114)
 
 ***
 
@@ -38,9 +36,7 @@ HTML content used to support Sitecore Experience Editor
 
 > **name**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:110](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L110)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:112](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L112)
 
 ***
 
@@ -48,6 +44,4 @@ HTML content used to support Sitecore Experience Editor
 
 > `optional` **type**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:111](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L111)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:113](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L113)

@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / GraphQLRequestClient
 
 # Class: GraphQLRequestClient
+
+Defined in: packages/sitecore-jss/types/graphql-request-client.d.ts:126
 
 A GraphQL client for Sitecore APIs that uses the 'graphql-request' library.
 https://github.com/prisma-labs/graphql-request
@@ -15,9 +17,11 @@ https://github.com/prisma-labs/graphql-request
 
 ## Constructors
 
-### new GraphQLRequestClient()
+### Constructor
 
-> **new GraphQLRequestClient**(`endpoint`, `clientConfig`?): [`GraphQLRequestClient`](GraphQLRequestClient.md)
+> **new GraphQLRequestClient**(`endpoint`, `clientConfig?`): `GraphQLRequestClient`
+
+Defined in: packages/sitecore-jss/types/graphql-request-client.d.ts:140
 
 Provides ability to execute graphql query using given `endpoint`
 
@@ -26,21 +30,19 @@ Provides ability to execute graphql query using given `endpoint`
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `endpoint` | `string` | The Graphql endpoint |
-| `clientConfig`? | `GraphQLRequestClientConfig` | GraphQL request client configuration. |
+| `clientConfig?` | `GraphQLRequestClientConfig` | GraphQL request client configuration. |
 
 #### Returns
 
-[`GraphQLRequestClient`](GraphQLRequestClient.md)
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:140
+`GraphQLRequestClient`
 
 ## Methods
 
 ### request()
 
-> **request**\<`T`\>(`query`, `variables`?, `options`?): `Promise`\<`T`\>
+> **request**\<`T`\>(`query`, `variables?`, `options?`): `Promise`\<`T`\>
+
+Defined in: packages/sitecore-jss/types/graphql-request-client.d.ts:154
 
 Execute graphql request
 
@@ -55,8 +57,8 @@ Execute graphql request
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `query` | `string` \| `DocumentNode` | graphql query |
-| `variables`? | `object` | graphql variables |
-| `options`? | `RequestOptions` | Options for configuring a GraphQL request. |
+| `variables?` | \{\[`key`: `string`\]: `unknown`; \} | graphql variables |
+| `options?` | `RequestOptions` | Options for configuring a GraphQL request. |
 
 #### Returns
 
@@ -66,15 +68,13 @@ Execute graphql request
 
 `GraphQLClient.request`
 
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:154
-
 ***
 
 ### createClientFactory()
 
 > `static` **createClientFactory**(`config`): `GraphQLRequestClientFactory`
+
+Defined in: packages/sitecore-jss/types/graphql-request-client.d.ts:147
 
 Factory method for creating a GraphQLRequestClientFactory.
 
@@ -87,7 +87,3 @@ Factory method for creating a GraphQLRequestClientFactory.
 #### Returns
 
 `GraphQLRequestClientFactory`
-
-#### Defined in
-
-packages/sitecore-jss/types/graphql-request-client.d.ts:147

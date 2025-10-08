@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-rendering-host**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-rendering-host**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: getDefaultAppInvocationInfoResolver()
 
-> **getDefaultAppInvocationInfoResolver**(`baseAppPath`?): `AppInvocationInfoResolver`
+> **getDefaultAppInvocationInfoResolver**(`baseAppPath?`): `AppInvocationInfoResolver`
+
+Defined in: [defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)
 
 Returns the default AppInvocationInfoResolver, which is responsible for resolving the function, within your app bundle,
 that should be invoked for rendering your app.
@@ -22,17 +24,13 @@ By default, the resolver assumes a folder structure of:
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `baseAppPath`? | `object` | The base path to your JSS app(s), defaults to `./dist` |
-| `baseAppPath.appPathResolver`? | `undefined` \| (`requestJson`) => `string` | - |
-| `baseAppPath.baseAppPath`? | `undefined` \| `string` | - |
-| `baseAppPath.serverBundleName`? | `undefined` \| `string` | - |
+| `baseAppPath?` | \{ `appPathResolver?`: (`requestJson`) => `string`; `baseAppPath?`: `string`; `serverBundleName?`: `string`; \} | The base path to your JSS app(s), defaults to `./dist` |
+| `baseAppPath.appPathResolver?` | (`requestJson`) => `string` | - |
+| `baseAppPath.baseAppPath?` | `string` | - |
+| `baseAppPath.serverBundleName?` | `string` | - |
 
 ## Returns
 
 `AppInvocationInfoResolver`
 
 resolver
-
-## Defined in
-
-[defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)

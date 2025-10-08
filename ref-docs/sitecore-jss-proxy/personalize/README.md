@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../README.md)
 
 ***
 
@@ -6,12 +6,10 @@
 
 # personalize
 
-## Index
-
-### Classes
+## Classes
 
 - [PersonalizeHelper](classes/PersonalizeHelper.md)
 
-### Type Aliases
+## Type Aliases
 
 - [PersonalizeConfig](type-aliases/PersonalizeConfig.md)

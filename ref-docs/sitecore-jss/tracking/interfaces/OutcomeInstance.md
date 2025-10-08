@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,9 +6,11 @@
 
 # Interface: OutcomeInstance
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:19](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/dataModels.ts#L19)
+
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -16,11 +18,9 @@
 
 > `optional` **currencyCode**: `string`
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:24](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/dataModels.ts#L24)
+
 Currency code of outcome monetary value
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/dataModels.ts:24](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/dataModels.ts#L24)
 
 ***
 
@@ -28,11 +28,9 @@ Currency code of outcome monetary value
 
 > `optional` **monetaryValue**: `number`
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:26](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/dataModels.ts#L26)
+
 Revenue from outcome
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/dataModels.ts:26](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/dataModels.ts#L26)
 
 ***
 
@@ -40,8 +38,6 @@ Revenue from outcome
 
 > **outcomeId**: `string`
 
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:22](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/dataModels.ts#L22)
+
 GUID or alias (name) of outcome to trigger
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/dataModels.ts:22](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/dataModels.ts#L22)

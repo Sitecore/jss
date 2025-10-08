@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-proxy** • **Docs**
+**@sitecore-jss/sitecore-jss-proxy**
 
 ***
 

@@ -89,7 +89,11 @@ describe('ServerlessEditingDataService', () => {
         expect(previewData.key).to.equal(key);
         expect(previewData.serverUrl).to.equal(serverUrl);
         expect(fetcher.put).to.have.been.calledOnce;
-        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
       });
     });
 
@@ -112,7 +116,11 @@ describe('ServerlessEditingDataService', () => {
       return service.setEditingData(data, serverUrl, params).then((previewData) => {
         expect(previewData.params).to.equal(params);
         expect(fetcher.put).to.have.been.calledOnce;
-        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
       });
     });
 
@@ -134,7 +142,11 @@ describe('ServerlessEditingDataService', () => {
 
       return service.setEditingData(data, serverUrl).then(() => {
         expect(fetcher.put).to.have.been.calledOnce;
-        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
       });
     });
 
@@ -156,7 +168,11 @@ describe('ServerlessEditingDataService', () => {
 
       return service.setEditingData(data, serverUrl, { param: superSecret }).then(() => {
         expect(fetcher.put).to.have.been.calledOnce;
-        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data);
+        expect(fetcher.put).to.have.been.calledWithExactly(expectedUrl, data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
       });
     });
   });

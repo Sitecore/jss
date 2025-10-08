@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react-forms**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-forms**](../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: FieldChangeCallback()
 
-> **FieldChangeCallback**: (`fieldName`, `newValue`, `isValid`, `errorMessages`) => `void`
+> **FieldChangeCallback** = (`fieldName`, `newValue`, `isValid`, `errorMessages`) => `void`
+
+Defined in: [src/FieldProps.ts:54](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-react-forms/src/FieldProps.ts#L54)
 
 ## Parameters
 
@@ -20,7 +22,3 @@
 ## Returns
 
 `void`
-
-## Defined in
-
-[src/FieldProps.ts:54](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-react-forms/src/FieldProps.ts#L54)

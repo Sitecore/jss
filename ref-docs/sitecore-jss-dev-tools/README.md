@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss-dev-tools** • **Docs**
+**@sitecore-jss/sitecore-jss-dev-tools**
 
 ***
 
@@ -64,6 +64,7 @@
 
 ## Variables
 
+- [configLoader](variables/configLoader.md)
 - [pipelineFactory](variables/pipelineFactory.md)
 - [processorFactory](variables/processorFactory.md)
 - [userConfigPath](variables/userConfigPath.md)
@@ -78,7 +79,6 @@
 - [addRouteType](functions/addRouteType.md)
 - [addTemplate](functions/addTemplate.md)
 - [clean](functions/clean.md)
-- [configLoader](functions/configLoader.md)
 - [createDefaultDisconnectedServer](functions/createDefaultDisconnectedServer.md)
 - [createDefaultDocumentMiddleware](functions/createDefaultDocumentMiddleware.md)
 - [createDisconnectedAssetMiddleware](functions/createDisconnectedAssetMiddleware.md)

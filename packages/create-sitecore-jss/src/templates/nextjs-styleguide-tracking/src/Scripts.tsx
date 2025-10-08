@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { VisitorIdentification } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const Scripts = (): JSX.Element => {

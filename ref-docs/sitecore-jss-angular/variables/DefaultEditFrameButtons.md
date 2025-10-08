@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # Variable: DefaultEditFrameButtons
 
-> `const` **DefaultEditFrameButtons**: (`object` \| `object`)[]
+> `const` **DefaultEditFrameButtons**: (\{ `click`: `string`; `header`: `string`; `icon`: `string`; `tooltip`: `string`; \} \| \{ `fields`: `string`[]; `header`: `string`; `icon`: `string`; `tooltip`: `string`; \})[]
 
-## Defined in
-
-packages/sitecore-jss/types/editing/edit-frame.d.ts:32
+Defined in: packages/sitecore-jss/types/editing/edit-frame.d.ts:32

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,11 +6,15 @@
 
 # Interface: EditingDataMiddlewareConfig
 
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:12](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L12)
+
 ## Properties
 
 ### dynamicRouteKey?
 
 > `optional` **dynamicRouteKey**: `string`
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:18](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L18)
 
 The Next.js dynamic API route key name. This is used in the middleware to extract the data
 key from the request query parameters. By default this is 'key' (from '/api/editing/data/[key]').
@@ -21,15 +25,13 @@ key from the request query parameters. By default this is 'key' (from '/api/edit
 'key'
 ```
 
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:18](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L18)
-
 ***
 
 ### editingDataCache?
 
 > `optional` **editingDataCache**: [`EditingDataCache`](EditingDataCache.md)
+
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:27](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L27)
 
 An instance of the `EditingDataCache` implementation to use.
 Note for Vercel deployment, which uses Serverless Functions for API routes, a disk cache is required.
@@ -45,7 +47,3 @@ editingDataDiskCache
 
  - EditingDataCache
  - EditingDataDiskCache
-
-#### Defined in
-
-[sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:27](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L27)

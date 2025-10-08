@@ -1,5 +1,4 @@
 import React, { ForwardedRef, forwardRef } from 'react';
-import PropTypes, { Requireable } from 'prop-types';
 import { withFieldMetadata } from '../enhancers/withFieldMetadata';
 import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
 import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
@@ -11,7 +10,7 @@ export interface RichTextField extends FieldMetadata {
   editable?: string;
 }
 
-export interface RichTextProps extends EditableFieldProps {
+export interface RichTextProps extends EditableFieldProps<RichTextProps> {
   [htmlAttributes: string]: unknown;
   /** The rich text field data. */
   field?: RichTextField;
@@ -49,21 +48,5 @@ export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps
   ),
   true
 );
-
-export const RichTextPropTypes = {
-  field: PropTypes.shape({
-    value: PropTypes.string,
-    editable: PropTypes.string,
-    metadata: PropTypes.objectOf(PropTypes.any),
-  }),
-  tag: PropTypes.string,
-  editable: PropTypes.bool,
-  emptyFieldEditingComponent: PropTypes.oneOfType([
-    PropTypes.object as Requireable<React.ComponentClass<unknown>>,
-    PropTypes.func as Requireable<React.FC<unknown>>,
-  ]),
-};
-
-RichText.propTypes = RichTextPropTypes;
 
 RichText.displayName = 'RichText';

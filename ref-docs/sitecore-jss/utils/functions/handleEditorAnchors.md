@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: handleEditorAnchors()
 
 > **handleEditorAnchors**(): `void`
+
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:144](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/editing/utils.ts#L144)
 
 ## Returns
 
@@ -24,7 +26,3 @@ and replaces the # value with javascript:void(0); which prevents the anchor tag 
 ## See
 
 Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver
-
-## Defined in
-
-[packages/sitecore-jss/src/editing/utils.ts:132](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/editing/utils.ts#L132)

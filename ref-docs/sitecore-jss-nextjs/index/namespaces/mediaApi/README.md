@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../../README.md)
 
 ***
 
@@ -6,12 +6,10 @@
 
 # mediaApi
 
-## Index
+## Variables
 
-### Functions
-
-- [findEditorImageTag](functions/findEditorImageTag.md)
-- [getRequiredParams](functions/getRequiredParams.md)
-- [getSrcSet](functions/getSrcSet.md)
-- [replaceMediaUrlPrefix](functions/replaceMediaUrlPrefix.md)
-- [updateImageUrl](functions/updateImageUrl.md)
+- [findEditorImageTag](variables/findEditorImageTag.md)
+- [getRequiredParams](variables/getRequiredParams.md)
+- [getSrcSet](variables/getSrcSet.md)
+- [replaceMediaUrlPrefix](variables/replaceMediaUrlPrefix.md)
+- [updateImageUrl](variables/updateImageUrl.md)

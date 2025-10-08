@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,13 +6,17 @@
 
 # Class: SiteResolver
 
+Defined in: sitecore-jss/types/site/site-resolver.d.ts:5
+
 Resolves site based on the provided host or site name
 
 ## Constructors
 
-### new SiteResolver()
+### Constructor
 
-> **new SiteResolver**(`sites`): [`SiteResolver`](SiteResolver.md)
+> **new SiteResolver**(`sites`): `SiteResolver`
+
+Defined in: sitecore-jss/types/site/site-resolver.d.ts:10
 
 #### Parameters
 
@@ -22,17 +26,15 @@ Resolves site based on the provided host or site name
 
 #### Returns
 
-[`SiteResolver`](SiteResolver.md)
-
-#### Defined in
-
-sitecore-jss/types/site/site-resolver.d.ts:10
+`SiteResolver`
 
 ## Properties
 
 ### getByHost()
 
 > **getByHost**: (`hostName`) => [`SiteInfo`](../type-aliases/SiteInfo.md)
+
+Defined in: sitecore-jss/types/site/site-resolver.d.ts:17
 
 Resolve site by host name
 
@@ -52,15 +54,13 @@ the resolved site
 
 if a matching site is not found
 
-#### Defined in
-
-sitecore-jss/types/site/site-resolver.d.ts:17
-
 ***
 
 ### getByName()
 
 > **getByName**: (`siteName`) => [`SiteInfo`](../type-aliases/SiteInfo.md)
+
+Defined in: sitecore-jss/types/site/site-resolver.d.ts:24
 
 Resolve site by site name
 
@@ -80,23 +80,17 @@ the resolved site
 
 if a matching site is not found
 
-#### Defined in
-
-sitecore-jss/types/site/site-resolver.d.ts:24
-
 ***
 
 ### getHostMap()
 
 > `protected` **getHostMap**: () => `Map`\<`string`, [`SiteInfo`](../type-aliases/SiteInfo.md)\>
 
+Defined in: sitecore-jss/types/site/site-resolver.d.ts:25
+
 #### Returns
 
 `Map`\<`string`, [`SiteInfo`](../type-aliases/SiteInfo.md)\>
-
-#### Defined in
-
-sitecore-jss/types/site/site-resolver.d.ts:25
 
 ***
 
@@ -104,15 +98,15 @@ sitecore-jss/types/site/site-resolver.d.ts:25
 
 > `readonly` **sites**: [`SiteInfo`](../type-aliases/SiteInfo.md)[]
 
-#### Defined in
-
-sitecore-jss/types/site/site-resolver.d.ts:6
+Defined in: sitecore-jss/types/site/site-resolver.d.ts:6
 
 ## Methods
 
 ### matchesPattern()
 
 > `protected` **matchesPattern**(`hostname`, `pattern`): `boolean`
+
+Defined in: sitecore-jss/types/site/site-resolver.d.ts:26
 
 #### Parameters
 
@@ -124,7 +118,3 @@ sitecore-jss/types/site/site-resolver.d.ts:6
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-sitecore-jss/types/site/site-resolver.d.ts:26

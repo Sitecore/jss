@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: createDisconnectedLayoutService()
 
 > **createDisconnectedLayoutService**(`config`): `object`
+
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts:362](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts#L362)
 
 ## Parameters
 
@@ -26,14 +28,16 @@
 
 | Parameter | Type |
 | ------ | ------ |
-| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
-| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
+| `request` | `Request` |
+| `response` | `Response` |
 
 #### Returns
 
 `Promise`\<`void`\>
 
 ### updateManifest()
+
+> **updateManifest**(`newManifest`): `void`
 
 #### Parameters
 
@@ -44,7 +48,3 @@
 #### Returns
 
 `void`
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts:362](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts#L362)

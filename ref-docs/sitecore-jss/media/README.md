@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # media
 
-## Index
-
-### Namespaces
+## Namespaces
 
 - [mediaApi](namespaces/mediaApi/README.md)

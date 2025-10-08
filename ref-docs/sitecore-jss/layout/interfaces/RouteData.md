@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / RouteData
 
 # Interface: RouteData\<Fields\>
+
+Defined in: [packages/sitecore-jss/src/layout/models.ts:59](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L59)
 
 Shape of route data returned from Sitecore Layout Service
 
@@ -20,9 +22,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **databaseName**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:61](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L61)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:63](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L63)
 
 ***
 
@@ -30,9 +30,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **deviceId**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:62](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L62)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:64](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L64)
 
 ***
 
@@ -40,9 +38,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **displayName**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:59](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L59)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:61](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L61)
 
 ***
 
@@ -50,9 +46,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **fields**: `Fields`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:60](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L60)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:62](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L62)
 
 ***
 
@@ -60,9 +54,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **itemId**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:69](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L69)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:71](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L71)
 
 ***
 
@@ -70,9 +62,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **itemLanguage**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:63](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L63)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:65](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L65)
 
 ***
 
@@ -80,9 +70,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **itemVersion**: `number`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:64](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L64)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:66](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L66)
 
 ***
 
@@ -90,9 +78,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **layoutId**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:65](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L65)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:67](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L67)
 
 ***
 
@@ -100,19 +86,15 @@ Shape of route data returned from Sitecore Layout Service
 
 > **name**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:58](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L58)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:60](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L60)
 
 ***
 
 ### placeholders
 
-> **placeholders**: [`PlaceholdersData`](../type-aliases/PlaceholdersData.md)\<`string`\>
+> **placeholders**: [`PlaceholdersData`](../type-aliases/PlaceholdersData.md)
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:68](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L68)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:70](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L70)
 
 ***
 
@@ -120,9 +102,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **templateId**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:66](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L66)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:68](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L68)
 
 ***
 
@@ -130,6 +110,4 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **templateName**: `string`
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/models.ts:67](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/models.ts#L67)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:69](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/models.ts#L69)

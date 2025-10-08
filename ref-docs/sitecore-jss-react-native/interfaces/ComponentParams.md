@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react-native**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-native**](../README.md)
 
 ***
 
@@ -6,8 +6,10 @@
 
 # Interface: ComponentParams
 
+Defined in: sitecore-jss/types/layout/models.d.ts:84
+
 Component params
 
 ## Indexable
 
- \[`name`: `string`\]: `string`
+\[`name`: `string`\]: `string`

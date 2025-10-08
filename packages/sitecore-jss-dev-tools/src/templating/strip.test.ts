@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import path from 'path';
 import fs from 'fs';
-import glob from 'glob';
+import { glob } from 'glob';
 import * as strip from './strip';
 
 describe('strip', () => {

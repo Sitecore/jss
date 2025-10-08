@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Variable: FETCH\_WITH
 
 > `const` **FETCH\_WITH**: `object`
+
+Defined in: sitecore-jss/types/constants.d.ts:5
 
 ## Type declaration
 
@@ -17,7 +19,3 @@
 ### REST
 
 > **REST**: `string`
-
-## Defined in
-
-sitecore-jss/types/constants.d.ts:5

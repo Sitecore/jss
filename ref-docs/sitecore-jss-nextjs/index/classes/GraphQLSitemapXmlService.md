@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,13 +6,17 @@
 
 # Class: GraphQLSitemapXmlService
 
+Defined in: sitecore-jss/types/site/graphql-sitemap-service.d.ts:27
+
 Service that fetch the sitemaps data using Sitecore's GraphQL API.
 
 ## Constructors
 
-### new GraphQLSitemapXmlService()
+### Constructor
 
-> **new GraphQLSitemapXmlService**(`options`): [`GraphQLSitemapXmlService`](GraphQLSitemapXmlService.md)
+> **new GraphQLSitemapXmlService**(`options`): `GraphQLSitemapXmlService`
+
+Defined in: sitecore-jss/types/site/graphql-sitemap-service.d.ts:34
 
 Creates an instance of graphQL sitemaps service with the provided options
 
@@ -24,11 +28,7 @@ Creates an instance of graphQL sitemaps service with the provided options
 
 #### Returns
 
-[`GraphQLSitemapXmlService`](GraphQLSitemapXmlService.md)
-
-#### Defined in
-
-sitecore-jss/types/site/graphql-sitemap-service.d.ts:34
+`GraphQLSitemapXmlService`
 
 ## Properties
 
@@ -36,9 +36,7 @@ sitecore-jss/types/site/graphql-sitemap-service.d.ts:34
 
 > **options**: [`GraphQLSitemapXmlServiceConfig`](../type-aliases/GraphQLSitemapXmlServiceConfig.md)
 
-#### Defined in
-
-sitecore-jss/types/site/graphql-sitemap-service.d.ts:28
+Defined in: sitecore-jss/types/site/graphql-sitemap-service.d.ts:28
 
 ## Accessors
 
@@ -48,19 +46,19 @@ sitecore-jss/types/site/graphql-sitemap-service.d.ts:28
 
 > **get** `protected` **query**(): `string`
 
+Defined in: sitecore-jss/types/site/graphql-sitemap-service.d.ts:35
+
 ##### Returns
 
 `string`
-
-#### Defined in
-
-sitecore-jss/types/site/graphql-sitemap-service.d.ts:35
 
 ## Methods
 
 ### fetchSitemaps()
 
 > **fetchSitemaps**(): `Promise`\<`string`[]\>
+
+Defined in: sitecore-jss/types/site/graphql-sitemap-service.d.ts:41
 
 Fetch list of sitemaps for the site
 
@@ -74,15 +72,13 @@ list of sitemap paths
 
 if the siteName is empty.
 
-#### Defined in
-
-sitecore-jss/types/site/graphql-sitemap-service.d.ts:41
-
 ***
 
 ### getGraphQLClient()
 
 > `protected` **getGraphQLClient**(): `GraphQLClient`
+
+Defined in: sitecore-jss/types/site/graphql-sitemap-service.d.ts:54
 
 Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
 library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
@@ -94,15 +90,13 @@ want to use something else.
 
 implementation
 
-#### Defined in
-
-sitecore-jss/types/site/graphql-sitemap-service.d.ts:54
-
 ***
 
 ### getSitemap()
 
 > **getSitemap**(`id`): `Promise`\<`undefined` \| `string`\>
+
+Defined in: sitecore-jss/types/site/graphql-sitemap-service.d.ts:47
 
 Get sitemap file path for sitemap id
 
@@ -117,7 +111,3 @@ Get sitemap file path for sitemap id
 `Promise`\<`undefined` \| `string`\>
 
 the sitemap file path or undefined if one doesn't exist
-
-#### Defined in
-
-sitecore-jss/types/site/graphql-sitemap-service.d.ts:47

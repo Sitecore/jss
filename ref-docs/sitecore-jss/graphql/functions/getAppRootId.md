@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Function: getAppRootId()
 
-> **getAppRootId**(`client`, `siteName`, `language`, `jssAppTemplateId`?): `Promise`\<`string` \| `null`\>
+> **getAppRootId**(`client`, `siteName`, `language`, `jssAppTemplateId?`): `Promise`\<`null` \| `string`\>
+
+Defined in: [packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)
 
 Gets the ID of the JSS App root item for the specified site and language.
 
@@ -17,11 +19,11 @@ Gets the ID of the JSS App root item for the specified site and language.
 | `client` | [`GraphQLClient`](../../index/interfaces/GraphQLClient.md) | that fetches data from a GraphQL endpoint. |
 | `siteName` | `string` | the name of the Sitecore site. |
 | `language` | `string` | the item language version. |
-| `jssAppTemplateId`? | `string` | optional template ID of the app root item. If not specified, the ID of the "/sitecore/templates/Foundation/JavaScript Services/App" item is used. |
+| `jssAppTemplateId?` | `string` | optional template ID of the app root item. If not specified, the ID of the "/sitecore/templates/Foundation/JavaScript Services/App" item is used. |
 
 ## Returns
 
-`Promise`\<`string` \| `null`\>
+`Promise`\<`null` \| `string`\>
 
 the root item ID of the JSS App in Sitecore. Returns null if the app root item is not found.
 
@@ -32,12 +34,3 @@ if a valid site name value is not provided.
 ## Throws
 
 if a valid language value is not provided.
-
-## Summary
-
-This function intentionally avoids throwing an error if a root item is not found,
-leaving that decision up to implementations.
-
-## Defined in
-
-[packages/sitecore-jss/src/graphql/app-root-query.ts:51](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/graphql/app-root-query.ts#L51)

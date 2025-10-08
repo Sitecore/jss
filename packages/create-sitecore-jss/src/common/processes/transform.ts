@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs-extra';
-import glob from 'glob';
+import { glob } from 'glob';
 import path, { sep } from 'path';
 import { parse } from 'dotenv';
 import { Data, renderFile } from 'ejs';
@@ -196,10 +196,8 @@ export const diffAndWriteFiles = async ({
 export const populateEjsData = (answers: BaseArgs, destination?: string) => {
   // pass in helper to answers object
 
-  // Don't expose canary build number in the generated app
-  const jssVersion = version.includes('canary')
-    ? version.replace(/(-canary\.\d+)$/, '-canary')
-    : version;
+  // Use exact version for jss dependencies in beta and canary versions
+  const jssVersion: string = version.match(/(\-[a-zA-Z]+\.\d+)$/) ? version : `~${version}`;
 
   const ejsData: Data = {
     ...answers,

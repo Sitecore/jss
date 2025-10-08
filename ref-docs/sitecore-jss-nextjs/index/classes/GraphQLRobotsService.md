@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,13 +6,17 @@
 
 # Class: GraphQLRobotsService
 
+Defined in: sitecore-jss/types/site/graphql-robots-service.d.ts:27
+
 Service that fetch the robots.txt data using Sitecore's GraphQL API.
 
 ## Constructors
 
-### new GraphQLRobotsService()
+### Constructor
 
-> **new GraphQLRobotsService**(`options`): [`GraphQLRobotsService`](GraphQLRobotsService.md)
+> **new GraphQLRobotsService**(`options`): `GraphQLRobotsService`
+
+Defined in: sitecore-jss/types/site/graphql-robots-service.d.ts:34
 
 Creates an instance of graphQL robots.txt service with the provided options
 
@@ -24,11 +28,7 @@ Creates an instance of graphQL robots.txt service with the provided options
 
 #### Returns
 
-[`GraphQLRobotsService`](GraphQLRobotsService.md)
-
-#### Defined in
-
-sitecore-jss/types/site/graphql-robots-service.d.ts:34
+`GraphQLRobotsService`
 
 ## Properties
 
@@ -36,9 +36,7 @@ sitecore-jss/types/site/graphql-robots-service.d.ts:34
 
 > **options**: [`GraphQLRobotsServiceConfig`](../type-aliases/GraphQLRobotsServiceConfig.md)
 
-#### Defined in
-
-sitecore-jss/types/site/graphql-robots-service.d.ts:28
+Defined in: sitecore-jss/types/site/graphql-robots-service.d.ts:28
 
 ## Accessors
 
@@ -48,19 +46,19 @@ sitecore-jss/types/site/graphql-robots-service.d.ts:28
 
 > **get** `protected` **query**(): `string`
 
+Defined in: sitecore-jss/types/site/graphql-robots-service.d.ts:35
+
 ##### Returns
 
 `string`
-
-#### Defined in
-
-sitecore-jss/types/site/graphql-robots-service.d.ts:35
 
 ## Methods
 
 ### fetchRobots()
 
 > **fetchRobots**(): `Promise`\<`string`\>
+
+Defined in: sitecore-jss/types/site/graphql-robots-service.d.ts:41
 
 Fetch a data of robots.txt from API
 
@@ -74,15 +72,13 @@ text of robots.txt
 
 if the siteName is empty.
 
-#### Defined in
-
-sitecore-jss/types/site/graphql-robots-service.d.ts:41
-
 ***
 
 ### getGraphQLClient()
 
 > `protected` **getGraphQLClient**(): `GraphQLClient`
+
+Defined in: sitecore-jss/types/site/graphql-robots-service.d.ts:48
 
 Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
 library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
@@ -93,7 +89,3 @@ want to use something else.
 `GraphQLClient`
 
 implementation
-
-#### Defined in
-
-sitecore-jss/types/site/graphql-robots-service.d.ts:48

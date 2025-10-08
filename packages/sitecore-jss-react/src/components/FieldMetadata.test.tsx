@@ -1,6 +1,6 @@
 import React from 'react';
 import { FieldMetadata } from './FieldMetadata';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import { expect } from 'chai';
 
 describe('<FieldMetadata />', () => {
@@ -21,13 +21,14 @@ describe('<FieldMetadata />', () => {
 
     const Foo = () => <h2>foo</h2>;
 
-    const rendered = mount(
+    const rendered = render(
       <FieldMetadata {...props}>
         <Foo />
-      </FieldMetadata>
+      </FieldMetadata>,
+      { container: document.body }
     );
 
-    expect(rendered.html()).to.equal(
+    expect(rendered.baseElement.innerHTML).to.equal(
       [
         `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
           props.metadata

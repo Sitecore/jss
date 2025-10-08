@@ -3,7 +3,7 @@
 
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { FormTracker } from '@sitecore-jss/sitecore-jss-forms';
 
@@ -61,36 +61,24 @@ describe('<FileUpload />', () => {
   };
 
   it('should render file input', () => {
-    const c = shallow(<FileUpload {...p} />);
-    const input = c.find('input');
-    const prop = (name: string) => input.prop(name);
+    const rendered = render(<FileUpload {...p} />);
+    const input = rendered.container.querySelector('input')!;
 
-    expect(c.type()).to.exist;
-    expect(prop('id')).to.equal('value_field_id_xxx');
-    expect(prop('name')).to.equal('value_field_name_xxx');
-    expect(prop('className')).to.equal('xxx_css-class');
-    expect(prop('multiple')).to.be.true;
+    expect(input.getAttribute('type')).to.equal('file');
+    expect(input.getAttribute('id')).to.equal('value_field_id_xxx');
+    expect(input.getAttribute('name')).to.equal('value_field_name_xxx');
+    expect(input.getAttribute('class')).to.equal('xxx_css-class');
+    expect(input.getAttribute('multiple')).to.exist;
   });
 
   it('should check if validator is enabled', () => {
-    const c = shallow(<FileUpload {...p} />);
-    const inst = c.instance() as FileUpload;
+    const rendered = render(<FileUpload {...p} />);
+    const getEnabledValidationScript = rendered.container.querySelector(
+      'script#file-getEnabledValidation'
+    )!;
 
-    expect(inst.getEnabledValidation('yyy')).to.deep.equal({
-      itemId: 'yyy',
-      message: 'yyy_message',
-      name: 'yyy_name',
-    });
-    expect(inst.getEnabledValidation('zzz')).to.deep.equal({
-      itemId: 'zzz',
-      message: 'zzz_message',
-      name: 'zzz_name',
-    });
-    expect(inst.getEnabledValidation('xxx')).to.deep.equal({
-      itemId: 'xxx',
-      message: 'xxx_message',
-      name: 'xxx_name',
-    });
-    expect(inst.getEnabledValidation('ggg')).to.equal(undefined);
+    const enabledValidations = JSON.parse(getEnabledValidationScript.innerHTML);
+
+    expect(enabledValidations).to.deep.equal(p.field.model.validationDataModels);
   });
 });

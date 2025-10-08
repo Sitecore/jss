@@ -11,7 +11,12 @@ export {
   EDITING_ALLOWED_ORIGINS,
   QUERY_PARAM_EDITING_SECRET,
   PAGES_EDITING_MARKER,
+  ComponentUpdateEventArgs,
 } from './utils';
+export {
+  RestComponentLayoutService,
+  ComponentLayoutRequestParams,
+} from './rest-component-layout-service';
 export {
   DefaultEditFrameButton,
   DefaultEditFrameButtons,
@@ -23,5 +28,18 @@ export {
   EditButtonTypes,
   mapButtonToCommand,
 } from './edit-frame';
-export { RenderMetadataQueryParams } from './models';
-export { LayoutKind, MetadataKind } from './models';
+export {
+  RenderMetadataQueryParams,
+  RenderComponentQueryParams,
+  LayoutKind,
+  MetadataKind,
+  DesignLibraryMode,
+} from './models';
+export {
+  addComponentUpdateHandler,
+  DesignLibraryStatus,
+  DesignLibraryStatusEvent,
+  getDesignLibraryStatusEvent,
+  getDesignLibraryScriptLink,
+  isDesignLibraryMode,
+} from './design-library';

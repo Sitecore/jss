@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: tryParseEnvValue()
 
 > **tryParseEnvValue**\<`T`\>(`envValue`, `defaultValue`): `T`
+
+Defined in: [packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/utils/env.ts#L7)
 
 Method to parse JSON-formatted environment variables
 
@@ -28,7 +30,3 @@ Method to parse JSON-formatted environment variables
 `T`
 
 parsed value
-
-## Defined in
-
-[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/utils/env.ts#L7)

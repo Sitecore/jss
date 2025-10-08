@@ -8,7 +8,7 @@ import {
   DEFAULT_VARIANT,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { MiddlewareBase, MiddlewareBaseConfig } from './middleware';
+import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
 import { CloudSDK } from '@sitecore-cloudsdk/core/server';
 import { personalize } from '@sitecore-cloudsdk/personalize/server';
 
@@ -49,6 +49,25 @@ export type PersonalizeMiddlewareConfig = MiddlewareBaseConfig & {
    * Optional Sitecore Personalize scope identifier allowing you to isolate your personalization data between XM Cloud environments
    */
   scope?: string;
+};
+
+/**
+ * Personalization options
+ */
+export type PersonalizeOptions = {
+  /**
+   * Geolocation data used for personalization
+   */
+  geo?: PersonalizeGeoData;
+};
+
+/**
+ * Represents the geolocation data used for personalization
+ */
+export type PersonalizeGeoData = {
+  city?: string;
+  country?: string;
+  region?: string;
 };
 
 /**
@@ -97,10 +116,14 @@ export class PersonalizeMiddleware extends MiddlewareBase {
    * Gets the Next.js middleware handler with error handling
    * @returns middleware handler
    */
-  public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
-    return async (req, res) => {
+  public getHandler(): (
+    req: NextRequest,
+    res?: NextResponse,
+    options?: PersonalizeOptions
+  ) => Promise<NextResponse> {
+    return async (req, res, options) => {
       try {
-        return await this.handler(req, res);
+        return await this.processPersonalizationRequest(req, res, options);
       } catch (error) {
         console.log('Personalize middleware failed:');
         console.log(error);
@@ -138,12 +161,14 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       language,
       timeout,
       variantIds,
+      options,
     }: {
       params: ExperienceParams;
       friendlyId: string;
       language: string;
       timeout?: number;
       variantIds?: string[];
+      options?: PersonalizeOptions;
     },
     request: NextRequest
   ) {
@@ -158,6 +183,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
         params,
         language,
         pageVariantIds: variantIds,
+        geo: options?.geo,
       },
       { timeout }
     )) as {
@@ -243,7 +269,11 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     }, results);
   }
 
-  private handler = async (req: NextRequest, res?: NextResponse): Promise<NextResponse> => {
+  protected processPersonalizationRequest = async (
+    req: NextRequest,
+    res?: NextResponse,
+    options?: PersonalizeOptions
+  ): Promise<NextResponse> => {
     const pathname = req.nextUrl.pathname;
     const language = this.getLanguage(req);
     const hostname = this.getHostHeader(req) || this.defaultHostname;
@@ -280,11 +310,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const site = this.getSite(req, response);
 
     // Get personalization info from Experience Edge
-    const personalizeInfo = await this.personalizeService.getPersonalizeInfo(
-      pathname,
-      language,
-      site.name
-    );
+    const personalizeInfo = await this.getPersonalizeInfo(pathname, language, site.name);
     if (!personalizeInfo) {
       // Likely an invalid route / language
       debug.personalize('skipped (personalize info not found)');
@@ -303,6 +329,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       // Disable preflight caching to force revalidation on client-side navigation (personalization WILL be influenced).
       // Note the reason we don't move this any earlier in the middleware is that we would then be sacrificing performance for non-personalized pages.
       response.headers.set('x-middleware-cache', 'no-cache');
+      response.headers.set('Cache-Control', 'no-store, must-revalidate');
       return response;
     }
 
@@ -326,6 +353,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
             params,
             language,
             timeout,
+            options,
           },
           req
         ).then((personalization) => {
@@ -347,7 +375,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     }
 
     // Path can be rewritten by previously executed middleware
-    const basePath = res?.headers.get('x-sc-rewrite') || pathname;
+    const basePath = res?.headers.get(REWRITE_HEADER_NAME) || pathname;
 
     // Rewrite to persononalized path
     const rewritePath = getPersonalizedRewrite(basePath, identifiedVariantIds);
@@ -364,4 +392,8 @@ export class PersonalizeMiddleware extends MiddlewareBase {
 
     return response;
   };
+
+  protected async getPersonalizeInfo(pathname: string, language: string, siteName: string) {
+    return this.personalizeService.getPersonalizeInfo(pathname, language, siteName);
+  }
 }

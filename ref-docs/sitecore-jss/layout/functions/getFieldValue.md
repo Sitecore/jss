@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -18,9 +18,11 @@ the name of the field to extract
 
 the default value to return if the field is not defined
 
-## getFieldValue(renderingOrFields, fieldName)
+## Call Signature
 
-> **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
+> **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `undefined` \| `T`
+
+Defined in: [packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/utils.ts#L16)
 
 Safely extracts a field value from a rendering or fields object.
 Null will be returned if the field is not defined.
@@ -40,31 +42,18 @@ Null will be returned if the field is not defined.
 
 ### Returns
 
-`T` \| `undefined`
-
-the field value or the default value if the field is not defined
+`undefined` \| `T`
 
 the field value or null if the field is not defined
 
-### Param
-
-the rendering or fields object to extract the field from
-
-### Param
-
-the name of the field to extract
-
-### Param
-
-the default value to return if the field is not defined
-
-### Defined in
-
-[packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/utils.ts#L16)
-
-## getFieldValue(renderingOrFields, fieldName, defaultValue)
+## Call Signature
 
 > **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
+
+Defined in: [packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/utils.ts#L21)
+
+Safely extracts a field value from a rendering or fields object.
+Null will be returned if the field is not defined.
 
 ### Type Parameters
 
@@ -74,28 +63,14 @@ the default value to return if the field is not defined
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `renderingOrFields` | [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> |
-| `fieldName` | `string` |
-| `defaultValue` | `T` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `renderingOrFields` | [`ComponentFields`](../interfaces/ComponentFields.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\> | the rendering or fields object to extract the field from |
+| `fieldName` | `string` | the name of the field to extract |
+| `defaultValue` | `T` | - |
 
 ### Returns
 
 `T`
 
-### Param
-
-the rendering or fields object to extract the field from
-
-### Param
-
-the name of the field to extract
-
-### Param
-
-the default value to return if the field is not defined
-
-### Defined in
-
-[packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/utils.ts#L21)
+the field value or null if the field is not defined

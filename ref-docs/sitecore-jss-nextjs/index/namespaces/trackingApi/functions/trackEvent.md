@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: trackEvent()
 
 > **trackEvent**(`events`, `options`): `Promise`\<`void`\>
+
+Defined in: sitecore-jss/types/tracking/trackingApi.d.ts:9
 
 Makes a request to Sitecore Layout Service for the specified route item path.
 
@@ -22,7 +24,3 @@ Makes a request to Sitecore Layout Service for the specified route item path.
 `Promise`\<`void`\>
 
 void
-
-## Defined in
-
-sitecore-jss/types/tracking/trackingApi.d.ts:9

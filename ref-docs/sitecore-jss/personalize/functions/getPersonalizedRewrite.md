@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: getPersonalizedRewrite()
 
 > **getPersonalizedRewrite**(`pathname`, `variantIds`): `string`
+
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:15](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/personalize/utils.ts#L15)
 
 Get a personalized rewrite path for given pathname
 
@@ -22,7 +24,3 @@ Get a personalized rewrite path for given pathname
 `string`
 
 the rewrite path
-
-## Defined in
-
-[packages/sitecore-jss/src/personalize/utils.ts:15](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/personalize/utils.ts#L15)

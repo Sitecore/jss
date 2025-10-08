@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
@@ -6,19 +6,17 @@
 
 # Function: mergeFs()
 
-> **mergeFs**(`rootPath`, `parseFileContents`?): `Promise`\<[`MergeFsResult`](../interfaces/MergeFsResult.md)\>
+> **mergeFs**(`rootPath`, `parseFileContents?`): `Promise`\<[`MergeFsResult`](../interfaces/MergeFsResult.md)\>
+
+Defined in: [sitecore-jss-dev-tools/src/mergeFs.ts:125](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L125)
 
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `rootPath` | `string` |
-| `parseFileContents`? | `CustomFileParser` |
+| `parseFileContents?` | `CustomFileParser` |
 
 ## Returns
 
 `Promise`\<[`MergeFsResult`](../interfaces/MergeFsResult.md)\>
-
-## Defined in
-
-[sitecore-jss-dev-tools/src/mergeFs.ts:125](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/mergeFs.ts#L125)

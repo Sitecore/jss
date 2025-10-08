@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: LinkProps
 
-> **LinkProps**: `ReactLinkProps` & `object`
+> **LinkProps** = `ReactLinkProps` & `object`
+
+Defined in: [sitecore-jss-nextjs/src/components/Link.tsx:11](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-nextjs/src/components/Link.tsx#L11)
 
 ## Type declaration
 
@@ -22,6 +24,8 @@ If `href` match with `internalLinkMatcher` regexp, then it's internal link and N
 /^//g
 ```
 
-## Defined in
+### prefetch?
 
-[sitecore-jss-nextjs/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-nextjs/src/components/Link.tsx#L12)
+> `optional` **prefetch**: `NextLinkProps`\[`"prefetch"`\]
+
+Next.js Link prefetch.

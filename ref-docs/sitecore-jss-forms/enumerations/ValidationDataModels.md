@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react-forms**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react-forms**](../README.md)
 
 ***
 
@@ -6,15 +6,15 @@
 
 # Enumeration: ValidationDataModels
 
+Defined in: [src/ValidationDataModels.ts:1](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L1)
+
 ## Enumeration Members
 
 ### FileCountValidator
 
 > **FileCountValidator**: `"{F42833A6-F364-4721-ABFC-337E0CC3FD75}"`
 
-#### Defined in
-
-[src/ValidationDataModels.ts:4](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L4)
+Defined in: [src/ValidationDataModels.ts:4](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L4)
 
 ***
 
@@ -22,9 +22,7 @@
 
 > **FileSizeValidator**: `"{8F2B6077-FE63-4FB2-8740-EF3807BBDB84}"`
 
-#### Defined in
-
-[src/ValidationDataModels.ts:2](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L2)
+Defined in: [src/ValidationDataModels.ts:2](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L2)
 
 ***
 
@@ -32,6 +30,4 @@
 
 > **FileTypeValidator**: `"{D81E056F-6C2E-4414-BD46-BA464AC05202}"`
 
-#### Defined in
-
-[src/ValidationDataModels.ts:3](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L3)
+Defined in: [src/ValidationDataModels.ts:3](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-react-forms/src/ValidationDataModels.ts#L3)

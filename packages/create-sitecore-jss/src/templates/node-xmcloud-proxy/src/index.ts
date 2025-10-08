@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express, { Response } from 'express';
 import compression from 'compression';
-import { createProxyMiddleware, fixRequestBody } from 'http-proxy-middleware';
+import { legacyCreateProxyMiddleware as createProxyMiddleware, fixRequestBody } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter, healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
 import { config, graphQLEndpoint } from './config';

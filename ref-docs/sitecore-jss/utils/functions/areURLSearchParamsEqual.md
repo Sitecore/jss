@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: areURLSearchParamsEqual()
 
 > **areURLSearchParamsEqual**(`params1`, `params2`): `boolean`
+
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:183](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/utils/utils.ts#L183)
 
 Compares two URLSearchParams objects to determine if they are equal.
 
@@ -22,7 +24,3 @@ Compares two URLSearchParams objects to determine if they are equal.
 `boolean`
 
 - Returns true if the parameters are equal, otherwise false.
-
-## Defined in
-
-[packages/sitecore-jss/src/utils/utils.ts:183](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/utils/utils.ts#L183)

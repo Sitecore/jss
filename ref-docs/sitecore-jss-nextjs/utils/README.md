@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../README.md)
 
 ***
 
@@ -6,13 +6,14 @@
 
 # utils
 
-## Index
+## Variables
 
-### Functions
+- [isEditorActive](variables/isEditorActive.md)
+- [resetEditorChromes](variables/resetEditorChromes.md)
+- [tryParseEnvValue](variables/tryParseEnvValue.md)
+
+## Functions
 
 - [getPublicUrl](functions/getPublicUrl.md)
 - [handleEditorFastRefresh](functions/handleEditorFastRefresh.md)
-- [isEditorActive](functions/isEditorActive.md)
-- [resetEditorChromes](functions/resetEditorChromes.md)
 - [resolveUrl](functions/resolveUrl.md)
-- [tryParseEnvValue](functions/tryParseEnvValue.md)

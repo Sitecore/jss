@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / CacheOptions
 
 # Interface: CacheOptions
+
+Defined in: sitecore-jss/types/cache-client.d.ts:23
 
 Minimum configuration options for classes that implement
 
@@ -22,6 +24,8 @@ CacheClient
 
 > `optional` **cacheEnabled**: `boolean`
 
+Defined in: sitecore-jss/types/cache-client.d.ts:28
+
 Enable/disable caching mechanism
 
 #### Default
@@ -30,15 +34,13 @@ Enable/disable caching mechanism
 true
 ```
 
-#### Defined in
-
-sitecore-jss/types/cache-client.d.ts:28
-
 ***
 
 ### cacheTimeout?
 
 > `optional` **cacheTimeout**: `number`
+
+Defined in: sitecore-jss/types/cache-client.d.ts:33
 
 Cache timeout (sec)
 
@@ -47,7 +49,3 @@ Cache timeout (sec)
 ```ts
 60
 ```
-
-#### Defined in
-
-sitecore-jss/types/cache-client.d.ts:33

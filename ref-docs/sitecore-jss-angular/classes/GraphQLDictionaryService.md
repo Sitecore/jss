@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-angular**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / GraphQLDictionaryService
 
 # Class: GraphQLDictionaryService
+
+Defined in: packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:65
 
 Service that fetch dictionary data using Sitecore's GraphQL API.
 
@@ -18,9 +20,11 @@ SearchQueryService<DictionaryQueryResult>
 
 ## Constructors
 
-### new GraphQLDictionaryService()
+### Constructor
 
-> **new GraphQLDictionaryService**(`options`): [`GraphQLDictionaryService`](GraphQLDictionaryService.md)
+> **new GraphQLDictionaryService**(`options`): `GraphQLDictionaryService`
+
+Defined in: packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:73
 
 Creates an instance of graphQL dictionary service with the provided options
 
@@ -32,15 +36,11 @@ Creates an instance of graphQL dictionary service with the provided options
 
 #### Returns
 
-[`GraphQLDictionaryService`](GraphQLDictionaryService.md)
+`GraphQLDictionaryService`
 
 #### Overrides
 
 `DictionaryServiceBase.constructor`
-
-#### Defined in
-
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:73
 
 ## Properties
 
@@ -48,19 +48,19 @@ packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:73
 
 > **options**: `GraphQLDictionaryServiceConfig`
 
+Defined in: packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:66
+
 #### Overrides
 
 `DictionaryServiceBase.options`
-
-#### Defined in
-
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:66
 
 ## Methods
 
 ### fetchDictionaryData()
 
 > **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+Defined in: packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:80
 
 Fetches dictionary data for internalization. Uses search query by default
 
@@ -84,15 +84,13 @@ if the app root was not found for the specified site and language.
 
 `DictionaryServiceBase.fetchDictionaryData`
 
-#### Defined in
-
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:80
-
 ***
 
 ### fetchWithSearchQuery()
 
 > **fetchWithSearchQuery**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+Defined in: packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:88
 
 Fetches dictionary data with search query
 This is the default behavior for non-XMCloud deployments. Uses `query` to retrieve data.
@@ -113,15 +111,13 @@ dictionary phrases
 
 if the app root was not found for the specified site and language.
 
-#### Defined in
-
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:88
-
 ***
 
 ### fetchWithSiteQuery()
 
 > **fetchWithSiteQuery**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+Defined in: packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:95
 
 Fetches dictionary data with site query
 This is the default behavior for XMCloud deployments. Uses `siteQuery` to retrieve data.
@@ -138,15 +134,13 @@ This is the default behavior for XMCloud deployments. Uses `siteQuery` to retrie
 
 dictionary phrases
 
-#### Defined in
-
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:95
-
 ***
 
 ### getCacheClient()
 
 > `protected` **getCacheClient**(): [`CacheClient`](../interfaces/CacheClient.md)\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
+
+Defined in: packages/sitecore-jss/types/i18n/dictionary-service.d.ts:49
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -162,15 +156,13 @@ implementation
 
 `DictionaryServiceBase.getCacheClient`
 
-#### Defined in
-
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:49
-
 ***
 
 ### getCacheValue()
 
 > **getCacheValue**(`key`): `null` \| [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
+
+Defined in: packages/sitecore-jss/types/i18n/dictionary-service.d.ts:42
 
 Retrieves a
 
@@ -195,15 +187,13 @@ The
 
 `DictionaryServiceBase.getCacheValue`
 
-#### Defined in
-
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:42
-
 ***
 
 ### getGraphQLClient()
 
 > `protected` **getGraphQLClient**(): `GraphQLClient`
+
+Defined in: packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:102
 
 Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
 library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
@@ -215,15 +205,13 @@ want to use something else.
 
 implementation
 
-#### Defined in
-
-packages/sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:102
-
 ***
 
 ### setCacheValue()
 
 > **setCacheValue**(`key`, `value`): [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
+
+Defined in: packages/sitecore-jss/types/i18n/dictionary-service.d.ts:36
 
 Caches a
 
@@ -251,7 +239,3 @@ CacheClient<DictionaryPhrases>
 #### Inherited from
 
 `DictionaryServiceBase.setCacheValue`
-
-#### Defined in
-
-packages/sitecore-jss/types/i18n/dictionary-service.d.ts:36

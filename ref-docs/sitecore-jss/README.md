@@ -1,4 +1,4 @@
-**@sitecore-jss/sitecore-jss** • **Docs**
+**@sitecore-jss/sitecore-jss**
 
 ***
 

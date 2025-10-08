@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: getPersonalizedRewriteData()
 
 > **getPersonalizedRewriteData**(`pathname`): [`PersonalizedRewriteData`](../type-aliases/PersonalizedRewriteData.md)
+
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:25](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/personalize/utils.ts#L25)
 
 Get personalize data from the rewrite path
 
@@ -21,7 +23,3 @@ Get personalize data from the rewrite path
 [`PersonalizedRewriteData`](../type-aliases/PersonalizedRewriteData.md)
 
 the personalize data from the rewrite
-
-## Defined in
-
-[packages/sitecore-jss/src/personalize/utils.ts:25](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/personalize/utils.ts#L25)

@@ -155,6 +155,67 @@ describe('RestLayoutService', () => {
       });
   });
 
+  it('should forward multiple Set-Cookie headers to the client', async () => {
+    const multiCookieHeader =
+      'cookieA=valA; path=/; secure; HttpOnly; SameSite=None, cookieB=valB; path=/; secure; HttpOnly; SameSite=None, __RequestVerificationToken=csrfToken123; path=/; secure; HttpOnly; SameSite=None';
+
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=en&tracking=false'
+      )
+      .reply(
+        200,
+        {
+          sitecore: { context: {}, route: { name: 'home' } },
+        },
+        {
+          'Set-Cookie': multiCookieHeader,
+          'Content-Type': 'application/json',
+        }
+      );
+
+    const req = {
+      socket: {
+        remoteAddress: '192.168.1.10',
+      },
+      headers: {
+        cookie: 'existing-cookie=value',
+        referer: 'http://sctest',
+        'user-agent': 'custom-agent',
+      },
+    } as IncomingMessage;
+
+    const setHeaderSpy = (spy() as unknown) as ServerResponse['setHeader'];
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
+
+    const service = new RestLayoutService({
+      apiHost: 'http://sctest',
+      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+      siteName: 'supersite',
+      tracking: false,
+    });
+
+    await service.fetchLayoutData('/home', 'en', req, res);
+
+    const calls = (setHeaderSpy as any).__spy.calls;
+    expect(calls.length).to.be.greaterThan(0);
+
+    const [headerName, headerValue] = calls[0];
+
+    expect(headerName).to.equal('Set-Cookie');
+
+    expect(headerValue).to.be.an('array');
+    expect(headerValue.length).to.equal(3);
+    expect(
+      headerValue.some((cookie: string) =>
+        cookie.includes('__RequestVerificationToken=csrfToken123')
+      )
+    ).to.be.true;
+  });
+
   it('should fetch layout data using custom configuration name', () => {
     nock('http://sctest')
       .get(

@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / Manifest
 
 # Interface: Manifest
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:5](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L5)
 
 Represents a set of disconnected data to run a JSS app from, or import to Sitecore
 
@@ -13,6 +15,8 @@ Represents a set of disconnected data to run a JSS app from, or import to Siteco
 ### addComponent()
 
 > **addComponent**: (...`components`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:12](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L12)
 
 Adds a component to the manifest. Components are modules that can be
 added to a route dynamically based on layout settings.
@@ -27,15 +31,13 @@ added to a route dynamically based on layout settings.
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:12](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L12)
-
 ***
 
 ### addContent()
 
 > **addContent**: (...`contents`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:47](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L47)
 
 Adds a content item to the manifest. Content items are items with non-route and non-component data,
 for example global elements or content list target items.
@@ -50,15 +52,13 @@ for example global elements or content list target items.
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:47](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L47)
-
 ***
 
 ### addDictionary()
 
 > **addDictionary**: (...`entries`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:51](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L51)
 
 Adds a translation dictionary entry to the manifest.
 
@@ -72,15 +72,13 @@ Adds a translation dictionary entry to the manifest.
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:51](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L51)
-
 ***
 
 ### addPlaceholder()
 
 > **addPlaceholder**: (...`placeholders`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:26](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L26)
 
 Adds a placeholder definition to the manifest.
 Explicit placeholder definition is not necessary as it is inferred
@@ -97,15 +95,13 @@ additional metadata (i.e. display names), and is recommended.
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:26](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L26)
-
 ***
 
 ### addRoute()
 
 > **addRoute**: (...`routes`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:42](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L42)
 
 Adds a route definition to the manifest. A route contains a set of components, and possibly child routes.
 
@@ -119,15 +115,13 @@ Adds a route definition to the manifest. A route contains a set of components, a
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:42](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L42)
-
 ***
 
 ### addRouteType()
 
 > **addRouteType**: (...`routeTypes`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:34](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L34)
 
 Adds a route type (a template containing a route-level fields definition).
 Route types are useful for data that is always present on a route - for example
@@ -145,15 +139,13 @@ route level fields are much more easily queryable and filterable for listings.
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:34](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L34)
-
 ***
 
 ### addTemplate()
 
 > **addTemplate**: (...`templates`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:19](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L19)
 
 Adds a template (a content data type) to the manifest. Templates
 define a schema of data fields. Explicitly adding templates is generally
@@ -170,15 +162,13 @@ addComponent() or addRouteType() should be used instead.
 
 `void`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:19](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L19)
-
 ***
 
 ### getManifest()
 
 > **getManifest**: () => `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:7](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L7)
 
 Processes all the existing manifest input data and transforms it to a manifest JSON format
 
@@ -186,25 +176,21 @@ Processes all the existing manifest input data and transforms it to a manifest J
 
 `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:7](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L7)
-
 ***
 
 ### language
 
 > **language**: `string`
 
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:52](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L52)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:52](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L52)
 
 ***
 
 ### setDefaultRouteType()
 
 > **setDefaultRouteType**: (`defaultRouteType`) => `void`
+
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:38](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L38)
 
 Sets default route type (a template containing a route-level fields definition).
 
@@ -217,7 +203,3 @@ Sets default route type (a template containing a route-level fields definition).
 #### Returns
 
 `void`
-
-#### Defined in
-
-[sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:38](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L38)

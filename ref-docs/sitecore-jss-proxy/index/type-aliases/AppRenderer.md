@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-proxy**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-proxy**](../../README.md)
 
 ***
 
@@ -6,7 +6,9 @@
 
 # Type Alias: AppRenderer()
 
-> **AppRenderer**: (`callback`, `path`, `data`, `viewBag`) => `void`
+> **AppRenderer** = (`callback`, `path`, `data`, `viewBag`) => `void`
+
+Defined in: [sitecore-jss-proxy/src/types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)
 
 AppRenderer is a function that renders a JSS app's markup for a given route and data.
 
@@ -17,13 +19,9 @@ AppRenderer is a function that renders a JSS app's markup for a given route and 
 | `callback` | (`error`, `result`) => `void` |
 | `path` | `string` |
 | `data` | `LayoutServiceData` |
-| `viewBag` | `object` |
+| `viewBag` | \{\[`key`: `string`\]: `unknown`; `dictionary`: `DictionaryPhrases`; \} |
 | `viewBag.dictionary` | `DictionaryPhrases` |
 
 ## Returns
 
 `void`
-
-## Defined in
-
-[sitecore-jss-proxy/src/types/AppRenderer.ts:26](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-proxy/src/types/AppRenderer.ts#L26)

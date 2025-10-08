@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: normalizeSiteRewrite()
 
 > **normalizeSiteRewrite**(`pathname`): `string`
+
+Defined in: sitecore-jss/types/site/utils.d.ts:24
 
 Normalize a site rewrite path (remove site data)
 
@@ -21,7 +23,3 @@ Normalize a site rewrite path (remove site data)
 `string`
 
 the pathname with site data removed
-
-## Defined in
-
-sitecore-jss/types/site/utils.d.ts:24

@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { mount, shallow } from 'enzyme';
+import { render, waitFor, fireEvent, findByText } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import sinon from 'sinon';
 import React from 'react';
 import * as submit from '@sitecore-jss/sitecore-jss-forms/dist/cjs/submitForm';
 
-import { Form, FormProps, FormState } from './form';
-import Button from './field-templates/button';
-import FileUpload from './field-templates/file-upload';
+import { Form, FormProps, FormState, FieldStateCollection } from './form';
+import { FieldWithValueProps } from '../FieldProps';
+import { FieldState } from '../../types/components/form';
 
 describe('<Form />', () => {
   const p = (): FormProps => ({
@@ -44,7 +45,7 @@ describe('<Form />', () => {
       fields: [
         {
           model: {
-            itemId: 'model_item_id',
+            itemId: 'model_item_id_button_field',
             title: 'xxx_title',
             name: 'button-field',
             templateId: 'xxx_templateId',
@@ -72,10 +73,40 @@ describe('<Form />', () => {
             id: 'yyy',
             value: 'yyy',
           },
-        } as forms.ButtonFormField,
+        },
         {
           model: {
-            itemId: 'model_item_id',
+            itemId: 'model_item_id_single_line_text',
+            isTrackingEnabled: true,
+            title: 'xxx_title',
+            name: 'single_line_text-field',
+            templateId: 'xxx_templateId',
+            cssClass: 'xxx_css-single_line_text',
+            labelCssClass: 'xxx_label-css-class',
+            isMultiple: true,
+            allowedContentTypes: '.jpg, .css',
+            maxFileCount: 1,
+            maxFileSize: 9999,
+            fileSizeUnit: 1024,
+            files: [],
+            required: true,
+            value: '',
+            fieldTypeItemId: '{4EE89EA7-CEFE-4C8E-8532-467EF64591FC}',
+            validationDataModels: [
+              { itemId: 'xxx', message: 'xxx_message', name: 'xxx_name' },
+              { itemId: 'yyy', message: 'yyy_message', name: 'yyy_name' },
+              { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' },
+            ],
+          },
+          valueField: {
+            id: 'xxx_text_value_field_id',
+            name: 'xxx_text_value_field_name',
+            value: 'xxx_text_value_field_name',
+          },
+        },
+        {
+          model: {
+            itemId: 'model_item_id_file_upload',
             isTrackingEnabled: true,
             title: 'xxx_title',
             name: 'file-upload-field',
@@ -130,38 +161,156 @@ describe('<Form />', () => {
   });
 
   const nextForm = {
-    cssClass: 'provided-xxx-metadata-css-class',
-    fieldTypeItemId: '{7CE25CAB-EF3A-4F73-AB13-D33BDC1E4EE2}',
-    isTrackingEnabled: true,
-    itemId: 'provided-xxx-metadata-item-id',
-    name: 'provided-xxx-metadata-name',
-    templateId: 'provided-xxx-metadata-template-id',
-    title: 'provided-xxx-metadata-title',
-    validationDataModels: [
+    metadata: {
+      cssClass: 'provided-xxx-metadata-css-class',
+      fieldTypeItemId: '{7CE25CAB-EF3A-4F73-AB13-D33BDC1E4EE2}',
+      isTrackingEnabled: true,
+      itemId: 'provided-xxx-metadata-item-id',
+      name: 'provided-xxx-metadata-name',
+      templateId: 'provided-xxx-metadata-template-id',
+      title: 'provided-xxx-metadata-title',
+      validationDataModels: [
+        {
+          itemId: 'provided-validation-model-xxx',
+          message: 'provided-validation-model-xxx-message',
+          name: 'provided-validation-model-xxx-name',
+        },
+        {
+          itemId: 'provided-validation-model-yyy',
+          message: 'provided-validation-model-yyy-message',
+          name: 'provided-validation-model-yyy-name',
+        },
+        {
+          itemId: 'provided-validation-model-zzz',
+          message: 'provided-validation-model-zzz-message',
+          name: 'provided-validation-model-zzz-name',
+        },
+      ],
+    },
+    fields: [
       {
-        itemId: 'provided-validation-model-xxx',
-        message: 'provided-validation-model-xxx-message',
-        name: 'provided-validation-model-xxx-name',
-      },
+        model: {
+          itemId: 'model_item_id_button_next_form',
+          title: 'nnn_title',
+          name: 'button-field',
+          templateId: 'nnn_templateId',
+          cssClass: 'nnn_css-class',
+          value: '',
+          fieldTypeItemId: '{7CE25CAB-EF3A-4F73-AB13-D33BDC1E4EE2}',
+          validationDataModels: [
+            { itemId: 'xxx', message: 'xxx_message', name: 'xxx_name' },
+            { itemId: 'yyy', message: 'yyy_message', name: 'yyy_name' },
+            { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' },
+          ],
+        },
+        buttonField: {
+          name: 'button-nnn',
+          id: 'button-nnn',
+          value: 'button-nnn',
+        },
+        navigationButtonsField: {
+          name: 'nnn',
+          id: 'nnn',
+          value: 'nnn',
+        },
+        navigationStepField: {
+          name: 'nnn',
+          id: 'nnn',
+          value: 'nnn',
+        },
+      } as forms.ButtonFormField,
       {
-        itemId: 'provided-validation-model-yyy',
-        message: 'provided-validation-model-yyy-message',
-        name: 'provided-validation-model-yyy-name',
-      },
-      {
-        itemId: 'provided-validation-model-zzz',
-        message: 'provided-validation-model-zzz-message',
-        name: 'provided-validation-model-zzz-name',
+        model: {
+          itemId: 'model_item_id_file_next_form',
+          isTrackingEnabled: true,
+          title: 'nnn_title',
+          name: 'file-upload-field',
+          templateId: 'nnn_templateId',
+          cssClass: 'nnn_css-class',
+          labelCssClass: 'nnn_label-css-class',
+          isMultiple: true,
+          allowedContentTypes: '.jpg, .css',
+          maxFileCount: 1,
+          maxFileSize: 9999,
+          fileSizeUnit: 1024,
+          files: [],
+          required: true,
+          value: '',
+          fieldTypeItemId: '{7E9A0903-A52C-4843-BBE1-5B26BD162BED}',
+          validationDataModels: [
+            { itemId: 'xxx', message: 'xxx_message', name: 'xxx_name' },
+            { itemId: 'yyy', message: 'yyy_message', name: 'yyy_name' },
+            { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' },
+          ],
+        },
+        valueField: {
+          id: 'nnn_file_upload_value_field_id',
+          name: 'nnn_file_upload_value_field_name',
+          value: 'nnn_file_upload_value_field_name',
+        },
       },
     ],
+    htmlPrefix: 'xxx-html-prefix',
+    contextItemId: 'xxx-context-item-id',
+    antiForgeryToken: {
+      name: 'xxx-anti-forgery-token-name',
+      id: 'xxx-anti-forgery-token',
+      value: 'xxx-anti-forgery-token-value',
+    },
+    formItemId: {
+      name: 'xxx-form-item-id-name',
+      id: 'xxx-form-item-id',
+      value: 'xxx-form-item-id-value',
+    },
+    formSessionId: {
+      name: 'xxx-form-session-id-name',
+      id: 'xxx-form-session-id',
+      value: 'xxx-form-session-id-value',
+    },
+    pageItemId: {
+      name: 'xxx-page-item-id-name',
+      id: 'xxx-page-item-id',
+      value: 'xxx-page-item-id-value',
+    },
+  };
+
+  const testFieldWrapper: React.FC<FieldWithValueProps> = ({ children, field }) => (
+    <div className={`test-field-state-wrapper-${field.model.itemId}`}>{children}</div>
+  );
+
+  const testFieldWrapperWithState: React.FC<FieldWithValueProps> = ({
+    value,
+    isValid,
+    errors,
+    children,
+    field,
+  }) => (
+    <div className={`test-field-state-wrapper-${field.model.itemId}`}>
+      <script className={`test-field-state-${field.model.itemId}`}>
+        {JSON.stringify({ value, isValid, errors })}
+      </script>
+      {children}
+    </div>
+  );
+
+  const getFormState = (renderedElement: HTMLElement) => {
+    const testScriptElement = renderedElement.querySelector('script#test-form-state');
+    return JSON.parse(testScriptElement?.innerHTML || '{}') as FieldStateCollection & FormState;
+  };
+
+  const getCollectedFields = (renderedElement: HTMLElement) => {
+    const testScriptElement = renderedElement.querySelector('script#test-collect-fields');
+    return JSON.parse(testScriptElement?.innerHTML || '{}') as FieldStateCollection;
   };
 
   describe('render', () => {
     it('should render message form is not provided', () => {
       const props = p();
-      const c = shallow(<Form {...props} form={null} />);
+      const c = render(<Form {...props} form={null} />);
 
-      expect(c.html()).to.equal('<div>No form data was provided. Need to set a datasource?</div>');
+      expect(c.container.innerHTML).to.equal(
+        '<div>No form data was provided. Need to set a datasource?</div>'
+      );
     });
 
     it('should render message form metadata is not provided', () => {
@@ -169,9 +318,9 @@ describe('<Form />', () => {
 
       delete props.form.metadata;
 
-      const c = shallow(<Form {...props} />);
+      const c = render(<Form {...props} />);
 
-      expect(c.html()).to.equal(
+      expect(c.container.innerHTML).to.equal(
         '<div>Form data invalid. Forget to set the rendering contents resolver?</div>'
       );
     });
@@ -180,8 +329,9 @@ describe('<Form />', () => {
       const props = p();
 
       delete props.form.fields[1];
+      delete props.form.fields[2];
 
-      const c = shallow(
+      const rendered = render(
         <Form
           {...props}
           fieldWrapperComponent={({ children }) => (
@@ -193,14 +343,18 @@ describe('<Form />', () => {
         />
       );
 
-      expect(c.html()).to.equal(
-        '<form action="http://jssreactweb/api/jss/formbuilder?fxb.FormItemId=xxx-metadata-item-id&amp;fxb.HtmlPrefix=xxx-html-prefix&amp;sc_apikey={9B8C268A-171D-4DAA-B131-54B64614BBE0}&amp;sc_itemid=xxx-context-item-id&amp;sc_lang=da-DK" method="POST"><div class="form-errors"></div><span class="fieldWrapper"><h2>Test</h2><button type="submit" class="xxx_css-class" value="xxx_title" name="button-xxx" id="button-xxx">xxx_title</button></span></form>'
+      expect(rendered.container.innerHTML).to.contain(
+        '<form action="http://jssreactweb/api/jss/formbuilder?fxb.FormItemId=xxx-metadata-item-id&amp;fxb.HtmlPrefix=xxx-html-prefix&amp;sc_apikey={9B8C268A-171D-4DAA-B131-54B64614BBE0}&amp;sc_itemid=xxx-context-item-id&amp;sc_lang=da-DK" method="POST">'
+      );
+      expect(rendered.container.innerHTML).to.contain('<div class="form-errors"></div>');
+      expect(rendered.container.innerHTML).to.contain(
+        '<span class="fieldWrapper"><h2>Test</h2><button type="submit" class="xxx_css-class" value="xxx_title" name="button-xxx" id="button-xxx">xxx_title</button></span>'
       );
     });
   });
 
   describe('onSubmit', () => {
-    let submitForm;
+    let submitForm: sinon.SinonStub;
 
     const formData = [
       { key: 'xxx-form-session-id-name', value: 'xxx-form-session-id-value' },
@@ -229,58 +383,45 @@ describe('<Form />', () => {
       const resolveSubmitResult = Promise.resolve().then(() => ({ success: true }));
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
+      const form = rendered.container.querySelector('form')!;
+      fireEvent.submit(form, ev);
 
-      (c.instance() as Form).onSubmit(ev as any);
-
-      return resolveSubmitResult.then(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(formData);
-
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
-
-        expect(c.state()).to.deep.equal({
-          errors: [],
-          nextForm: null,
-          submitButton: null,
-          submitInProgress: false,
-        });
-      });
+      expect(submitForm.args[0][0].data).to.deep.equal(formData);
+      expect(submitForm.args[0][1]).to.equal('custom_submit_url');
     });
 
-    it('should submit form', () => {
+    it('should submit form', async () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
-
-      const resolveSubmitResult = Promise.resolve().then(() => ({ success: true, nextForm }));
+      const resolveSubmitResult = Promise.resolve().then(() => ({
+        success: true,
+        nextForm,
+      }));
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const form = rendered.container.querySelector('form')!;
 
-      return resolveSubmitResult.then(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(formData);
+      fireEvent.submit(form, ev);
 
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
+      expect(submitForm.args[0][0].data).to.deep.equal(formData);
+      expect(submitForm.args[0][1]).to.equal('custom_submit_url');
 
-        expect(c.state()).to.deep.equal({
-          errors: [],
-          nextForm,
-          submitButton: null,
-          submitInProgress: false,
-        });
-      });
+      await waitFor(() => expect(rendered.getAllByText('nnn_title').length).to.equal(2));
     });
 
     it('should not submit form when submitUrl is not provided', () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: undefined } };
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
+      const form = rendered.container.querySelector('form')!;
 
       try {
-        (c.instance() as Form).onSubmit(ev as any);
+        fireEvent.submit(form, ev);
       } catch (err) {
         expect(err.message).to.deep.equal(
           'Submit URL was not defined. Ensure the form has an action attribute.'
@@ -288,90 +429,59 @@ describe('<Form />', () => {
       }
     });
 
-    it('should submit form when form contains state', () => {
+    it('should submit form when form contains state', async () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
 
-      const resolveSubmitResult = Promise.resolve().then(() => ({ success: true, nextForm }));
+      const resolveSubmitResult = Promise.resolve().then(() => ({
+        success: true,
+        nextForm,
+      }));
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
+      const form = rendered.container.querySelector('form')!;
 
-      c.setState({
-        x1: {
-          value: 'test-x1',
-          isValid: true,
-          errors: [],
-        },
-        x2: {
-          value: undefined,
-          isValid: true,
-          errors: [],
-        },
-      });
+      const singleLineTextInput = rendered.container.querySelector(
+        'input#xxx_text_value_field_id'
+      )!;
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const user = userEvent.setup();
+      await user.type(singleLineTextInput, 'some text');
 
-      return resolveSubmitResult.then(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(
-          formData.concat({ key: 'x1', value: 'test-x1' })
-        );
+      fireEvent.submit(form, ev);
 
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
-
-        expect(c.state()).to.deep.equal({
-          errors: [],
-          nextForm,
-          submitButton: null,
-          submitInProgress: false,
-          x1: undefined,
-          x2: undefined,
-        });
-      });
+      expect(submitForm.args[0][1]).to.equal('custom_submit_url');
+      expect(submitForm.args[0][0].data).to.deep.equal(
+        formData.concat({ key: 'xxx_text_value_field_name', value: 'some text' })
+      );
+      await waitFor(() => expect(rendered.getAllByText('nnn_title').length).to.equal(2));
     });
 
-    it('should submit form and apply validationErrors from result', () => {
+    it('should submit form and apply validationErrors from result', async () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
 
       const resolveSubmitResult = Promise.resolve().then(() => ({
         success: false,
-        nextForm,
-        validationErrors: { x1: ['x1err1', 'x1err2'], x2: ['x2err2'] },
+        nextForm: null,
+        validationErrors: { xxx_text_value_field_name: ['x1err1', 'x1err2'] },
       }));
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const form = rendered.container.querySelector('form')!;
+      fireEvent.submit(form, ev);
 
-      return resolveSubmitResult.then(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(formData);
-
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
-
-        expect(c.state()).to.deep.equal({
-          errors: [],
-          nextForm,
-          submitButton: null,
-          submitInProgress: false,
-          x1: {
-            value: undefined,
-            isValid: false,
-            errors: ['x1err1', 'x1err2'],
-          },
-          x2: {
-            value: undefined,
-            isValid: false,
-            errors: ['x2err2'],
-          },
-        });
-      });
+      await findByText(rendered.container, 'x1err1');
+      await findByText(rendered.container, 'x1err2');
+      expect(rendered.container.querySelector('.form-errors')?.childNodes.length).to.be.equal(1);
     });
 
-    it('should submit form and use redirectUrl from response', () => {
+    it('should submit form and use redirectUrl from response', async () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
 
@@ -387,27 +497,20 @@ describe('<Form />', () => {
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const form = rendered.container.querySelector('form')!;
+      fireEvent.submit(form, ev);
 
-      return resolveSubmitResult.then(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(formData);
+      expect(submitForm.args[0][1]).to.equal('custom_submit_url');
+      expect(submitForm.args[0][0].data).to.deep.equal(formData);
 
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
-
-        expect(c.state()).to.deep.equal({
-          errors: [],
-          nextForm,
-          submitButton: null,
-          submitInProgress: false,
-        });
-
+      await waitFor(() => {
         expect(window.location.href).to.equal('http://jssredirectweb');
       });
     });
 
-    it('should submit form and call onRedirect using redirectUrl from response', () => {
+    it('should submit form and call onRedirect using redirectUrl from response', async () => {
       const props = p();
       const onRedirect = sinon.spy();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
@@ -422,22 +525,15 @@ describe('<Form />', () => {
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} onRedirect={onRedirect} />);
+      const rendered = render(<Form {...props} onRedirect={onRedirect} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const form = rendered.container.querySelector('form')!;
+      fireEvent.submit(form, ev);
 
-      return resolveSubmitResult.then(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(formData);
+      expect(submitForm.args[0][1]).to.equal('custom_submit_url');
+      expect(submitForm.args[0][0].data).to.deep.equal(formData);
 
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
-
-        expect(c.state()).to.deep.equal({
-          errors: [],
-          nextForm,
-          submitButton: null,
-          submitInProgress: false,
-        });
-
+      await waitFor(() => {
         expect(onRedirect.calledWith('http://jssredirectweb')).to.be.true;
       });
     });
@@ -446,114 +542,87 @@ describe('<Form />', () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
 
-      const resolveSubmitResult = new Promise((resolve) =>
-        setTimeout(() => {
-          resolve({ success: true, nextForm });
-        }, 1000)
-      );
+      const resolveSubmitResult = Promise.resolve().then(() => ({
+        success: true,
+      }));
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
-      const curState = c.state() as FormState;
-      expect(curState.submitInProgress).to.equal(true);
+      const form = rendered.container.querySelector('form')!;
+      expect(getFormState(rendered.container).submitInProgress).to.be.undefined;
+      fireEvent.submit(form, ev);
+      expect(getFormState(rendered.container).submitInProgress).to.be.true;
     });
 
-    it('should make render from with inert when submitInProgress is true', () => {
-      const props = p();
-
-      const c = mount(<Form {...props} />);
-
-      c.setState({ submitInProgress: true });
-
-      expect(c.find('form').prop('inert')).to.be.equal('true');
-    });
-
-    it('should return form to non-inert state after submit is done', () => {
+    it('should return form to non-inert state after submit is done', async () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
 
-      const resolveSubmitResult = Promise.resolve().then(() => ({ success: true, nextForm }));
+      const resolveSubmitResult = Promise.resolve().then(() => ({
+        success: true,
+      }));
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const form = rendered.container.querySelector('form')!;
 
-      return resolveSubmitResult.then(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(formData);
+      fireEvent.submit(form, ev);
 
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
+      expect(getFormState(rendered.container).submitInProgress).to.be.true;
 
-        expect(c.state()).to.deep.equal({
-          errors: [],
-          nextForm,
-          submitButton: null,
-          submitInProgress: false,
-        });
+      await waitFor(() => {
+        expect(getFormState(rendered.container).submitInProgress).to.be.false;
       });
     });
 
-    it('should submit form and handle array of errors from result', () => {
+    it('should submit form and handle array of errors from result', async () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
 
       const resolveSubmitResult = Promise.resolve().then(() => ({
         success: false,
+        nextForm: null,
         errors: ['err1', 'err2'],
       }));
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const form = rendered.container.querySelector('form')!;
+      fireEvent.submit(form, ev);
 
-      return resolveSubmitResult.catch(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(formData);
-
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
-
-        expect(c.state()).to.deep.equal({
-          errors: ['err1', 'err2'],
-          nextForm: null,
-          submitButton: null,
-        });
-      });
+      await findByText(rendered.container, 'err1');
+      await findByText(rendered.container, 'err2');
+      expect(rendered.container.querySelector('.form-errors')?.childNodes.length).to.be.equal(2);
     });
 
-    it('should submit form and handle error from result', () => {
+    it('should submit form and handle error from result', async () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
 
       const resolveSubmitResult = Promise.resolve().then(() => ({
         success: false,
+        nextForm: null,
         errors: 'err1',
       }));
 
       submitForm.returns(resolveSubmitResult);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const form = rendered.container.querySelector('form')!;
+      fireEvent.submit(form, ev);
 
-      return resolveSubmitResult.catch(() => {
-        expect(submitForm.args[0][0].data).to.deep.equal(formData);
-
-        expect(submitForm.args[0][1]).to.equal('custom_submit_url');
-
-        expect(c.state()).to.deep.equal({
-          errors: ['err1'],
-          nextForm: null,
-          submitButton: null,
-        });
-      });
+      await findByText(rendered.container, 'err1');
+      expect(rendered.container.querySelector('.form-errors')?.childNodes.length).to.be.equal(1);
     });
 
-    it('should submit form and handle error object from result', () => {
+    it('should submit form and handle error object from result', async () => {
       const props = p();
       const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
 
@@ -561,18 +630,12 @@ describe('<Form />', () => {
 
       submitForm.returns(resolveFormSubmit);
 
-      const c = shallow(<Form {...props} />);
+      const rendered = render(<Form {...props} />);
 
-      (c.instance() as Form).onSubmit(ev as any);
+      const form = rendered.container.querySelector('form')!;
+      fireEvent.submit(form, ev);
 
-      setTimeout(() => {
-        expect(c.state()).to.deep.equal({
-          errors: ['Hello, I am error'],
-          nextForm: null,
-          submitButton: null,
-          submitInProgress: false,
-        });
-      }, 0);
+      await findByText(rendered.container, 'Hello, I am error');
     });
   });
 
@@ -581,7 +644,7 @@ describe('<Form />', () => {
       ({
         model: {
           value: 'xxx-model-value',
-          fieldTypeItemId: 'xxx-fieldTypeItemId',
+          fieldTypeItemId: '{4EE89EA7-CEFE-4C8E-8532-467EF64591FC}',
           itemId: 'xxx-itemId',
           name: 'xxx-name',
           templateId: 'xxx-templateId',
@@ -593,20 +656,45 @@ describe('<Form />', () => {
         },
       } as any);
 
+    const nonValuedfield = () =>
+      ({
+        model: {
+          value: 'xxx-model-value',
+          fieldTypeItemId: '',
+          itemId: 'xxx-itemId',
+          name: 'xxx-name',
+          templateId: 'xxx-templateId',
+        },
+      } as any);
+
+    const getFieldState = (fieldItemId: string, renderedElement: HTMLElement) => {
+      const testFieldScriptElement = renderedElement.querySelector(
+        `script.test-field-state-${fieldItemId}`
+      )!;
+      const fieldState = JSON.parse(testFieldScriptElement?.innerHTML) as FieldState;
+
+      if (!fieldState || Object.keys(fieldState).length === 0) {
+        return null;
+      }
+
+      return fieldState;
+    };
+
     it('should return null when non-valued field', () => {
       const props = p();
-      const c = shallow(<Form {...props} />);
+      const nvf = nonValuedfield();
+      props.form.fields.push(nvf);
 
-      const f = field();
+      const rendered = render(
+        <Form {...props} fieldWrapperComponent={testFieldWrapperWithState} />
+      );
+      const fieldState = getFieldState(nvf.model.itemId, rendered.container);
 
-      const state = (c.instance() as Form).getCurrentFieldState(f);
-
-      expect(state).to.equal(null);
+      expect(fieldState).to.equal(null);
     });
 
     it('should return null when field name not defined', () => {
       const props = p();
-      const c = shallow(<Form {...props} />);
 
       const f = field();
       f.indexField = {
@@ -621,15 +709,18 @@ describe('<Form />', () => {
         value: 'xxx-valueField-value',
       };
 
-      const state = (c.instance() as Form).getCurrentFieldState(f);
+      props.form.fields.push(f);
 
+      const rendered = render(
+        <Form {...props} fieldWrapperComponent={testFieldWrapperWithState} />
+      );
+
+      const state = getFieldState(f.model.itemId, rendered.container);
       expect(state).to.equal(null);
     });
 
     it('should return new state when form does not contain field state', () => {
       const props = p();
-      const c = shallow(<Form {...props} />);
-
       const f = field();
       f.indexField = {
         name: 'xxx-indexField-name',
@@ -638,12 +729,16 @@ describe('<Form />', () => {
       };
 
       f.valueField = {
-        name: 'xxx-valueField-name',
+        name: 'xxx_valueField_name',
         id: 'xxx-valueField-id',
         value: 'xxx-valueField-value',
       };
+      props.form.fields.push(f);
 
-      const state = (c.instance() as Form).getCurrentFieldState(f);
+      const rendered = render(
+        <Form {...props} fieldWrapperComponent={testFieldWrapperWithState} />
+      );
+      const state = getFieldState(f.model.itemId, rendered.container);
 
       expect(state).to.deep.equal({
         isValid: true,
@@ -652,9 +747,8 @@ describe('<Form />', () => {
       });
     });
 
-    it('should return state when form contains field state', () => {
+    it('should return state when form contains field state', async () => {
       const props = p();
-      const c = shallow(<Form {...props} />);
 
       const f = field();
       f.indexField = {
@@ -664,32 +758,40 @@ describe('<Form />', () => {
       };
 
       f.valueField = {
-        name: 'xxx-valueField-name',
+        name: 'xxx_valueField_name',
         id: 'xxx-valueField-id',
         value: 'xxx-valueField-value',
       };
+      props.form.fields.push(f);
 
-      c.setState({
-        'xxx-valueField-name': {
-          isValid: true,
-          errors: [],
-          value: 'xxx-state-value',
-        },
-      });
-
-      const state = (c.instance() as Form).getCurrentFieldState(f);
+      const rendered = render(
+        <Form {...props} fieldWrapperComponent={testFieldWrapperWithState} />
+      );
+      const state = getFieldState(f.model.itemId, rendered.container);
 
       expect(state).to.deep.equal({
         isValid: true,
         errors: [],
-        value: 'xxx-state-value',
+        value: 'xxx-model-value',
+      });
+
+      const user = userEvent.setup();
+      const testSingleLineTextInput = rendered.container.querySelector(`input#${f.valueField.id}`)!;
+      user.clear(testSingleLineTextInput);
+      user.type(testSingleLineTextInput, 'some text');
+
+      await waitFor(() => {
+        const nextState = getFieldState(f.model.itemId, rendered.container);
+        expect(nextState).to.deep.equal({
+          isValid: true,
+          errors: [],
+          value: 'some text',
+        });
       });
     });
 
     it('should return state when form contains field state but value is undefined', () => {
       const props = p();
-      const c = shallow(<Form {...props} />);
-
       const f = field();
       f.indexField = {
         name: 'xxx-indexField-name',
@@ -698,54 +800,16 @@ describe('<Form />', () => {
       };
 
       f.valueField = {
-        name: 'xxx-valueField-name',
+        name: 'xxx_valueField_name',
         id: 'xxx-valueField-id',
-        value: 'xxx-valueField-value',
+        value: undefined,
       };
+      props.form.fields.push(f);
 
-      c.setState({
-        'xxx-valueField-name': {
-          isValid: true,
-          errors: [],
-          value: undefined,
-        },
-      });
-
-      const state = (c.instance() as Form).getCurrentFieldState(f);
-
-      expect(state).to.deep.equal({
-        isValid: true,
-        errors: [],
-        value: 'xxx-model-value',
-      });
-    });
-
-    it('should return state when form contains field state but errors are undefined', () => {
-      const props = p();
-      const c = shallow(<Form {...props} />);
-
-      const f = field();
-      f.indexField = {
-        name: 'xxx-indexField-name',
-        id: 'xxx-indexField-id',
-        value: 'xxx-indexField-value',
-      };
-
-      f.valueField = {
-        name: 'xxx-valueField-name',
-        id: 'xxx-valueField-id',
-        value: 'xxx-valueField-value',
-      };
-
-      c.setState({
-        'xxx-valueField-name': {
-          isValid: true,
-          errors: undefined,
-          value: undefined,
-        },
-      });
-
-      const state = (c.instance() as Form).getCurrentFieldState(f);
+      const rendered = render(
+        <Form {...props} fieldWrapperComponent={testFieldWrapperWithState} />
+      );
+      const state = getFieldState(f.model.itemId, rendered.container);
 
       expect(state).to.deep.equal({
         isValid: true,
@@ -755,135 +819,210 @@ describe('<Form />', () => {
     });
   });
 
-  it('onButtonClick', () => {
+  it('onButtonClick', async () => {
     const props = p();
-    const c = shallow(<Form {...props} />);
+    const rendered = render(<Form {...props} />);
 
-    (c.instance() as Form).onButtonClick('test');
+    userEvent.setup();
+    const user = userEvent.setup();
+    const buttonElement = rendered.container.querySelector('button[name=button-xxx]')!;
+    await user.click(buttonElement);
 
-    expect((c.state() as any).submitButton).to.equal('test');
+    const state = getFormState(rendered.container);
+    expect(state.submitButton).to.equal('button-xxx');
   });
 
-  it('onFieldChange', () => {
+  it('onFieldChange', async () => {
     const props = p();
-    const c = shallow(<Form {...props} />);
+    const field = {
+      model: {
+        value: 'xxx-model-value',
+        fieldTypeItemId: '{4EE89EA7-CEFE-4C8E-8532-467EF64591FC}',
+        itemId: 'xxx-itemId',
+        name: 'xxx-name',
+        templateId: 'xxx-templateId',
+        required: true,
+        title: 'xxx_title',
+        validationDataModels: [
+          { itemId: 'xxx', message: 'xxx_message', name: 'xxx_name' },
+          { itemId: 'yyy', message: 'yyy_message', name: 'yyy_name' },
+          { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' },
+        ],
+      },
+      indexField: {
+        name: 'xxx-indexField-name',
+        id: 'xxx-indexField-id',
+        value: 'xxx-indexField-value',
+      },
+      valueField: {
+        name: 'xxx_valueField_name',
+        id: 'xxx-valueField-id',
+        value: 'xxx-valueField-value',
+      },
+    };
+    props.form.fields.push(field);
+    const rendered = render(<Form {...props} />);
 
-    (c.instance() as Form).onFieldChange('test-key', 'test-value', true, ['err1', 'err2']);
+    const user = userEvent.setup();
+    const testSingleLineTextInput = rendered.container.querySelector(
+      `input#${field.valueField.id}`
+    )!;
+    await user.clear(testSingleLineTextInput);
 
-    expect(c.state()['test-key'] as any).to.deep.equal({
-      value: 'test-value',
-      isValid: true,
-      errors: ['err1', 'err2'],
+    const formState = getFormState(rendered.container);
+
+    // eslint-disable-next-line dot-notation
+    expect(formState['xxx_valueField_name'] as any).to.deep.equal({
+      value: '',
+      isValid: false,
+      errors: ['xxx_title is required'],
     });
   });
 
-  it('collectCurrentFieldValues', () => {
+  it('collectCurrentFieldValues', async () => {
     const props = p();
-    const c = shallow(<Form {...props} />);
-
-    c.setState({
-      errors: ['testerr1', 'testerr2'],
-      nextForm: true,
-      submitButton: 'test-submit-btn-key',
-      x0: null,
-      x1: {
-        value: 'test-x1',
-        isValid: true,
-        errors: ['err-1', 'err-2'],
+    const field = {
+      model: {
+        value: 'xxx-model-value',
+        fieldTypeItemId: '{4EE89EA7-CEFE-4C8E-8532-467EF64591FC}',
+        itemId: 'xxx-itemId',
+        name: 'xxx-name',
+        templateId: 'xxx-templateId',
+        required: true,
+        title: 'xxx_title',
+        validationDataModels: [
+          { itemId: 'xxx', message: 'xxx_message', name: 'xxx_name' },
+          { itemId: 'yyy', message: 'yyy_message', name: 'yyy_name' },
+          { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' },
+        ],
       },
-      x2: {
-        value: true,
-        isValid: false,
+      indexField: {
+        name: 'xxx-indexField-name',
+        id: 'xxx-indexField-id',
+        value: 'xxx-indexField-value',
       },
-      x3: {
-        value: ['tesxt-x30', 'tesxt-x31'],
-        isValid: undefined,
+      valueField: {
+        name: 'xxx_valueField_name',
+        id: 'xxx-valueField-id',
+        value: 'xxx-valueField-value',
       },
-    });
+    };
+    props.form.fields.push(field);
+    const rendered = render(<Form {...props} />);
 
-    const fieldValues = (c.instance() as Form).collectCurrentFieldValues();
+    const user = userEvent.setup();
+    const testInvalidSingleLineTextInput = rendered.container.querySelector(
+      `input#${field.valueField.id}`
+    )!;
+    await user.clear(testInvalidSingleLineTextInput);
 
-    expect(fieldValues).to.deep.equal([
+    const testSingleLineTextInput = rendered.container.querySelector(
+      'input#xxx_text_value_field_id'
+    )!;
+    await user.clear(testSingleLineTextInput);
+    await user.type(testSingleLineTextInput, 'some text');
+
+    const collectedFieldsState = getCollectedFields(rendered.container);
+
+    expect(collectedFieldsState).to.deep.equal([
       {
-        fieldName: 'x1',
-        state: {
-          value: 'test-x1',
-          isValid: true,
-          errors: ['err-1', 'err-2'],
-        },
+        fieldName: 'xxx_valueField_name',
+        state: { value: '', isValid: false, errors: ['xxx_title is required'] },
       },
       {
-        fieldName: 'x2',
-        state: {
-          value: true,
-          isValid: false,
-        },
+        fieldName: 'xxx_text_value_field_name',
+        state: { value: 'some text', isValid: true, errors: [] },
       },
     ]);
   });
 
-  it('resetFieldsState', () => {
+  it('resetFieldsState', async () => {
+    const submitForm = sinon.stub(submit, 'submitForm');
+    const ev = { preventDefault: sinon.spy(), target: { action: 'custom_submit_url' } };
+    const resolveSubmitResult = Promise.resolve().then(() => ({
+      success: true,
+      nextForm,
+    }));
+
+    submitForm.returns(resolveSubmitResult);
+
     const props = p();
-    const c = shallow(<Form {...props} />);
+    const field = {
+      model: {
+        value: 'xxx-model-value',
+        fieldTypeItemId: '{4EE89EA7-CEFE-4C8E-8532-467EF64591FC}',
+        itemId: 'xxx-itemId',
+        name: 'xxx-name',
+        templateId: 'xxx-templateId',
+        required: true,
+        title: 'xxx_title',
+        validationDataModels: [
+          { itemId: 'xxx', message: 'xxx_message', name: 'xxx_name' },
+          { itemId: 'yyy', message: 'yyy_message', name: 'yyy_name' },
+          { itemId: 'zzz', message: 'zzz_message', name: 'zzz_name' },
+        ],
+      },
+      valueField: {
+        name: 'xxx_valueField_name',
+        id: 'xxx-valueField-id',
+        value: 'xxx-valueField-value',
+      },
+    };
+    props.form.fields.push(field);
+    const rendered = render(<Form {...props} />);
 
-    c.setState({
-      errors: ['testerr1', 'testerr2'],
-      nextForm: true,
-      submitButton: 'test-submit-btn-key',
-      x1: true,
-      x2: 'true',
-      x3: false,
+    const user = userEvent.setup();
+    const testInvalidSingleLineTextInput = rendered.container.querySelector(
+      `input#${field.valueField.id}`
+    )!;
+    await user.clear(testInvalidSingleLineTextInput);
+    await user.type(testInvalidSingleLineTextInput, 'some text');
+
+    const testSingleLineTextInput = rendered.container.querySelector(
+      'input#xxx_text_value_field_id'
+    )!;
+    await user.clear(testSingleLineTextInput);
+    await user.type(testSingleLineTextInput, 'some other text');
+
+    const formState = getFormState(rendered.container);
+    expect(formState.xxx_valueField_name).to.not.be.undefined;
+    expect(formState.xxx_text_value_field_name).to.not.be.undefined;
+
+    const form = rendered.container.querySelector('form')!;
+    fireEvent.submit(form, ev);
+
+    await waitFor(() => {
+      const nreFormState = getFormState(rendered.container);
+      expect(nreFormState.xxx_valueField_name).to.be.undefined;
+      expect(nreFormState.xxx_text_value_field_name).to.be.undefined;
     });
 
-    (c.instance() as Form).resetFieldsState();
-
-    expect(c.state()).to.deep.equal({
-      errors: [],
-      nextForm: true,
-      submitButton: 'test-submit-btn-key',
-      x1: undefined,
-      x2: undefined,
-      x3: undefined,
-    });
+    submitForm.restore();
   });
 
   describe('createFieldComponent', () => {
     it('should create component', () => {
       const props = p();
-      const c = shallow(<Form {...props} />);
-
-      expect(c.state()).to.deep.equal({
+      const rendered = render(<Form {...props} fieldWrapperComponent={testFieldWrapper} />);
+      const formState = getFormState(rendered.container);
+      expect(formState).to.deep.equal({
         errors: [],
         nextForm: null,
         submitButton: null,
       });
 
-      const buttonFieldComponent = (c.instance() as Form).createFieldComponent(
-        props.form.fields[0]
-      );
+      const button = rendered.container.querySelector('button')!;
 
-      const buttonC = mount(<div>{buttonFieldComponent}</div>);
-
-      const button = buttonC.find(Button);
-
-      expect(button.html()).to.equal(
+      expect(button.outerHTML).to.equal(
         '<button type="submit" class="xxx_css-class" value="xxx_title" name="button-xxx" id="button-xxx">xxx_title</button>'
       );
 
-      button.prop('onButtonClick')('button-xxx');
+      const fileUpload = rendered.container.querySelector(
+        'div.test-field-state-wrapper-model_item_id_file_upload'
+      )!;
 
-      expect((c.state() as any).submitButton).to.equal('button-xxx');
-
-      const fileUploadFieldComponent = (c.instance() as Form).createFieldComponent(
-        props.form.fields[1]
-      );
-
-      const fileUploadC = mount(<div>{fileUploadFieldComponent}</div>);
-
-      const fileUpload = fileUploadC.find(FileUpload);
-
-      expect(fileUpload.html()).to.equal(
-        '<label for="xxx_file_upload_value_field_id" class="xxx_label-css-class invalid">xxx_title</label><input type="file" multiple="" class="xxx_css-class" id="xxx_file_upload_value_field_id" name="xxx_file_upload_value_field_name">'
+      expect(fileUpload.innerHTML).to.contain(
+        '<label for="xxx_file_upload_value_field_id" class="xxx_label-css-class invalid">xxx_title</label><input multiple="" class="xxx_css-class" id="xxx_file_upload_value_field_id" type="file" name="xxx_file_upload_value_field_name">'
       );
     });
   });

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -6,17 +6,17 @@
 
 # Interface: TrackingRequestOptions
 
+Defined in: [packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:4](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L4)
+
 ## Properties
 
 ### action?
 
 > `optional` **action**: `string`
 
+Defined in: [packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:20](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L20)
+
 Type of tracking request action. Default: 'event'
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:20](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L20)
 
 ***
 
@@ -24,11 +24,9 @@ Type of tracking request action. Default: 'event'
 
 > **fetcher**: [`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`void`\>
 
+Defined in: [packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:12](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L12)
+
 The fetcher that performs the HTTP request and returns a promise to JSON
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:12](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L12)
 
 ***
 
@@ -36,11 +34,9 @@ The fetcher that performs the HTTP request and returns a promise to JSON
 
 > **host**: `string`
 
+Defined in: [packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:6](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L6)
+
 Hostname of tracking service; e.g. http://my.site.core
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:6](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L6)
 
 ***
 
@@ -48,11 +44,9 @@ Hostname of tracking service; e.g. http://my.site.core
 
 > `optional` **querystringParams**: `ParsedUrlQueryInput`
 
+Defined in: [packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:17](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L17)
+
 An object of key:value pairs to be stringified and used as querystring parameters.
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:17](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L17)
 
 ***
 
@@ -60,11 +54,9 @@ An object of key:value pairs to be stringified and used as querystring parameter
 
 > `optional` **serviceUrl**: `string`
 
+Defined in: [packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:9](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L9)
+
 Relative path from host to tracking service. Default: /sitecore/api/jss/track
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:9](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L9)
 
 ***
 
@@ -72,8 +64,6 @@ Relative path from host to tracking service. Default: /sitecore/api/jss/track
 
 > `optional` **test**: `boolean`
 
+Defined in: [packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:23](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L23)
+
 Internal usage only. Ignores SSR check for unit tests.
-
-#### Defined in
-
-[packages/sitecore-jss/src/tracking/trackingRequestOptions.ts:23](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/tracking/trackingRequestOptions.ts#L23)

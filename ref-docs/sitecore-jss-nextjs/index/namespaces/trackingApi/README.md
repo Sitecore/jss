@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../../README.md)
 
 ***
 
@@ -6,8 +6,6 @@
 
 # trackingApi
 
-## Index
-
-### Functions
+## Functions
 
 - [trackEvent](functions/trackEvent.md)

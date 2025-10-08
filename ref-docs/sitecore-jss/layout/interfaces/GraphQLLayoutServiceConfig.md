@@ -1,10 +1,12 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / GraphQLLayoutServiceConfig
 
 # Interface: GraphQLLayoutServiceConfig
+
+Defined in: [packages/sitecore-jss/src/layout/graphql-layout-service.ts:12](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L12)
 
 ## Extends
 
@@ -16,18 +18,18 @@
 
 > **clientFactory**: [`GraphQLRequestClientFactory`](../../index/type-aliases/GraphQLRequestClientFactory.md)
 
+Defined in: [packages/sitecore-jss/src/layout/graphql-layout-service.ts:22](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L22)
+
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:22](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L22)
 
 ***
 
 ### formatLayoutQuery()?
 
-> `optional` **formatLayoutQuery**: (`siteName`, `itemPath`, `locale`?) => `string`
+> `optional` **formatLayoutQuery**: (`siteName`, `itemPath`, `locale?`) => `string`
+
+Defined in: [packages/sitecore-jss/src/layout/graphql-layout-service.ts:32](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L32)
 
 Override default layout query
 
@@ -37,7 +39,7 @@ Override default layout query
 | ------ | ------ | ------ |
 | `siteName` | `string` |  |
 | `itemPath` | `string` |  |
-| `locale`? | `string` |  |
+| `locale?` | `string` |  |
 
 #### Returns
 
@@ -47,25 +49,19 @@ custom layout query
 Layout query
 layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
-#### Defined in
-
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:32](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L32)
-
 ***
 
 ### retries?
 
 > `optional` **retries**: `number`
 
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/graphql-request-client.ts#L83)
+
 Number of retries for client. Will use the specified `retryStrategy`.
 
 #### Inherited from
 
-`Pick.retries`
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/graphql-request-client.ts#L83)
+[`GraphQLRequestClientConfig`](../../index/type-aliases/GraphQLRequestClientConfig.md).[`retries`](../../index/type-aliases/GraphQLRequestClientConfig.md#retries)
 
 ***
 
@@ -73,16 +69,14 @@ Number of retries for client. Will use the specified `retryStrategy`.
 
 > `optional` **retryStrategy**: [`RetryStrategy`](../../index/interfaces/RetryStrategy.md)
 
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:88](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/graphql-request-client.ts#L88)
+
 Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential
 back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
 
 #### Inherited from
 
-`Pick.retryStrategy`
-
-#### Defined in
-
-[packages/sitecore-jss/src/graphql-request-client.ts:88](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/graphql-request-client.ts#L88)
+[`GraphQLRequestClientConfig`](../../index/type-aliases/GraphQLRequestClientConfig.md).[`retryStrategy`](../../index/type-aliases/GraphQLRequestClientConfig.md#retrystrategy)
 
 ***
 
@@ -90,8 +84,6 @@ back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
 
 > **siteName**: `string`
 
+Defined in: [packages/sitecore-jss/src/layout/graphql-layout-service.ts:17](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L17)
+
 The JSS application name
-
-#### Defined in
-
-[packages/sitecore-jss/src/layout/graphql-layout-service.ts:17](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/layout/graphql-layout-service.ts#L17)

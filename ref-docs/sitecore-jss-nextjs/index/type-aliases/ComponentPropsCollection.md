@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
 ***
 
@@ -6,14 +6,12 @@
 
 # Type Alias: ComponentPropsCollection
 
-> **ComponentPropsCollection**: `object`
+> **ComponentPropsCollection** = `object`
+
+Defined in: [sitecore-jss-nextjs/src/sharedTypes/component-props.ts:9](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L9)
 
 Shape of component props storage
 
 ## Index Signature
 
- \[`componentUid`: `string`\]: `unknown` \| [`ComponentPropsError`](ComponentPropsError.md)
-
-## Defined in
-
-[sitecore-jss-nextjs/src/sharedTypes/component-props.ts:9](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss-nextjs/src/sharedTypes/component-props.ts#L9)
+\[`componentUid`: `string`\]: `unknown`

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss-react**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss-react**](../README.md)
 
 ***
 
@@ -6,17 +6,17 @@
 
 # Interface: TrackingRequestOptions
 
+Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:3
+
 ## Properties
 
 ### action?
 
 > `optional` **action**: `string`
 
+Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:15
+
 Type of tracking request action. Default: 'event'
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:15
 
 ***
 
@@ -24,11 +24,9 @@ packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:15
 
 > **fetcher**: [`HttpDataFetcher`](../type-aliases/HttpDataFetcher.md)\<`void`\>
 
+Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:9
+
 The fetcher that performs the HTTP request and returns a promise to JSON
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:9
 
 ***
 
@@ -36,11 +34,9 @@ packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:9
 
 > **host**: `string`
 
+Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:5
+
 Hostname of tracking service; e.g. http://my.site.core
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:5
 
 ***
 
@@ -48,11 +44,9 @@ packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:5
 
 > `optional` **querystringParams**: `ParsedUrlQueryInput`
 
+Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:13
+
 An object of key:value pairs to be stringified and used as querystring parameters.
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:13
 
 ***
 
@@ -60,11 +54,9 @@ packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:13
 
 > `optional` **serviceUrl**: `string`
 
+Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:7
+
 Relative path from host to tracking service. Default: /sitecore/api/jss/track
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:7
 
 ***
 
@@ -72,8 +64,6 @@ packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:7
 
 > `optional` **test**: `boolean`
 
+Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:17
+
 Internal usage only. Ignores SSR check for unit tests.
-
-#### Defined in
-
-packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:17

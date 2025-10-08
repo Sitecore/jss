@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 # Function: enableDebug()
 
 > **enableDebug**(`namespaces`): `void`
+
+Defined in: [packages/sitecore-jss/src/debug.ts:24](https://github.com/Sitecore/jss/blob/6e51d9f4b744012d123d4e7ed0b9b0dd9f909875/packages/sitecore-jss/src/debug.ts#L24)
 
 Enable debug logging dynamically
 
@@ -19,7 +21,3 @@ Enable debug logging dynamically
 ## Returns
 
 `void`
-
-## Defined in
-
-[packages/sitecore-jss/src/debug.ts:24](https://github.com/Sitecore/jss/blob/ae6f916d439f946bec091261304f83eefbcedd38/packages/sitecore-jss/src/debug.ts#L24)

@@ -1,4 +1,4 @@
-[**@sitecore-jss/sitecore-jss**](../README.md) • **Docs**
+[**@sitecore-jss/sitecore-jss**](../README.md)
 
 ***
 
@@ -6,25 +6,23 @@
 
 # graphql
 
-## Index
+## Classes
 
-### Classes
+- [~~SearchQueryService~~](classes/SearchQueryService.md)
 
-- [SearchQueryService](classes/SearchQueryService.md)
-
-### Interfaces
+## Interfaces
 
 - [PageInfo](interfaces/PageInfo.md)
 - [SearchQueryVariables](interfaces/SearchQueryVariables.md)
-- [SearchServiceConfig](interfaces/SearchServiceConfig.md)
+- [~~SearchServiceConfig~~](interfaces/SearchServiceConfig.md)
 
-### Type Aliases
+## Type Aliases
 
 - [AppRootQueryResult](type-aliases/AppRootQueryResult.md)
 - [GraphQLClientError](type-aliases/GraphQLClientError.md)
 - [SearchQueryResult](type-aliases/SearchQueryResult.md)
 
-### Functions
+## Functions
 
 - [getAppRootId](functions/getAppRootId.md)
 - [getEdgeProxyContentUrl](functions/getEdgeProxyContentUrl.md)

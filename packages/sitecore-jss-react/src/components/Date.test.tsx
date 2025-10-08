@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
-import { mount, shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { DateField } from './Date';
 import { describe } from 'node:test';
@@ -12,8 +12,8 @@ describe('<DateField />', () => {
       field: {},
     };
 
-    const c = shallow(<DateField {...p} />);
-    expect(c.html()).to.equal('');
+    const c = render(<DateField {...p} />, { container: document.body });
+    expect(c.baseElement.innerHTML).to.equal('');
   });
 
   it('should render value', () => {
@@ -23,38 +23,39 @@ describe('<DateField />', () => {
       },
     };
 
-    const c = shallow(<DateField {...p} />);
-
-    expect(c.html()).equal('23-11-2001');
+    const c = render(<DateField {...p} />, { container: document.body });
+    expect(c.baseElement.innerHTML).equal('23-11-2001');
   });
 
   it('should render value using render prop function', () => {
-    const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
+    const renderDate = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
         value: '11-23-2001',
       },
-      render,
+      render: renderDate,
     };
 
-    const c = shallow(<DateField {...p} />);
-
-    expect(c.html()).equal('<p>Fri Nov 23 2001</p>');
+    const c = render(<DateField {...p} />, { container: document.body });
+    expect(c.baseElement.innerHTML).equal('<p>Fri Nov 23 2001</p>');
   });
 
   it('should render null value using render prop function', () => {
-    const render = (date: Date | null) => <p>{date ? date.toDateString() : ''}</p>;
+    const renderDate = (
+      p0: React.JSX.Element,
+      p1: { container: HTMLElement },
+      date: Date | null
+    ) => <p>{date ? date.toDateString() : ''}</p>;
     const p = {
       field: {
         editable: 'xxx',
       },
       editable: false,
-      render,
+      render: renderDate,
     };
 
-    const c = shallow(<DateField {...p} />);
-
-    expect(c.html()).equal('<p></p>');
+    const c = render(<DateField {...p} />, { container: document.body });
+    expect(c.baseElement.innerHTML).equal('<p></p>');
   });
 
   it('should render value with provided tag', () => {
@@ -65,9 +66,8 @@ describe('<DateField />', () => {
       tag: 'h3',
     };
 
-    const c = shallow(<DateField {...p} />);
-
-    expect(c.html()).equal('<h3>11-23-2001</h3>');
+    const c = render(<DateField {...p} />, { container: document.body });
+    expect(c.baseElement.innerHTML).equal('<h3>11-23-2001</h3>');
   });
 
   it('should render editable value', () => {
@@ -78,9 +78,9 @@ describe('<DateField />', () => {
       editable: true,
     };
 
-    const c = shallow(<DateField {...p} />);
+    const c = render(<DateField {...p} />, { container: document.body });
 
-    expect(c.html()).equal('<span><h1 class="super">11-23-2001</h1></span>');
+    expect(c.baseElement.innerHTML).equal('<span><h1 class="super">11-23-2001</h1></span>');
   });
 
   describe('editMode metadata', () => {
@@ -104,9 +104,9 @@ describe('<DateField />', () => {
         },
       };
 
-      const rendered = mount(<DateField {...props} />);
+      const rendered = render(<DateField {...props} />, { container: document.body });
 
-      expect(rendered.html()).to.equal(
+      expect(rendered.baseElement.innerHTML).to.equal(
         [
           `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
             testMetadata
@@ -125,9 +125,9 @@ describe('<DateField />', () => {
             metadata: testMetadata,
           };
 
-          const rendered = mount(<DateField field={field} />);
+          const rendered = render(<DateField field={field} />, { container: document.body });
 
-          expect(rendered.html()).to.equal(
+          expect(rendered.baseElement.innerHTML).to.equal(
             [
               `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
                 testMetadata
@@ -144,9 +144,9 @@ describe('<DateField />', () => {
             metadata: testMetadata,
           };
 
-          const rendered = mount(<DateField field={field} />);
+          const rendered = render(<DateField field={field} />, { container: document.body });
 
-          expect(rendered.html()).to.equal(
+          expect(rendered.baseElement.innerHTML).to.equal(
             [
               `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
                 testMetadata
@@ -169,11 +169,12 @@ describe('<DateField />', () => {
             <span className="empty-field-value-placeholder">Custom Empty field value</span>
           );
 
-          const rendered = mount(
-            <DateField field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+          const rendered = render(
+            <DateField field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />,
+            { container: document.body }
           );
 
-          expect(rendered.html()).to.equal(
+          expect(rendered.baseElement.innerHTML).to.equal(
             [
               `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
                 testMetadata
@@ -194,11 +195,12 @@ describe('<DateField />', () => {
             <span className="empty-field-value-placeholder">Custom Empty field value</span>
           );
 
-          const rendered = mount(
-            <DateField field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
+          const rendered = render(
+            <DateField field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />,
+            { container: document.body }
           );
 
-          expect(rendered.html()).to.equal(
+          expect(rendered.baseElement.innerHTML).to.equal(
             [
               `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
                 testMetadata
@@ -217,9 +219,11 @@ describe('<DateField />', () => {
         metadata: testMetadata,
       };
 
-      const rendered = mount(<DateField field={field} editable={false} />);
+      const rendered = render(<DateField field={field} editable={false} />, {
+        container: document.body,
+      });
 
-      expect(rendered.html()).to.equal('');
+      expect(rendered.baseElement.innerHTML).to.equal('');
     });
   });
 });
