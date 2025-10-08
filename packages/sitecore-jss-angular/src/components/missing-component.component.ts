@@ -14,4 +14,5 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 })
 export class MissingComponentComponent {
   @Input() rendering: ComponentRendering;
+  @Input() data: unknown;
 }

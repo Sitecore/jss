@@ -3,6 +3,7 @@ import { isPlatformServer } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
+  ComponentRef,
   ContentChild,
   DoCheck,
   ElementRef,
@@ -123,7 +124,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   chromeType: string;
   private _inputs: { [key: string]: unknown };
   private _differ: KeyValueDiffer<string, unknown>;
-  private _componentInstances: { [prop: string]: unknown }[] = [];
+  private _componentRefs: ComponentRef<unknown>[] = [];
   private placeholderData?: (ComponentRendering<ComponentFields> | HtmlElementRendering)[];
   private destroyed = false;
   private parentStyleAttribute = '';
@@ -176,7 +177,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
   ngOnDestroy() {
     this.destroyed = true;
-    this._componentInstances = [];
+    this._componentRefs = [];
     if (this.contextSubscription) {
       this.contextSubscription.unsubscribe();
     }
@@ -191,7 +192,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   }
 
   ngDoCheck() {
-    if (!this._differ || !this._inputs || this._componentInstances.length === 0) {
+    if (!this._differ || !this._inputs || this._componentRefs.length === 0) {
       return;
     }
 
@@ -203,7 +204,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     changes.forEachRemovedItem((change) => (updates[change.key] = null));
     changes.forEachAddedItem((change) => (updates[change.key] = change.currentValue));
     changes.forEachChangedItem((change) => (updates[change.key] = change.currentValue));
-    this._componentInstances.forEach((componentInstance) =>
+    this._componentRefs.forEach((componentInstance) =>
       this._setComponentInputs(componentInstance, updates)
     );
   }
@@ -285,11 +286,11 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   }
 
   private _setComponentInputs(
-    componentInstance: { [key: string]: unknown },
+    componentRef: ComponentRef<unknown>,
     inputs: { [key: string]: unknown }
   ) {
-    Object.entries(inputs).forEach(
-      ([input, inputValue]) => (componentInstance[input] = inputValue)
+    Object.entries(inputs).forEach(([input, inputValue]) =>
+      componentRef.setInput(input, inputValue)
     );
   }
 
@@ -313,7 +314,7 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       return;
     }
 
-    this._componentInstances = [];
+    this._componentRefs = [];
     this.view.clear();
 
     if (!this.rendering && !this.renderings) {
@@ -448,15 +449,16 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
 
     const componentInstance = createdComponentRef.instance;
-    componentInstance.rendering = rendering.componentDefinition;
-    componentInstance.data = data;
-
+    createdComponentRef.setInput('rendering', rendering.componentDefinition);
+    if (data) {
+      createdComponentRef.setInput('data', data);
+    }
     if (this._inputs) {
-      this._setComponentInputs(componentInstance, this._inputs);
+      this._setComponentInputs(createdComponentRef, this._inputs);
     }
     if (this.outputs) {
       this._subscribeComponentOutputs(componentInstance, this.outputs);
     }
-    this._componentInstances.push(componentInstance);
+    this._componentRefs.push(createdComponentRef);
   }
 }
