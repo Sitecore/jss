@@ -13,7 +13,8 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
   styles: []<% } else { %>
   styleUrls: ['./<%= dasherize(name) %>.component.<%= styleext %>']<% } %><% if(!!viewEncapsulation) { %>,
   encapsulation: ViewEncapsulation.<%= viewEncapsulation %><% } if (changeDetection !== 'Default') { %>,
-  changeDetection: ChangeDetectionStrategy.<%= changeDetection %><% } %>
+  changeDetection: ChangeDetectionStrategy.<%= changeDetection %><% } %>,
+  standalone: false
 })
 export class <%= classify(name) %>Component implements OnInit {
   @Input() rendering: ComponentRendering;

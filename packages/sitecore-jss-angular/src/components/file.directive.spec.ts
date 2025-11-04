@@ -9,7 +9,7 @@ import { FileField } from './rendering-field';
   selector: 'test-file',
   template: `
     <a *scFile="field"></a>
-  `,
+  `,  standalone: false
 })
 class TestComponent {
   @Input() field: FileField;
@@ -22,7 +22,8 @@ describe('<a *scFile />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FileDirective, TestComponent],
+      imports: [FileDirective],
+      declarations: [TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

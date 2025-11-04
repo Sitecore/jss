@@ -10,7 +10,7 @@ import { ImageField } from './rendering-field';
   selector: 'test-image',
   template: `
     <img class="some" id="another" *scImage="field; editable: editable" />
-  `,
+  `,  standalone: false
 })
 class TestComponent {
   @Input() field: ImageField | '';
@@ -31,7 +31,7 @@ class TestComponent {
         mediaUrlPrefix: mediaUrlPrefix
       "
     />
-  `,
+  `,  standalone: false
 })
 class AnotherTestComponent {
   @Input() field: ImageField;
@@ -61,7 +61,7 @@ const emptyImageFieldEditingTemplateDefaultTestString =
     <ng-template #${emptyImageFieldEditingTemplateId}>
       ${emptyImageFieldEditingTemplate}
     </ng-template>
-  `,
+  `,  standalone: false
 })
 class TestEmptyTemplateComponent {
   @Input() field: ImageField;
@@ -76,8 +76,8 @@ describe('<img *scImage />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [ImageDirective],
       declarations: [
-        ImageDirective,
         TestComponent,
         AnotherTestComponent,
         TestEmptyTemplateComponent,

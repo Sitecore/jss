@@ -52,7 +52,7 @@ const normalContext = {
         Wrapped text
       </sc-edit-frame>
     </div>
-  `,
+  `,  standalone: false
 })
 class TestComponent implements OnInit {
   @Input() dataSource: EditFrameDataSource;

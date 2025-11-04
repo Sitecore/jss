@@ -11,6 +11,7 @@ import { TextDirective } from './text.directive';
   template: `
     <span *scText="field; editable: editable; encode: encode"></span>
   `,
+  standalone: false,
 })
 class TestComponent {
   @Input() field: TextField;
@@ -38,6 +39,7 @@ const emptyTextFieldEditingTemplate =
       ${emptyTextFieldEditingTemplate}
     </ng-template>
   `,
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: TextField;
@@ -53,7 +55,8 @@ describe('<span *scText />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TextDirective, TestComponent, TestEmptyTemplateComponent],
+      imports: [TextDirective],
+      declarations: [TestComponent, TestEmptyTemplateComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

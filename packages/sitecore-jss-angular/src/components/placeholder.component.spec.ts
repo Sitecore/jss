@@ -37,7 +37,7 @@ import { cleanHtml } from '../test-utils';
     <sc-placeholder [name]="name" [rendering]="rendering">
       <img *scPlaceholderLoading src="loading.gif" />
     </sc-placeholder>
-  `,
+  `,  standalone: false
 })
 class TestPlaceholderComponent {
   @Input() rendering: ComponentRendering;
@@ -48,7 +48,7 @@ class TestPlaceholderComponent {
   selector: 'test-download-callout',
   template: `
     {{ rendering?.fields?.linkText?.value }}
-  `,
+  `,  standalone: false
 })
 class TestDownloadCalloutComponent {
   @Input() rendering: ComponentRendering;
@@ -61,6 +61,7 @@ class TestDownloadCalloutComponent {
     <sc-placeholder name="page-header" [rendering]="rendering"></sc-placeholder>
     <sc-placeholder name="page-content" [rendering]="rendering"></sc-placeholder>
   `,
+  standalone: false,
 })
 class TestHomeComponent {
   @Input() rendering: ComponentRendering;
@@ -69,6 +70,7 @@ class TestHomeComponent {
 @Component({
   selector: 'test-jumbotron',
   template: '',
+  standalone: false,
 })
 class TestJumbotronComponent {}
 
@@ -341,7 +343,7 @@ describe('<sc-placeholder />', () => {
       [outputs]="outputs"
     ></sc-placeholder>
     {{ clickMessage }}
-  `,
+  `,  standalone: false
 })
 class TestParentComponent {
   @Input() rendering: ComponentRendering;
@@ -367,7 +369,7 @@ class TestParentComponent {
     {{ childMessage }}
     {{ childNumber() }}
     <button (click)="triggerEvent()">Button</button>
-  `,
+  `,  standalone: false
 })
 class TestChildComponent {
   @Input() childMessage: string;
@@ -508,7 +510,7 @@ describe('<sc-placeholder /> with input/output binding', () => {
     >
       <img *scPlaceholderLoading src="loading.gif"
     /></sc-placeholder>
-  `,
+  `,  standalone: false
 })
 class TestLazyPlaceholderComponent {
   @Input() rendering: ComponentRendering;
@@ -538,7 +540,7 @@ class MockRedirectCommandGuard implements JssCanActivate {
   selector: 'not-found',
   template: `
     404
-  `,
+  `,  standalone: false
 })
 class NotFoundComponent {}
 
@@ -552,6 +554,7 @@ class MockUnexpectedErrorGuard implements JssCanActivate {
 @Component({
   selector: 'test-jumbotron',
   template: '<h1>Our best offer to date</h1>',
+  standalone: false,
 })
 export class TestLazyJumbotronComponent {}
 
@@ -721,7 +724,7 @@ describe('<sc-placeholder /> with lazy loaded modules', () => {
     <div class="rendering-variant {{ rendering.params.styles }}">
       <ng-container [ngTemplateOutlet]="variant"></ng-container>
     </div>
-  `,
+  `,  standalone: false
 })
 class TestRichTextComponent {
   @Input() rendering: ComponentRendering;
@@ -876,7 +879,7 @@ describe('Placeholder Metadata:', () => {
       <div class="nested-test-wrapper">
         <sc-placeholder name="logo" [rendering]="nestedRendering"></sc-placeholder>
       </div>
-    `,
+    `,  standalone: false
   })
   class TestNestingComponent {
     @Input() rendering: ComponentRendering;
@@ -887,7 +890,7 @@ describe('Placeholder Metadata:', () => {
     selector: 'logo',
     template: `
       <div class="Logo-deep"></div>
-    `,
+    `,  standalone: false
   })
   class LogoComponent {
     @Input() rendering: ComponentRendering;
@@ -1087,7 +1090,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
       <div class="nested-test-wrapper">
         <sc-placeholder name="logo" [rendering]="nestedRendering"></sc-placeholder>
       </div>
-    `,
+    `,  standalone: false
   })
   class TestNestingComponent {
     @Input() rendering: ComponentRendering;
@@ -1098,7 +1101,7 @@ describe('Placeholder Metadata: dynamic placeholder:', () => {
     selector: 'logo',
     template: `
       <div class="Logo-deep"></div>
-    `,
+    `,  standalone: false
   })
   class LogoComponent {
     @Input() rendering: ComponentRendering;

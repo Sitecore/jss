@@ -9,7 +9,7 @@ import { TestBaseDirective } from '../test-data/test-base.directive';
   selector: 'test-base',
   template: `
     <span *scTestBase="field; editable: editable"></span>
-  `,
+  `,  standalone: false
 })
 class TestComponent {
   @Input() field: TextField;
@@ -34,7 +34,7 @@ const emptyTextFieldEditingTemplate =
     <ng-template #${emptyTextFieldEditingTemplateId}>
       ${emptyTextFieldEditingTemplate}
     </ng-template>
-  `,
+  `,  standalone: false
 })
 class TestEmptyTemplateComponent {
   @Input() field: TextField;

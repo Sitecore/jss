@@ -12,7 +12,7 @@ import * as utils from '@sitecore-jss/sitecore-jss/utils';
   selector: 'test-component',
   template: `
     <sc-editing-scripts></sc-editing-scripts>
-  `,
+  `,  standalone: false
 })
 class TestComponent {}
 
@@ -46,7 +46,8 @@ describe('<EditingScripts />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, EditingScriptsComponent],
+      imports: [EditingScriptsComponent],
+      declarations: [TestComponent],
       providers: [
         Renderer2,
         JssStateService,

@@ -20,7 +20,7 @@ const defaultFormattedDate = formatDate(testIsoDateValue, testFormat, testLocale
     <span
       *scDate="field; editable: editable; format: format; locale: locale; timezone: timezone"
     ></span>
-  `,
+  `,  standalone: false
 })
 class TestComponent {
   @Input() field: TextField;
@@ -47,7 +47,7 @@ const emptyDateFieldEditingTemplate =
     <ng-template #${emptyDateFieldEditingTemplateId}>
       ${emptyDateFieldEditingTemplate}
     </ng-template>
-  `,
+  `,  standalone: false
 })
 class TestEmptyTemplateComponent {
   @Input() field: TextField;
@@ -65,7 +65,8 @@ describe('<span *scDate />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DateDirective, TestComponent, TestEmptyTemplateComponent],
+      imports: [DateDirective],
+      declarations: [TestComponent, TestEmptyTemplateComponent],
       providers: [DatePipe],
     });
 

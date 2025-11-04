@@ -8,7 +8,7 @@ import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
   selector: 'test-marker',
   template: `
     <code scFieldMetadataMarker [metadata]="metadata" [kind]="kind"></code>
-  `,
+  `,  standalone: false
 })
 class TestComponent {
   @Input() metadata: any;

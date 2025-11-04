@@ -12,7 +12,7 @@ import { RichTextDirective } from './rich-text.directive';
   selector: 'test-rich-text',
   template: `
     <h1 *scRichText="field; editable: editable"></h1>
-  `,
+  `,  standalone: false
 })
 class TestComponent {
   @Input() field: RichTextField;
@@ -36,7 +36,7 @@ const emptyTextFieldEditingTemplate =
     <ng-template #${emptyTextFieldEditingTemplateId}>
       ${emptyTextFieldEditingTemplate}
     </ng-template>
-  `,
+  `,  standalone: false
 })
 class TestEmptyTemplateComponent {
   @Input() field: RichTextField;
@@ -51,8 +51,8 @@ describe('<div *scRichText />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RichTextDirective, TestComponent, TestEmptyTemplateComponent],
-      imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
+      imports: [RichTextDirective, RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
+      declarations: [TestComponent, TestEmptyTemplateComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

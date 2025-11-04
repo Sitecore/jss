@@ -23,9 +23,9 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "~18.2.14",
-    "@angular-devkit/schematics": "~18.2.14",
-    "@schematics/angular": "~18.2.14",
+    "@angular-devkit/core": "~20.0.0",
+    "@angular-devkit/schematics": "~20.0.0",
+    "@schematics/angular": "~20.0.0",
     "chalk": "^4.1.2"
   },
   "devDependencies": {
@@ -33,7 +33,7 @@
     "@types/node": "^22.9.0",
     "jasmine": "^2.99.0",
     "nyc": "^17.1.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.8.0"
   },
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }

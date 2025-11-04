@@ -14,6 +14,7 @@ import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({
   selector: '[scTestBase]',
+  standalone: false,
 })
 export class TestBaseDirective extends BaseFieldDirective implements OnChanges {
   @Input('scTestBaseEditable') editable = true;

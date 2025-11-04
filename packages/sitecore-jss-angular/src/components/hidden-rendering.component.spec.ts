@@ -7,7 +7,7 @@ import { JssModule } from '../lib.module';
   selector: 'test-hidden-rendering',
   template: `
     <sc-hidden-rendering></sc-hidden-rendering>
-  `,
+  `,  standalone: false
 })
 class TestHiddenRenderingComponent {}
 
