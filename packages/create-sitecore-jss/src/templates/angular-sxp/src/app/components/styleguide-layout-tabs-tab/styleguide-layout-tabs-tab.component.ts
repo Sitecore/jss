@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { Component, OnInit, Input, OnDestroy, inject } from '@angular/core';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from '../../jss-context.service';
 import { Subscription } from 'rxjs';
 
@@ -11,13 +11,13 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-styleguide-layout-tabs-tab',
   templateUrl: './styleguide-layout-tabs-tab.component.html',
+  imports: [JssModule]
 })
 export class StyleguideLayoutTabsTabComponent implements OnInit, OnDestroy {
   @Input() rendering: ComponentRendering;
   isEditing = false;
   private contextSubscription: Subscription;
-
-  constructor(private jssContext: JssContextService) { }
+  private jssContext = inject(JssContextService);
 
   ngOnInit() {
     // to get access to route-level data from Sitecore such as route item fields or

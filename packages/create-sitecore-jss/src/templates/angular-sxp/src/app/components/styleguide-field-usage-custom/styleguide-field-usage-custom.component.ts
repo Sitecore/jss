@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of a custom content field type within JSS.
@@ -9,6 +10,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 @Component({
   selector: 'app-styleguide-field-usage-custom',
   templateUrl: './styleguide-field-usage-custom.component.html',
+  imports: [StyleguideSpecimenComponent]
 })
 export class StyleguideFieldUsageCustomComponent {
   @Input() rendering: ComponentRendering;

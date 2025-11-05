@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { LinkField, SxaTitleFields, TextField } from '@sitecore-jss/sitecore-jss-angular';
 import { SxaComponent } from '../sxa.component';
 import { Subscription } from 'rxjs';
@@ -19,10 +19,7 @@ export class TitleComponent extends SxaComponent<SxaTitleFields> implements OnIn
   pageEditing?: boolean;
   
   private contextSubscription: Subscription;
-
-  constructor(private jssContext: JssContextService) {
-    super();
-  }
+  private jssContext = inject(JssContextService);
 
   ngOnInit() {
     super.ngOnInit();

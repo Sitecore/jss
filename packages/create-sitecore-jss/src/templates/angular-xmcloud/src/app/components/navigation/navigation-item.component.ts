@@ -27,8 +27,6 @@ export class NavigationItemComponent implements OnInit {
   childrenRelativeLevel = 0;
   hasChildren = false;
 
-  constructor() {}
-
   ngOnInit() {
     this.cssClasses = `${this.navItemFields.Styles.concat('rel-level' + this.relativeLevel).join(
       ' '

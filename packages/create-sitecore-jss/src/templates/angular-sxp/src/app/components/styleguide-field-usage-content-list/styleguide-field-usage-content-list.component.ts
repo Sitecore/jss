@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { CommonModule } from '@angular/common';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of a Content List field type within JSS.
@@ -9,6 +11,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 @Component({
   selector: 'app-styleguide-field-usage-content-list',
   templateUrl: './styleguide-field-usage-content-list.component.html',
+  imports: [CommonModule, JssModule, StyleguideSpecimenComponent]
 })
 export class StyleguideFieldUsageContentListComponent {
   @Input() rendering: ComponentRendering;

@@ -1,10 +1,15 @@
 /* eslint-disable no-shadow, no-console */
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { RouteData, Field, LayoutServiceContextData } from '@sitecore-jss/sitecore-jss-angular';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouteData, Field, LayoutServiceContextData, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JssState } from '../../JssState';
 import { JssMetaService } from '../../jss-meta.service';
+import { NotFoundComponent } from '../not-found/not-found.component';
+import { ServerErrorComponent } from '../server-error/server-error.component';
+import { ScriptsComponent } from '../scripts/scripts.component';
+import { NavigationComponent } from '../navigation/navigation.component';
 
 enum LayoutState {
   Layout,
@@ -20,6 +25,7 @@ interface RouteFields {
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
+  imports: [CommonModule, JssModule, NotFoundComponent, ServerErrorComponent, ScriptsComponent, NavigationComponent]
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   route: RouteData<RouteFields>;
@@ -27,8 +33,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
   LayoutState = LayoutState;
   subscription: Subscription;
   errorContextData: LayoutServiceContextData;
-
-  constructor(private activatedRoute: ActivatedRoute, private readonly meta: JssMetaService) {}
+  private activatedRoute = inject(ActivatedRoute);
+  private readonly meta = inject(JssMetaService);
 
   ngOnInit() {
     // route data is populated by the JssRouteResolver

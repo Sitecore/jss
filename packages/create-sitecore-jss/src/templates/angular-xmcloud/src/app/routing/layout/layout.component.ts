@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow, no-console */
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import {
   RouteData,
   Field,
@@ -36,11 +36,9 @@ export class LayoutComponent implements OnInit, OnDestroy {
   errorContextData: LayoutServiceContextData;
   mainClassPageEditing: string;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private readonly meta: JssMetaService,
-    private linkService: JssLinkService
-  ) {}
+  private activatedRoute = inject(ActivatedRoute);
+  private readonly meta = inject(JssMetaService);
+  private linkService = inject(JssLinkService);
 
   ngOnInit() {
     // route data is populated by the JssRouteResolver

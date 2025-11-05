@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { EditMode, ImageField } from '@sitecore-jss/sitecore-jss-angular';
 import { SxaComponent } from '../sxa.component';
@@ -16,10 +16,7 @@ export class ImageComponent extends SxaComponent implements OnInit, OnDestroy {
   modifyImageProps = {};
   isEditing = false;
   private contextSubscription: Subscription;
-
-  constructor(private jssContext: JssContextService) {
-    super();
-  }
+  private jssContext = inject(JssContextService);
 
   ngOnInit() {
     super.ngOnInit();

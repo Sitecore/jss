@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SxaComponent } from '../sxa.component';
 import { JssContextService } from '../../jss-context.service';
@@ -17,10 +17,7 @@ export class NavigationComponent extends SxaComponent implements OnInit, OnDestr
   private contextSubscription: Subscription;
   isOpenMenu = false;
   baseLevel = 1;
-
-  constructor(private jssContext: JssContextService) {
-    super();
-  }
+  private jssContext = inject(JssContextService);
 
   ngOnInit() {
     super.ngOnInit();

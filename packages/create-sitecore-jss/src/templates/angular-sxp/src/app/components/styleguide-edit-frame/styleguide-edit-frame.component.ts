@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   ComponentRendering,
   EditFrameDataSource,
@@ -6,9 +7,11 @@ import {
   getFieldValue,
   LayoutServiceContextData,
   RouteData,
-  WebEditButton
+  WebEditButton,
+  JssModule
 } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from '../../jss-context.service';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 interface EditFrameProps {
   dataSource: EditFrameDataSource;
@@ -28,6 +31,7 @@ interface EditFrameProps {
 @Component({
   selector: 'app-styleguide-edit-frame',
   templateUrl: './styleguide-edit-frame.component.html',
+  imports: [CommonModule, JssModule, StyleguideSpecimenComponent]
 })
 export class StyleguideEditFrameComponent implements OnInit {
   @Input() rendering: ComponentRendering;
@@ -53,8 +57,7 @@ export class StyleguideEditFrameComponent implements OnInit {
       tooltip: 'Allows you to open field editor for specified fields',
     }, // or use field edit buttons to open Field Editor
   ];
-
-  constructor(private jssContext: JssContextService) { }
+  private jssContext = inject(JssContextService);
 
   ngOnInit() {
     this.jssContext.state.subscribe((state) => {

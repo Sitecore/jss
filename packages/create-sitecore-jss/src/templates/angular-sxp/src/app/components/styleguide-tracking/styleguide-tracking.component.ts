@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   ComponentRendering,
   trackingApi,
@@ -6,6 +7,7 @@ import {
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment } from '../../../environments/environment';
 import { JssDataFetcherService } from '../../jss-data-fetcher.service';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of a Text content field within JSS.
@@ -14,6 +16,7 @@ import { JssDataFetcherService } from '../../jss-data-fetcher.service';
 @Component({
   selector: 'app-styleguide-tracking',
   templateUrl: './styleguide-tracking.component.html',
+  imports: [CommonModule, StyleguideSpecimenComponent]
 })
 export class StyleguideTrackingComponent implements OnInit {
   @Input() rendering: ComponentRendering;
@@ -25,17 +28,14 @@ export class StyleguideTrackingComponent implements OnInit {
   pageId: string;
   pageUrl: string;
   disconnectedMode = true;
-  trackingApiOptions: TrackingRequestOptions;
-
-  constructor(dataFetcher: JssDataFetcherService) {
-    this.trackingApiOptions = {
-      host: environment.sitecoreApiHost,
-      querystringParams: {
-        sc_apikey: environment.sitecoreApiKey,
-      },
-      fetcher: dataFetcher.fetch,
-    };
-  }
+  private dataFetcher = inject(JssDataFetcherService);
+  trackingApiOptions: TrackingRequestOptions = {
+    host: environment.sitecoreApiHost,
+    querystringParams: {
+      sc_apikey: environment.sitecoreApiKey,
+    },
+    fetcher: this.dataFetcher.fetch,
+  };
 
   ngOnInit() {
     this.disconnectedMode = this.rendering.dataSource === 'available-in-connected-mode';

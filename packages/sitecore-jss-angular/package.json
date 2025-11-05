@@ -11,7 +11,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=22.10"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -61,13 +61,13 @@
   "dependencies": {
     "@sitecore-jss/sitecore-jss": "22.10.0-canary.7"
   },
-  "main": "dist/esm2022/sitecore-jss-sitecore-jss-angular.mjs",
-  "module": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",
-  "es2022": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",
+  "main": "dist/fesm2022/sitecore-jss-sitecore-jss-angular.mjs",
+  "module": "dist/fesm2022/sitecore-jss-sitecore-jss-angular.mjs",
+  "es2022": "dist/fesm2022/sitecore-jss-sitecore-jss-angular.mjs",
   "typings": "dist/index.d.ts",
   "metadata": "dist/sitecore-jss-sitecore-jss-angular.metadata.json",
-  "esm2022": "dist/esm2022/sitecore-jss-sitecore-jss-angular.js",
-  "fesm2022": "dist/fesm2022/sitecore-jss-sitecore-jss-angular.js",
+  "esm2022": "dist/fesm2022/sitecore-jss-sitecore-jss-angular.mjs",
+  "fesm2022": "dist/fesm2022/sitecore-jss-sitecore-jss-angular.mjs",
   "sideEffects": false,
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b",
   "files": [

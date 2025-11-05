@@ -1,4 +1,4 @@
-import { makeStateKey, TransferState, NgModule, PLATFORM_ID, Inject } from '@angular/core';
+import { makeStateKey, TransferState, NgModule, PLATFORM_ID, inject } from '@angular/core';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { InMemoryCache, NormalizedCacheObject, PossibleTypesMap } from '@apollo/client/core';
 import { Apollo, ApolloModule } from 'apollo-angular';
@@ -27,14 +27,14 @@ const STATE_KEY = makeStateKey<NormalizedCacheObject>('apollo.state');
   providers: [JssGraphQLService],
 })
 export class GraphQLModule {
-  constructor(
-    private readonly apollo: Apollo,
-    private readonly httpLink: HttpBatchLink,
-    private readonly transferState: TransferState,
-    @Inject(PLATFORM_ID) private readonly platformId: string
-  ) {
+  constructor() {
     this.createApolloClient();
   }
+
+  private readonly apollo = inject(Apollo);
+  private readonly httpLink = inject(HttpBatchLink);
+  private readonly transferState = inject(TransferState);
+  private readonly platformId = inject(PLATFORM_ID);
 
   onServer(cache: InMemoryCache) {
     this.transferState.onSerialize(STATE_KEY, () => cache.extract());
