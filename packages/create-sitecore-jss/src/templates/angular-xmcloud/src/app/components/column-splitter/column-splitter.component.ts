@@ -1,9 +1,12 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { SxaComponent } from '../sxa.component';
 
 @Component({
   selector: 'app-column-splitter',
   templateUrl: './column-splitter.component.html',
+  imports: [CommonModule, JssModule],
   host: {
     'class': 'row component column-splitter',
     '[class]': 'columnSplitterStyles',
@@ -38,3 +41,5 @@ export class ColumnSplitterComponent extends SxaComponent {
     return `column-${ph}-{*}`;
   }
 }
+
+

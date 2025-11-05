@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { SxaComponent } from '../sxa.component';
 
 @Component({
   selector: 'app-row-splitter',
   templateUrl: './row-splitter.component.html',
+  imports: [CommonModule, JssModule],
   host: {
     "class": "component row-splitter",
     "[class]": "rowSplitterStyles",

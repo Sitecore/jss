@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { RichTextField } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from '../../jss-context.service';
 import { SxaComponent } from './../sxa.component';
@@ -7,6 +8,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-page-content',
   templateUrl: './page-content.component.html',
+  imports: [JssModule],
   host: {
     'class': 'component content',
     '[class]': 'styles',

@@ -5,8 +5,7 @@ import { CloudSdkInitComponent } from './cloud-sdk-init.component';
 import { CdpPageViewComponent } from './cdp-page-view.component';
 
 @NgModule({
+  imports: [JssModule, ScriptsComponent, CloudSdkInitComponent, CdpPageViewComponent],
   exports: [ScriptsComponent],
-  imports: [JssModule],
-  declarations: [ScriptsComponent, CloudSdkInitComponent, CdpPageViewComponent],
 })
 export class ScriptsModule {}
