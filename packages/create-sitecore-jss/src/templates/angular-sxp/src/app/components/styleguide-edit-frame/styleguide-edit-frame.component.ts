@@ -42,6 +42,7 @@ export class StyleguideEditFrameComponent implements OnInit {
   editFrameProps: EditFrameProps;
 
   applyRed: boolean;
+  sampleListKeys: string[] = [];
   
   editFrameButtons = [
     {
@@ -65,6 +66,11 @@ export class StyleguideEditFrameComponent implements OnInit {
     });
     this.applyRed = getFieldValue<number>(this.rendering, 'applyRedToText') ? true: false;
     this.editFrameProps = this.getEditFrameProps(this.rendering.dataSource);
+    
+    const sampleList = this.rendering?.fields?.sampleList;
+    if (sampleList && Array.isArray(sampleList)) {
+      this.sampleListKeys = sampleList.map((_, index) => index.toString());
+    }
   }
 
   getEditFrameProps(dataSource?: string) {

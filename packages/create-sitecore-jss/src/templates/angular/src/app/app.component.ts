@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { JssContextService } from './jss-context.service';
 import { Subscription } from 'rxjs';
@@ -7,7 +6,8 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [RouterModule]
+  /* eslint-disable-next-line @angular-eslint/prefer-standalone */
+  standalone: false,
 })
 export class AppComponent implements OnInit, OnDestroy {
   private contextSubscription: Subscription;

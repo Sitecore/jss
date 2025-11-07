@@ -13,8 +13,10 @@ import { JssMetaService } from './jss-meta.service';
 import { JssContextService } from './jss-context.service';
 
 @NgModule({
-  imports: [
+  declarations: [
     AppComponent,
+  ],
+  imports: [
     HttpClientModule,
     GraphQLModule,
     RoutingModule,

@@ -5,24 +5,24 @@
   So we can use the .map() array function to traverse them. Ensure a `key` attribute is set
   on each element to make React's DOM updating happy:
   -->
-  @if (rendering.fields.sharedContentList) {
-    @for (listItem of rendering.fields.sharedContentList; track listItem) {
+  @if (sharedContentListKeys.length > 0) {
+    @for (key of sharedContentListKeys; track key) {
       <div>
         <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
         <p>
-          Field: <span *scText="listItem.fields.textField"></span>
+          Field: <span *scText="rendering.fields.sharedContentList[key].fields.textField"></span>
         </p>
       </div>
     }
   }
 
   <h5>Local Content List</h5>
-  @if (rendering.fields.localContentList) {
-    @for (listItem of rendering.fields.localContentList; track listItem) {
+  @if (localContentListKeys.length > 0) {
+    @for (key of localContentListKeys; track key) {
       <div>
         <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
         <p>
-          Field: <span *scText="listItem.fields.textField"></span>
+          Field: <span *scText="rendering.fields.localContentList[key].fields.textField"></span>
         </p>
       </div>
     }
