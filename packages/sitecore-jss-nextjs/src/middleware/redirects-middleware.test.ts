@@ -18,7 +18,7 @@ import { RedirectsMiddleware } from './redirects-middleware';
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
-describe.only('RedirectsMiddleware', () => {
+describe('RedirectsMiddleware', () => {
   const debugSpy = spy(debug, 'redirects');
   const validateDebugLog = (message: string, ...params: any[]) => {
     const hit = debugSpy.args.find((log) => log[0] === message);
@@ -782,7 +782,7 @@ describe.only('RedirectsMiddleware', () => {
 
         validateDebugLog('redirects middleware start: %o', {
           hostname: 'foo.net',
-          language: 'uk-ua',
+          language: 'uk-UA',
           pathname: '/uk-UA/test',
         });
 
@@ -841,7 +841,7 @@ describe.only('RedirectsMiddleware', () => {
 
         validateDebugLog('redirects middleware start: %o', {
           hostname: 'foo.net',
-          language: 'uk-ua',
+          language: 'uk-UA',
           pathname: '/uk-UA/test',
         });
 

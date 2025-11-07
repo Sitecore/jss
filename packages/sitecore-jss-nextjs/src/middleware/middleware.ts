@@ -74,7 +74,7 @@ export abstract class MiddlewareBase {
    * @returns {string} language
    */
   protected getLanguage(req: NextRequest) {
-    return (req.nextUrl.locale || req.nextUrl.defaultLocale || 'en').toLowerCase();
+    return req.nextUrl.locale || req.nextUrl.defaultLocale || 'en';
   }
 
   /**
