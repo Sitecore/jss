@@ -83,6 +83,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
       if (this.isPreview(req) || this.excludeRoute(pathname)) {
         debug.redirects('skipped (%s)', this.isPreview(req) ? 'preview' : 'route excluded');
+
         return res || NextResponse.next();
       }
 
@@ -90,8 +91,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
       // Find the redirect from result of RedirectService
       const existsRedirect = await this.getExistsRedirect(req, site.name);
+
       if (!existsRedirect) {
         debug.redirects('skipped (redirect does not exist)');
+
         return res || NextResponse.next();
       }
 
@@ -116,6 +119,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
       const currentUrl = decodeURIComponent(req.nextUrl.href);
       if (redirectUrl === currentUrl) {
         debug.redirects('skipped (redirect would create a loop)');
+
         return res || NextResponse.next();
       }
 
@@ -226,6 +230,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
     redirectUrl: string,
     res?: NextResponse
   ): NextResponse {
+    /** return Response redirect with http code of redirect type **/
     switch (redirect.redirectType) {
       case REDIRECT_TYPE_301:
         return NextResponse.redirect(redirectUrl, {
