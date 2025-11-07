@@ -1,4 +1,11 @@
-import { Directive, Type, ViewContainerRef, EmbeddedViewRef, TemplateRef } from '@angular/core';
+import {
+  Directive,
+  Type,
+  ViewContainerRef,
+  EmbeddedViewRef,
+  TemplateRef,
+  inject,
+} from '@angular/core';
 import { RenderingField } from './rendering-field';
 import { GenericFieldValue, isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 import { FieldMetadataMarkerComponent } from './field-metadata-marker.component';
@@ -9,6 +16,7 @@ import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
  */
 @Directive()
 export abstract class BaseFieldDirective {
+  protected viewContainer = inject(ViewContainerRef);
   protected viewRef: EmbeddedViewRef<unknown>;
   protected abstract field: RenderingField<GenericFieldValue>;
   protected abstract editable: boolean;
@@ -20,8 +28,6 @@ export abstract class BaseFieldDirective {
    * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
    */
   protected abstract defaultFieldEditingComponent: Type<unknown>;
-
-  constructor(protected viewContainer: ViewContainerRef) {}
 
   /**
    * Determines if directive should render the field as is

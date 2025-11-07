@@ -20,7 +20,9 @@ const defaultFormattedDate = formatDate(testIsoDateValue, testFormat, testLocale
     <span
       *scDate="field; editable: editable; format: format; locale: locale; timezone: timezone"
     ></span>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: TextField;
@@ -47,7 +49,9 @@ const emptyDateFieldEditingTemplate =
     <ng-template #${emptyDateFieldEditingTemplateId}>
       ${emptyDateFieldEditingTemplate}
     </ng-template>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: TextField;

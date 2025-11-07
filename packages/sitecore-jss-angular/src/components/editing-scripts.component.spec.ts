@@ -12,7 +12,9 @@ import * as utils from '@sitecore-jss/sitecore-jss/utils';
   selector: 'test-component',
   template: `
     <sc-editing-scripts></sc-editing-scripts>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {}
 

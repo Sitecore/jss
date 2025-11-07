@@ -12,7 +12,9 @@ import { RichTextDirective } from './rich-text.directive';
   selector: 'test-rich-text',
   template: `
     <h1 *scRichText="field; editable: editable"></h1>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: RichTextField;
@@ -36,7 +38,9 @@ const emptyTextFieldEditingTemplate =
     <ng-template #${emptyTextFieldEditingTemplateId}>
       ${emptyTextFieldEditingTemplate}
     </ng-template>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: RichTextField;
@@ -51,7 +55,10 @@ describe('<div *scRichText />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RichTextDirective, RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
+      imports: [
+        RichTextDirective,
+        RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }]),
+      ],
       declarations: [TestComponent, TestEmptyTemplateComponent],
     });
 

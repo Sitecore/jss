@@ -11,6 +11,7 @@ import { TextDirective } from './text.directive';
   template: `
     <span *scText="field; editable: editable; encode: encode"></span>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class TestComponent {
@@ -39,6 +40,7 @@ const emptyTextFieldEditingTemplate =
       ${emptyTextFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class TestEmptyTemplateComponent {

@@ -52,7 +52,9 @@ const normalContext = {
         Wrapped text
       </sc-edit-frame>
     </div>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent implements OnInit {
   @Input() dataSource: EditFrameDataSource;
@@ -83,8 +85,8 @@ describe('<EditFrame />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EditFrameComponent, TestComponent],
-      imports: [RouterTestingModule],
+      declarations: [TestComponent],
+      imports: [RouterTestingModule, EditFrameComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

@@ -7,7 +7,9 @@ import { JssModule } from '../lib.module';
   selector: 'test-hidden-rendering',
   template: `
     <sc-hidden-rendering></sc-hidden-rendering>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestHiddenRenderingComponent {}
 

@@ -16,6 +16,7 @@ import { LinkField } from './rendering-field';
       id="my-link"
     ></a>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class TestComponent {
@@ -46,6 +47,7 @@ const emptyLinkFieldEditingTemplateDefaultTestString =
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class TestEmptyTemplateComponent {
@@ -310,6 +312,7 @@ describe('<a *scRouterLink />', () => {
       ><span *ngIf="true">hello world</span></a
     >
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class TestWithChildrenComponent {
@@ -335,6 +338,7 @@ class TestWithChildrenComponent {
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
 })
 class TestEmptyTemplateWithChildrenComponent {
@@ -352,10 +356,7 @@ describe('<a *scRouterLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterLinkDirective, RouterTestingModule],
-      declarations: [
-        TestWithChildrenComponent,
-        TestEmptyTemplateWithChildrenComponent,
-      ],
+      declarations: [TestWithChildrenComponent, TestEmptyTemplateWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);

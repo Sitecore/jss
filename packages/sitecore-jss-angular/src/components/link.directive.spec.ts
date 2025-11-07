@@ -10,7 +10,9 @@ import { LinkField } from './rendering-field';
   selector: 'test-link',
   template: `
     <a *scLink="field; editable: editable; attrs: attrs" id="my-link"></a>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: LinkField;
@@ -36,7 +38,9 @@ const emptyLinkFieldEditingTemplateDefaultTestString =
     <ng-template #${emptyLinkFieldEditingTemplateId}>
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: LinkField;
@@ -466,7 +470,9 @@ describe('<a *scLink />', () => {
     <a *scLink="field; editable: editable; attrs: attrs" id="my-link"
       ><span *ngIf="true">hello world</span></a
     >
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithChildrenComponent {
   @Input() field: LinkField;
@@ -490,7 +496,9 @@ class TestWithChildrenComponent {
     <ng-template #${emptyLinkFieldEditingTemplateId}>
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateWithChildrenComponent {
   @Input() field: LinkField;
@@ -507,10 +515,7 @@ describe('<a *scLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [LinkDirective],
-      declarations: [
-        TestWithChildrenComponent,
-        TestEmptyTemplateWithChildrenComponent,
-      ],
+      declarations: [TestWithChildrenComponent, TestEmptyTemplateWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);
@@ -817,7 +822,9 @@ describe('<a *scLink>children</a>', () => {
   selector: 'test-link-children',
   template: `
     <a *scLink="field" class="initialClass" id="my-link"></a>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithClassComponent {
   @Input() field: any;

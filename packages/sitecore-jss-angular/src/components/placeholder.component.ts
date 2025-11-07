@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/no-conflicting-lifecycle */
-import { isPlatformServer } from '@angular/common';
+import { CommonModule, isPlatformServer } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
@@ -7,7 +7,6 @@ import {
   DoCheck,
   ElementRef,
   EventEmitter,
-  Inject,
   Input,
   KeyValueDiffer,
   KeyValueDiffers,
@@ -22,6 +21,7 @@ import {
   Type,
   ViewChild,
   ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { Data, RedirectCommand, Router, UrlTree } from '@angular/router';
 import {
@@ -38,9 +38,7 @@ import {
   JssComponentFactoryService,
 } from '../services/jss-component-factory.service';
 import {
-  DataResolver,
   DATA_RESOLVER,
-  GuardResolver,
   GUARD_RESOLVER,
   PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
@@ -65,10 +63,9 @@ export interface FactoryWithData {
 @Component({
   selector: 'sc-placeholder,[sc-placeholder]',
   template: `
-    <ng-template
-      *ngIf="isLoading"
-      [ngTemplateOutlet]="placeholderLoading?.templateRef"
-    ></ng-template>
+    @if (isLoading) {
+    <ng-template [ngTemplateOutlet]="placeholderLoading?.templateRef"></ng-template>
+    }
     <ng-template
       #metadataCodeBlock
       let-kind="kind"
@@ -84,24 +81,23 @@ export interface FactoryWithData {
       ></code
     ></ng-template>
 
+    @if (metadataMode && metadataCodeBlock) {
     <ng-container
-      *ngTemplateOutlet="
-        metadataMode && metadataCodeBlock;
-        context: { kind: 'open', chromeType: 'placeholder' }
-      "
+      *ngTemplateOutlet="metadataCodeBlock; context: { kind: 'open', chromeType: 'placeholder' }"
     >
     </ng-container>
+    }
 
     <ng-template #view></ng-template>
 
+    @if (metadataMode && metadataCodeBlock) {
     <ng-container
-      *ngTemplateOutlet="
-        metadataMode && metadataCodeBlock;
-        context: { kind: 'close', chromeType: 'placeholder' }
-      "
+      *ngTemplateOutlet="metadataCodeBlock; context: { kind: 'close', chromeType: 'placeholder' }"
     >
     </ng-container>
+    }
   `,
+  imports: [CommonModule],
 })
 export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
   @Input() name?: string;
@@ -128,22 +124,22 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   private destroyed = false;
   private parentStyleAttribute = '';
   private contextSubscription: Subscription;
+  private differs = inject(KeyValueDiffers);
+  private componentFactory = inject(JssComponentFactoryService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
+  private elementRef = inject(ElementRef);
+  private renderer = inject(Renderer2);
+  private router = inject(Router);
+  private missingComponentComponent = inject<Type<unknown>>(
+    PLACEHOLDER_MISSING_COMPONENT_COMPONENT
+  );
+  private hiddenRenderingComponent = inject<Type<unknown>>(PLACEHOLDER_HIDDEN_RENDERING_COMPONENT);
+  private guardResolver = inject(GUARD_RESOLVER);
+  private dataResolver = inject(DATA_RESOLVER);
+  private platformId = inject<object>(PLATFORM_ID);
+  private jssState = inject(JssStateService);
 
-  constructor(
-    private differs: KeyValueDiffers,
-    private componentFactory: JssComponentFactoryService,
-    private changeDetectorRef: ChangeDetectorRef,
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
-    private router: Router,
-    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
-    private missingComponentComponent: Type<unknown>,
-    @Inject(PLACEHOLDER_HIDDEN_RENDERING_COMPONENT) private hiddenRenderingComponent: Type<unknown>,
-    @Inject(GUARD_RESOLVER) private guardResolver: GuardResolver,
-    @Inject(DATA_RESOLVER) private dataResolver: DataResolver,
-    @Inject(PLATFORM_ID) private platformId: object,
-    private jssState: JssStateService
-  ) {
+  constructor() {
     this.contextSubscription = this.jssState.state.subscribe(({ sitecore }) => {
       this.metadataMode = sitecore?.context.editMode === EditMode.Metadata;
     });

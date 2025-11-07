@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges } from '@angular/core';
 import {
   EditFrameDataSource,
@@ -13,18 +14,16 @@ import { LayoutServiceContextData, RouteData } from '@sitecore-jss/sitecore-jss/
     <ng-template #childContent>
       <ng-content></ng-content>
     </ng-template>
-    <div
-      *ngIf="isEditing; else elseBlock"
-      [class]="frameProps.class"
-      [attr.sc_item]="frameProps.sc_item"
-    >
+    @if (isEditing) {
+    <div [class]="frameProps.class" [attr.sc_item]="frameProps.sc_item">
       <span class="scChromeData">{{ chromeData }}</span>
       <ng-container *ngTemplateOutlet="childContent"></ng-container>
     </div>
-    <ng-template #elseBlock>
-      <ng-container *ngTemplateOutlet="childContent"></ng-container>
-    </ng-template>
+    } @else {
+    <ng-container *ngTemplateOutlet="childContent"></ng-container>
+    }
   `,
+  imports: [CommonModule],
 })
 export class EditFrameComponent implements OnChanges {
   @Input() dataSource: EditFrameDataSource;

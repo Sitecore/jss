@@ -9,7 +9,9 @@ import { FileField } from './rendering-field';
   selector: 'test-file',
   template: `
     <a *scFile="field"></a>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: FileField;

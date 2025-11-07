@@ -16,7 +16,9 @@ import { LinkField } from './rendering-field';
       class="external-css-class"
       id="my-link"
     ></a>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: LinkField;
@@ -47,7 +49,9 @@ const emptyLinkFieldEditingTemplateDefaultTestString =
     <ng-template #${emptyLinkFieldEditingTemplateId}>
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: LinkField;
@@ -309,7 +313,9 @@ describe('<a *scGenericLink />', () => {
     <a *scGenericLink="field; editable: editable; attrs: attrs; extras: extras" id="my-link"
       ><span *ngIf="true">hello world</span></a
     >
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithChildrenComponent {
   @Input() field: LinkField;
@@ -335,7 +341,9 @@ class TestWithChildrenComponent {
     <ng-template #${emptyLinkFieldEditingTemplateId}>
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
-  `,  standalone: false
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateWithChildrenComponent {
   @Input() field: LinkField;
@@ -353,10 +361,7 @@ describe('<a *scGenericLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [GenericLinkDirective, RouterTestingModule],
-      declarations: [
-        TestWithChildrenComponent,
-        TestEmptyTemplateWithChildrenComponent,
-      ],
+      declarations: [TestWithChildrenComponent, TestEmptyTemplateWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);
@@ -494,7 +499,10 @@ describe('<a *scGenericLink></a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [GenericLinkDirective, RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
+      imports: [
+        GenericLinkDirective,
+        RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }]),
+      ],
       declarations: [TestComponent],
     });
 

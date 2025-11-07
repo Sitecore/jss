@@ -56,6 +56,7 @@ class MockService {
 
 @Injectable()
 class MockInjectableGuard implements JssCanActivate {
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private service: MockService) {}
 
   canActivate() {
@@ -65,6 +66,7 @@ class MockInjectableGuard implements JssCanActivate {
 
 @Injectable()
 class MockUrlTreeGuard implements JssCanActivate {
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private readonly router: Router) {}
 
   canActivate() {
@@ -74,6 +76,7 @@ class MockUrlTreeGuard implements JssCanActivate {
 
 @Injectable()
 class MockRedirectCommandGuard implements JssCanActivate {
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private readonly router: Router) {}
 
   canActivate() {

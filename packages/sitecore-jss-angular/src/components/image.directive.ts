@@ -7,7 +7,7 @@ import {
   SimpleChanges,
   TemplateRef,
   Type,
-  ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { ImageField, ImageFieldValue } from './rendering-field';
@@ -42,19 +42,12 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
   /**
    * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
    */
-  protected defaultFieldEditingComponent: Type<unknown>;
+  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyImageFieldEditingComponent;
 
   private inlineRef: HTMLSpanElement | null = null;
-
-  constructor(
-    viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<unknown>,
-    private renderer: Renderer2,
-    private elementRef: ElementRef
-  ) {
-    super(viewContainer);
-    this.defaultFieldEditingComponent = DefaultEmptyImageFieldEditingComponent;
-  }
+  private templateRef = inject(TemplateRef);
+  private renderer = inject(Renderer2);
+  private elementRef = inject(ElementRef);
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.urlParams || changes.attrs) {
