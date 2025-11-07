@@ -20,6 +20,10 @@ Our versioning strategy is as follows:
 * `[Next.js]` [Redirects] Preserve default locale in external absolute urls ([#2142](https://github.com/Sitecore/jss/pull/2142))
 * `[React]` Custom properties are not applied to empty field in editing metadata mode ([#2141](https://github.com/Sitecore/jss/pull/2141))
 
+### 🛠 Breaking Changes
+
+* `[angular][sitecore-jss-angular]` Upgrade to Angular v20
+
 ## 22.9.0
 
 ### 🐛 Bug Fixes
