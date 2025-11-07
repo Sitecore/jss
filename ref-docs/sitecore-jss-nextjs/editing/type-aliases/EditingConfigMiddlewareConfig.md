@@ -8,7 +8,7 @@
 
 > **EditingConfigMiddlewareConfig** = `object`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:12](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L12)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:12](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L12)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:12](ht
 
 > **components**: `string`[] \| `Map`\<`string`, `unknown`\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:16](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L16)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:16](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L16)
 
 Components available in the application
 
@@ -26,7 +26,7 @@ Components available in the application
 
 > **metadata**: `Metadata`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:20](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L20)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:20](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L20)
 
 Application metadata
 
@@ -36,7 +36,7 @@ Application metadata
 
 > `optional` **pagesEditMode**: [`EditMode`](../../index/enumerations/EditMode.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:26](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L26)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-config-middleware.ts:26](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-nextjs/src/editing/editing-config-middleware.ts#L26)
 
 Determines which editing mode should be used by Pages.
 Can be either 'chromes' or 'metadata'.

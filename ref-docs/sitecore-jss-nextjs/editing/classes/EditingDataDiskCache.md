@@ -6,7 +6,7 @@
 
 # Class: EditingDataDiskCache
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L19)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L19)
 
 A disk-based editing data cache implementation (required for hosting on Vercel via Serverless Functions)
 
@@ -24,7 +24,7 @@ EditingDataCache
 
 > **new EditingDataDiskCache**(`tmpDir?`): `EditingDataDiskCache`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L25)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:25](https://g
 
 > **get**(`key`): `Promise`\<`undefined` \| [`EditingData`](../type-aliases/EditingData.md)\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L41)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L41)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:41](https://g
 
 > **set**(`key`, `editingData`): `Promise`\<`void`\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-cache.ts:30](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-nextjs/src/editing/editing-data-cache.ts#L30)
 
 #### Parameters
 

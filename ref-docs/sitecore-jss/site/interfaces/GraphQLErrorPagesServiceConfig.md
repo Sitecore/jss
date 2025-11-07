@@ -6,7 +6,7 @@
 
 # Interface: GraphQLErrorPagesServiceConfig
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:27](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L27)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:27](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L27)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:27](h
 
 > **clientFactory**: [`GraphQLRequestClientFactory`](../../index/type-aliases/GraphQLRequestClientFactory.md)
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:41](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L41)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:41](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L41)
 
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -29,7 +29,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 > **language**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:36](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L36)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:36](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L36)
 
 The language
 
@@ -39,7 +39,7 @@ The language
 
 > `optional` **retries**: `number`
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/graphql-request-client.ts#L83)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:83](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/graphql-request-client.ts#L83)
 
 Number of retries for client. Will use the specified `retryStrategy`.
 
@@ -53,7 +53,7 @@ Number of retries for client. Will use the specified `retryStrategy`.
 
 > `optional` **retryStrategy**: [`RetryStrategy`](../../index/interfaces/RetryStrategy.md)
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:88](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/graphql-request-client.ts#L88)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:88](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/graphql-request-client.ts#L88)
 
 Retry strategy for the client. Uses `DefaultRetryStrategy` by default with exponential
 back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
@@ -68,6 +68,6 @@ back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
 
 > **siteName**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:32](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L32)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:32](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L32)
 
 The JSS application name

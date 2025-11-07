@@ -6,7 +6,7 @@
 
 # Class: MemoryCacheClient\<T\>
 
-Defined in: [packages/sitecore-jss/src/cache-client.ts:54](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/cache-client.ts#L54)
+Defined in: [packages/sitecore-jss/src/cache-client.ts:54](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/cache-client.ts#L54)
 
 A cache client that uses the 'memory-cache' library (https://github.com/ptarjan/node-cache).
 This class is meant to be extended or used as a mixin; it's not meant to be used directly.
@@ -29,7 +29,7 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 > **new MemoryCacheClient**\<`T`\>(`options`): `MemoryCacheClient`\<`T`\>
 
-Defined in: [packages/sitecore-jss/src/cache-client.ts:61](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/cache-client.ts#L61)
+Defined in: [packages/sitecore-jss/src/cache-client.ts:61](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/cache-client.ts#L61)
 
 Initializes a new instance of
 
@@ -54,7 +54,7 @@ Initializes a new instance of
 
 > **options**: [`CacheOptions`](../interfaces/CacheOptions.md)
 
-Defined in: [packages/sitecore-jss/src/cache-client.ts:61](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/cache-client.ts#L61)
+Defined in: [packages/sitecore-jss/src/cache-client.ts:61](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/cache-client.ts#L61)
 
 Configuration options
 
@@ -64,7 +64,7 @@ Configuration options
 
 > **getCacheValue**(`key`): `null` \| `T`
 
-Defined in: [packages/sitecore-jss/src/cache-client.ts:77](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/cache-client.ts#L77)
+Defined in: [packages/sitecore-jss/src/cache-client.ts:77](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/cache-client.ts#L77)
 
 Retrieves a value from the cache.
 
@@ -90,7 +90,7 @@ The cache value as {T}, or null if the specified key is not found in the cache.
 
 > **setCacheValue**(`key`, `value`): `T`
 
-Defined in: [packages/sitecore-jss/src/cache-client.ts:88](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/cache-client.ts#L88)
+Defined in: [packages/sitecore-jss/src/cache-client.ts:88](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/cache-client.ts#L88)
 
 Adds a value to the cache for the specified cache key.
 

@@ -6,7 +6,7 @@
 
 # Interface: JssCanActivate
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:104](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L104)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:104](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L104)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:104
 
 > **canActivate**: [`JssCanActivateFn`](JssCanActivateFn.md)
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:105](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L105)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:105](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L105)

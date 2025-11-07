@@ -6,7 +6,7 @@
 
 # Class: GraphQLSitemapXmlService
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:39](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L39)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:39](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L39)
 
 Service that fetch the sitemaps data using Sitecore's GraphQL API.
 
@@ -16,7 +16,7 @@ Service that fetch the sitemaps data using Sitecore's GraphQL API.
 
 > **new GraphQLSitemapXmlService**(`options`): `GraphQLSitemapXmlService`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:46](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L46)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:46](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L46)
 
 Creates an instance of graphQL sitemaps service with the provided options
 
@@ -36,7 +36,7 @@ Creates an instance of graphQL sitemaps service with the provided options
 
 > **options**: [`GraphQLSitemapXmlServiceConfig`](../type-aliases/GraphQLSitemapXmlServiceConfig.md)
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:46](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L46)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:46](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L46)
 
 instance
 
@@ -48,7 +48,7 @@ instance
 
 > **get** `protected` **query**(): `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:50](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L50)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:50](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L50)
 
 ##### Returns
 
@@ -60,7 +60,7 @@ Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:50](https
 
 > **fetchSitemaps**(): `Promise`\<`string`[]\>
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L59)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:59](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L59)
 
 Fetch list of sitemaps for the site
 
@@ -80,7 +80,7 @@ if the siteName is empty.
 
 > `protected` **getGraphQLClient**(): [`GraphQLClient`](../../index/interfaces/GraphQLClient.md)
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:103](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L103)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:103](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L103)
 
 Gets a GraphQL client that can make requests to the API. Uses graphql-request as the default
 library for fetching graphql data (@see GraphQLRequestClient). Override this method if you
@@ -98,7 +98,7 @@ implementation
 
 > **getSitemap**(`id`): `Promise`\<`undefined` \| `string`\>
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:81](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L81)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:81](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L81)
 
 Get sitemap file path for sitemap id
 

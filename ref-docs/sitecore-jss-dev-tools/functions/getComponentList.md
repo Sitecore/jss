@@ -8,7 +8,7 @@
 
 > **getComponentList**(`path`): [`ComponentFile`](../interfaces/ComponentFile.md)[]
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
 
 Get list of components from
 

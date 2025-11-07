@@ -6,7 +6,7 @@
 
 # Class: EditingScriptsComponent
 
-Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:16](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L16)
+Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:16](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L16)
 
 Component that renders editing scripts and client data for the current page in Sitecore Editor.
 Only renders scripts when Metadata mode is used.
@@ -21,7 +21,7 @@ Only renders scripts when Metadata mode is used.
 
 > **new EditingScriptsComponent**(`renderer`, `stateService`, `document`): `EditingScriptsComponent`
 
-Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
+Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:17](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L17)
 
 #### Parameters
 
@@ -41,7 +41,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.compon
 
 > **ngOnInit**(): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/398e4c7c17310b2930d59a87468098c81f134e40/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)
+Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:23](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L23)
 
 A callback method that is invoked immediately after the
 default change detector has checked the directive's

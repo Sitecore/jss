@@ -17,7 +17,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[Next.js]` `[Redirects]` Preserve default locale in external absolute urls ([#2142](https://github.com/Sitecore/jss/pull/2142))
+* `[Next.js]` [Redirects] Preserve default locale in external absolute urls ([#2142](https://github.com/Sitecore/jss/pull/2142))
 * `[React]` Custom properties are not applied to empty field in editing metadata mode ([#2141](https://github.com/Sitecore/jss/pull/2141))
 
 ## 22.9.0
