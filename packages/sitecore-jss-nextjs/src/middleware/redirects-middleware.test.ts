@@ -20,7 +20,6 @@ const expect = chai.use(chaiString).expect;
 
 describe.only('RedirectsMiddleware', () => {
   const debugSpy = spy(debug, 'redirects');
-  // keeps the same API your tests already use
   const validateDebugLog = (message: string, ...params: any[]) => {
     const hit = debugSpy.args.find((log) => log[0] === message);
     if (!hit) {
@@ -34,10 +33,9 @@ describe.only('RedirectsMiddleware', () => {
     expect(hit).to.deep.equal([message, ...params]);
   };
 
-  const END_PREFIX = 'redirects middleware end'; // keep in sync with your logger
+  const END_PREFIX = 'redirects middleware end';
 
   const validateEndMessageDebugLog = (message: string, expected: any) => {
-    // 1) Find end logs only (exact match OR startsWith the end prefix)
     const endCalls = debugSpy.args.filter(
       (log) =>
         typeof log[0] === 'string' &&
@@ -51,10 +49,8 @@ describe.only('RedirectsMiddleware', () => {
       );
     }
 
-    // If multiple end logs were emitted, use the last one
     const hit = endCalls[endCalls.length - 1];
 
-    // 2) Extract the payload object from the args (don’t assume index 2)
     const [, ...rest] = hit;
     const payload =
       rest.find(
@@ -62,7 +58,6 @@ describe.only('RedirectsMiddleware', () => {
       ) ?? null;
 
     if (!payload) {
-      // Helpful fail: show what was actually logged for this call
       throw new Error(
         `End log found but no payload with {status,url,headers}. Call was:\n${JSON.stringify(
           hit,
@@ -210,12 +205,10 @@ describe.only('RedirectsMiddleware', () => {
   let nextStub: sinon.SinonStub;
 
   beforeEach(() => {
-    // unwrap if previously wrapped
     if ((NextResponse.redirect as any).restore) (NextResponse.redirect as any).restore();
     if ((NextResponse.rewrite as any).restore) (NextResponse.rewrite as any).restore();
     if ((NextResponse.next as any).restore) (NextResponse.next as any).restore();
 
-    // helper to build a minimal cookie jar per response
     const makeCookies = () => {
       const jar = new Map<string, string>();
       return {
@@ -233,7 +226,6 @@ describe.only('RedirectsMiddleware', () => {
       };
     };
 
-    // NextResponse.next
     nextStub = sandbox.stub(NextResponse, 'next').callsFake(() => {
       return ({
         status: 200,
@@ -244,7 +236,6 @@ describe.only('RedirectsMiddleware', () => {
       } as unknown) as NextResponse;
     });
 
-    // NextResponse.redirect
     redirectStub = sandbox.stub(NextResponse, 'redirect').callsFake((url, init) => {
       const status = typeof init === 'number' ? init : init?.status ?? 307;
       const headers = typeof init === 'object' && init?.headers ? init.headers : {};
@@ -256,7 +247,6 @@ describe.only('RedirectsMiddleware', () => {
       } as unknown) as NextResponse;
     });
 
-    // NextResponse.rewrite
     rewriteStub = sandbox.stub(NextResponse, 'rewrite').callsFake((url) => {
       return ({
         url,
@@ -399,7 +389,6 @@ describe.only('RedirectsMiddleware', () => {
     it('should return next response if disabled is true', async () => {
       const res = createResponse({ url: 'http://localhost:3000' });
 
-      // Override the centralized nextStub just for this test to return *your* res
       nextStub.callsFake(() => (res as unknown) as NextResponse);
 
       const props = {
@@ -421,13 +410,12 @@ describe.only('RedirectsMiddleware', () => {
       validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
         headers: {},
         redirected: undefined,
-        status: undefined, // your res has no status -> undefined
+        status: undefined,
         url: 'http://localhost:3000',
       });
 
-      expect(finalRes).to.equal(res); // reference equality since we returned res
+      expect(finalRes).to.equal(res);
 
-      // Restore default behavior for subsequent tests
       nextStub.resetBehavior();
       nextStub.callsFake(
         () => ({ status: 200, headers: new Headers({ 'x-middleware-next': '1' }) } as any)
@@ -437,7 +425,6 @@ describe.only('RedirectsMiddleware', () => {
     it('should return next response when redirects does not exist', async () => {
       const res = createResponse({ url: 'http://localhost:3000/found' });
 
-      // Make centralized nextStub return our res for this test
       nextStub.callsFake(() => (res as unknown) as NextResponse);
 
       const req = createRequest();
@@ -475,7 +462,6 @@ describe.only('RedirectsMiddleware', () => {
           headers: new Headers({}),
         });
 
-        // override centralized redirect stub to return this test's res
         redirectStub.callsFake((url, init) => {
           const status = typeof init === 'number' ? init : init?.status ?? 307;
           const headers = typeof init === 'object' && init?.headers ? init.headers : {};
@@ -535,7 +521,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // override centralized rewrite stub for this test
         rewriteStub.callsFake((url) => {
           return ({
             url,
@@ -593,7 +578,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // override centralized rewrite stub
         rewriteStub.callsFake((url) => {
           return ({
             url,
@@ -650,7 +634,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // override centralized redirect stub
         redirectStub.callsFake((url, init) => {
           const status = typeof init === 'number' ? init : init?.status ?? 307;
           return ({
@@ -703,12 +686,9 @@ describe.only('RedirectsMiddleware', () => {
       });
 
       it('should not redirect, when pattern uses with query string', async () => {
-        // No special stub override needed: centralized nextStub already returns a pass-through response
-
         const req = createRequest({
           nextUrl: {
             pathname: '/not-found',
-            // Mismatch the query on purpose so it should NOT redirect
             search: '?other=param',
             href: 'http://localhost:3000/not-found?other=param',
             locale: 'en',
@@ -719,7 +699,6 @@ describe.only('RedirectsMiddleware', () => {
         });
 
         const { middleware, fetchRedirects, siteResolver } = createMiddleware({
-          // pattern requires ?abc=def, but request has ?other=param → should not redirect
           pattern: 'not-found\\?abc=def',
           target: 'http://localhost:3000/found',
           redirectType: REDIRECT_TYPE_301,
@@ -735,7 +714,6 @@ describe.only('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        // End log: we expect a 'next' response (no redirect)
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: { 'x-middleware-next': '1' },
           redirected: false,
@@ -746,10 +724,9 @@ describe.only('RedirectsMiddleware', () => {
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         expect(fetchRedirects.called).to.be.true;
 
-        // Behavior assertions
-        expect(redirectStub.called).to.be.false; // no redirect performed
+        expect(redirectStub.called).to.be.false;
         expect(finalRes.status).to.equal(200);
-        expect((finalRes as any).url).to.equal(''); // from centralized nextStub
+        expect((finalRes as any).url).to.equal('');
       });
 
       it('should prefer locale-specific rule over generic regardless of order', async () => {
@@ -761,7 +738,6 @@ describe.only('RedirectsMiddleware', () => {
           headers: new Headers({}),
         });
 
-        // Use centralized redirect stub; only override behavior for this test
         redirectStub.callsFake((url, init) => {
           const status = typeof init === 'number' ? init : init?.status ?? 307;
           const headers = typeof init === 'object' ? init?.headers : {};
@@ -784,7 +760,6 @@ describe.only('RedirectsMiddleware', () => {
           },
         });
 
-        // Generic first, locale-specific second (on purpose!)
         const fetchRedirectsStub = sinon.stub().resolves([
           {
             pattern: 'test',
@@ -807,7 +782,7 @@ describe.only('RedirectsMiddleware', () => {
 
         validateDebugLog('redirects middleware start: %o', {
           hostname: 'foo.net',
-          language: 'uk-ua', // normalized to lowercase by getLanguage()
+          language: 'uk-ua',
           pathname: '/uk-UA/test',
         });
 
@@ -855,7 +830,6 @@ describe.only('RedirectsMiddleware', () => {
           },
         });
 
-        // Provide redirects via helper props (safe because we’re specifying all needed fields)
         const { middleware, fetchRedirects } = createMiddleware({
           pattern: 'test',
           target: '/page',
@@ -1003,7 +977,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // Return the SAME object so `expect(finalRes).to.equal(res)` passes
         redirectStub.callsFake((_url, _init) => (res as unknown) as NextResponse);
 
         const req = createRequest({
@@ -1054,7 +1027,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // Return the SAME object so `expect(finalRes).to.equal(res)` passes
         redirectStub.callsFake((_url, _init) => (res as unknown) as NextResponse);
 
         const req = createRequest({
@@ -1107,7 +1079,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // Make centralized NextResponse.next return our res
         nextStub.callsFake(() => (res as unknown) as NextResponse);
 
         const req = createRequest({
@@ -1156,7 +1127,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // Return the SAME object so `expect(finalRes).to.equal(res)` passes
         rewriteStub.callsFake((_url) => (res as unknown) as NextResponse);
 
         const req = createRequest({
@@ -1189,13 +1159,13 @@ describe.only('RedirectsMiddleware', () => {
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: {},
           redirected: undefined,
-          status: undefined, // rewrite stub returns no status
+          status: undefined,
           url: 'http://localhost:3000/found',
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         expect(fetchRedirects.called).to.be.true;
-        expect(finalRes).to.equal(res); // identity now valid
+        expect(finalRes).to.equal(res);
       });
 
       it('should use sc_site cookie', async () => {
@@ -1231,7 +1201,6 @@ describe.only('RedirectsMiddleware', () => {
 
         const { middleware, siteResolver } = createMiddleware({ siteResolver: customResolver });
 
-        // 🚪 Bypass the service: force a matching redirect result
         const getExistsRedirectStub = sinon.stub(middleware as any, 'getExistsRedirect').resolves({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
@@ -1257,18 +1226,15 @@ describe.only('RedirectsMiddleware', () => {
 
         expect(siteResolver.getByHost).to.not.be.called;
         expect(siteResolver.getByName).to.be.calledWith(siteName);
-        expect(getExistsRedirectStub).to.have.been.calledWith(req, siteName); // assert this instead
+        expect(getExistsRedirectStub).to.have.been.calledWith(req, siteName);
 
         expect(finalRes).to.equal(resRedirect);
         expect(finalRes.status).to.equal(301);
       });
 
       it('should preserve site name from response data when provided, if no redirect type defined', async () => {
-        // Centralized NextResponse.next() stub already returns:
-        // { status: 200, redirected: false, url: '', headers: {'x-middleware-next':'1'} }
         const res = NextResponse.next();
 
-        // simulate a site cookie already set on the RESPONSE (what the handler will forward)
         const site = 'learn2grow';
         res.cookies.set('sc_site', site);
 
@@ -1286,7 +1252,7 @@ describe.only('RedirectsMiddleware', () => {
         const { middleware, fetchRedirects, siteResolver } = createMiddleware({
           pattern: 'not-found',
           target: 'http://localhost:3000/found',
-          redirectType: 'default', // should fall through to NextResponse.next()
+          redirectType: 'default',
           isQueryStringPreserved: true,
           locale: 'en',
         });
@@ -1299,8 +1265,6 @@ describe.only('RedirectsMiddleware', () => {
           pathname: '/not-found',
         });
 
-        // With centralized stubs we only expect the x-middleware-next header here.
-        // We verify the cookie via finalRes.cookies below instead of header synthesis.
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
           headers: { 'x-middleware-next': '1' },
           redirected: false,
@@ -1308,16 +1272,12 @@ describe.only('RedirectsMiddleware', () => {
           url: '',
         });
 
-        // Behavior-focused assertions:
-        // Depending on your getSite() logic, getByHost may still be called first.
-        // So don't require it to be "not called"; instead, assert the effective site.
         const firstFetchArg = fetchRedirects.getCall(0).args[0];
-        expect(firstFetchArg).to.equal(site); // proves response cookie site was used
+        expect(firstFetchArg).to.equal(site);
 
         expect(siteResolver.getByName).to.be.calledWith(site);
         expect(fetchRedirects.called).to.be.true;
 
-        // And the cookie is preserved on the final response object
         expect(finalRes.cookies.get('sc_site')?.value).to.equal(site);
       });
 
@@ -1356,7 +1316,7 @@ describe.only('RedirectsMiddleware', () => {
         validateDebugLog('skipped (redirects middleware is disabled)');
 
         validateEndMessageDebugLog('redirects middleware end in %dms: %o', {
-          headers: { 'x-middleware-next': '1' }, // only what the stub guarantees
+          headers: { 'x-middleware-next': '1' },
           redirected: false,
           status: 200,
           url: '',
@@ -1425,7 +1385,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // Use centralized redirect stub; override behavior for this test
         redirectStub.callsFake((url, init) => {
           const status = typeof init === 'number' ? init : init?.status ?? 307;
           return ({
@@ -1437,7 +1396,7 @@ describe.only('RedirectsMiddleware', () => {
         });
 
         const req = createRequest({
-          headerValues: { host: undefined }, // force fallback path
+          headerValues: { host: undefined },
           nextUrl: {
             pathname: '/not-found',
             href: 'http://localhost:3000/not-found',
@@ -1486,7 +1445,6 @@ describe.only('RedirectsMiddleware', () => {
           setCookies,
         });
 
-        // Use centralized redirect stub; override behavior for this test
         redirectStub.callsFake((url, init) => {
           const status = typeof init === 'number' ? init : init?.status ?? 307;
           return ({

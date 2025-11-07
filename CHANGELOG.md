@@ -9,6 +9,13 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 21.10.1
+
+### 🐛 Bug Fixes
+
+`[sitecore-jss-nextjs]` Prevent infinite redirect loops and prioritize locale-specific rules in the redirects-middleware. ([#2158](https://github.com/Sitecore/jss/pull/2158))
+
+
 ## 21.10.0
 
 ### 🛠 Breaking Changes

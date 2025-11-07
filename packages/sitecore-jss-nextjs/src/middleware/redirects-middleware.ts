@@ -76,29 +76,26 @@ export class RedirectsMiddleware extends MiddlewareBase {
     });
 
     const createResponse = async () => {
-      // Check if middleware is disabled
       if (this.config.disabled && this.config.disabled(req, res || NextResponse.next())) {
         debug.redirects('skipped (redirects middleware is disabled)');
         return res || NextResponse.next();
       }
 
-      // Skip preview mode and excluded routes
       if (this.isPreview(req) || this.excludeRoute(pathname)) {
         debug.redirects('skipped (%s)', this.isPreview(req) ? 'preview' : 'route excluded');
         return res || NextResponse.next();
       }
 
-      // Resolve the site
       site = this.getSite(req, res);
 
-      // Find matching redirect rule
+      // Find the redirect from result of RedirectService
       const existsRedirect = await this.getExistsRedirect(req, site.name);
       if (!existsRedirect) {
         debug.redirects('skipped (redirect does not exist)');
         return res || NextResponse.next();
       }
 
-      // Replace $siteLang token in target if present
+      // Find context site language and replace token
       if (
         REGEXP_CONTEXT_SITE_LANG.test(existsRedirect.target) &&
         !(
@@ -122,7 +119,6 @@ export class RedirectsMiddleware extends MiddlewareBase {
         return res || NextResponse.next();
       }
 
-      // Execute the redirect
       return this.executeRedirect(existsRedirect, redirectUrl, res);
     };
 
@@ -261,11 +257,9 @@ export class RedirectsMiddleware extends MiddlewareBase {
     req: NextRequest,
     siteName: string
   ): Promise<RedirectInfo | undefined> {
-    // Fetch redirects from service
     const fetchedRedirects = await this.redirectsService.fetchRedirects(siteName);
     if (!fetchedRedirects?.length) return undefined;
 
-    // Extract request information
     const requestPath = req.nextUrl.pathname;
     const requestSearch = req.nextUrl.search || '';
     const requestLocale = (req.nextUrl.locale || '').toLowerCase();
