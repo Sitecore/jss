@@ -5,6 +5,7 @@ import {
   Field,
   LayoutServiceContextData,
   getContentStylesheetLink,
+  PlaceholderComponent,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -27,6 +28,7 @@ interface RouteFields {
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
+  imports: [PlaceholderComponent],
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   route: RouteData<RouteFields>;

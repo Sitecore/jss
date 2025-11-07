@@ -4,9 +4,9 @@
   So we conditionally render the tab title here, when editing.
 -->
 <div data-e2e-class="styleguide-layout-tabs-tab">
-  <ng-container *ngIf="isEditing">
+  @if (isEditing) {
     <h5 *scText="rendering.fields.title"></h5>
-  </ng-container>
+  }
 
   <div *scRichText="rendering.fields.content"></div>
 </div>

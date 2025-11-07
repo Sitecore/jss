@@ -1,15 +1,16 @@
 <div class="component-content">
-  <ng-container *ngIf="title; else defaultTitle">
+  @if (title) {
     <h3 *scText="title"></h3>
-  </ng-container>
+  } @else {
+    <span class="is-empty-hint">Link list</span>
+  }
   <ul>
-    <li *ngFor="let fieldLink of fieldLinks; index as i" [ngClass]="getFieldLinkClass(i)">
-      <div class="field-link">
-        <a *scGenericLink="fieldLink"></a>
-      </div>
-    </li>
+    @for (fieldLink of fieldLinks; track $index) {
+      <li [ngClass]="getFieldLinkClass($index)">
+        <div class="field-link">
+          <a *scGenericLink="fieldLink"></a>
+        </div>
+      </li>
+    }
   </ul>
 </div>
-<ng-template #defaultTitle>
-  <span class="is-empty-hint">Link list</span>
-</ng-template>
