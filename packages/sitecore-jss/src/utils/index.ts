@@ -1,5 +1,14 @@
 export { default as isServer } from './is-server';
-export { resolveUrl, isAbsoluteUrl, isTimeoutError } from './utils';
+export {
+  resolveUrl,
+  isAbsoluteUrl,
+  isTimeoutError,
+  isRegexOrUrl,
+  areURLSearchParamsEqual,
+  escapeNonSpecialQuestionMarks,
+  mergeURLSearchParams,
+  getAllowedOriginsFromEnv,
+} from './utils';
 export { tryParseEnvValue } from './env';
 export {
   ExperienceEditor,

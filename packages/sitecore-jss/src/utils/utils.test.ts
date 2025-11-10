@@ -2,7 +2,15 @@
 import { expect, spy } from 'chai';
 import { isEditorActive, resetEditorChromes, isServer, resolveUrl } from '.';
 import { ChromeRediscoveryGlobalFunctionName } from './editing';
-import { isAbsoluteUrl, isTimeoutError } from './utils';
+import {
+  isAbsoluteUrl,
+  isTimeoutError,
+  isRegexOrUrl,
+  areURLSearchParamsEqual,
+  escapeNonSpecialQuestionMarks,
+  mergeURLSearchParams,
+  getAllowedOriginsFromEnv,
+} from './utils';
 
 // must make TypeScript happy with `global` variable modification
 interface CustomWindow {
@@ -179,6 +187,135 @@ describe('utils', () => {
       expect(isTimeoutError({ code: 'ETIMEDOUT' })).to.be.true;
       expect(isTimeoutError({ response: { status: 408 } })).to.be.true;
       expect(isTimeoutError({ name: 'AbortError' })).to.be.true;
+    });
+  });
+
+  describe('getAllowedOriginsFromEnv', () => {
+    it('should return an empty array when JSS_ALLOWED_ORIGINS is not set', () => {
+      delete process.env.JSS_ALLOWED_ORIGINS;
+      expect(getAllowedOriginsFromEnv()).to.be.empty;
+    });
+
+    it('should return an array of allowed origins from JSS_ALLOWED_ORIGINS', () => {
+      process.env.JSS_ALLOWED_ORIGINS = 'https://allowed.com, https://alsoallowed.com';
+      expect(getAllowedOriginsFromEnv()).to.deep.equal([
+        'https://allowed.com',
+        'https://alsoallowed.com',
+      ]);
+      delete process.env.JSS_ALLOWED_ORIGINS;
+    });
+  });
+
+  describe('isRegexOrUrl', () => {
+    it('should return "url" for valid URL-like strings', () => {
+      expect(isRegexOrUrl('/path/to/resource?param=value')).to.equal('url');
+      expect(isRegexOrUrl('/another/path')).to.equal('url');
+    });
+
+    it('should return "regex" for non-URL strings', () => {
+      expect(isRegexOrUrl('/path/.*')).to.equal('regex');
+      expect(isRegexOrUrl('^/path/(\\d+)$')).to.equal('regex');
+    });
+  });
+
+  describe('areURLSearchParamsEqual', () => {
+    it('should return true for equal URLSearchParams objects', () => {
+      const params1 = new URLSearchParams('a=1&b=2&c=3');
+      const params2 = new URLSearchParams('c=3&b=2&a=1');
+      expect(areURLSearchParamsEqual(params1, params2)).to.be.true;
+    });
+
+    it('should return false for different URLSearchParams objects', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams('a=1&b=3');
+      expect(areURLSearchParamsEqual(params1, params2)).to.be.false;
+    });
+
+    it('should return false if one of the URLSearchParams objects is empty', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams();
+      expect(areURLSearchParamsEqual(params1, params2)).to.be.false;
+    });
+  });
+
+  describe('mergeURLSearchParams', () => {
+    it('should merge two URLSearchParams objects with unique keys', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams('c=3&d=4');
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('a=1&b=2&c=3&d=4');
+    });
+
+    it('should override keys from the first object with keys from the second', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams('b=3&c=4');
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('a=1&b=3&c=4');
+    });
+
+    it('should return only the second object if the first is empty', () => {
+      const params1 = new URLSearchParams();
+      const params2 = new URLSearchParams('a=1&b=2');
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('a=1&b=2');
+    });
+
+    it('should return only the first object if the second is empty', () => {
+      const params1 = new URLSearchParams('a=1&b=2');
+      const params2 = new URLSearchParams();
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('a=1&b=2');
+    });
+
+    it('should return an empty string if both objects are empty', () => {
+      const params1 = new URLSearchParams();
+      const params2 = new URLSearchParams();
+
+      expect(mergeURLSearchParams(params1, params2)).to.equal('');
+    });
+  });
+
+  describe('escapeNonSpecialQuestionMarks', () => {
+    it('should escape question marks in non-regex strings', () => {
+      const input = 'abc?def?ghi';
+      const expected = 'abc\\?def\\?ghi';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should not escape question marks in regex patterns that start with ^', () => {
+      const input = '^/abc(?!def)?ghi';
+      const expected = '^/abc(?!def)?ghi';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should not escape question marks in regex patterns that end with $', () => {
+      const input = '/abc(?!def)?ghi$';
+      const expected = '/abc(?!def)?ghi$';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle strings without question marks', () => {
+      const input = 'abcdefghi';
+      const expected = 'abcdefghi';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle empty strings', () => {
+      const input = '';
+      const expected = '';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should escape question marks even if they are already escaped', () => {
+      const input = 'abc\\?def?ghi';
+      const expected = 'abc\\\\?def\\?ghi';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
+    });
+
+    it('should handle consecutive unescaped question marks', () => {
+      const input = 'abc??def';
+      const expected = 'abc\\?\\?def';
+      expect(escapeNonSpecialQuestionMarks(input)).to.equal(expected);
     });
   });
 });
