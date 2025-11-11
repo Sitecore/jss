@@ -1,6 +1,8 @@
 import { SiteInfo, SiteResolver } from '@sitecore-jss/sitecore-jss/site';
 import { NextRequest, NextResponse } from 'next/server';
 
+export const REWRITE_HEADER_NAME = 'x-sc-rewrite';
+
 export type MiddlewareBaseConfig = {
   /**
    * function, determines if middleware should be turned off, based on cookie, header, or other considerations
@@ -69,6 +71,31 @@ export abstract class MiddlewareBase {
   }
 
   /**
+   * Determines if the request is a Next.js (next/link) prefetch request
+   * @param {NextRequest} req request
+   * @returns {boolean} is prefetch
+   */
+  protected isPrefetch(req: NextRequest): boolean {
+    const isMobile = req.headers.get('sec-ch-ua-mobile') === '?1';
+    const userAgent = req.headers.get('user-agent') || '';
+    const isKnownPlatform = /iPhone|Mac|Linux|Windows|Android/i.test(userAgent);
+    const isKnownDevice = isMobile || isKnownPlatform;
+
+    const purpose = req.headers.get('purpose');
+    const nextRouterPrefetch = req.headers.get('Next-Router-Prefetch');
+    const middlewarePrefetch = req.headers.get('x-middleware-prefetch');
+
+    // Some real navigations on different devices may incorrectly include 'prefetch' headers.
+    // To avoid skipping personalization in such cases, we treat 'x-middleware-prefetch' as a more reliable signal of true prefetch behavior.
+    if (isKnownDevice && middlewarePrefetch === '1') {
+      return false;
+    }
+
+    // Otherwise, standard prefetch detection
+    return purpose === 'prefetch' || nextRouterPrefetch === '1' || middlewarePrefetch === '1';
+  }
+
+  /**
    * Provides used language
    * @param {NextRequest} req request
    * @returns {string} language
@@ -107,16 +134,23 @@ export abstract class MiddlewareBase {
    * @param {string} rewritePath the destionation path
    * @param {NextRequest} req the current request
    * @param {NextResponse} res the current response
+   * @param {boolean} [skipHeader] don't write 'x-sc-rewrite' header
    */
-  protected rewrite(rewritePath: string, req: NextRequest, res: NextResponse): NextResponse {
+  protected rewrite(
+    rewritePath: string,
+    req: NextRequest,
+    res: NextResponse,
+    skipHeader?: boolean
+  ): NextResponse {
     // Note an absolute URL is required: https://nextjs.org/docs/messages/middleware-relative-urls
     const rewriteUrl = req.nextUrl.clone();
     rewriteUrl.pathname = rewritePath;
-
     const response = NextResponse.rewrite(rewriteUrl, res);
 
     // Share rewrite path with following executed middlewares
-    response.headers.set(this.REWRITE_HEADER_NAME, rewritePath);
+    if (!skipHeader) {
+      response.headers.set(REWRITE_HEADER_NAME, rewritePath);
+    }
 
     return response;
   }
