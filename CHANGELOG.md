@@ -13,7 +13,9 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-`[sitecore-jss-nextjs]` Prevent infinite redirect loops and prioritize locale-specific rules in the redirects-middleware. ([#2158](https://github.com/Sitecore/jss/pull/2158))
+`[sitecore-jss-nextjs]` Prevent infinite redirect loops and prioritize locale-specific rules in the redirects middleware ([#2158](https://github.com/Sitecore/jss/pull/2158)):
+  * Enhanced RedirectsMiddleware extensibility by introducing the new `getRedirects` method.
+  * Included multiple improvements and refactoring carried over from JSS 22
 
 
 ## 21.10.0
