@@ -63,6 +63,6 @@ jobs:
       - name: Pre-release canary publish
         run: |
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-          npx lerna publish from-git --exact --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
+          npx lerna publish from-git --exact --canary --pre-dist-tag ver21-canary --preid canary --no-verify-access --yes
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
