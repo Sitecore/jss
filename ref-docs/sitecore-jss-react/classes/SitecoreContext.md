@@ -61,7 +61,7 @@ React.Component\&lt;SitecoreContextProps, SitecoreContextState\&gt;.constructor
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:33](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L33)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:33](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L33)
 
 ## Properties
 
@@ -166,7 +166,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:31](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L31)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:31](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L31)
 
 ___
 
@@ -385,7 +385,7 @@ React.Component.componentDidUpdate
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:58](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L58)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:58](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L58)
 
 ___
 
@@ -547,7 +547,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:44](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L44)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:44](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L44)
 
 ___
 
@@ -621,7 +621,7 @@ React.Component.render
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:81](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L81)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:81](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L81)
 
 ___
 
@@ -643,7 +643,7 @@ Update context state. Value can be
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:73](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L73)
+[packages/sitecore-jss-react/src/components/SitecoreContext.tsx:73](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L73)
 
 ___
 

@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:60](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss-react/src/components/Date.tsx#L60)
+[packages/sitecore-jss-react/src/components/Date.tsx:60](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss-react/src/components/Date.tsx#L60)

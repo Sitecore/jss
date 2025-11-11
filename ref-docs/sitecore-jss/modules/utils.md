@@ -29,12 +29,17 @@
 
 ### Functions
 
+- [areURLSearchParamsEqual](utils.md#areurlsearchparamsequal)
+- [escapeNonSpecialQuestionMarks](utils.md#escapenonspecialquestionmarks)
+- [getAllowedOriginsFromEnv](utils.md#getallowedoriginsfromenv)
 - [handleEditorAnchors](utils.md#handleeditoranchors)
 - [isAbsoluteUrl](utils.md#isabsoluteurl)
 - [isEditorActive](utils.md#iseditoractive)
+- [isRegexOrUrl](utils.md#isregexorurl)
 - [isServer](utils.md#isserver)
 - [isTimeoutError](utils.md#istimeouterror)
 - [mapButtonToCommand](utils.md#mapbuttontocommand)
+- [mergeURLSearchParams](utils.md#mergeurlsearchparams)
 - [resetEditorChromes](utils.md#reseteditorchromes)
 - [resolveUrl](utils.md#resolveurl)
 - [tryParseEnvValue](utils.md#tryparseenvvalue)
@@ -58,7 +63,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
+[packages/sitecore-jss/src/utils/edit-frame.ts:2](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L2)
 
 ___
 
@@ -68,7 +73,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
+[packages/sitecore-jss/src/utils/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L73)
 
 ___
 
@@ -86,7 +91,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
+[packages/sitecore-jss/src/utils/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L49)
 
 ___
 
@@ -96,7 +101,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
+[packages/sitecore-jss/src/utils/edit-frame.ts:62](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L62)
 
 ___
 
@@ -106,7 +111,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
+[packages/sitecore-jss/src/utils/edit-frame.ts:66](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L66)
 
 ## Variables
 
@@ -136,7 +141,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
+[packages/sitecore-jss/src/utils/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L15)
 
 ___
 
@@ -152,7 +157,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
+[packages/sitecore-jss/src/utils/edit-frame.ts:11](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L11)
 
 ___
 
@@ -162,9 +167,79 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
+[packages/sitecore-jss/src/utils/edit-frame.ts:36](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L36)
 
 ## Functions
+
+### areURLSearchParamsEqual
+
+▸ **areURLSearchParamsEqual**(`params1`, `params2`): `boolean`
+
+Compares two URLSearchParams objects to determine if they are equal.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params1` | `URLSearchParams` | The first set of URL search parameters. |
+| `params2` | `URLSearchParams` | The second set of URL search parameters. |
+
+#### Returns
+
+`boolean`
+
+- Returns true if the parameters are equal, otherwise false.
+
+#### Defined in
+
+[packages/sitecore-jss/src/utils/utils.ts:116](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/utils.ts#L116)
+
+___
+
+### escapeNonSpecialQuestionMarks
+
+▸ **escapeNonSpecialQuestionMarks**(`input`): `string`
+
+Escapes non-special "?" characters in a string or regex.
+- For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
+- For regex patterns (strings enclosed in `/.../`), it analyzes each "?" to determine if it has special meaning
+  (e.g., `?` in `(abc)?`, `.*?`, `(?!...)`) or is just a literal character. Only literal "?" characters are escaped.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `input` | `string` | The input string or regex pattern. |
+
+#### Returns
+
+`string`
+
+- The modified string or regex with non-special "?" characters escaped.
+
+#### Defined in
+
+[packages/sitecore-jss/src/utils/utils.ts:140](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/utils.ts#L140)
+
+___
+
+### getAllowedOriginsFromEnv
+
+▸ **getAllowedOriginsFromEnv**(): `string`[]
+
+Gets allowed origins from JSS_ALLOWED_ORIGINS env variable
+
+#### Returns
+
+`string`[]
+
+list of allowed origins from JSS_ALLOWED_ORIGINS env variable
+
+#### Defined in
+
+[packages/sitecore-jss/src/utils/utils.ts:83](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/utils.ts#L83)
+
+___
 
 ### handleEditorAnchors
 
@@ -189,7 +264,7 @@ Mutation Observer API: https://developer.mozilla.org/en-US/docs/Web/API/Mutation
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:109](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/editing.ts#L109)
+[packages/sitecore-jss/src/utils/editing.ts:109](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/editing.ts#L109)
 
 ___
 
@@ -209,7 +284,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/utils.ts#L52)
+[packages/sitecore-jss/src/utils/utils.ts:52](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/utils.ts#L52)
 
 ___
 
@@ -228,7 +303,31 @@ true if executing within a Sitecore editor
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/editing.ts#L85)
+[packages/sitecore-jss/src/utils/editing.ts:85](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/editing.ts#L85)
+
+___
+
+### isRegexOrUrl
+
+▸ **isRegexOrUrl**(`input`): ``"url"`` \| ``"regex"``
+
+Determines whether the given input is a regular expression or resembles a URL.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `input` | `string` | The input string to evaluate. |
+
+#### Returns
+
+``"url"`` \| ``"regex"``
+
+- Returns 'url' if the input looks like a URL, otherwise 'regex'.
+
+#### Defined in
+
+[packages/sitecore-jss/src/utils/utils.ts:93](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/utils.ts#L93)
 
 ___
 
@@ -246,7 +345,7 @@ true if executing server-side
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/is-server.ts#L5)
+[packages/sitecore-jss/src/utils/is-server.ts:5](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/is-server.ts#L5)
 
 ___
 
@@ -270,7 +369,7 @@ is timeout error
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/utils.ts#L69)
+[packages/sitecore-jss/src/utils/utils.ts:69](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/utils.ts#L69)
 
 ___
 
@@ -294,7 +393,32 @@ Map the edit button types to chrome data
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
+[packages/sitecore-jss/src/utils/edit-frame.ts:81](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/edit-frame.ts#L81)
+
+___
+
+### mergeURLSearchParams
+
+▸ **mergeURLSearchParams**(`params1`, `params2`): `string`
+
+Merges two URLSearchParams objects. If both objects contain the same key, the value from the second object overrides the first.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params1` | `URLSearchParams` | The first set of URL search parameters. |
+| `params2` | `URLSearchParams` | The second set of URL search parameters. |
+
+#### Returns
+
+`string`
+
+- A string representation of the merged URL search parameters.
+
+#### Defined in
+
+[packages/sitecore-jss/src/utils/utils.ts:156](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/utils.ts#L156)
 
 ___
 
@@ -310,7 +434,7 @@ Resets Sitecore editor "chromes"
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/editing.ts:92](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/editing.ts#L92)
+[packages/sitecore-jss/src/utils/editing.ts:92](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/editing.ts#L92)
 
 ___
 
@@ -340,7 +464,7 @@ if the provided url is an empty string
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/utils.ts#L27)
+[packages/sitecore-jss/src/utils/utils.ts:27](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/utils.ts#L27)
 
 ___
 
@@ -371,4 +495,4 @@ parsed value
 
 #### Defined in
 
-[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/34f319cffa/packages/sitecore-jss/src/utils/env.ts#L7)
+[packages/sitecore-jss/src/utils/env.ts:7](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss/src/utils/env.ts#L7)
