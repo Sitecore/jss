@@ -26,6 +26,7 @@ describe('RedirectsMiddleware', () => {
   const validateDebugLog = (message, ...params) =>
     expect(debugSpy.args.find((log) => log[0] === message)).to.deep.equal([message, ...params]);
 
+  // eslint-disable-next-line jsdoc/require-jsdoc
   function validateEndMessageDebugLog(actualOrMsg: any, expected: any) {
     const actual =
       typeof actualOrMsg === 'string'
@@ -1068,6 +1069,270 @@ describe('RedirectsMiddleware', () => {
         // so normalize to compare safely.
         const normalizeUrlValue = (u: any) => (typeof u === 'string' ? u : u?.href ?? '');
         expect(normalizeUrlValue(finalRes.url)).to.equal(externalUrl);
+      });
+
+      it('should perform variable substitution for regex redirects to external absolute URLs', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const expectedUrl = 'https://museum.olympics.com/docs/AOTC/LONGUEURSDAVANCE-9.4-DE.pdf';
+
+        const url = {
+          href: expectedUrl,
+          pathname: '/docs/AOTC/LONGUEURSDAVANCE-9.4-DE.pdf',
+          origin: 'https://museum.olympics.com',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/redirect/docs/AOTC/LONGUEURSDAVANCE-9.4-DE.pdf',
+              href: 'http://localhost:3000/redirect/docs/AOTC/LONGUEURSDAVANCE-9.4-DE.pdf',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              clone: cloneUrl,
+            },
+          },
+          status: 302,
+        });
+
+        setupRedirectStub(302);
+
+        const { finalRes } = await runTestWithRedirect(
+          {
+            pattern: '^/redirect/docs/([^/]+)/([^/]+)$',
+            target: 'https://museum.olympics.com/docs/$1/$2',
+            redirectType: REDIRECT_TYPE_302,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(normalizeUrlValue(finalRes.url)).to.equal(expectedUrl);
+      });
+
+      it('should perform variable substitution for regex redirects to internal absolute URLs', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const expectedUrl = 'http://localhost:3000/About/fruit/apple';
+
+        const url = {
+          href: expectedUrl,
+          pathname: '/About/fruit/apple',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/redirect/fruit/apple',
+              href: 'http://localhost:3000/redirect/fruit/apple',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        setupRedirectStub(301);
+
+        const { finalRes } = await runTestWithRedirect(
+          {
+            pattern: '^/redirect/(.*)/(.*)$',
+            target: 'http://localhost:3000/About/$1/$2',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(normalizeUrlValue(finalRes.url)).to.equal(expectedUrl);
+      });
+
+      it('should handle multiple capture groups in regex redirects to external URLs', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const expectedUrl = 'https://example.com/products/electronics/laptop/dell';
+
+        const url = {
+          href: expectedUrl,
+          pathname: '/products/electronics/laptop/dell',
+          origin: 'https://example.com',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/old-shop/electronics/laptop/dell',
+              href: 'http://localhost:3000/old-shop/electronics/laptop/dell',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        setupRedirectStub(301);
+
+        const { finalRes } = await runTestWithRedirect(
+          {
+            pattern: '^/old-shop/([^/]+)/([^/]+)/([^/]+)$',
+            target: 'https://example.com/products/$1/$2/$3',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(normalizeUrlValue(finalRes.url)).to.equal(expectedUrl);
+      });
+
+      it('should handle regex redirects with no capture groups to external URLs', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const expectedUrl = 'https://example.com/static-page';
+
+        const url = {
+          href: expectedUrl,
+          pathname: '/static-page',
+          origin: 'https://example.com',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/old-static',
+              href: 'http://localhost:3000/old-static',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              clone: cloneUrl,
+            },
+          },
+          status: 302,
+        });
+
+        setupRedirectStub(302);
+
+        const { finalRes } = await runTestWithRedirect(
+          {
+            pattern: '^/old-static$',
+            target: 'https://example.com/static-page',
+            redirectType: REDIRECT_TYPE_302,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(normalizeUrlValue(finalRes.url)).to.equal(expectedUrl);
+      });
+
+      it('should handle regex redirects with trailing slash in external URLs', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const expectedUrl = 'https://example.com/docs/guide/intro/';
+
+        const url = {
+          href: expectedUrl,
+          pathname: '/docs/guide/intro/',
+          origin: 'https://example.com',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/documentation/guide/intro/',
+              href: 'http://localhost:3000/documentation/guide/intro/',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        setupRedirectStub(301);
+
+        const { finalRes } = await runTestWithRedirect(
+          {
+            pattern: '^/documentation/([^/]+)/([^/]+)/?$',
+            target: 'https://example.com/docs/$1/$2/',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(normalizeUrlValue(finalRes.url)).to.equal(expectedUrl);
+      });
+
+      it('should preserve unmatched placeholder variables as literal text in external URLs', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const expectedUrl = 'https://example.com/path/first/second/';
+
+        const url = {
+          href: expectedUrl,
+          pathname: '/path/first/second/',
+          origin: 'https://example.com',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/old/first/second',
+              href: 'http://localhost:3000/old/first/second',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              clone: cloneUrl,
+            },
+          },
+          status: 301,
+        });
+
+        setupRedirectStub(301);
+
+        const { finalRes } = await runTestWithRedirect(
+          {
+            pattern: '^/old/([^/]+)/([^/]+)$',
+            target: 'https://example.com/path/$1/$2/$3',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(normalizeUrlValue(finalRes.url)).to.equal(expectedUrl);
       });
 
       it('should redirect uses token $siteLang in target url', async () => {
