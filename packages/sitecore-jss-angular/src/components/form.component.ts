@@ -45,7 +45,8 @@ export type FormRendering = {
 @Component({
   selector: 'app-form',
   template: `
-    @if (isEditing) { @if (!rendering.params.FormId) {
+    @if (isEditing) {
+        @if (!rendering.params.FormId) {
     <div
       style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;"
     >
