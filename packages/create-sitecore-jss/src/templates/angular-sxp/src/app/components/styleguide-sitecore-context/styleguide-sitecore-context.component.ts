@@ -2,6 +2,7 @@
 import { Component, Input, OnInit, OnDestroy, inject } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 import { JssContextService } from '../../jss-context.service';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 import { Subscription } from 'rxjs';
 
 /**
@@ -11,7 +12,6 @@ import { Subscription } from 'rxjs';
  * NOTE: if not using async pipe, ensure you unsubscribe from the context
  * in ngOnDestroy(). See styleguide-layout-tabs for an example.
  */
-import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 @Component({
   selector: 'app-styleguide-sitecore-context',
