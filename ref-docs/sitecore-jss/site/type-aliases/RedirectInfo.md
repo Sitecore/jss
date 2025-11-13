@@ -8,7 +8,7 @@
 
 > **RedirectInfo** = `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:11](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L11)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:11](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L11)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:11](htt
 
 > **isQueryStringPreserved**: `boolean`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:15](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L15)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:15](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L15)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:15](htt
 
 > **locale**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:16](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L16)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:16](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L16)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:16](htt
 
 > **pattern**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:12](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L12)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:12](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L12)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:12](htt
 
 > **redirectType**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:14](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L14)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:14](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L14)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:14](htt
 
 > **target**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:13](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L13)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:13](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L13)

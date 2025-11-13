@@ -6,7 +6,7 @@
 
 # Class: DefaultRetryStrategy
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:118](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/graphql-request-client.ts#L118)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:118](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/graphql-request-client.ts#L118)
 
 Represents a default retry strategy for handling retry attempts in case of specific HTTP status codes.
 This class implements the RetryStrategy interface and provides methods to determine whether a request
@@ -22,7 +22,7 @@ should be retried and calculates the delay before the next retry attempt.
 
 > **new DefaultRetryStrategy**(`options`): `DefaultRetryStrategy`
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:129](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/graphql-request-client.ts#L129)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:129](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/graphql-request-client.ts#L129)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:129](https://gi
 
 > **getDelay**(`error`, `attempt`): `number`
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:142](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/graphql-request-client.ts#L142)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:142](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/graphql-request-client.ts#L142)
 
 Calculates the delay (in milliseconds) before the next retry based on the given error and attempt count.
 
@@ -70,7 +70,7 @@ The delay in milliseconds before the next retry.
 
 > **shouldRetry**(`error`, `attempt`, `retries`): `boolean`
 
-Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:135](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/graphql-request-client.ts#L135)
+Defined in: [packages/sitecore-jss/src/graphql-request-client.ts:135](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/graphql-request-client.ts#L135)
 
 Determines whether a request should be retried based on the given error and attempt count.
 

@@ -8,7 +8,7 @@
 
 > **SiteInfo** = `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:18](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L18)
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:18](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L18)
 
 ## Indexable
 
@@ -22,7 +22,7 @@ Additional user-defined properties
 
 > **hostName**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:30](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L30)
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:30](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L30)
 
 Site host name. May include multiple values (separated by '|') and wildcards ('*')
 
@@ -32,7 +32,7 @@ Site host name. May include multiple values (separated by '|') and wildcards ('*
 
 > **language**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:34](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L34)
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:34](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L34)
 
 Site default language
 
@@ -42,6 +42,6 @@ Site default language
 
 > **name**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:26](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L26)
+Defined in: [packages/sitecore-jss/src/site/graphql-siteinfo-service.ts:26](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss/src/site/graphql-siteinfo-service.ts#L26)
 
 Site name

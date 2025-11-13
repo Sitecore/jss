@@ -6,7 +6,7 @@
 
 # Class: ComponentNameAndType
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:15](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L15)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:15](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L15)
 
 Registers a statically loaded component
 
@@ -26,7 +26,7 @@ Registers a statically loaded component
 
 > `optional` **canActivate**: [`JssCanActivate`](../interfaces/JssCanActivate.md) \| `Type`\<[`JssCanActivate`](../interfaces/JssCanActivate.md)\> \| [`JssCanActivateFn`](../interfaces/JssCanActivateFn.md) \| ([`JssCanActivate`](../interfaces/JssCanActivate.md) \| `Type`\<[`JssCanActivate`](../interfaces/JssCanActivate.md)\> \| [`JssCanActivateFn`](../interfaces/JssCanActivateFn.md))[]
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:19](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L19)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:19](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L19)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:19]
 
 > **name**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:16](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L16)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:16](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L16)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:16]
 
 > `optional` **resolve**: `object`
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:24](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L24)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:24](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L24)
 
 #### Index Signature
 
@@ -54,4 +54,4 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:24]
 
 > **type**: `Type`\<`unknown`\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:17](https://github.com/Sitecore/jss/blob/7b1d590947708f2d812c76be6fe1d85191219baa/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L17)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:17](https://github.com/Sitecore/jss/blob/702e51fc8851b1a2555bb5692b413107d3f3a8f5/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L17)
