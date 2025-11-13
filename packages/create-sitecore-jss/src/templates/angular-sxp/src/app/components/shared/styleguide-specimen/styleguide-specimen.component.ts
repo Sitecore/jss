@@ -25,7 +25,6 @@ function dasherize(str: string) {
     <div class="border p-2"><ng-content></ng-content></div>
   </div>
   `,
-  
   imports: [JssModule]
 })
 export class StyleguideSpecimenComponent implements OnInit {
