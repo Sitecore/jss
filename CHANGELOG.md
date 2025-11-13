@@ -22,7 +22,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[angular][sitecore-jss-angular]` Upgrade to Angular v20
+* `[angular]` `[sitecore-jss-angular]` Upgrade to Angular v20
 
 ## 22.9.0
 
