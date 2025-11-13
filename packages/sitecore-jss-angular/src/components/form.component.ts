@@ -44,21 +44,7 @@ export type FormRendering = {
  */
 @Component({
   selector: 'app-form',
-  template: `
-    @if (isEditing) {
-        @if (!rendering.params.FormId) {
-    <div
-      style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;"
-    >
-      <h2>{{ rendering.componentName }}</h2>
-      <p>JSS component is missing FormId rendering parameter.</p>
-    </div>
-    }
-    @if (hasError) {
-    <div class="sc-jss-placeholder-error">There was a problem loading this section</div>
-        }
-    }
-  `,
+  templateUrl: './form.component.html',
 })
 export class FormComponent implements OnInit, OnDestroy {
   /**
