@@ -41,5 +41,3 @@ export class ColumnSplitterComponent extends SxaComponent {
     return `column-${ph}-{*}`;
   }
 }
-
-
