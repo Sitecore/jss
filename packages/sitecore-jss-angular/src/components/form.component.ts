@@ -55,7 +55,8 @@ export type FormRendering = {
     }
     @if (hasError) {
     <div class="sc-jss-placeholder-error">There was a problem loading this section</div>
-    } }
+        }
+    }
   `,
 })
 export class FormComponent implements OnInit, OnDestroy {
