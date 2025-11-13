@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { JssContextService } from './jss-context.service';
 import { JssContextServerSideService } from './jss-context.server-side.service';
 import { JssTranslationServerLoaderService } from './i18n/jss-translation-server-loader.service';
-import { JSS_SERVER_VIEWBAG } from './ViewBag';
+import { JSS_SERVER_VIEWBAG } from './src/app/injection-tokens';
 
 @NgModule({
   imports: [

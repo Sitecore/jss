@@ -5,8 +5,7 @@ import 'reflect-metadata';
 import 'zone.js';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { AppServerModule, renderModule } from './src/main.server';
-import { JSS_SERVER_LAYOUT_DATA } from './src/app/injection-tokens';
-import { JSS_SERVER_VIEWBAG } from './src/app/ViewBag';
+import { JSS_SERVER_LAYOUT_DATA, JSS_SERVER_VIEWBAG } from './src/app/injection-tokens';
 
 export * from './src/main.server';
 

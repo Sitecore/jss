@@ -5,14 +5,18 @@ import {
   Field,
   LayoutServiceContextData,
   getContentStylesheetLink,
-  PlaceholderComponent,
+  JssModule,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JssState } from '../../JssState';
 import { JssMetaService } from '../../jss-meta.service';
 import { JssLinkService } from '../../jss-link.service';
+import { NotFoundComponent } from '../not-found/not-found.component';
+import { ServerErrorComponent } from '../server-error/server-error.component';
+import { ScriptsComponent } from '../scripts/scripts.component';
 import { environment as env } from '../../../environments/environment';
+import { CommonModule } from '@angular/common';
 
 enum LayoutState {
   Layout,
@@ -28,7 +32,7 @@ interface RouteFields {
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  imports: [PlaceholderComponent],
+  imports: [CommonModule, JssModule, NotFoundComponent, ServerErrorComponent, ScriptsComponent],
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   route: RouteData<RouteFields>;
