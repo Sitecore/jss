@@ -1,7 +1,7 @@
-import { makeStateKey, TransferState, NgModule, PLATFORM_ID, Inject } from '@angular/core';
+import { makeStateKey, TransferState, NgModule, PLATFORM_ID, inject } from '@angular/core';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { InMemoryCache, NormalizedCacheObject, PossibleTypesMap } from '@apollo/client/core';
-import { Apollo, ApolloModule } from 'apollo-angular';
+import { Apollo, provideApollo } from 'apollo-angular';
 import { HttpBatchLink } from 'apollo-angular/http';
 import { isPlatformServer } from '@angular/common';
 import { environment } from '../environments/environment';
@@ -14,27 +14,72 @@ import { JssGraphQLService } from './jss-graphql.service';
   If this file does not exist, you may need to run the `jss graphql:update` script.
 */
 import introspectionQueryResultData from '../graphql-fragment-types';
+import { APOLLO_CACHE } from './injection-tokens';
 
 // SSR transfer state key to serialize + rehydrate apollo cache on client side
 // See https://www.apollographql.com/docs/angular/recipes/server-side-rendering.html
 const STATE_KEY = makeStateKey<NormalizedCacheObject>('apollo.state');
 
+const getGraphQLCache = () => {
+  const possibleTypes = {} as PossibleTypesMap;
+  introspectionQueryResultData.__schema.types.forEach((supertype) => {
+    possibleTypes[supertype.name] = supertype.possibleTypes.map((subtype) => subtype.name);
+  });
+  return new InMemoryCache({
+    possibleTypes,
+  });
+};
+
+const getApolloOptions = () => {
+  const httpLink = inject(HttpBatchLink);
+  const platformId = inject(PLATFORM_ID);
+  /*
+  QUERY LINK SELECTION
+  A link is transport which GraphQL queries are pushed across.
+  You have many choices.
+  See the apollo-link documentation for more details.
+*/
+
+  // set sc_apikey header which is required for any GraphQL calls
+  const sc_apikey = new HttpHeaders().set('sc_apikey', environment.sitecoreApiKey);
+
+  // choose between a basic HTTP link to run queries...
+  // import { createHttpLink } from 'apollo-angular-link-http';
+  // const link = createHttpLink({ uri: endpoint });
+
+  // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
+  const batchHttp = httpLink.create({
+    uri: environment.graphQLEndpoint,
+    headers: sc_apikey,
+  });
+
+  const cache = inject(APOLLO_CACHE);
+
+  return {
+    link: batchHttp,
+    cache,
+    ssrMode: isPlatformServer(platformId),
+    ssrForceFetchDelay: 100,
+  };
+}
+
 @NgModule({
   imports: [
-    ApolloModule,
     HttpClientModule, // provides HttpClient for HttpLink
   ],
-  providers: [JssGraphQLService],
+  providers: [
+    JssGraphQLService,
+    { provide: APOLLO_CACHE, useValue: getGraphQLCache() },
+    provideApollo(getApolloOptions),
+  ],
 })
 export class GraphQLModule {
-  constructor(
-    private readonly apollo: Apollo,
-    private readonly httpLink: HttpBatchLink,
-    private readonly transferState: TransferState,
-    @Inject(PLATFORM_ID) private readonly platformId: string
-  ) {
-    this.createApolloClient();
+  constructor() {
+    this.addCacheEvents();
   }
+
+  private readonly transferState = inject(TransferState);
+  apolloClient = inject(Apollo);
 
   onServer(cache: InMemoryCache) {
     this.transferState.onSerialize(STATE_KEY, () => cache.extract());
@@ -46,43 +91,8 @@ export class GraphQLModule {
     cache.restore(state);
   }
 
-  private createApolloClient(): void {
-    /*
-      QUERY LINK SELECTION
-      A link is transport which GraphQL queries are pushed across.
-      You have many choices.
-      See the apollo-link documentation for more details.
-    */
-
-    // set sc_apikey header which is required for any GraphQL calls
-    const sc_apikey = new HttpHeaders().set('sc_apikey', environment.sitecoreApiKey);
-
-    // choose between a basic HTTP link to run queries...
-    // import { createHttpLink } from 'apollo-angular-link-http';
-    // const link = createHttpLink({ uri: endpoint });
-
-    // ...or a batched link (multiple queries within 10ms all go in one HTTP request)
-    const batchHttp = this.httpLink.create({
-      uri: environment.graphQLEndpoint,
-      headers: sc_apikey,
-    });
-
-    const possibleTypes = {} as PossibleTypesMap;
-
-    introspectionQueryResultData.__schema.types.forEach((supertype) => {
-      possibleTypes[supertype.name] = supertype.possibleTypes.map((subtype) => subtype.name);
-    });
-
-    const cache = new InMemoryCache({
-      possibleTypes,
-    });
-
-    this.apollo.create({
-      link: batchHttp,
-      cache,
-      ssrMode: isPlatformServer(this.platformId),
-      ssrForceFetchDelay: 100,
-    });
+  private addCacheEvents(): void {
+    const cache = inject(APOLLO_CACHE);
 
     const isBrowser = this.transferState.hasKey(STATE_KEY);
 

@@ -22,6 +22,8 @@ import * as lazyLoadingData from '../test-data/lazy-loading/data';
       <img *scPlaceholderLoading src="loading.gif" />
     </sc-placeholder>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestPlaceholderComponent {
   @Input() rendering: ComponentRendering;
@@ -33,6 +35,8 @@ class TestPlaceholderComponent {
   template: `
     {{ rendering?.fields?.linkText?.value }}
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestDownloadCalloutComponent {
   @Input() rendering: ComponentRendering;
@@ -45,6 +49,8 @@ class TestDownloadCalloutComponent {
     <sc-placeholder name="page-header" [rendering]="rendering"></sc-placeholder>
     <sc-placeholder name="page-content" [rendering]="rendering"></sc-placeholder>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestHomeComponent {
   @Input() rendering: ComponentRendering;
@@ -53,6 +59,8 @@ class TestHomeComponent {
 @Component({
   selector: 'test-jumbotron',
   template: '',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestJumbotronComponent {}
 
@@ -326,6 +334,8 @@ describe('<sc-placeholder />', () => {
     ></sc-placeholder>
     {{ clickMessage }}
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestParentComponent {
   @Input() rendering: ComponentRendering;
@@ -352,6 +362,8 @@ class TestParentComponent {
     {{ childNumber() }}
     <button (click)="triggerEvent()">Button</button>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestChildComponent {
   @Input() childMessage: string;
@@ -493,6 +505,8 @@ describe('<sc-placeholder /> with input/output binding', () => {
       <img *scPlaceholderLoading src="loading.gif"
     /></sc-placeholder>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestLazyPlaceholderComponent {
   @Input() rendering: ComponentRendering;
@@ -502,6 +516,7 @@ class TestLazyPlaceholderComponent {
 
 @Injectable()
 class MockUrlTreeGuard implements JssCanActivate {
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private readonly router: Router) {}
 
   canActivate() {
@@ -511,6 +526,7 @@ class MockUrlTreeGuard implements JssCanActivate {
 
 @Injectable()
 class MockRedirectCommandGuard implements JssCanActivate {
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private readonly router: Router) {}
 
   canActivate() {
@@ -523,6 +539,8 @@ class MockRedirectCommandGuard implements JssCanActivate {
   template: `
     404
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class NotFoundComponent {}
 
@@ -536,6 +554,8 @@ class MockUnexpectedErrorGuard implements JssCanActivate {
 @Component({
   selector: 'test-jumbotron',
   template: '<h1>Our best offer to date</h1>',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 export class TestLazyJumbotronComponent {}
 
@@ -688,4 +708,600 @@ describe('<sc-placeholder /> with lazy loaded modules', () => {
       );
     });
   });
+});
+
+@Component({
+  selector: 'test-rich-text',
+  template: `
+    <ng-template #default>
+      <span class="default">Rich text</span>
+    </ng-template>
+
+    <ng-template #withTitle>
+      <div class="title" *scText="rendering.fields.Title"></div>
+      <div class="text" *scText="rendering.fields.Text"></div>
+    </ng-template>
+
+    <div class="rendering-variant {{ rendering.params.styles }}">
+      <ng-container [ngTemplateOutlet]="variant"></ng-container>
+    </div>
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
+})
+class TestRichTextComponent {
+  @Input() rendering: ComponentRendering;
+  @ViewChild('default', { static: true }) defaultVariant: TemplateRef<any>;
+  @ViewChild('withTitle', { static: true }) withTitleVariant: TemplateRef<any>;
+  public get variant(): TemplateRef<any> {
+    return this.rendering.params?.FieldNames === 'WithTitle'
+      ? this.withTitleVariant
+      : this.defaultVariant;
+  }
+}
+
+describe('SXA components', () => {
+  let fixture: ComponentFixture<TestPlaceholderComponent>;
+  let de: DebugElement;
+  let comp: TestPlaceholderComponent;
+
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TestPlaceholderComponent, TestRichTextComponent],
+        imports: [
+          RouterTestingModule,
+          JssModule.withComponents([{ name: 'RichText', type: TestRichTextComponent }]),
+        ],
+        providers: [JssStateService],
+      });
+
+      fixture = TestBed.createComponent(TestPlaceholderComponent);
+      de = fixture.debugElement;
+
+      comp = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
+
+  it(
+    'should render',
+    waitForAsync(async () => {
+      const component = sxaRenderingData.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const richText = de.query(By.directive(TestRichTextComponent));
+      expect(richText).not.toBeNull();
+      expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
+
+      const container = de.query(By.css('.rendering-variant'));
+      expect(container).not.toBeNull();
+      expect(container.attributes.class).toEqual(
+        'col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 rendering-variant test-css-class-x'
+      );
+
+      const title = de.query(By.css('.title'));
+      expect(title).not.toBeNull();
+      expect(title.nativeElement.innerHTML).toEqual('Rich Text Rendering Variant');
+
+      const text = de.query(By.css('.text'));
+      expect(text).not.toBeNull();
+      expect(text.nativeElement.innerHTML).toEqual('Test RichText');
+    })
+  );
+
+  it(
+    'should render another rendering variant',
+    waitForAsync(async () => {
+      const component = sxaRenderingData.sitecore.route;
+      const phKey = 'main-second';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const richText = de.query(By.directive(TestRichTextComponent));
+      expect(richText).not.toBeNull();
+      expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
+
+      const container = de.query(By.css('.rendering-variant'));
+      expect(container).not.toBeNull();
+      expect(container.attributes.class).toEqual(
+        'col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 rendering-variant test-css-class-y'
+      );
+
+      const span = de.query(By.css('.default'));
+      expect(span).not.toBeNull();
+      expect(span.nativeElement.innerHTML).toEqual('Rich text');
+    })
+  );
+
+  it(
+    'should render with container-{*} type dynamic placeholder',
+    waitForAsync(async () => {
+      const component = sxaRenderingDynamicPlaceholderData.sitecore.route;
+      const phKey = 'container-1';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const richText = de.query(By.directive(TestRichTextComponent));
+      expect(richText).not.toBeNull();
+      expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
+    })
+  );
+
+  it(
+    'should render with dynamic-1-{*} type dynamic placeholder',
+    waitForAsync(async () => {
+      const component = sxaRenderingDoubleDigitDynamicPlaceholderData.sitecore.route;
+      const phKey = 'dynamic-1-{*}';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const richText = de.query(By.directive(TestRichTextComponent));
+      expect(richText).not.toBeNull();
+      expect(richText.nativeElement.innerHTML).toContain('rendering-variant');
+    })
+  );
+});
+
+describe('Placeholder Metadata:', () => {
+  const {
+    layoutData,
+    layoutDataWithEmptyPlaceholder,
+    layoutDataWithUnknownComponent,
+  } = metadataData;
+
+  @Component({
+    selector: 'test-nest',
+    template: `
+      <div class="nested-test-wrapper">
+        <sc-placeholder name="logo" [rendering]="nestedRendering"></sc-placeholder>
+      </div>
+    `,
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
+    standalone: false,
+  })
+  class TestNestingComponent {
+    @Input() rendering: ComponentRendering;
+    nestedRendering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
+  }
+
+  @Component({
+    selector: 'logo',
+    template: `
+      <div class="Logo-deep"></div>
+    `,
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
+    standalone: false,
+  })
+  class LogoComponent {
+    @Input() rendering: ComponentRendering;
+  }
+
+  let fixture: ComponentFixture<TestPlaceholderComponent>;
+  let de: DebugElement;
+  let comp: TestPlaceholderComponent;
+
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TestNestingComponent, TestPlaceholderComponent, LogoComponent],
+        imports: [
+          RouterTestingModule,
+          JssModule.withComponents([
+            { name: 'Home', type: TestNestingComponent },
+            { name: 'Logo', type: LogoComponent },
+          ]),
+        ],
+        providers: [],
+      }).compileComponents();
+
+      fixture = TestBed.createComponent(TestPlaceholderComponent);
+      de = fixture.debugElement;
+
+      const jssContext = de.injector.get(JssStateService);
+      jssContext.setState(layoutData);
+      comp = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
+
+  it(
+    'should render code blocks around nested placeholder components with DEFAULT_PLACEHOLDER_UID',
+    waitForAsync(async () => {
+      const component = layoutData.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const renderedHTML = de.nativeElement.innerHTML;
+
+      const cleanedRenderedHTML = cleanHtml(renderedHTML);
+
+      const expectedHTML = [
+        '<sc-placeholder>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_00000000-0000-0000-0000-000000000000"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
+        '<test-nest>',
+        '<div class="nested-test-wrapper">',
+        '<sc-placeholder name="logo">',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>',
+        '<logo>',
+        '<div class="Logo-deep"></div>',
+        '</logo>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+        '</div>',
+        '</test-nest>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+      ].join('');
+
+      expect(cleanedRenderedHTML).toEqual(expectedHTML);
+    })
+  );
+
+  it(
+    'should render code blocks around nested placeholder components with provided placeholder ID',
+    waitForAsync(async () => {
+      const component = layoutData.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = { uid: '1234', ...((component as unknown) as ComponentRendering) };
+
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+
+      const renderedHTML = de.nativeElement.innerHTML;
+
+      const cleanedRenderedHTML = cleanHtml(renderedHTML);
+
+      const expectedHTML = [
+        '<sc-placeholder>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_1234"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
+        '<test-nest>',
+        '<div class="nested-test-wrapper">',
+        '<sc-placeholder name="logo">',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>',
+        '<logo>',
+        '<div class="Logo-deep"></div>',
+        '</logo>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+        '</div>',
+        '</test-nest>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+      ].join('');
+
+      expect(cleanedRenderedHTML).toEqual(expectedHTML);
+    })
+  );
+
+  it('should render code blocks even if placeholder is empty', () =>
+    waitForAsync(async () => {
+      const component = layoutDataWithEmptyPlaceholder.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      const elements = de.queryAll(By.css('code'));
+
+      expect(de.query(By.css('div.sc-jss-empty-placeholder'))).toBeDefined();
+
+      expect(elements.length).toBe(4);
+      const renderedHTML = de.nativeElement.innerHTML;
+
+      const cleanedRenderedHTML = cleanHtml(renderedHTML);
+
+      const expectedHTML = [
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_00000000-0000-0000-0000-000000000000"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+      ].join('');
+
+      expect(cleanedRenderedHTML).toEqual(expectedHTML);
+    }));
+
+  it(
+    'should render missing component with code blocks if component is not registered',
+    waitForAsync(async () => {
+      const component = layoutDataWithUnknownComponent.sitecore.route;
+      const phKey = 'main';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      expect(de.children.length).toBe(1);
+      const elements = de.queryAll(By.css('code'));
+
+      expect(elements.length).toBe(4);
+
+      const renderedHTML = de.nativeElement.innerHTML;
+      const cleanedRenderedHTML = cleanHtml(renderedHTML);
+
+      const expectedHTML = [
+        '<sc-placeholder>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="main_00000000-0000-0000-0000-000000000000"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
+        '<sc-missing-component><div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;"><h2>Unknown</h2><p>JSS component is missing Angular component implementation.</p></div></sc-missing-component>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+      ].join('');
+
+      expect(cleanedRenderedHTML).toEqual(expectedHTML);
+      expect(de.query(By.directive(MissingComponentComponent))).toBeDefined();
+    })
+  );
+});
+
+describe('Placeholder Metadata: dynamic placeholder:', () => {
+  const { layoutData, layoutDataForNestedDynamicPlaceholder } = metadataData;
+
+  @Component({
+    selector: 'test-nest',
+    template: `
+      <div class="nested-test-wrapper">
+        <sc-placeholder name="logo" [rendering]="nestedRendering"></sc-placeholder>
+      </div>
+    `,
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
+    standalone: false,
+  })
+  class TestNestingComponent {
+    @Input() rendering: ComponentRendering;
+    nestedRendering: ComponentRendering = layoutData.sitecore.route.placeholders.main[0];
+  }
+
+  @Component({
+    selector: 'logo',
+    template: `
+      <div class="Logo-deep"></div>
+    `,
+    // eslint-disable-next-line @angular-eslint/prefer-standalone
+    standalone: false,
+  })
+  class LogoComponent {
+    @Input() rendering: ComponentRendering;
+  }
+
+  let fixture: ComponentFixture<TestPlaceholderComponent>;
+  let de: DebugElement;
+  let comp: TestPlaceholderComponent;
+
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [TestNestingComponent, TestPlaceholderComponent, LogoComponent],
+        imports: [
+          RouterTestingModule,
+          JssModule.withComponents([
+            { name: 'Home', type: TestNestingComponent },
+            { name: 'Logo', type: LogoComponent },
+          ]),
+        ],
+        providers: [],
+      }).compileComponents();
+
+      fixture = TestBed.createComponent(TestPlaceholderComponent);
+      de = fixture.debugElement;
+      const jssContext = de.injector.get(JssStateService);
+      jssContext.setState(layoutData);
+      comp = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
+
+  it(
+    'should render code blocks with DEFAULT_PLACEHOLDER_UID value when dynamic placeholder is used and uid is not present',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-1';
+
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+      fixture.detectChanges();
+      // double await is needed for nested/deep placeholders to render all components. Just Angular things?
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(de.children.length).toBe(1);
+
+      const renderedHTML = de.nativeElement.innerHTML;
+
+      const cleanedRenderedHTML = cleanHtml(renderedHTML);
+
+      const expectedHTML = [
+        '<sc-placeholder>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="container-{*}_00000000-0000-0000-0000-000000000000"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
+        '<test-nest>',
+        '<div class="nested-test-wrapper">',
+        '<sc-placeholder name="logo">',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>',
+        '<logo>',
+        '<div class="Logo-deep"></div>',
+        '</logo>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+        '</div>',
+        '</test-nest>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+      ].join('');
+
+      expect(cleanedRenderedHTML).toEqual(expectedHTML);
+    })
+  );
+
+  it(
+    'should render code blocks with provided uid value when dynamic placeholder is used',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-1';
+
+      comp.name = phKey;
+      comp.rendering = { uid: '1234', ...((component as unknown) as ComponentRendering) };
+      fixture.detectChanges();
+      // double await is needed for nested/deep placeholders to render all components. Just Angular things?
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(de.children.length).toBe(1);
+      const elements = de.queryAll(By.css('code'));
+
+      expect(elements.length).toBe(8);
+
+      const renderedHTML = de.nativeElement.innerHTML;
+      const cleanedRenderedHTML = cleanHtml(renderedHTML);
+
+      const expectedHTML = [
+        '<sc-placeholder>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="container-{*}_1234"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
+        '<test-nest>',
+        '<div class="nested-test-wrapper">',
+        '<sc-placeholder name="logo">',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>',
+        '<logo>',
+        '<div class="Logo-deep"></div>',
+        '</logo>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+        '</div>',
+        '</test-nest>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+      ].join('');
+
+      expect(cleanedRenderedHTML).toEqual(expectedHTML);
+    })
+  );
+
+  it(
+    'should render code blocks double digit dynamic placeholder',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-1-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-1-2';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      // double await is needed for nested/deep placeholders to render all components
+      await fixture.whenStable();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(de.children.length).toBe(1);
+      const elements = de.queryAll(By.css('code'));
+
+      expect(elements.length).toBe(8);
+      const renderedHTML = de.nativeElement.innerHTML;
+      const cleanedRenderedHTML = cleanHtml(renderedHTML);
+
+      const expectedHTML = [
+        '<sc-placeholder>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="container-1-{*}_00000000-0000-0000-0000-000000000000"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="nested123"></code>',
+        '<test-nest>',
+        '<div class="nested-test-wrapper">',
+        '<sc-placeholder name="logo">',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="placeholder" id="logo_nested123"></code>',
+        '<code type="text/sitecore" class="scpm" kind="open" chrometype="rendering" id="deep123"></code>',
+        '<logo>',
+        '<div class="Logo-deep"></div>',
+        '</logo>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+        '</div>',
+        '</test-nest>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="rendering"></code>',
+        '<code type="text/sitecore" class="scpm" kind="close" chrometype="placeholder"></code>',
+        '</sc-placeholder>',
+      ].join('');
+
+      expect(cleanedRenderedHTML).toEqual(expectedHTML);
+    })
+  );
+
+  it(
+    'should retain correct name of dynamic placeholder',
+    waitForAsync(async () => {
+      const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
+      const component = layoutData.sitecore.route;
+      const phKey = 'container-2';
+      comp.name = phKey;
+      comp.rendering = (component as unknown) as ComponentRendering;
+
+      fixture.detectChanges();
+      await fixture.whenStable();
+      const placeholder = de.query(By.css('sc-placeholder')).componentInstance;
+      expect(Object.keys(placeholder?.rendering?.placeholders || [])).toEqual(['container-{*}']);
+    })
+  );
 });

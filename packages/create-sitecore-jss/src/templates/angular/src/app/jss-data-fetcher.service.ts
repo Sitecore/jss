@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { HttpResponse } from '@sitecore-jss/sitecore-jss-angular';
 import { Observable, lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class JssDataFetcherService {
-  constructor(
-    private readonly httpClient: HttpClient,
-  ) {
+  constructor() {
     this.fetch = this.fetch.bind(this);
   }
+
+  protected httpClient = inject(HttpClient);
 
   fetch<T>(url: string, data: unknown): Promise<HttpResponse<T>> {
     let result: Observable<T>;

@@ -20,6 +20,8 @@ const defaultFormattedDate = formatDate(testIsoDateValue, testFormat, testLocale
       *scDate="field; editable: editable; format: format; locale: locale; timezone: timezone"
     ></span>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: TextField;
@@ -29,6 +31,36 @@ class TestComponent {
   @Input() timezone = testTimezone;
 }
 
+const emptyDateFieldEditingTemplateId = 'emptyDateFieldEditingTemplate';
+const emptyDateFieldEditingTemplate =
+  '<span>[This is a *custom* empty field component for date]</span>';
+
+@Component({
+  selector: 'test-empty-template-date',
+  template: `
+    <span
+      *scDate="
+        field;
+        editable: editable;
+        emptyFieldEditingTemplate: ${emptyDateFieldEditingTemplateId}
+      "
+    ></span>
+    <ng-template #${emptyDateFieldEditingTemplateId}>
+      ${emptyDateFieldEditingTemplate}
+    </ng-template>
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
+})
+class TestEmptyTemplateComponent {
+  @Input() field: TextField;
+  @Input() editable = true;
+  @Input() format = testFormat;
+  @Input() locale = testLocale;
+  @Input() timezone = testTimezone;
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
+}
+
 describe('<span *scDate />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -36,7 +68,8 @@ describe('<span *scDate />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DateDirective, TestComponent],
+      imports: [DateDirective],
+      declarations: [TestComponent, TestEmptyTemplateComponent],
       providers: [DatePipe],
     });
 

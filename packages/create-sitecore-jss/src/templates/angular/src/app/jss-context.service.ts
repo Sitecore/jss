@@ -1,5 +1,5 @@
-import { Injectable, TransferState, makeStateKey } from '@angular/core';
-import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-angular';
+import { Injectable, TransferState, makeStateKey, inject } from '@angular/core';
+import { LayoutServiceData, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf, BehaviorSubject } from 'rxjs';
 import { JssState } from './JssState';
@@ -16,11 +16,16 @@ export const jssKey = makeStateKey<JssState>('jss');
 export class JssContextService {
   // components can subscribe to this (or use getValue()) to get access to latest data from Layout Service,
   // as well as current language and server route
-  state: BehaviorSubject<JssState>;
-
-  constructor(protected transferState: TransferState, protected layoutService: JssLayoutService) {
-    this.state = new BehaviorSubject<JssState>(new JssState());
+  get state() {
+    return this.stateService.state;
   }
+  get stateValue() {
+    return this.stateService.stateValue;
+  }
+
+  protected transferState = inject(TransferState);
+  protected layoutService = inject(JssLayoutService);
+  protected stateService = inject(JssStateService<JssState>);
 
   changeLanguage(language: string) {
     this.state.next({ ...this.state.value, language });
@@ -60,8 +65,8 @@ export class JssContextService {
     );
 
     // subscribe to it ourselves so we can maintain current state
-    jssState$.subscribe((jssState) => {
-      this.state.next(jssState);
+    jssState$.subscribe((jssState: JssState) => {
+      this.stateService.setState(jssState);
     });
 
     return jssState$;

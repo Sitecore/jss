@@ -15,6 +15,7 @@ import { Component, Input } from '@angular/core';
 export class LazyComponent {
   @Input() rendering: ComponentRendering;
 
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private mockService: MockService) {}
 
   getText() {

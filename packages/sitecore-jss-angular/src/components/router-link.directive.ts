@@ -1,11 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  Renderer2,
-  TemplateRef,
-  ViewContainerRef,
-} from '@angular/core';
+import { Directive, Input, TemplateRef, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
@@ -18,15 +11,13 @@ export class RouterLinkDirective extends LinkDirective {
 
   @Input('scRouterLink') declare field: LinkField;
 
-  constructor(
-    viewContainer: ViewContainerRef,
-    templateRef: TemplateRef<unknown>,
-    renderer: Renderer2,
-    elementRef: ElementRef,
-    private router: Router
-  ) {
-    super(viewContainer, templateRef, renderer, elementRef);
-  }
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scRouterLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
+    unknown
+  >;
+  private router = inject(Router);
 
   protected renderTemplate(props: { [prop: string]: string }, linkText: string) {
     const viewRef = this.viewContainer.createEmbeddedView(this.templateRef);

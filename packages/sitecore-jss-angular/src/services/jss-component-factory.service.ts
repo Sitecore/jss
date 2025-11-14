@@ -1,4 +1,4 @@
-import { createNgModule, Inject, Injectable, Injector, NgModuleRef, Type } from '@angular/core';
+import { createNgModule, Injectable, Injector, NgModuleRef, Type, inject } from '@angular/core';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import {
   ComponentNameAndModule,
@@ -30,12 +30,11 @@ export interface ComponentFactoryResult {
 export class JssComponentFactoryService {
   private componentMap: Map<string, ComponentNameAndType>;
   private lazyComponentMap: Map<string, ComponentNameAndModule>;
+  private injector = inject(Injector);
+  private components = inject<ComponentNameAndType[]>(PLACEHOLDER_COMPONENTS);
+  private lazyComponents = inject<ComponentNameAndModule[]>(PLACEHOLDER_LAZY_COMPONENTS);
 
-  constructor(
-    private injector: Injector,
-    @Inject(PLACEHOLDER_COMPONENTS) private components: ComponentNameAndType[],
-    @Inject(PLACEHOLDER_LAZY_COMPONENTS) private lazyComponents: ComponentNameAndModule[]
-  ) {
+  constructor() {
     this.componentMap = new Map();
     this.lazyComponentMap = new Map();
 

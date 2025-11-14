@@ -11,11 +11,42 @@ import { LinkField } from './rendering-field';
   template: `
     <a *scLink="field; editable: editable; attrs: attrs" id="my-link"></a>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
+}
+
+const emptyLinkFieldEditingTemplateId = 'emptyLinkFieldEditingTemplate';
+const emptyLinkFieldEditingTemplate = '<span>[This is a *custom* empty field template]</span>';
+const emptyLinkFieldEditingTemplateDefaultTestString =
+  '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>';
+
+@Component({
+  selector: 'test-empty-template-link',
+  template: `
+    <a
+      *scLink="
+        field;
+        editable: editable;
+        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
+      "
+    ></a>
+    <ng-template #${emptyLinkFieldEditingTemplateId}>
+      ${emptyLinkFieldEditingTemplate}
+    </ng-template>
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
+})
+class TestEmptyTemplateComponent {
+  @Input() field: LinkField;
+  @Input() editable = true;
+  @Input() attrs = {};
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
 }
 
 describe('<a *scLink />', () => {
@@ -25,7 +56,8 @@ describe('<a *scLink />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LinkDirective, TestComponent],
+      imports: [LinkDirective],
+      declarations: [TestComponent, TestEmptyTemplateComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -227,11 +259,40 @@ describe('<a *scLink />', () => {
       ><span *ngIf="true">hello world</span></a
     >
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithChildrenComponent {
   @Input() field: LinkField;
   @Input() editable = true;
   @Input() attrs = {};
+}
+
+@Component({
+  selector: 'test-empty-template-link',
+  template: `
+    <a
+      *scLink="
+        field;
+        editable: editable;
+        attrs: attrs;
+        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
+      "
+      id="my-link"
+      ><span *ngIf="true">hello world</span></a
+    >
+    <ng-template #${emptyLinkFieldEditingTemplateId}>
+      ${emptyLinkFieldEditingTemplate}
+    </ng-template>
+  `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
+})
+class TestEmptyTemplateWithChildrenComponent {
+  @Input() field: LinkField;
+  @Input() editable = true;
+  @Input() attrs = {};
+  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
 }
 
 describe('<a *scLink>children</a>', () => {
@@ -241,7 +302,8 @@ describe('<a *scLink>children</a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LinkDirective, TestWithChildrenComponent],
+      imports: [LinkDirective],
+      declarations: [TestWithChildrenComponent, TestEmptyTemplateWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);
@@ -347,6 +409,8 @@ describe('<a *scLink>children</a>', () => {
   template: `
     <a *scLink="field" class="initialClass" id="my-link"></a>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithClassComponent {
   @Input() field: any;
@@ -360,7 +424,8 @@ describe('<a *scLink class="class"></a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LinkDirective, TestWithClassComponent],
+      imports: [LinkDirective],
+      declarations: [TestWithClassComponent],
     });
 
     fixture = TestBed.createComponent(TestWithClassComponent);

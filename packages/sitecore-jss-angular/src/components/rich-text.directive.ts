@@ -5,8 +5,9 @@ import {
   OnChanges,
   SimpleChanges,
   TemplateRef,
-  ViewContainerRef,
   Renderer2,
+  Type,
+  inject,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss/utils';
@@ -20,14 +21,18 @@ export class RichTextDirective implements OnChanges {
 
   @Input('scRichText') field: RichTextField;
 
-  private viewRef: EmbeddedViewRef<unknown>;
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scRichTextEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
-  constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<unknown>,
-    private renderer: Renderer2,
-    private router: Router
-  ) {}
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
+  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyFieldEditingComponent;
+  private templateRef = inject(TemplateRef);
+  private renderer = inject(Renderer2);
+  private router = inject(Router);
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable) {

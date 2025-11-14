@@ -1,6 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { JssContextService } from '../../jss-context.service';
+import { JssContextService } from '../../../jss-context.service';
+import { JssState } from '../../../JssState';
 
 let emittedVI = false;
 
@@ -13,7 +15,14 @@ let emittedVI = false;
  */
 @Component({
   selector: 'app-visitor-identification',
-  template: `<meta *ngIf="visitorIdentificationTimestamp" name="VIcurrentDateTime" [content]="visitorIdentificationTimestamp" />`,
+  template: `
+    <meta
+      *ngIf="visitorIdentificationTimestamp"
+      name="VIcurrentDateTime"
+      [content]="visitorIdentificationTimestamp"
+    />
+  `,
+  imports: [CommonModule]
 })
 export class VisitorIdentificationComponent implements OnInit, OnDestroy {
   visitorIdentificationTimestamp: number;
@@ -21,10 +30,10 @@ export class VisitorIdentificationComponent implements OnInit, OnDestroy {
   private contextSubscription: Subscription;
 
   // inject the JssContextService, which maintains the current Sitecore Context
-  constructor(private jssContext: JssContextService) { }
+  private jssContext = inject(JssContextService);
 
   ngOnInit() {
-    this.contextSubscription = this.jssContext.state.subscribe((state) => {
+    this.contextSubscription = this.jssContext.state.subscribe((state: JssState) => {
       if (state.sitecore && state.sitecore.context) {
         if (
           !emittedVI &&

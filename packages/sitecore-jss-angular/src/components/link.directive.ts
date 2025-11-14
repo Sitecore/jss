@@ -6,7 +6,8 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
-  ViewContainerRef,
+  Type,
+  inject,
 } from '@angular/core';
 import { LinkField } from './rendering-field';
 
@@ -18,14 +19,20 @@ export class LinkDirective implements OnChanges {
 
   @Input('scLink') field: LinkField;
 
-  private inlineRef: HTMLSpanElement | null = null;
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scLinkEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
-  constructor(
-    protected viewContainer: ViewContainerRef,
-    protected templateRef: TemplateRef<unknown>,
-    protected renderer: Renderer2,
-    private elementRef: ElementRef
-  ) {}
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
+  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyFieldEditingComponent;
+  protected templateRef = inject(TemplateRef);
+  protected renderer = inject(Renderer2);
+
+  private inlineRef: HTMLSpanElement | null = null;
+  private elementRef = inject(ElementRef);
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.attrs) {

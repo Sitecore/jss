@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ComponentRendering, getFieldValue } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of a Number (decimal) content field within JSS.
@@ -7,6 +8,7 @@ import { ComponentRendering, getFieldValue } from '@sitecore-jss/sitecore-jss-an
 @Component({
   selector: 'app-styleguide-field-usage-number',
   templateUrl: './styleguide-field-usage-number.component.html',
+  imports: [StyleguideSpecimenComponent]
 })
 export class StyleguideFieldUsageNumberComponent implements OnInit {
   @Input() rendering: ComponentRendering;

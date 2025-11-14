@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 
 function dasherize(str: string) {
   return str.replace(/[A-Z](?:(?=[^A-Z])|[A-Z]*(?=[A-Z][^A-Z]|$))/g, function(s, i) {
@@ -24,15 +24,14 @@ function dasherize(str: string) {
     </p>
     <div class="border p-2"><ng-content></ng-content></div>
   </div>
-  `
+  `,
+  imports: [JssModule]
 })
 export class StyleguideSpecimenComponent implements OnInit {
   @Input() rendering: ComponentRendering;
   @Input() e2eId: string;
   id: string;
   componentName: string;
-
-  constructor() { }
 
   ngOnInit() {
     this.id = `i${this.rendering.uid.replace(/[{}]/g, '')}`;

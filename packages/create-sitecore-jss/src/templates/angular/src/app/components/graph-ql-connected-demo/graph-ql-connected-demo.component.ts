@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { DocumentNode } from 'graphql';
 import { JssGraphQLService } from '../../jss-graphql.service';
 import { ApolloQueryResult } from '@apollo/client/core';
@@ -14,6 +15,7 @@ const ComponentQuery: DocumentNode = require('graphql-tag/loader!./graph-ql-conn
 @Component({
   selector: 'app-graph-ql-connected-demo',
   templateUrl: './graph-ql-connected-demo.component.html',
+  imports: [CommonModule, JssModule]
 })
 export class GraphQLConnectedDemoComponent implements OnInit {
   @Input() rendering: ComponentRendering;
@@ -22,7 +24,7 @@ export class GraphQLConnectedDemoComponent implements OnInit {
   // inject the JssGraphQLService to make GraphQL queries
   // note that it's possible to use Apollo directly, but the JSS
   // service provides automatic GraphQL variables and SSR assistance.
-  constructor(private graphQLService: JssGraphQLService) {}
+  private graphQLService = inject(JssGraphQLService);
 
   ngOnInit(): void {
     // the query result is an Rx Observable, so any observable patterns

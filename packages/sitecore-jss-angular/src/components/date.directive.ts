@@ -6,7 +6,8 @@ import {
   OnChanges,
   SimpleChanges,
   TemplateRef,
-  ViewContainerRef,
+  Type,
+  inject,
 } from '@angular/core';
 import { DateField } from './rendering-field';
 
@@ -24,13 +25,17 @@ export class DateDirective implements OnChanges {
 
   @Input('scDate') field: DateField;
 
-  private viewRef: EmbeddedViewRef<unknown>;
+  /**
+   * Custom template to render in Pages in Metadata edit mode if field value is empty
+   */
+  @Input('scDateEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
-  constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<unknown>,
-    private datePipe: DatePipe
-  ) {}
+  /**
+   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
+   */
+  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyFieldEditingComponent;
+  private templateRef = inject(TemplateRef);
+  private datePipe = inject(DatePipe);
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.format) {

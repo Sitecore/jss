@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 @Component({
   selector: 'app-styleguide-component-params',
   templateUrl: './styleguide-component-params.component.html',
+  imports: [StyleguideSpecimenComponent]
 })
 export class StyleguideComponentParamsComponent implements OnInit {
   @Input() rendering: ComponentRendering;
@@ -12,8 +14,6 @@ export class StyleguideComponentParamsComponent implements OnInit {
   useCtaType: string;
   columns: number;
   columnsArray: number[];
-
-  constructor() { }
 
   ngOnInit() {
     this.cssClass = this.rendering.params.cssClass;

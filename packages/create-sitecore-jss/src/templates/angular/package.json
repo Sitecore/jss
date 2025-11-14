@@ -15,6 +15,7 @@
   },
   "scripts": {
     "ng": "ng",
+<<<<<<< HEAD
     "lint:yml": "ts-node ./scripts/lint-yml.ts",
     "lint": "ng lint <%- appName %> --fix && npm run lint:yml",
     "e2e": "ng e2e",
@@ -27,6 +28,16 @@
     "start:proxy": "ts-node --project src/tsconfig.webpack-server.json scripts/disconnected-mode-proxy.ts",
     "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch",
     "build:client": "cross-env-shell ng build --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
+=======
+    "lint": "ng lint <%- appName %> --fix",
+    "jss": "jss",
+    "start:connected": "npm-run-all --serial bootstrap start:angular start:watch-components",
+    "build": "npm-run-all --serial bootstrap build:client build:server",
+    "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component --no-manifest",
+    "start:angular": "ng serve -o",
+    "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory/index.ts --watch",
+    "build:client": "cross-env-shell ng build --configuration=production --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
+>>>>>>> b1ad7d16b4 ([angular][sitecore-jss-angular] Upgrade to version 20 (#2157))
     "build:server": "cross-env-shell ng run <%- appName %>:server:production --output-path=$npm_package_config_buildArtifactsPath",
     "postbuild:server": "move-cli ./dist/main.js ./dist/server.bundle.js",
     "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
@@ -48,6 +59,7 @@
   "homepage": "https://jss.sitecore.com",
   "license": "Apache-2.0",
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "~18.2.13",
     "@angular/common": "~18.2.13",
     "@angular/compiler": "~18.2.13",
@@ -102,13 +114,67 @@
     "dotenv": "^16.0.0",
     "dotenv-webpack": "^7.1.0",
     "enhanced-resolve": "5.7.0",
+=======
+    "@angular/animations": "~20.3.10",
+    "@angular/common": "~20.3.10",
+    "@angular/compiler": "~20.3.10",
+    "@angular/core": "~20.3.10",
+    "@angular/forms": "~20.3.10",
+    "@angular/platform-browser": "~20.3.10",
+    "@angular/platform-browser-dynamic": "~20.3.10",
+    "@angular/platform-server": "~20.3.10",
+    "@angular/router": "~20.3.10",
+    "@apollo/client": "^3.12.9",
+    "@ngx-translate/core": "~15.0.0",
+    "@ngx-translate/http-loader": "~8.0.0",
+    "@sitecore-jss/sitecore-jss-angular": "<%- version %>",
+    "apollo-angular": "~11.0.0",
+    "bootstrap": "^5.3.3",
+    "core-js": "~3.45.0",
+    "graphql": "~16.11.0",
+    "graphql-tag": "~2.11.0",
+    "rxjs": "~7.8.2",
+    "tslib": "^2.8.1",
+    "zone.js": "~0.15.0",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^20.0.0",
+    "@angular-devkit/build-angular": "^20.3.9",
+    "@angular-eslint/builder": "^20.5.1",
+    "@angular-eslint/eslint-plugin": "^20.5.1",
+    "@angular-eslint/eslint-plugin-template": "^20.5.1",
+    "@angular-eslint/schematics": "^20.5.1",
+    "@angular-eslint/template-parser": "^20.5.1",
+    "@angular/cli": "~20.3.9",
+    "@angular/compiler-cli": "~20.3.10",
+    "@angular/language-service": "~20.3.10",
+    "@sitecore-jss/sitecore-jss-angular-schematics": "<%- version %>",
+    "@sitecore-jss/sitecore-jss-cli": "<%- version %>",
+    "@sitecore-jss/sitecore-jss-dev-tools": "<%- version %>",
+    "@types/jasmine": "~3.6.7",
+    "@types/node": "~22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "chalk": "~4.1.0",
+    "chokidar": "^4.0.3",
+    "codelyzer": "~6.0.1",
+    "constant-case": "^3.0.4",
+    "cross-env": "~7.0.3",
+    "del-cli": "^5.0.0",
+    "dotenv": "^17.2.1",
+    "dotenv-webpack": "^8.1.1",
+>>>>>>> b1ad7d16b4 ([angular][sitecore-jss-angular] Upgrade to version 20 (#2157))
     "eslint": "^8.56.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-jsdoc": "48.7.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
+<<<<<<< HEAD
     "express": "~4.17.1",
     "fs-extra": "~9.1.0",
     "isomorphic-fetch": "^3.0.0",
+=======
+>>>>>>> b1ad7d16b4 ([angular][sitecore-jss-angular] Upgrade to version 20 (#2157))
     "jasmine-core": "~3.7.1",
     "jasmine-spec-reporter": "~6.0.0",
     "karma": "^6.3.2",
@@ -118,10 +184,21 @@
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "~1.5.4",
     "move-cli": "^2.0.0",
+<<<<<<< HEAD
     "npm-run-all": "~4.1.5",
     "protractor": "^7.0.0",
     "ts-node": "~10.9.2",
     "typescript": "~5.4.0",
     "yaml-lint": "^1.2.4"
+=======
+    "npm-run-all2": "^7.0.1",
+    "ts-node": "~10.9.2",
+    "typescript": "~5.8.0"
+  },
+  "overrides": {
+    "request": {
+      "form-data": "^2.5.5"
+    }
+>>>>>>> b1ad7d16b4 ([angular][sitecore-jss-angular] Upgrade to version 20 (#2157))
   }
 }

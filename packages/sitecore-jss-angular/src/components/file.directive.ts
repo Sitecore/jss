@@ -6,6 +6,7 @@ import {
   SimpleChanges,
   TemplateRef,
   ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { FileField } from './rendering-field';
 
@@ -17,8 +18,8 @@ export class FileDirective implements OnChanges {
   @Input('scFile') field: FileField;
 
   private viewRef: EmbeddedViewRef<unknown>;
-
-  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {}
+  private viewContainer = inject(ViewContainerRef);
+  private templateRef = inject(TemplateRef);
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.field) {

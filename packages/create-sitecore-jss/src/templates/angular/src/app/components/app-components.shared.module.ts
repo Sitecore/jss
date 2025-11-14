@@ -20,15 +20,13 @@ import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
     RouterModule,
     JssModule,
     FormsModule,
+    StyleguideSpecimenComponent
   ],
   exports: [
     CommonModule,
     TranslateModule,
     RouterModule,
     FormsModule,
-    StyleguideSpecimenComponent
-  ],
-  declarations: [
     StyleguideSpecimenComponent
   ],
 })

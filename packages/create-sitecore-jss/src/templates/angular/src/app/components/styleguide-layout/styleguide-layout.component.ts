@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ComponentRendering, getFieldValue } from '@sitecore-jss/sitecore-jss-angular';
-import { getChildPlaceholder } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, getFieldValue, getChildPlaceholder, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 
 interface StyleguideNavigationData {
   heading: string;
@@ -19,12 +18,11 @@ interface StyleguideNavigationData {
 @Component({
   selector: 'app-styleguide-layout',
   templateUrl: './styleguide-layout.component.html',
+  imports: [JssModule]
 })
 export class StyleguideLayoutComponent implements OnInit {
   @Input() rendering: ComponentRendering;
   navigation: StyleguideNavigationData[];
-
-  constructor() {}
 
   ngOnInit() {
     // this code reads the components in the child placeholders of this component,
