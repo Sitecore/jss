@@ -23,7 +23,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[angular]` `[sitecore-jss-angular]` Upgrade to Angular v20:
+* `[angular]` `[sitecore-jss-angular]` Upgrade to Angular v20 ([#2157](https://github.com/Sitecore/jss/pull/2157)[#2160](https://github.com/Sitecore/jss/pull/2160)):
   * Components adjusted to be standalone
   * Update `apollo-angular` to version 11 to be compatible with Angular v20 compatibility
   * Replace the deprecated `ngIf`, `ngFor` directive usage with `@if` and `@for`
