@@ -20,6 +20,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Preserve default locale in external absolute urls ([#2142](https://github.com/Sitecore/jss/pull/2142))
 * `[React]` Custom properties are not applied to empty field in editing metadata mode ([#2141](https://github.com/Sitecore/jss/pull/2141))
 * `[sitecore-jss-nextjs]` Add regex variable substitution for absolute and external URL redirects. ([#2159](https://github.com/Sitecore/jss/pull/2159))
+* `[sitecore-jss-react]` Disable React Suspense in the Placeholder component for Editing. ([#2161](https://github.com/Sitecore/jss/pull/2161))
 
 ### 🛠 Breaking Changes
 
