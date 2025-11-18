@@ -2,15 +2,13 @@
 import { Injectable, TransferState } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
 import { of as observableOf, EMPTY } from 'rxjs';
+import { ViewBag } from '../ViewBag';
 
 @Injectable()
 export class JssTranslationServerLoaderService implements TranslateLoader {
   constructor(
     // this initial state from sitecore is injected by server.bundle for "integrated" mode
-    protected serverViewBag: {
-      [key: string]: unknown;
-      dictionary: { [key: string]: string };
-    },
+    protected serverViewBag: ViewBag,
     protected transferState: TransferState
   ) {}
 
