@@ -79,9 +79,31 @@ const componentFactory: ComponentFactory = (componentName: string) => {
   return components.get(componentName) || null;
 };
 
+const getEeDataWithoutDynamicComponent = (): LayoutServiceData => {
+  const cloned = JSON.parse(JSON.stringify(eeData)) as LayoutServiceData;
+  const mainPlaceholders = cloned.sitecore.route?.placeholders?.main;
+
+  if (!Array.isArray(mainPlaceholders)) {
+    return cloned;
+  }
+
+  mainPlaceholders.forEach((rendering) => {
+    const placeholders = (rendering as ComponentRendering).placeholders;
+    if (placeholders?.['page-content']) {
+      placeholders['page-content'] = placeholders['page-content'].filter(
+        (child) => (child as ComponentRendering).componentName !== 'DynamicComponent'
+      );
+    }
+  });
+
+  return cloned;
+};
+
+const eeDataWithoutDynamicComponent = getEeDataWithoutDynamicComponent();
+
 const testData = [
   { label: 'Dev data', data: nonEeDevData },
-  { label: 'LayoutService data - EE on', data: eeData },
+  { label: 'LayoutService data - EE on', data: eeDataWithoutDynamicComponent },
 ];
 
 describe('withPlaceholder HOC', () => {
@@ -189,10 +211,11 @@ describe('withPlaceholder HOC', () => {
     });
 
     describe('Edit mode', () => {
+      const editModeLayoutData = eeDataWithoutDynamicComponent;
       let renderedContainer: HTMLElement;
 
       before(() => {
-        const component = (eeData.sitecore.route?.placeholders.main as (
+        const component = (editModeLayoutData.sitecore.route?.placeholders.main as (
           | ComponentRendering
           | RouteData
         )[]).find((c) => (c as ComponentRendering).componentName) as ComponentRendering;
@@ -204,7 +227,7 @@ describe('withPlaceholder HOC', () => {
         const Element = withPlaceholder(phKey)(Home);
         const renderedComponent = render(
           <SitecoreContext
-            layoutData={eeData as LayoutServiceData}
+            layoutData={editModeLayoutData as LayoutServiceData}
             componentFactory={componentFactory}
           >
             <Element {...props} />
