@@ -6,7 +6,7 @@
 
 # ~~Class: SearchQueryService\<T\>~~
 
-Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:87](https://github.com/Sitecore/jss/blob/b1ad7d16b4e96b3f5ff055f00b9a2c8a72ba6b85/packages/sitecore-jss/src/graphql/search-service.ts#L87)
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:87](https://github.com/Sitecore/jss/blob/795167d8b0d1148debd3f4bb1d52fda751bd355c/packages/sitecore-jss/src/graphql/search-service.ts#L87)
 
 ## Deprecated
 
@@ -28,7 +28,7 @@ This class is meant to be extended or used as a mixin; it's not meant to be used
 
 > **new SearchQueryService**\<`T`\>(`client`): `SearchQueryService`\<`T`\>
 
-Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/b1ad7d16b4e96b3f5ff055f00b9a2c8a72ba6b85/packages/sitecore-jss/src/graphql/search-service.ts#L92)
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/795167d8b0d1148debd3f4bb1d52fda751bd355c/packages/sitecore-jss/src/graphql/search-service.ts#L92)
 
 Creates an instance of search query service.
 
@@ -48,7 +48,7 @@ Creates an instance of search query service.
 
 > `protected` **client**: [`GraphQLClient`](../../index/interfaces/GraphQLClient.md)
 
-Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/b1ad7d16b4e96b3f5ff055f00b9a2c8a72ba6b85/packages/sitecore-jss/src/graphql/search-service.ts#L92)
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:92](https://github.com/Sitecore/jss/blob/795167d8b0d1148debd3f4bb1d52fda751bd355c/packages/sitecore-jss/src/graphql/search-service.ts#L92)
 
 that fetches data from a GraphQL endpoint.
 
@@ -58,7 +58,7 @@ that fetches data from a GraphQL endpoint.
 
 > **fetch**(`query`, `args`): `Promise`\<`T`[]\>
 
-Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:105](https://github.com/Sitecore/jss/blob/b1ad7d16b4e96b3f5ff055f00b9a2c8a72ba6b85/packages/sitecore-jss/src/graphql/search-service.ts#L105)
+Defined in: [packages/sitecore-jss/src/graphql/search-service.ts:105](https://github.com/Sitecore/jss/blob/795167d8b0d1148debd3f4bb1d52fda751bd355c/packages/sitecore-jss/src/graphql/search-service.ts#L105)
 
 1. Validates mandatory search query arguments
 2. Executes search query with pagination
