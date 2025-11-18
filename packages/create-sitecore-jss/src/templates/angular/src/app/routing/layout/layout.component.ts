@@ -8,7 +8,6 @@ import { JssState } from '../../JssState';
 import { JssMetaService } from '../../jss-meta.service';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { ServerErrorComponent } from '../server-error/server-error.component';
-import { ScriptsComponent } from '../scripts/scripts.component';
 import { NavigationComponent } from '../navigation/navigation.component';
 
 enum LayoutState {
@@ -25,7 +24,7 @@ interface RouteFields {
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  imports: [CommonModule, JssModule, NotFoundComponent, ServerErrorComponent, ScriptsComponent, NavigationComponent]
+  imports: [CommonModule, JssModule, NotFoundComponent, ServerErrorComponent, NavigationComponent]
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   route: RouteData<RouteFields>;

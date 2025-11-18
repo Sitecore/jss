@@ -30,7 +30,7 @@ export class ImageDirective implements OnChanges {
   @Input('scImageUrlParams') urlParams: { [param: string]: string | number } = {};
 
   @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
-  
+
   private inlineRef: HTMLSpanElement | null = null;
   private viewContainer = inject(ViewContainerRef);
   private templateRef = inject(TemplateRef);

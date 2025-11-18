@@ -4,7 +4,6 @@ import { JssState } from './JssState';
 import { Observable, of as observableOf } from 'rxjs';
 import { JssDataFetcherService } from './jss-data-fetcher.service';
 import { JssLayoutService } from './layout/jss-layout.service';
-import { JssStateService } from '@sitecore-jss/sitecore-jss-angular';
 import { JSS_SERVER_LAYOUT_DATA } from './injection-tokens';
 
 /**
@@ -16,8 +15,8 @@ import { JSS_SERVER_LAYOUT_DATA } from './injection-tokens';
 export class JssContextServerSideService extends JssContextService {
   protected transferState = inject(TransferState);
   protected layoutService = inject(JssLayoutService);
+  protected dataFetcher = inject(JssDataFetcherService);
   // this initial state from sitecore is injected by server.bundle for "integrated" mode
-  protected stateService = inject(JssStateService<JssState>);
   protected serverToSsrState = inject(JSS_SERVER_LAYOUT_DATA);
 
   changeRoute(_route: string, _language: string): Observable<JssState> {

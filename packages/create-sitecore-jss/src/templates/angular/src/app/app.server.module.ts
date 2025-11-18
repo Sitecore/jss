@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
 import { JssContextService } from './jss-context.service';
 import { JssContextServerSideService } from './jss-context.server-side.service';
 import { JssTranslationServerLoaderService } from './i18n/jss-translation-server-loader.service';
-import { JSS_SERVER_VIEWBAG } from './src/app/injection-tokens';
+import { JSS_SERVER_VIEWBAG } from './injection-tokens';
 import { ViewBag } from './ViewBag';
 
 @NgModule({
@@ -21,10 +20,9 @@ import { ViewBag } from './ViewBag';
       loader: {
         provide: TranslateLoader,
         useFactory: (
-          ssrViewBag: ViewBag,
-          transferState: TransferState
-        ) => new JssTranslationServerLoaderService(ssrViewBag, transferState),
-        deps: [JSS_SERVER_VIEWBAG, TransferState],
+          ssrViewBag: ViewBag
+        ) => new JssTranslationServerLoaderService(ssrViewBag),
+        deps: [JSS_SERVER_VIEWBAG],
       },
     }),
   ],

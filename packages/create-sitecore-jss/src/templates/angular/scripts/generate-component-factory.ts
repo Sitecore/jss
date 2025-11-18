@@ -152,13 +152,11 @@ ${imports.join('\n')}
     ], [
       ${lazyRegistrations.join('\n      ')}
     ]),
+    ${declarations.join('\n    ')}
   ],
   exports: [
     JssModule,
     AppComponentsSharedModule,
-  ],
-  declarations: [
-    ${declarations.join('\n    ')}
   ],
 })
 export class AppComponentsModule { }

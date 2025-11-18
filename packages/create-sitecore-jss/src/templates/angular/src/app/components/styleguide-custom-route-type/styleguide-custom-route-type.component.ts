@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { JssContextService } from '../../jss-context.service';
-import { ComponentRendering, JssModule, LayoutServiceData } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 
 @Component({
   selector: 'app-styleguide-custom-route-type',
@@ -16,7 +16,7 @@ export class StyleguideCustomRouteTypeComponent implements OnInit, OnDestroy {
   private jssContext = inject(JssContextService);
 
   ngOnInit() {
-    this.contextSubscription = this.jssContext.state.subscribe((state: LayoutServiceData) => {
+    this.contextSubscription = this.jssContext.state.subscribe((state) => {
       this.contextFields = state.sitecore.route.fields;
     });
   }

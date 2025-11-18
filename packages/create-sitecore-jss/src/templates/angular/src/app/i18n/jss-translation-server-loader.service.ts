@@ -1,16 +1,20 @@
 /* eslint-disable @angular-eslint/prefer-inject */
-import { Injectable, TransferState } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
 import { of as observableOf, EMPTY } from 'rxjs';
 import { ViewBag } from '../ViewBag';
+import { JSS_SERVER_VIEWBAG } from '../injection-tokens';
 
 @Injectable()
 export class JssTranslationServerLoaderService implements TranslateLoader {
   constructor(
     // this initial state from sitecore is injected by server.bundle for "integrated" mode
     protected serverViewBag: ViewBag,
-    protected transferState: TransferState
-  ) {}
+  ) {
+    if(!this.serverViewBag) {
+      this.serverViewBag = inject(JSS_SERVER_VIEWBAG);
+    }
+  }
 
   getTranslation(_lang: string) {
     // read initial dictionary from data injected via server.bundle wrapper

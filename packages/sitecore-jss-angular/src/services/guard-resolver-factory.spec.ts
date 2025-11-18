@@ -76,6 +76,7 @@ class MockRedirectCommandGuard implements JssCanActivate {
 
 @Injectable()
 class MockUrlTreeGuard implements JssCanActivate {
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private readonly router: Router) {}
 
   canActivate() {

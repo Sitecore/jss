@@ -1,11 +1,5 @@
-import {
-  Directive,
-  Input,
-  Renderer2,
-  TemplateRef,
-  ViewContainerRef,
-  inject,
-} from '@angular/core';import { Router } from '@angular/router';
+import { Directive, Input, Renderer2, TemplateRef, ViewContainerRef, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
 

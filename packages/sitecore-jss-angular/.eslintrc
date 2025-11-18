@@ -1,7 +1,10 @@
 {
+  "plugins": [
+    "@stylistic/ts"
+  ],
   "extends": [
     "plugin:@angular-eslint/recommended",
     "../../.eslintrc",
-    "../../eslint-configs/typescript"
+    "./typescript"
 	]
 }
