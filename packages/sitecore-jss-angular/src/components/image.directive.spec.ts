@@ -45,36 +45,6 @@ class AnotherTestComponent {
   @Input() mediaUrlPrefix?: RegExp;
 }
 
-const emptyImageFieldEditingTemplateId = 'emptyImageFieldEditingTemplate';
-const emptyImageFieldEditingTemplate = '<img src="" alt="Empty image">';
-const emptyImageFieldEditingTemplateDefaultTestString =
-  'M174,54c7.17,0,13,5.83,13,13s-5.83,13-13,13s-13-5.83-13-13S166.83,54,174,54 M174,52 c-8.28,0-15,6.72-15,15s6.72,15,15,15s15-6.72,15-15S182.28,52,174,52L174,52z';
-
-@Component({
-  selector: 'test-empty-template-image',
-  template: `
-    <img
-      class="some"
-      id="another"
-      *scImage="
-        field;
-        editable: editable;
-        emptyFieldEditingTemplate: ${emptyImageFieldEditingTemplateId}
-      "
-    />
-    <ng-template #${emptyImageFieldEditingTemplateId}>
-      ${emptyImageFieldEditingTemplate}
-    </ng-template>
-  `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
-})
-class TestEmptyTemplateComponent {
-  @Input() field: ImageField;
-  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
-  @Input() editable = true;
-}
-
 describe('<img *scImage />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -83,7 +53,7 @@ describe('<img *scImage />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ImageDirective],
-      declarations: [TestComponent, AnotherTestComponent, TestEmptyTemplateComponent],
+      declarations: [TestComponent, AnotherTestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

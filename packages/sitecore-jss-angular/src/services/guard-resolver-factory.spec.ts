@@ -65,19 +65,6 @@ class MockInjectableGuard implements JssCanActivate {
 }
 
 @Injectable()
-<<<<<<< HEAD
-=======
-class MockUrlTreeGuard implements JssCanActivate {
-  // eslint-disable-next-line @angular-eslint/prefer-inject
-  constructor(private readonly router: Router) {}
-
-  canActivate() {
-    return this.router.parseUrl('/404');
-  }
-}
-
-@Injectable()
->>>>>>> b1ad7d16b4 ([angular][sitecore-jss-angular] Upgrade to version 20 (#2157))
 class MockRedirectCommandGuard implements JssCanActivate {
   // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private readonly router: Router) {}

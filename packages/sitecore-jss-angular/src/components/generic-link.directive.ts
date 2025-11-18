@@ -1,4 +1,4 @@
-import { Directive, Input, TemplateRef, inject } from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef, inject } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { isAbsoluteUrl } from '@sitecore-jss/sitecore-jss/utils';
 import { LinkDirective } from './link.directive';
@@ -14,13 +14,13 @@ export class GenericLinkDirective extends LinkDirective {
 
   @Input('scGenericLinkExtras') extras?: NavigationExtras;
 
-
   /**
    * Custom template to render in Pages in Metadata edit mode if field value is empty
    */
   @Input('scGenericLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
     unknown
   >;
+  viewContainer = inject(ViewContainerRef);
   private router = inject(Router);
 
   protected renderTemplate(props: { [key: string]: string }, linkText: string) {

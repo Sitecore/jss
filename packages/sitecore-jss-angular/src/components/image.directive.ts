@@ -6,7 +6,7 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
-  Type,
+  ViewContainerRef,
   inject,
 } from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
@@ -30,17 +30,9 @@ export class ImageDirective implements OnChanges {
   @Input('scImageUrlParams') urlParams: { [param: string]: string | number } = {};
 
   @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
-  /**
-   * Custom template to render in Pages in Metadata edit mode if field value is empty
-   */
-  @Input('scImageEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
-
-  /**
-   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
-   */
-  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyImageFieldEditingComponent;
-
+  
   private inlineRef: HTMLSpanElement | null = null;
+  private viewContainer = inject(ViewContainerRef);
   private templateRef = inject(TemplateRef);
   private renderer = inject(Renderer2);
   private elementRef = inject(ElementRef);

@@ -27,41 +27,6 @@ class TestComponent {
   @Input() extras = {};
 }
 
-
-const emptyLinkFieldEditingTemplateId = 'emptyLinkFieldEditingTemplate';
-const emptyLinkFieldEditingTemplate = '<span>[This is a *custom* empty field template]</span>';
-const emptyLinkFieldEditingTemplateDefaultTestString =
-  '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>';
-
-@Component({
-  selector: 'test-empty-template-generic-link',
-  template: `
-    <a
-      *scGenericLink="
-        field;
-        editable: editable;
-        attrs: attrs;
-        extras: extras;
-        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
-      "
-      class="external-css-class"
-      id="my-link"
-    ></a>
-    <ng-template #${emptyLinkFieldEditingTemplateId}>
-      ${emptyLinkFieldEditingTemplate}
-    </ng-template>
-  `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
-})
-class TestEmptyTemplateComponent {
-  @Input() field: LinkField;
-  @Input() editable = true;
-  @Input() attrs = {};
-  @Input() extras = {};
-  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
-}
-
 describe('<a *scGenericLink />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -70,7 +35,7 @@ describe('<a *scGenericLink />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [GenericLinkDirective, RouterTestingModule],
-      declarations: [TestComponent, TestEmptyTemplateComponent],
+      declarations: [TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -229,35 +194,6 @@ class TestWithChildrenComponent {
   @Input() extras = {};
 }
 
-@Component({
-  selector: 'test-empty-template-generic-link',
-  template: `
-    <a
-      *scGenericLink="
-        field;
-        editable: editable;
-        attrs: attrs;
-        extras: extras;
-        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
-      "
-      id="my-link"
-      ><span *ngIf="true">hello world</span></a
-    >
-    <ng-template #${emptyLinkFieldEditingTemplateId}>
-      ${emptyLinkFieldEditingTemplate}
-    </ng-template>
-  `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
-})
-class TestEmptyTemplateWithChildrenComponent {
-  @Input() field: LinkField;
-  @Input() editable = true;
-  @Input() attrs = {};
-  @Input() extras = {};
-  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
-}
-
 describe('<a *scGenericLink>children</a>', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -266,7 +202,7 @@ describe('<a *scGenericLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [GenericLinkDirective, RouterTestingModule],
-      declarations: [TestWithChildrenComponent, TestEmptyTemplateWithChildrenComponent],
+      declarations: [TestWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);

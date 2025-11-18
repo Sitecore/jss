@@ -20,35 +20,6 @@ class TestComponent {
   @Input() attrs = {};
 }
 
-const emptyLinkFieldEditingTemplateId = 'emptyLinkFieldEditingTemplate';
-const emptyLinkFieldEditingTemplate = '<span>[This is a *custom* empty field template]</span>';
-const emptyLinkFieldEditingTemplateDefaultTestString =
-  '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>';
-
-@Component({
-  selector: 'test-empty-template-link',
-  template: `
-    <a
-      *scLink="
-        field;
-        editable: editable;
-        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
-      "
-    ></a>
-    <ng-template #${emptyLinkFieldEditingTemplateId}>
-      ${emptyLinkFieldEditingTemplate}
-    </ng-template>
-  `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
-})
-class TestEmptyTemplateComponent {
-  @Input() field: LinkField;
-  @Input() editable = true;
-  @Input() attrs = {};
-  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
-}
-
 describe('<a *scLink />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -57,7 +28,7 @@ describe('<a *scLink />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [LinkDirective],
-      declarations: [TestComponent, TestEmptyTemplateComponent],
+      declarations: [TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -268,33 +239,6 @@ class TestWithChildrenComponent {
   @Input() attrs = {};
 }
 
-@Component({
-  selector: 'test-empty-template-link',
-  template: `
-    <a
-      *scLink="
-        field;
-        editable: editable;
-        attrs: attrs;
-        emptyFieldEditingTemplate: ${emptyLinkFieldEditingTemplateId}
-      "
-      id="my-link"
-      ><span *ngIf="true">hello world</span></a
-    >
-    <ng-template #${emptyLinkFieldEditingTemplateId}>
-      ${emptyLinkFieldEditingTemplate}
-    </ng-template>
-  `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
-})
-class TestEmptyTemplateWithChildrenComponent {
-  @Input() field: LinkField;
-  @Input() editable = true;
-  @Input() attrs = {};
-  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
-}
-
 describe('<a *scLink>children</a>', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -303,7 +247,7 @@ describe('<a *scLink>children</a>', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [LinkDirective],
-      declarations: [TestWithChildrenComponent, TestEmptyTemplateWithChildrenComponent],
+      declarations: [TestWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);

@@ -20,36 +20,6 @@ class TestComponent {
   @Input() encode = true;
 }
 
-const emptyTextFieldEditingTemplateId = 'emptyTextFieldEditingTemplate';
-const emptyTextFieldEditingTemplate =
-  '<span>[This is a *custom* empty field component for text]</span>';
-
-@Component({
-  selector: 'test-empty-template-text',
-  template: `
-    <span
-      *scText="
-        field;
-        editable: editable;
-        encode: encode;
-        emptyFieldEditingTemplate: ${emptyTextFieldEditingTemplateId}
-      "
-    ></span>
-
-    <ng-template #${emptyTextFieldEditingTemplateId}>
-      ${emptyTextFieldEditingTemplate}
-    </ng-template>
-  `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
-})
-class TestEmptyTemplateComponent {
-  @Input() field: TextField;
-  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
-  @Input() editable = true;
-  @Input() encode = true;
-}
-
 describe('<span *scText />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -58,7 +28,7 @@ describe('<span *scText />', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [TextDirective],
-      declarations: [TestComponent, TestEmptyTemplateComponent],
+      declarations: [TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

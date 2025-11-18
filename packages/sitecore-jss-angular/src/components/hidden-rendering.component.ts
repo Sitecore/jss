@@ -1,7 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
 @Component({
   selector: 'sc-hidden-rendering',
-  template: '',
+  template: 'The component is hidden',
 })
 export class HiddenRenderingComponent {
   @HostBinding('style') get style() {

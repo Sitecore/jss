@@ -6,7 +6,7 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
-  Type,
+  ViewContainerRef,
   inject,
 } from '@angular/core';
 import { LinkField } from './rendering-field';
@@ -24,10 +24,7 @@ export class LinkDirective implements OnChanges {
    */
   @Input('scLinkEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
 
-  /**
-   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
-   */
-  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyFieldEditingComponent;
+  viewContainer = inject(ViewContainerRef);
   protected templateRef = inject(TemplateRef);
   protected renderer = inject(Renderer2);
 

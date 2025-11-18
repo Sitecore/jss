@@ -21,33 +21,6 @@ class TestComponent {
   @Input() editable = true;
 }
 
-const emptyTextFieldEditingTemplateId = 'emptyTextFieldEditingTemplate';
-const emptyTextFieldEditingTemplate =
-  '<span>[This is a *custom* empty field component for text]</span>';
-
-@Component({
-  selector: 'test-empty-template-rich-text',
-  template: `
-    <h1
-      *scRichText="
-        field;
-        editable: editable;
-        emptyFieldEditingTemplate: ${emptyTextFieldEditingTemplateId}
-      "
-    ></h1>
-    <ng-template #${emptyTextFieldEditingTemplateId}>
-      ${emptyTextFieldEditingTemplate}
-    </ng-template>
-  `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
-})
-class TestEmptyTemplateComponent {
-  @Input() field: RichTextField;
-  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
-  @Input() editable = true;
-}
-
 describe('<div *scRichText />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -59,7 +32,7 @@ describe('<div *scRichText />', () => {
         RichTextDirective,
         RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }]),
       ],
-      declarations: [TestComponent, TestEmptyTemplateComponent],
+      declarations: [TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

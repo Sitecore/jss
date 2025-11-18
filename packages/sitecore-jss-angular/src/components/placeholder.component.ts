@@ -62,22 +62,9 @@ export interface FactoryWithData {
 @Component({
   selector: 'sc-placeholder,[sc-placeholder]',
   template: `
-    @if (isLoading) {
-    <ng-template [ngTemplateOutlet]="placeholderLoading?.templateRef"></ng-template>
-    }
     <ng-template
-      #metadataCodeBlock
-      let-kind="kind"
-      let-type="chromeType"
-      let-renderingId="renderingId"
-    >
-      <code
-        [attr.kind]="kind"
-        type="text/sitecore"
-        [attr.chrometype]="type"
-        class="scpm"
-        [attr.id]="getCodeBlockId(kind, renderingId)"
-      ></code
+      *ngIf="isLoading"
+      [ngTemplateOutlet]="placeholderLoading?.templateRef"
     ></ng-template>
     <ng-template #view></ng-template>
   `,
@@ -92,22 +79,17 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
   @Output() loaded = new EventEmitter<string | undefined>();
   @Output() failed = new EventEmitter<Error>();
-
   @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
   @ContentChild(PlaceholderLoadingDirective, { static: true })
   placeholderLoading?: PlaceholderLoadingDirective;
-
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
-
   public isLoading = true;
-
   private _inputs: { [key: string]: unknown };
   private _differ: KeyValueDiffer<string, unknown>;
   private _componentInstances: { [prop: string]: unknown }[] = [];
   private destroyed = false;
   private parentStyleAttribute = '';
-  private contextSubscription: Subscription;
   private differs = inject(KeyValueDiffers);
   private componentFactory = inject(JssComponentFactoryService);
   private changeDetectorRef = inject(ChangeDetectorRef);
@@ -121,13 +103,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
   private guardResolver = inject(GUARD_RESOLVER);
   private dataResolver = inject(DATA_RESOLVER);
   private platformId = inject<object>(PLATFORM_ID);
-  private jssState = inject(JssStateService);
-
-  constructor() {
-    this.contextSubscription = this.jssState.state.subscribe(({ sitecore }) => {
-      this.metadataMode = sitecore?.context.editMode === EditMode.Metadata;
-    });
-  }
 
   @Input()
   set inputs(value: { [key: string]: unknown }) {
@@ -226,7 +201,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
 
     const placeholder = this.renderings || getPlaceholder(this.rendering, this.name || '');
-
     if (!placeholder) {
       console.warn(
         `Placeholder '${this.name}' was not found in the current rendering data`,
@@ -248,7 +222,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       this.isLoading = false;
     } else {
       const factories = await this.componentFactory.getComponents(placeholder);
-
       try {
         const nonGuarded = await this.guardResolver(factories);
         const withData = await this.dataResolver(nonGuarded);
@@ -268,7 +241,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         this.isLoading = false;
         if (e instanceof JssCanActivateRedirectError) {
           const redirectValue = e.redirectValue;
-
           if (redirectValue instanceof RedirectCommand) {
             this.router.navigateByUrl(redirectValue.redirectTo);
           } else if (redirectValue instanceof UrlTree) {
