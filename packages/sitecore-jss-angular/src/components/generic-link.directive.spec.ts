@@ -17,6 +17,8 @@ import { LinkField } from './rendering-field';
       id="my-link"
     ></a>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: LinkField;
@@ -32,8 +34,8 @@ describe('<a *scGenericLink />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GenericLinkDirective, TestComponent],
-      imports: [RouterTestingModule],
+      imports: [GenericLinkDirective, RouterTestingModule],
+      declarations: [TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -182,6 +184,8 @@ describe('<a *scGenericLink />', () => {
       ><span *ngIf="true">hello world</span></a
     >
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithChildrenComponent {
   @Input() field: LinkField;
@@ -197,8 +201,8 @@ describe('<a *scGenericLink>children</a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GenericLinkDirective, TestWithChildrenComponent],
-      imports: [RouterTestingModule],
+      imports: [GenericLinkDirective, RouterTestingModule],
+      declarations: [TestWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);
@@ -240,8 +244,11 @@ describe('<a *scGenericLink></a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GenericLinkDirective, TestComponent],
-      imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
+      imports: [
+        GenericLinkDirective,
+        RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }]),
+      ],
+      declarations: [TestComponent],
     });
 
     router = TestBed.inject(Router);

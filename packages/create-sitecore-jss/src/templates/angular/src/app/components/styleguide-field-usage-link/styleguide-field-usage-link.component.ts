@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of a General Link (hyperlink) content field within JSS.
@@ -7,6 +8,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 @Component({
   selector: 'app-styleguide-field-usage-link',
   templateUrl: './styleguide-field-usage-link.component.html',
+  imports: [JssModule, StyleguideSpecimenComponent]
 })
 export class StyleguideFieldUsageLinkComponent {
   @Input() rendering: ComponentRendering;

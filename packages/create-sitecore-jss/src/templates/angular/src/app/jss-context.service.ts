@@ -1,4 +1,4 @@
-import { Injectable, TransferState, makeStateKey } from '@angular/core';
+import { Injectable, TransferState, makeStateKey, inject } from '@angular/core';
 import { LayoutServiceData } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf, BehaviorSubject } from 'rxjs';
@@ -18,9 +18,12 @@ export class JssContextService {
   // as well as current language and server route
   state: BehaviorSubject<JssState>;
 
-  constructor(protected transferState: TransferState, protected layoutService: JssLayoutService) {
+  constructor() {
     this.state = new BehaviorSubject<JssState>(new JssState());
   }
+
+  protected transferState = inject(TransferState);
+  protected layoutService = inject(JssLayoutService);
 
   changeLanguage(language: string) {
     this.state.next({ ...this.state.value, language });

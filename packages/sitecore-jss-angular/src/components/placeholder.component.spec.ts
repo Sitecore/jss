@@ -22,6 +22,8 @@ import * as lazyLoadingData from '../test-data/lazy-loading/data';
       <img *scPlaceholderLoading src="loading.gif" />
     </sc-placeholder>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestPlaceholderComponent {
   @Input() rendering: ComponentRendering;
@@ -33,6 +35,8 @@ class TestPlaceholderComponent {
   template: `
     {{ rendering?.fields?.linkText?.value }}
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestDownloadCalloutComponent {
   @Input() rendering: ComponentRendering;
@@ -45,6 +49,8 @@ class TestDownloadCalloutComponent {
     <sc-placeholder name="page-header" [rendering]="rendering"></sc-placeholder>
     <sc-placeholder name="page-content" [rendering]="rendering"></sc-placeholder>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestHomeComponent {
   @Input() rendering: ComponentRendering;
@@ -53,6 +59,8 @@ class TestHomeComponent {
 @Component({
   selector: 'test-jumbotron',
   template: '',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestJumbotronComponent {}
 
@@ -326,6 +334,8 @@ describe('<sc-placeholder />', () => {
     ></sc-placeholder>
     {{ clickMessage }}
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestParentComponent {
   @Input() rendering: ComponentRendering;
@@ -352,6 +362,8 @@ class TestParentComponent {
     {{ childNumber() }}
     <button (click)="triggerEvent()">Button</button>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestChildComponent {
   @Input() childMessage: string;
@@ -493,6 +505,8 @@ describe('<sc-placeholder /> with input/output binding', () => {
       <img *scPlaceholderLoading src="loading.gif"
     /></sc-placeholder>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestLazyPlaceholderComponent {
   @Input() rendering: ComponentRendering;
@@ -502,6 +516,7 @@ class TestLazyPlaceholderComponent {
 
 @Injectable()
 class MockUrlTreeGuard implements JssCanActivate {
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private readonly router: Router) {}
 
   canActivate() {
@@ -511,6 +526,7 @@ class MockUrlTreeGuard implements JssCanActivate {
 
 @Injectable()
 class MockRedirectCommandGuard implements JssCanActivate {
+  // eslint-disable-next-line @angular-eslint/prefer-inject
   constructor(private readonly router: Router) {}
 
   canActivate() {
@@ -523,6 +539,8 @@ class MockRedirectCommandGuard implements JssCanActivate {
   template: `
     404
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class NotFoundComponent {}
 
@@ -536,6 +554,8 @@ class MockUnexpectedErrorGuard implements JssCanActivate {
 @Component({
   selector: 'test-jumbotron',
   template: '<h1>Our best offer to date</h1>',
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 export class TestLazyJumbotronComponent {}
 

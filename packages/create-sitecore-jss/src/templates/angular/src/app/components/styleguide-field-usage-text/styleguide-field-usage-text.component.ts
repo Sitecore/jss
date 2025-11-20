@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ComponentRendering, getFieldValue } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, getFieldValue, JssModule } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of a Text content field within JSS.
@@ -8,6 +9,7 @@ import { ComponentRendering, getFieldValue } from '@sitecore-jss/sitecore-jss-an
 @Component({
   selector: 'app-styleguide-field-usage-text',
   templateUrl: './styleguide-field-usage-text.component.html',
+  imports: [JssModule, StyleguideSpecimenComponent]
 })
 export class StyleguideFieldUsageTextComponent implements OnInit {
   @Input() rendering: ComponentRendering;

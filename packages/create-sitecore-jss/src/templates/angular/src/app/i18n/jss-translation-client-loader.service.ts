@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/prefer-inject */
 import { makeStateKey, Injectable } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
 import { EMPTY } from 'rxjs';

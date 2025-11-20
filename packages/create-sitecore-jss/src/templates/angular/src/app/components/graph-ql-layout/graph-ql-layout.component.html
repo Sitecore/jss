@@ -1,5 +1,5 @@
 <div data-e2e-id="graphql-layout">
-  <ng-container *ngIf="disconnectedMode">
+  @if (disconnectedMode) {
     <p>
       This app is running in disconnected mode. GraphQL requires connected mode, headless connected
       mode, or integrated mode to work.
@@ -12,11 +12,10 @@
       To view the GraphQL samples, restart the app using <code>jss start:connected</code>&nbsp; or
       deploy the app to Sitecore to run in integrated mode per the JSS documentation.
     </p>
-  </ng-container>
-  <ng-container *ngIf="!disconnectedMode">
+  } @else {
     <sc-placeholder
       name="<%- helper.getAppPrefix(appPrefix, appName) %>jss-graphql-layout"
       [rendering]="rendering"
     ></sc-placeholder>
-  </ng-container>
+  }
 </div>

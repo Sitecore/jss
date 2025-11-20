@@ -6,6 +6,7 @@ import {
   SimpleChanges,
   TemplateRef,
   ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { TextField } from './rendering-field';
 
@@ -21,7 +22,9 @@ export class TextDirective implements OnChanges {
 
   private viewRef: EmbeddedViewRef<unknown>;
 
-  constructor(private viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {}
+  private templateRef = inject(TemplateRef);
+
+  private viewContainer = inject(ViewContainerRef);
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.encode) {

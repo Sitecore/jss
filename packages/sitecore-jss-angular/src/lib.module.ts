@@ -34,13 +34,14 @@ import { TextDirective } from './components/text.directive';
 import { JssComponentFactoryService } from './services/jss-component-factory.service';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [
+  imports: [
+    CommonModule,
     FileDirective,
     ImageDirective,
     LinkDirective,
     RouterLinkDirective,
     GenericLinkDirective,
+    TextDirective,
     DateDirective,
     RenderEachDirective,
     RenderEmptyDirective,
@@ -49,7 +50,6 @@ import { JssComponentFactoryService } from './services/jss-component-factory.ser
     PlaceholderComponent,
     RawComponent,
     RichTextDirective,
-    TextDirective,
     MissingComponentComponent,
     HiddenRenderingComponent,
     EditFrameComponent,

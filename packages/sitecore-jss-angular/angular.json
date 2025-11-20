@@ -12,7 +12,6 @@
           "build": {            
             "builder": "@angular-devkit/build-angular:ng-packagr",
             "options": {
-              "main": "./src/public_api.ts",
               "project": "./ng-package.json"
             },
             "configurations": {

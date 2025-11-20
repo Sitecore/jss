@@ -16,6 +16,8 @@ import { LinkField } from './rendering-field';
       id="my-link"
     ></a>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: LinkField;
@@ -30,8 +32,8 @@ describe('<a *scRouterLink />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RouterLinkDirective, TestComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterLinkDirective, RouterTestingModule],
+      declarations: [TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -182,6 +184,8 @@ describe('<a *scRouterLink />', () => {
       ><span *ngIf="true">hello world</span></a
     >
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithChildrenComponent {
   @Input() field: LinkField;
@@ -196,8 +200,8 @@ describe('<a *scRouterLink>children</a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RouterLinkDirective, TestWithChildrenComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterLinkDirective, RouterTestingModule],
+      declarations: [TestWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);

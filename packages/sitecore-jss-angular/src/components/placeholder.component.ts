@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/no-conflicting-lifecycle */
-import { isPlatformServer } from '@angular/common';
+import { CommonModule, isPlatformServer } from '@angular/common';
 import {
   ChangeDetectorRef,
   Component,
@@ -7,7 +7,6 @@ import {
   DoCheck,
   ElementRef,
   EventEmitter,
-  Inject,
   Input,
   KeyValueDiffer,
   KeyValueDiffers,
@@ -21,6 +20,7 @@ import {
   Type,
   ViewChild,
   ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { Data, RedirectCommand, Router, UrlTree } from '@angular/router';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
@@ -32,9 +32,7 @@ import {
   JssComponentFactoryService,
 } from '../services/jss-component-factory.service';
 import {
-  DataResolver,
   DATA_RESOLVER,
-  GuardResolver,
   GUARD_RESOLVER,
   PLACEHOLDER_HIDDEN_RENDERING_COMPONENT,
   PLACEHOLDER_MISSING_COMPONENT_COMPONENT,
@@ -70,6 +68,7 @@ export interface FactoryWithData {
     ></ng-template>
     <ng-template #view></ng-template>
   `,
+  imports: [CommonModule],
 })
 export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
   @Input() name?: string;
@@ -80,37 +79,30 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
 
   @Output() loaded = new EventEmitter<string | undefined>();
   @Output() failed = new EventEmitter<Error>();
-
   @ContentChild(RenderEachDirective, { static: true }) renderEachTemplate: RenderEachDirective;
   @ContentChild(RenderEmptyDirective, { static: true }) renderEmptyTemplate: RenderEmptyDirective;
   @ContentChild(PlaceholderLoadingDirective, { static: true })
   placeholderLoading?: PlaceholderLoadingDirective;
-
   @ViewChild('view', { read: ViewContainerRef, static: true }) private view: ViewContainerRef;
-
   public isLoading = true;
-
   private _inputs: { [key: string]: unknown };
   private _differ: KeyValueDiffer<string, unknown>;
   private _componentInstances: { [prop: string]: unknown }[] = [];
   private destroyed = false;
   private parentStyleAttribute = '';
-
-  constructor(
-    private differs: KeyValueDiffers,
-    private componentFactory: JssComponentFactoryService,
-    private changeDetectorRef: ChangeDetectorRef,
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
-    private router: Router,
-    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
-    private missingComponentComponent: Type<unknown>,
-    @Inject(PLACEHOLDER_HIDDEN_RENDERING_COMPONENT) private hiddenRenderingComponent: Type<unknown>,
-    @Inject(GUARD_RESOLVER) private guardResolver: GuardResolver,
-    @Inject(DATA_RESOLVER) private dataResolver: DataResolver,
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  private differs = inject(KeyValueDiffers);
+  private componentFactory = inject(JssComponentFactoryService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
+  private elementRef = inject(ElementRef);
+  private renderer = inject(Renderer2);
+  private router = inject(Router);
+  private missingComponentComponent = inject<Type<unknown>>(
+    PLACEHOLDER_MISSING_COMPONENT_COMPONENT
+  );
+  private hiddenRenderingComponent = inject<Type<unknown>>(PLACEHOLDER_HIDDEN_RENDERING_COMPONENT);
+  private guardResolver = inject(GUARD_RESOLVER);
+  private dataResolver = inject(DATA_RESOLVER);
+  private platformId = inject<object>(PLATFORM_ID);
 
   @Input()
   set inputs(value: { [key: string]: unknown }) {
@@ -209,7 +201,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
     }
 
     const placeholder = this.renderings || getPlaceholder(this.rendering, this.name || '');
-
     if (!placeholder) {
       console.warn(
         `Placeholder '${this.name}' was not found in the current rendering data`,
@@ -231,7 +222,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
       this.isLoading = false;
     } else {
       const factories = await this.componentFactory.getComponents(placeholder);
-
       try {
         const nonGuarded = await this.guardResolver(factories);
         const withData = await this.dataResolver(nonGuarded);
@@ -251,7 +241,6 @@ export class PlaceholderComponent implements OnInit, OnChanges, DoCheck, OnDestr
         this.isLoading = false;
         if (e instanceof JssCanActivateRedirectError) {
           const redirectValue = e.redirectValue;
-
           if (redirectValue instanceof RedirectCommand) {
             this.router.navigateByUrl(redirectValue.redirectTo);
           } else if (redirectValue instanceof UrlTree) {

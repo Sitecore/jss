@@ -7,6 +7,7 @@ import {
   SimpleChanges,
   TemplateRef,
   ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { ImageField, ImageFieldValue } from './rendering-field';
@@ -31,13 +32,10 @@ export class ImageDirective implements OnChanges {
   @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
 
   private inlineRef: HTMLSpanElement | null = null;
-
-  constructor(
-    private viewContainer: ViewContainerRef,
-    private templateRef: TemplateRef<unknown>,
-    private renderer: Renderer2,
-    private elementRef: ElementRef
-  ) {}
+  private viewContainer = inject(ViewContainerRef);
+  private templateRef = inject(TemplateRef);
+  private renderer = inject(Renderer2);
+  private elementRef = inject(ElementRef);
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.urlParams || changes.attrs) {

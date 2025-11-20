@@ -13,6 +13,8 @@ import { RichTextDirective } from './rich-text.directive';
   template: `
     <h1 *scRichText="field; editable: editable"></h1>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: RichTextField;
@@ -26,8 +28,11 @@ describe('<div *scRichText />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RichTextDirective, TestComponent],
-      imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
+      imports: [
+        RichTextDirective,
+        RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }]),
+      ],
+      declarations: [TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

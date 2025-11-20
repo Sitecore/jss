@@ -14,6 +14,9 @@ import { JssDataFetcherService } from './jss-data-fetcher.service';
 import { JssMetaService } from './jss-meta.service';
 
 @NgModule({
+  declarations: [
+    AppComponent,
+  ],
   imports: [
     HttpClientModule,
     GraphQLModule,
@@ -38,7 +41,6 @@ import { JssMetaService } from './jss-meta.service';
     // the Sitecore Experience Editor will not work correctly when a base tag is used.
     { provide: APP_BASE_HREF, useValue: '/' },
   ],
-  declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
