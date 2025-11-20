@@ -18,6 +18,8 @@ Our versioning strategy is as follows:
   * Update `apollo-angular` to version 11 to be compatible with Angular v20 compatibility
   * Replace the deprecated `ngIf`, `ngFor` directive usage with `@if` and `@for`
   * Update the inject logic for DI
+  * NodeJS version must be updated to v20
+  * Typescript version updated to v 5.8.0
 
 ## 21.10.1
 
