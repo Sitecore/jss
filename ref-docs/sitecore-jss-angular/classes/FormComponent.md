@@ -6,7 +6,7 @@
 
 # Class: FormComponent
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:49](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss-angular/src/components/form.component.ts#L49)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:49](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/form.component.ts#L49)
 
 A component that renders a Sitecore Form.
 It fetches the form markup from the Sitecore Edge service and renders it in the component's template.
@@ -32,7 +32,7 @@ It fetches the form markup from the Sitecore Edge service and renders it in the 
 
 > **hasError**: `boolean` = `false`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:55](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss-angular/src/components/form.component.ts#L55)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:55](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/form.component.ts#L55)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:55](
 
 > **isEditing**: `boolean` = `false`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:57](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss-angular/src/components/form.component.ts#L57)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:57](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/form.component.ts#L57)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:57](
 
 > **rendering**: `FormRendering`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:53](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss-angular/src/components/form.component.ts#L53)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:53](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/form.component.ts#L53)
 
 The rendering data for the component
 
@@ -58,7 +58,7 @@ The rendering data for the component
 
 > **loadForm**(): `Promise`\<`void`\>
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:84](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss-angular/src/components/form.component.ts#L84)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:84](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/form.component.ts#L84)
 
 Fetches the form markup from the Sitecore Edge service and renders it in the component's template.
 
@@ -72,7 +72,7 @@ Fetches the form markup from the Sitecore Edge service and renders it in the com
 
 > **ngOnDestroy**(): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:75](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss-angular/src/components/form.component.ts#L75)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:75](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/form.component.ts#L75)
 
 A callback method that performs custom clean-up, invoked immediately
 before a directive, pipe, or service instance is destroyed.
@@ -91,7 +91,7 @@ before a directive, pipe, or service instance is destroyed.
 
 > **ngOnInit**(): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:65](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss-angular/src/components/form.component.ts#L65)
+Defined in: [packages/sitecore-jss-angular/src/components/form.component.ts:65](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/form.component.ts#L65)
 
 A callback method that is invoked immediately after the
 default change detector has checked the directive's

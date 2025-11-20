@@ -6,7 +6,7 @@
 
 # Abstract Class: DictionaryServiceBase
 
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:24](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss/src/i18n/dictionary-service.ts#L24)
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:24](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/i18n/dictionary-service.ts#L24)
 
 Base implementation of
 
@@ -30,7 +30,7 @@ DictionaryService that handles caching dictionary values
 
 > **new DictionaryServiceBase**(`options`): `DictionaryServiceBase`
 
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 Initializes a new instance of
 
@@ -55,7 +55,7 @@ Initializes a new instance of
 
 > **options**: [`CacheOptions`](../../index/interfaces/CacheOptions.md)
 
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 Configuration options
 
@@ -65,7 +65,7 @@ Configuration options
 
 > `abstract` **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
 
 Fetch dictionary data for a language.
 
@@ -89,7 +89,7 @@ Fetch dictionary data for a language.
 
 > `protected` **getCacheClient**(): [`CacheClient`](../../index/interfaces/CacheClient.md)\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -107,7 +107,7 @@ implementation
 
 > **getCacheValue**(`key`): `null` \| [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 Retrieves a
 
@@ -138,7 +138,7 @@ The
 
 > **setCacheValue**(`key`, `value`): [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
 
 Caches a
 

@@ -8,7 +8,7 @@
 
 > **isRawRendering**(`rendering`): `rendering is HtmlElementRendering`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/bdf8ec325f8d33b6469ce485cbfa2e2ed895ca39/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering.ts:6](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/rendering.ts#L6)
 
 ## Parameters
 
