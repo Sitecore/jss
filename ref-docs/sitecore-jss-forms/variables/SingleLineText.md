@@ -8,4 +8,4 @@
 
 > `const` **SingleLineText**: `React.FunctionComponent`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`StringInputViewModel`\>\>
 
-Defined in: [src/components/field-templates/single-line-text.tsx:7](https://github.com/Sitecore/jss/blob/43354186b95820421382c0b05ae2cd132f31fcb2/packages/sitecore-jss-react-forms/src/components/field-templates/single-line-text.tsx#L7)
+Defined in: [src/components/field-templates/single-line-text.tsx:7](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-react-forms/src/components/field-templates/single-line-text.tsx#L7)
