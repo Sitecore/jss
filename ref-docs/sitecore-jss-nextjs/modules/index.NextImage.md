@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:90](https://github.com/Sitecore/jss/blob/f04e51f78f/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L90)
+[packages/sitecore-jss-nextjs/src/components/NextImage.tsx:90](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-nextjs/src/components/NextImage.tsx#L90)
