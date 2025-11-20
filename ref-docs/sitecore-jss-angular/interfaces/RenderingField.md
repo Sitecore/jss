@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RenderingField
 
 # Interface: RenderingField\<V\>
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
 
 ## Extends
 
@@ -22,9 +22,9 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `V` | `GenericFieldValue` |
+| Type Parameter | Default type        |
+| -------------- | ------------------- |
+| `V`            | `GenericFieldValue` |
 
 ## Properties
 
@@ -32,9 +32,9 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](
 
 > `optional` **editable**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
-***
+---
 
 ### metadata?
 
@@ -50,10 +50,10 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
 `FieldMetadata.metadata`
 
-***
+---
 
 ### value?
 
 > `optional` **value**: `V`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)

@@ -9,7 +9,24 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
-## Unreleased
+## 22.10.0
+
+* `[Next.js]` Support component-level data fetching in 404/500 pages ([#2140](https://github.com/Sitecore/jss/pull/2140))
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Preserve default locale in external absolute urls ([#2142](https://github.com/Sitecore/jss/pull/2142))
+* `[React]` Custom properties are not applied to empty field in editing metadata mode ([#2141](https://github.com/Sitecore/jss/pull/2141))
+* `[sitecore-jss-nextjs]` Add regex variable substitution for absolute and external URL redirects. ([#2159](https://github.com/Sitecore/jss/pull/2159))
+* `[sitecore-jss-react]` Disable React Suspense in the Placeholder component for Editing. ([#2161](https://github.com/Sitecore/jss/pull/2161))
+
+### 🛠 Breaking Changes
+
+* `[angular]` `[sitecore-jss-angular]` Upgrade to Angular v20 ([#2157](https://github.com/Sitecore/jss/pull/2157)[#2160](https://github.com/Sitecore/jss/pull/2160)):
+  * Components adjusted to be standalone
+  * Update `apollo-angular` to version 11 to be compatible with Angular v20 compatibility
+  * Replace the deprecated `ngIf`, `ngFor` directive usage with `@if` and `@for`
+  * Update the inject logic for DI
 
 ## 22.9.1
 
@@ -33,6 +50,7 @@ Our versioning strategy is as follows:
 ### 🎉 New Features & Improvements
 
 * `[sitecore-jss-nextjs]` Ensure displayName paths are properly UTF-8 encoded. ([#2121](https://github.com/Sitecore/jss/pull/2121))
+* `[sitecore-jss-react]` Enhanced the cache buster format to hh-dd-mm-yyyy ([#2135](https://github.com/Sitecore/jss/pull/2135))
 
 ### 🛠 Breaking Changes
 
@@ -598,6 +616,36 @@ Our versioning strategy is as follows:
   * Removed deprecated _defaultProps_ react component property
 * `[templates/nextjs]` GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Deprecated JSS_APP_NAME environment variable has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+
+## 21.10.1
+
+### 🐛 Bug Fixes
+
+`[sitecore-jss-nextjs]` Prevent infinite redirect loops and prioritize locale-specific rules in the redirects middleware ([#2158](https://github.com/Sitecore/jss/pull/2158)):
+  * Enhanced RedirectsMiddleware extensibility by introducing the new `getRedirects` method.
+  * Included multiple improvements and refactoring carried over from JSS 22.
+
+
+## 21.10.0
+
+### 🛠 Breaking Changes
+
+* `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` `[sitecore-jss-react-forms]` Upgrade React to version 19 and Nextjs to version 15 ([#2078](https://github.com/Sitecore/jss/pull/2078))([#2084](https://github.com/Sitecore/jss/pull/2084)) ([#2093](https://github.com/Sitecore/jss/pull/2093)) ([#2103](https://github.com/Sitecore/jss/pull/2103)):
+  * upgrade React and Nextjs dependencies for the new major versions
+  * with React 19, JSX is in the 'react' namespace and therefore 'react' needs to be imported befoore using JSX. All OOTB react and nextjs components have been updated
+  * `react-test-renderer` has been deprecated in react 19. additionaly `enzyme` is not supported anymore so all unit tests have been migrated to use `@`testing-library/react`
+  * `propTypes` have been deprecated by react and have been removed from the solution
+  * in NextJs 15 the `geo` and `ip` properties on `NextRequest` have been removed. To account for this `@sitecore-cloudsdk` dependencies have been upgraded to 0.5.1, which includes breaking changes, see upgrade guide for details. Also cloudsdk v0.4.0 introduces breaking changes
+     - replaces the old init approach for cloudsdk with new one according to upgrade guide. This causes several followup changes.
+     - Context logic is no longer used
+     - New object type is passed into `FEAAS.setContextProperties` instead of context passed previously
+     - `@sitecore/components` dependency updated to 2.0.0
+     - Browser-side CloudSDK is initialized in Bootstrap component. It should be initialized for events to work.
+  * remove 'react' dependency from nextconfig webpack externals in monorepo next config plugin as it is not needed anymore.
+  * PersonalizeMiddleware handler now accepts PersonalizeOptions, that can be used to provide geolocation data from application level
+  * `eslint-plugin-react` depenency has been upgraded to latest
+  * `[templates/nextjs]` `graphql` has been upgraded to 15.10.1
+  * `[templates/nextjs-styleguide]` `[templates/nextjs-styleguide-tracking]` styleguide components types have been fixed
 
 ## 21.9.0
 

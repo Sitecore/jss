@@ -1,35 +1,29 @@
 [**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / JssStateService
 
 # Class: JssStateService\<State\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:17](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L17)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:17](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L17)
 
 The service that is used to store and retrieve the current state of the app.
 Referenced by the SDK to get the current state of the app.
 
 ## Type Parameters
 
-| Type Parameter | Default type |
-| ------ | ------ |
-| `State` *extends* [`BaseJssState`](BaseJssState.md) | [`BaseJssState`](BaseJssState.md) |
+| Type Parameter                                      | Default type                      |
+| --------------------------------------------------- | --------------------------------- |
+| `State` _extends_ [`BaseJssState`](BaseJssState.md) | [`BaseJssState`](BaseJssState.md) |
 
 ## Constructors
 
 ### Constructor
 
-> **new JssStateService**\<`State`\>(`transferState`): `JssStateService`\<`State`\>
+> **new JssStateService**\<`State`\>(): `JssStateService`\<`State`\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
-
-#### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `transferState` | `TransferState` |
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:21](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L21)
 
 #### Returns
 
@@ -41,7 +35,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20]
 
 > `protected` **transferState**: `TransferState`
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L20)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:18](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L18)
 
 ## Accessors
 
@@ -51,7 +45,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:20]
 
 > **get** **state**(): `Observable`\<`State`\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:27](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L27)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:28](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L28)
 
 Observable JSS state to subscribe to
 
@@ -59,7 +53,7 @@ Observable JSS state to subscribe to
 
 `Observable`\<`State`\>
 
-***
+---
 
 ### stateValue
 
@@ -67,7 +61,7 @@ Observable JSS state to subscribe to
 
 > **get** **stateValue**(): `State`
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:34](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L34)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:35](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L35)
 
 The 'here and now' state value, usable without subscribing
 
@@ -81,15 +75,15 @@ The 'here and now' state value, usable without subscribing
 
 > **setState**(`newState`): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:42](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L42)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:43](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L43)
 
 Set new JSS state
 
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `newState` | `State` | new state |
+| Parameter  | Type    | Description |
+| ---------- | ------- | ----------- |
+| `newState` | `State` | new state   |
 
 #### Returns
 

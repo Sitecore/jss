@@ -41,7 +41,7 @@ describe('FormComponent', () => {
     };
 
     TestBed.configureTestingModule({
-      declarations: [FormComponent],
+      imports: [FormComponent],
       providers: [
         JssStateService,
         { provide: EDGE_CONFIG, useValue: edgeConfig },

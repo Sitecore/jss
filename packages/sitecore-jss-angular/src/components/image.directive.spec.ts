@@ -11,6 +11,8 @@ import { ImageField } from './rendering-field';
   template: `
     <img class="some" id="another" *scImage="field; editable: editable" />
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: ImageField | '';
@@ -32,6 +34,8 @@ class TestComponent {
       "
     />
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class AnotherTestComponent {
   @Input() field: ImageField;
@@ -62,6 +66,8 @@ const emptyImageFieldEditingTemplateDefaultTestString =
       ${emptyImageFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: ImageField;
@@ -76,12 +82,8 @@ describe('<img *scImage />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ImageDirective,
-        TestComponent,
-        AnotherTestComponent,
-        TestEmptyTemplateComponent,
-      ],
+      imports: [ImageDirective],
+      declarations: [TestComponent, AnotherTestComponent, TestEmptyTemplateComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

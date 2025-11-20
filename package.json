@@ -39,7 +39,8 @@
     "cheerio": "1.0.0-rc.3",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "@types/react-native/@types/react": "17.0.34",
-    "@types/react-native-htmlview/@types/react": "17.0.34"
+    "@types/react-native-htmlview/@types/react": "17.0.34",
+    "rollup": "4.52.5"
   },
   "workspaces": [
     "packages/*",

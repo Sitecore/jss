@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [editing](../README.md) / RenderComponentQueryParams
 
 # Interface: RenderComponentQueryParams
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:25](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L25)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:25](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L25)
 
 Query parameters appended for Design Library functionaity.
 Used when a single component is rendered in Pages.
@@ -21,68 +21,68 @@ Used when a single component is rendered in Pages.
 
 > **mode**: [`DesignLibraryMode`](../enumerations/DesignLibraryMode.md)
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:33](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L33)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:33](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L33)
 
-***
+---
 
-### sc\_itemid
+### sc_itemid
 
-> **sc\_itemid**: `string`
+> **sc_itemid**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:29](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L29)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:29](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L29)
 
-***
+---
 
-### sc\_lang
+### sc_lang
 
-> **sc\_lang**: `string`
+> **sc_lang**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:28](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L28)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:28](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L28)
 
-***
+---
 
-### sc\_renderingId
+### sc_renderingId
 
-> **sc\_renderingId**: `string`
+> **sc_renderingId**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:30](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L30)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:30](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L30)
 
-***
+---
 
-### sc\_site
+### sc_site
 
-> **sc\_site**: `string`
+> **sc_site**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:32](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L32)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:32](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L32)
 
-***
+---
 
-### sc\_uid
+### sc_uid
 
-> **sc\_uid**: `string`
+> **sc_uid**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:31](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L31)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:31](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L31)
 
-***
+---
 
-### sc\_variant?
+### sc_variant?
 
-> `optional` **sc\_variant**: `string`
+> `optional` **sc_variant**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:34](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L34)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:34](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L34)
 
-***
+---
 
-### sc\_version?
+### sc_version?
 
-> `optional` **sc\_version**: `string`
+> `optional` **sc_version**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:35](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L35)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:35](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L35)
 
-***
+---
 
 ### secret
 
 > **secret**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/models.ts#L27)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:27](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/models.ts#L27)

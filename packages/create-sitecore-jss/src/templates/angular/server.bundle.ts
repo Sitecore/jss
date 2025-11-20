@@ -5,6 +5,7 @@ import 'reflect-metadata';
 import 'zone.js';
 import { JssRouteBuilderService } from './src/app/routing/jss-route-builder.service';
 import { AppServerModule, renderModule } from './src/main.server';
+import { JSS_SERVER_LAYOUT_DATA, JSS_SERVER_VIEWBAG } from './src/app/injection-tokens';
 
 export * from './src/main.server';
 
@@ -73,8 +74,8 @@ function renderView(
       url: path,
       extraProviders: [
         // custom injection with the initial state that SSR should utilize
-        { provide: 'JSS_SERVER_LAYOUT_DATA', useValue: transferState },
-        { provide: 'JSS_SERVER_VIEWBAG', useValue: state.viewBag },
+        { provide: JSS_SERVER_LAYOUT_DATA, useValue: transferState },
+        { provide: JSS_SERVER_VIEWBAG, useValue: state.viewBag },
       ],
     })
       .then((html) => callback(null, { html }))

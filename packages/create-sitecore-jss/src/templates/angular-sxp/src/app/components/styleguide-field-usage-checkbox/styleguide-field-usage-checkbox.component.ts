@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ComponentRendering, getFieldValue } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of a Checkbox (boolean) content field within JSS.
@@ -7,13 +8,12 @@ import { ComponentRendering, getFieldValue } from '@sitecore-jss/sitecore-jss-an
 @Component({
   selector: 'app-styleguide-field-usage-checkbox',
   templateUrl: './styleguide-field-usage-checkbox.component.html',
+  imports: [StyleguideSpecimenComponent]
 })
 export class StyleguideFieldUsageCheckboxComponent implements OnInit {
   @Input() rendering: ComponentRendering;
   checkbox1Value: boolean;
   checkbox2Value: boolean;
-
-  constructor() { }
 
   ngOnInit() {
     /*

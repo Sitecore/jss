@@ -1,7 +1,9 @@
-import { Inject, Injectable, makeStateKey, StateKey, TransferState } from '@angular/core';
+/* eslint-disable @angular-eslint/prefer-inject */
+import { Injectable, makeStateKey, StateKey, TransferState } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
 import { DictionaryPhrases } from '@sitecore-jss/sitecore-jss-angular';
 import { of as observableOf, EMPTY } from 'rxjs';
+import { ViewBag } from '../ViewBag';
 
 export const dictionaryStateKey: StateKey<DictionaryPhrases> = makeStateKey<DictionaryPhrases>(
   'dictionary'
@@ -11,10 +13,10 @@ export const dictionaryStateKey: StateKey<DictionaryPhrases> = makeStateKey<Dict
 export class JssTranslationServerLoaderService implements TranslateLoader {
   constructor(
     // this initial state from sitecore is injected by server.bundle for "integrated" mode
-    @Inject('JSS_SERVER_VIEWBAG')
-    private serverViewBag: { [key: string]: unknown; dictionary: DictionaryPhrases },
-    private transferState: TransferState
+    protected serverViewBag: ViewBag,
+    protected transferState: TransferState
   ) {}
+
   getTranslation(_lang: string) {
     // read initial dictionary from data injected via server.bundle wrapper
     const dictionary = this.serverViewBag.dictionary;

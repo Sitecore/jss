@@ -29,6 +29,7 @@ export const components = [
 @NgModule({
   imports: [
     AppComponentsSharedModule,
+    ${declarations.join('\n    ')} // Standalone components
     JssModule.withComponents([
       ${registrations.join('\n      ')}
     ], [
@@ -48,9 +49,6 @@ export const components = [
   exports: [
     JssModule,
     AppComponentsSharedModule,
-  ],
-  declarations: [
-    ${declarations.join('\n    ')}
   ],
 })
 export class AppComponentsModule { }

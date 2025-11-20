@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-react**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / SitecoreContextValue
 
@@ -8,7 +8,7 @@
 
 > **SitecoreContextValue** = [`LayoutServiceContext`](../interfaces/LayoutServiceContext.md) & `object`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:46](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L46)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:46](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L46)
 
 ## Type declaration
 

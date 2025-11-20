@@ -1,11 +1,12 @@
-<div
-  *ngFor="let ph of enabledPlaceholders"
-  class="container-fluid"
-  [ngClass]="getRowClass(+ph - 1)"
->
-  <div>
-    <div class="row">
-      <sc-placeholder [name]="getPlaceholderName(ph)" [rendering]="rendering"> </sc-placeholder>
+@for (ph of enabledPlaceholders; track ph) {
+  <div
+    class="container-fluid"
+    [ngClass]="getRowClass(+ph - 1)"
+  >
+    <div>
+      <div class="row">
+        <sc-placeholder [name]="getPlaceholderName(ph)" [rendering]="rendering"> </sc-placeholder>
+      </div>
     </div>
   </div>
-</div>
+}

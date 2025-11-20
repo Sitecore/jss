@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/prefer-inject */
 import { Injectable, TransferState } from '@angular/core';
 import { TranslateLoader } from '@ngx-translate/core';
 import { DictionaryPhrases } from '@sitecore-jss/sitecore-jss-angular';
@@ -8,8 +9,8 @@ import { dictionaryStateKey } from './jss-translation-server-loader.service';
 @Injectable()
 export class JssTranslationClientLoaderService implements TranslateLoader {
   constructor(
-    private fallbackLoader: JssTranslationLoaderService,
-    private transferState: TransferState
+    protected fallbackLoader: JssTranslationLoaderService,
+    protected transferState: TransferState
   ) {}
 
   getTranslation(lang: string): Observable<DictionaryPhrases> {

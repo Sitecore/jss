@@ -1,14 +1,14 @@
 [**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
-***
+---
 
-[@sitecore-jss/sitecore-jss](../../../../README.md) / [index](../../../README.md) / [constants](../README.md) / JSS\_MODE
+[@sitecore-jss/sitecore-jss](../../../../README.md) / [index](../../../README.md) / [constants](../README.md) / JSS_MODE
 
-# Variable: JSS\_MODE
+# Variable: JSS_MODE
 
-> `const` **JSS\_MODE**: `object`
+> `const` **JSS_MODE**: `object`
 
-Defined in: [packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/constants.ts#L14)
+Defined in: [packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/constants.ts#L14)
 
 ## Type declaration
 

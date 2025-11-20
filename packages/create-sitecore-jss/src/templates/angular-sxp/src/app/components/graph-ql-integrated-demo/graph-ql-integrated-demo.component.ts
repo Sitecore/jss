@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { CommonModule } from '@angular/common';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 
 interface QueryResult {
   data: {
@@ -63,13 +64,12 @@ interface ItemSearchResults {
 @Component({
   selector: 'app-graph-ql-integrated-demo',
   templateUrl: './graph-ql-integrated-demo.component.html',
+  imports: [CommonModule, JssModule]
 })
 export class GraphQLIntegratedDemoComponent implements OnInit {
   @Input() rendering: ComponentRendering;
   queryResult: QueryResult;
-
-  constructor() {}
-
+  
   ngOnInit() {
     this.queryResult = (this.rendering.fields as unknown) as QueryResult;
   }

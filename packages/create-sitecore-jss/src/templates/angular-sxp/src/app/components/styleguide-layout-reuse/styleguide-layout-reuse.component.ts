@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates how to reuse content within JSS. See /data/routes/styleguide/en.yml
@@ -10,6 +11,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 @Component({
   selector: 'app-styleguide-layout-reuse',
   templateUrl: './styleguide-layout-reuse.component.html',
+  imports: [JssModule, StyleguideSpecimenComponent]
 })
 export class StyleguideLayoutReuseComponent {
   @Input() rendering: ComponentRendering;

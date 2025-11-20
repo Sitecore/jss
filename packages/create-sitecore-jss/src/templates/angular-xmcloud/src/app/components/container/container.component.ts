@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { SxaComponent } from '../sxa.component';
 
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
+  imports: [CommonModule, JssModule],
 })
 export class ContainerComponent extends SxaComponent implements OnInit {
   placeholderName: string;

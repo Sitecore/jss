@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [editing](../README.md) / getDesignLibraryScriptLink
 
@@ -8,14 +8,14 @@
 
 > **getDesignLibraryScriptLink**(`sitecoreEdgeUrl?`): `string`
 
-Defined in: [packages/sitecore-jss/src/editing/design-library.ts:154](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/editing/design-library.ts#L154)
+Defined in: [packages/sitecore-jss/src/editing/design-library.ts:154](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/design-library.ts#L154)
 
 Generates the URL for the design library script link.
 
 ## Parameters
 
-| Parameter | Type | Default value | Description |
-| ------ | ------ | ------ | ------ |
+| Parameter          | Type     | Default value               | Description                                                                   |
+| ------------------ | -------- | --------------------------- | ----------------------------------------------------------------------------- |
 | `sitecoreEdgeUrl?` | `string` | `SITECORE_EDGE_URL_DEFAULT` | Sitecore Edge Platform URL. Default is https://edge-platform.sitecorecloud.io |
 
 ## Returns

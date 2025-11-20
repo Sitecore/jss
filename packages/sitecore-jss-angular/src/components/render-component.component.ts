@@ -1,6 +1,5 @@
 import {
   Component,
-  Inject,
   Input,
   KeyValueDiffer,
   KeyValueDiffers,
@@ -9,6 +8,7 @@ import {
   Type,
   ViewChild,
   ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { Observable } from 'rxjs';
@@ -39,13 +39,11 @@ export class RenderComponentComponent implements OnChanges {
   private _inputs: { [key: string]: unknown };
   private _differ: KeyValueDiffer<string, unknown>;
   private destroyed = false;
-
-  constructor(
-    private differs: KeyValueDiffers,
-    private componentFactory: JssComponentFactoryService,
-    @Inject(PLACEHOLDER_MISSING_COMPONENT_COMPONENT)
-    private missingComponentComponent: Type<{ [key: string]: unknown }>
-  ) {}
+  private differs = inject(KeyValueDiffers);
+  private componentFactory = inject(JssComponentFactoryService);
+  private missingComponentComponent = inject<Type<{ [key: string]: unknown }>>(
+    PLACEHOLDER_MISSING_COMPONENT_COMPONENT
+  );
 
   @Input()
   set inputs(value: { [key: string]: unknown }) {

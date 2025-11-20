@@ -17,6 +17,8 @@ import { LinkField } from './rendering-field';
       id="my-link"
     ></a>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: LinkField;
@@ -48,6 +50,8 @@ const emptyLinkFieldEditingTemplateDefaultTestString =
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: LinkField;
@@ -64,8 +68,8 @@ describe('<a *scGenericLink />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GenericLinkDirective, TestComponent, TestEmptyTemplateComponent],
-      imports: [RouterTestingModule],
+      imports: [GenericLinkDirective, RouterTestingModule],
+      declarations: [TestComponent, TestEmptyTemplateComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -310,6 +314,8 @@ describe('<a *scGenericLink />', () => {
       ><span *ngIf="true">hello world</span></a
     >
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithChildrenComponent {
   @Input() field: LinkField;
@@ -336,6 +342,8 @@ class TestWithChildrenComponent {
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateWithChildrenComponent {
   @Input() field: LinkField;
@@ -352,12 +360,8 @@ describe('<a *scGenericLink>children</a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        GenericLinkDirective,
-        TestWithChildrenComponent,
-        TestEmptyTemplateWithChildrenComponent,
-      ],
-      imports: [RouterTestingModule],
+      imports: [GenericLinkDirective, RouterTestingModule],
+      declarations: [TestWithChildrenComponent, TestEmptyTemplateWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);
@@ -495,8 +499,11 @@ describe('<a *scGenericLink></a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GenericLinkDirective, TestComponent],
-      imports: [RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }])],
+      imports: [
+        GenericLinkDirective,
+        RouterTestingModule.withRoutes([{ path: 'lorem', component: TestComponent }]),
+      ],
+      declarations: [TestComponent],
     });
 
     router = TestBed.inject(Router);

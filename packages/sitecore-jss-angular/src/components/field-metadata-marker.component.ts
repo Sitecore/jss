@@ -7,7 +7,6 @@ import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 @Component({
   selector: 'code[scFieldMetadataMarker]',
   template: '{{ metadataString }}',
-  // eslint-disable-next-line @angular-eslint/no-host-metadata-property -- the only way to set static attributes
   host: {
     '[attr.type]': '"text/sitecore"',
     '[attr.chrometype]': '"field"',

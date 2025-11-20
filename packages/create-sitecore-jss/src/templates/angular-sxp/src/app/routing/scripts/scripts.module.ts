@@ -3,7 +3,7 @@ import { ScriptsComponent } from './scripts.component';
 import { VisitorIdentificationComponent } from './visitor-identification/visitor-identification.component';
 
 @NgModule({
+  imports: [ScriptsComponent, VisitorIdentificationComponent],
   exports: [ScriptsComponent],
-  declarations: [ScriptsComponent, VisitorIdentificationComponent],
 })
 export class ScriptsModule {}

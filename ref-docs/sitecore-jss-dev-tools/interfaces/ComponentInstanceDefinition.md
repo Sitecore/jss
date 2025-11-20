@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / ComponentInstanceDefinition
 
 # Interface: ComponentInstanceDefinition
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:377](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L377)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:377](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L377)
 
 ## Extends
 
@@ -18,39 +18,39 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:377
 
 > `optional` **children**: ([`ItemDefinition`](ItemDefinition.md) \| [`ItemReference`](ItemReference.md))[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:354](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L354)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:354](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L354)
 
 #### Inherited from
 
 [`ItemDefinition`](ItemDefinition.md).[`children`](ItemDefinition.md#children)
 
-***
+---
 
 ### componentName
 
 > **componentName**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:378](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L378)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:378](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L378)
 
-***
+---
 
 ### displayName?
 
 > `optional` **displayName**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:351](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L351)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:351](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L351)
 
 #### Inherited from
 
 [`ItemDefinition`](ItemDefinition.md).[`displayName`](ItemDefinition.md#displayname)
 
-***
+---
 
 ### fields?
 
 > `optional` **fields**: `object`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:353](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L353)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:353](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L353)
 
 #### Index Signature
 
@@ -60,37 +60,37 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:353
 
 [`ItemDefinition`](ItemDefinition.md).[`fields`](ItemDefinition.md#fields)
 
-***
+---
 
 ### id?
 
 > `optional` **id**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:352](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L352)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:352](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L352)
 
 #### Inherited from
 
 [`ItemDefinition`](ItemDefinition.md).[`id`](ItemDefinition.md#id)
 
-***
+---
 
 ### insertOptions?
 
 > `optional` **insertOptions**: `string`[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:359](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L359)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:359](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L359)
 
 #### Inherited from
 
 [`ItemDefinition`](ItemDefinition.md).[`insertOptions`](ItemDefinition.md#insertoptions)
 
-***
+---
 
 ### layout?
 
 > `optional` **layout**: `object`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:355](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L355)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:355](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L355)
 
 #### renderings
 
@@ -104,49 +104,49 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:355
 
 [`ItemDefinition`](ItemDefinition.md).[`layout`](ItemDefinition.md#layout)
 
-***
+---
 
 ### name
 
 > **name**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:349](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L349)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:349](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L349)
 
 #### Inherited from
 
 [`ItemDefinition`](ItemDefinition.md).[`name`](ItemDefinition.md#name)
 
-***
+---
 
 ### path?
 
 > `optional` **path**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:358](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L358)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:358](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L358)
 
 #### Inherited from
 
 [`ItemDefinition`](ItemDefinition.md).[`path`](ItemDefinition.md#path)
 
-***
+---
 
 ### placeholders?
 
 > `optional` **placeholders**: `object`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:379](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L379)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:379](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L379)
 
 #### Index Signature
 
 \[`key`: `string`\]: `ComponentInstanceDefinition`[]
 
-***
+---
 
 ### template
 
 > **template**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:350](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L350)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:350](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L350)
 
 #### Inherited from
 

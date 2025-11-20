@@ -224,13 +224,21 @@ export class RedirectsMiddleware extends MiddlewareBase {
       const url = this.normalizeUrl(req.nextUrl.clone());
 
       if (REGEXP_ABSOLUTE_URL.test(existsRedirect.target)) {
-        return this.dispatchRedirect(
-          existsRedirect.target,
-          existsRedirect.redirectType,
-          req,
-          response,
-          true
-        );
+        // Perform variable substitution for absolute URLs
+        let finalTarget = existsRedirect.target;
+
+        if (isRegexOrUrl(existsRedirect.pattern) === 'regex') {
+          const matched = url.pathname
+            .replace(/\/*$/gi, '')
+            .match(regexParser(existsRedirect.pattern));
+          if (matched) {
+            finalTarget = existsRedirect.target.replace(/\$(\d+)/g, (_, index) => {
+              return matched[parseInt(index, 10)] || '';
+            });
+          }
+        }
+
+        return this.dispatchRedirect(finalTarget, existsRedirect.redirectType, req, response, true);
       } else {
         const isUrl = isRegexOrUrl(existsRedirect.pattern) === 'url';
         const targetParts = existsRedirect.target.split('/');

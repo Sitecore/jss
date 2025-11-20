@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { CommonModule } from '@angular/common';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of date and time content field types within JSS.
@@ -10,6 +12,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 @Component({
   selector: 'app-styleguide-field-usage-date',
   templateUrl: './styleguide-field-usage-date.component.html',
+  imports: [CommonModule, JssModule, StyleguideSpecimenComponent]
 })
 export class StyleguideFieldUsageDateComponent {
   @Input() rendering: ComponentRendering;

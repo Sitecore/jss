@@ -7,7 +7,7 @@ import {
   SimpleChanges,
   TemplateRef,
   Type,
-  ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { LinkField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
@@ -30,19 +30,12 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
   /**
    * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
    */
-  protected defaultFieldEditingComponent: Type<unknown>;
+  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyFieldEditingComponent;
+  protected templateRef = inject(TemplateRef);
+  protected renderer = inject(Renderer2);
 
   private inlineRef: HTMLSpanElement | null = null;
-
-  constructor(
-    viewContainer: ViewContainerRef,
-    protected templateRef: TemplateRef<unknown>,
-    protected renderer: Renderer2,
-    private elementRef: ElementRef
-  ) {
-    super(viewContainer);
-    this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
-  }
+  private elementRef = inject(ElementRef);
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.attrs) {

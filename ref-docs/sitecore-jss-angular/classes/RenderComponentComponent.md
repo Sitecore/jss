@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RenderComponentComponent
 
 # Class: RenderComponentComponent
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:34](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/render-component.component.ts#L34)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:34](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/render-component.component.ts#L34)
 
 Renders a single JSS component given a rendering definition.
 Useful inside templated placeholders.
@@ -19,17 +19,7 @@ Useful inside templated placeholders.
 
 ### Constructor
 
-> **new RenderComponentComponent**(`differs`, `componentFactory`, `missingComponentComponent`): `RenderComponentComponent`
-
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
-
-#### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `differs` | `KeyValueDiffers` |
-| `componentFactory` | `JssComponentFactoryService` |
-| `missingComponentComponent` | `Type`\<\{\[`key`: `string`\]: `unknown`; \}\> |
+> **new RenderComponentComponent**(): `RenderComponentComponent`
 
 #### Returns
 
@@ -41,19 +31,19 @@ Defined in: [packages/sitecore-jss-angular/src/components/render-component.compo
 
 > **outputs**: `object`
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
 
 #### Index Signature
 
 \[`k`: `string`\]: (`eventType`) => `void`
 
-***
+---
 
 ### rendering
 
 > **rendering**: [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
 
 ## Accessors
 
@@ -63,13 +53,13 @@ Defined in: [packages/sitecore-jss-angular/src/components/render-component.compo
 
 > **set** **inputs**(`value`): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:51](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/render-component.component.ts#L51)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:49](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/render-component.component.ts#L49)
 
 ##### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | \{\[`key`: `string`\]: `unknown`; \} |
+| Parameter | Type                                 |
+| --------- | ------------------------------------ |
+| `value`   | \{\[`key`: `string`\]: `unknown`; \} |
 
 ##### Returns
 
@@ -81,7 +71,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/render-component.compo
 
 > **ngOnChanges**(`changes`): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:56](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/render-component.component.ts#L56)
 
 A callback method that is invoked immediately after the
 default change detector has checked data-bound properties
@@ -90,8 +80,8 @@ children are checked.
 
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
+| Parameter | Type            | Description             |
+| --------- | --------------- | ----------------------- |
 | `changes` | `SimpleChanges` | The changed properties. |
 
 #### Returns

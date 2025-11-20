@@ -1,7 +1,16 @@
-<div class="container-wrapper" *ngIf="wrapped; else default">
-  <ng-container *ngTemplateOutlet="default"></ng-container>
-</div>
-<ng-template #default>
+@if (wrapped) {
+  <div class="container-wrapper">
+    <div class="component container-default {{ styles }}" [attr.id]="id">
+      <div class="component-content" [ngStyle]="backgroundStyle">
+          <sc-placeholder
+            [name]="placeholderName"
+            [rendering]="rendering"
+            class="row">
+          </sc-placeholder>
+      </div>
+    </div>
+  </div>
+} @else {
   <div class="component container-default {{ styles }}" [attr.id]="id">
     <div class="component-content" [ngStyle]="backgroundStyle">
         <sc-placeholder
@@ -11,4 +20,4 @@
         </sc-placeholder>
     </div>
   </div>
-</ng-template>
+}
