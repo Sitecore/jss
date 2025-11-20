@@ -1,4 +1,4 @@
-import { Injectable, TransferState } from '@angular/core';
+import { Injectable, TransferState, inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LayoutServiceContextData, RouteData } from '../public_api';
 
@@ -15,9 +15,10 @@ export class BaseJssState {
  */
 @Injectable()
 export class JssStateService<State extends BaseJssState = BaseJssState> {
+  protected transferState = inject(TransferState);
   private _state: BehaviorSubject<State>;
 
-  constructor(protected transferState: TransferState) {
+  constructor() {
     this._state = new BehaviorSubject<State>({} as State);
   }
 

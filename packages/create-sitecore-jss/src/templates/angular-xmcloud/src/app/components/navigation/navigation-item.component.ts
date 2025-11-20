@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { LinkField } from '@sitecore-jss/sitecore-jss-angular';
+import { CommonModule } from '@angular/common';
+import { LinkField, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { Field } from '@sitecore-jss/sitecore-jss-angular';
 
 export interface NavItemFields {
@@ -16,6 +17,7 @@ export interface NavItemFields {
 @Component({
   selector: 'app-navigation-item',
   templateUrl: './navigation-item.component.html',
+  imports: [CommonModule, JssModule]
 })
 export class NavigationItemComponent implements OnInit {
   @Input() navItemFields: NavItemFields;
@@ -26,8 +28,6 @@ export class NavigationItemComponent implements OnInit {
   linkField = {};
   childrenRelativeLevel = 0;
   hasChildren = false;
-
-  constructor() {}
 
   ngOnInit() {
     this.cssClasses = `${this.navItemFields.Styles.concat('rel-level' + this.relativeLevel).join(

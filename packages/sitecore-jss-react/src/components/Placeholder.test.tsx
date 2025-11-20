@@ -2,7 +2,11 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/prop-types */
-import { ComponentRendering, RouteData } from '@sitecore-jss/sitecore-jss/layout';
+import {
+  ComponentRendering,
+  RouteData,
+  LayoutServicePageState,
+} from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
 import { findByText, render } from '@testing-library/react';
 import React from 'react';
@@ -528,6 +532,56 @@ it('should not render Suspense when disableSuspense is true', async () => {
   const renderedComponent = render(
     <SitecoreContext componentFactory={componentFactory}>
       <Placeholder name={phKey} disableSuspense={true} rendering={component} />
+    </SitecoreContext>
+  );
+
+  expect(renderedComponent.container.innerHTML).to.not.contain('Loading component...');
+
+  await findByText(renderedComponent.container, 'No error');
+});
+
+it('should not render Suspense when pageState is Edit, even without disableSuspense prop', async () => {
+  const component = nonEeDevData.sitecore.route as RouteData;
+  const phKey = 'main';
+
+  const layoutDataWithEditState = {
+    sitecore: {
+      ...nonEeDevData.sitecore,
+      context: {
+        ...nonEeDevData.sitecore.context,
+        pageState: LayoutServicePageState.Edit,
+      },
+    },
+  };
+
+  const renderedComponent = render(
+    <SitecoreContext componentFactory={componentFactory} layoutData={layoutDataWithEditState}>
+      <Placeholder name={phKey} rendering={component} />
+    </SitecoreContext>
+  );
+
+  expect(renderedComponent.container.innerHTML).to.not.contain('Loading component...');
+
+  await findByText(renderedComponent.container, 'No error');
+});
+
+it('should not render Suspense when pageState is Edit, even if disableSuspense is false', async () => {
+  const component = nonEeDevData.sitecore.route as RouteData;
+  const phKey = 'main';
+
+  const layoutDataWithEditState = {
+    sitecore: {
+      ...nonEeDevData.sitecore,
+      context: {
+        ...nonEeDevData.sitecore.context,
+        pageState: LayoutServicePageState.Edit,
+      },
+    },
+  };
+
+  const renderedComponent = render(
+    <SitecoreContext componentFactory={componentFactory} layoutData={layoutDataWithEditState}>
+      <Placeholder name={phKey} disableSuspense={false} rendering={component} />
     </SitecoreContext>
   );
 

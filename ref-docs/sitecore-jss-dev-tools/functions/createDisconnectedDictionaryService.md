@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / createDisconnectedDictionaryService
 
@@ -8,12 +8,12 @@
 
 > **createDisconnectedDictionaryService**(`__namedParameters`): `object`
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L42)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L42)
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter           | Type                                                                                            |
+| ------------------- | ----------------------------------------------------------------------------------------------- |
 | `__namedParameters` | [`DisconnectedDictionaryServiceOptions`](../interfaces/DisconnectedDictionaryServiceOptions.md) |
 
 ## Returns
@@ -26,9 +26,9 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.t
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `request` | `any` |
+| Parameter  | Type  |
+| ---------- | ----- |
+| `request`  | `any` |
 | `response` | `any` |
 
 #### Returns
@@ -41,8 +41,8 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.t
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter     | Type                                                    |
+| ------------- | ------------------------------------------------------- |
 | `newManifest` | [`ManifestInstance`](../interfaces/ManifestInstance.md) |
 
 #### Returns

@@ -21,6 +21,8 @@ const defaultFormattedDate = formatDate(testIsoDateValue, testFormat, testLocale
       *scDate="field; editable: editable; format: format; locale: locale; timezone: timezone"
     ></span>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: TextField;
@@ -48,6 +50,8 @@ const emptyDateFieldEditingTemplate =
       ${emptyDateFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: TextField;
@@ -65,7 +69,8 @@ describe('<span *scDate />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DateDirective, TestComponent, TestEmptyTemplateComponent],
+      imports: [DateDirective],
+      declarations: [TestComponent, TestEmptyTemplateComponent],
       providers: [DatePipe],
     });
 

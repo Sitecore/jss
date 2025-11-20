@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-react**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / withDatasourceCheck
 
@@ -8,33 +8,33 @@
 
 > **withDatasourceCheck**(`options?`): \<`ComponentProps`\>(`Component`) => (`props`) => `Element`
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx:30](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react/src/enhancers/withDatasourceCheck.tsx#L30)
 
 Checks whether a Sitecore datasource is present and renders appropriately depending on page mode (normal vs editing).
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `options?` | `WithDatasourceCheckOptions` |  |
+| Parameter  | Type                         | Description |
+| ---------- | ---------------------------- | ----------- |
+| `options?` | `WithDatasourceCheckOptions` |             |
 
 ## Returns
 
 The wrapped component, if a datasource is present.
- A null component (in normal mode) or an error component (in editing mode), if a datasource is not present.
+A null component (in normal mode) or an error component (in editing mode), if a datasource is not present.
 
 > \<`ComponentProps`\>(`Component`): (`props`) => `Element`
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `ComponentProps` *extends* `WithDatasourceCheckProps` |
+| Type Parameter                                        |
+| ----------------------------------------------------- |
+| `ComponentProps` _extends_ `WithDatasourceCheckProps` |
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter   | Type                                |
+| ----------- | ----------------------------------- |
 | `Component` | `ComponentType`\<`ComponentProps`\> |
 
 ### Returns
@@ -43,9 +43,9 @@ The wrapped component, if a datasource is present.
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `props` | `ComponentProps` |
+| Parameter | Type             |
+| --------- | ---------------- |
+| `props`   | `ComponentProps` |
 
 #### Returns
 

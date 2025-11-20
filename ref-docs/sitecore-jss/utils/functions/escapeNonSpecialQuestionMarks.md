@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [utils](../README.md) / escapeNonSpecialQuestionMarks
 
@@ -8,18 +8,19 @@
 
 > **escapeNonSpecialQuestionMarks**(`input`): `string`
 
-Defined in: [packages/sitecore-jss/src/utils/utils.ts:204](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/utils/utils.ts#L204)
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:204](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/utils/utils.ts#L204)
 
 Escapes non-special "?" characters in a string or regex.
+
 - For regular strings, it escapes all unescaped "?" characters by adding a backslash (`\`).
 - For regex patterns (strings enclosed in `/.../`), it analyzes each "?" to determine if it has special meaning
   (e.g., `?` in `(abc)?`, `.*?`, `(?!...)`) or is just a literal character. Only literal "?" characters are escaped.
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `input` | `string` | The input string or regex pattern. |
+| Parameter | Type     | Description                        |
+| --------- | -------- | ---------------------------------- |
+| `input`   | `string` | The input string or regex pattern. |
 
 ## Returns
 

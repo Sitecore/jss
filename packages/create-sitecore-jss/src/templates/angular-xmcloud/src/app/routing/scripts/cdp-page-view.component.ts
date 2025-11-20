@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { isServer, CdpHelper, LayoutServicePageState } from '@sitecore-jss/sitecore-jss-angular';
 import { pageView, PageViewData } from '@sitecore-cloudsdk/events/browser';
@@ -18,8 +18,7 @@ import { environment } from '../../../environments/environment';
 })
 export class CdpPageViewComponent implements OnInit, OnDestroy {
   private contextSubscription: Subscription;
-
-  constructor(private jssContext: JssContextService) {}
+  private jssContext = inject(JssContextService);
 
   ngOnInit(): void {
     if (!isServer()) {

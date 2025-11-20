@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, Inject } from '@angular/core';
+import { Component, OnInit, Renderer2, inject } from '@angular/core';
 import { getJssPagesClientData } from '@sitecore-jss/sitecore-jss/editing';
 import { JssStateService } from '../services/jss-state.service';
 import { DOCUMENT } from '@angular/common';
@@ -14,11 +14,9 @@ import { isServer } from '@sitecore-jss/sitecore-jss/utils';
   template: '',
 })
 export class EditingScriptsComponent implements OnInit {
-  constructor(
-    private renderer: Renderer2,
-    private stateService: JssStateService,
-    @Inject(DOCUMENT) private document: Document
-  ) {}
+  private renderer = inject(Renderer2);
+  private stateService = inject(JssStateService);
+  private document = inject(DOCUMENT);
 
   ngOnInit(): void {
     const state = this.stateService.stateValue;

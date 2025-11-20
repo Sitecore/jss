@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-react**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / getEEMarkup
 
@@ -8,16 +8,16 @@
 
 > **getEEMarkup**(`imageField`, `imageParams?`, `mediaUrlPrefix?`, `otherProps?`): `Element`
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:117](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-react/src/components/Image.tsx#L117)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:117](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react/src/components/Image.tsx#L117)
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `imageField` | [`ImageField`](../interfaces/ImageField.md) | {ImageField} provides the dynamicMedia which is used to render the image |
-| `imageParams?` | \{\[`paramName`: `string`\]: `string` \| `number`; \} | {ImageProp['imageParams']}} provides the image parameters that will be attached to the image URL |
-| `mediaUrlPrefix?` | `RegExp` | {RegExp} the url prefix regex used in the mediaApi |
-| `otherProps?` | [`ImageProps`](../interfaces/ImageProps.md) | {ImageProps} all other props included on the image component |
+| Parameter         | Type                                                  | Description                                                                                      |
+| ----------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `imageField`      | [`ImageField`](../interfaces/ImageField.md)           | {ImageField} provides the dynamicMedia which is used to render the image                         |
+| `imageParams?`    | \{\[`paramName`: `string`\]: `string` \| `number`; \} | {ImageProp['imageParams']}} provides the image parameters that will be attached to the image URL |
+| `mediaUrlPrefix?` | `RegExp`                                              | {RegExp} the url prefix regex used in the mediaApi                                               |
+| `otherProps?`     | [`ImageProps`](../interfaces/ImageProps.md)           | {ImageProps} all other props included on the image component                                     |
 
 ## Returns
 

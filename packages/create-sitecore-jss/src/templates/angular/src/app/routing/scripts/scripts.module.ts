@@ -3,6 +3,6 @@ import { ScriptsComponent } from './scripts.component';
 
 @NgModule({
   exports: [ScriptsComponent],
-  declarations: [ScriptsComponent],
+  imports: [ScriptsComponent],
 })
 export class ScriptsModule {}

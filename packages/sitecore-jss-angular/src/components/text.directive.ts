@@ -5,7 +5,7 @@ import {
   SimpleChanges,
   TemplateRef,
   Type,
-  ViewContainerRef,
+  inject,
 } from '@angular/core';
 import { TextField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
@@ -30,12 +30,8 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
   /**
    * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
    */
-  protected defaultFieldEditingComponent: Type<unknown>;
-
-  constructor(viewContainer: ViewContainerRef, private templateRef: TemplateRef<unknown>) {
-    super(viewContainer);
-    this.defaultFieldEditingComponent = DefaultEmptyFieldEditingComponent;
-  }
+  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyFieldEditingComponent;
+  private templateRef = inject(TemplateRef);
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.field || changes.editable || changes.encode) {

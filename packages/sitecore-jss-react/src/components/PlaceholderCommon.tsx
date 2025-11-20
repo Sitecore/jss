@@ -10,6 +10,7 @@ import {
   EditMode,
   isDynamicPlaceholder,
   getDynamicPlaceholderPattern,
+  LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
@@ -270,7 +271,9 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
 
-          const disableSuspense = this.props.disableSuspense || false;
+          const disableSuspense =
+            this.props.disableSuspense ||
+            this.props.sitecoreContext?.pageState === LayoutServicePageState.Edit;
 
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular-schematics",
-  "version": "22.10.0-canary.1",
+  "version": "22.10.0-canary.12",
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -23,9 +23,9 @@
   },
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/core": "~18.2.14",
-    "@angular-devkit/schematics": "~18.2.14",
-    "@schematics/angular": "~18.2.14",
+    "@angular-devkit/core": "~20.3.9",
+    "@angular-devkit/schematics": "~20.3.9",
+    "@schematics/angular": "~20.3.9",
     "chalk": "^4.1.2"
   },
   "devDependencies": {
@@ -33,7 +33,7 @@
     "@types/node": "^22.9.0",
     "jasmine": "^2.99.0",
     "nyc": "^17.1.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.8.0"
   },
   "gitHead": "2f4820efddf4454eeee58ed1b2cc251969efdf5b"
 }

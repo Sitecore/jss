@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / Item
 
 # Interface: Item
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:146](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/layout/models.ts#L146)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:146](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L146)
 
 Content data returned from Layout Service
 
@@ -16,40 +16,40 @@ Content data returned from Layout Service
 
 > `optional` **displayName**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:148](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/layout/models.ts#L148)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:148](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L148)
 
-***
+---
 
 ### fields
 
 > **fields**: `object`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:151](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/layout/models.ts#L151)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:151](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L151)
 
 #### Index Signature
 
 \[`name`: `string`\]: `undefined` \| [`Field`](Field.md)\<[`GenericFieldValue`](../type-aliases/GenericFieldValue.md)\> \| `Item` \| `Item`[]
 
-***
+---
 
 ### id?
 
 > `optional` **id**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:149](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/layout/models.ts#L149)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:149](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L149)
 
-***
+---
 
 ### name
 
 > **name**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:147](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/layout/models.ts#L147)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:147](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L147)
 
-***
+---
 
 ### url?
 
 > `optional` **url**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:150](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/layout/models.ts#L150)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:150](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L150)

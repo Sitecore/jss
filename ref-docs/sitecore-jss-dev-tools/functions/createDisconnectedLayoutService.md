@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / createDisconnectedLayoutService
 
@@ -8,13 +8,13 @@
 
 > **createDisconnectedLayoutService**(`config`): `object`
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts:362](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts#L362)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts:362](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts#L362)
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `config` | [`DisconnectedLayoutServiceOptions`](../interfaces/DisconnectedLayoutServiceOptions.md) |  |
+| Parameter | Type                                                                                    | Description |
+| --------- | --------------------------------------------------------------------------------------- | ----------- |
+| `config`  | [`DisconnectedLayoutServiceOptions`](../interfaces/DisconnectedLayoutServiceOptions.md) |             |
 
 ## Returns
 
@@ -26,9 +26,9 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts:36
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `request` | `Request` |
+| Parameter  | Type       |
+| ---------- | ---------- |
+| `request`  | `Request`  |
 | `response` | `Response` |
 
 #### Returns
@@ -41,8 +41,8 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/layout-service.ts:36
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter     | Type                                                    |
+| ------------- | ------------------------------------------------------- |
 | `newManifest` | [`ManifestInstance`](../interfaces/ManifestInstance.md) |
 
 #### Returns

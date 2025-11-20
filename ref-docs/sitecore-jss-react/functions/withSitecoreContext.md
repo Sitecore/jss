@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-react**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / withSitecoreContext
 
@@ -8,13 +8,13 @@
 
 > **withSitecoreContext**(`options?`): \<`ComponentProps`\>(`Component`) => (`props`) => `Element`
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L29)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L29)
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `options?` | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) |  |
+| Parameter  | Type                                                                        | Description |
+| ---------- | --------------------------------------------------------------------------- | ----------- |
+| `options?` | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) |             |
 
 ## Returns
 
@@ -22,14 +22,14 @@ Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:2
 
 ### Type Parameters
 
-| Type Parameter |
-| ------ |
-| `ComponentProps` *extends* [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md) |
+| Type Parameter                                                                                     |
+| -------------------------------------------------------------------------------------------------- |
+| `ComponentProps` _extends_ [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md) |
 
 ### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter   | Type                                |
+| ----------- | ----------------------------------- |
 | `Component` | `ComponentType`\<`ComponentProps`\> |
 
 ### Returns
@@ -38,9 +38,9 @@ Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:2
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `props` | [`WithSitecoreContextHocProps`](../type-aliases/WithSitecoreContextHocProps.md)\<`ComponentProps`\> |
+| Parameter | Type                                                                                                |
+| --------- | --------------------------------------------------------------------------------------------------- |
+| `props`   | [`WithSitecoreContextHocProps`](../type-aliases/WithSitecoreContextHocProps.md)\<`ComponentProps`\> |
 
 #### Returns
 

@@ -9,6 +9,8 @@ import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
   template: `
     <code scFieldMetadataMarker [metadata]="metadata" [kind]="kind"></code>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() metadata: any;
@@ -22,7 +24,8 @@ describe('<code scFieldMetadataMarker />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FieldMetadataMarkerComponent, TestComponent],
+      declarations: [TestComponent],
+      imports: [FieldMetadataMarkerComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);

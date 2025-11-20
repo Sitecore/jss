@@ -10,10 +10,7 @@ import { AppComponentsSharedModule } from '../app-components.shared.module';
   imports: [
     // this call signals to JSS that this component is the one being lazy loaded by this module
     JssModule.forChild(StyleguideAngularLazyLoadingComponent),
-    AppComponentsSharedModule
-  ],
-  declarations: [
-    StyleguideAngularLazyLoadingComponent,
-  ],
+    AppComponentsSharedModule,
+  ]
 })
 export class StyleguideAngularLazyLoadingModule { }

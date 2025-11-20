@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [index](../README.md) / ResponseError
 
 # Class: ResponseError
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:29](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/data-fetcher.ts#L29)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:29](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/data-fetcher.ts#L29)
 
 ## Extends
 
@@ -18,13 +18,13 @@ Defined in: [packages/sitecore-jss/src/data-fetcher.ts:29](https://github.com/Si
 
 > **new ResponseError**(`message`, `response`): `ResponseError`
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/data-fetcher.ts#L32)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/data-fetcher.ts#L32)
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `message` | `string` |
+| Parameter  | Type                                                         |
+| ---------- | ------------------------------------------------------------ |
+| `message`  | `string`                                                     |
 | `response` | [`HttpResponse`](../interfaces/HttpResponse.md)\<`unknown`\> |
 
 #### Returns
@@ -41,59 +41,59 @@ Defined in: [packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Si
 
 > **message**: `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1077
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1077
 
 #### Inherited from
 
 `Error.message`
 
-***
+---
 
 ### name
 
 > **name**: `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1076
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1076
 
 #### Inherited from
 
 `Error.name`
 
-***
+---
 
 ### response
 
 > **response**: [`HttpResponse`](../interfaces/HttpResponse.md)\<`unknown`\>
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss/src/data-fetcher.ts#L30)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/data-fetcher.ts#L30)
 
-***
+---
 
 ### stack?
 
 > `optional` **stack**: `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
+Defined in: node_modules/typescript/lib/lib.es5.d.ts:1078
 
 #### Inherited from
 
 `Error.stack`
 
-***
+---
 
 ### prepareStackTrace()?
 
 > `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
 
-Defined in: packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:143
+Defined in: packages/sitecore-jss/node_modules/@types/node/globals.d.ts:143
 
 Optional override for formatting stack traces
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `err` | `Error` |
+| Parameter     | Type         |
+| ------------- | ------------ |
+| `err`         | `Error`      |
 | `stackTraces` | `CallSite`[] |
 
 #### Returns
@@ -108,13 +108,13 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 `Error.prepareStackTrace`
 
-***
+---
 
 ### stackTraceLimit
 
 > `static` **stackTraceLimit**: `number`
 
-Defined in: packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:145
+Defined in: packages/sitecore-jss/node_modules/@types/node/globals.d.ts:145
 
 #### Inherited from
 
@@ -126,15 +126,15 @@ Defined in: packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:145
 
 > `static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
-Defined in: packages/sitecore-jss/node\_modules/@types/node/globals.d.ts:136
+Defined in: packages/sitecore-jss/node_modules/@types/node/globals.d.ts:136
 
 Create .stack property on a target object
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `targetObject` | `object` |
+| Parameter         | Type       |
+| ----------------- | ---------- |
+| `targetObject`    | `object`   |
 | `constructorOpt?` | `Function` |
 
 #### Returns

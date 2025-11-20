@@ -15,6 +15,7 @@ export const layoutData = {
       componentName: '',
       fields: {
         text: {
+          value: 'textField',
           metadata: {
             fieldId: '123',
             fieldType: 'text',
@@ -114,6 +115,7 @@ export const layoutDataForNestedDynamicPlaceholder = (rootPhKey: string) => ({
             componentName: 'Home',
             fields: {
               text: {
+                value: 'textField',
                 metadata: {
                   fieldId: '123',
                   fieldType: 'text',

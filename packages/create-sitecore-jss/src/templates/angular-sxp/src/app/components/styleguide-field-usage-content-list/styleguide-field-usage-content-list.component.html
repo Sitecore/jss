@@ -5,22 +5,26 @@
   So we can use the .map() array function to traverse them. Ensure a `key` attribute is set
   on each element to make React's DOM updating happy:
   -->
-  <ng-container *ngIf="rendering.fields.sharedContentList">
-    <div *ngFor="let listItem of rendering.fields.sharedContentList">
-      <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
-      <p>
-        Field: <span *scText="listItem.fields.textField"></span>
-      </p>
-    </div>
-  </ng-container>
+  @if (sharedContentListKeys.length > 0) {
+    @for (key of sharedContentListKeys; track key) {
+      <div>
+        <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
+        <p>
+          Field: <span *scText="rendering.fields.sharedContentList[key].fields.textField"></span>
+        </p>
+      </div>
+    }
+  }
 
   <h5>Local Content List</h5>
-  <ng-container *ngIf="rendering.fields.localContentList">
-    <div *ngFor="let listItem of rendering.fields.localContentList">
-      <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
-      <p>
-        Field: <span *scText="listItem.fields.textField"></span>
-      </p>
-    </div>
-  </ng-container>
+  @if (localContentListKeys.length > 0) {
+    @for (key of localContentListKeys; track key) {
+      <div>
+        <!-- The referenced item's fields can be rendered and edited using normal helper components: -->
+        <p>
+          Field: <span *scText="rendering.fields.localContentList[key].fields.textField"></span>
+        </p>
+      </div>
+    }
+  }
 </app-styleguide-specimen>

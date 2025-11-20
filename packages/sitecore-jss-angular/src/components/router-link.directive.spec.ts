@@ -16,6 +16,8 @@ import { LinkField } from './rendering-field';
       id="my-link"
     ></a>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: LinkField;
@@ -45,6 +47,8 @@ const emptyLinkFieldEditingTemplateDefaultTestString =
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: LinkField;
@@ -60,8 +64,8 @@ describe('<a *scRouterLink />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RouterLinkDirective, TestComponent, TestEmptyTemplateComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterLinkDirective, RouterTestingModule],
+      declarations: [TestComponent, TestEmptyTemplateComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -308,6 +312,8 @@ describe('<a *scRouterLink />', () => {
       ><span *ngIf="true">hello world</span></a
     >
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestWithChildrenComponent {
   @Input() field: LinkField;
@@ -332,6 +338,8 @@ class TestWithChildrenComponent {
       ${emptyLinkFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateWithChildrenComponent {
   @Input() field: LinkField;
@@ -347,12 +355,8 @@ describe('<a *scRouterLink>children</a>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        RouterLinkDirective,
-        TestWithChildrenComponent,
-        TestEmptyTemplateWithChildrenComponent,
-      ],
-      imports: [RouterTestingModule],
+      imports: [RouterLinkDirective, RouterTestingModule],
+      declarations: [TestWithChildrenComponent, TestEmptyTemplateWithChildrenComponent],
     });
 
     fixture = TestBed.createComponent(TestWithChildrenComponent);

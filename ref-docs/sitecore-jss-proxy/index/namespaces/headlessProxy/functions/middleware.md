@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-proxy**](../../../../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-proxy](../../../../README.md) / [index](../../../README.md) / [headlessProxy](../README.md) / middleware
 
@@ -8,15 +8,15 @@
 
 > **middleware**(`renderer`, `config`, `parseRouteUrl`): `RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:583](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L583)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:583](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L583)
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `renderer` | [`AppRenderer`](../../../type-aliases/AppRenderer.md) |  |
-| `config` | [`ProxyConfig`](../interfaces/ProxyConfig.md) |  |
-| `parseRouteUrl` | [`RouteUrlParser`](../../../type-aliases/RouteUrlParser.md) |  |
+| Parameter       | Type                                                        | Description |
+| --------------- | ----------------------------------------------------------- | ----------- |
+| `renderer`      | [`AppRenderer`](../../../type-aliases/AppRenderer.md)       |             |
+| `config`        | [`ProxyConfig`](../interfaces/ProxyConfig.md)               |             |
+| `parseRouteUrl` | [`RouteUrlParser`](../../../type-aliases/RouteUrlParser.md) |             |
 
 ## Returns
 

@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / pipelineFactory
 
@@ -8,7 +8,7 @@
 
 > `const` **pipelineFactory**: `object`
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
 
 ## Type declaration
 
@@ -20,9 +20,9 @@ Create a pipeline
 
 #### Parameters
 
-| Parameter | Type | Default value | Description |
-| ------ | ------ | ------ | ------ |
-| `name?` | `string` | `''` |  |
+| Parameter | Type     | Default value | Description |
+| --------- | -------- | ------------- | ----------- |
+| `name?`   | `string` | `''`          |             |
 
 #### Returns
 

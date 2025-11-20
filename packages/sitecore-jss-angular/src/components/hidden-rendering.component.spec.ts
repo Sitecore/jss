@@ -8,6 +8,8 @@ import { JssModule } from '../lib.module';
   template: `
     <sc-hidden-rendering></sc-hidden-rendering>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestHiddenRenderingComponent {}
 

@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-react**](../README.md)
 
-***
+---
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / useSitecoreContext
 
@@ -8,18 +8,19 @@
 
 > **useSitecoreContext**(`options?`): [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:71](https://github.com/Sitecore/jss/blob/7a1c4388f69f20205ded8e7cd42283204e2c98b0/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L71)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:71](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L71)
 
 This hook grants acсess to the current Sitecore page context
 by default JSS includes the following properties in this context:
+
 - pageEditing - Provided by Layout Service, a boolean indicating whether the route is being accessed via the Experience Editor.
 - pageState - Like pageEditing, but a string: normal, preview or edit.
 - site - Provided by Layout Service, an object containing the name of the current Sitecore site context.
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
+| Parameter  | Type                                                                        | Description  |
+| ---------- | --------------------------------------------------------------------------- | ------------ |
 | `options?` | [`WithSitecoreContextOptions`](../interfaces/WithSitecoreContextOptions.md) | hook options |
 
 ## Returns
@@ -36,15 +37,19 @@ https://jss.sitecore.com/docs/techniques/extending-layout-service/layoutservice-
 
 ```ts
 const EditMode = () => {
-   const { sitecoreContext } = useSitecoreContext();
-   return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
-}
+  const { sitecoreContext } = useSitecoreContext();
+  return <span>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>;
+};
 ```
 
 ```ts
 const EditMode = () => {
-   const { sitecoreContext, updateSitecoreContext } = useSitecoreContext({ updatable: true });
-   const onClick = () => updateSitecoreContext({ pageEditing: true });
-   return <span onClick={onClick}>Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}</span>
-}
+  const { sitecoreContext, updateSitecoreContext } = useSitecoreContext({ updatable: true });
+  const onClick = () => updateSitecoreContext({ pageEditing: true });
+  return (
+    <span onClick={onClick}>
+      Edit Mode is {sitecoreContext.pageEditing ? 'active' : 'inactive'}
+    </span>
+  );
+};
 ```

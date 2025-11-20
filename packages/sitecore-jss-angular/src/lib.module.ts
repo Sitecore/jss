@@ -37,13 +37,14 @@ import { EditingScriptsComponent } from './components/editing-scripts.component'
 import { FormComponent } from './components/form.component';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [
+  imports: [
+    CommonModule,
     FileDirective,
     ImageDirective,
     LinkDirective,
     RouterLinkDirective,
     GenericLinkDirective,
+    TextDirective,
     DateDirective,
     RenderEachDirective,
     RenderEmptyDirective,
@@ -52,7 +53,6 @@ import { FormComponent } from './components/form.component';
     PlaceholderComponent,
     RawComponent,
     RichTextDirective,
-    TextDirective,
     MissingComponentComponent,
     HiddenRenderingComponent,
     EditFrameComponent,

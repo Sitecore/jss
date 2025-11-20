@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 
 /**
  * Represents a category of styleguide specimens within the Styleguide-Layout.
@@ -9,6 +9,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 @Component({
   selector: 'app-styleguide-section',
   templateUrl: './styleguide-section.component.html',
+  imports: [JssModule]
 })
 export class StyleguideSectionComponent implements OnInit {
   @Input() rendering: ComponentRendering;

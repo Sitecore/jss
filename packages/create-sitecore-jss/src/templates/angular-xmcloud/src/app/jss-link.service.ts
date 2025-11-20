@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { HTMLLink } from '@sitecore-jss/sitecore-jss-angular';
 
@@ -6,7 +6,7 @@ import { HTMLLink } from '@sitecore-jss/sitecore-jss-angular';
   providedIn: 'root',
 })
 export class JssLinkService {
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  private document = inject(DOCUMENT);
 
   /**
    * Adds link element in the document head.

@@ -1,4 +1,4 @@
-import { Injectable, TransferState, makeStateKey } from '@angular/core';
+import { Injectable, TransferState, makeStateKey, inject } from '@angular/core';
 import { LayoutServiceData, JssStateService } from '@sitecore-jss/sitecore-jss-angular';
 import { map, shareReplay, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf } from 'rxjs';
@@ -22,8 +22,10 @@ export class JssContextService {
   get stateValue() {
     return this.stateService.stateValue;
   }
-  constructor(protected transferState: TransferState, protected layoutService: JssLayoutService, protected stateService: JssStateService<JssState>) {
-  }
+
+  protected transferState = inject(TransferState);
+  protected layoutService = inject(JssLayoutService);
+  protected stateService = inject(JssStateService<JssState>);
 
   changeLanguage(language: string) {
     this.stateService.setState({ ...this.stateService.stateValue, language });
@@ -63,7 +65,7 @@ export class JssContextService {
     );
 
     // subscribe to it ourselves so we can maintain current state
-    jssState$.subscribe((jssState) => {
+    jssState$.subscribe((jssState: JssState) => {
       this.stateService.setState(jssState);
     });
 

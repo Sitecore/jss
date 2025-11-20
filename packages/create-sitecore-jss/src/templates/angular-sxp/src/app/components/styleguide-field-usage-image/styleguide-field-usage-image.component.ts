@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
+import { ComponentRendering, JssModule } from '@sitecore-jss/sitecore-jss-angular';
+import { StyleguideSpecimenComponent } from '../shared/styleguide-specimen/styleguide-specimen.component';
 
 /**
  * Demonstrates usage of an Image content field within JSS.
@@ -8,6 +9,7 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-angular';
 @Component({
   selector: 'app-styleguide-field-usage-image',
   templateUrl: './styleguide-field-usage-image.component.html',
+  imports: [JssModule, StyleguideSpecimenComponent]
 })
 export class StyleguideFieldUsageImageComponent {
   @Input() rendering: ComponentRendering;

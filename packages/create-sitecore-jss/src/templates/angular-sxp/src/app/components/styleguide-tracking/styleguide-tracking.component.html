@@ -1,7 +1,10 @@
 <app-styleguide-specimen [rendering]="rendering" e2eId="styleguide-tracking">
-  <p *ngIf="disconnectedMode">The tracking API is only available in connected, integrated, or headless modes.</p>
+  @if (disconnectedMode) {
+    <p>The tracking API is only available in connected, integrated, or headless modes.</p>
+  }
 
-  <div *ngIf="!disconnectedMode">
+  @if (!disconnectedMode) {
+  <div>
     <p class="alert alert-warning">
       Note: The JSS tracker API is disabled by default. Consult the <a href="https://jss.sitecore.com/docs/fundamentals/services/tracking">tracking documentation</a> to enable it.
     </p>
@@ -172,4 +175,5 @@
       </fieldset>
     </div>
   </div>
+  }
 </app-styleguide-specimen>

@@ -5,10 +5,10 @@ import {
   Component,
   OnInit,
   Input,
-  Inject,
   ElementRef,
   PLATFORM_ID,
   OnDestroy,
+  inject,
 } from '@angular/core';
 import { EDGE_CONFIG, EdgeConfigToken } from '../services/shared.token';
 import { JssStateService } from '../services/jss-state.service';
@@ -44,21 +44,7 @@ export type FormRendering = {
  */
 @Component({
   selector: 'app-form',
-  template: `
-    <ng-container *ngIf="isEditing">
-      <ng-container *ngIf="!rendering.params.FormId">
-        <div
-          style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;"
-        >
-          <h2>{{ rendering.componentName }}</h2>
-          <p>JSS component is missing FormId rendering parameter.</p>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="hasError">
-        <div class="sc-jss-placeholder-error">There was a problem loading this section</div>
-      </ng-container>
-    </ng-container>
-  `,
+  templateUrl: './form.component.html',
 })
 export class FormComponent implements OnInit, OnDestroy {
   /**
@@ -71,13 +57,10 @@ export class FormComponent implements OnInit, OnDestroy {
   isEditing = false;
 
   private contextSubscription: Subscription;
-
-  constructor(
-    @Inject(EDGE_CONFIG) private edgeConfig: EdgeConfigToken,
-    @Inject(PLATFORM_ID) private platformId: { [key: string]: unknown },
-    private elRef: ElementRef<HTMLElement>,
-    private jssState: JssStateService
-  ) {}
+  private edgeConfig = inject<EdgeConfigToken>(EDGE_CONFIG);
+  private platformId = inject<{ [key: string]: unknown }>(PLATFORM_ID);
+  private elRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  private jssState = inject(JssStateService);
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {

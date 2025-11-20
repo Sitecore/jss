@@ -10,6 +10,8 @@ import { TestBaseDirective } from '../test-data/test-base.directive';
   template: `
     <span *scTestBase="field; editable: editable"></span>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestComponent {
   @Input() field: TextField;
@@ -35,6 +37,8 @@ const emptyTextFieldEditingTemplate =
       ${emptyTextFieldEditingTemplate}
     </ng-template>
   `,
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
 })
 class TestEmptyTemplateComponent {
   @Input() field: TextField;

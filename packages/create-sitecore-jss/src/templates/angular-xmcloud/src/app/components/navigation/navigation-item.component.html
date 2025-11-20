@@ -1,23 +1,20 @@
 <li [class]="cssClasses" [ngClass]="{ active: isActive }" tabIndex="0">
   <div [ngClass]="{ 'navigation-title': true, child: hasChildren }" (click)="isActive = !isActive">
     <a *scRouterLink="linkField" (click)="onClick($event)">
-      <ng-container *ngIf="navItemFields.NavigationTitle"
-        ><span *scText="navItemFields.NavigationTitle"></span
-      ></ng-container>
-      <ng-container *ngIf="!navItemFields.NavigationTitle && navItemFields.Title">
-        <span *scText="navItemFields.Title"></span
-      ></ng-container>
-      <ng-container *ngIf="!navItemFields.NavigationTitle && !navItemFields.Title">{{
-        navItemFields.DisplayName
-      }}</ng-container>
+      @if (navItemFields.NavigationTitle) {
+        <span *scText="navItemFields.NavigationTitle"></span>
+      } @else if (navItemFields.Title) {
+        <span *scText="navItemFields.Title"></span>
+      } @else {
+        {{ navItemFields.DisplayName }}
+      }
     </a>
   </div>
-  <ul *ngIf="hasChildren" class="clearfix">
-    <app-navigation-item
-      *ngFor="let childNavItemFields of navItemFields.Children"
-      [navItemFields]="childNavItemFields"
-      [relativeLevel]="childrenRelativeLevel"
-      (childLinkClickEvent)="onClick($event)"
-    ></app-navigation-item>
-  </ul>
+  @if (hasChildren) {
+    <ul class="clearfix">
+      @for (childNavItemFields of navItemFields.Children; track childNavItemFields.Id) {
+        <app-navigation-item [navItemFields]="childNavItemFields" [relativeLevel]="childrenRelativeLevel" (childLinkClickEvent)="onClick($event)"></app-navigation-item>
+      }
+    </ul>
+  }
 </li>
