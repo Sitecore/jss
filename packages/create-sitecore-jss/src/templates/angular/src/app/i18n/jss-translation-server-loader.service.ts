@@ -11,7 +11,7 @@ export class JssTranslationServerLoaderService implements TranslateLoader {
     // this initial state from sitecore is injected by server.bundle for "integrated" mode
     protected serverViewBag: ViewBag,
   ) {
-    if(!this.serverViewBag) {
+    if (!this.serverViewBag) {
       this.serverViewBag = inject(JSS_SERVER_VIEWBAG);
     }
   }
