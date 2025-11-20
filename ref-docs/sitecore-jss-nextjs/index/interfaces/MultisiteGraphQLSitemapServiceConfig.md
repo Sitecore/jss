@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / MultisiteGraphQLSitemapServiceConfig
 
 # Interface: MultisiteGraphQLSitemapServiceConfig
 
-Defined in: [sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:15](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L15)
+Defined in: [sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:15](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L15)
 
 Configuration options for
 
@@ -24,7 +24,7 @@ GraphQLSitemapService instances
 
 > **clientFactory**: [`GraphQLRequestClientFactory`](../../graphql/type-aliases/GraphQLRequestClientFactory.md)
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:144](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L144)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:144](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L144)
 
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -33,13 +33,13 @@ This factory function is used to create and configure GraphQL clients for making
 
 `BaseGraphQLSitemapServiceConfig.clientFactory`
 
----
+***
 
 ### excludedPaths?
 
 > `optional` **excludedPaths**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:88](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L88)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:88](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L88)
 
 Optional. Paths starting with these provided prefixes will be excluded from returned results.
 
@@ -47,13 +47,13 @@ Optional. Paths starting with these provided prefixes will be excluded from retu
 
 `BaseGraphQLSitemapServiceConfig.excludedPaths`
 
----
+***
 
 ### includedPaths?
 
 > `optional` **includedPaths**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:84](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L84)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:84](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L84)
 
 Optional. Only paths starting with these provided prefixes will be returned.
 
@@ -61,13 +61,13 @@ Optional. Only paths starting with these provided prefixes will be returned.
 
 `BaseGraphQLSitemapServiceConfig.includedPaths`
 
----
+***
 
 ### includePersonalizedRoutes?
 
 > `optional` **includePersonalizedRoutes**: `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:139](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L139)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:139](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L139)
 
 A flag for whether to include personalized routes in service output.
 Only works on XM Cloud for pages using Embedded Personalization (not Component A/B testing).
@@ -77,13 +77,13 @@ Turned off by default.
 
 `BaseGraphQLSitemapServiceConfig.includePersonalizedRoutes`
 
----
+***
 
 ### pageSize?
 
 > `optional` **pageSize**: `number`
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:96](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L96)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:96](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L96)
 
 common variable for all GraphQL queries
 it will be used for every type of query to regulate result batch size
@@ -92,19 +92,19 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 #### Default
 
 ```ts
-100;
+100
 ```
 
 #### Inherited from
 
 `BaseGraphQLSitemapServiceConfig.pageSize`
 
----
+***
 
 ### sites
 
 > **sites**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L19)
+Defined in: [sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L19)
 
 Names of the configured sites

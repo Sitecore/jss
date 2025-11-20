@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-react**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / fetchFEaaSComponentServerProps
 
@@ -8,18 +8,18 @@
 
 > **fetchFEaaSComponentServerProps**(`params`, `pageState?`, `endpointOverride?`): `Promise`\<[`FEaaSComponentProps`](../type-aliases/FEaaSComponentProps.md)\>
 
-Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
+Defined in: [packages/sitecore-jss-react/src/components/FEaaSComponent.tsx:107](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react/src/components/FEaaSComponent.tsx#L107)
 
 Fetches server component props required for server rendering, based on rendering params.
 Component endpoint will either be retrieved from params or from endpointOverride
 
 ## Parameters
 
-| Parameter           | Type                                                                  | Description                                            |
-| ------------------- | --------------------------------------------------------------------- | ------------------------------------------------------ |
-| `params`            | [`FEaaSComponentParams`](../type-aliases/FEaaSComponentParams.md)     | component params                                       |
-| `pageState?`        | [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md) | page state to determine which component variant to use |
-| `endpointOverride?` | `string`                                                              | optional override for component endpoint               |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | [`FEaaSComponentParams`](../type-aliases/FEaaSComponentParams.md) | component params |
+| `pageState?` | [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md) | page state to determine which component variant to use |
+| `endpointOverride?` | `string` | optional override for component endpoint |
 
 ## Returns
 

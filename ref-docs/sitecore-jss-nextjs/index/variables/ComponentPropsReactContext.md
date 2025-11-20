@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / ComponentPropsReactContext
 
@@ -8,6 +8,6 @@
 
 > `const` **ComponentPropsReactContext**: `Context`\<[`ComponentPropsCollection`](../type-aliases/ComponentPropsCollection.md)\>
 
-Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:7](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L7)
 
 Component props context which we are using in order to store data fetched on components level (getStaticProps/getServerSideProps)

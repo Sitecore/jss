@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-rendering-host**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-rendering-host](../README.md) / getDefaultAppInvocationInfoResolver
 
@@ -8,7 +8,7 @@
 
 > **getDefaultAppInvocationInfoResolver**(`baseAppPath?`): `AppInvocationInfoResolver`
 
-Defined in: [defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)
+Defined in: [defaultAppInvocationInfoResolver.ts:18](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-rendering-host/src/defaultAppInvocationInfoResolver.ts#L18)
 
 Returns the default AppInvocationInfoResolver, which is responsible for resolving the function, within your app bundle,
 that should be invoked for rendering your app.
@@ -22,12 +22,12 @@ By default, the resolver assumes a folder structure of:
 
 ## Parameters
 
-| Parameter                       | Type                                                                                                            | Description                                            |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| `baseAppPath?`                  | \{ `appPathResolver?`: (`requestJson`) => `string`; `baseAppPath?`: `string`; `serverBundleName?`: `string`; \} | The base path to your JSS app(s), defaults to `./dist` |
-| `baseAppPath.appPathResolver?`  | (`requestJson`) => `string`                                                                                     | -                                                      |
-| `baseAppPath.baseAppPath?`      | `string`                                                                                                        | -                                                      |
-| `baseAppPath.serverBundleName?` | `string`                                                                                                        | -                                                      |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `baseAppPath?` | \{ `appPathResolver?`: (`requestJson`) => `string`; `baseAppPath?`: `string`; `serverBundleName?`: `string`; \} | The base path to your JSS app(s), defaults to `./dist` |
+| `baseAppPath.appPathResolver?` | (`requestJson`) => `string` | - |
+| `baseAppPath.baseAppPath?` | `string` | - |
+| `baseAppPath.serverBundleName?` | `string` | - |
 
 ## Returns
 

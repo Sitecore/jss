@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [utils](../README.md) / mergeURLSearchParams
 
@@ -8,15 +8,15 @@
 
 > **mergeURLSearchParams**(`params1`, `params2`): `string`
 
-Defined in: [packages/sitecore-jss/src/utils/utils.ts:220](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/utils/utils.ts#L220)
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:220](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/utils/utils.ts#L220)
 
 Merges two URLSearchParams objects. If both objects contain the same key, the value from the second object overrides the first.
 
 ## Parameters
 
-| Parameter | Type              | Description                              |
-| --------- | ----------------- | ---------------------------------------- |
-| `params1` | `URLSearchParams` | The first set of URL search parameters.  |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params1` | `URLSearchParams` | The first set of URL search parameters. |
 | `params2` | `URLSearchParams` | The second set of URL search parameters. |
 
 ## Returns

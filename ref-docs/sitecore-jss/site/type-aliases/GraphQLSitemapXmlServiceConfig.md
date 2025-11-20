@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [site](../README.md) / GraphQLSitemapXmlServiceConfig
 
@@ -8,7 +8,7 @@
 
 > **GraphQLSitemapXmlServiceConfig** = `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L19)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L19)
 
 ## Properties
 
@@ -16,17 +16,17 @@ Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:19](https
 
 > **clientFactory**: [`GraphQLRequestClientFactory`](../../index/type-aliases/GraphQLRequestClientFactory.md)
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:28](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L28)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:28](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L28)
 
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
 
----
+***
 
 ### siteName
 
 > **siteName**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:23](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L23)
+Defined in: [packages/sitecore-jss/src/site/graphql-sitemap-service.ts:23](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/site/graphql-sitemap-service.ts#L23)
 
 The JSS application name

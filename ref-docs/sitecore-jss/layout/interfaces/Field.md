@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / Field
 
 # Interface: Field\<T\>
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:131](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L131)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:131](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/layout/models.ts#L131)
 
 represents the field metadata provided by layout service in editMode 'metadata'
 
@@ -16,9 +16,9 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 ## Type Parameters
 
-| Type Parameter | Default type                                                |
-| -------------- | ----------------------------------------------------------- |
-| `T`            | [`GenericFieldValue`](../type-aliases/GenericFieldValue.md) |
+| Type Parameter | Default type |
+| ------ | ------ |
+| `T` | [`GenericFieldValue`](../type-aliases/GenericFieldValue.md) |
 
 ## Properties
 
@@ -26,15 +26,15 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **editable**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L133)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:133](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/layout/models.ts#L133)
 
----
+***
 
 ### metadata?
 
 > `optional` **metadata**: `object`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:140](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L140)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:140](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/layout/models.ts#L140)
 
 #### Index Signature
 
@@ -44,10 +44,10 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:140](https://github.com/
 
 [`FieldMetadata`](FieldMetadata.md).[`metadata`](FieldMetadata.md#metadata)
 
----
+***
 
 ### value
 
 > **value**: `T`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/models.ts#L132)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/layout/models.ts#L132)

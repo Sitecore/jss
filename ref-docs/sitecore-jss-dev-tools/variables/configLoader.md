@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / configLoader
 
@@ -8,19 +8,19 @@
 
 > `const` **configLoader**: (`__namedParameters`) => `Promise`\<`any`\> = `config`
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/configLoader.ts:51](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L51)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/configLoader.ts:51](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L51)
 
 ## Parameters
 
-| Parameter                                                  | Type                                                                                                                                                                                                                                                |
-| ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `__namedParameters`                                        | \{ `allowEmptyGlobs?`: `boolean`; `createPipelinesRegistryImplementation?`: (`existingConfig`) => `any`; `existingConfig?`: `any`; `fileGlobs`: `string`[]; `importModulesImplementation?`: (`options`) => `any`; `workingDirectory?`: `string`; \} |
-| `__namedParameters.allowEmptyGlobs?`                       | `boolean`                                                                                                                                                                                                                                           |
-| `__namedParameters.createPipelinesRegistryImplementation?` | (`existingConfig`) => `any`                                                                                                                                                                                                                         |
-| `__namedParameters.existingConfig?`                        | `any`                                                                                                                                                                                                                                               |
-| `__namedParameters.fileGlobs`                              | `string`[]                                                                                                                                                                                                                                          |
-| `__namedParameters.importModulesImplementation?`           | (`options`) => `any`                                                                                                                                                                                                                                |
-| `__namedParameters.workingDirectory?`                      | `string`                                                                                                                                                                                                                                            |
+| Parameter | Type |
+| ------ | ------ |
+| `__namedParameters` | \{ `allowEmptyGlobs?`: `boolean`; `createPipelinesRegistryImplementation?`: (`existingConfig`) => `any`; `existingConfig?`: `any`; `fileGlobs`: `string`[]; `importModulesImplementation?`: (`options`) => `any`; `workingDirectory?`: `string`; \} |
+| `__namedParameters.allowEmptyGlobs?` | `boolean` |
+| `__namedParameters.createPipelinesRegistryImplementation?` | (`existingConfig`) => `any` |
+| `__namedParameters.existingConfig?` | `any` |
+| `__namedParameters.fileGlobs` | `string`[] |
+| `__namedParameters.importModulesImplementation?` | (`options`) => `any` |
+| `__namedParameters.workingDirectory?` | `string` |
 
 ## Returns
 

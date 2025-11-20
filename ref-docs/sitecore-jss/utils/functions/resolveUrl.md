@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [utils](../README.md) / resolveUrl
 
@@ -8,17 +8,17 @@
 
 > **resolveUrl**(`urlBase`, `params`): `string`
 
-Defined in: [packages/sitecore-jss/src/utils/utils.ts:34](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/utils/utils.ts#L34)
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:34](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/utils/utils.ts#L34)
 
 Resolves a base URL that may contain query string parameters and an additional set of query
 string parameters into a unified string representation.
 
 ## Parameters
 
-| Parameter | Type                  | Description                                           |
-| --------- | --------------------- | ----------------------------------------------------- |
-| `urlBase` | `string`              | the base URL that may contain query string parameters |
-| `params`  | `ParsedUrlQueryInput` | query string parameters                               |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `urlBase` | `string` | the base URL that may contain query string parameters |
+| `params` | `ParsedUrlQueryInput` | query string parameters |
 
 ## Returns
 

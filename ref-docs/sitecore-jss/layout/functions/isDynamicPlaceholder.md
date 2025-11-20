@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [layout](../README.md) / isDynamicPlaceholder
 
@@ -8,14 +8,14 @@
 
 > **isDynamicPlaceholder**(`placeholder`): `boolean`
 
-Defined in: [packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/layout/utils.ts#L96)
+Defined in: [packages/sitecore-jss/src/layout/utils.ts:96](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/layout/utils.ts#L96)
 
 Checks if the placeholder name is dynamic.
 
 ## Parameters
 
-| Parameter     | Type     | Description      |
-| ------------- | -------- | ---------------- |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `placeholder` | `string` | Placeholder name |
 
 ## Returns

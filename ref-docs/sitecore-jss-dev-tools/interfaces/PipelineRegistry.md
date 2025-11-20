@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / PipelineRegistry
 
 # Interface: PipelineRegistry
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:3](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L3)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:3](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L3)
 
 ## Properties
 
@@ -14,80 +14,80 @@ Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:3](https:
 
 > **addPipeline**: (`pipeline`) => `void`
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:4](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L4)
 
 #### Parameters
 
-| Parameter  | Type                      |
-| ---------- | ------------------------- |
+| Parameter | Type |
+| ------ | ------ |
 | `pipeline` | [`Pipeline`](Pipeline.md) |
 
 #### Returns
 
 `void`
 
----
+***
 
 ### deletePipeline()
 
 > **deletePipeline**: (`pipelineName`) => `void`
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:6](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L6)
 
 #### Parameters
 
-| Parameter      | Type     |
-| -------------- | -------- |
+| Parameter | Type |
+| ------ | ------ |
 | `pipelineName` | `string` |
 
 #### Returns
 
 `void`
 
----
+***
 
 ### getPipeline()
 
 > **getPipeline**: (`pipelineName`) => [`Pipeline`](Pipeline.md)
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:7](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L7)
 
 #### Parameters
 
-| Parameter      | Type     |
-| -------------- | -------- |
+| Parameter | Type |
+| ------ | ------ |
 | `pipelineName` | `string` |
 
 #### Returns
 
 [`Pipeline`](Pipeline.md)
 
----
+***
 
 ### getPipelines()
 
 > **getPipelines**: () => `object`
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:8](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L8)
 
 #### Returns
 
 `object`
 
----
+***
 
 ### updatePipeline()
 
 > **updatePipeline**: (`pipeline`, `pipelineName?`) => `void`
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts:5](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-dev-tools/src/pipelines/pipelinesRegistry.ts#L5)
 
 #### Parameters
 
-| Parameter       | Type                      |
-| --------------- | ------------------------- |
-| `pipeline`      | [`Pipeline`](Pipeline.md) |
-| `pipelineName?` | `string`                  |
+| Parameter | Type |
+| ------ | ------ |
+| `pipeline` | [`Pipeline`](Pipeline.md) |
+| `pipelineName?` | `string` |
 
 #### Returns
 

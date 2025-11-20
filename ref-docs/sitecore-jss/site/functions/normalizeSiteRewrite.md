@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [site](../README.md) / normalizeSiteRewrite
 
@@ -8,14 +8,14 @@
 
 > **normalizeSiteRewrite**(`pathname`): `string`
 
-Defined in: [packages/sitecore-jss/src/site/utils.ts:45](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/site/utils.ts#L45)
+Defined in: [packages/sitecore-jss/src/site/utils.ts:45](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/site/utils.ts#L45)
 
 Normalize a site rewrite path (remove site data)
 
 ## Parameters
 
-| Parameter  | Type     | Description  |
-| ---------- | -------- | ------------ |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `pathname` | `string` | the pathname |
 
 ## Returns

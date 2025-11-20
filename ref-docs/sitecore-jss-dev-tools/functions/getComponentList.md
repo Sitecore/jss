@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-dev-tools**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-dev-tools](../README.md) / getComponentList
 
@@ -8,15 +8,15 @@
 
 > **getComponentList**(`path`): [`ComponentFile`](../interfaces/ComponentFile.md)[]
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:33](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-dev-tools/src/templating/components.ts#L33)
 
 Get list of components from
 
 ## Parameters
 
-| Parameter | Type     | Description    |
-| --------- | -------- | -------------- |
-| `path`    | `string` | path to search |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `path` | `string` | path to search |
 
 ## Returns
 
@@ -27,7 +27,7 @@ Get list of components from
 path
 Returns a list of components in the following format:
 {
-path: 'path/to/component',
-componentName: 'ComponentName',
-moduleName: 'ComponentName'
+ path: 'path/to/component',
+ componentName: 'ComponentName',
+ moduleName: 'ComponentName'
 }

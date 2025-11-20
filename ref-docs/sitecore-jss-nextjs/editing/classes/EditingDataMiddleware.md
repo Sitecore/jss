@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [editing](../README.md) / EditingDataMiddleware
 
 # Class: EditingDataMiddleware
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:34](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L34)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:34](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L34)
 
 Middleware / handler for use in the editing data Next.js API dynamic route (e.g. '/api/editing/data/[key]')
 which is required for Sitecore editing support.
@@ -17,12 +17,12 @@ which is required for Sitecore editing support.
 
 > **new EditingDataMiddleware**(`config?`): `EditingDataMiddleware`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:41](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L41)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:41](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L41)
 
 #### Parameters
 
-| Parameter | Type                                                                          | Description                    |
-| --------- | ----------------------------------------------------------------------------- | ------------------------------ |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `config?` | [`EditingDataMiddlewareConfig`](../interfaces/EditingDataMiddlewareConfig.md) | Editing data middleware config |
 
 #### Returns
@@ -35,7 +35,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:41](http
 
 > **getHandler**(): (`req`, `res`) => `Promise`\<`void`\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:50](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L50)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:50](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L50)
 
 Gets the Next.js API route handler
 
@@ -47,10 +47,10 @@ route handler
 
 ##### Parameters
 
-| Parameter | Type              |
-| --------- | ----------------- |
-| `req`     | `NextApiRequest`  |
-| `res`     | `NextApiResponse` |
+| Parameter | Type |
+| ------ | ------ |
+| `req` | `NextApiRequest` |
+| `res` | `NextApiResponse` |
 
 ##### Returns
 

@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-react-native**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-react-native](../README.md) / SitecoreContext
 
 # Class: SitecoreContext
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L14)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L14)
 
 ## Extends
 
@@ -18,14 +18,14 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](ht
 
 > **new SitecoreContext**(`props`, `context`): `SitecoreContext`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
 
 #### Parameters
 
-| Parameter | Type                   |
-| --------- | ---------------------- |
-| `props`   | `SitecoreContextProps` |
-| `context` | `unknown`              |
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `SitecoreContextProps` |
+| `context` | `unknown` |
 
 #### Returns
 
@@ -41,15 +41,15 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](ht
 
 > **componentFactory**: `ComponentFactory`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
 
----
+***
 
 ### context
 
 > **context**: `any`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:479
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:479
 
 If using the new style context, re-declare this in your class to be the
 `React.ContextType` of your `static contextType`.
@@ -71,25 +71,25 @@ https://react.dev/reference/react/Component#context
 
 `React.Component.context`
 
----
+***
 
 ### props
 
 > `readonly` **props**: `Readonly`\<`SitecoreContextProps`\> & `Readonly`\<\{ `children?`: `ReactNode`; \}\>
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:504
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:504
 
 #### Inherited from
 
 `React.Component.props`
 
----
+***
 
 ### ~~refs~~
 
 > **refs**: `object`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:510
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:510
 
 #### Index Signature
 
@@ -103,38 +103,38 @@ https://legacy.reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs
 
 `React.Component.refs`
 
----
+***
 
 ### state
 
 > **state**: `Readonly`\<`S`\>
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:505
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:505
 
 #### Inherited from
 
 `React.Component.state`
 
----
+***
 
 ### contextType?
 
 > `static` `optional` **contextType**: `Context`\<`any`\>
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:461
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:461
 
 If set, `this.context` will be set at runtime to the current value of the given Context.
 
 Usage:
 
 ```ts
-type MyContext = number;
-const Ctx = React.createContext<MyContext>(0);
+type MyContext = number
+const Ctx = React.createContext<MyContext>(0)
 
 class Foo extends React.Component {
-  static contextType = Ctx;
-  context!: React.ContextType<typeof Ctx>;
-  render() {
+  static contextType = Ctx
+  context!: React.ContextType<typeof Ctx>
+  render () {
     return <>My context's value: {this.context}</>;
   }
 }
@@ -148,21 +148,21 @@ https://react.dev/reference/react/Component#static-contexttype
 
 `React.Component.contextType`
 
----
+***
 
 ### displayName
 
 > `static` **displayName**: `string` = `'SitecoreContext'`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
 
----
+***
 
 ### propTypes
 
 > `static` **propTypes**: `object`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
 
 #### children
 
@@ -178,16 +178,16 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](ht
 
 > `optional` **componentDidCatch**(`error`, `errorInfo`): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:646
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:646
 
 Catches exceptions generated in descendant components. Unhandled exceptions will cause
 the entire component tree to unmount.
 
 #### Parameters
 
-| Parameter   | Type        |
-| ----------- | ----------- |
-| `error`     | `Error`     |
+| Parameter | Type |
+| ------ | ------ |
+| `error` | `Error` |
 | `errorInfo` | `ErrorInfo` |
 
 #### Returns
@@ -198,13 +198,13 @@ the entire component tree to unmount.
 
 `React.Component.componentDidCatch`
 
----
+***
 
 ### componentDidMount()?
 
 > `optional` **componentDidMount**(): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:625
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:625
 
 Called immediately after a component is mounted. Setting state here will trigger re-rendering.
 
@@ -216,13 +216,13 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 `React.Component.componentDidMount`
 
----
+***
 
 ### componentDidUpdate()?
 
 > `optional` **componentDidUpdate**(`prevProps`, `prevState`, `snapshot?`): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:688
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:688
 
 Called immediately after updating occurs. Not called for the initial render.
 
@@ -230,11 +230,11 @@ The snapshot is only present if getSnapshotBeforeUpdate is present and returns n
 
 #### Parameters
 
-| Parameter   | Type              |
-| ----------- | ----------------- |
+| Parameter | Type |
+| ------ | ------ |
 | `prevProps` | `Readonly`\<`P`\> |
 | `prevState` | `Readonly`\<`S`\> |
-| `snapshot?` | `any`             |
+| `snapshot?` | `any` |
 
 #### Returns
 
@@ -244,13 +244,13 @@ The snapshot is only present if getSnapshotBeforeUpdate is present and returns n
 
 `React.Component.componentDidUpdate`
 
----
+***
 
 ### ~~componentWillMount()?~~
 
 > `optional` **componentWillMount**(): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:703
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:703
 
 Called immediately before mounting occurs, and before `Component#render`.
 Avoid introducing any side-effects or subscriptions in this method.
@@ -268,20 +268,20 @@ prevents this from being invoked.
 
 #### See
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
 `React.Component.componentWillMount`
 
----
+***
 
 ### ~~componentWillReceiveProps()?~~
 
 > `optional` **componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:732
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:732
 
 Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
@@ -294,10 +294,10 @@ prevents this from being invoked.
 
 #### Parameters
 
-| Parameter     | Type              |
-| ------------- | ----------------- |
-| `nextProps`   | `Readonly`\<`P`\> |
-| `nextContext` | `any`             |
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`P`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -309,20 +309,20 @@ prevents this from being invoked.
 
 #### See
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
 `React.Component.componentWillReceiveProps`
 
----
+***
 
 ### componentWillUnmount()?
 
 > `optional` **componentWillUnmount**(): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:641
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:641
 
 Called immediately before a component is destroyed. Perform any necessary cleanup in this method, such as
 cancelled network requests, or cleaning up any DOM elements created in `componentDidMount`.
@@ -335,13 +335,13 @@ cancelled network requests, or cleaning up any DOM elements created in `componen
 
 `React.Component.componentWillUnmount`
 
----
+***
 
 ### ~~componentWillUpdate()?~~
 
 > `optional` **componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:762
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:762
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
@@ -352,11 +352,11 @@ prevents this from being invoked.
 
 #### Parameters
 
-| Parameter     | Type              |
-| ------------- | ----------------- |
-| `nextProps`   | `Readonly`\<`P`\> |
-| `nextState`   | `Readonly`\<`S`\> |
-| `nextContext` | `any`             |
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`P`\> |
+| `nextState` | `Readonly`\<`S`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -368,25 +368,25 @@ prevents this from being invoked.
 
 #### See
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
 `React.Component.componentWillUpdate`
 
----
+***
 
 ### forceUpdate()
 
 > **forceUpdate**(`callback?`): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:496
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:496
 
 #### Parameters
 
-| Parameter   | Type         |
-| ----------- | ------------ |
+| Parameter | Type |
+| ------ | ------ |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -397,13 +397,13 @@ Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:496
 
 `React.Component.forceUpdate`
 
----
+***
 
 ### getSnapshotBeforeUpdate()?
 
 > `optional` **getSnapshotBeforeUpdate**(`prevProps`, `prevState`): `any`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:682
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:682
 
 Runs before React applies the result of `render` to the document, and
 returns an object to be given to componentDidUpdate. Useful for saving
@@ -414,8 +414,8 @@ lifecycle events from running.
 
 #### Parameters
 
-| Parameter   | Type              |
-| ----------- | ----------------- |
+| Parameter | Type |
+| ------ | ------ |
 | `prevProps` | `Readonly`\<`P`\> |
 | `prevState` | `Readonly`\<`S`\> |
 
@@ -427,13 +427,13 @@ lifecycle events from running.
 
 `React.Component.getSnapshotBeforeUpdate`
 
----
+***
 
 ### render()
 
 > **render**(): `Element`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
 
 #### Returns
 
@@ -443,26 +443,26 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](ht
 
 `React.Component.render`
 
----
+***
 
 ### setState()
 
 > **setState**\<`K`\>(`state`, `callback?`): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:491
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:491
 
 #### Type Parameters
 
-| Type Parameter        |
-| --------------------- |
-| `K` _extends_ `never` |
+| Type Parameter |
+| ------ |
+| `K` *extends* `never` |
 
 #### Parameters
 
-| Parameter   | Type                                                                                     |
-| ----------- | ---------------------------------------------------------------------------------------- |
-| `state`     | \{ \} \| (`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\> \| `Pick`\<\{ \}, `K`\> |
-| `callback?` | () => `void`                                                                             |
+| Parameter | Type |
+| ------ | ------ |
+| `state` | \{ \} \| (`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\> \| `Pick`\<\{ \}, `K`\> |
+| `callback?` | () => `void` |
 
 #### Returns
 
@@ -472,13 +472,13 @@ Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:491
 
 `React.Component.setState`
 
----
+***
 
 ### shouldComponentUpdate()?
 
 > `optional` **shouldComponentUpdate**(`nextProps`, `nextState`, `nextContext`): `boolean`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:636
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:636
 
 Called to determine whether the change in props and state should trigger a re-render.
 
@@ -491,11 +491,11 @@ and `componentDidUpdate` will not be called.
 
 #### Parameters
 
-| Parameter     | Type              |
-| ------------- | ----------------- |
-| `nextProps`   | `Readonly`\<`P`\> |
-| `nextState`   | `Readonly`\<`S`\> |
-| `nextContext` | `any`             |
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`P`\> |
+| `nextState` | `Readonly`\<`S`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -505,13 +505,13 @@ and `componentDidUpdate` will not be called.
 
 `React.Component.shouldComponentUpdate`
 
----
+***
 
-### ~~UNSAFE_componentWillMount()?~~
+### ~~UNSAFE\_componentWillMount()?~~
 
-> `optional` **UNSAFE_componentWillMount**(): `void`
+> `optional` **UNSAFE\_componentWillMount**(): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:717
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:717
 
 Called immediately before mounting occurs, and before `Component#render`.
 Avoid introducing any side-effects or subscriptions in this method.
@@ -531,20 +531,20 @@ prevents this from being invoked.
 
 #### See
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
 `React.Component.UNSAFE_componentWillMount`
 
----
+***
 
-### ~~UNSAFE_componentWillReceiveProps()?~~
+### ~~UNSAFE\_componentWillReceiveProps()?~~
 
-> `optional` **UNSAFE_componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
+> `optional` **UNSAFE\_componentWillReceiveProps**(`nextProps`, `nextContext`): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:749
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:749
 
 Called when the component may be receiving new props.
 React may call this even if props have not changed, so be sure to compare new and existing
@@ -559,10 +559,10 @@ prevents this from being invoked.
 
 #### Parameters
 
-| Parameter     | Type              |
-| ------------- | ----------------- |
-| `nextProps`   | `Readonly`\<`P`\> |
-| `nextContext` | `any`             |
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`P`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -574,20 +574,20 @@ prevents this from being invoked.
 
 #### See
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 
 `React.Component.UNSAFE_componentWillReceiveProps`
 
----
+***
 
-### ~~UNSAFE_componentWillUpdate()?~~
+### ~~UNSAFE\_componentWillUpdate()?~~
 
-> `optional` **UNSAFE_componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
+> `optional` **UNSAFE\_componentWillUpdate**(`nextProps`, `nextState`, `nextContext`): `void`
 
-Defined in: sitecore-jss-react-native/node_modules/@types/react/index.d.ts:777
+Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:777
 
 Called immediately before rendering when new props or state is received. Not called for the initial render.
 
@@ -600,11 +600,11 @@ prevents this from being invoked.
 
 #### Parameters
 
-| Parameter     | Type              |
-| ------------- | ----------------- |
-| `nextProps`   | `Readonly`\<`P`\> |
-| `nextState`   | `Readonly`\<`S`\> |
-| `nextContext` | `any`             |
+| Parameter | Type |
+| ------ | ------ |
+| `nextProps` | `Readonly`\<`P`\> |
+| `nextState` | `Readonly`\<`S`\> |
+| `nextContext` | `any` |
 
 #### Returns
 
@@ -616,8 +616,8 @@ prevents this from being invoked.
 
 #### See
 
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
-- https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+ - https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path
 
 #### Inherited from
 

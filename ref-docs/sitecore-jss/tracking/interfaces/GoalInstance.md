@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [tracking](../README.md) / GoalInstance
 
 # Interface: GoalInstance
 
-Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:7](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/tracking/dataModels.ts#L7)
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:7](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/tracking/dataModels.ts#L7)
 
 ## Indexable
 
@@ -18,6 +18,6 @@ Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:7](https://github.
 
 > **goalId**: `string`
 
-Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:10](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/tracking/dataModels.ts#L10)
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:10](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/tracking/dataModels.ts#L10)
 
 GUID or alias (name) of goal to trigger

@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss-react**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / withEmptyFieldEditingComponent
 
@@ -8,23 +8,23 @@
 
 > **withEmptyFieldEditingComponent**\<`FieldComponentProps`, `RefElementType`\>(`FieldComponent`, `options`): `ForwardRefExoticComponent`\<`PropsWithoutRef`\<`FieldComponentProps`\> & `RefAttributes`\<`RefElementType`\>\> \| (`props`) => `Element`
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withEmptyFieldEditingComponent.tsx:38](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react/src/enhancers/withEmptyFieldEditingComponent.tsx#L38)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withEmptyFieldEditingComponent.tsx:38](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react/src/enhancers/withEmptyFieldEditingComponent.tsx#L38)
 
 Returns the passed field component or default component in case field value is empty and edit mode is 'metadata'
 
 ## Type Parameters
 
-| Type Parameter                                                                                 | Default type  |
-| ---------------------------------------------------------------------------------------------- | ------------- |
-| `FieldComponentProps` _extends_ `WithEmptyFieldEditingComponentProps`\<`FieldComponentProps`\> | -             |
-| `RefElementType`                                                                               | `HTMLElement` |
+| Type Parameter | Default type |
+| ------ | ------ |
+| `FieldComponentProps` *extends* `WithEmptyFieldEditingComponentProps`\<`FieldComponentProps`\> | - |
+| `RefElementType` | `HTMLElement` |
 
 ## Parameters
 
-| Parameter        | Type                                     | Description             |
-| ---------------- | ---------------------------------------- | ----------------------- |
-| `FieldComponent` | `ComponentType`\<`FieldComponentProps`\> | the field component     |
-| `options`        | `WithEmptyFieldEditingComponentOptions`  | the options of the HOC; |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `FieldComponent` | `ComponentType`\<`FieldComponentProps`\> | the field component |
+| `options` | `WithEmptyFieldEditingComponentOptions` | the options of the HOC; |
 
 ## Returns
 

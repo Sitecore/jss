@@ -1,13 +1,13 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
-[@sitecore-jss/sitecore-jss](../../README.md) / [editing](../README.md) / DEFAULT_PLACEHOLDER_UID
+[@sitecore-jss/sitecore-jss](../../README.md) / [editing](../README.md) / DEFAULT\_PLACEHOLDER\_UID
 
-# Variable: DEFAULT_PLACEHOLDER_UID
+# Variable: DEFAULT\_PLACEHOLDER\_UID
 
-> `const` **DEFAULT_PLACEHOLDER_UID**: `"00000000-0000-0000-0000-000000000000"` = `'00000000-0000-0000-0000-000000000000'`
+> `const` **DEFAULT\_PLACEHOLDER\_UID**: `"00000000-0000-0000-0000-000000000000"` = `'00000000-0000-0000-0000-000000000000'`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:7](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/utils.ts#L7)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:7](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/editing/utils.ts#L7)
 
 Default value of uid for root placeholder when uid is not present.

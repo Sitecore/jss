@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-angular**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / RichTextField
 
 # Interface: RichTextField
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:46](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/rendering-field.ts#L46)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:46](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-angular/src/components/rendering-field.ts#L46)
 
 ## Extends
 
@@ -18,13 +18,13 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:46]
 
 > `optional` **editable**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:7](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-angular/src/components/rendering-field.ts#L7)
 
 #### Inherited from
 
 [`RenderingField`](RenderingField.md).[`editable`](RenderingField.md#editable)
 
----
+***
 
 ### metadata?
 
@@ -40,13 +40,13 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
 [`RenderingField`](RenderingField.md).[`metadata`](RenderingField.md#metadata)
 
----
+***
 
 ### value?
 
 > `optional` **value**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
 
 #### Inherited from
 

@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [utils](../README.md) / DefaultEditFrameButton
 
@@ -8,7 +8,7 @@
 
 > `const` **DefaultEditFrameButton**: `object`
 
-Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/editing/edit-frame.ts#L15)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/editing/edit-frame.ts#L15)
 
 ## Type declaration
 

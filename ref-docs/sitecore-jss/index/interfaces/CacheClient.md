@@ -1,20 +1,20 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [index](../README.md) / CacheClient
 
 # Interface: CacheClient\<T\>
 
-Defined in: [packages/sitecore-jss/src/cache-client.ts:7](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/cache-client.ts#L7)
+Defined in: [packages/sitecore-jss/src/cache-client.ts:7](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/cache-client.ts#L7)
 
 An interface for cache clients.
 
 ## Type Parameters
 
-| Type Parameter | Description                    |
-| -------------- | ------------------------------ |
-| `T`            | The type of data being cached. |
+| Type Parameter | Description |
+| ------ | ------ |
+| `T` | The type of data being cached. |
 
 ## Methods
 
@@ -22,15 +22,15 @@ An interface for cache clients.
 
 > **getCacheValue**(`key`): `null` \| `T`
 
-Defined in: [packages/sitecore-jss/src/cache-client.ts:21](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/cache-client.ts#L21)
+Defined in: [packages/sitecore-jss/src/cache-client.ts:21](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/cache-client.ts#L21)
 
 Retrieves a value from the cache.
 
 #### Parameters
 
-| Parameter | Type     | Description    |
-| --------- | -------- | -------------- |
-| `key`     | `string` | The cache key. |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
 
 #### Returns
 
@@ -38,22 +38,22 @@ Retrieves a value from the cache.
 
 The cache value as {T}, or null if the specified key was not found in the cache.
 
----
+***
 
 ### setCacheValue()
 
 > **setCacheValue**(`key`, `value`): `T`
 
-Defined in: [packages/sitecore-jss/src/cache-client.ts:14](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/cache-client.ts#L14)
+Defined in: [packages/sitecore-jss/src/cache-client.ts:14](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/cache-client.ts#L14)
 
 Adds a value to the cache for the specified cache key.
 
 #### Parameters
 
-| Parameter | Type     | Description         |
-| --------- | -------- | ------------------- |
-| `key`     | `string` | The cache key.      |
-| `value`   | `T`      | The value to cache. |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `key` | `string` | The cache key. |
+| `value` | `T` | The value to cache. |
 
 #### Returns
 

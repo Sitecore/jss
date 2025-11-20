@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-nextjs**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / ComponentBuilder
 
 # Class: ComponentBuilder
 
-Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:37](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L37)
+Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:37](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L37)
 
 Nextjs implementation of component builder class for building components based on the configuration.
 
@@ -16,13 +16,13 @@ Nextjs implementation of component builder class for building components based o
 
 > **new ComponentBuilder**(`config`): `ComponentBuilder`
 
-Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:48](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L48)
+Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:48](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L48)
 
 #### Parameters
 
-| Parameter | Type                                                                                 |
-| --------- | ------------------------------------------------------------------------------------ |
-| `config`  | [`ComponentBuilderConfig`](../type-aliases/ComponentBuilderConfig.md)\<`Component`\> |
+| Parameter | Type |
+| ------ | ------ |
+| `config` | [`ComponentBuilderConfig`](../type-aliases/ComponentBuilderConfig.md)\<`Component`\> |
 
 #### Returns
 
@@ -34,25 +34,25 @@ Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:48](https://github.com/
 
 > `protected` **components**: `Map`\<`string`, `Component`\>
 
-Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:41](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L41)
+Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:41](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L41)
 
 List of components to be stored
 
----
+***
 
 ### config
 
 > `protected` **config**: [`ComponentBuilderConfig`](../type-aliases/ComponentBuilderConfig.md)\<`Component`\>
 
-Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:48](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L48)
+Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:48](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L48)
 
----
+***
 
-### DEFAULT_EXPORT_NAME
+### DEFAULT\_EXPORT\_NAME
 
-> `protected` **DEFAULT_EXPORT_NAME**: `string` = `'Default'`
+> `protected` **DEFAULT\_EXPORT\_NAME**: `string` = `'Default'`
 
-Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:46](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L46)
+Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:46](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L46)
 
 SXA uses custom default export name
 
@@ -62,15 +62,15 @@ SXA uses custom default export name
 
 > **getComponentFactory**(`config?`): [`ComponentFactory`](../type-aliases/ComponentFactory.md)
 
-Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:80](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L80)
+Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:80](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L80)
 
 Creates a new instance of component factory
 Component can be imported dynamically or statically.
 
 #### Parameters
 
-| Parameter | Type                     | Description                     |
-| --------- | ------------------------ | ------------------------------- |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `config?` | `ComponentFactoryConfig` | Component factory configuration |
 
 #### Returns
@@ -79,13 +79,13 @@ Component can be imported dynamically or statically.
 
 Component factory implementation
 
----
+***
 
 ### getModuleFactory()
 
 > **getModuleFactory**(): [`ModuleFactory`](../type-aliases/ModuleFactory.md)
 
-Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:58](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L58)
+Defined in: [sitecore-jss-nextjs/src/ComponentBuilder.ts:58](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/ComponentBuilder.ts#L58)
 
 Creates a new instance of module factory
 Module factory provides a module (file) including all exports.

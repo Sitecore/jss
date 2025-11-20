@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../../../README.md) / [media](../../../README.md) / [mediaApi](../README.md) / findEditorImageTag
 
@@ -8,14 +8,14 @@
 
 > **findEditorImageTag**(`editorMarkup`): `null` \| \{ `attrs`: \{\[`key`: `string`\]: `string`; \}; `imgTag`: `string`; \}
 
-Defined in: [packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/media/media-api.ts#L18)
+Defined in: [packages/sitecore-jss/src/media/media-api.ts:18](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/media/media-api.ts#L18)
 
 Makes a request to Sitecore Content Service for the specified item path.
 
 ## Parameters
 
-| Parameter      | Type     | Description         |
-| -------------- | -------- | ------------------- |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
 | `editorMarkup` | `string` | the markup to parse |
 
 ## Returns

@@ -1,6 +1,6 @@
 [**@sitecore-jss/sitecore-jss**](../../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss](../../README.md) / [utils](../README.md) / enforceCors
 
@@ -8,7 +8,7 @@
 
 > **enforceCors**(`req`, `res`, `allowedOrigins?`): `boolean`
 
-Defined in: [packages/sitecore-jss/src/utils/utils.ts:116](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss/src/utils/utils.ts#L116)
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:116](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/utils/utils.ts#L116)
 
 Tests origin from incoming request against allowed origins list that can be
 set in JSS's JSS_ALLOWED_ORIGINS env variable, passed via allowedOrigins param and/or
@@ -18,11 +18,11 @@ Also applies Access-Control-Allow-Headers for preflight requests
 
 ## Parameters
 
-| Parameter         | Type              | Description                                |
-| ----------------- | ----------------- | ------------------------------------------ |
-| `req`             | `IncomingMessage` | incoming request                           |
-| `res`             | `OutgoingMessage` | response to set CORS headers for           |
-| `allowedOrigins?` | `string`[]        | additional list of origins to test against |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `req` | `IncomingMessage` | incoming request |
+| `res` | `OutgoingMessage` | response to set CORS headers for |
+| `allowedOrigins?` | `string`[] | additional list of origins to test against |
 
 ## Returns
 

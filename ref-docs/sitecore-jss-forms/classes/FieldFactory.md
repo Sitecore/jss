@@ -1,12 +1,12 @@
 [**@sitecore-jss/sitecore-jss-react-forms**](../README.md)
 
----
+***
 
 [@sitecore-jss/sitecore-jss-react-forms](../README.md) / FieldFactory
 
 # Class: FieldFactory
 
-Defined in: [src/field-factory.tsx:14](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-forms/src/field-factory.tsx#L14)
+Defined in: [src/field-factory.tsx:14](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-forms/src/field-factory.tsx#L14)
 
 Maps field type IDs from Sitecore (/sitecore/system/Settings/Forms/Field Types)
 into an implementing React component - this is very similar to the JSS componentFactory,
@@ -18,7 +18,7 @@ but it maps form element components instead of layout components
 
 > **new FieldFactory**(): `FieldFactory`
 
-Defined in: [src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
+Defined in: [src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
 
 #### Returns
 
@@ -30,56 +30,56 @@ Defined in: [src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/7850
 
 > **get**(`field`, `props`): `ReactNode`
 
-Defined in: [src/field-factory.tsx:38](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-forms/src/field-factory.tsx#L38)
+Defined in: [src/field-factory.tsx:38](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-forms/src/field-factory.tsx#L38)
 
 #### Parameters
 
-| Parameter | Type                                        |
-| --------- | ------------------------------------------- |
-| `field`   | `FormField`                                 |
-| `props`   | [`FieldProps`](../interfaces/FieldProps.md) |
+| Parameter | Type |
+| ------ | ------ |
+| `field` | `FormField` |
+| `props` | [`FieldProps`](../interfaces/FieldProps.md) |
 
 #### Returns
 
 `ReactNode`
 
----
+***
 
 ### setComponent()
 
 > **setComponent**\<`TProps`\>(`type`, `component`): `void`
 
-Defined in: [src/field-factory.tsx:31](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-forms/src/field-factory.tsx#L31)
+Defined in: [src/field-factory.tsx:31](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-forms/src/field-factory.tsx#L31)
 
 #### Type Parameters
 
-| Type Parameter                                                                               |
-| -------------------------------------------------------------------------------------------- |
-| `TProps` _extends_ [`FieldProps`](../interfaces/FieldProps.md)\<`FormField`\<`ViewModel`\>\> |
+| Type Parameter |
+| ------ |
+| `TProps` *extends* [`FieldProps`](../interfaces/FieldProps.md)\<`FormField`\<`ViewModel`\>\> |
 
 #### Parameters
 
-| Parameter   | Type                             |
-| ----------- | -------------------------------- |
-| `type`      | `string`                         |
+| Parameter | Type |
+| ------ | ------ |
+| `type` | `string` |
 | `component` | `FormFieldComponent`\<`TProps`\> |
 
 #### Returns
 
 `void`
 
----
+***
 
 ### setComponentNotFoundComponent()
 
 > **setComponentNotFoundComponent**(`component`): `void`
 
-Defined in: [src/field-factory.tsx:27](https://github.com/Sitecore/jss/blob/7850a950628417dc324c206dda9373199373a925/packages/sitecore-jss-react-forms/src/field-factory.tsx#L27)
+Defined in: [src/field-factory.tsx:27](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react-forms/src/field-factory.tsx#L27)
 
 #### Parameters
 
-| Parameter   | Type                                          |
-| ----------- | --------------------------------------------- |
+| Parameter | Type |
+| ------ | ------ |
 | `component` | `ComponentType`\<`FormField`\<`ViewModel`\>\> |
 
 #### Returns
