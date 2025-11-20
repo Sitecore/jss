@@ -7905,7 +7905,7 @@ __metadata:
     "@sitecore-jss/sitecore-jss": 21.10.1
     "@stylistic/eslint-plugin-ts": ^2.10.1
     "@types/jasmine": ^5.1.8
-    "@types/node": ^22.9.0
+    "@types/node": ^20.19.0
     "@typescript-eslint/eslint-plugin": ^8.14.0
     "@typescript-eslint/parser": ^8.14.0
     codelyzer: ^6.0.1
@@ -9117,12 +9117,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.9.0":
-  version: 22.19.1
-  resolution: "@types/node@npm:22.19.1"
+"@types/node@npm:^20.19.0":
+  version: 20.19.25
+  resolution: "@types/node@npm:20.19.25"
   dependencies:
     undici-types: ~6.21.0
-  checksum: 62b72e26a51659e654cfd6791f296a95ebc4b1deb1fa97f7a5cea4032434d1b4f14021f6e52eb9ea0cc1d1a7ab90567797a25c3865e3ea3d2caf6b3ea0ac4c4d
+  checksum: f6d854995d173e9d85c7ffd4ca69ee645daac8c0a150fc3ed2f7b21dfc7ece34e44063213c4e9b11de56fe7de807d59c1bb717fca8af8590b40bfb9d9068e629
   languageName: node
   linkType: hard
 

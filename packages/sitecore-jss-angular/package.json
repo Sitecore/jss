@@ -11,7 +11,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --readme none --out ../../ref-docs/sitecore-jss-angular src/public_api.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22.10"
+    "node": ">=20.19"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -35,7 +35,7 @@
     "@angular/router": "~20.3.10",
     "@stylistic/eslint-plugin-ts": "^2.10.1",
     "@types/jasmine": "^5.1.8",
-    "@types/node": "^22.9.0",
+    "@types/node": "^20.19.0",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
     "codelyzer": "^6.0.1",
