@@ -8,7 +8,7 @@
 
 > **EditFrameDataSource** = `object`
 
-Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/editing/edit-frame.ts#L49)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:49](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss/src/editing/edit-frame.ts#L49)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:49](https://github.
 
 > `optional` **databaseName**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:51](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/editing/edit-frame.ts#L51)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:51](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss/src/editing/edit-frame.ts#L51)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:51](https://github.
 
 > **itemId**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:50](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/editing/edit-frame.ts#L50)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:50](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss/src/editing/edit-frame.ts#L50)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:50](https://github.
 
 > `optional` **language**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:52](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/editing/edit-frame.ts#L52)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:52](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss/src/editing/edit-frame.ts#L52)

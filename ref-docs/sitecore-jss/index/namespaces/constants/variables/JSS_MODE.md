@@ -8,7 +8,7 @@
 
 > `const` **JSS\_MODE**: `object`
 
-Defined in: [packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/constants.ts#L14)
+Defined in: [packages/sitecore-jss/src/constants.ts:14](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss/src/constants.ts#L14)
 
 ## Type declaration
 

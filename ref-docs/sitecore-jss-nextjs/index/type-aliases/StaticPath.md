@@ -8,7 +8,7 @@
 
 > **StaticPath** = `object`
 
-Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
+Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:31](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L31)
 
 Object model of a site page item.
 
@@ -18,7 +18,7 @@ Object model of a site page item.
 
 > `optional` **locale**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:35](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L35)
+Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:35](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L35)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:35](htt
 
 > **params**: `object`
 
-Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:32](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L32)
+Defined in: [sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts:32](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-nextjs/src/services/graphql-sitemap-service.ts#L32)
 
 #### path
 

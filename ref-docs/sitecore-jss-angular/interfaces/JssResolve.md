@@ -6,7 +6,7 @@
 
 # Interface: JssResolve\<T\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:108](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L108)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:108](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L108)
 
 ## Type Parameters
 
@@ -20,7 +20,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:108
 
 > **resolve**(`input`): `T` \| `Observable`\<`T`\> \| `Promise`\<`T`\>
 
-Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:109](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L109)
+Defined in: [packages/sitecore-jss-angular/src/services/placeholder.token.ts:109](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-angular/src/services/placeholder.token.ts#L109)
 
 #### Parameters
 

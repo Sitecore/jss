@@ -8,4 +8,4 @@
 
 > `const` **Image**: `React.FC`\<[`ImageProps`](../interfaces/ImageProps.md)\>
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:143](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-react/src/components/Image.tsx#L143)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:143](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-react/src/components/Image.tsx#L143)

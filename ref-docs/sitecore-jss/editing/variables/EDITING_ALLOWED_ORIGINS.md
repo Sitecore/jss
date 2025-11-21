@@ -8,6 +8,6 @@
 
 > `const` **EDITING\_ALLOWED\_ORIGINS**: `string`[]
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:23](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss/src/editing/utils.ts#L23)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:23](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss/src/editing/utils.ts#L23)
 
 Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.

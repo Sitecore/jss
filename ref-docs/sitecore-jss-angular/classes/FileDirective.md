@@ -6,7 +6,7 @@
 
 # Class: FileDirective
 
-Defined in: [packages/sitecore-jss-angular/src/components/file.directive.ts:17](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-angular/src/components/file.directive.ts#L17)
+Defined in: [packages/sitecore-jss-angular/src/components/file.directive.ts:17](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-angular/src/components/file.directive.ts#L17)
 
 File fields cannot be managed via the EE. We never output "editable."
 
@@ -30,7 +30,7 @@ File fields cannot be managed via the EE. We never output "editable."
 
 > **field**: [`FileField`](../interfaces/FileField.md)
 
-Defined in: [packages/sitecore-jss-angular/src/components/file.directive.ts:18](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-angular/src/components/file.directive.ts#L18)
+Defined in: [packages/sitecore-jss-angular/src/components/file.directive.ts:18](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-angular/src/components/file.directive.ts#L18)
 
 ## Methods
 
@@ -38,7 +38,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/file.directive.ts:18](
 
 > **ngOnChanges**(`changes`): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/file.directive.ts:24](https://github.com/Sitecore/jss/blob/d31782cb5b4ac98a98a375c82666545980e0d455/packages/sitecore-jss-angular/src/components/file.directive.ts#L24)
+Defined in: [packages/sitecore-jss-angular/src/components/file.directive.ts:24](https://github.com/Sitecore/jss/blob/2729d15919a10f55a27e8e67509b1bf47b25de15/packages/sitecore-jss-angular/src/components/file.directive.ts#L24)
 
 A callback method that is invoked immediately after the
 default change detector has checked data-bound properties
