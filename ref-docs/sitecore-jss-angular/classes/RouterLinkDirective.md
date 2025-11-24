@@ -18,6 +18,7 @@
 
 - [attrs](RouterLinkDirective.md#attrs)
 - [editable](RouterLinkDirective.md#editable)
+- [emptyFieldEditingTemplate](RouterLinkDirective.md#emptyfieldeditingtemplate)
 - [field](RouterLinkDirective.md#field)
 - [renderer](RouterLinkDirective.md#renderer)
 - [router](RouterLinkDirective.md#router)
@@ -34,25 +35,11 @@
 
 ### constructor
 
-• **new RouterLinkDirective**(`viewContainer`, `templateRef`, `renderer`, `elementRef`, `router`)
+• **new RouterLinkDirective**()
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `viewContainer` | `ViewContainerRef` |
-| `templateRef` | `TemplateRef`\<`unknown`\> |
-| `renderer` | `Renderer2` |
-| `elementRef` | `ElementRef`\<`any`\> |
-| `router` | `Router` |
-
-#### Overrides
+#### Inherited from
 
 [LinkDirective](LinkDirective.md).[constructor](LinkDirective.md#constructor)
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:21](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L21)
 
 ## Properties
 
@@ -70,7 +57,7 @@
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:17](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L17)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:10](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L10)
 
 ___
 
@@ -84,7 +71,23 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:15](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L15)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:8](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L8)
+
+___
+
+### emptyFieldEditingTemplate
+
+• **emptyFieldEditingTemplate**: `TemplateRef`\<`unknown`\>
+
+Custom template to render in Pages in Metadata edit mode if field value is empty
+
+#### Inherited from
+
+[LinkDirective](LinkDirective.md).[emptyFieldEditingTemplate](LinkDirective.md#emptyfieldeditingtemplate)
+
+#### Defined in
+
+[packages/sitecore-jss-angular/src/components/link.directive.ts:25](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/link.directive.ts#L25)
 
 ___
 
@@ -98,7 +101,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:19](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L19)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:12](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L12)
 
 ___
 
@@ -106,13 +109,13 @@ ___
 
 • `Protected` **renderer**: `Renderer2`
 
-#### Inherited from
+#### Overrides
 
 [LinkDirective](LinkDirective.md).[renderer](LinkDirective.md#renderer)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:26](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/link.directive.ts#L26)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:16](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L16)
 
 ___
 
@@ -122,35 +125,35 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:26](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L26)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:17](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L17)
 
 ___
 
 ### templateRef
 
-• `Protected` **templateRef**: `TemplateRef`\<`unknown`\>
+• **templateRef**: `TemplateRef`\<`any`\>
 
-#### Inherited from
+#### Overrides
 
 [LinkDirective](LinkDirective.md).[templateRef](LinkDirective.md#templateref)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:25](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/link.directive.ts#L25)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:15](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L15)
 
 ___
 
 ### viewContainer
 
-• `Protected` **viewContainer**: `ViewContainerRef`
+• **viewContainer**: `ViewContainerRef`
 
-#### Inherited from
+#### Overrides
 
 [LinkDirective](LinkDirective.md).[viewContainer](LinkDirective.md#viewcontainer)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:24](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/link.directive.ts#L24)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:14](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L14)
 
 ## Methods
 
@@ -174,7 +177,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:30](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/link.directive.ts#L30)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:34](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/link.directive.ts#L34)
 
 ___
 
@@ -199,7 +202,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/router-link.directive.ts:31](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L31)
+[packages/sitecore-jss-angular/src/components/router-link.directive.ts:19](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/router-link.directive.ts#L19)
 
 ___
 
@@ -225,4 +228,4 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/link.directive.ts:56](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/link.directive.ts#L56)
+[packages/sitecore-jss-angular/src/components/link.directive.ts:60](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/link.directive.ts#L60)

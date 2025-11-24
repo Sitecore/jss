@@ -16,24 +16,14 @@
 
 ### constructor
 
-• **new RenderEmptyDirective**(`templateRef`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `templateRef` | `TemplateRef`\<`unknown`\> |
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
+• **new RenderEmptyDirective**()
 
 ## Properties
 
 ### templateRef
 
-• **templateRef**: `TemplateRef`\<`unknown`\>
+• **templateRef**: `TemplateRef`\<`any`\>
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)
+[packages/sitecore-jss-angular/src/components/render-empty.directive.ts:7](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-empty.directive.ts#L7)

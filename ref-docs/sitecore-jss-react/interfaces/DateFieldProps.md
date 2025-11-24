@@ -32,7 +32,7 @@ true
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:19](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-react/src/components/Date.tsx#L19)
+[packages/sitecore-jss-react/src/components/Date.tsx:19](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-react/src/components/Date.tsx#L19)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:6](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-react/src/components/Date.tsx#L6)
+[packages/sitecore-jss-react/src/components/Date.tsx:6](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-react/src/components/Date.tsx#L6)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-react/src/components/Date.tsx#L20)
+[packages/sitecore-jss-react/src/components/Date.tsx:20](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-react/src/components/Date.tsx#L20)
 
 ___
 
@@ -85,4 +85,4 @@ The HTML element that will wrap the contents of the field.
 
 #### Defined in
 
-[packages/sitecore-jss-react/src/components/Date.tsx:13](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-react/src/components/Date.tsx#L13)
+[packages/sitecore-jss-react/src/components/Date.tsx:13](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-react/src/components/Date.tsx#L13)

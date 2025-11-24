@@ -49,7 +49,7 @@ Makes a request to Sitecore Layout Service for the specified route item path.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `events` | ([`CampaignInstance`](../interfaces/CampaignInstance.md) \| [`GoalInstance`](../interfaces/GoalInstance.md) \| [`EventInstance`](../interfaces/EventInstance.md) \| [`OutcomeInstance`](../interfaces/OutcomeInstance.md) \| [`PageViewInstance`](../interfaces/PageViewInstance.md))[] | events to send |
+| `events` | ([`EventInstance`](../interfaces/EventInstance.md) \| [`GoalInstance`](../interfaces/GoalInstance.md) \| [`OutcomeInstance`](../interfaces/OutcomeInstance.md) \| [`CampaignInstance`](../interfaces/CampaignInstance.md) \| [`PageViewInstance`](../interfaces/PageViewInstance.md))[] | events to send |
 | `options` | [`TrackingRequestOptions`](../interfaces/TrackingRequestOptions.md) | options for the tracking service |
 
 #### Returns

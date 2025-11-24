@@ -42,19 +42,7 @@ Useful inside templated placeholders.
 
 ### constructor
 
-• **new RenderComponentComponent**(`differs`, `componentFactory`, `missingComponentComponent`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `differs` | `KeyValueDiffers` |
-| `componentFactory` | `JssComponentFactoryService` |
-| `missingComponentComponent` | `Type`\<\{ `[key: string]`: `unknown`;  }\> |
-
-#### Defined in
-
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
+• **new RenderComponentComponent**()
 
 ## Properties
 
@@ -64,7 +52,7 @@ Useful inside templated placeholders.
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:40](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L40)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:40](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L40)
 
 ___
 
@@ -78,7 +66,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:39](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L39)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:39](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L39)
 
 ___
 
@@ -88,7 +76,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:45](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L45)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:43](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L43)
 
 ___
 
@@ -98,7 +86,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:41](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L41)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:41](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L41)
 
 ___
 
@@ -108,7 +96,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:44](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L44)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:42](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L42)
 
 ___
 
@@ -118,7 +106,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:47](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L47)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:44](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L44)
 
 ___
 
@@ -132,17 +120,17 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
 
 ___
 
 ### rendering
 
-• **rendering**: [`ComponentRendering`](../interfaces/ComponentRendering.md) \| [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md)
+• **rendering**: [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
 
 ___
 
@@ -152,7 +140,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:37](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L37)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:37](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L37)
 
 ## Accessors
 
@@ -172,7 +160,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:50](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L50)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:48](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L48)
 
 ## Methods
 
@@ -186,7 +174,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:89](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L89)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:87](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L87)
 
 ___
 
@@ -207,7 +195,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:64](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L64)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:62](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L62)
 
 ___
 
@@ -228,7 +216,7 @@ ___
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:74](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L74)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:72](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L72)
 
 ___
 
@@ -252,4 +240,4 @@ OnChanges.ngOnChanges
 
 #### Defined in
 
-[packages/sitecore-jss-angular/src/components/render-component.component.ts:58](https://github.com/Sitecore/jss/blob/6ee0b69111/packages/sitecore-jss-angular/src/components/render-component.component.ts#L58)
+[packages/sitecore-jss-angular/src/components/render-component.component.ts:56](https://github.com/Sitecore/jss/blob/0eb01d0886/packages/sitecore-jss-angular/src/components/render-component.component.ts#L56)
