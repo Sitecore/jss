@@ -7,7 +7,7 @@ import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtim
 import { Link } from './Link';
 import { spy } from 'sinon';
 
-const Router = (): NextRouter => ({
+const Router = (locales?: string[]): NextRouter => ({
   pathname: '/',
   route: '/',
   query: {},
@@ -17,6 +17,7 @@ const Router = (): NextRouter => ({
   isFallback: false,
   isPreview: false,
   isReady: false,
+  locales: locales,
   events: { emit: spy(), off: spy(), on: spy() },
   push: spy(() => Promise.resolve(true)),
   replace: spy(() => Promise.resolve(true)),
@@ -27,8 +28,8 @@ const Router = (): NextRouter => ({
 });
 
 // Should provide RouterContext in case if we render Link from next/link
-const Page = ({ children }: { children: ReactNode }) => (
-  <RouterContext.Provider value={Router()}>{children}</RouterContext.Provider>
+const Page = ({ children, locales }: { children: ReactNode; locales?: string[] }) => (
+  <RouterContext.Provider value={Router(locales)}>{children}</RouterContext.Provider>
 );
 
 describe('<Link />', () => {
@@ -614,6 +615,90 @@ describe('<Link />', () => {
       );
 
       expect(rendered.container.innerHTML).to.equal('');
+    });
+  });
+
+  describe('locale handling', () => {
+    it('should not double-prefix locale when href already contains locale', () => {
+      const field = {
+        value: {
+          href: '/sv/about',
+          text: 'About',
+        },
+      };
+
+      const rendered = render(
+        <Page locales={['en', 'sv', 'de']}>
+          <Link field={field} />
+        </Page>
+      );
+
+      const link = rendered.container.querySelector('a');
+
+      // Href should remain unchanged (no double prefix)
+      expect(link?.getAttribute('href')).to.equal('/sv/about');
+      expect(link?.getAttribute('data-nextjs-link')).to.equal('true');
+    });
+
+    it('should allow Next.js to add locale when href does not contain locale', () => {
+      const field = {
+        value: {
+          href: '/about',
+          text: 'About',
+        },
+      };
+
+      const rendered = render(
+        <Page locales={['en', 'sv', 'de']}>
+          <Link field={field} />
+        </Page>
+      );
+
+      const link = rendered.container.querySelector('a');
+
+      // Link should render with NextLink (locale handling enabled)
+      expect(link?.getAttribute('data-nextjs-link')).to.equal('true');
+    });
+
+    it('should handle locale-only href paths', () => {
+      const field = {
+        value: {
+          href: '/sv',
+          text: 'Swedish Home',
+        },
+      };
+
+      const rendered = render(
+        <Page locales={['en', 'sv', 'de']}>
+          <Link field={field} />
+        </Page>
+      );
+
+      const link = rendered.container.querySelector('a');
+
+      // Href should remain unchanged
+      expect(link?.getAttribute('href')).to.equal('/sv');
+      expect(link?.getAttribute('data-nextjs-link')).to.equal('true');
+    });
+
+    it('should work when no locales are configured', () => {
+      const field = {
+        value: {
+          href: '/about',
+          text: 'About',
+        },
+      };
+
+      const rendered = render(
+        <Page>
+          <Link field={field} />
+        </Page>
+      );
+
+      const link = rendered.container.querySelector('a');
+
+      expect(link?.getAttribute('href')).to.equal('/about');
+      expect(link?.getAttribute('data-nextjs-link')).to.equal('true');
     });
   });
 });
