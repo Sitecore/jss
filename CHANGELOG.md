@@ -17,6 +17,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[sitecore-jss-nextjs]` Fix Link component locale handling to support both `languageEmbedding="always"` and `languageEmbedding="asNeeded"` Sitecore configurations. The component now auto-detects if the href already contains a locale prefix, preventing both double-prefixing and missing locale issues.
 * `[sitecore-jss-nextjs]` Preserve default locale in external absolute urls ([#2142](https://github.com/Sitecore/jss/pull/2142))
 * `[React]` Custom properties are not applied to empty field in editing metadata mode ([#2141](https://github.com/Sitecore/jss/pull/2141))
 * `[sitecore-jss-nextjs]` Add regex variable substitution for absolute and external URL redirects. ([#2159](https://github.com/Sitecore/jss/pull/2159))

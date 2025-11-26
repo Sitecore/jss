@@ -1,6 +1,7 @@
 import React, { forwardRef, JSX } from 'react';
 import NextLink from 'next/link';
 import { LinkProps as NextLinkProps } from 'next/link';
+import { useRouter } from 'next/router';
 import {
   Link as ReactLink,
   LinkFieldValue,
@@ -37,6 +38,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       ...htmlLinkProps
     } = props;
 
+    // Get configured locales from Next.js router for locale detection
+    const router = useRouter();
+
     if (
       !field ||
       (!(field as LinkFieldValue).editable &&
@@ -65,11 +69,19 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       // determine if a link is a route or not. File extensions are not routes and should not be pre-fetched.
       if (isMatching && !isFileUrl) {
         delete htmlLinkProps.emptyFieldEditingComponent;
+
+        // Check if href already contains a locale prefix to avoid double-prefixing.
+        // This supports both languageEmbedding="always" (locale in URL from Sitecore) and
+        // languageEmbedding="asNeeded" (locale may not be in URL, let Next.js handle it).
+        const hrefHasLocale = router.locales?.some(
+          (locale) => href.startsWith(`/${locale}/`) || href === `/${locale}`
+        );
+
         return (
           <NextLink
             href={{ pathname: href, query: querystring, hash: anchor }}
             key="link"
-            locale={false}
+            locale={hrefHasLocale ? false : undefined}
             title={value.title}
             target={value.target}
             className={value.class}
