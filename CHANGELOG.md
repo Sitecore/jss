@@ -453,6 +453,18 @@ Our versioning strategy is as follows:
 * `[templates/nextjs]` GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Deprecated JSS_APP_NAME environment variable has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
 
+## 21.11.0
+
+### 🛠 Breaking Changes
+
+* `[angular]` `[sitecore-jss-angular]` Upgrade to Angular v20 ([#2162](https://github.com/Sitecore/jss/pull/2162)) ([#2169](https://github.com/Sitecore/jss/pull/2169)):
+  * Components adjusted to be standalone
+  * Update `apollo-angular` to version 11 to be compatible with Angular v20 compatibility
+  * Replace the deprecated `ngIf`, `ngFor` directive usage with `@if` and `@for`
+  * Update the inject logic for DI
+  * NodeJS version must be updated to v20
+  * Typescript version updated to v 5.8.0
+
 ## 21.10.1
 
 ### 🐛 Bug Fixes
