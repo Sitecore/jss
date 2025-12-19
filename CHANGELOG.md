@@ -11,11 +11,11 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
-## 22.10.0
-
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Fix server transfer redirects ([#2173](https://github.com/Sitecore/jss/pull/2173))
+
+## 22.10.0
 
 ### 🎉 New Features & Improvements
 
