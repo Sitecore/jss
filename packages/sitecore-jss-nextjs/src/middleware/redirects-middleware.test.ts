@@ -1528,12 +1528,8 @@ describe.only('RedirectsMiddleware', () => {
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.status).to.equal(res.status);
-        // Verify NextResponse.rewrite was called
         expect(nextRewriteStub.called).to.be.true;
         const rewriteArg = nextRewriteStub.firstCall.args[0];
-        // The rewrite should receive a URL with the target path (pathname + search),
-        // not the original request's href. This verifies the fix that uses
-        // pathname + search instead of full href for NextURL targets.
         expect(rewriteArg.pathname).to.include('/found');
       });
 
@@ -1579,7 +1575,6 @@ describe.only('RedirectsMiddleware', () => {
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.status).to.equal(res.status);
-        // Verify NextResponse.rewrite was called
         expect(nextRewriteStub.called).to.be.true;
         const rewriteArg = nextRewriteStub.firstCall.args[0];
         expect(rewriteArg.pathname).to.equal('/found');

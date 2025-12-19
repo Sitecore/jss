@@ -13,6 +13,10 @@ Our versioning strategy is as follows:
 
 ## 22.10.0
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Fix server transfer redirects ([#2173](https://github.com/Sitecore/jss/pull/2173))
+
 ### 🎉 New Features & Improvements
 
 * `[Next.js]` Support component-level data fetching in 404/500 pages ([#2140](https://github.com/Sitecore/jss/pull/2140))
