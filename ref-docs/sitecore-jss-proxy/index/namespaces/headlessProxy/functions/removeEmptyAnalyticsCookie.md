@@ -8,7 +8,7 @@
 
 > **removeEmptyAnalyticsCookie**(`proxyResponse`): `void`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:26](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L26)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:26](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L26)
 
 ## Parameters
 

@@ -6,7 +6,7 @@
 
 # Interface: ComponentDefinition
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:208](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L208)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:208](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L208)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:208
 
 > `optional` **allowedPlaceholders**: `string`[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:228](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L228)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:228](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L228)
 
 Explicit names of Sitecore placeholders that this component is allowed
 to be placed into. Normally this is automatically inferred based on
@@ -29,7 +29,7 @@ NOTE: Setting an allowed placeholder name does not register it with the manifest
 
 > `optional` **defaultWorkflow**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:274](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L274)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:274](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L274)
 
 The path or GUID of a Sitecore workflow to assign to the component's data.
 For Sitecore developers only.
@@ -40,7 +40,7 @@ For Sitecore developers only.
 
 > `optional` **displayFieldEditorButton**: `boolean`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:247](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L247)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:247](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L247)
 
 Whether to show a button in Sitecore that allows editing all fields on the component at once.
 Default: true
@@ -51,7 +51,7 @@ Default: true
 
 > `optional` **displayName**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:210](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L210)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:210](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L210)
 
 ***
 
@@ -59,7 +59,7 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:210
 
 > `optional` **fieldEditorFields**: `string`[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:252](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L252)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:252](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L252)
 
 Explicitly specify the names of fields that the displayFieldEditorButton button will show.
 If displayFieldEditorButton is false, has no effect.
@@ -70,7 +70,7 @@ If displayFieldEditorButton is false, has no effect.
 
 > `optional` **fields**: [`FieldDefinition`](FieldDefinition.md)[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:214](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L214)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:214](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L214)
 
 The data fields that provide content data to the component
 
@@ -80,7 +80,7 @@ The data fields that provide content data to the component
 
 > `optional` **graphQLQuery**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:280](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L280)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:280](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L280)
 
 A GraphQL query that will be executed against the JSS app's configured Sitecore GraphQL endpoint
 (in-process) to activate _Integrated GraphQL_. iGQL will replace the `fields` collection in the LS response
@@ -92,7 +92,7 @@ with the results of this GraphQL query, instead of the default datasource serial
 
 > `optional` **icon**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:238](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L238)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:238](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L238)
 
 The path to a Sitecore icon to use when the component is imported.
 Example: 'People/16x16/alarmclock.png'
@@ -103,7 +103,7 @@ Example: 'People/16x16/alarmclock.png'
 
 > `optional` **inherits**: `string`[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:242](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L242)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:242](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L242)
 
 Names of other templates or components to inherit from. Inheritance inherits fields, but not other component data.
 
@@ -113,7 +113,7 @@ Names of other templates or components to inherit from. Inheritance inherits fie
 
 > `optional` **insertOptions**: `string`[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:282](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L282)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:282](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L282)
 
 Template names to allow as insert options under this template
 
@@ -123,7 +123,7 @@ Template names to allow as insert options under this template
 
 > `optional` **name**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:209](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L209)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:209](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L209)
 
 ***
 
@@ -131,7 +131,7 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:209
 
 > `optional` **params**: `string`[] \| [`FieldDefinition`](FieldDefinition.md)[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:233](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L233)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:233](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L233)
 
 Defines non-content parameters.
 Parameters are more developer-focused options than fields, such as configurable CSS classes.
@@ -142,7 +142,7 @@ Parameters are more developer-focused options than fields, such as configurable 
 
 > `optional` **placeholders**: `string`[] \| [`PlaceholderDefinition`](PlaceholderDefinition.md)[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:219](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L219)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:219](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L219)
 
 The names of JSS placeholders that this component exposes
 (keys of any placeholder components added to this component's JS view)
@@ -153,7 +153,7 @@ The names of JSS placeholders that this component exposes
 
 > `optional` **renderingId**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:258](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L258)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:258](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L258)
 
 Optionally specify an ID used when importing the rendering item for this component.
 Can be either a GUID, or a string. ID values must be unique app-wide if specified.
@@ -165,7 +165,7 @@ For Sitecore developers only.
 
 > `optional` **templateId**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:264](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L264)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:264](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L264)
 
 Optionally specify an ID used when importing the datasource template item for this component.
 Can be either a GUID, or a string. ID values must be unique app-wide if specified.
@@ -177,7 +177,7 @@ For Sitecore developers only.
 
 > `optional` **templateName**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:269](https://github.com/Sitecore/jss/blob/272fe9df6e6ab51081665c3700cb5282951c7f08/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L269)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:269](https://github.com/Sitecore/jss/blob/e3335a5ab917b1a6cc1586acbfb6dc79aa56fc5a/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L269)
 
 Optionally specify a name used when importing the datasource template item for this component.
 For Sitecore developers only.

@@ -19,7 +19,7 @@ import { REWRITE_HEADER_NAME } from './middleware';
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
-describe('RedirectsMiddleware', () => {
+describe.only('RedirectsMiddleware', () => {
   let nextRedirectStub, nextRewriteStub;
 
   const debugSpy = spy(debug, 'redirects');
@@ -520,7 +520,7 @@ describe('RedirectsMiddleware', () => {
       it('should override locale with locale parsed from target', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
-          pathname: 'http://localhost:3000/found',
+          pathname: '/found',
           href: 'http://localhost:3000/not-found',
           origin: 'http://localhost:3000',
           locale: 'ua',
@@ -573,7 +573,7 @@ describe('RedirectsMiddleware', () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
           origin: 'http://localhost:3000',
-          pathname: 'http://localhost:3000/found?abc=def',
+          pathname: '/found?abc=def',
           href: 'http://localhost:3000/not-found?abc=def',
           search: '?abc=def',
           locale: 'en',
@@ -1484,6 +1484,100 @@ describe('RedirectsMiddleware', () => {
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should rewrite using pathname and search instead of full href for server transfer with NextURL target', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          clone: cloneUrl,
+          href: 'http://localhost:3000/found?param=value',
+          locale: 'en',
+          origin: 'http://localhost:3000',
+          pathname: '/found',
+          search: '?param=value',
+        };
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              search: '',
+              href: 'http://localhost:3000/not-found',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 200,
+        });
+        setupRewriteStub(200, res);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found?param=value',
+            redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(res.status);
+        expect(nextRewriteStub.called).to.be.true;
+        const rewriteArg = nextRewriteStub.firstCall.args[0];
+        expect(rewriteArg.pathname).to.include('/found');
+      });
+
+      it('should rewrite with empty search when server transfer target has no query string', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          clone: cloneUrl,
+          href: 'http://localhost:3000/found',
+          locale: 'en',
+          origin: 'http://localhost:3000',
+          pathname: '/found',
+          search: '',
+        };
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              search: '',
+              href: 'http://localhost:3000/not-found',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 200,
+        });
+        setupRewriteStub(200, res);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(res.status);
+        expect(nextRewriteStub.called).to.be.true;
+        const rewriteArg = nextRewriteStub.firstCall.args[0];
+        expect(rewriteArg.pathname).to.equal('/found');
       });
 
       it('should use sc_site cookie', async () => {

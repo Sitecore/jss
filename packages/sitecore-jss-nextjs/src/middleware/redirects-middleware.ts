@@ -363,14 +363,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
         return this.createRedirectResponse(target, res, 301, 'Moved Permanently');
       case REDIRECT_TYPE_302:
         return this.createRedirectResponse(target, res, 302, 'Found');
-      case REDIRECT_TYPE_SERVER_TRANSFER:
-        // rewrite expects a string; unwrap NextURL if needed
-        return this.rewrite(
-          typeof target === 'string' ? target : target.href,
-          req,
-          res,
-          isExternal
-        );
+      case REDIRECT_TYPE_SERVER_TRANSFER: {
+        // rewrite expects a path string; for NextURL extract pathname + search, not full href
+        const rewritePath =
+          typeof target === 'string' ? target : `${target.pathname}${target.search}`;
+        return this.rewrite(rewritePath, req, res, isExternal);
+      }
       default:
         // Unknown type: return the input response unchanged
         return res;
