@@ -14,7 +14,7 @@ import {
   mockEditingServiceDictionaryResponse,
   mockEditingServiceResponse,
 } from '../test-data/mockEditingServiceResponse';
-import { EditMode } from '../layout';
+import { EditMode, LayoutServicePageState } from '../layout';
 import { LayoutKind } from './models';
 import debug from '../debug';
 
@@ -86,9 +86,6 @@ describe('GraphQLEditingService', () => {
     expect(
       clientFactorySpy.calledWith({
         debugger: debug.editing,
-        headers: {
-          sc_editMode: 'true',
-        },
       })
     ).to.be.true;
     expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
@@ -103,6 +100,62 @@ describe('GraphQLEditingService', () => {
       {
         headers: {
           sc_layoutKind: 'final',
+          sc_editMode: 'true',
+        },
+      }
+    );
+
+    expect(result).to.deep.equal({
+      layoutData: layoutDataResponse,
+      dictionary: {
+        foo: 'foo-phrase',
+        bar: 'bar-phrase',
+      },
+    });
+
+    spy.restore(clientFactorySpy);
+  });
+
+  it('should fetch preview data', async () => {
+    nock(hostname, { reqheaders: { sc_editMode: 'false' } })
+      .post(endpointPath, /EditingQuery/gi)
+      .reply(200, editingData);
+
+    const clientFactorySpy = sinon.spy(clientFactory);
+
+    const service = new GraphQLEditingService({
+      clientFactory: clientFactorySpy,
+    });
+
+    spy.on(clientFactorySpy.returnValues[0], 'request');
+
+    const result = await service.fetchEditingData({
+      language,
+      version,
+      itemId,
+      siteName,
+      mode: LayoutServicePageState.Preview,
+    });
+
+    expect(clientFactorySpy.calledOnce).to.be.true;
+    expect(
+      clientFactorySpy.calledWith({
+        debugger: debug.editing,
+      })
+    ).to.be.true;
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(
+      query,
+      {
+        language,
+        version,
+        itemId,
+        siteName,
+      },
+      {
+        headers: {
+          sc_layoutKind: 'final',
+          sc_editMode: 'false',
         },
       }
     );
@@ -151,9 +204,6 @@ describe('GraphQLEditingService', () => {
     expect(
       clientFactorySpy.calledWith({
         debugger: debug.editing,
-        headers: {
-          sc_editMode: 'true',
-        },
       })
     ).to.be.true;
     expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
@@ -168,6 +218,7 @@ describe('GraphQLEditingService', () => {
       {
         headers: {
           sc_layoutKind: 'final',
+          sc_editMode: 'true',
         },
       }
     );
@@ -208,18 +259,24 @@ describe('GraphQLEditingService', () => {
     expect(
       clientFactorySpy.calledWith({
         debugger: debug.editing,
-        headers: {
-          sc_editMode: 'true',
-        },
       })
     ).to.be.true;
     expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
-    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
-      language,
-      itemId,
-      siteName,
-      version: undefined,
-    });
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(
+      query,
+      {
+        language,
+        itemId,
+        siteName,
+        version: undefined,
+      },
+      {
+        headers: {
+          sc_editMode: 'true',
+          sc_layoutKind: 'final',
+        },
+      }
+    );
 
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,
@@ -266,6 +323,7 @@ describe('GraphQLEditingService', () => {
       {
         headers: {
           sc_layoutKind: 'shared',
+          sc_editMode: 'true',
         },
       }
     );
@@ -282,15 +340,15 @@ describe('GraphQLEditingService', () => {
   });
 
   it('should fetch editing data when dicionary has multiple pages', async () => {
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+    nock(hostname, { reqheaders: { sc_editMode: 'true', sc_layoutKind: 'final' } })
       .post(endpointPath, /EditingQuery/gi)
       .reply(200, mockEditingServiceResponse(true));
 
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+    nock(hostname)
       .post(endpointPath, /DictionaryQuery/gi)
       .reply(200, mockEditingServiceDictionaryResponse.pageOne);
 
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+    nock(hostname)
       .post(endpointPath, /DictionaryQuery/gi)
       .reply(200, mockEditingServiceDictionaryResponse.pageTwo);
 
@@ -313,19 +371,25 @@ describe('GraphQLEditingService', () => {
     expect(
       clientFactorySpy.calledWith({
         debugger: debug.editing,
-        headers: {
-          sc_editMode: 'true',
-        },
       })
     ).to.be.true;
 
     expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(3);
-    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
-      language,
-      version,
-      itemId,
-      siteName,
-    });
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(
+      query,
+      {
+        language,
+        version,
+        itemId,
+        siteName,
+      },
+      {
+        headers: {
+          sc_layoutKind: 'final',
+          sc_editMode: 'true',
+        },
+      }
+    );
 
     expect(clientFactorySpy.returnValues[0].request)
       .on.nth(2)
@@ -359,11 +423,11 @@ describe('GraphQLEditingService', () => {
   });
 
   it('should request dictionary from scratch when fetchDictionaryData called on its own', async () => {
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+    nock(hostname)
       .post(endpointPath, /DictionaryQuery/gi)
       .reply(200, mockEditingServiceDictionaryResponse.pageOne);
 
-    nock(hostname, { reqheaders: { sc_editMode: 'true' } })
+    nock(hostname)
       .post(endpointPath, /DictionaryQuery/gi)
       .reply(200, mockEditingServiceDictionaryResponse.pageTwo);
 
@@ -412,18 +476,24 @@ describe('GraphQLEditingService', () => {
     expect(
       clientFactorySpy.calledWith({
         debugger: debug.editing,
-        headers: {
-          sc_editMode: 'true',
-        },
       })
     ).to.be.true;
     expect(clientFactorySpy.returnValues[0].request).to.be.called.exactly(1);
-    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(query, {
-      language,
-      version,
-      itemId,
-      siteName,
-    });
+    expect(clientFactorySpy.returnValues[0].request).to.be.called.with(
+      query,
+      {
+        language,
+        version,
+        itemId,
+        siteName,
+      },
+      {
+        headers: {
+          sc_editMode: 'true',
+          sc_layoutKind: 'final',
+        },
+      }
+    );
 
     expect(result).to.deep.equal({
       layoutData: layoutDataResponse,

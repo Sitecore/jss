@@ -72,6 +72,7 @@ describe('editingRouter - /editing/render', () => {
     language: validQS.sc_lang,
     version: validQS.sc_version,
     layoutKind: validQS.sc_layoutKind,
+    mode: validQS.mode,
   };
 
   let fetchEditingDataStub: sinon.SinonStub;
@@ -321,6 +322,51 @@ describe('editingRouter - /editing/render', () => {
       .expect('Content-Security-Policy', `${getSCPHeader()}`)
       .expect(() => {
         expect(fetchEditingDataStub.calledOnceWith(fetchEditingDataArgs)).to.be.true;
+        expect(
+          renderView.calledOnceWith(sinon.match.func, '/', layoutData, {
+            dictionary,
+          })
+        ).to.be.true;
+      })
+      .end(done);
+  });
+
+  it('should response 200 status code when renderView returns result in preview', (done) => {
+    const layoutData = {
+      sitecore: { context: { pageEditing: true }, route: { name: '/', placeholders: {} } },
+    };
+    const dictionary = {};
+
+    fetchEditingDataStub.resolves({
+      layoutData,
+      dictionary,
+    });
+
+    renderView.callsFake((callback) => callback(null, { html: '<div>Hello World</div>' }));
+
+    app.use(
+      '/api/editing',
+      editingRouter({
+        ...defaultOptions,
+        render: {
+          ...defaultOptions.render,
+          renderView,
+        },
+      })
+    );
+
+    request(app)
+      .get('/api/editing/render')
+      .query({ ...validQS, mode: LayoutServicePageState.Preview })
+      .expect(200, '<div>Hello World</div>')
+      .expect('Content-Security-Policy', `${getSCPHeader()}`)
+      .expect(() => {
+        expect(
+          fetchEditingDataStub.calledOnceWith({
+            ...fetchEditingDataArgs,
+            mode: LayoutServicePageState.Preview,
+          })
+        ).to.be.true;
         expect(
           renderView.calledOnceWith(sinon.match.func, '/', layoutData, {
             dictionary,
