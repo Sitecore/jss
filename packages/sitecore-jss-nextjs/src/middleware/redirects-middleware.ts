@@ -14,8 +14,10 @@ import {
   isRegexOrUrl,
   mergeURLSearchParams,
 } from '@sitecore-jss/sitecore-jss/utils';
-import { NextURL } from 'next/dist/server/web/next-url';
 import { NextRequest, NextResponse } from 'next/server';
+
+// Extract NextURL type from NextRequest since the internal import path is no longer available in Next.js 16
+type NextURL = NextRequest['nextUrl'];
 import regexParser from 'regex-parser';
 import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
 

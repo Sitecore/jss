@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { STATIC_PROPS_ID, SERVER_PROPS_ID } from 'next/constants';
+// STATIC_PROPS_ID and SERVER_PROPS_ID were removed from next/constants in Next.js 16
+// These are internal identifiers used in __NEXT_DATA__ script tag
+// Defining them locally to maintain functionality
+const STATIC_PROPS_ID = '__N_SSG';
+const SERVER_PROPS_ID = '__N_SSR';
 import { NativeDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
 import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import {

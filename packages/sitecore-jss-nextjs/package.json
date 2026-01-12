@@ -53,7 +53,7 @@
     "eslint-plugin-react": "^7.37.5",
     "jsdom": "^26.1.0",
     "mocha": "^11.7.0",
-    "next": "^15.4.6",
+    "next": "^16.1.0",
     "nock": "^13.3.0",
     "nyc": "^17.1.0",
     "react": "^19.1.0",
@@ -67,7 +67,7 @@
     "@sitecore-cloudsdk/core": "^0.5.2",
     "@sitecore-cloudsdk/events": "^0.5.2",
     "@sitecore-cloudsdk/personalize": "^0.5.2",
-    "next": "^15.4.6",
+    "next": "^16.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
