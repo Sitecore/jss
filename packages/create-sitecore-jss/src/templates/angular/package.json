@@ -82,7 +82,7 @@
     "@sitecore-jss/sitecore-jss-cli": "<%- version %>",
     "@sitecore-jss/sitecore-jss-dev-tools": "<%- version %>",
     "@types/jasmine": "~3.6.7",
-    "@types/node": "~22.9.0",
+    "@types/node": "^24.10.4",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
     "chalk": "~4.1.0",

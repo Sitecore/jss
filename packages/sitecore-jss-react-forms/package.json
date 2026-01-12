@@ -14,7 +14,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-forms src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -31,7 +31,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "22.9.0",
+    "@types/node": "^24.10.4",
     "@types/react": "^19.1.7",
     "@types/react-dom": "^19.1.7",
     "@types/sinon": "^17.0.4",

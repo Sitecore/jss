@@ -15,7 +15,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-react-native src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "author": {
     "name": "Sitecore Corporation",

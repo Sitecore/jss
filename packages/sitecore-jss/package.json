@@ -14,7 +14,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/graphql/index.ts --entryPoints src/i18n/index.ts --entryPoints src/layout/index.ts --entryPoints src/media/index.ts --entryPoints src/personalize/index.ts --entryPoints src/site/index.ts --entryPoints src/tracking/index.ts --entryPoints src/utils/index.ts --entryPoints src/editing/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -39,7 +39,7 @@
     "@types/lodash.unescape": "^4.0.9",
     "@types/memory-cache": "^0.2.1",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^22.9.0",
+    "@types/node": "^24.10.4",
     "@types/sinon": "^17.0.3",
     "@types/url-parse": "1.4.11",
     "chai": "^4.2.0",

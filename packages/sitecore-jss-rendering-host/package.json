@@ -14,7 +14,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-rendering-host src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -40,7 +40,7 @@
     "@types/express-serve-static-core": "^5.0.7",
     "@types/glob": "^8.0.1",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.9.0",
+    "@types/node": "^24.10.4",
     "@types/webpack": "5.28.5",
     "@types/webpack-dev-middleware": "2.0.5",
     "@types/webpack-dev-server": "3.1.7",

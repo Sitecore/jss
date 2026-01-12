@@ -35,7 +35,7 @@
   "devDependencies": {
     "@sitecore-jss/sitecore-jss-cli": "<%- version %>",
     "@sitecore-jss/sitecore-jss-dev-tools": "<%- version %>",
-    "@types/node": "^22.9.0",
+    "@types/node": "^24.10.4",
     "@types/react": "^19.1.7",
     "@types/react-dom": "^19.1.7",
     "@typescript-eslint/eslint-plugin": "^8.14.0",

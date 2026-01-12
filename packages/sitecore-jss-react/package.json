@@ -14,7 +14,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-react src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -32,8 +32,8 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/chai": "^5.2.2",
     "@types/chai-string": "^1.4.2",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^22.9.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.10.4",
     "@types/react": "^19.1.7",
     "@types/react-dom": "^19.1.7",
     "@types/sinon": "^17.0.4",
@@ -45,7 +45,7 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.37.5",
     "jsdom": "^26.0.1",
-    "mocha": "^10.2.0",
+    "mocha": "^11.7.5",
     "nyc": "^17.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

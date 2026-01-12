@@ -35,10 +35,10 @@ jobs:
           git config --global user.name "jss-bot"
           git remote set-url origin https://x-access-token:${{ steps.generate-token.outputs.token }}@github.com/${{ github.repository }}
 
-      - name: Use Node.js 22
+      - name: Use Node.js 24
         uses: actions/setup-node@v4
         with:
-          node-version: 22.17.1
+          node-version: 24
 
       - name: Install dependencies
         run: |
