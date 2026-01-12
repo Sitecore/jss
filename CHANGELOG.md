@@ -19,6 +19,10 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Fix server transfer redirects ([#2173](https://github.com/Sitecore/jss/pull/2173))
 
+### 🛠 Breaking Changes
+
+* Upgrade to Node.js 24 ([#2176](https://github.com/Sitecore/jss/pull/2176))
+
 ## 22.10.0
 
 ### 🎉 New Features & Improvements
