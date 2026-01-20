@@ -18,6 +18,7 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Fix server transfer redirects ([#2173](https://github.com/Sitecore/jss/pull/2173))
+* `[sitecore-jss-nextjs]` Preserve `basePath` when doing redirects in redirects-middleware ([#2178](https://github.com/Sitecore/jss/pull/2178))
 
 ### 🛠 Breaking Changes
 

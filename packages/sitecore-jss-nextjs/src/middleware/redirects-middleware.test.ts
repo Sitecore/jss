@@ -275,6 +275,19 @@ describe.only('RedirectsMiddleware', () => {
   // Helper to normalize url values when we need to compare objects vs strings
   const normalizeUrlValue = (u: any) => (typeof u === 'string' ? u : u?.href ?? '');
 
+  // Helper to update url.href based on origin, basePath, locale, and pathname.
+  // A substitute for NextUrl href getter which does that automatically
+  const normalizeHref = (url, includeLocale = false) => {
+    const parts = [
+      url.origin,
+      url.basePath.replace(/\/$/, ''), // Remove trailing slash
+      includeLocale ? url.locale : '',
+      url.pathname.replace(/^\//, ''), // Remove leading slash
+    ].filter(Boolean);
+
+    url.href = parts.join('/');
+  };
+
   describe('redirects middleware - getHandler', () => {
     describe('preview', () => {
       it('prerender bypass cookie is present', async () => {
@@ -474,6 +487,7 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '',
           clone: cloneUrl,
+          basePath: undefined,
         };
         const { res, req } = createTestRequestResponse({
           response: {
@@ -513,6 +527,57 @@ describe.only('RedirectsMiddleware', () => {
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions
         expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should return 301 redirect with basePath if configured', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/test/found',
+          pathname: '/found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+          basePath: 'test',
+        };
+        const { res, req } = createTestRequestResponse({
+          response: {
+            url,
+          },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              href: 'http://localhost:3000/test/not-found',
+              clone: cloneUrl,
+              basePath: 'test',
+            },
+          },
+        });
+        setupRedirectStub(301);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        // update url.href to include basePath for comparison
+        normalizeHref(finalRes.url);
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
       });
@@ -721,6 +786,7 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '?abc=def',
           clone: cloneUrl,
+          basePath: undefined,
         };
         setupRedirectStub(301);
         const { res, req } = createTestRequestResponse({
@@ -773,6 +839,7 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '',
           clone: cloneUrl,
+          basePath: undefined,
         };
         setupRedirectStub(301);
         const { res, req } = createTestRequestResponse({
@@ -825,6 +892,7 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'pl-PL',
           search: '',
           clone: cloneUrl,
+          basePath: undefined,
         };
         setupRedirectStub(301);
         const { res, req } = createTestRequestResponse({
@@ -878,6 +946,7 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'pl-PL',
           search: '',
           clone: cloneUrl,
+          basePath: undefined,
         };
         setupRedirectStub(301);
         const { res, req } = createTestRequestResponse({
@@ -929,6 +998,7 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '',
           clone: cloneUrl,
+          basePath: undefined,
         };
         setupRedirectStub(301);
 
@@ -982,6 +1052,7 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '',
           clone: cloneUrl,
+          basePath: undefined,
         };
         const { res, req } = createTestRequestResponse({
           response: { url },
@@ -1344,6 +1415,7 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'da',
           search: '',
           clone: cloneUrl,
+          basePath: undefined,
         };
         const { res, req } = createTestRequestResponse({
           response: { url },
@@ -1897,6 +1969,7 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '?b=1&a=1',
           pathname: '/found',
+          basePath: undefined,
         };
         const { res, req } = createTestRequestResponse({
           response: { url },
@@ -2058,6 +2131,7 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '?a=1&w=1',
           pathname: '/found',
+          basePath: undefined,
         };
 
         const { res, req } = createTestRequestResponse({
@@ -2112,6 +2186,7 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '',
           pathname: '/found',
+          basePath: undefined,
         };
 
         const { res, req } = createTestRequestResponse({
@@ -2155,6 +2230,56 @@ describe.only('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should return 301 redirect and take account of basePath if configured', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          clone: cloneUrl,
+          href: 'http://localhost:3000/test/found',
+          locale: 'en',
+          origin: 'http://localhost:3000',
+          search: '',
+          pathname: '/found',
+          basePath: 'test',
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              search: '?path=not-found',
+              href: 'http://localhost:3000/test/not-found/?path=not-found',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              basePath: 'test',
+              clone: cloneUrl,
+            },
+          },
+        });
+        setupRedirectStub(301);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '/not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        // update url.href to include basePath for comparison
+        normalizeHref(finalRes.url);
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
       it('should return 301 redirect when trailingSlash is true', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
@@ -2164,6 +2289,7 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '',
           pathname: '/found/',
+          basePath: undefined,
         };
 
         const { res, req } = createTestRequestResponse({
@@ -2215,6 +2341,7 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '',
           pathname: '/found',
+          basePath: undefined,
         };
 
         const { res, req } = createTestRequestResponse({

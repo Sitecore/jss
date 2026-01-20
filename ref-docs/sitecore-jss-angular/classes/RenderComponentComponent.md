@@ -6,7 +6,7 @@
 
 # Class: RenderComponentComponent
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:34](https://github.com/Sitecore/jss/blob/039b1693d6825bb88378b3c9bdf6a17b320037db/packages/sitecore-jss-angular/src/components/render-component.component.ts#L34)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:34](https://github.com/Sitecore/jss/blob/61befa467bc44e7bd59eff68223718fd84afc854/packages/sitecore-jss-angular/src/components/render-component.component.ts#L34)
 
 Renders a single JSS component given a rendering definition.
 Useful inside templated placeholders.
@@ -31,7 +31,7 @@ Useful inside templated placeholders.
 
 > **outputs**: `object`
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/039b1693d6825bb88378b3c9bdf6a17b320037db/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:36](https://github.com/Sitecore/jss/blob/61befa467bc44e7bd59eff68223718fd84afc854/packages/sitecore-jss-angular/src/components/render-component.component.ts#L36)
 
 #### Index Signature
 
@@ -43,7 +43,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/render-component.compo
 
 > **rendering**: [`HtmlElementRendering`](../interfaces/HtmlElementRendering.md) \| [`ComponentRendering`](../interfaces/ComponentRendering.md)\<[`ComponentFields`](../interfaces/ComponentFields.md)\>
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/039b1693d6825bb88378b3c9bdf6a17b320037db/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:35](https://github.com/Sitecore/jss/blob/61befa467bc44e7bd59eff68223718fd84afc854/packages/sitecore-jss-angular/src/components/render-component.component.ts#L35)
 
 ## Accessors
 
@@ -53,7 +53,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/render-component.compo
 
 > **set** **inputs**(`value`): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:49](https://github.com/Sitecore/jss/blob/039b1693d6825bb88378b3c9bdf6a17b320037db/packages/sitecore-jss-angular/src/components/render-component.component.ts#L49)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:49](https://github.com/Sitecore/jss/blob/61befa467bc44e7bd59eff68223718fd84afc854/packages/sitecore-jss-angular/src/components/render-component.component.ts#L49)
 
 ##### Parameters
 
@@ -71,7 +71,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/render-component.compo
 
 > **ngOnChanges**(`changes`): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:56](https://github.com/Sitecore/jss/blob/039b1693d6825bb88378b3c9bdf6a17b320037db/packages/sitecore-jss-angular/src/components/render-component.component.ts#L56)
+Defined in: [packages/sitecore-jss-angular/src/components/render-component.component.ts:56](https://github.com/Sitecore/jss/blob/61befa467bc44e7bd59eff68223718fd84afc854/packages/sitecore-jss-angular/src/components/render-component.component.ts#L56)
 
 A callback method that is invoked immediately after the
 default change detector has checked data-bound properties

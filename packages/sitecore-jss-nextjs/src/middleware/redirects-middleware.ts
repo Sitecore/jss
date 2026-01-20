@@ -274,10 +274,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
           url.origin
         );
 
+        const basePath = url.basePath; // setting NextUrl.href overrides basePath, so we need to store it
         url.href = prepareNewURL.href;
         url.pathname = prepareNewURL.pathname;
         url.search = prepareNewURL.search;
         url.locale = req.nextUrl.locale;
+        url.basePath = basePath;
 
         return this.dispatchRedirect(url, existsRedirect.redirectType, req, response, false);
       }
@@ -337,9 +339,11 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     const newUrl = new URL(`${url.pathname.toLowerCase()}?${newQueryString}`, url.origin);
 
+    const basePath = url.basePath; // setting NextUrl.href overrides basePath, so we need to store it
     url.search = newUrl.search;
     url.pathname = newUrl.pathname.toLowerCase();
     url.href = newUrl.href;
+    url.basePath = basePath;
 
     return url;
   }
