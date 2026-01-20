@@ -22,7 +22,7 @@ Our versioning strategy is as follows:
 
 ### 🛠 Breaking Changes
 
-* `[Next.js]` Upgrade to Next.js 16 ([#2177](https://github.com/Sitecore/jss/pull/2177))
+* `[Next.js]` Upgrade to Next.js 16 ([#2177](https://github.com/Sitecore/jss/pull/2177))([#2179](https://github.com/Sitecore/jss/pull/2179))
 * Upgrade to Node.js 24 ([#2176](https://github.com/Sitecore/jss/pull/2176))
 
 ## 22.10.0
