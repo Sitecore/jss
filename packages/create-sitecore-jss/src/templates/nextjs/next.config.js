@@ -81,20 +81,6 @@ const nextConfig = {
       },
     ];
   },
-
-  webpack: (config, { isServer }) => {
-    // Exclude Node.js built-in modules from client bundle
-    // This is needed for plugins that use Node.js modules (e.g., sass plugin with fs)
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        path: false,
-        url: false,
-      };
-    }
-    return config;
-  },
 };
 
 module.exports = () => {

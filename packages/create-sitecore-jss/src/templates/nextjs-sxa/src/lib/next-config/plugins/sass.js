@@ -92,6 +92,24 @@ const sassPlugin = (nextConfig = {}) => {
       quietDeps: true,    
       silenceDeprecations: ["import", "legacy-js-api"],
     },
+    webpack: (config, options) => {
+      // Exclude Node.js built-in modules used by this plugin from client bundle
+      if (!options.isServer) {
+        config.resolve.fallback = {
+          ...config.resolve.fallback,
+          fs: false,
+          path: false,
+          url: false,
+        };
+      }
+      
+      // Call existing webpack config if present
+      if (typeof nextConfig.webpack === 'function') {
+        return nextConfig.webpack(config, options);
+      }
+      
+      return config;
+    },
   });
 };
 
