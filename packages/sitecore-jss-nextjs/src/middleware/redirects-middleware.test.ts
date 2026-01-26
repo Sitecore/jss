@@ -582,6 +582,57 @@ describe.only('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should return 301 redirect with basePath if empty string', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/found',
+          pathname: '/found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+          basePath: '',
+        };
+        const { res, req } = createTestRequestResponse({
+          response: {
+            url,
+          },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              href: 'http://localhost:3000/not-found',
+              clone: cloneUrl,
+              basePath: '',
+            },
+          },
+        });
+        setupRedirectStub(301);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        // update url.href to include basePath for comparison
+        normalizeHref(finalRes.url);
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
       it('should override locale with locale parsed from target', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
