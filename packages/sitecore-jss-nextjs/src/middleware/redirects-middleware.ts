@@ -279,7 +279,9 @@ export class RedirectsMiddleware extends MiddlewareBase {
         url.pathname = prepareNewURL.pathname;
         url.search = prepareNewURL.search;
         url.locale = req.nextUrl.locale;
-        url.basePath = basePath;
+        if (basePath) {
+          url.basePath = basePath;
+        }
 
         return this.dispatchRedirect(url, existsRedirect.redirectType, req, response, false);
       }
@@ -343,7 +345,9 @@ export class RedirectsMiddleware extends MiddlewareBase {
     url.search = newUrl.search;
     url.pathname = newUrl.pathname.toLowerCase();
     url.href = newUrl.href;
-    url.basePath = basePath;
+    if (basePath) {
+      url.basePath = basePath;
+    }
 
     return url;
   }
