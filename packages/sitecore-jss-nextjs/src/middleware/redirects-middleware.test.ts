@@ -19,7 +19,7 @@ import { REWRITE_HEADER_NAME } from './middleware';
 use(sinonChai);
 const expect = chai.use(chaiString).expect;
 
-describe.only('RedirectsMiddleware', () => {
+describe('RedirectsMiddleware', () => {
   let nextRedirectStub, nextRewriteStub;
 
   const debugSpy = spy(debug, 'redirects');
@@ -487,7 +487,6 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '',
           clone: cloneUrl,
-          basePath: undefined,
         };
         const { res, req } = createTestRequestResponse({
           response: {
@@ -837,7 +836,6 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '?abc=def',
           clone: cloneUrl,
-          basePath: undefined,
         };
         setupRedirectStub(301);
         const { res, req } = createTestRequestResponse({
@@ -890,7 +888,6 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '',
           clone: cloneUrl,
-          basePath: undefined,
         };
         setupRedirectStub(301);
         const { res, req } = createTestRequestResponse({
@@ -943,7 +940,6 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'pl-PL',
           search: '',
           clone: cloneUrl,
-          basePath: undefined,
         };
         setupRedirectStub(301);
         const { res, req } = createTestRequestResponse({
@@ -997,7 +993,6 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'pl-PL',
           search: '',
           clone: cloneUrl,
-          basePath: undefined,
         };
         setupRedirectStub(301);
         const { res, req } = createTestRequestResponse({
@@ -1049,7 +1044,6 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '',
           clone: cloneUrl,
-          basePath: undefined,
         };
         setupRedirectStub(301);
 
@@ -1103,7 +1097,6 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'en',
           search: '',
           clone: cloneUrl,
-          basePath: undefined,
         };
         const { res, req } = createTestRequestResponse({
           response: { url },
@@ -1466,7 +1459,6 @@ describe.only('RedirectsMiddleware', () => {
           locale: 'da',
           search: '',
           clone: cloneUrl,
-          basePath: undefined,
         };
         const { res, req } = createTestRequestResponse({
           response: { url },
@@ -2020,7 +2012,6 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '?b=1&a=1',
           pathname: '/found',
-          basePath: undefined,
         };
         const { res, req } = createTestRequestResponse({
           response: { url },
@@ -2182,7 +2173,6 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '?a=1&w=1',
           pathname: '/found',
-          basePath: undefined,
         };
 
         const { res, req } = createTestRequestResponse({
@@ -2237,7 +2227,6 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '',
           pathname: '/found',
-          basePath: undefined,
         };
 
         const { res, req } = createTestRequestResponse({
@@ -2340,7 +2329,6 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '',
           pathname: '/found/',
-          basePath: undefined,
         };
 
         const { res, req } = createTestRequestResponse({
@@ -2392,7 +2380,6 @@ describe.only('RedirectsMiddleware', () => {
           origin: 'http://localhost:3000',
           search: '',
           pathname: '/found',
-          basePath: undefined,
         };
 
         const { res, req } = createTestRequestResponse({
