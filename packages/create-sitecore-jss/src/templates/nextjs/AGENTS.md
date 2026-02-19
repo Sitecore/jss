@@ -12,10 +12,12 @@ This is a **Sitecore JSS** application built with **Next.js (Pages Router)** and
 
 ```bash
 npm install
-npm run build        # Build for production (runs bootstrap + next build)
-npm run next:dev     # Start development server
-npm run next:start   # Start production server
-npm run lint         # Run ESLint
+npm run build           # Build for production (runs bootstrap + next build)
+npm run next:dev        # Start development server
+npm run next:start      # Start production server
+npm run start:connected # Connected dev (bootstrap + next:dev + watch components)
+npm run scaffold        # Add new Sitecore component (jss scaffold <ComponentName>)
+npm run lint            # Run ESLint
 ```
 
 **Environment:** Use `.env` with Sitecore API key, host, site name, language, and `FETCH_WITH` (REST or GraphQL). Never commit `.env` or `.env.local`. Config comes from `package.json` config section, `scjssconfig.json` (from `jss setup`), and env vars.
@@ -44,12 +46,12 @@ src/
     component-props/        # ComponentPropsService, fetchComponentProps
     config.ts
   Layout.tsx, Bootstrap.tsx, Scripts.tsx, NotFound.tsx
+  proxy.ts                  # Next.js 16 middleware entry (re-exports lib/middleware)
 temp/                       # Auto-generated — DO NOT EDIT
   config.ts                 # From scripts/config/plugins
   componentBuilder.ts       # From scripts/generate-component-builder
   page-props-factory-plugins.ts, middleware-plugins.ts, sitemap-fetcher-plugins.ts, etc.
 scripts/                    # Bootstrap, scaffold-component, generate-plugins, config
-src/proxy.ts                # Next.js 16+ proxy entry (re-exports lib/middleware)
 sitecore/config/            # Sitecore CM config (e.g. {{appName}}.config)
 next.config.js              # i18n, rewrites, images (uses temp/config, temp/next-config-plugins)
 ```
@@ -93,7 +95,7 @@ These are the main head-app–specific concepts. Details are in the sections bel
 
 ### Middleware (proxy)
 
-- **Where:** `src/proxy.ts` — re-exports `lib/middleware`. Next.js 16+ uses `proxy.ts` as the entry point (at root or in `src/`); no `middleware.ts` is needed.
+- **Where:** `src/proxy.ts` — Next.js 16 entry point for middleware (replaces `middleware.ts`). Re-exports `lib/middleware`.
 - **What it does:** Runs on each request (respecting `config.matcher`). Plugin chain from `temp/middleware-plugins.ts`; plugins in `src/lib/middleware/plugins/`. Base template may have no custom plugins; add-ons (e.g. nextjs-xmcloud) inject plugins (e.g. Personalize). **Do not change plugin order.** Matcher excludes `/api`, `/_next`, `/healthz`, `/sitecore/api`, `/-`, static files.
 - **Config:** `proxy.ts` exports `config.matcher` array. Keep middleware lightweight; do not add heavy logic without excluding paths.
 
@@ -139,7 +141,7 @@ These are the main head-app–specific concepts. Details are in the sections bel
 
 ### Middleware (proxy)
 
-- **Middleware:** `src/proxy.ts` (Next.js 16+ proxy entry) → `lib/middleware`. Plugins from `temp/middleware-plugins` (generated from `lib/middleware/plugins/`). Chain runs in `order`; each plugin receives req and previous response.
+- **Middleware:** `src/proxy.ts` → `lib/middleware`. Plugins from `temp/middleware-plugins` (generated from `lib/middleware/plugins/`). Chain runs in `order`; each plugin receives req and previous response.
 - **Matcher:** Excludes `/api`, `/_next`, `/healthz`, `/sitecore/api`, `/-`, `favicon.ico`, `sc_logo.svg`. Add new exclusions if adding routes.
 - **Add-ons:** nextjs-xmcloud adds Personalize plugin. Do not change order when combining add-ons.
 
@@ -151,8 +153,8 @@ These are the main head-app–specific concepts. Details are in the sections bel
 
 ### Layout and Components
 
-- **Layout:** `Layout.tsx` renders page layout and placeholders. Uses `SitecoreContext`, `ComponentPropsContext`, `componentBuilder.getComponentFactory({ isEditing })`, and `Placeholder` for dynamic layout. `Bootstrap` (in `_app.tsx`) is an early-lifecycle hook; base template returns null; add-ons (e.g. XM Cloud) extend it for CloudSDK init.
-- **404 / _error:** `NotFound` component. When catch-all returns `notFound: true`, Next.js renders `404.tsx` (which renders `<NotFound />`). `_error.tsx` is Next.js error boundary.
+- **Layout:** `Layout.tsx` renders page layout and placeholders. The catch-all page wraps content in `SitecoreContext` and `ComponentPropsContext`; `Layout` uses `componentBuilder.getComponentFactory({ isEditing })` and `Placeholder` for dynamic layout. `_app.tsx` includes `Bootstrap` and `I18nProvider`; base Bootstrap returns null (XM Cloud add-on extends it for CloudSDK/CDP).
+- **404 / _error:** `NotFound` component. When catch-all returns `notFound: true`, Next.js renders `404.tsx` (which renders `<NotFound />`). `_error.tsx` handles 500 and other server/client errors (Next.js error boundary).
 - **Component registration:** All components in `componentBuilder` (from `temp/componentBuilder.ts`). Add via `jss scaffold` or `scripts/generate-component-builder/plugins/`.
 
 ---

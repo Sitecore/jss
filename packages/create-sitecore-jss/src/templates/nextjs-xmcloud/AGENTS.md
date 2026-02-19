@@ -12,10 +12,12 @@ This is a **Sitecore JSS** application built with **Next.js (Pages Router)**, **
 
 ```bash
 npm install
-npm run build        # Build for production
-npm run next:dev     # Start development server
-npm run next:start   # Start production server
-npm run lint         # Run ESLint
+npm run build           # Build for production
+npm run next:dev        # Start development server
+npm run next:start      # Start production server
+npm run start:connected # Connected dev (bootstrap + next:dev + watch components)
+npm run scaffold        # Add new Sitecore/BYOC component (jss scaffold <ComponentName>)
+npm run lint            # Run ESLint
 ```
 
 **Environment:** Use `.env` with Sitecore API key, host, Edge URL, Edge context ID (`SITECORE_EDGE_CONTEXT_ID`), `FETCH_WITH`, `NEXT_PUBLIC_PERSONALIZE_SCOPE`, and Personalize timeouts. Never commit `.env` or `.env.local`.
@@ -35,9 +37,11 @@ src/
   lib/
     page-props-factory/     # + personalize, content-styles, component-themes plugins
     middleware/plugins/     # + personalize.ts (PersonalizeMiddleware)
+    extract-path/plugins/   # + personalize.ts (path normalization for Personalize rewrites)
     graphql-editing-service.ts
+  proxy.ts                  # Next.js 16 middleware entry; matcher excludes /feaas-render
 temp/                       # config includes sitecoreEdgeUrl, sitecoreEdgeContextId
-proxy.ts, next.config.js
+next.config.js
 ```
 
 All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathExtractor, layout-service-factory, etc.). See the base nextjs template `AGENTS.md` in the JSS repo for full base guidance. Below are **XM Cloud add-on specifics** in detail.
@@ -61,7 +65,7 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 ### CDP and Browser Events (Bootstrap)
 
-- **Where:** `src/components/Bootstrap.tsx` (or `Bootstrap.tsx` in layout), `CdpPageView` component
+- **Where:** `src/Bootstrap.tsx` (in _app.tsx), `CdpPageView` component
 - **What it does:** `Bootstrap` initializes the CloudSDK (`@sitecore-cloudsdk/core/browser`) for page view tracking. Uses `config.sitecoreEdgeUrl`, `config.sitecoreEdgeContextId` from temp/config. Only initializes when `pageState === Normal` and `renderingType !== Component` (not in edit/preview). `CdpPageView` tracks page views for CDP/Personalize.
 - **Config:** Edge URL and context ID from `scripts/config/plugins/edge-platform.ts`. Env: `SITECORE_EDGE_URL` (or `SITECORE_EDGE_CONTEXT_ID` for context).
 - **Do not:** Remove `CdpPageView` when using personalization; it provides context for page variants. Do not initialize CloudSDK in development (Bootstrap skips it when `NODE_ENV === 'development'`).
@@ -72,6 +76,7 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 - **What it does:** Runs `PersonalizeMiddleware` from `@sitecore-jss/sitecore-jss-nextjs/middleware` for A/B testing and personalization. Calls Sitecore Experience Edge for personalization info, then Sitecore Personalize (CDP) for page/component variants. Rewrites response to the selected variant. Uses `clientFactory` from graphql-client-factory, `config.sitecoreEdgeUrl`, `config.sitecoreEdgeContextId`. **Disabled in development** by default (`disabled: () => process.env.NODE_ENV === 'development'`).
 - **Config:** `NEXT_PUBLIC_PERSONALIZE_SCOPE` (optional, isolates data when multiple XM Cloud envs share Personalize tenant), `PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT`, `PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT` (default 400ms).
 - **Order:** Plugin uses `order = 1` to leave room for redirects. **Do not change middleware plugin order** — Personalize must run after any redirect/site resolution.
+- **Path extractor:** `src/lib/extract-path/plugins/personalize.ts` normalizes paths when Personalize rewrites; strips personalize segment. Required for correct path resolution in getStaticProps/getServerSideProps.
 - **Skip paths:** `PersonalizeMiddleware` has exclusion logic; ensure API routes, `_next`, static assets are excluded via the proxy matcher.
 
 ### GraphQL Editing Service
