@@ -8,7 +8,7 @@
 
 > **DataFetcherResolver** = \<`T`\>(`req?`, `res?`) => [`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<`T`\> \| `NativeDataFetcherFunction`\<`T`\>
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:57](https://github.com/Sitecore/jss/blob/716101f7bdc030290c16e0e7733572de58532c06/packages/sitecore-jss/src/layout/rest-layout-service.ts#L57)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:57](https://github.com/Sitecore/jss/blob/d8e3ff7eb92a65beab0a11f406aedbebd5d8298a/packages/sitecore-jss/src/layout/rest-layout-service.ts#L57)
 
 Data fetcher resolver in order to provide custom data fetcher
 

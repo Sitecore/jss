@@ -6,7 +6,7 @@
 
 # Interface: EditingDataMiddlewareConfig
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:12](https://github.com/Sitecore/jss/blob/716101f7bdc030290c16e0e7733572de58532c06/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L12)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:12](https://github.com/Sitecore/jss/blob/d8e3ff7eb92a65beab0a11f406aedbebd5d8298a/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L12)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:12](http
 
 > `optional` **dynamicRouteKey**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:18](https://github.com/Sitecore/jss/blob/716101f7bdc030290c16e0e7733572de58532c06/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L18)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:18](https://github.com/Sitecore/jss/blob/d8e3ff7eb92a65beab0a11f406aedbebd5d8298a/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L18)
 
 The Next.js dynamic API route key name. This is used in the middleware to extract the data
 key from the request query parameters. By default this is 'key' (from '/api/editing/data/[key]').
@@ -31,7 +31,7 @@ key from the request query parameters. By default this is 'key' (from '/api/edit
 
 > `optional` **editingDataCache**: [`EditingDataCache`](EditingDataCache.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:27](https://github.com/Sitecore/jss/blob/716101f7bdc030290c16e0e7733572de58532c06/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L27)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:27](https://github.com/Sitecore/jss/blob/d8e3ff7eb92a65beab0a11f406aedbebd5d8298a/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L27)
 
 An instance of the `EditingDataCache` implementation to use.
 Note for Vercel deployment, which uses Serverless Functions for API routes, a disk cache is required.

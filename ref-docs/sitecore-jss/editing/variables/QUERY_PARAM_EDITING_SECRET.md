@@ -8,6 +8,6 @@
 
 > `const` **QUERY\_PARAM\_EDITING\_SECRET**: `"secret"` = `'secret'`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:12](https://github.com/Sitecore/jss/blob/716101f7bdc030290c16e0e7733572de58532c06/packages/sitecore-jss/src/editing/utils.ts#L12)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:12](https://github.com/Sitecore/jss/blob/d8e3ff7eb92a65beab0a11f406aedbebd5d8298a/packages/sitecore-jss/src/editing/utils.ts#L12)
 
 Query parameter for editing secret

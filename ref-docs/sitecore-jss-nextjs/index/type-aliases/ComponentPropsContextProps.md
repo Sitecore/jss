@@ -8,7 +8,7 @@
 
 > **ComponentPropsContextProps** = `object`
 
-Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/716101f7bdc030290c16e0e7733572de58532c06/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](https://github.com/Sitecore/jss/blob/d8e3ff7eb92a65beab0a11f406aedbebd5d8298a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L26)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:26](ht
 
 > **children**: `ReactNode`
 
-Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:27](https://github.com/Sitecore/jss/blob/716101f7bdc030290c16e0e7733572de58532c06/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L27)
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:27](https://github.com/Sitecore/jss/blob/d8e3ff7eb92a65beab0a11f406aedbebd5d8298a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L27)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:27](ht
 
 > **value**: [`ComponentPropsCollection`](ComponentPropsCollection.md)
 
-Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:28](https://github.com/Sitecore/jss/blob/716101f7bdc030290c16e0e7733572de58532c06/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L28)
+Defined in: [sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx:28](https://github.com/Sitecore/jss/blob/d8e3ff7eb92a65beab0a11f406aedbebd5d8298a/packages/sitecore-jss-nextjs/src/components/ComponentPropsContext.tsx#L28)
