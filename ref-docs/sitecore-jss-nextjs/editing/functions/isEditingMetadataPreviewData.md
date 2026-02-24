@@ -8,7 +8,7 @@
 
 > **isEditingMetadataPreviewData**(`data`): `data is EditingMetadataPreviewData`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:319](https://github.com/Sitecore/jss/blob/599f0e6b512d3f0cc854ae617d0fb9161e8e024b/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L319)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:319](https://github.com/Sitecore/jss/blob/8c2f7b371ba3e492fb82135760e01a9fba07747d/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L319)
 
 Type guard for EditingMetadataPreviewData
 
