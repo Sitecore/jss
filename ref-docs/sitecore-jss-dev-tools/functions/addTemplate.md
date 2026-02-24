@@ -8,7 +8,7 @@
 
 > **addTemplate**(`manifest`, ...`templates`): `void`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:27](https://github.com/Sitecore/jss/blob/8c2f7b371ba3e492fb82135760e01a9fba07747d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L27)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:27](https://github.com/Sitecore/jss/blob/67b6d125b925d8ddb27e727f636767ba8afc0c79/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L27)
 
 ## Parameters
 

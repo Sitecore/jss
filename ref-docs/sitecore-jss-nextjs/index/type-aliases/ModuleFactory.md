@@ -8,7 +8,7 @@
 
 > **ModuleFactory** = (`componentName`) => [`Module`](Module.md) \| `Promise`\<[`Module`](Module.md)\> \| `null`
 
-Defined in: [sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/8c2f7b371ba3e492fb82135760e01a9fba07747d/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
+Defined in: [sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:34](https://github.com/Sitecore/jss/blob/67b6d125b925d8ddb27e727f636767ba8afc0c79/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L34)
 
 Represents a module factory
 

@@ -6,7 +6,7 @@
 
 # Interface: TextField
 
-Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:8](https://github.com/Sitecore/jss/blob/8c2f7b371ba3e492fb82135760e01a9fba07747d/packages/sitecore-jss-react/src/components/Text.tsx#L8)
+Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:8](https://github.com/Sitecore/jss/blob/67b6d125b925d8ddb27e727f636767ba8afc0c79/packages/sitecore-jss-react/src/components/Text.tsx#L8)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:8](https://gith
 
 > `optional` **editable**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:10](https://github.com/Sitecore/jss/blob/8c2f7b371ba3e492fb82135760e01a9fba07747d/packages/sitecore-jss-react/src/components/Text.tsx#L10)
+Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:10](https://github.com/Sitecore/jss/blob/67b6d125b925d8ddb27e727f636767ba8afc0c79/packages/sitecore-jss-react/src/components/Text.tsx#L10)
 
 ***
 
@@ -42,4 +42,4 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
 > `optional` **value**: `string` \| `number`
 
-Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:9](https://github.com/Sitecore/jss/blob/8c2f7b371ba3e492fb82135760e01a9fba07747d/packages/sitecore-jss-react/src/components/Text.tsx#L9)
+Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:9](https://github.com/Sitecore/jss/blob/67b6d125b925d8ddb27e727f636767ba8afc0c79/packages/sitecore-jss-react/src/components/Text.tsx#L9)
