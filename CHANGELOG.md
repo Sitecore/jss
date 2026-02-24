@@ -9,6 +9,12 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.11.0
+
+### 🎉 New Features & Improvements
+
+* `[Angular]` `[Proxy]` Support Preview mode using Metadata ([#2184](https://github.com/Sitecore/jss/pull/2184))
+
 ## 22.10.0
 
 * `[Next.js]` Support component-level data fetching in 404/500 pages ([#2140](https://github.com/Sitecore/jss/pull/2140))
