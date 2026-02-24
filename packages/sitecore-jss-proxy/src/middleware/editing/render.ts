@@ -1,5 +1,4 @@
 import { GraphQLRequestClientFactory, debug } from '@sitecore-jss/sitecore-jss';
-import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
 import { Request, Response } from 'express';
 import { getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
 import {
@@ -7,12 +6,14 @@ import {
   EDITING_ALLOWED_ORIGINS,
   RenderMetadataQueryParams,
 } from '@sitecore-jss/sitecore-jss/editing';
-import { PersonalizeHelper } from '../../personalize';
 import {
   DEFAULT_VARIANT,
   getGroomedVariantIds,
   personalizeLayout,
 } from '@sitecore-jss/sitecore-jss/personalize';
+import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
+import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
+import { PersonalizeHelper } from '../../personalize';
 
 /**
  * Configuration for the editing render endpoint
@@ -38,7 +39,9 @@ export type EditingRenderEndpointOptions = {
   personalizeHelper?: PersonalizeHelper;
 };
 
-type MetadataRequest = Request & { query: RenderMetadataQueryParams };
+type MetadataRequest = Request & {
+  query: RenderMetadataQueryParams & { mode: Exclude<LayoutServicePageState, 'Normal'> };
+};
 
 /**
  * Middleware to handle editing render requests
@@ -84,6 +87,7 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointOptions) =>
       language: query.sc_lang,
       version: query.sc_version,
       layoutKind: query.sc_layoutKind,
+      mode: query.mode,
     });
 
     if (!data || !data.layoutData || !data.dictionary) {

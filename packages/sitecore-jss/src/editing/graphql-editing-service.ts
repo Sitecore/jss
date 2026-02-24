@@ -2,7 +2,7 @@ import debug from '../debug';
 import { PageInfo } from '../graphql';
 import { GraphQLClient, GraphQLRequestClientFactory } from '../graphql-request-client';
 import { DictionaryPhrases } from '../i18n';
-import { EditMode, LayoutServiceData } from '../layout';
+import { EditMode, LayoutServiceData, LayoutServicePageState } from '../layout';
 import { LayoutKind } from './models';
 
 /**
@@ -94,6 +94,15 @@ export interface GraphQLEditingServiceConfig {
   clientFactory: GraphQLRequestClientFactory;
 }
 
+interface EditingOptions {
+  siteName: string;
+  itemId: string;
+  language: string;
+  version?: string;
+  layoutKind?: LayoutKind;
+  mode?: Exclude<LayoutServicePageState, 'Normal'>;
+}
+
 /**
  * Service for fetching editing data from Sitecore using the Sitecore's GraphQL API.
  * Expected to be used in XMCloud Pages preview (editing) Metadata Edit Mode.
@@ -117,6 +126,7 @@ export class GraphQLEditingService {
    * @param {string} variables.language - The language to fetch layout data for.
    * @param {string} [variables.version] - The version of the item (optional).
    * @param {LayoutKind} [variables.layoutKind] - The final or shared layout variant.
+   * @param {string} [variables.mode] - The editing mode to fetch layout data for.
    * @returns {Promise} The layout data and dictionary phrases.
    */
   async fetchEditingData({
@@ -125,13 +135,8 @@ export class GraphQLEditingService {
     language,
     version,
     layoutKind = LayoutKind.Final,
-  }: {
-    siteName: string;
-    itemId: string;
-    language: string;
-    version?: string;
-    layoutKind?: LayoutKind;
-  }) {
+    mode = LayoutServicePageState.Edit,
+  }: EditingOptions) {
     debug.editing(
       'fetching editing data for %s %s %s %s',
       siteName,
@@ -153,6 +158,8 @@ export class GraphQLEditingService {
     let hasNext = true;
     let after = '';
 
+    const editModeHeader = mode === 'edit' ? 'true' : 'false';
+
     const editingData = await this.graphQLClient.request<GraphQLEditingQueryResponse>(
       query,
       {
@@ -164,6 +171,7 @@ export class GraphQLEditingService {
       {
         headers: {
           sc_layoutKind: layoutKind,
+          sc_editMode: editModeHeader,
         },
       }
     );
@@ -244,9 +252,6 @@ export class GraphQLEditingService {
 
     return this.serviceConfig.clientFactory({
       debugger: debug.editing,
-      headers: {
-        sc_editMode: 'true',
-      },
     });
   }
 }
