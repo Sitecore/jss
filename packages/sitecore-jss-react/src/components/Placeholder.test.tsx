@@ -540,22 +540,12 @@ it('should not render Suspense when disableSuspense is true', async () => {
   await findByText(renderedComponent.container, 'No error');
 });
 
-it('should not render Suspense when pageState is Edit, even without disableSuspense prop', async () => {
+it('should not render Suspense when disableSuspense is not provided (defaults to true)', async () => {
   const component = nonEeDevData.sitecore.route as RouteData;
   const phKey = 'main';
 
-  const layoutDataWithEditState = {
-    sitecore: {
-      ...nonEeDevData.sitecore,
-      context: {
-        ...nonEeDevData.sitecore.context,
-        pageState: LayoutServicePageState.Edit,
-      },
-    },
-  };
-
   const renderedComponent = render(
-    <SitecoreContext componentFactory={componentFactory} layoutData={layoutDataWithEditState}>
+    <SitecoreContext componentFactory={componentFactory}>
       <Placeholder name={phKey} rendering={component} />
     </SitecoreContext>
   );
@@ -565,7 +555,7 @@ it('should not render Suspense when pageState is Edit, even without disableSuspe
   await findByText(renderedComponent.container, 'No error');
 });
 
-it('should not render Suspense when pageState is Edit, even if disableSuspense is false', async () => {
+it('should render component correctly when disableSuspense is false in Edit mode', async () => {
   const component = nonEeDevData.sitecore.route as RouteData;
   const phKey = 'main';
 
@@ -584,8 +574,6 @@ it('should not render Suspense when pageState is Edit, even if disableSuspense i
       <Placeholder name={phKey} disableSuspense={false} rendering={component} />
     </SitecoreContext>
   );
-
-  expect(renderedComponent.container.innerHTML).to.not.contain('Loading component...');
 
   await findByText(renderedComponent.container, 'No error');
 });

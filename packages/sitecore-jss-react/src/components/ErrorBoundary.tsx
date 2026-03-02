@@ -81,7 +81,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     }
 
     // do not apply suspense when suspense is disabled or when on already dynamic components
-    if (this.props.disableSuspense || this.props.isDynamic) {
+    if ((this.props.disableSuspense ?? true) || this.props.isDynamic) {
       return this.props.children;
     }
 
