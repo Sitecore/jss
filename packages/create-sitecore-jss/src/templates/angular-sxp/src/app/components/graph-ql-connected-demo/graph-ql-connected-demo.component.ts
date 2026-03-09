@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 // Direct importing means we don't need to use the `gql` helper from `graphql-tag` to parse the query;
 // it's done at build-time instead. Using a separate file is a best practice as it simplifies static analysis
 // of your GraphQL queries.
+// eslint-disable-next-line @typescript-eslint/no-require-imports -- Webpack loader requires require()
 const ComponentQuery: DocumentNode = require('graphql-tag/loader!./graph-ql-connected-demo.component.graphql');
 
 @Component({

@@ -12,8 +12,8 @@ import { JssContextService } from '../../jss-context.service';
   imports: [CommonModule, JssModule],
 })
 export class ImageComponent extends SxaComponent implements OnInit, OnDestroy {
-  @ViewChild('default', { static: true }) defaultVariant: TemplateRef<any>;
-  @ViewChild('banner', { static: true }) bannerVariant: TemplateRef<any>;
+  @ViewChild('default', { static: true }) defaultVariant: TemplateRef<unknown>;
+  @ViewChild('banner', { static: true }) bannerVariant: TemplateRef<unknown>;
   classHeroBannerEmpty = '';
   backgroundStyle = {};
   modifyImageProps = {};
@@ -59,7 +59,7 @@ export class ImageComponent extends SxaComponent implements OnInit, OnDestroy {
     }
   }
 
-  public get variant(): TemplateRef<any> {
+  public get variant(): TemplateRef<unknown> {
     return this.rendering.params?.FieldNames === 'Banner'
       ? this.bannerVariant
       : this.defaultVariant;

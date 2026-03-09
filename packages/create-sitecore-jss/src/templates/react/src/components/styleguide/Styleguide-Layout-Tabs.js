@@ -42,10 +42,10 @@ class StyleguideLayoutTabs extends React.Component {
             (tabsPlaceholder || [])
               .filter((tab) => tab.props && tab.props.fields)
               .map((tab, _index) => (
-                <li className="nav-item" key={`tab${index}`}>
+                <li className="nav-item" key={`tab${_index}`}>
                   <a
-                    className={`nav-link ${index === this.state.activeTabIndex ? 'active' : null}`}
-                    onClick={() => this.setActiveTab(index)}
+                    className={`nav-link ${_index === this.state.activeTabIndex ? 'active' : null}`}
+                    onClick={() => this.setActiveTab(_index)}
                     href="#t"
                   >
                     <Text field={tab.props.fields.title} />

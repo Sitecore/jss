@@ -21,7 +21,7 @@ export class ContainerComponent extends SxaComponent implements OnInit {
 
   get backgroundStyle() {
     const backgroundImage = this.rendering.params?.BackgroundImage;
-    const mediaUrlPattern = new RegExp(/mediaurl=\"([^"]*)\"/, 'i');
+    const mediaUrlPattern = new RegExp(/mediaurl="([^"]*)"/, 'i');
     if (!backgroundImage || !backgroundImage.match(mediaUrlPattern)) {
       return {};
     }
