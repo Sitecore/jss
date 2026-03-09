@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable react/display-name */
-
 import { expect } from 'chai';
 import sinon from 'sinon';
 import React from 'react';

@@ -7,7 +7,7 @@ import { ComponentFactoryReactContext } from '../components/SitecoreContext';
 
 describe('withComponentFactory()', () => {
   test('should pass factory to wrapped component from context', () => {
-		const components = new Map();
+    const components = new Map();
 
     components.set('xxx', () => <Text>I'm component from factory</Text>);
 
@@ -16,10 +16,10 @@ describe('withComponentFactory()', () => {
     type TestComponentProps = {
       customProperty?: string;
       componentFactory?: ComponentFactory | null;
-    }
+    };
 
     const TestComponent = (props: TestComponentProps) => {
-			if (!props.componentFactory) return null;
+      if (!props.componentFactory) return null;
 
       const ComponentFromFactory = props.componentFactory('xxx') as React.ComponentType;
 
@@ -50,7 +50,7 @@ describe('withComponentFactory()', () => {
     type TestComponentProps = {
       customProperty?: string;
       componentFactory?: ComponentFactory | null;
-    }
+    };
 
     contextFactoryComponents.set('xxx', () => <Text>I'm component from context factory</Text>);
 
@@ -63,7 +63,7 @@ describe('withComponentFactory()', () => {
 
     const TestComponent = (props: TestComponentProps) => {
       if (!props.componentFactory) return null;
-      
+
       const ComponentFromFactory = props.componentFactory('xxx') as React.ComponentType;
 
       return (

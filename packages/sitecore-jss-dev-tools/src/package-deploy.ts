@@ -209,10 +209,10 @@ export async function watchJobStatus(options: PackageDeployOptions, taskName: st
 
   req.on('response', (res) => {
     if (res.statusCode !== 200) {
-      let errorData = '';
+      let _errorData = '';
 
       res.on('data', (chunk) => {
-        errorData += chunk;
+        _errorData += chunk;
       });
 
       res.on('end', () => {

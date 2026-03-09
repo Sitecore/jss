@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-unused-expressions */
 
