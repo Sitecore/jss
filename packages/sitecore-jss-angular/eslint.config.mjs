@@ -1,8 +1,6 @@
 /**
  * ESLint flat config for @sitecore-jss/sitecore-jss-angular.
  * Replaces legacy .eslintrc so the package uses ESLint 9 flat config.
- * Rule values align with the legacy root .eslintrc
- * (https://github.com/Sitecore/jss/blob/dev/.eslintrc) where applicable.
  * @see https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md
  */
 import eslint from '@eslint/js';
