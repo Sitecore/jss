@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
 import path from 'path';
 import { Manifest, RouteDefinition, CommonFieldTypes } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
-
-/* eslint-enable no-unused-vars */
 
 /**
  * Collects the disconnected routes defined in data/routes into the manifest.

@@ -1,4 +1,4 @@
-/* eslint-disable prefer-const */
+ 
 import { ComponentRendering, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import { form, debug } from '@sitecore-jss/sitecore-jss';
 import {

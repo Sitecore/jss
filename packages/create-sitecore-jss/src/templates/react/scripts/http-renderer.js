@@ -9,12 +9,12 @@ const express = require('express');
 /* eslint-disable no-console */
 
 startRenderHostTunnel('localhost', { port: 5000 })
-  .then((_tunnelUrl) => {
+  .then(() => {
     // const buildArtifactsPath = path.resolve(__dirname, '../build');
     startRenderingHostServer({
       port: 5000,
       appInvocationInfoResolver: getDefaultAppInvocationInfoResolver({
-        appPathResolver: (_requestJson) => {
+        appPathResolver: () => {
           return path.resolve('./build-rendering-host/server.bundle');
         },
       }),

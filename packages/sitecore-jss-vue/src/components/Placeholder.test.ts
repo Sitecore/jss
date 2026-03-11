@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable no-unused-expressions */
-
 import { h, defineComponent } from 'vue';
 
 import { Placeholder } from './Placeholder';

@@ -181,7 +181,7 @@ describe('guardResolverFactory', () => {
           componentDefinition: {} as any,
         },
       ])
-      // eslint-disable-next-line quotes
+       
     ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
   });
 
@@ -193,7 +193,7 @@ describe('guardResolverFactory', () => {
           componentDefinition: {} as any,
         },
       ])
-      // eslint-disable-next-line quotes
+       
     ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
   });
 
@@ -205,7 +205,7 @@ describe('guardResolverFactory', () => {
           componentDefinition: {} as any,
         },
       ])
-      // eslint-disable-next-line quotes
+       
     ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
   });
 
@@ -217,7 +217,7 @@ describe('guardResolverFactory', () => {
           componentDefinition: {} as any,
         },
       ])
-      // eslint-disable-next-line quotes
+       
     ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '404' is a redirect value");
   });
 

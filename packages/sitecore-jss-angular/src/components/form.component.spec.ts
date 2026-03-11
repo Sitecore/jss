@@ -1,4 +1,4 @@
-/* eslint-disable quotes */
+ 
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ElementRef } from '@angular/core';
 import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';

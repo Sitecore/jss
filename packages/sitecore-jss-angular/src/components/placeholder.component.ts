@@ -1,4 +1,4 @@
-/* eslint-disable @angular-eslint/no-conflicting-lifecycle */
+ 
 import { CommonModule, isPlatformServer } from '@angular/common';
 import {
   ChangeDetectorRef,

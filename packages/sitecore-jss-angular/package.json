@@ -33,10 +33,12 @@
     "@angular/platform-browser": "~20.3.10",
     "@angular/platform-browser-dynamic": "~20.3.10",
     "@angular/router": "~20.3.10",
+    "@eslint/js": "^9.15.0",
     "@types/jasmine": "^5.1.8",
     "@types/node": "^24.10.4",
+    "angular-eslint": "^20.5.1",
     "codelyzer": "^6.0.1",
-    "eslint": "~8.57.0",
+    "eslint": "^9.15.0",
     "eslint-plugin-deprecation": "^1.5.0",
     "jasmine-core": "^5.9.0",
     "karma": "^6.4.3",
@@ -51,6 +53,7 @@
     "rxjs": "~7.8.1",
     "tslib": "^2.3.1",
     "typescript": "~5.8.0",
+    "typescript-eslint": "^8.18.0",
     "zone.js": "~0.15.0"
   },
   "peerDependencies": {
