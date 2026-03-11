@@ -181,8 +181,8 @@ describe('guardResolverFactory', () => {
           componentDefinition: {} as any,
         },
       ])
-       
-    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
+
+    ).toBeRejectedWithError(JssCanActivateRedirectError, 'Value: \'/404\' is a redirect value');
   });
 
   it('Throws JssCanActivateRedirectError when returning RedirectCommand', () => {
@@ -193,8 +193,8 @@ describe('guardResolverFactory', () => {
           componentDefinition: {} as any,
         },
       ])
-       
-    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
+
+    ).toBeRejectedWithError(JssCanActivateRedirectError, 'Value: \'/404\' is a redirect value');
   });
 
   it('Throws JssCanActivateRedirectError when returning string', () => {
@@ -205,8 +205,8 @@ describe('guardResolverFactory', () => {
           componentDefinition: {} as any,
         },
       ])
-       
-    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '/404' is a redirect value");
+
+    ).toBeRejectedWithError(JssCanActivateRedirectError, 'Value: \'/404\' is a redirect value');
   });
 
   it('Throws JssCanActivateRedirectError when returning array with strings', () => {
@@ -217,8 +217,8 @@ describe('guardResolverFactory', () => {
           componentDefinition: {} as any,
         },
       ])
-       
-    ).toBeRejectedWithError(JssCanActivateRedirectError, "Value: '404' is a redirect value");
+
+    ).toBeRejectedWithError(JssCanActivateRedirectError, 'Value: \'404\' is a redirect value');
   });
 
   it('Blocks rendering if single async guard returns false', async () => {

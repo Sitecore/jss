@@ -1,4 +1,4 @@
- 
+
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ElementRef } from '@angular/core';
 import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
@@ -268,7 +268,7 @@ describe('FormComponent', () => {
       expect(loadFormSpy).toHaveBeenCalled();
 
       expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
-        `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
+        '<div class="sc-jss-placeholder-error">There was a problem loading this section</div>'
       );
     }));
 
@@ -299,7 +299,7 @@ describe('FormComponent', () => {
       expect(loadFormSpy).toHaveBeenCalled();
 
       expect(cleanHtml(elementRef.nativeElement.innerHTML)).toEqual(
-        `<div class="sc-jss-placeholder-error">There was a problem loading this section</div>`
+        '<div class="sc-jss-placeholder-error">There was a problem loading this section</div>'
       );
     }));
 

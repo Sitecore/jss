@@ -1,6 +1,8 @@
 /**
  * ESLint flat config for @sitecore-jss/sitecore-jss-angular.
  * Replaces legacy .eslintrc so the package uses ESLint 9 flat config.
+ * Rule values align with the legacy root .eslintrc
+ * (https://github.com/Sitecore/jss/blob/dev/.eslintrc) where applicable.
  * @see https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md
  */
 import eslint from '@eslint/js';
@@ -29,7 +31,7 @@ export default tseslint.config(
       '@angular-eslint/no-host-metadata-property': 'off',
       '@angular-eslint/component-selector': 'off',
       '@angular-eslint/directive-selector': 'off',
-      '@typescript-eslint/dot-notation': 'off',
+      '@typescript-eslint/dot-notation': 'error',
       '@typescript-eslint/explicit-member-accessibility': ['off', { accessibility: 'explicit' }],
       '@typescript-eslint/naming-convention': [
         'error',
@@ -53,6 +55,21 @@ export default tseslint.config(
       'id-match': 'off',
       'no-underscore-dangle': 'off',
       'no-useless-escape': 'off',
+      'spaced-comment': 'error',
+      'curly': ['error', 'multi-line'],
+      'eol-last': ['error', 'always'],
+      'guard-for-in': 'error',
+      'no-unused-labels': 'error',
+      'no-caller': 'error',
+      'no-bitwise': 'error',
+      'no-multiple-empty-lines': 'error',
+      'no-new-wrappers': 'error',
+      'no-eval': 'error',
+      'no-trailing-spaces': 'error',
+      'quotes': ['error', 'single'],
+      'radix': 'error',
+      'default-case': 'error',
+      'eqeqeq': 'error',
     },
   },
   {
@@ -75,7 +92,7 @@ export default tseslint.config(
       // Library uses sc-*, test-*, and various attribute selectors; avoid enforcing app prefix.
       '@angular-eslint/component-selector': 'off',
       '@angular-eslint/directive-selector': 'off',
-      '@typescript-eslint/dot-notation': 'off',
+      '@typescript-eslint/dot-notation': 'error',
       '@typescript-eslint/explicit-member-accessibility': ['off', { accessibility: 'explicit' }],
       '@typescript-eslint/naming-convention': [
         'error',
@@ -90,7 +107,10 @@ export default tseslint.config(
       '@typescript-eslint/typedef': 'error',
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-unused-expressions': [
+        'error',
+        { allowShortCircuit: true, allowTernary: true },
+      ],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
@@ -98,6 +118,22 @@ export default tseslint.config(
       'id-blacklist': 'off',
       'id-match': 'off',
       'no-underscore-dangle': 'off',
+      'no-useless-escape': 'off',
+      'spaced-comment': 'error',
+      'curly': ['error', 'multi-line'],
+      'eol-last': ['error', 'always'],
+      'guard-for-in': 'error',
+      'no-unused-labels': 'error',
+      'no-caller': 'error',
+      'no-bitwise': 'error',
+      'no-multiple-empty-lines': 'error',
+      'no-new-wrappers': 'error',
+      'no-eval': 'error',
+      'no-trailing-spaces': 'error',
+      'quotes': ['error', 'single'],
+      'radix': 'error',
+      'default-case': 'error',
+      'eqeqeq': 'error',
     },
   },
   {

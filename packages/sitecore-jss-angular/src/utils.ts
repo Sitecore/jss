@@ -13,6 +13,6 @@ export function wrapIntoObservable<T>(value: T | Promise<T> | Observable<T>): Ob
   if (isPromise(value)) {
     return from(Promise.resolve(value));
   }
-   
+
   return of(value) as any;
 }
