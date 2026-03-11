@@ -14,7 +14,6 @@ import { RawComponent } from '../components/raw.component';
 import { isRawRendering } from '../components/rendering';
 
 export interface ComponentFactoryResult {
-
   componentImplementation?: Type<any>;
   componentDefinition: ComponentRendering | HtmlElementRendering;
   componentModuleRef?: NgModuleRef<unknown>;
@@ -71,7 +70,6 @@ export class JssComponentFactoryService {
         }
 
         if (component.componentName in dynamicComponentType) {
-
           componentType = (dynamicComponentType as { [s: string]: any })[component.componentName];
         } else {
           if (typeof dynamicComponentType === 'function') {
