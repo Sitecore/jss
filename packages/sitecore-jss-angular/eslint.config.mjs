@@ -20,7 +20,7 @@ export default tseslint.config(
     processor: angular.processInlineTemplates,
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.json', './tsconfig.spec.json'],
+        project: ['./tsconfig.json'],
         createDefaultProgram: true,
       },
     },
@@ -37,7 +37,7 @@ export default tseslint.config(
     extends: [...angular.configs.tsRecommended],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.json', './tsconfig.spec.json'],
+        project: ['./tsconfig.spec.json'],
         createDefaultProgram: true,
       },
       globals: {
