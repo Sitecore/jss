@@ -4,7 +4,6 @@
  */
 import js from '@eslint/js';
 import reactPlugin from 'eslint-plugin-react';
-import importPlugin from 'eslint-plugin-import';
 import yamlPlugin from 'eslint-plugin-yaml';
 import prettierPlugin from 'eslint-plugin-prettier';
 import babelParser from '@babel/eslint-parser';
@@ -32,26 +31,16 @@ export default [
     },
     plugins: {
       react: reactPlugin,
-      import: importPlugin,
       prettier: prettierPlugin,
     },
     settings: {
-      'import/ignore': ['node_modules', '.png$', '.jpg$'],
       react: { version: 'detect' },
     },
     rules: {
       ...reactPlugin.configs.recommended.rules,
-      'import/no-unresolved': 'off',
-      'import/no-duplicates': 'off',
-      'import/no-named-as-default': 'off',
-      'import/no-extraneous-dependencies': [
-        'error',
-        { devDependencies: true, optionalDependencies: true },
-      ],
       'linebreak-style': 'off',
       'react/jsx-filename-extension': 0,
       'jsx-quotes': ['error', 'prefer-double'],
-      'import/prefer-default-export': 'off',
       'react/forbid-prop-types': 'off',
       'react/prop-types': 0,
       'react/no-danger': 'off',
