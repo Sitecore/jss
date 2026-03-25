@@ -11,6 +11,8 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.12.0
+
 ### 🎉 New Features & Improvements
 
 * Migrate ESLint to v9 and flat config ([#2186](https://github.com/Sitecore/jss/pull/2186))([#2187](https://github.com/Sitecore/jss/pull/2187))
