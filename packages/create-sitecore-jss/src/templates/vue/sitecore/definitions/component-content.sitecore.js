@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Manifest, ItemDefinition } from '@sitecore-jss/sitecore-jss-dev-tools';
 import { mergeFs, MergeFsResult } from '@sitecore-jss/sitecore-jss-dev-tools';
 import path from 'path';

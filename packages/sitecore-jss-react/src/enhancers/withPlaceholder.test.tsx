@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactElement, ReactNode } from 'react';
 import { expect } from 'chai';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { convertedDevData as nonEeDevData } from '../test-data/non-ee-data';
 import { convertedData as eeData } from '../test-data/ee-data';
 import * as metadataData from '../test-data/metadata-data';
@@ -152,7 +152,7 @@ describe('withPlaceholder HOC', () => {
       expect(renderedComponent.container.querySelectorAll('.error-handled').length).to.equal(1);
     });
 
-    it('should render nested broken component', () => {
+    it('should render nested broken component', async () => {
       const component = (nonEeDevData.sitecore.route?.placeholders.main as (
         | ComponentRendering
         | RouteData
@@ -161,6 +161,7 @@ describe('withPlaceholder HOC', () => {
       const props: EnhancedOmit<PlaceholderProps, 'sitecoreContext'> = {
         name: phKey,
         rendering: component,
+        disableSuspense: false,
       };
       const Element = withPlaceholder(phKey)(Home);
       const renderedComponent = render(
@@ -169,9 +170,11 @@ describe('withPlaceholder HOC', () => {
         </SitecoreContext>
       );
 
-      expect(
-        renderedComponent.container.querySelectorAll('.download-callout-mock').length
-      ).to.equal(1);
+      await waitFor(() => {
+        expect(
+          renderedComponent.container.querySelectorAll('.download-callout-mock').length
+        ).to.equal(1);
+      });
       expect(
         renderedComponent.container.querySelectorAll('.sc-jss-placeholder-error').length
       ).to.equal(1);
@@ -181,7 +184,7 @@ describe('withPlaceholder HOC', () => {
       );
     });
 
-    it('should render nested components using custom error component', () => {
+    it('should render nested components using custom error component', async () => {
       const component = (nonEeDevData.sitecore.route?.placeholders.main as (
         | ComponentRendering
         | RouteData
@@ -192,6 +195,7 @@ describe('withPlaceholder HOC', () => {
         rendering: component,
         errorComponent: ErrorMessageComponent,
         componentLoadingMessage: 'Custom loading message...',
+        disableSuspense: false,
       };
       const Element = withPlaceholder(phKey)(Home);
       const renderedComponent = render(
@@ -200,9 +204,11 @@ describe('withPlaceholder HOC', () => {
         </SitecoreContext>
       );
 
-      expect(
-        renderedComponent.container.querySelectorAll('.download-callout-mock').length
-      ).to.equal(1);
+      await waitFor(() => {
+        expect(
+          renderedComponent.container.querySelectorAll('.download-callout-mock').length
+        ).to.equal(1);
+      });
       expect(renderedComponent.container.querySelectorAll('.error-handled').length).to.equal(1);
       expect(renderedComponent.container.querySelectorAll('h4').length).to.equal(1);
       expect(renderedComponent.container.querySelector('h4')?.outerHTML).to.equal(
@@ -223,6 +229,7 @@ describe('withPlaceholder HOC', () => {
         const props: EnhancedOmit<PlaceholderProps, 'sitecoreContext'> = {
           name: phKey,
           rendering: component,
+          disableSuspense: false,
         };
         const Element = withPlaceholder(phKey)(Home);
         const renderedComponent = render(
@@ -256,7 +263,7 @@ describe('withPlaceholder HOC', () => {
 
   testData.forEach((dataSet) => {
     describe(`with ${dataSet.label}`, () => {
-      it('should render a placeholder with given key', () => {
+      it('should render a placeholder with given key', async () => {
         const component = (dataSet.data.sitecore.route?.placeholders.main as (
           | ComponentRendering
           | RouteData
@@ -265,6 +272,7 @@ describe('withPlaceholder HOC', () => {
         const props: EnhancedOmit<PlaceholderProps, 'sitecoreContext'> = {
           name: phKey,
           rendering: component,
+          disableSuspense: false,
         };
 
         const Element = withPlaceholder(phKey)(Home);
@@ -277,9 +285,11 @@ describe('withPlaceholder HOC', () => {
           </SitecoreContext>
         );
 
-        expect(
-          renderedComponent.container.querySelectorAll('.download-callout-mock').length
-        ).to.equal(1);
+        await waitFor(() => {
+          expect(
+            renderedComponent.container.querySelectorAll('.download-callout-mock').length
+          ).to.equal(1);
+        });
       });
 
       it('should render a placeholder with given key and prop', () => {

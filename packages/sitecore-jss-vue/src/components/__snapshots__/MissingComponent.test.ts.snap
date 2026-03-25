@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<MissingComponent /> should render 1`] = `
 <div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;">

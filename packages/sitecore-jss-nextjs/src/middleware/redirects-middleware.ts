@@ -14,8 +14,10 @@ import {
   isRegexOrUrl,
   mergeURLSearchParams,
 } from '@sitecore-jss/sitecore-jss/utils';
-import { NextURL } from 'next/dist/server/web/next-url';
 import { NextRequest, NextResponse } from 'next/server';
+
+// Extract NextURL type from NextRequest since the internal import path is no longer available in Next.js 16
+type NextURL = NextRequest['nextUrl'];
 import regexParser from 'regex-parser';
 import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
 
@@ -272,10 +274,14 @@ export class RedirectsMiddleware extends MiddlewareBase {
           url.origin
         );
 
+        const basePath = url.basePath; // setting NextUrl.href overrides basePath, so we need to store it
         url.href = prepareNewURL.href;
         url.pathname = prepareNewURL.pathname;
         url.search = prepareNewURL.search;
         url.locale = req.nextUrl.locale;
+        if (basePath) {
+          url.basePath = basePath;
+        }
 
         return this.dispatchRedirect(url, existsRedirect.redirectType, req, response, false);
       }
@@ -335,9 +341,13 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
     const newUrl = new URL(`${url.pathname.toLowerCase()}?${newQueryString}`, url.origin);
 
+    const basePath = url.basePath; // setting NextUrl.href overrides basePath, so we need to store it
     url.search = newUrl.search;
     url.pathname = newUrl.pathname.toLowerCase();
     url.href = newUrl.href;
+    if (basePath) {
+      url.basePath = basePath;
+    }
 
     return url;
   }
@@ -363,14 +373,12 @@ export class RedirectsMiddleware extends MiddlewareBase {
         return this.createRedirectResponse(target, res, 301, 'Moved Permanently');
       case REDIRECT_TYPE_302:
         return this.createRedirectResponse(target, res, 302, 'Found');
-      case REDIRECT_TYPE_SERVER_TRANSFER:
-        // rewrite expects a string; unwrap NextURL if needed
-        return this.rewrite(
-          typeof target === 'string' ? target : target.href,
-          req,
-          res,
-          isExternal
-        );
+      case REDIRECT_TYPE_SERVER_TRANSFER: {
+        // rewrite expects a path string; for NextURL extract pathname + search, not full href
+        const rewritePath =
+          typeof target === 'string' ? target : `${target.pathname}${target.search}`;
+        return this.rewrite(rewritePath, req, res, isExternal);
+      }
       default:
         // Unknown type: return the input response unchanged
         return res;

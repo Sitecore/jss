@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import { FieldMetadata, GenericFieldValue } from '@sitecore-jss/sitecore-jss/layout';
 

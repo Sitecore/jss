@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-dev-tools",
-  "version": "22.11.0",
+  "version": "22.12.0-canary.6",
   "description": "Utilities to assist in the development and deployment of Sitecore JSS apps.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -10,13 +10,13 @@
     "watch": "npm run build -- --watch",
     "clean": "del-cli dist types",
     "lint": "eslint \"./src/**/*.ts\"",
-    "test": "mocha --require ts-node/register -r tsconfig-paths/register  \"./src/**/*.test.ts\"",
+    "test": "mocha --require ts-node/register/transpile-only -r tsconfig-paths/register  \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-dev-tools src/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "bin": {
     "scjss-deploy": "./dist/cjs/bin/deploy.js",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@babel/parser": "^7.28.0",
-    "@sitecore-jss/sitecore-jss": "22.11.0",
+    "@sitecore-jss/sitecore-jss": "22.12.0-canary.6",
     "chalk": "^4.1.2",
     "chokidar": "^4.0.3",
     "del": "^6.0.0",
@@ -62,8 +62,8 @@
     "@types/express": "^5.0.3",
     "@types/fs-extra": "^11.0.4",
     "@types/js-yaml": "^4.0.9",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^22.9.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.10.4",
     "@types/readline-sync": "^1.4.8",
     "@types/resolve": "^1.20.2",
     "@types/sinon": "^17.0.4",
@@ -74,7 +74,7 @@
     "cross-env": "^7.0.3",
     "del-cli": "^6.0.0",
     "eslint": "^8.56.0",
-    "mocha": "^10.2.0",
+    "mocha": "^11.7.5",
     "nock": "^13.0.0",
     "nyc": "^17.1.0",
     "sinon": "^20.0.0",

@@ -37,14 +37,13 @@ function generateConfig() {
   });
 
   try {
-    config = jssConfigFactory.create(defaultConfig);
+    const config = jssConfigFactory.create(defaultConfig);
+    writeConfig(config);
   } catch (error) {
     console.error('Error generating config');
     console.error(error);
     process.exit(1);
   }
-
-  writeConfig(config);
 }
 
 function writeConfig(config) {

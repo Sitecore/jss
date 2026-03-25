@@ -275,6 +275,19 @@ describe('RedirectsMiddleware', () => {
   // Helper to normalize url values when we need to compare objects vs strings
   const normalizeUrlValue = (u: any) => (typeof u === 'string' ? u : u?.href ?? '');
 
+  // Helper to update url.href based on origin, basePath, locale, and pathname.
+  // A substitute for NextUrl href getter which does that automatically
+  const normalizeHref = (url, includeLocale = false) => {
+    const parts = [
+      url.origin,
+      url.basePath.replace(/\/$/, ''), // Remove trailing slash
+      includeLocale ? url.locale : '',
+      url.pathname.replace(/^\//, ''), // Remove leading slash
+    ].filter(Boolean);
+
+    url.href = parts.join('/');
+  };
+
   describe('redirects middleware - getHandler', () => {
     describe('preview', () => {
       it('prerender bypass cookie is present', async () => {
@@ -517,10 +530,112 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should return 301 redirect with basePath if configured', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/test/found',
+          pathname: '/found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+          basePath: 'test',
+        };
+        const { res, req } = createTestRequestResponse({
+          response: {
+            url,
+          },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              href: 'http://localhost:3000/test/not-found',
+              clone: cloneUrl,
+              basePath: 'test',
+            },
+          },
+        });
+        setupRedirectStub(301);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        // update url.href to include basePath for comparison
+        normalizeHref(finalRes.url);
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should return 301 redirect with basePath if empty string', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          href: 'http://localhost:3000/found',
+          pathname: '/found',
+          origin: 'http://localhost:3000',
+          locale: 'en',
+          search: '',
+          clone: cloneUrl,
+          basePath: '',
+        };
+        const { res, req } = createTestRequestResponse({
+          response: {
+            url,
+          },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              origin: 'http://localhost:3000',
+              locale: 'en',
+              href: 'http://localhost:3000/not-found',
+              clone: cloneUrl,
+              basePath: '',
+            },
+          },
+        });
+        setupRedirectStub(301);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        // update url.href to include basePath for comparison
+        normalizeHref(finalRes.url);
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
       it('should override locale with locale parsed from target', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
-          pathname: 'http://localhost:3000/found',
+          pathname: '/found',
           href: 'http://localhost:3000/not-found',
           origin: 'http://localhost:3000',
           locale: 'ua',
@@ -573,7 +688,7 @@ describe('RedirectsMiddleware', () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
           origin: 'http://localhost:3000',
-          pathname: 'http://localhost:3000/found?abc=def',
+          pathname: '/found?abc=def',
           href: 'http://localhost:3000/not-found?abc=def',
           search: '?abc=def',
           locale: 'en',
@@ -1486,6 +1601,100 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.status).to.equal(res.status);
       });
 
+      it('should rewrite using pathname and search instead of full href for server transfer with NextURL target', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          clone: cloneUrl,
+          href: 'http://localhost:3000/found?param=value',
+          locale: 'en',
+          origin: 'http://localhost:3000',
+          pathname: '/found',
+          search: '?param=value',
+        };
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              search: '',
+              href: 'http://localhost:3000/not-found',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 200,
+        });
+        setupRewriteStub(200, res);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found?param=value',
+            redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(res.status);
+        expect(nextRewriteStub.called).to.be.true;
+        const rewriteArg = nextRewriteStub.firstCall.args[0];
+        expect(rewriteArg.pathname).to.include('/found');
+      });
+
+      it('should rewrite with empty search when server transfer target has no query string', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          clone: cloneUrl,
+          href: 'http://localhost:3000/found',
+          locale: 'en',
+          origin: 'http://localhost:3000',
+          pathname: '/found',
+          search: '',
+        };
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              search: '',
+              href: 'http://localhost:3000/not-found',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              clone: cloneUrl,
+            },
+          },
+          status: 200,
+        });
+        setupRewriteStub(200, res);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: 'not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_SERVER_TRANSFER,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes.status).to.equal(res.status);
+        expect(nextRewriteStub.called).to.be.true;
+        const rewriteArg = nextRewriteStub.firstCall.args[0];
+        expect(rewriteArg.pathname).to.equal('/found');
+      });
+
       it('should use sc_site cookie', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const siteName = 'foo';
@@ -2053,6 +2262,56 @@ describe('RedirectsMiddleware', () => {
           status: 301,
           url,
         });
+
+        expect(siteResolver.getByHost).to.be.calledWith(hostname);
+        // eslint-disable-next-line no-unused-expressions
+        expect(fetchRedirects.called).to.be.true;
+        expect(finalRes).to.deep.equal(res);
+        expect(finalRes.status).to.equal(res.status);
+      });
+
+      it('should return 301 redirect and take account of basePath if configured', async () => {
+        const cloneUrl = () => Object.assign({}, req.nextUrl);
+        const url = {
+          clone: cloneUrl,
+          href: 'http://localhost:3000/test/found',
+          locale: 'en',
+          origin: 'http://localhost:3000',
+          search: '',
+          pathname: '/found',
+          basePath: 'test',
+        };
+
+        const { res, req } = createTestRequestResponse({
+          response: { url },
+          request: {
+            nextUrl: {
+              pathname: '/not-found',
+              search: '?path=not-found',
+              href: 'http://localhost:3000/test/not-found/?path=not-found',
+              locale: 'en',
+              origin: 'http://localhost:3000',
+              basePath: 'test',
+              clone: cloneUrl,
+            },
+          },
+        });
+        setupRedirectStub(301);
+
+        const { finalRes, fetchRedirects, siteResolver } = await runTestWithRedirect(
+          {
+            pattern: '/not-found',
+            target: '/found',
+            redirectType: REDIRECT_TYPE_301,
+            isQueryStringPreserved: false,
+            locale: 'en',
+          },
+          req,
+          res
+        );
+
+        // update url.href to include basePath for comparison
+        normalizeHref(finalRes.url);
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
         // eslint-disable-next-line no-unused-expressions

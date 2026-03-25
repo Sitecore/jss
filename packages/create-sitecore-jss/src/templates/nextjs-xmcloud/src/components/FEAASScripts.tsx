@@ -8,7 +8,7 @@ const FEAASScripts = (): JSX.Element => {
   // we cannot use nextjs's logic for remotePatterns matching without extra dependencies
   // so we use a limited approach for now - which will be replaced once nextjs allows to fall back to unoptimized OOB
   const convertToRegex = (pattern: string) => {
-    return pattern.replace('.', '\\.').replace(/\*/g, '.*');
+    return pattern.replace(/\\/g, '\\\\').replace(/\./g, '\\.').replace(/\*/g, '.*');
   };
 
   const shouldOptimize = (src: string) => {

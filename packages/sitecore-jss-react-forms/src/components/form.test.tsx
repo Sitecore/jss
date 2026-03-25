@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { render, waitFor, fireEvent, findByText } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -7,6 +6,7 @@ import React from 'react';
 import * as submit from '@sitecore-jss/sitecore-jss-forms/dist/cjs/submitForm';
 
 import { Form, FormProps, FormState, FieldStateCollection } from './form';
+import { ButtonFormField } from '@sitecore-jss/sitecore-jss-forms';
 import { FieldWithValueProps } from '../FieldProps';
 import { FieldState } from '../../types/components/form';
 
@@ -218,7 +218,7 @@ describe('<Form />', () => {
           id: 'nnn',
           value: 'nnn',
         },
-      } as forms.ButtonFormField,
+      } as ButtonFormField,
       {
         model: {
           itemId: 'model_item_id_file_next_form',

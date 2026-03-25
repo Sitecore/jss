@@ -225,7 +225,7 @@ describe('ErrorBoundary', () => {
 
     it('should render a loading message', async () => {
       const rendered = render(
-        <ErrorBoundary>
+        <ErrorBoundary disableSuspense={false}>
           <ItsADynamicComponent />
         </ErrorBoundary>
       );
@@ -235,11 +235,21 @@ describe('ErrorBoundary', () => {
     it('should render custom loading message', async () => {
       const loading = 'I am customly loading...';
       const rendered = render(
-        <ErrorBoundary componentLoadingMessage={loading}>
+        <ErrorBoundary disableSuspense={false} componentLoadingMessage={loading}>
           <ItsADynamicComponent />
         </ErrorBoundary>
       );
       expect(rendered.baseElement.textContent).to.equal(loading);
+    });
+
+    it('should not render suspense fallback by default', () => {
+      const rendered = render(
+        <ErrorBoundary componentLoadingMessage="I should not be shown">
+          <div>Rendered child</div>
+        </ErrorBoundary>
+      );
+
+      expect(rendered.baseElement.textContent).to.equal('Rendered child');
     });
 
     it('should not render Suspense and default loading message when wrapping a dynamic component', async () => {

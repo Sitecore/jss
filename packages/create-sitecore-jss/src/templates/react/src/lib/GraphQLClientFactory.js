@@ -1,9 +1,5 @@
-/* eslint-disable import/first */
-
 import 'cross-fetch/polyfill';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
-
-/* eslint-disable import/order */
 
 /*
   INTROSPECTION DATA

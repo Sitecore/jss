@@ -3,8 +3,6 @@ import i18ninit from './i18n';
 import { createApp } from './createApp';
 import config from './temp/config';
 
-/* eslint-disable no-underscore-dangle */
-
 let initLanguage = config.defaultLanguage;
 
 if (process.env.VUE_APP_DEBUG) {

@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import { CommonFieldTypes, Manifest } from '@sitecore-jss/sitecore-jss-dev-tools';
 
 /**
