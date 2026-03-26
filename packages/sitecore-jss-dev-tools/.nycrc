@@ -22,5 +22,5 @@
     "cobertura",
     "text"
   ],
-  "require": ["ts-node/register"]
+  "require": ["ts-node/register/transpile-only"]
 }

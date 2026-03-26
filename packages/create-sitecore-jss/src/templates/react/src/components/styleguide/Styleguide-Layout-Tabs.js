@@ -41,11 +41,11 @@ class StyleguideLayoutTabs extends React.Component {
           {!isEditing &&
             (tabsPlaceholder || [])
               .filter((tab) => tab.props && tab.props.fields)
-              .map((tab, index) => (
-                <li className="nav-item" key={`tab${index}`}>
+              .map((tab, _index) => (
+                <li className="nav-item" key={`tab${_index}`}>
                   <a
-                    className={`nav-link ${index === this.state.activeTabIndex ? 'active' : null}`}
-                    onClick={() => this.setActiveTab(index)}
+                    className={`nav-link ${_index === this.state.activeTabIndex ? 'active' : null}`}
+                    onClick={() => this.setActiveTab(_index)}
                     href="#t"
                   >
                     <Text field={tab.props.fields.title} />
@@ -54,7 +54,7 @@ class StyleguideLayoutTabs extends React.Component {
               ))}
         </ul>
         <div className="p-3 border-left border-right border-bottom">
-          {(tabsPlaceholder || []).map((tab, index) => {
+          {(tabsPlaceholder || []).map((tab, _index) => {
             const isValid = tab.props && tab.props.fields;
 
             // allow experience editor markup components to render

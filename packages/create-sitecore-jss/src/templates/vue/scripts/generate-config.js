@@ -3,8 +3,6 @@ const path = require('path');
 const { constantCase } = require('constant-case');
 const packageConfig = require('../package.json');
 
-/* eslint-disable no-console */
-
 /**
  * Generate config
  * The object returned from this function will be made available by importing src/temp/generated-config.js.
@@ -72,7 +70,6 @@ function transformScJssConfig() {
   // so if it doesn't we substitute a fake object
   let config;
   try {
-    // eslint-disable-next-line global-require
     config = require('../scjssconfig.json');
   } catch (e) {
     return {};

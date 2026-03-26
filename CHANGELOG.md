@@ -9,6 +9,26 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.12.0
+
+### 🎉 New Features & Improvements
+
+* Migrate ESLint to v9 and flat config ([#2186](https://github.com/Sitecore/jss/pull/2186))([#2187](https://github.com/Sitecore/jss/pull/2187))
+* Add AGENTS.md and CLAUDE.md for AI coding assistant guidance ([#2183](https://github.com/Sitecore/jss/pull/2183))
+* `[Angular]` `[Proxy]` Support Preview mode using Metadata ([#2174](https://github.com/Sitecore/jss/pull/2174))
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Fix server transfer redirects ([#2173](https://github.com/Sitecore/jss/pull/2173))
+* `[sitecore-jss-nextjs]` Preserve `basePath` when doing redirects in redirects-middleware ([#2178](https://github.com/Sitecore/jss/pull/2178)) ([#2181](https://github.com/Sitecore/jss/pull/2181))
+
+### 🛠 Breaking Changes
+
+* `[Next.js]` Upgrade to Next.js 16 ([#2177](https://github.com/Sitecore/jss/pull/2177))([#2179](https://github.com/Sitecore/jss/pull/2179))
+* Upgrade to Node.js 24 ([#2176](https://github.com/Sitecore/jss/pull/2176))
+* `[sitecore-jss-react]` Placeholder suspense causes longer JavaScript Scripting execution time ([#2185](https://github.com/Sitecore/jss/pull/2185))
+  * The default value of `disableSuspense` property is set to `true` to avoid forcing Suspense usage across all components which could negatively impact performance metrics. Suspense can now be enabled explicitly when needed.
+
 ## 22.11.0
 
 ### 🎉 New Features & Improvements
@@ -16,6 +36,8 @@ Our versioning strategy is as follows:
 * `[Angular]` `[Proxy]` Support Preview mode using Metadata ([#2184](https://github.com/Sitecore/jss/pull/2184))
 
 ## 22.10.0
+
+### 🎉 New Features & Improvements
 
 * `[Next.js]` Support component-level data fetching in 404/500 pages ([#2140](https://github.com/Sitecore/jss/pull/2140))
 
@@ -25,10 +47,11 @@ Our versioning strategy is as follows:
 * `[React]` Custom properties are not applied to empty field in editing metadata mode ([#2141](https://github.com/Sitecore/jss/pull/2141))
 * `[sitecore-jss-nextjs]` Add regex variable substitution for absolute and external URL redirects. ([#2159](https://github.com/Sitecore/jss/pull/2159))
 * `[sitecore-jss-react]` Disable React Suspense in the Placeholder component for Editing. ([#2161](https://github.com/Sitecore/jss/pull/2161))
+* `[sitecore-jss-nextjs]` Next Link props unavailable when using Sitecore Link component ([#2170](https://github.com/Sitecore/content-sdk/pull/2170))
 
 ### 🛠 Breaking Changes
 
-* `[angular]` `[sitecore-jss-angular]` Upgrade to Angular v20 ([#2157](https://github.com/Sitecore/jss/pull/2157)[#2160](https://github.com/Sitecore/jss/pull/2160)):
+* `[angular]` `[sitecore-jss-angular]` Upgrade to Angular v20 ([#2157](https://github.com/Sitecore/jss/pull/2157))([#2160](https://github.com/Sitecore/jss/pull/2160)):
   * Components adjusted to be standalone
   * Update `apollo-angular` to version 11 to be compatible with Angular v20 compatibility
   * Replace the deprecated `ngIf`, `ngFor` directive usage with `@if` and `@for`
@@ -622,6 +645,18 @@ Our versioning strategy is as follows:
   * Removed deprecated _defaultProps_ react component property
 * `[templates/nextjs]` GraphQL-based services can now only be initialized with clientFactory parameter. Previously deprecated option of providing endpoint and apiKey has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
 * `[templates/nextjs]` `[templates/react]` `[templates/vue]` `[templates/angular]` Deprecated JSS_APP_NAME environment variable has been removed ([#1780](https://github.com/Sitecore/jss/pull/1780)).
+
+## 21.11.0
+
+### 🛠 Breaking Changes
+
+* `[angular]` `[sitecore-jss-angular]` Upgrade to Angular v20 ([#2162](https://github.com/Sitecore/jss/pull/2162)) ([#2169](https://github.com/Sitecore/jss/pull/2169)):
+  * Components adjusted to be standalone
+  * Update `apollo-angular` to version 11 to be compatible with Angular v20 compatibility
+  * Replace the deprecated `ngIf`, `ngFor` directive usage with `@if` and `@for`
+  * Update the inject logic for DI
+  * NodeJS version must be updated to v20
+  * Typescript version updated to v 5.8.0
 
 ## 21.10.1
 

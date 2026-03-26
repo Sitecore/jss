@@ -8,18 +8,26 @@ import {
   LinkProps as ReactLinkProps,
 } from '@sitecore-jss/sitecore-jss-react';
 
+/**
+ * The list of NextLink props to be supported by the Link component.
+ */
+const supportedNextLinkProps = [
+  'as',
+  'onNavigate',
+  'passHref',
+  'prefetch',
+  'replace',
+  'scroll',
+  'shallow',
+] as const;
+
 export type LinkProps = ReactLinkProps & {
   /**
    * If `href` match with `internalLinkMatcher` regexp, then it's internal link and NextLink will be rendered
    * @default /^\//g
    */
   internalLinkMatcher?: RegExp;
-
-  /**
-   * Next.js Link prefetch.
-   */
-  prefetch?: NextLinkProps['prefetch'];
-};
+} & Pick<NextLinkProps, typeof supportedNextLinkProps[number]>;
 
 /**
  * Matches relative URLs that end with a file extension.
@@ -34,7 +42,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       children,
       internalLinkMatcher = /^\//g,
       showLinkTextWithChildrenPresent,
-      ...htmlLinkProps
+      ...rest
     } = props;
 
     if (
@@ -64,20 +72,23 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
       // determine if a link is a route or not. File extensions are not routes and should not be pre-fetched.
       if (isMatching && !isFileUrl) {
-        delete htmlLinkProps.emptyFieldEditingComponent;
+        delete rest.emptyFieldEditingComponent;
+
         return (
           <NextLink
             href={{ pathname: href, query: querystring, hash: anchor }}
             key="link"
-            locale={false}
             title={value.title}
             target={value.target}
             className={value.class}
-            prefetch={props.prefetch}
-            {...htmlLinkProps}
+            {...rest}
+            locale={false}
             ref={ref}
             {...(process.env.TEST
-              ? { 'data-nextjs-link': true, 'data-nextjs-link-prefetch': props.prefetch }
+              ? {
+                  'data-nextjs-link': true,
+                  'data-nextjs-link-prefetch': props.prefetch,
+                }
               : {})}
           >
             {text}
@@ -87,10 +98,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       }
     }
 
-    // prevent passing internalLinkMatcher or prefetch as it is an invalid DOM element prop
-    const reactLinkProps = { ...props };
-    delete reactLinkProps.internalLinkMatcher;
-    delete reactLinkProps.prefetch;
+    const reactLinkProps = sanitizeLinkProps(props);
 
     return (
       <ReactLink
@@ -103,3 +111,19 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 );
 
 Link.displayName = 'NextLink';
+
+/**
+ * Sanitize props for ReactLink by removing Next.js and internal props to prevent invalid DOM attributes.
+ * @param {LinkProps} props - The props the Link component received.
+ * @returns sanitized props for ReactLink.
+ */
+function sanitizeLinkProps(props: LinkProps) {
+  const internalProps: (keyof LinkProps)[] = ['internalLinkMatcher'];
+
+  const sanitizedProps: LinkProps = { ...props };
+  for (const prop of [...supportedNextLinkProps, ...internalProps]) {
+    delete sanitizedProps[prop as keyof LinkProps];
+  }
+
+  return sanitizedProps;
+}

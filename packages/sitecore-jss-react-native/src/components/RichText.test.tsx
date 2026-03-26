@@ -49,7 +49,7 @@ describe('<RichText />', () => {
     const rawTextStyles = StyleSheet.create({
       style: {
         fontSize: 22,
-      }
+      },
     });
     const markupStyles = StyleSheet.create({
       p: {

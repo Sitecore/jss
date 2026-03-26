@@ -6,9 +6,9 @@
 
 # Type Alias: LinkProps
 
-> **LinkProps** = `ReactLinkProps` & `object`
+> **LinkProps** = `ReactLinkProps` & `object` & `Pick`\<`NextLinkProps`, *typeof* `supportedNextLinkProps`\[`number`\]\>
 
-Defined in: [sitecore-jss-nextjs/src/components/Link.tsx:11](https://github.com/Sitecore/jss/blob/67b6d125b925d8ddb27e727f636767ba8afc0c79/packages/sitecore-jss-nextjs/src/components/Link.tsx#L11)
+Defined in: [sitecore-jss-nextjs/src/components/Link.tsx:24](https://github.com/Sitecore/jss/blob/acb13458cc95b12de1f5d960ac1e6ac99235cb23/packages/sitecore-jss-nextjs/src/components/Link.tsx#L24)
 
 ## Type declaration
 
@@ -23,9 +23,3 @@ If `href` match with `internalLinkMatcher` regexp, then it's internal link and N
 ```ts
 /^//g
 ```
-
-### prefetch?
-
-> `optional` **prefetch**: `NextLinkProps`\[`"prefetch"`\]
-
-Next.js Link prefetch.

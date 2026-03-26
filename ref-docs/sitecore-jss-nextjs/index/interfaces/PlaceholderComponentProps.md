@@ -47,18 +47,23 @@ The message that gets displayed while component is loading
 
 ***
 
-### disableSuspense?
+### ~~disableSuspense?~~
 
 > `optional` **disableSuspense**: `boolean`
 
-Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:72
+Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:75
 
-If true, disables Suspense for the placeholder.
+#### Deprecated
+
+The `disableSuspense` prop is deprecated and will be removed in version 23.0.0.
+The default value is set to `true` to avoid forcing Suspense usage across all components which could negatively impact performance metrics. Suspense can now be enabled explicitly when needed.
+
+If `false`, enables Suspense in ErrorBoundary for the components rendered by placeholder.
 
 #### Default
 
 ```ts
-false
+true
 ```
 
 #### Inherited from

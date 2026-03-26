@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 import 'zone.js';
 import 'zone.js/testing';
@@ -8,6 +7,8 @@ import {
   platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
 
+// Karma provides require.context at runtime; declared for types but not referenced in this file
+/* eslint-disable-next-line no-unused-vars */
 declare const require: {
   context(
     path: string,

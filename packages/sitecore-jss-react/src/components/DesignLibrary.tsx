@@ -12,7 +12,6 @@ import {
   getDesignLibraryStatusEvent,
   addComponentUpdateHandler,
 } from '@sitecore-jss/sitecore-jss/editing';
-9;
 
 export const DesignLibrary = (layoutData: LayoutServiceData): JSX.Element => {
   const { route } = layoutData.sitecore;

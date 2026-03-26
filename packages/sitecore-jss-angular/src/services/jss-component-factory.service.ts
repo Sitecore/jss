@@ -14,7 +14,6 @@ import { RawComponent } from '../components/raw.component';
 import { isRawRendering } from '../components/rendering';
 
 export interface ComponentFactoryResult {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentImplementation?: Type<any>;
   componentDefinition: ComponentRendering | HtmlElementRendering;
   componentModuleRef?: NgModuleRef<unknown>;
@@ -71,7 +70,6 @@ export class JssComponentFactoryService {
         }
 
         if (component.componentName in dynamicComponentType) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           componentType = (dynamicComponentType as { [s: string]: any })[component.componentName];
         } else {
           if (typeof dynamicComponentType === 'function') {

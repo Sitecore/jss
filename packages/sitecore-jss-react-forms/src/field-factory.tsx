@@ -16,7 +16,6 @@ class FieldFactory {
   private _defaultComponent: React.ComponentType<FormField>;
 
   constructor() {
-    // eslint-disable-next-line react/display-name
     this._defaultComponent = (props: FormField) => (
       <div key={props.model.fieldTypeItemId}>
         {props.model.name}: No renderer for form element type {props.model.fieldTypeItemId}

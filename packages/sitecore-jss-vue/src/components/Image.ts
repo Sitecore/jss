@@ -27,9 +27,9 @@ const getImageAttrs = (
     srcSet,
     ...otherAttrs
   }: {
+    [key: string]: any;
     src?: string;
     srcSet?: any;
-    otherAttrs?: any;
   },
   imageParams: any,
   mediaUrlPrefix?: RegExp

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-angular-schematics",
-  "version": "22.11.0",
+  "version": "22.12.0-canary.6",
   "description": "Scaffolding schematics for Sitecore JSS Angular apps",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -10,7 +10,7 @@
     "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss-angular-schematics src/jss-component/index.ts --githubPages false"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "author": {
     "name": "Sitecore Corporation",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/jasmine": "^2.8.0",
-    "@types/node": "^22.9.0",
+    "@types/node": "^24.10.4",
     "jasmine": "^2.99.0",
     "nyc": "^17.1.0",
     "typescript": "~5.8.0"

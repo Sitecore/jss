@@ -10,7 +10,7 @@ class ScJssConfigPlugin {
     let scJssConfig;
     try {
       scJssConfig = require('../../../scjssconfig.json');
-    } catch (e) {
+    } catch (_e) {
       return config;
     }
 

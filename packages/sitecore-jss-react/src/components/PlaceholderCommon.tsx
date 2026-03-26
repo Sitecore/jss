@@ -10,7 +10,6 @@ import {
   EditMode,
   isDynamicPlaceholder,
   getDynamicPlaceholderPattern,
-  LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
@@ -90,8 +89,11 @@ export interface PlaceholderProps {
    */
   componentLoadingMessage?: string;
   /**
-   * If true, disables Suspense for the placeholder.
-   * @default false
+   * @deprecated The `disableSuspense` prop is deprecated and will be removed in version 23.0.0.
+   * The default value is set to `true` to avoid forcing Suspense usage across all components which could negatively impact performance metrics. Suspense can now be enabled explicitly when needed.
+   *
+   * If `false`, enables Suspense in ErrorBoundary for the components rendered by placeholder.
+   * @default true
    */
   disableSuspense?: boolean;
 }
@@ -271,10 +273,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
 
-          const disableSuspense =
-            this.props.disableSuspense ||
-            this.props.sitecoreContext?.pageState === LayoutServicePageState.Edit;
-
           // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
           // that's why we need to expose element's props here
           rendered = (
@@ -284,7 +282,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
               isDynamic={isDynamicComponent || isByocWrapper}
-              disableSuspense={disableSuspense}
+              disableSuspense={this.props.disableSuspense}
               {...rendered.props}
             >
               {rendered}
