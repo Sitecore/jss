@@ -8,4 +8,4 @@
 
 > `const` **SitecoreJssPlaceholderPlugin**: `Plugin` & `SitecoreJssPlaceholderPluginOptions`
 
-Defined in: [packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:29](https://github.com/Sitecore/jss/blob/acb13458cc95b12de1f5d960ac1e6ac99235cb23/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L29)
+Defined in: [packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts:29](https://github.com/Sitecore/jss/blob/8764605a13797e39f7f1cb23a6077c97c398e46c/packages/sitecore-jss-vue/src/plugins/SitecoreJssPlaceholderPlugin.ts#L29)
