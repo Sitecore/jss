@@ -13,3 +13,10 @@ export {
   CdpHelper,
   DEFAULT_VARIANT,
 } from './utils';
+export {
+  replaceTokens,
+  replaceTokensInObject,
+  PERSONALIZE_TOKENS_HEADER,
+  TokenMap,
+  ReplaceTokensOptions,
+} from './token-replace';

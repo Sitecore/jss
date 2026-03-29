@@ -25,6 +25,7 @@ packages/*/*.tgz
 samples/
 
 .idea
+.vscode/settings.json
 .next
 
 .npmrc

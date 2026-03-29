@@ -6,6 +6,7 @@ import {
   PersonalizeInfo,
   CdpHelper,
   DEFAULT_VARIANT,
+  PERSONALIZE_TOKENS_HEADER,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
@@ -188,6 +189,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
       { timeout }
     )) as {
       variantId: string;
+      tokens?: Record<string, string>;
     };
   }
 
@@ -343,6 +345,7 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     const params = this.getExperienceParams(req);
     const executions = this.getPersonalizeExecutions(personalizeInfo, language);
     const identifiedVariantIds: string[] = [];
+    const collectedTokens: Record<string, Record<string, string>> = {};
 
     await Promise.all(
       executions.map((execution) =>
@@ -363,6 +366,9 @@ export class PersonalizeMiddleware extends MiddlewareBase {
               debug.personalize('invalid variant %s', variantId);
             } else {
               identifiedVariantIds.push(variantId);
+              if (personalization.tokens && Object.keys(personalization.tokens).length > 0) {
+                collectedTokens[variantId] = personalization.tokens;
+              }
             }
           }
         })
@@ -380,6 +386,12 @@ export class PersonalizeMiddleware extends MiddlewareBase {
     // Rewrite to persononalized path
     const rewritePath = getPersonalizedRewrite(basePath, identifiedVariantIds);
     response = this.rewrite(rewritePath, req, response);
+
+    if (Object.keys(collectedTokens).length > 0) {
+      const tokensJson = JSON.stringify(collectedTokens);
+      const tokensBase64 = btoa(unescape(encodeURIComponent(tokensJson)));
+      response.headers.set(PERSONALIZE_TOKENS_HEADER, tokensBase64);
+    }
 
     // Disable preflight caching to force revalidation on client-side navigation (personalization MAY be influenced).
     // See https://github.com/vercel/next.js/pull/32767

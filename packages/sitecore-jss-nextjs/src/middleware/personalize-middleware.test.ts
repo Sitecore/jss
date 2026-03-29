@@ -1061,4 +1061,166 @@ describe('PersonalizeMiddleware', () => {
       expect(finalRes).to.deep.equal(res);
     });
   });
+
+  describe('token handling', () => {
+    it('should set x-sc-personalize-tokens header when personalize returns tokens', async () => {
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon.stub().returns(
+        Promise.resolve({
+          variantId: 'variant-1',
+          tokens: { firstName: 'Bob', city: 'Portland' },
+        })
+      );
+
+      const { middleware } = createMiddleware({
+        personalizeStub,
+        personalizeInfo: { pageId, variantIds: ['variant-1'] },
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      const headerValue = finalRes.headers['x-sc-personalize-tokens'];
+      expect(headerValue).to.be.a('string');
+
+      const decoded = JSON.parse(Buffer.from(headerValue, 'base64').toString('utf-8'));
+      expect(decoded).to.deep.equal({ 'variant-1': { firstName: 'Bob', city: 'Portland' } });
+      nextRewriteStub.restore();
+    });
+
+    it('should merge tokens from multiple component executions into header', async () => {
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon.stub();
+      personalizeStub
+        .onFirstCall()
+        .returns(Promise.resolve({ variantId: 'comp1_var1', tokens: { firstName: 'Bob' } }));
+      personalizeStub
+        .onSecondCall()
+        .returns(Promise.resolve({ variantId: 'comp2_var1', tokens: { region: 'US' } }));
+
+      const { middleware } = createMiddleware({
+        personalizeStub,
+        personalizeInfo: { pageId, variantIds: ['comp1_var1', 'comp2_var1'] },
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      const headerValue = finalRes.headers['x-sc-personalize-tokens'];
+      expect(headerValue).to.be.a('string');
+
+      const decoded = JSON.parse(Buffer.from(headerValue, 'base64').toString('utf-8'));
+      expect(decoded).to.deep.equal({
+        comp1_var1: { firstName: 'Bob' },
+        comp2_var1: { region: 'US' },
+      });
+      nextRewriteStub.restore();
+    });
+
+    it('should not set x-sc-personalize-tokens header when no tokens returned', async () => {
+      const req = createRequest();
+      const res = createResponse();
+      const { middleware } = createMiddleware({
+        variantId: 'variant-1',
+        personalizeInfo: { pageId, variantIds: ['variant-1'] },
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(finalRes.headers['x-sc-personalize-tokens']).to.be.undefined;
+    });
+
+    it('should not set x-sc-personalize-tokens header when tokens is empty object', async () => {
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon
+        .stub()
+        .returns(Promise.resolve({ variantId: 'variant-1', tokens: {} }));
+
+      const { middleware } = createMiddleware({
+        personalizeStub,
+        personalizeInfo: { pageId, variantIds: ['variant-1'] },
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(finalRes.headers['x-sc-personalize-tokens']).to.be.undefined;
+      nextRewriteStub.restore();
+    });
+
+    it('should not collect tokens from invalid variants', async () => {
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon
+        .stub()
+        .returns(Promise.resolve({ variantId: 'invalid-variant', tokens: { firstName: 'Bob' } }));
+
+      const { middleware } = createMiddleware({
+        personalizeStub,
+        personalizeInfo: { pageId, variantIds: ['variant-1'] },
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      expect(finalRes.headers['x-sc-personalize-tokens']).to.be.undefined;
+      nextRewriteStub.restore();
+    });
+
+    it('should handle mixed executions where only some return tokens', async () => {
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon.stub();
+      personalizeStub
+        .onFirstCall()
+        .returns(Promise.resolve({ variantId: 'comp1_var1', tokens: { name: 'Bob' } }));
+      personalizeStub.onSecondCall().returns(Promise.resolve({ variantId: 'comp2_var1' })); // no tokens property
+
+      const { middleware } = createMiddleware({
+        personalizeStub,
+        personalizeInfo: { pageId, variantIds: ['comp1_var1', 'comp2_var1'] },
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      const headerValue = finalRes.headers['x-sc-personalize-tokens'];
+      expect(headerValue).to.be.a('string');
+
+      const decoded = JSON.parse(Buffer.from(headerValue, 'base64').toString('utf-8'));
+      expect(decoded).to.deep.equal({ comp1_var1: { name: 'Bob' } });
+      nextRewriteStub.restore();
+    });
+
+    it('should correctly encode non-ASCII token values in header', async () => {
+      const req = createRequest();
+      const res = createResponse();
+      const nextRewriteStub = sinon.stub(nextjs.NextResponse, 'rewrite').returns(res);
+      const personalizeStub = sinon.stub().returns(
+        Promise.resolve({
+          variantId: 'variant-1',
+          tokens: { city: 'München', greeting: '你好', emoji: '🎉' },
+        })
+      );
+
+      const { middleware } = createMiddleware({
+        personalizeStub,
+        personalizeInfo: { pageId, variantIds: ['variant-1'] },
+      });
+
+      const finalRes = await middleware.getHandler()(req, res);
+
+      const headerValue = finalRes.headers['x-sc-personalize-tokens'];
+      expect(headerValue).to.be.a('string');
+
+      const decoded = JSON.parse(Buffer.from(headerValue, 'base64').toString('utf-8'));
+      expect(decoded).to.deep.equal({
+        'variant-1': { city: 'München', greeting: '你好', emoji: '🎉' },
+      });
+      nextRewriteStub.restore();
+    });
+  });
 });
