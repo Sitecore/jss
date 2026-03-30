@@ -2,13 +2,22 @@
 /* eslint-disable dot-notation */
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 import sinon, { spy } from 'sinon';
-import proxyquire from 'proxyquire';
 import { IncomingMessage, OutgoingMessage } from 'http';
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { expect } from 'chai';
 import querystring from 'querystring';
-import { CdpHelper, personalizeLayout } from '@sitecore-jss/sitecore-jss/personalize';
+import {
+  CdpHelper,
+  personalizeLayout,
+  replaceTokensInObject,
+} from '@sitecore-jss/sitecore-jss/personalize';
 import { getPersonalizeLayoutData } from './test-data/personalizeData';
+
+// proxyquire v2 uses module.parent to resolve relative require() calls.
+// In Node ≥22, module.parent is undefined, crashing all proxyquire calls.
+// Instantiating the library class directly with the current module fixes this.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const proxyquire: typeof import('proxyquire') = new (require('proxyquire/lib/proxyquire'))(module);
 
 describe('PersonalizeHelper', () => {
   const hostname = 'foo.net';
@@ -93,6 +102,7 @@ describe('PersonalizeHelper', () => {
     };
 
     const personalizeLayoutStub = sinon.stub();
+    const replaceTokensInObjectStub = sinon.stub();
     const getComponentFriendlyIdStub = sinon.stub();
     const getPageFriendlyIdStub = sinon.stub();
     const PersonalizeHelper = proxyquire('./PersonalizeHelper', {
@@ -102,6 +112,9 @@ describe('PersonalizeHelper', () => {
           (layoutData, variantId, componentVariantIds) => {
             return personalizeLayout(layoutData, variantId, componentVariantIds);
           }
+        ),
+        replaceTokensInObject: replaceTokensInObjectStub.callsFake((obj, tokens, options) =>
+          replaceTokensInObject(obj, tokens, options)
         ),
       },
     });
@@ -142,6 +155,7 @@ describe('PersonalizeHelper', () => {
       initPersonalizeServer,
       personalize,
       personalizeLayoutStub,
+      replaceTokensInObjectStub,
       getComponentFriendlyIdStub,
       getPageFriendlyIdStub,
     };
@@ -648,6 +662,74 @@ describe('PersonalizeHelper', () => {
       const { helper } = createHelper();
       const result = helper['getExperienceParams'](req);
       expect(result.referrer).to.equal('http://withtwors');
+    });
+  });
+
+  describe('token replacement', () => {
+    it('should apply tokens to layout data after personalizeLayout', async () => {
+      const req = createRequest();
+      const res = createResponse();
+
+      const tokenizedLayoutData = {
+        sitecore: {
+          context: { itemPath: '/styleguide', language: 'en' },
+          route: {
+            name: 'styleguide',
+            fields: { heading: { value: 'Hello {{firstName}}' } },
+            placeholders: {},
+          },
+        },
+      };
+
+      const personalizeStub = sinon
+        .stub()
+        .returns(Promise.resolve({ variantId: 'variant-1', tokens: { firstName: 'Bob' } }));
+
+      const { helper, personalizeLayoutStub, replaceTokensInObjectStub } = createHelper({
+        personalizeStub,
+        personalizeInfo: { pageId, variantIds: ['variant-1'] },
+      });
+
+      await helper.personalizeLayoutData(req, res, tokenizedLayoutData);
+
+      expect(personalizeLayoutStub.called).to.be.true;
+      expect(replaceTokensInObjectStub.called).to.be.true;
+      expect(personalizeLayoutStub.calledBefore(replaceTokensInObjectStub)).to.be.true;
+      expect((tokenizedLayoutData as any).sitecore.route.fields.heading.value).to.equal(
+        'Hello Bob'
+      );
+    });
+
+    it('should not call replaceTokensInObject when no tokens returned', async () => {
+      const req = createRequest();
+      const res = createResponse();
+
+      const { helper, replaceTokensInObjectStub } = createHelper({
+        variantId: 'variant-1',
+        personalizeInfo: { pageId, variantIds: ['variant-1'] },
+      });
+
+      await helper.personalizeLayoutData(req, res, { ...defaultLayoutData });
+
+      expect(replaceTokensInObjectStub.called).to.be.false;
+    });
+
+    it('should not call replaceTokensInObject when tokens is empty object', async () => {
+      const req = createRequest();
+      const res = createResponse();
+
+      const personalizeStub = sinon
+        .stub()
+        .returns(Promise.resolve({ variantId: 'variant-1', tokens: {} }));
+
+      const { helper, replaceTokensInObjectStub } = createHelper({
+        personalizeStub,
+        personalizeInfo: { pageId, variantIds: ['variant-1'] },
+      });
+
+      await helper.personalizeLayoutData(req, res, { ...defaultLayoutData });
+
+      expect(replaceTokensInObjectStub.called).to.be.false;
     });
   });
 });

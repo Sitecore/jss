@@ -1,6 +1,12 @@
 ﻿import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
 import { Plugin } from '..';
-import { getPersonalizedRewriteData, personalizeLayout } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  getPersonalizedRewriteData,
+  personalizeLayout,
+  PERSONALIZE_TOKENS_HEADER,
+  replaceTokensInObject,
+  TokenMap,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 
 class PersonalizePlugin implements Plugin {
@@ -26,6 +32,53 @@ class PersonalizePlugin implements Plugin {
       personalizeData.variantId,
       personalizeData.componentVariantIds
     );
+
+    // Apply personalization tokens returned by the decision table (if any).
+    // The middleware encodes them as base64 JSON in the x-sc-personalize-tokens header.
+    // This block must run after personalizeLayout() so tokens are applied to the selected variant.
+    try {
+      const tokensHeader = (context as GetServerSidePropsContext).req?.headers[
+        PERSONALIZE_TOKENS_HEADER
+      ] as string | undefined;
+      if (tokensHeader) {
+        const decoded: Record<string, Record<string, unknown>> = JSON.parse(
+          Buffer.from(tokensHeader, 'base64').toString('utf-8')
+        );
+        // Merge all per-variant token maps, validating that every value is a
+        // string. This avoids the Object.assign spread path that can trigger
+        // the __proto__ setter when JSON-parsed data contains that key.
+        const mergedTokens: TokenMap = {};
+        for (const variantTokens of Object.values(decoded)) {
+          for (const [k, v] of Object.entries(variantTokens)) {
+            if (
+              k !== '__proto__' &&
+              k !== 'constructor' &&
+              k !== 'prototype' &&
+              typeof v === 'string'
+            ) {
+              if (mergedTokens[k] !== undefined) {
+                console.warn(
+                  `[Personalize] Token key collision: "${k}" overwritten by value from another decision table.`
+                );
+              }
+              mergedTokens[k] = v;
+            }
+          }
+        }
+        if (Object.keys(mergedTokens).length > 0) {
+          const replaced = replaceTokensInObject(props.layoutData, mergedTokens, {
+            removeUnmatched: true,
+            onUnmatched: (key) =>
+              console.warn(`[Personalize] Unmatched token "${key}" has no value or fallback.`),
+          });
+          // Direct property assignment rather than Object.assign to make clear that
+          // layoutData.sitecore is the only subtree that contains token placeholders.
+          props.layoutData.sitecore = replaced.sitecore;
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to apply personalize tokens:', e);
+    }
 
     return props;
   }

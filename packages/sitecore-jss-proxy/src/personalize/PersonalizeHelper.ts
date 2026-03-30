@@ -9,6 +9,7 @@ import {
   PersonalizeInfo,
   getGroomedVariantIds,
   personalizeLayout,
+  replaceTokensInObject,
 } from '@sitecore-jss/sitecore-jss/personalize';
 import { IncomingHttpHeaders, IncomingMessage, OutgoingMessage } from 'http';
 import { ExperienceParams, PersonalizeConfig, PersonalizeExecution } from '../types/personalize';
@@ -78,16 +79,25 @@ export class PersonalizeHelper {
       return layoutData;
     }
 
-    const variantIds = await this.getVariantIds(req, language, pathname);
-    if (!variantIds) {
+    const result = await this.getVariantIds(req, language, pathname);
+    if (result.variantIds.length === 0) {
       return layoutData;
     }
-    const personalizeData = getGroomedVariantIds(variantIds);
+    const personalizeData = getGroomedVariantIds(result.variantIds);
     // layout will be personalized here
     personalizeLayout(layoutData, personalizeData.variantId, personalizeData.componentVariantIds);
+    if (Object.keys(result.tokens).length > 0) {
+      const replaced = replaceTokensInObject(layoutData, result.tokens, {
+        removeUnmatched: true,
+        onUnmatched: (key) => debug.personalize('unmatched personalize token: %s', key),
+      });
+      // Direct property assignment rather than Object.assign to make clear that
+      // layoutData.sitecore is the only subtree that contains token placeholders.
+      layoutData.sitecore = replaced.sitecore;
+    }
     debug.personalize('personalize layout end in %dms: %o', Date.now() - startTimestamp, {
       headers: this.extractDebugHeaders(req.headers),
-      variantIds: variantIds,
+      variantIds: result.variantIds,
     });
     return layoutData;
   };
@@ -118,7 +128,7 @@ export class PersonalizeHelper {
     req: IncomingMessage,
     language: string,
     pathname: string
-  ): Promise<string[]> => {
+  ): Promise<{ variantIds: string[]; tokens: Record<string, string> }> => {
     const timeout = this.config.cdpConfig.timeout;
 
     // Get personalization info from Experience Edge
@@ -130,17 +140,18 @@ export class PersonalizeHelper {
     if (!personalizeInfo) {
       // Likely an invalid route / language
       debug.personalize('skipped (personalize info not found)');
-      return [];
+      return { variantIds: [], tokens: {} };
     }
 
     if (personalizeInfo.variantIds.length === 0) {
       debug.personalize('skipped (no personalization configured)');
-      return [];
+      return { variantIds: [], tokens: {} };
     }
 
     const params = this.getExperienceParams(req);
     const executions = this.getPersonalizeExecutions(personalizeInfo, language);
     const identifiedVariantIds: string[] = [];
+    const mergedTokens: Record<string, string> = {};
     try {
       await Promise.all(
         executions.map((execution) =>
@@ -160,6 +171,24 @@ export class PersonalizeHelper {
                 debug.personalize('invalid variant %s', variantId);
               } else {
                 identifiedVariantIds.push(variantId);
+                if (personalization.tokens) {
+                  for (const [k, v] of Object.entries(personalization.tokens)) {
+                    if (
+                      k !== '__proto__' &&
+                      k !== 'constructor' &&
+                      k !== 'prototype' &&
+                      typeof v === 'string'
+                    ) {
+                      if (mergedTokens[k] !== undefined) {
+                        debug.personalize(
+                          'token key collision: "%s" overwritten by value from another decision table',
+                          k
+                        );
+                      }
+                      mergedTokens[k] = v;
+                    }
+                  }
+                }
               }
             }
           })
@@ -171,9 +200,9 @@ export class PersonalizeHelper {
 
     if (identifiedVariantIds.length === 0) {
       debug.personalize('skipped (no variant(s) identified)');
-      return [];
+      return { variantIds: [], tokens: {} };
     }
-    return identifiedVariantIds;
+    return { variantIds: identifiedVariantIds, tokens: mergedTokens };
   };
 
   protected getLanguage(layoutData: LayoutServiceData): string {
@@ -227,6 +256,7 @@ export class PersonalizeHelper {
       { timeout }
     )) as {
       variantId: string;
+      tokens?: Record<string, string>;
     };
   }
 
