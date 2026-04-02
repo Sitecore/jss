@@ -18,6 +18,7 @@ Our versioning strategy is as follows:
 * Migrate ESLint to v9 and flat config ([#2186](https://github.com/Sitecore/jss/pull/2186))([#2187](https://github.com/Sitecore/jss/pull/2187))
 * Add AGENTS.md and CLAUDE.md for AI coding assistant guidance ([#2183](https://github.com/Sitecore/jss/pull/2183))
 * `[Angular]` `[Proxy]` Support Preview mode using Metadata ([#2174](https://github.com/Sitecore/jss/pull/2174))
+* `[sitecore-jss]` Add Unified UI origin to allowed origins ([#2192](https://github.com/Sitecore/jss/pull/2192))
 
 ### 🐛 Bug Fixes
 
