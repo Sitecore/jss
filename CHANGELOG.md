@@ -9,6 +9,12 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.12.1
+
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss]` Add Unified UI origin to allowed origins ([#2192](https://github.com/Sitecore/jss/pull/2192))
+
 ## 22.12.0
 
 ### 🎉 New Features & Improvements
