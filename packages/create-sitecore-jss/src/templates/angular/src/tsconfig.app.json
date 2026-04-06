@@ -17,5 +17,5 @@
     "./app/app.server.module.ts",
     "./main.server.ts",
     "./environments/environment.prod.js"
-  ],
+  ]
 }

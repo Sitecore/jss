@@ -45,7 +45,6 @@
     "constant-case": "^3.0.4",
     "cross-env": "~10.0.0",
     "dotenv-flow": "^4.1.0",
-    "@eslint/eslintrc": "^3.2.0",
     "eslint": "^9.15.0",
     "eslint-config-next": "^16.2.0",
     "eslint-config-prettier": "^8.6.0",

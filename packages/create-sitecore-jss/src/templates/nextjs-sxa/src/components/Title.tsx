@@ -63,29 +63,37 @@ const ComponentContent = (props: ComponentContentProps) => {
 export const Default = (props: TitleProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
   const { sitecoreContext } = useSitecoreContext();
-  const text: TextField = datasource?.field?.jsonValue || {};
-  const link: LinkField = {
-    value: {
-      href: datasource?.url?.path,
-      title: datasource?.field?.jsonValue?.value,
-    },
+  const baseText: TextField = datasource?.field?.jsonValue || {};
+  let displayText: TextField = baseText;
+  let linkValue: NonNullable<LinkField['value']> = {
+    href: datasource?.url?.path,
+    title: datasource?.field?.jsonValue?.value,
   };
+
   if (sitecoreContext.pageState !== 'normal') {
-    link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
-    if (!text?.value) {
-      text.value = 'Title field';
-      link.value.href = '#';
+    linkValue = {
+      ...linkValue,
+      querystring: `sc_site=${datasource?.url?.siteName}`,
+    };
+    if (!baseText?.value) {
+      displayText = { ...baseText, value: 'Title field' };
+      linkValue = {
+        ...linkValue,
+        href: '#',
+      };
     }
   }
+
+  const link: LinkField = { value: linkValue };
 
   return (
     <ComponentContent styles={props?.params?.styles} id={props?.params?.RenderingIdentifier}>
       <>
         {sitecoreContext.pageEditing ? (
-          <Text field={text} />
+          <Text field={displayText} />
         ) : (
           <Link field={link}>
-            <Text field={text} />
+            <Text field={displayText} />
           </Link>
         )}
       </>

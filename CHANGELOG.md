@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[Next.js]` `[templates/nextjs]` `[sitecore-jss-nextjs]` Upgrade Next.js to 16.2 ([#2193](https://github.com/Sitecore/jss/pull/2193))
+* `[Next.js]` `[sitecore-jss-nextjs]` Upgrade Next.js to 16.2 ([#2193](https://github.com/Sitecore/jss/pull/2193))
 * `[sitecore-jss]` Add Unified UI origin to allowed origins ([#2192](https://github.com/Sitecore/jss/pull/2192))
 
 ## 22.12.0

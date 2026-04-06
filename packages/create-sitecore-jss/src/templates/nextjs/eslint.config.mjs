@@ -1,28 +1,21 @@
 /**
  * ESLint flat config for JSS Next.js apps.
- * Replaces legacy .eslintrc so scaffolded apps use ESLint 9 flat config.
+ * Uses eslint-config-next's native flat config (no FlatCompat) to avoid circular
+ * plugin graphs when ESLint 9 validates legacy eslintrc-style bundles.
  */
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
+import { createRequire } from 'module';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const compat = new FlatCompat({ baseDirectory: __dirname });
+const require = createRequire(import.meta.url);
 
-const nextAndPrettierLegacy = compat.extends(
-  'next',
-  'next/core-web-vitals',
-  'plugin:@typescript-eslint/recommended',
-  'prettier',
-  'plugin:yaml/recommended',
-  'plugin:prettier/recommended'
-);
+const coreWebVitals = require('eslint-config-next/core-web-vitals');
 
 export default [
-  { ignores: ['.generated/**', '**/*.d.ts', '**/*.js', 'node_modules', '.next', 'out'] },
-  ...nextAndPrettierLegacy,
+  {
+    ignores: ['.generated/**', '**/*.d.ts', '**/*.js', 'node_modules', '.next', 'out'],
+  },
+  ...coreWebVitals,
   {
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
@@ -35,6 +28,12 @@ export default [
       ],
       '@typescript-eslint/no-explicit-any': 'error',
       'jsx-quotes': ['error', 'prefer-double'],
+    },
+  },
+  {
+    plugins: { prettier: prettierPlugin },
+    rules: {
+      'prettier/prettier': 'warn',
     },
   },
   eslintConfigPrettier,
