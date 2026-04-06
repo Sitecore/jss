@@ -7241,7 +7241,7 @@ __metadata:
     "@types/node": "npm:^24.10.4"
     "@types/readline-sync": "npm:^1.4.8"
     "@types/resolve": "npm:^1.20.6"
-    "@types/sinon": "npm:^10.0.13"
+    "@types/sinon": "npm:^17.0.4"
     "@types/tmp": "npm:^0.2.6"
     "@types/yargs": "npm:^17.0.33"
     chai: "npm:^4.3.7"
@@ -8664,15 +8664,6 @@ __metadata:
   dependencies:
     "@types/sinonjs__fake-timers": "npm:*"
   checksum: 10/286c34e66e3573673ba59a332ac81189e20dd591c5c5360c8ff3ed83a59a60bdb1d4c8f13ab8863a4d5ce636282e4b11c640b87f398663eee152988ca09b1933
-  languageName: node
-  linkType: hard
-
-"@types/sinon@npm:^10.0.13":
-  version: 10.0.20
-  resolution: "@types/sinon@npm:10.0.20"
-  dependencies:
-    "@types/sinonjs__fake-timers": "npm:*"
-  checksum: 10/4c62cb8e45298ac8311e312f54e8afe9b170e79a6c1b10459e1216cc58ab66c90c9654d984e96de114003cfc62ddedb94f7e25b571e7da9b08800c9e8d864b0d
   languageName: node
   linkType: hard
 
