@@ -8,4 +8,4 @@
 
 > `const` **SitecoreContext**: `DefineComponent`\<`ExtractPropTypes`\<\{ `componentFactory`: \{ `default`: `any`; `type`: `PropType`\<`ComponentFactory`\>; \}; \}\>, () => `VNode`\<`RendererNode`, `RendererElement`, \{\[`key`: `string`\]: `any`; \}\>[], \{ \}, \{ \}, \{ \}, `ComponentOptionsMixin`, `ComponentOptionsMixin`, \{ \}, `string`, `PublicProps`, `ToResolvedProps`\<`ExtractPropTypes`\<\{ `componentFactory`: \{ `default`: `any`; `type`: `PropType`\<`ComponentFactory`\>; \}; \}\>, \{ \}\>, \{ `componentFactory`: `ComponentFactory`; \}, \{ \}, \{ \}, \{ \}, `string`, `ComponentProvideOptions`, `true`, \{ \}, `any`\>
 
-Defined in: [packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/0823f96636df5d3bbee3c950d670eabf6390d89e/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
+Defined in: [packages/sitecore-jss-vue/src/components/SitecoreContext.ts:8](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-vue/src/components/SitecoreContext.ts#L8)
