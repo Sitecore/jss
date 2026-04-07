@@ -8,7 +8,7 @@
 
 > **withEditorChromes**(`WrappedComponent`): `ComponentClass`\<\{ \}, `any`\>
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/8764605a13797e39f7f1cb23a6077c97c398e46c/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx:4](https://github.com/Sitecore/jss/blob/80d93a2e62b243e152665d4c3a9018283b8fd469/packages/sitecore-jss-react/src/enhancers/withEditorChromes.tsx#L4)
 
 ## Parameters
 

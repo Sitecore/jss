@@ -8,7 +8,7 @@
 
 > **createDisconnectedDictionaryService**(`__namedParameters`): `object`
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/8764605a13797e39f7f1cb23a6077c97c398e46c/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L42)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts:42](https://github.com/Sitecore/jss/blob/80d93a2e62b243e152665d4c3a9018283b8fd469/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L42)
 
 ## Parameters
 

@@ -8,7 +8,7 @@
 
 > **RenderingParameterDefinition** = [`FieldDefinition`](../interfaces/FieldDefinition.md)
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:159](https://github.com/Sitecore/jss/blob/8764605a13797e39f7f1cb23a6077c97c398e46c/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L159)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:159](https://github.com/Sitecore/jss/blob/80d93a2e62b243e152665d4c3a9018283b8fd469/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L159)
 
 Defines a non-content parameter that can be set on a component.
 Parameters are more developer-focused options than fields, such as configurable CSS classes.

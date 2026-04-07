@@ -8,4 +8,4 @@
 
 > `const` **RichText**: `React.SFC`\<`RichTextProps`\>
 
-Defined in: [sitecore-jss-react-native/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/8764605a13797e39f7f1cb23a6077c97c398e46c/packages/sitecore-jss-react-native/src/components/RichText.tsx#L14)
+Defined in: [sitecore-jss-react-native/src/components/RichText.tsx:14](https://github.com/Sitecore/jss/blob/80d93a2e62b243e152665d4c3a9018283b8fd469/packages/sitecore-jss-react-native/src/components/RichText.tsx#L14)
