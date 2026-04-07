@@ -11,6 +11,8 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.12.1
+
 ### 🎉 New Features & Improvements
 
 * `[sitecore-jss]` Add Unified UI origin to allowed origins ([#2192](https://github.com/Sitecore/jss/pull/2192))
