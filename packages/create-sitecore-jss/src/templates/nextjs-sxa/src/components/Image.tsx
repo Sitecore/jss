@@ -72,17 +72,17 @@ export const Default = (props: ImageProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
 
   if (props.fields) {
+    const Image = () => <JssImage field={props.fields.Image} />;
     const id = props.params.RenderingIdentifier;
-    const imageField = props.fields.Image;
 
     return (
       <div className={`component image ${props?.params?.styles}`} id={id ? id : undefined}>
         <div className="component-content">
           {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
-            <JssImage field={imageField} />
+            <Image />
           ) : (
             <JssLink field={props.fields.TargetUrl}>
-              <JssImage field={imageField} />
+              <Image />
             </JssLink>
           )}
           <Text
