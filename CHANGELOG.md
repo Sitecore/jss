@@ -11,6 +11,8 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 22.12.1
+
 ### 🎉 New Features & Improvements
 
 * `[Next.js]` `[sitecore-jss-nextjs]` Upgrade Next.js to 16.2 ([#2193](https://github.com/Sitecore/jss/pull/2193))
