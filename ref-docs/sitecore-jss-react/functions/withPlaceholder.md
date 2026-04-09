@@ -8,7 +8,7 @@
 
 > **withPlaceholder**(`placeholders`, `options?`): (`WrappedComponent`) => (`props`) => `Element`
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L46)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx#L46)
 
 ## Parameters
 
@@ -19,24 +19,4 @@ Defined in: [packages/sitecore-jss-react/src/enhancers/withPlaceholder.tsx:46](h
 
 ## Returns
 
-> (`WrappedComponent`): (`props`) => `Element`
-
-### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `WrappedComponent` | `ComponentClass`\<`PlaceholderProps`, `any`\> \| `FunctionComponent`\<`PlaceholderProps`\> |
-
-### Returns
-
-> (`props`): `Element`
-
-#### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `props` | [`WithSitecoreContextHocProps`](../type-aliases/WithSitecoreContextHocProps.md)\<`ComponentProps`\> |
-
-#### Returns
-
-`Element`
+(`WrappedComponent`) => (`props`) => `Element`

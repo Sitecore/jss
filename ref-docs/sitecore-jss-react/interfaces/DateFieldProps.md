@@ -6,7 +6,7 @@
 
 # Interface: DateFieldProps
 
-Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:9](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Date.tsx#L9)
+Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:9](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Date.tsx#L9)
 
 ## Extends
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:9](https://gith
 
 ## Indexable
 
-\[`htmlAttributes`: `string`\]: `unknown`
+> \[`htmlAttributes`: `string`\]: `unknown`
 
 The date field data.
 
@@ -22,9 +22,9 @@ The date field data.
 
 ### editable?
 
-> `optional` **editable**: `boolean`
+> `optional` **editable?**: `boolean`
 
-Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
+Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
 
 Can be used to explicitly disable inline editing.
 If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
@@ -43,9 +43,9 @@ true
 
 ### emptyFieldEditingComponent?
 
-> `optional` **emptyFieldEditingComponent**: `ComponentClass`\<`DateFieldProps`, `any`\> \| `FC`\<`DateFieldProps`\>
+> `optional` **emptyFieldEditingComponent?**: `ComponentClass`\<`DateFieldProps`, `any`\> \| `FC`\<`DateFieldProps`\>
 
-Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
+Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
 
 -- Edit Mode Metadata --
 
@@ -61,25 +61,25 @@ Custom element to render in Pages in Metadata edit mode if field value is empty
 
 > **field**: `FieldMetadata` & `object`
 
-Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:12](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Date.tsx#L12)
+Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:12](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Date.tsx#L12)
 
 #### Type Declaration
 
 ##### editable?
 
-> `optional` **editable**: `string`
+> `optional` **editable?**: `string`
 
 ##### value?
 
-> `optional` **value**: `string`
+> `optional` **value?**: `string`
 
 ***
 
-### render()?
+### render?
 
-> `optional` **render**: (`date`) => `ReactNode`
+> `optional` **render?**: (`date`) => `ReactNode`
 
-Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:21](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Date.tsx#L21)
+Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:21](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Date.tsx#L21)
 
 #### Parameters
 
@@ -95,8 +95,8 @@ Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:21](https://git
 
 ### tag?
 
-> `optional` **tag**: `string`
+> `optional` **tag?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:19](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Date.tsx#L19)
+Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:19](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Date.tsx#L19)
 
 The HTML element that will wrap the contents of the field.

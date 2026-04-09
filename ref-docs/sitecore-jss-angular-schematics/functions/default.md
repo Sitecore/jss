@@ -8,7 +8,7 @@
 
 > **default**(`options`): (`host`) => `Promise`\<`Rule`\>
 
-Defined in: [index.ts:41](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
+Defined in: [index.ts:41](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
 
 ## Parameters
 
@@ -18,14 +18,4 @@ Defined in: [index.ts:41](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc59
 
 ## Returns
 
-> (`host`): `Promise`\<`Rule`\>
-
-### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `host` | `Tree` |
-
-### Returns
-
-`Promise`\<`Rule`\>
+(`host`) => `Promise`\<`Rule`\>

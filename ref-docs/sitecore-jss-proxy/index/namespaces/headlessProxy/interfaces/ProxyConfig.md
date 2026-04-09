@@ -6,7 +6,7 @@
 
 # Interface: ProxyConfig
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:29](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L29)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:29](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L29)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts
 
 > **apiHost**: `string`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:31](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L31)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:31](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L31)
 
 Hostname to proxy to (i.e. Sitecore CD server 'http://siteco.re')
 
@@ -24,17 +24,17 @@ Hostname to proxy to (i.e. Sitecore CD server 'http://siteco.re')
 
 > **apiKey**: `string`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:35](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L35)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:35](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L35)
 
 SSC endpoint to use when sending Layout Service requests to proxy
 
 ***
 
-### createViewBag()?
+### createViewBag?
 
-> `optional` **createViewBag**: (`request`, `response`, `proxyResponse`, `layoutServiceData`) => `Promise`\<\{\[`key`: `string`\]: `unknown`; \}\> \| \{\[`key`: `string`\]: `unknown`; \}
+> `optional` **createViewBag?**: (`request`, `response`, `proxyResponse`, `layoutServiceData`) => `Promise`\<\{\[`key`: `string`\]: `unknown`; \}\> \| \{\[`key`: `string`\]: `unknown`; \}
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:79](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L79)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:79](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L79)
 
 Hook to fill the SSR viewBag object; if you're customizing the viewBag in Sitecore integrated SSR mode, do the same here.
 
@@ -55,9 +55,9 @@ Hook to fill the SSR viewBag object; if you're customizing the viewBag in Siteco
 
 ### debug?
 
-> `optional` **debug**: `boolean`
+> `optional` **debug?**: `boolean`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:56](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L56)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:56](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L56)
 
 Enables or disables proxy diagnostics in console.log (disable for production or get bad performance)
 
@@ -67,7 +67,7 @@ Enables or disables proxy diagnostics in console.log (disable for production or 
 
 > **layoutServiceRoute**: `string`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:33](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L33)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:33](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L33)
 
 Path to layout service endpoint on proxy target server
 
@@ -75,19 +75,19 @@ Path to layout service endpoint on proxy target server
 
 ### maxResponseSizeBytes?
 
-> `optional` **maxResponseSizeBytes**: `number`
+> `optional` **maxResponseSizeBytes?**: `number`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:92](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L92)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:92](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L92)
 
 Responses from the proxy greater than this size (in bytes) are rejected.
 
 ***
 
-### onError()?
+### onError?
 
-> `optional` **onError**: (`error`, `response`) => \{ `content?`: `string`; `statusCode?`: `number`; \} \| `Promise`\<\{ `content?`: `string`; `headers?`: `Record`\<`string`, `string` \| `string`[]\>; `statusCode?`: `number`; \}\> \| `null`
+> `optional` **onError?**: (`error`, `response`) => \{ `content?`: `string`; `statusCode?`: `number`; \} \| `Promise`\<\{ `content?`: `string`; `headers?`: `Record`\<`string`, `string` \| `string`[]\>; `statusCode?`: `number`; \}\> \| `null`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:58](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L58)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:58](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L58)
 
 Callback when an exception is thrown during SSR; decides what to send back to client (500 errors)
 
@@ -104,11 +104,11 @@ Callback when an exception is thrown during SSR; decides what to send back to cl
 
 ***
 
-### pathRewriteExcludePredicate()?
+### pathRewriteExcludePredicate?
 
-> `optional` **pathRewriteExcludePredicate**: (`originalUrl`) => `boolean`
+> `optional` **pathRewriteExcludePredicate?**: (`originalUrl`) => `boolean`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:52](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L52)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:52](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L52)
 
 Function to determine if a given URL should be SSRed (return true), or passed through (return false)
 Mutually exclusive with pathRewriteExcludeRoutes.
@@ -127,9 +127,9 @@ Mutually exclusive with pathRewriteExcludeRoutes.
 
 ### pathRewriteExcludeRoutes?
 
-> `optional` **pathRewriteExcludeRoutes**: `string`[]
+> `optional` **pathRewriteExcludeRoutes?**: `string`[]
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:43](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L43)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:43](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L43)
 
 Array of paths to proxy without any SSR transformation (i.e. do not treat as app routes).
 Note: exclusions are case-insensitive.
@@ -139,9 +139,9 @@ Mutually exclusive with pathRewriteExcludePredicate.
 
 ### proxyOptions?
 
-> `optional` **proxyOptions**: `LegacyOptions`\<`IncomingMessage`, `ServerResponse`\<`IncomingMessage`\>\>
+> `optional` **proxyOptions?**: `LegacyOptions`\<`IncomingMessage`, `ServerResponse`\<`IncomingMessage`\>\>
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:54](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L54)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:54](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L54)
 
 Configure `http-proxy-middleware`
 
@@ -149,9 +149,9 @@ Configure `http-proxy-middleware`
 
 ### qsParams?
 
-> `optional` **qsParams**: `string`
+> `optional` **qsParams?**: `string`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:37](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L37)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:37](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L37)
 
 Custom Query String parameters to send to Layout Service, e.g. sc_site=my-site&tracing=false
 
@@ -161,17 +161,17 @@ Custom Query String parameters to send to Layout Service, e.g. sc_site=my-site&t
 
 > **serverBundle**: [`ServerBundle`](ServerBundle.md)
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:94](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L94)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:94](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L94)
 
 The require'd server.bundle.js file from your pre-built JSS app
 
 ***
 
-### setHeaders()?
+### setHeaders?
 
-> `optional` **setHeaders**: (`request`, `response`, `proxyResponse`) => `void`
+> `optional` **setHeaders?**: (`request`, `response`, `proxyResponse`) => `void`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:86](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L86)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:86](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L86)
 
 Hook to alter HTTP headers in a custom way.
 
@@ -189,11 +189,11 @@ Hook to alter HTTP headers in a custom way.
 
 ***
 
-### transformSSRContent()?
+### transformSSRContent?
 
-> `optional` **transformSSRContent**: (`response`, `request`, `serverResponse`) => `Promise`\<`string`\>
+> `optional` **transformSSRContent?**: (`response`, `request`, `serverResponse`) => `Promise`\<`string`\>
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:73](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L73)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:73](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L73)
 
 Enables transforming SSR'ed HTML after it is rendered, i.e. to replace paths.
 
@@ -213,8 +213,8 @@ Enables transforming SSR'ed HTML after it is rendered, i.e. to replace paths.
 
 ### ws?
 
-> `optional` **ws**: `boolean`
+> `optional` **ws?**: `boolean`
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:47](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L47)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts:47](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/ProxyConfig.ts#L47)
 
 Turn WebSocket requests processing on or off

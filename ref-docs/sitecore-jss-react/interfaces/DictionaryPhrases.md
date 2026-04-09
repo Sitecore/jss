@@ -12,4 +12,4 @@ Object model for Sitecore dictionary phrases
 
 ## Indexable
 
-\[`k`: `string`\]: `string`
+> \[`k`: `string`\]: `string`

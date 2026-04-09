@@ -6,52 +6,52 @@
 
 # Interface: EditFrameProps
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:10](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/EditFrame.tsx#L10)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:10](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/EditFrame.tsx#L10)
 
 ## Properties
 
 ### buttons?
 
-> `optional` **buttons**: [`EditButtonTypes`](../type-aliases/EditButtonTypes.md)[]
+> `optional` **buttons?**: [`EditButtonTypes`](../type-aliases/EditButtonTypes.md)[]
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:12](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/EditFrame.tsx#L12)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:12](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/EditFrame.tsx#L12)
 
 ***
 
 ### cssClass?
 
-> `optional` **cssClass**: `string`
+> `optional` **cssClass?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:15](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/EditFrame.tsx#L15)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:15](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/EditFrame.tsx#L15)
 
 ***
 
 ### dataSource?
 
-> `optional` **dataSource**: [`EditFrameDataSource`](../type-aliases/EditFrameDataSource.md)
+> `optional` **dataSource?**: [`EditFrameDataSource`](../type-aliases/EditFrameDataSource.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:11](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/EditFrame.tsx#L11)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:11](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/EditFrame.tsx#L11)
 
 ***
 
 ### parameters?
 
-> `optional` **parameters**: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| `null`\>
+> `optional` **parameters?**: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| `null`\>
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:16](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/EditFrame.tsx#L16)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:16](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/EditFrame.tsx#L16)
 
 ***
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:13](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/EditFrame.tsx#L13)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:13](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/EditFrame.tsx#L13)
 
 ***
 
 ### tooltip?
 
-> `optional` **tooltip**: `string`
+> `optional` **tooltip?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:14](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/EditFrame.tsx#L14)
+Defined in: [packages/sitecore-jss-react/src/components/EditFrame.tsx:14](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/EditFrame.tsx#L14)

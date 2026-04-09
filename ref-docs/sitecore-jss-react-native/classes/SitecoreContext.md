@@ -6,7 +6,7 @@
 
 # Class: SitecoreContext
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L14)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L14)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](ht
 
 > **new SitecoreContext**(`props`, `context`): `SitecoreContext`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
 
 #### Parameters
 
@@ -41,7 +41,7 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](ht
 
 > **componentFactory**: `ComponentFactory`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
 
 ***
 
@@ -119,7 +119,7 @@ Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:506
 
 ### contextType?
 
-> `static` `optional` **contextType**: `Context`\<`any`\>
+> `static` `optional` **contextType?**: `Context`\<`any`\>
 
 Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:462
 
@@ -154,7 +154,7 @@ class Foo extends React.Component {
 
 > `static` **displayName**: `string` = `'SitecoreContext'`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
 
 ***
 
@@ -162,7 +162,7 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](ht
 
 > `static` **propTypes**: `object`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
 
 #### children
 
@@ -433,7 +433,7 @@ lifecycle events from running.
 
 > **render**(): `Element`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
 
 #### Returns
 
@@ -461,7 +461,7 @@ Defined in: sitecore-jss-react-native/node\_modules/@types/react/index.d.ts:492
 
 | Parameter | Type |
 | ------ | ------ |
-| `state` | \{ \} \| (`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\> \| `Pick`\<\{ \}, `K`\> |
+| `state` | \{ \} \| ((`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\>) \| `Pick`\<\{ \}, `K`\> |
 | `callback?` | () => `void` |
 
 #### Returns

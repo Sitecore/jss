@@ -14,7 +14,7 @@ Content data returned from Layout Service
 
 ### displayName?
 
-> `optional` **displayName**: `string`
+> `optional` **displayName?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:134
 
@@ -34,7 +34,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:137
 
 ### id?
 
-> `optional` **id**: `string`
+> `optional` **id?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:135
 
@@ -50,6 +50,6 @@ Defined in: sitecore-jss/types/layout/models.d.ts:133
 
 ### url?
 
-> `optional` **url**: `string`
+> `optional` **url?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:136

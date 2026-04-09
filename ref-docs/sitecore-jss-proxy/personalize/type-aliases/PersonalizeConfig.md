@@ -8,7 +8,7 @@
 
 > **PersonalizeConfig** = `object`
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L28)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L28)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [sitecore-jss-proxy/src/types/personalize.ts:28](https://github.com/
 
 > **cdpConfig**: `CdpServiceConfig`
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:62](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L62)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:62](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L62)
 
 Configuration for your Sitecore CDP endpoint
 
@@ -24,9 +24,9 @@ Configuration for your Sitecore CDP endpoint
 
 ### defaultHostname?
 
-> `optional` **defaultHostname**: `string`
+> `optional` **defaultHostname?**: `string`
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:45](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L45)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:45](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L45)
 
 Fallback hostname in case `host` header is not present
 
@@ -40,9 +40,9 @@ localhost
 
 ### defaultLanguage?
 
-> `optional` **defaultLanguage**: `string`
+> `optional` **defaultLanguage?**: `string`
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:50](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L50)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:50](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L50)
 
 Fallback language in case language can't be read from layout data
 
@@ -54,11 +54,11 @@ Fallback language in case language can't be read from layout data
 
 ***
 
-### disabled()?
+### disabled?
 
-> `optional` **disabled**: (`req?`, `res?`) => `boolean`
+> `optional` **disabled?**: (`req?`, `res?`) => `boolean`
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:34](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L34)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:34](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L34)
 
 function, determines if personalization should be turned off, based on cookie, header, or other considerations
 
@@ -79,17 +79,17 @@ function, determines if personalization should be turned off, based on cookie, h
 
 > **edgeConfig**: `Omit`\<`GraphQLPersonalizeServiceConfig`, `"fetch"`\>
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:58](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L58)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:58](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L58)
 
 Configuration for your Sitecore Experience Edge endpoint
 
 ***
 
-### excludeRoute()?
+### excludeRoute?
 
-> `optional` **excludeRoute**: (`pathname`) => `boolean`
+> `optional` **excludeRoute?**: (`pathname`) => `boolean`
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:40](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L40)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:40](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L40)
 
 Function used to determine if route should be excluded.
 
@@ -109,9 +109,9 @@ Whether to exclude the route
 
 ### scope?
 
-> `optional` **scope**: `string`
+> `optional` **scope?**: `string`
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:66](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L66)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:66](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L66)
 
 Optional Sitecore Personalize scope identifier allowing you to isolate your personalization data between XM Cloud environments
 
@@ -121,6 +121,6 @@ Optional Sitecore Personalize scope identifier allowing you to isolate your pers
 
 > **sitecoreSiteName**: `string`
 
-Defined in: [sitecore-jss-proxy/src/types/personalize.ts:54](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-proxy/src/types/personalize.ts#L54)
+Defined in: [sitecore-jss-proxy/src/types/personalize.ts:54](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-proxy/src/types/personalize.ts#L54)
 
 Site name for current site

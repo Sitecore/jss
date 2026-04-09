@@ -8,7 +8,7 @@
 
 > **RestLayoutServiceConfig** = `object`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:21](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/rest-layout-service.ts#L21)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:21](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/rest-layout-service.ts#L21)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:21](https:/
 
 > **apiHost**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:25](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/rest-layout-service.ts#L25)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:25](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/rest-layout-service.ts#L25)
 
 Your Sitecore instance hostname that is the backend for JSS
 
@@ -26,7 +26,7 @@ Your Sitecore instance hostname that is the backend for JSS
 
 > **apiKey**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:29](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/rest-layout-service.ts#L29)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:29](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/rest-layout-service.ts#L29)
 
 The Sitecore SSC API key your app uses
 
@@ -34,9 +34,9 @@ The Sitecore SSC API key your app uses
 
 ### configurationName?
 
-> `optional` **configurationName**: `string`
+> `optional` **configurationName?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:49](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/rest-layout-service.ts#L49)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:49](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/rest-layout-service.ts#L49)
 
 Layout Service "named" configuration
 
@@ -44,9 +44,9 @@ Layout Service "named" configuration
 
 ### dataFetcherResolver?
 
-> `optional` **dataFetcherResolver**: [`DataFetcherResolver`](DataFetcherResolver.md)
+> `optional` **dataFetcherResolver?**: [`DataFetcherResolver`](DataFetcherResolver.md)
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:44](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/rest-layout-service.ts#L44)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:44](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/rest-layout-service.ts#L44)
 
 Function that handles fetching API data
 
@@ -56,7 +56,7 @@ Function that handles fetching API data
 
 > **siteName**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:33](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/rest-layout-service.ts#L33)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:33](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/rest-layout-service.ts#L33)
 
 The JSS application name
 
@@ -64,9 +64,9 @@ The JSS application name
 
 ### tracking?
 
-> `optional` **tracking**: `boolean`
+> `optional` **tracking?**: `boolean`
 
-Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:40](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/rest-layout-service.ts#L40)
+Defined in: [packages/sitecore-jss/src/layout/rest-layout-service.ts:40](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/rest-layout-service.ts#L40)
 
 Enables/disables analytics tracking for the Layout Service invocation (default is true).
 More than likely, this would be set to false for SSG/hybrid implementations, and the

@@ -8,7 +8,7 @@
 
 > **LinkProps** = `EditableFieldProps`\<`LinkProps`\> & `React.AnchorHTMLAttributes`\<`HTMLAnchorElement`\> & `RefAttributes`\<`HTMLAnchorElement`\> & `object`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:28](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L28)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:28](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L28)
 
 ## Type Declaration
 
@@ -20,7 +20,7 @@ The link field data.
 
 ### showLinkTextWithChildrenPresent?
 
-> `optional` **showLinkTextWithChildrenPresent**: `boolean`
+> `optional` **showLinkTextWithChildrenPresent?**: `boolean`
 
 Displays a link text ('description' in Sitecore) even when children exist
 NOTE: when in Sitecore Experience Editor, this setting is ignored due to technical limitations, and the description is always rendered.

@@ -12,4 +12,4 @@ Component params
 
 ## Indexable
 
-\[`name`: `string`\]: `string`
+> \[`name`: `string`\]: `string`

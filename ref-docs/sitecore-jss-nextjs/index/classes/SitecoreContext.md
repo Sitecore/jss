@@ -78,7 +78,7 @@ Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:979
 
 ***
 
-### setContext()
+### setContext
 
 > **setContext**: (`value`) => `void`
 
@@ -112,7 +112,7 @@ Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:980
 
 ### contextType?
 
-> `static` `optional` **contextType**: `Context`\<`any`\>
+> `static` `optional` **contextType?**: `Context`\<`any`\>
 
 Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:931
 
@@ -153,7 +153,7 @@ Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:41
 
 ### ~~propTypes?~~
 
-> `static` `optional` **propTypes**: `any`
+> `static` `optional` **propTypes?**: `any`
 
 Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:937
 
@@ -475,7 +475,7 @@ Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:971
 
 | Parameter | Type |
 | ------ | ------ |
-| `state` | [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| (`prevState`, `props`) => [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `null` \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `null` |
+| `state` | [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| ((`prevState`, `props`) => [`SitecoreContextState`](../interfaces/SitecoreContextState.md) \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `null`) \| `Pick`\<[`SitecoreContextState`](../interfaces/SitecoreContextState.md), `K`\> \| `null` |
 | `callback?` | () => `void` |
 
 #### Returns

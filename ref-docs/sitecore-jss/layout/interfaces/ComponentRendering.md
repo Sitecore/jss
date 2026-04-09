@@ -6,7 +6,7 @@
 
 # Interface: ComponentRendering\<T\>
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:99](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L99)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:99](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L99)
 
 Definition of a component instance within a placeholder on a route
 
@@ -22,44 +22,44 @@ Definition of a component instance within a placeholder on a route
 
 > **componentName**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:100](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L100)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:100](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L100)
 
 ***
 
 ### dataSource?
 
-> `optional` **dataSource**: `string`
+> `optional` **dataSource?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:101](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L101)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:101](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L101)
 
 ***
 
 ### fields?
 
-> `optional` **fields**: `T`
+> `optional` **fields?**: `T`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L104)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L104)
 
 ***
 
 ### params?
 
-> `optional` **params**: [`ComponentParams`](ComponentParams.md)
+> `optional` **params?**: [`ComponentParams`](ComponentParams.md)
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L105)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L105)
 
 ***
 
 ### placeholders?
 
-> `optional` **placeholders**: [`PlaceholdersData`](../type-aliases/PlaceholdersData.md)\<`string`\>
+> `optional` **placeholders?**: [`PlaceholdersData`](../type-aliases/PlaceholdersData.md)\<`string`\>
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L103)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L103)
 
 ***
 
 ### uid?
 
-> `optional` **uid**: `string`
+> `optional` **uid?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L102)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L102)

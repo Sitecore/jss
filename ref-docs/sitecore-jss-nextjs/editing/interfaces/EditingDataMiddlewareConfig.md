@@ -6,15 +6,15 @@
 
 # Interface: EditingDataMiddlewareConfig
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:12](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L12)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:12](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L12)
 
 ## Properties
 
 ### dynamicRouteKey?
 
-> `optional` **dynamicRouteKey**: `string`
+> `optional` **dynamicRouteKey?**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:18](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L18)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:18](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L18)
 
 The Next.js dynamic API route key name. This is used in the middleware to extract the data
 key from the request query parameters. By default this is 'key' (from '/api/editing/data/[key]').
@@ -29,9 +29,9 @@ key from the request query parameters. By default this is 'key' (from '/api/edit
 
 ### editingDataCache?
 
-> `optional` **editingDataCache**: [`EditingDataCache`](EditingDataCache.md)
+> `optional` **editingDataCache?**: [`EditingDataCache`](EditingDataCache.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:27](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L27)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-middleware.ts:27](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-nextjs/src/editing/editing-data-middleware.ts#L27)
 
 An instance of the `EditingDataCache` implementation to use.
 Note for Vercel deployment, which uses Serverless Functions for API routes, a disk cache is required.

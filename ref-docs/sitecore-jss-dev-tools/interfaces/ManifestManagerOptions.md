@@ -6,60 +6,60 @@
 
 # Interface: ManifestManagerOptions
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:12](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L12)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:12](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L12)
 
 ## Properties
 
 ### appName?
 
-> `optional` **appName**: `string`
+> `optional` **appName?**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L19)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L19)
 
 ***
 
 ### outputPath?
 
-> `optional` **outputPath**: `string`
+> `optional` **outputPath?**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L17)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L17)
 
 ***
 
 ### pipelinePatchFiles?
 
-> `optional` **pipelinePatchFiles**: `string`[]
+> `optional` **pipelinePatchFiles?**: `string`[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L18)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L18)
 
 ***
 
 ### requireArg?
 
-> `optional` **requireArg**: `string` \| `null`
+> `optional` **requireArg?**: `string` \| `null`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L16)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L16)
 
 ***
 
 ### rootPath?
 
-> `optional` **rootPath**: `string`
+> `optional` **rootPath?**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L13)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L13)
 
 ***
 
 ### sourceFiles?
 
-> `optional` **sourceFiles**: `string`[]
+> `optional` **sourceFiles?**: `string`[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L14)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L14)
 
 ***
 
 ### watchOnlySourceFiles?
 
-> `optional` **watchOnlySourceFiles**: `string`[]
+> `optional` **watchOnlySourceFiles?**: `string`[]
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:15](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L15)
+Defined in: [sitecore-jss-dev-tools/src/manifest/manifest-manager.ts:15](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L15)

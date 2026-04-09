@@ -6,7 +6,7 @@
 
 # Class: EditingScriptsComponent
 
-Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:16](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L16)
+Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:16](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L16)
 
 Component that renders editing scripts and client data for the current page in Sitecore Editor.
 Only renders scripts when Metadata mode is used.
@@ -31,7 +31,7 @@ Only renders scripts when Metadata mode is used.
 
 > **ngOnInit**(): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:21](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L21)
+Defined in: [packages/sitecore-jss-angular/src/components/editing-scripts.component.ts:21](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-angular/src/components/editing-scripts.component.ts#L21)
 
 A callback method that is invoked immediately after the
 default change detector has checked the directive's

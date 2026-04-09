@@ -6,7 +6,7 @@
 
 # Interface: RenderMetadataQueryParams
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:8](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L8)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:8](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L8)
 
 Query parameters appended to the page route URL
 Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
@@ -14,7 +14,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 ## Indexable
 
-\[`key`: `string`\]: `unknown`
+> \[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -22,7 +22,7 @@ Appended when XMCloud Pages preview (editing) Metadata Edit Mode is used
 
 > **mode**: [`Preview`](../../layout/enumerations/LayoutServicePageState.md#preview) \| [`Edit`](../../layout/enumerations/LayoutServicePageState.md#edit) \| [`DesignLibraryMode`](../enumerations/DesignLibraryMode.md)
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:15](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L15)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:15](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L15)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/sitecore-jss/src/editing/models.ts:15](https://github.com/
 
 > **route**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:14](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L14)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:14](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L14)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [packages/sitecore-jss/src/editing/models.ts:14](https://github.com/
 
 > **sc\_itemid**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:12](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L12)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:12](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L12)
 
 ***
 
@@ -46,15 +46,15 @@ Defined in: [packages/sitecore-jss/src/editing/models.ts:12](https://github.com/
 
 > **sc\_lang**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:11](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L11)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:11](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L11)
 
 ***
 
 ### sc\_layoutKind?
 
-> `optional` **sc\_layoutKind**: [`LayoutKind`](../enumerations/LayoutKind.md)
+> `optional` **sc\_layoutKind?**: [`LayoutKind`](../enumerations/LayoutKind.md)
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:16](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L16)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:16](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L16)
 
 ***
 
@@ -62,23 +62,23 @@ Defined in: [packages/sitecore-jss/src/editing/models.ts:16](https://github.com/
 
 > **sc\_site**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:13](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L13)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:13](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L13)
 
 ***
 
 ### sc\_variant?
 
-> `optional` **sc\_variant**: `string`
+> `optional` **sc\_variant?**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:17](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L17)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:17](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L17)
 
 ***
 
 ### sc\_version?
 
-> `optional` **sc\_version**: `string`
+> `optional` **sc\_version?**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:18](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L18)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:18](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L18)
 
 ***
 
@@ -86,4 +86,4 @@ Defined in: [packages/sitecore-jss/src/editing/models.ts:18](https://github.com/
 
 > **secret**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/models.ts:10](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/editing/models.ts#L10)
+Defined in: [packages/sitecore-jss/src/editing/models.ts:10](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/models.ts#L10)

@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / DesignLibrary
 
-# Variable: DesignLibrary()
+# Variable: DesignLibrary
 
 > `const` **DesignLibrary**: (`layoutData`) => `JSX.Element`
 

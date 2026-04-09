@@ -10,13 +10,13 @@ Defined in: sitecore-jss/types/tracking/dataModels.d.ts:16
 
 ## Indexable
 
-\[`key`: `string`\]: `unknown`
+> \[`key`: `string`\]: `unknown`
 
 ## Properties
 
 ### currencyCode?
 
-> `optional` **currencyCode**: `string`
+> `optional` **currencyCode?**: `string`
 
 Defined in: sitecore-jss/types/tracking/dataModels.d.ts:21
 
@@ -26,7 +26,7 @@ Currency code of outcome monetary value
 
 ### monetaryValue?
 
-> `optional` **monetaryValue**: `number`
+> `optional` **monetaryValue?**: `number`
 
 Defined in: sitecore-jss/types/tracking/dataModels.d.ts:23
 

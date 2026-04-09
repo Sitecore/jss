@@ -8,7 +8,7 @@
 
 > **Module** = `object` & `object`
 
-Defined in: [sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)
+Defined in: [sitecore-jss-nextjs/src/sharedTypes/module-factory.ts:7](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-nextjs/src/sharedTypes/module-factory.ts#L7)
 
 Represents a module (file)
 
@@ -16,24 +16,24 @@ Represents a module (file)
 
 ### default?
 
-> `optional` **default**: `ComponentType`
+> `optional` **default?**: `ComponentType`
 
 Default Next.js export
 
 ### Default?
 
-> `optional` **Default**: `ComponentType`
+> `optional` **Default?**: `ComponentType`
 
 Default SXA export
 
 ### getServerSideProps?
 
-> `optional` **getServerSideProps**: [`GetServerSideComponentProps`](GetServerSideComponentProps.md)
+> `optional` **getServerSideProps?**: [`GetServerSideComponentProps`](GetServerSideComponentProps.md)
 
 function for component level data fetching in SSR mode
 
 ### getStaticProps?
 
-> `optional` **getStaticProps**: [`GetStaticComponentProps`](GetStaticComponentProps.md)
+> `optional` **getStaticProps?**: [`GetStaticComponentProps`](GetStaticComponentProps.md)
 
 function for component level data fetching in SSG mode

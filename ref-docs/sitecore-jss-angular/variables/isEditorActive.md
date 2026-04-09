@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / isEditorActive
 
-# Variable: isEditorActive()
+# Variable: isEditorActive
 
 > `const` **isEditorActive**: () => `boolean`
 

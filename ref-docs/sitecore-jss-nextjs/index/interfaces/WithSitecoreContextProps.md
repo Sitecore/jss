@@ -12,13 +12,13 @@ Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:8
 
 ### api?
 
-> `optional` **api**: `object`
+> `optional` **api?**: `object`
 
 Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:10
 
 #### edge?
 
-> `optional` **edge**: `object`
+> `optional` **edge?**: `object`
 
 Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
 
@@ -30,7 +30,7 @@ A unified identifier used to connect and retrieve data from XM Cloud instance
 
 ##### edge.edgeUrl?
 
-> `optional` **edgeUrl**: `string`
+> `optional` **edgeUrl?**: `string`
 
 XM Cloud endpoint that the app will communicate and retrieve data from
 
@@ -52,6 +52,6 @@ Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
 
 ### updateSitecoreContext?
 
-> `optional` **updateSitecoreContext**: `false` \| (`value`) => `void`
+> `optional` **updateSitecoreContext?**: `false` \| ((`value`) => `void`)
 
 Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:11

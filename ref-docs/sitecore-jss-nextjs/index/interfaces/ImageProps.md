@@ -14,13 +14,13 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:30
 
 ## Indexable
 
-\[`attributeName`: `string`\]: `unknown`
+> \[`attributeName`: `string`\]: `unknown`
 
 ## Properties
 
 ### editable?
 
-> `optional` **editable**: `boolean`
+> `optional` **editable?**: `boolean`
 
 Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:25
 
@@ -41,7 +41,7 @@ true
 
 ### emptyFieldEditingComponent?
 
-> `optional` **emptyFieldEditingComponent**: `ComponentClass`\<`ImageProps`, `any`\> \| `FC`\<`ImageProps`\>
+> `optional` **emptyFieldEditingComponent?**: `ComponentClass`\<`ImageProps`, `any`\> \| `FC`\<`ImageProps`\>
 
 Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:31
 
@@ -57,7 +57,7 @@ Custom element to render in Pages in Metadata edit mode if field value is empty
 
 ### field?
 
-> `optional` **field**: (ImageField \| ImageFieldValue) & FieldMetadata
+> `optional` **field?**: (ImageField \| ImageFieldValue) & FieldMetadata
 
 Defined in: sitecore-jss-react/types/components/Image.d.ts:33
 
@@ -67,7 +67,7 @@ Image field data (consistent with other field types)
 
 ### imageParams?
 
-> `optional` **imageParams**: `object`
+> `optional` **imageParams?**: `object`
 
 Defined in: sitecore-jss-react/types/components/Image.d.ts:37
 
@@ -81,7 +81,7 @@ Parameters that will be attached to Sitecore media URLs
 
 ### mediaUrlPrefix?
 
-> `optional` **mediaUrlPrefix**: `RegExp`
+> `optional` **mediaUrlPrefix?**: `RegExp`
 
 Defined in: sitecore-jss-react/types/components/Image.d.ts:48
 
@@ -99,6 +99,6 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 ### srcSet?
 
-> `optional` **srcSet**: [`ImageSizeParameters`](ImageSizeParameters.md)[]
+> `optional` **srcSet?**: [`ImageSizeParameters`](ImageSizeParameters.md)[]
 
 Defined in: sitecore-jss-react/types/components/Image.d.ts:40

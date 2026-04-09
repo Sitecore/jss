@@ -8,13 +8,13 @@
 
 > **RichTextProps** = `ReactRichTextProps` & `object`
 
-Defined in: [sitecore-jss-nextjs/src/components/RichText.tsx:8](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L8)
+Defined in: [sitecore-jss-nextjs/src/components/RichText.tsx:8](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-nextjs/src/components/RichText.tsx#L8)
 
 ## Type Declaration
 
 ### internalLinksSelector?
 
-> `optional` **internalLinksSelector**: `string`
+> `optional` **internalLinksSelector?**: `string`
 
 Selector which should be used in order to prefetch it and attach event listeners
 
@@ -26,7 +26,7 @@ Selector which should be used in order to prefetch it and attach event listeners
 
 ### prefetchLinks?
 
-> `optional` **prefetchLinks**: `boolean` \| `"hover"`
+> `optional` **prefetchLinks?**: `boolean` \| `"hover"`
 
 Controls the prefetch of internal links. This can be beneficial if you have RichText fields
 with large numbers of internal links in them.

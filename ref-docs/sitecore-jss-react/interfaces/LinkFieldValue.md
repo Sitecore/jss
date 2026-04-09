@@ -6,80 +6,80 @@
 
 # Interface: LinkFieldValue
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:9](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L9)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:9](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L9)
 
 ## Indexable
 
-\[`attributeName`: `string`\]: `unknown`
+> \[`attributeName`: `string`\]: `unknown`
 
 ## Properties
 
 ### anchor?
 
-> `optional` **anchor**: `string`
+> `optional` **anchor?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:17](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L17)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:17](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L17)
 
 ***
 
 ### class?
 
-> `optional` **class**: `string`
+> `optional` **class?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:13](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L13)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:13](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L13)
 
 ***
 
 ### className?
 
-> `optional` **className**: `string`
+> `optional` **className?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L12)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:12](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L12)
 
 ***
 
 ### href?
 
-> `optional` **href**: `string`
+> `optional` **href?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:11](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L11)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:11](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L11)
 
 ***
 
 ### linktype?
 
-> `optional` **linktype**: `string`
+> `optional` **linktype?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:19](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L19)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:19](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L19)
 
 ***
 
 ### querystring?
 
-> `optional` **querystring**: `string`
+> `optional` **querystring?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:18](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L18)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:18](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L18)
 
 ***
 
 ### target?
 
-> `optional` **target**: `string`
+> `optional` **target?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:15](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L15)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:15](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L15)
 
 ***
 
 ### text?
 
-> `optional` **text**: `string`
+> `optional` **text?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:16](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L16)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:16](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L16)
 
 ***
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:14](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-react/src/components/Link.tsx#L14)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:14](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react/src/components/Link.tsx#L14)

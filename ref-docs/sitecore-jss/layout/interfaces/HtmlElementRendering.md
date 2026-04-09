@@ -6,7 +6,7 @@
 
 # Interface: HtmlElementRendering
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:111](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L111)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:111](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L111)
 
 HTML content used to support Sitecore Experience Editor
 
@@ -16,7 +16,7 @@ HTML content used to support Sitecore Experience Editor
 
 > **attributes**: `object`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:115](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L115)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:115](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L115)
 
 #### Index Signature
 
@@ -28,7 +28,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:115](https://github.com/
 
 > **contents**: `string` \| `null`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:114](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L114)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:114](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L114)
 
 ***
 
@@ -36,12 +36,12 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:114](https://github.com/
 
 > **name**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:112](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L112)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:112](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L112)
 
 ***
 
 ### type?
 
-> `optional` **type**: `string`
+> `optional` **type?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:113](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss/src/layout/models.ts#L113)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:113](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L113)

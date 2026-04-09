@@ -18,8 +18,8 @@ Defined in: packages/sitecore-jss/types/editing/edit-frame.d.ts:57
 
 ### parameters?
 
-> `optional` **parameters**: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| `null`\>
+> `optional` **parameters?**: `Record`\<`string`, `string` \| `number` \| `boolean` \| `undefined` \| `null`\>
 
 ### type?
 
-> `optional` **type**: `string`
+> `optional` **type?**: `string`

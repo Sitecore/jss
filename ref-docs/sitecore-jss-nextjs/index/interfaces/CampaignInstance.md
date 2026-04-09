@@ -10,7 +10,7 @@ Defined in: sitecore-jss/types/tracking/dataModels.d.ts:1
 
 ## Indexable
 
-\[`key`: `string`\]: `unknown`
+> \[`key`: `string`\]: `unknown`
 
 ## Properties
 

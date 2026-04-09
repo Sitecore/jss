@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / ComponentFactory
 
-# Type Alias: ComponentFactory()
+# Type Alias: ComponentFactory
 
 > **ComponentFactory** = (`componentName`, `exportName?`) => `JssComponentType` \| `null`
 

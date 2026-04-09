@@ -8,7 +8,7 @@
 
 > **addPlaceholder**(`manifest`, ...`placeholders`): `void`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:35](https://github.com/Sitecore/jss/blob/1899b923bd4c2bc5904a758f14c91dfc0844f471/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L35)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts:35](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.babel-shim.ts#L35)
 
 ## Parameters
 

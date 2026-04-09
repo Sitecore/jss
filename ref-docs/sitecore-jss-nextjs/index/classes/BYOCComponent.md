@@ -99,7 +99,7 @@ Defined in: sitecore-jss-react/types/components/BYOCComponent.d.ts:76
 
 ### contextType?
 
-> `static` `optional` **contextType**: `Context`\<`any`\>
+> `static` `optional` **contextType?**: `Context`\<`any`\>
 
 Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:931
 
@@ -132,7 +132,7 @@ class Foo extends React.Component {
 
 ### ~~propTypes?~~
 
-> `static` `optional` **propTypes**: `any`
+> `static` `optional` **propTypes?**: `any`
 
 Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:937
 
@@ -437,7 +437,7 @@ Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:971
 
 | Parameter | Type |
 | ------ | ------ |
-| `state` | \{ \} \| (`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\> \| `null` \| `Pick`\<\{ \}, `K`\> \| `null` |
+| `state` | \{ \} \| ((`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\> \| `null`) \| `Pick`\<\{ \}, `K`\> \| `null` |
 | `callback?` | () => `void` |
 
 #### Returns

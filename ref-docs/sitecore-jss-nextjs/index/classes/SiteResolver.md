@@ -30,7 +30,7 @@ Defined in: sitecore-jss/types/site/site-resolver.d.ts:10
 
 ## Properties
 
-### getByHost()
+### getByHost
 
 > **getByHost**: (`hostName`) => [`SiteInfo`](../type-aliases/SiteInfo.md)
 
@@ -56,7 +56,7 @@ if a matching site is not found
 
 ***
 
-### getByName()
+### getByName
 
 > **getByName**: (`siteName`) => [`SiteInfo`](../type-aliases/SiteInfo.md)
 
@@ -82,7 +82,7 @@ if a matching site is not found
 
 ***
 
-### getHostMap()
+### getHostMap
 
 > `protected` **getHostMap**: () => `Map`\<`string`, [`SiteInfo`](../type-aliases/SiteInfo.md)\>
 
