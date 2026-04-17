@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### Chores
+
+* `[sitecore-jss-dev-tools]``[create-sitecore-jss]` Update `glob` version to latest ([#2194]https://github.com/Sitecore/jss/pull/2194))  
+
 ## 22.12.1
 
 ### 🎉 New Features & Improvements
