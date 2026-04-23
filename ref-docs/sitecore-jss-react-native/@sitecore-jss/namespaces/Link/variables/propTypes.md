@@ -8,4 +8,4 @@
 
 > **propTypes**: `WeakValidationMap`\<`LinkProps`\>
 
-Defined in: [sitecore-jss-react-native/src/components/Link.tsx:107](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/Link.tsx#L107)
+Defined in: [sitecore-jss-react-native/src/components/Link.tsx:107](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-react-native/src/components/Link.tsx#L107)

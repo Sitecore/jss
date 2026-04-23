@@ -8,7 +8,7 @@
 
 > **PlaceholdersData**\<`TYPEDNAME`\> = \{ \[P in TYPEDNAME\]: (ComponentRendering \| HtmlElementRendering)\[\] \}
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:78](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/layout/models.ts#L78)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:78](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/layout/models.ts#L78)
 
 Placeholder contents data (name: placeholder name, then array of components within that placeholder name)
 Note: HtmlElementRendering is used by Sitecore Experience Editor

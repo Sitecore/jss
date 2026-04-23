@@ -8,4 +8,4 @@
 
 > **EditButtonTypes** = [`WebEditButton`](WebEditButton.md) \| [`FieldEditButton`](FieldEditButton.md) \| "\|"
 
-Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/edit-frame.ts#L73)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:73](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/editing/edit-frame.ts#L73)
