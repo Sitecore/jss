@@ -6,7 +6,9 @@
       "lib/*": ["src/lib/*"],
       "temp/*": ["src/temp/*"],
       "assets/*": ["src/assets/*"],
-      "react": ["node_modules/react"]
+      <%_ if (helper.isDev) { _%>
+      "react": ["node_modules/react"],
+      <%_ } _%>
     },
     "target": "es5",
     "types": ["node"],

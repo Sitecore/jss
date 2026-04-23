@@ -6,7 +6,7 @@
 
 # Class: SitecoreContext
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L14)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L14)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:14](ht
 
 > **new SitecoreContext**(`props`, `context`): `SitecoreContext`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L24)
 
 #### Parameters
 
@@ -41,7 +41,7 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:24](ht
 
 > **componentFactory**: `ComponentFactory`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:22](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L22)
 
 ***
 
@@ -154,7 +154,7 @@ class Foo extends React.Component {
 
 > `static` **displayName**: `string` = `'SitecoreContext'`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L20)
 
 ***
 
@@ -162,7 +162,7 @@ Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:20](ht
 
 > `static` **propTypes**: `object`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L15)
 
 #### children
 
@@ -433,7 +433,7 @@ lifecycle events from running.
 
 > **render**(): `Element`
 
-Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
+Defined in: [sitecore-jss-react-native/src/components/SitecoreContext.tsx:29](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-react-native/src/components/SitecoreContext.tsx#L29)
 
 #### Returns
 

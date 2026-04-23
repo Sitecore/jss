@@ -6,7 +6,7 @@
 
 # Interface: ComponentUpdateEventArgs
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:43](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/utils.ts#L43)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:43](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/editing/utils.ts#L43)
 
 Event args for Design Library `update` event
 
@@ -16,7 +16,7 @@ Event args for Design Library `update` event
 
 > `optional` **details?**: `object`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:45](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/utils.ts#L45)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:45](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/editing/utils.ts#L45)
 
 #### fields?
 
@@ -36,4 +36,4 @@ Defined in: [packages/sitecore-jss/src/editing/utils.ts:45](https://github.com/S
 
 > **name**: `string`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:44](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/editing/utils.ts#L44)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:44](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/editing/utils.ts#L44)

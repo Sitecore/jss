@@ -6,7 +6,7 @@
 
 # Interface: LinkFieldValue
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:31](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-angular/src/components/rendering-field.ts#L31)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:31](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-angular/src/components/rendering-field.ts#L31)
 
 ## Extended by
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:31]
 
 > `optional` **anchor?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:35]
 
 > `optional` **href?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:33](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-angular/src/components/rendering-field.ts#L33)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:33](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-angular/src/components/rendering-field.ts#L33)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:33]
 
 > `optional` **text?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)

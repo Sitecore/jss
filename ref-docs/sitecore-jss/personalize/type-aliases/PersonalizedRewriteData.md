@@ -8,7 +8,7 @@
 
 > **PersonalizedRewriteData** = `object`
 
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/personalize/utils.ts#L4)
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:4](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/personalize/utils.ts#L4)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [packages/sitecore-jss/src/personalize/utils.ts:4](https://github.co
 
 > `optional` **componentVariantIds?**: `string`[]
 
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:6](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/personalize/utils.ts#L6)
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:6](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/personalize/utils.ts#L6)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [packages/sitecore-jss/src/personalize/utils.ts:6](https://github.co
 
 > **variantId**: `string`
 
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:5](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss/src/personalize/utils.ts#L5)
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:5](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/personalize/utils.ts#L5)
