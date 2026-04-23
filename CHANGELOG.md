@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-tools]` Fix `jss deploy component` command failing ([#2195](https://github.com/Sitecore/jss/pull/2195))
+
 ## 22.12.1
 
 ### 🎉 New Features & Improvements

@@ -18,9 +18,16 @@ export function packageGenerate(options: PackageGenerateOptions) {
   const datepath = `${new Date().getTime()}`;
 
   // manifest at temp path, need to save path for adding to metadata
-  const manifestRelativePath = path.join('.', 'temp', options.appName, datepath);
-  const packageManifestPath = path.join('.', options.outputPath, manifestRelativePath);
-  fsExtra.copySync(path.join('.', options.manifestPath), packageManifestPath);
+  const manifestTargetRelativePath = path.join('.', 'temp', options.appName, datepath);
+  const manifestTargetPath = path.isAbsolute(options.outputPath)
+    ? path.join(options.outputPath, manifestTargetRelativePath)
+    : path.join('.', options.outputPath, manifestTargetRelativePath);
+
+  const manifestSourcePath = path.isAbsolute(options.manifestPath)
+    ? options.manifestPath
+    : path.join('.', options.manifestPath);
+
+  fsExtra.copySync(manifestSourcePath, manifestTargetPath);
 
   // generate manifest package
   const updatePackage = path.join(
@@ -29,6 +36,6 @@ export function packageGenerate(options: PackageGenerateOptions) {
   );
 
   return new Promise((resolve) => {
-    createPackage(packageManifestPath, updatePackage, () => resolve(null));
+    createPackage(manifestTargetPath, updatePackage, () => resolve(null));
   });
 }

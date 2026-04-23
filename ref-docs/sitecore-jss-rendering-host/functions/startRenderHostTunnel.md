@@ -8,7 +8,7 @@
 
 > **startRenderHostTunnel**(`renderHostname`, `options?`): `Promise`\<`string`\>
 
-Defined in: [tunnel.ts:12](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
+Defined in: [tunnel.ts:12](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-rendering-host/src/tunnel.ts#L12)
 
 ## Parameters
 

@@ -8,7 +8,7 @@
 
 > **RedirectsMiddlewareConfig** = `Omit`\<`GraphQLRedirectsServiceConfig`, `"fetch"`\> & [`MiddlewareBaseConfig`](MiddlewareBaseConfig.md) & `object`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:32](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L32)
+Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:32](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L32)
 
 extended RedirectsMiddlewareConfig config type for RedirectsMiddleware
 

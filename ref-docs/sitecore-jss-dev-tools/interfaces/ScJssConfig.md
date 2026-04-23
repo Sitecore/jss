@@ -6,7 +6,7 @@
 
 # Interface: ScJssConfig
 
-Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:12](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L12)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:12](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L12)
 
 ## Indexable
 
@@ -18,4 +18,4 @@ Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:12](https://githu
 
 > **sitecore**: [`JssConfiguration`](JssConfiguration.md)
 
-Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:14](https://github.com/Sitecore/jss/blob/8e5111fb559f48e10ceb0f08db83263998e91c3d/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L14)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:14](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L14)
