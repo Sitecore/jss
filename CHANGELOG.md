@@ -16,6 +16,10 @@ Our versioning strategy is as follows:
 * `[create-sitecore-jss]` Fix nextjs-styleguide template build failure ([#2196](https://github.com/Sitecore/jss/pull/2196))
 * `[sitecore-jss-tools]` Fix `jss deploy component` command failing ([#2195](https://github.com/Sitecore/jss/pull/2195))
 
+### Chores
+
+* `[sitecore-jss-dev-tools]` `[create-sitecore-jss]` Update `glob` version to latest ([#2194]https://github.com/Sitecore/jss/pull/2194))
+
 ## 22.12.1
 
 ### 🎉 New Features & Improvements

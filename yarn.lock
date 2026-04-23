@@ -7297,7 +7297,7 @@ __metadata:
     express: "npm:^5.1.0"
     form-data: "npm:^4.0.4"
     fs-extra: "npm:^11.3.1"
-    glob: "npm:^10.4.5"
+    glob: "npm:^13.0.6"
     import-fresh: "npm:^3.3.1"
     joi: "npm:^18.0.0"
     js-yaml: "npm:^4.1.0"
@@ -13215,7 +13215,7 @@ __metadata:
     ejs: "npm:^3.1.10"
     eslint: "npm:^8.56.0"
     fs-extra: "npm:^11.3.1"
-    glob: "npm:^10.4.5"
+    glob: "npm:^13.0.6"
     inquirer: "npm:^8.2.4"
     minimist: "npm:^1.2.8"
     mocha: "npm:^11.7.5"
@@ -16737,7 +16737,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^13.0.0":
+"glob@npm:^13.0.0, glob@npm:^13.0.6":
   version: 13.0.6
   resolution: "glob@npm:13.0.6"
   dependencies:
