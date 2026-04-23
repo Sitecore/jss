@@ -6,7 +6,7 @@
 
 # Interface: EditingPreviewData
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:12](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L12)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:12](https://github.com/Sitecore/jss/blob/d119e142e3e94c58bf97a5a3f62d6b085e7e6962/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L12)
 
 Data for Next.js Preview (Editing) mode
 Used in Chromes Edit Mode only
@@ -17,7 +17,7 @@ Used in Chromes Edit Mode only
 
 > **key**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https://github.com/Sitecore/jss/blob/d119e142e3e94c58bf97a5a3f62d6b085e7e6962/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L13)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:13](https:/
 
 > `optional` **params?**: `object`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:15](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L15)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:15](https://github.com/Sitecore/jss/blob/d119e142e3e94c58bf97a5a3f62d6b085e7e6962/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L15)
 
 #### Index Signature
 
@@ -37,4 +37,4 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:15](https:/
 
 > `optional` **serverUrl?**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:14](https://github.com/Sitecore/jss/blob/d119e142e3e94c58bf97a5a3f62d6b085e7e6962/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L14)
