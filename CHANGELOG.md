@@ -13,6 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[create-sitecore-jss]` Fix nextjs-styleguide template build failure ([#2196](https://github.com/Sitecore/jss/pull/2196))
 * `[sitecore-jss-tools]` Fix `jss deploy component` command failing ([#2195](https://github.com/Sitecore/jss/pull/2195))
 
 ## 22.12.1
