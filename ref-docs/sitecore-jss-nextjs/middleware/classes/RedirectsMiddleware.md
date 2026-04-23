@@ -6,7 +6,7 @@
 
 # Class: RedirectsMiddleware
 
-Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:45](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L45)
+Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:45](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L45)
 
 Middleware / handler fetches all redirects from Sitecore instance by grapqhl service
 compares with current url and redirects to target url
@@ -21,7 +21,7 @@ compares with current url and redirects to target url
 
 > **new RedirectsMiddleware**(`config`): `RedirectsMiddleware`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L49)
+Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L49)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](http
 
 > `protected` **config**: [`RedirectsMiddlewareConfig`](../type-aliases/RedirectsMiddlewareConfig.md)
 
-Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L49)
+Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L49)
 
 #### Inherited from
 
@@ -55,7 +55,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:49](http
 
 > `protected` **defaultHostname**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:34](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L34)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:34](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L34)
 
 #### Inherited from
 
@@ -67,7 +67,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:34](https://github
 
 > `protected` **SITE\_SYMBOL**: `string` = `'sc_site'`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L33)
 
 #### Inherited from
 
@@ -79,7 +79,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:33](https://github
 
 > `protected` **excludeRoute**(`pathname`): `boolean` \| `undefined`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:76](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L76)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:76](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L76)
 
 #### Parameters
 
@@ -101,7 +101,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:76](https://github
 
 > `protected` **extractDebugHeaders**(`incomingHeaders`): `object`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:91](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L91)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:91](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L91)
 
 Safely extract all headers for debug logging
 Necessary to avoid middleware issue https://github.com/vercel/next.js/issues/39765
@@ -128,7 +128,7 @@ Object with headers as key/value pairs
 
 > `protected` **getExistsRedirect**(`req`, `siteName`): `Promise`\<`RedirectResult` \| `undefined`\>
 
-Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:80](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L80)
+Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:80](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L80)
 
 Method returns RedirectInfo when matches
 
@@ -151,7 +151,7 @@ Promise<RedirectInfo | undefined> The redirect info or undefined if no redirect 
 
 > **getHandler**(): (`req`, `res?`) => `Promise`\<`NextResponse`\<`unknown`\>\>
 
-Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:61](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L61)
+Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:61](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L61)
 
 Gets the Next.js middleware handler with error handling
 
@@ -167,7 +167,7 @@ route handler
 
 > `protected` **getHostHeader**(`req`): `string` \| `undefined`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:110](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L110)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:110](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L110)
 
 Extract 'host' header
 
@@ -191,7 +191,7 @@ Extract 'host' header
 
 > `protected` **getLanguage**(`req`): `string`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:102](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L102)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:102](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L102)
 
 Provides used language
 
@@ -217,7 +217,7 @@ language
 
 > `protected` **getRedirects**(`siteName`): `Promise`\<`RedirectInfo`[]\>
 
-Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:308](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L308)
+Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:308](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L308)
 
 Fetches all redirects for a given site from the Sitecore instance
 
@@ -239,7 +239,7 @@ A promise that resolves to an array of redirect information
 
 > `protected` **getSite**(`req`, `res?`): [`SiteInfo`](../../index/type-aliases/SiteInfo.md)
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:121](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L121)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:121](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L121)
 
 Get site information.
 Can not be used in **Preview** mode, since site will not be resolved
@@ -267,7 +267,7 @@ site information
 
 > `protected` **isPrefetch**(`req`): `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:56](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L56)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:56](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L56)
 
 Determines if the request is a Next.js (next/link) prefetch request
 
@@ -293,7 +293,7 @@ is prefetch
 
 > `protected` **isPreview**(`req`): `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:45](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L45)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:45](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L45)
 
 Determines if mode is preview
 
@@ -319,7 +319,7 @@ is preview
 
 > `protected` **processRedirectRequest**(`req`, `res?`): `Promise`\<`NextResponse`\<`unknown`\>\>
 
-Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:161](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L161)
+Defined in: [sitecore-jss-nextjs/src/middleware/redirects-middleware.ts:161](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/redirects-middleware.ts#L161)
 
 #### Parameters
 
@@ -340,7 +340,7 @@ The redirect response.
 
 > `protected` **rewrite**(`rewritePath`, `req`, `res`, `skipHeader?`): `NextResponse`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:138](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L138)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:138](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L138)
 
 Create a rewrite response
 

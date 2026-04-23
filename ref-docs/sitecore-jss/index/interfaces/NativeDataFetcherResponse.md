@@ -6,7 +6,7 @@
 
 # Interface: NativeDataFetcherResponse\<T\>
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/native-fetcher.ts#L23)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:23](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss/src/native-fetcher.ts#L23)
 
 Response data for an HTTP request sent to an API
 
@@ -22,7 +22,7 @@ Response data for an HTTP request sent to an API
 
 > **data**: `T`
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:29](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/native-fetcher.ts#L29)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:29](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss/src/native-fetcher.ts#L29)
 
 Response content
 
@@ -32,7 +32,7 @@ Response content
 
 > `optional` **headers?**: `HeadersInit`
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:31](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/native-fetcher.ts#L31)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:31](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss/src/native-fetcher.ts#L31)
 
 Response headers
 
@@ -42,7 +42,7 @@ Response headers
 
 > **status**: `number`
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/native-fetcher.ts#L25)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:25](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss/src/native-fetcher.ts#L25)
 
 HTTP status code of the response (i.e. 200, 404)
 
@@ -52,6 +52,6 @@ HTTP status code of the response (i.e. 200, 404)
 
 > **statusText**: `string`
 
-Defined in: [packages/sitecore-jss/src/native-fetcher.ts:27](https://github.com/Sitecore/jss/blob/de5a366b5c64e694b6838ed9bfcd3f3d778e5453/packages/sitecore-jss/src/native-fetcher.ts#L27)
+Defined in: [packages/sitecore-jss/src/native-fetcher.ts:27](https://github.com/Sitecore/jss/blob/160c9db33d573313249f7ebd0d506c84e50e0731/packages/sitecore-jss/src/native-fetcher.ts#L27)
 
 HTTP status text of the response (i.e. 'OK', 'Bad Request')
