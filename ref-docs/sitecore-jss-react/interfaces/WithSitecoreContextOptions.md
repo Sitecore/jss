@@ -6,7 +6,7 @@
 
 # Interface: WithSitecoreContextOptions
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/d119e142e3e94c58bf97a5a3f62d6b085e7e6962/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L9)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:9
 
 > `optional` **updatable?**: `boolean`
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/d119e142e3e94c58bf97a5a3f62d6b085e7e6962/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)
