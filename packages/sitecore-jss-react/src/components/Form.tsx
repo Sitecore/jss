@@ -60,15 +60,20 @@ export const Form = ({ params, rendering }: FormProps) => {
           }
           setError(true);
         });
-    } else {
-      // If we are in editing mode, we don't want to send any events
-      if (!isEditing) {
-        subscribeToFormSubmitEvent(formRef.current, rendering.uid);
-      }
-
-      executeScriptElements(formRef.current);
     }
-  }, [content]);
+  }, [content, params.FormId, context.api?.edge?.contextId, context.api?.edge?.edgeUrl, isEditing]);
+
+  useEffect(() => {
+    if (!content || !formRef.current) return;
+
+    formRef.current.innerHTML = content;
+    executeScriptElements(formRef.current);
+
+    // If we are in editing mode, we don't want to send any events
+    if (!isEditing) {
+      subscribeToFormSubmitEvent(formRef.current, rendering.uid);
+    }
+  }, [content, isEditing, rendering.uid]);
 
   if (isEditing) {
     if (error) {
@@ -78,12 +83,5 @@ export const Form = ({ params, rendering }: FormProps) => {
     }
   }
 
-  return (
-    <div
-      ref={formRef}
-      dangerouslySetInnerHTML={{ __html: content }}
-      className={params.styles?.trimEnd()}
-      id={id ? id : undefined}
-    ></div>
-  );
+  return <div ref={formRef} className={params.styles?.trimEnd()} id={id ? id : undefined}></div>;
 };
