@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../../../README.md) / [index](../../../README.md) / [mediaApi](../README.md) / updateImageUrl
 
-# Variable: updateImageUrl()
+# Variable: updateImageUrl
 
 > `const` **updateImageUrl**: (`url`, `params?`, `mediaUrlPrefix?`) => `string`
 

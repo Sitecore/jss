@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../../../README.md) / [index](../../../README.md) / [mediaApi](../README.md) / findEditorImageTag
 
-# Variable: findEditorImageTag()
+# Variable: findEditorImageTag
 
 > `const` **findEditorImageTag**: (`editorMarkup`) => \{ `attrs`: \{\[`key`: `string`\]: `string`; \}; `imgTag`: `string`; \} \| `null`
 

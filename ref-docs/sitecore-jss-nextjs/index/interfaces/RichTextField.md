@@ -16,7 +16,7 @@ Defined in: sitecore-jss-react/types/components/RichText.d.ts:5
 
 ### editable?
 
-> `optional` **editable**: `string`
+> `optional` **editable?**: `string`
 
 Defined in: sitecore-jss-react/types/components/RichText.d.ts:7
 
@@ -24,7 +24,7 @@ Defined in: sitecore-jss-react/types/components/RichText.d.ts:7
 
 ### metadata?
 
-> `optional` **metadata**: `object`
+> `optional` **metadata?**: `object`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:125
 
@@ -40,6 +40,6 @@ Defined in: sitecore-jss/types/layout/models.d.ts:125
 
 ### value?
 
-> `optional` **value**: `string`
+> `optional` **value?**: `string`
 
 Defined in: sitecore-jss-react/types/components/RichText.d.ts:6

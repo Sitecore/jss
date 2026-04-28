@@ -6,7 +6,11 @@
 
 # Class: FileUpload
 
+<<<<<<< HEAD
 Defined in: [src/components/field-templates/file-upload.tsx:8](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L8)
+=======
+Defined in: [src/components/field-templates/file-upload.tsx:8](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L8)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 ## Extends
 
@@ -91,7 +95,11 @@ declare context: React.ContextType<typeof MyContext>
 
 > **fileInputRef**: `RefObject`\<`null` \| `HTMLInputElement`\>
 
+<<<<<<< HEAD
 Defined in: [src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+=======
+Defined in: [src/components/field-templates/file-upload.tsx:9](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L9)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 ***
 
@@ -111,7 +119,11 @@ Defined in: node\_modules/@types/react/index.d.ts:970
 
 > **SIZE\_UNITS**: `object`
 
+<<<<<<< HEAD
 Defined in: [src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+=======
+Defined in: [src/components/field-templates/file-upload.tsx:11](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L11)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Index Signature
 
@@ -133,7 +145,7 @@ Defined in: node\_modules/@types/react/index.d.ts:971
 
 ### contextType?
 
-> `static` `optional` **contextType**: `Context`\<`any`\>
+> `static` `optional` **contextType?**: `Context`\<`any`\>
 
 Defined in: node\_modules/@types/react/index.d.ts:922
 
@@ -166,7 +178,7 @@ class Foo extends React.Component {
 
 ### ~~propTypes?~~
 
-> `static` `optional` **propTypes**: `any`
+> `static` `optional` **propTypes?**: `any`
 
 Defined in: node\_modules/@types/react/index.d.ts:928
 
@@ -230,7 +242,11 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 > **componentDidUpdate**(`prevProps`): `void`
 
+<<<<<<< HEAD
 Defined in: [src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+=======
+Defined in: [src/components/field-templates/file-upload.tsx:18](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L18)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Called immediately after updating occurs. Not called for the initial render.
 
@@ -412,7 +428,11 @@ Defined in: node\_modules/@types/react/index.d.ts:967
 
 > **getEnabledValidation**(`itemId`): `undefined` \| `ValidationDataModel`
 
+<<<<<<< HEAD
 Defined in: [src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+=======
+Defined in: [src/components/field-templates/file-upload.tsx:24](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L24)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -430,7 +450,11 @@ Defined in: [src/components/field-templates/file-upload.tsx:24](https://github.c
 
 > **getFileSizeUnitName**(`value`): `string`
 
+<<<<<<< HEAD
 Defined in: [src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+=======
+Defined in: [src/components/field-templates/file-upload.tsx:30](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L30)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -478,7 +502,11 @@ lifecycle events from running.
 
 > **onChangeField**(`files`, `field`, `cb`): `void`
 
+<<<<<<< HEAD
 Defined in: [src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+=======
+Defined in: [src/components/field-templates/file-upload.tsx:34](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L34)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -498,7 +526,11 @@ Defined in: [src/components/field-templates/file-upload.tsx:34](https://github.c
 
 > **render**(): `Element`
 
+<<<<<<< HEAD
 Defined in: [src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+=======
+Defined in: [src/components/field-templates/file-upload.tsx:98](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/field-templates/file-upload.tsx#L98)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Returns
 
@@ -526,7 +558,11 @@ Defined in: node\_modules/@types/react/index.d.ts:962
 
 | Parameter | Type |
 | ------ | ------ |
+<<<<<<< HEAD
 | `state` | `null` \| \{ \} \| (`prevState`, `props`) => `null` \| \{ \} \| `Pick`\<\{ \}, `K`\> \| `Pick`\<\{ \}, `K`\> |
+=======
+| `state` | \{ \} \| ((`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\> \| `null`) \| `Pick`\<\{ \}, `K`\> \| `null` |
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 | `callback?` | () => `void` |
 
 #### Returns

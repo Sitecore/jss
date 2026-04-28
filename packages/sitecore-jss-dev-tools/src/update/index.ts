@@ -24,7 +24,7 @@ const getEntries = (folder: string): FileEntry[] => {
   const files = walkSync(folder);
   const entries: { path: string; name: string }[] = [];
   files.forEach((entry) => {
-    const entryPath = path.join('.', entry);
+    const entryPath = path.isAbsolute(entry) ? entry : path.join('.', entry);
     // remove initial folder and convert to fwd slash
     let name = path.relative(folder, entryPath);
     if (entryPath.endsWith(path.sep)) {

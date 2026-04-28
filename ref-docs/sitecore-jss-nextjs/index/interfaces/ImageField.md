@@ -12,7 +12,7 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:9
 
 ### editable?
 
-> `optional` **editable**: `string`
+> `optional` **editable?**: `string`
 
 Defined in: sitecore-jss-react/types/components/Image.d.ts:11
 
@@ -20,6 +20,6 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:11
 
 ### value?
 
-> `optional` **value**: [`ImageFieldValue`](ImageFieldValue.md)
+> `optional` **value?**: [`ImageFieldValue`](ImageFieldValue.md)
 
 Defined in: sitecore-jss-react/types/components/Image.d.ts:10

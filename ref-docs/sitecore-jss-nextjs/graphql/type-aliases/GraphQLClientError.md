@@ -17,4 +17,4 @@ In cases where an error status was sent back from the server (`!response.ok`), t
 
 ### code?
 
-> `optional` **code**: `string`
+> `optional` **code?**: `string`

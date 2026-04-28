@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-vue](../../../../README.md) / [mediaApi](../README.md) / getRequiredParams
 
-# Variable: getRequiredParams()
+# Variable: getRequiredParams
 
 > `const` **getRequiredParams**: (`qs`) => `object`
 

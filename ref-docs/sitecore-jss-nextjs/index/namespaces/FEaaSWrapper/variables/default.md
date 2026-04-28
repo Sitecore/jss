@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../../../README.md) / [index](../../../README.md) / [FEaaSWrapper](../README.md) / default
 
-# Variable: default()
+# Variable: default
 
 > `const` **default**: (`props`) => `JSX.Element`
 

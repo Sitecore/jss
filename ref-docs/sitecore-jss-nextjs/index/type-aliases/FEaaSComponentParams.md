@@ -16,7 +16,7 @@ Params from a Sitecore FEaaS rendering
 
 ### ComponentDataOverride?
 
-> `optional` **ComponentDataOverride**: `string`
+> `optional` **ComponentDataOverride?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:15
 
@@ -24,7 +24,7 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:15
 
 ### ComponentHostName?
 
-> `optional` **ComponentHostName**: `string`
+> `optional` **ComponentHostName?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:13
 
@@ -32,7 +32,7 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:13
 
 ### ComponentHTMLOverride?
 
-> `optional` **ComponentHTMLOverride**: `string`
+> `optional` **ComponentHTMLOverride?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:16
 
@@ -40,7 +40,7 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:16
 
 ### ComponentId?
 
-> `optional` **ComponentId**: `string`
+> `optional` **ComponentId?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:10
 
@@ -48,7 +48,7 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:10
 
 ### ComponentInstanceId?
 
-> `optional` **ComponentInstanceId**: `string`
+> `optional` **ComponentInstanceId?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:14
 
@@ -56,7 +56,7 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:14
 
 ### ComponentRevision?
 
-> `optional` **ComponentRevision**: `RevisionType`
+> `optional` **ComponentRevision?**: `RevisionType`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:12
 
@@ -64,7 +64,7 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:12
 
 ### ComponentVersion?
 
-> `optional` **ComponentVersion**: `string`
+> `optional` **ComponentVersion?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:11
 
@@ -72,7 +72,7 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:11
 
 ### LibraryId?
 
-> `optional` **LibraryId**: `string`
+> `optional` **LibraryId?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:9
 
@@ -80,7 +80,7 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:9
 
 ### RenderingIdentifier?
 
-> `optional` **RenderingIdentifier**: `string`
+> `optional` **RenderingIdentifier?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:18
 
@@ -88,6 +88,6 @@ Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:18
 
 ### styles?
 
-> `optional` **styles**: `string`
+> `optional` **styles?**: `string`
 
 Defined in: sitecore-jss-react/types/components/FEaaSComponent.d.ts:17

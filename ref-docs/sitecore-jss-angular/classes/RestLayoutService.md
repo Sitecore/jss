@@ -39,7 +39,7 @@ Defined in: packages/sitecore-jss/types/layout/rest-layout-service.d.ts:55
 
 ## Properties
 
-### getDefaultFetcher()
+### getDefaultFetcher
 
 > `protected` **getDefaultFetcher**: \<`T`\>(`req?`, `res?`) => (`url`, `data?`) => `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
@@ -65,18 +65,7 @@ Provides default
 
 default fetcher
 
-> (`url`, `data?`): `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
-
-##### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `url` | `string` |
-| `data?` | `RequestInit` |
-
-##### Returns
-
-`Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
+(`url`, `data?`) => `Promise`\<[`NativeDataFetcherResponse`](../interfaces/NativeDataFetcherResponse.md)\<`T`\>\>
 
 #### See
 
@@ -84,7 +73,7 @@ NativeDataFetcher data fetcher
 
 ***
 
-### getFetcher()
+### getFetcher
 
 > `protected` **getFetcher**: (`req?`, `res?`) => [`HttpDataFetcher`](../type-aliases/HttpDataFetcher.md)\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\> \| `NativeDataFetcherFunction`\<[`LayoutServiceData`](../interfaces/LayoutServiceData.md)\>
 
@@ -103,7 +92,7 @@ Defined in: packages/sitecore-jss/types/layout/rest-layout-service.d.ts:84
 
 ***
 
-### getFetchParams()
+### getFetchParams
 
 > `protected` **getFetchParams**: (`language?`) => `FetchParams`
 

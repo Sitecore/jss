@@ -6,7 +6,11 @@
 
 # Class: RestDictionaryService
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L39)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L39)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Fetch dictionary data using the Sitecore Dictionary Service REST API.
 Uses NativeDataFetcher as the default data fetcher (@see NativeDataFetcher).
@@ -21,7 +25,11 @@ Uses NativeDataFetcher as the default data fetcher (@see NativeDataFetcher).
 
 > **new RestDictionaryService**(`options`): `RestDictionaryService`
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -43,7 +51,11 @@ Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https
 
 > **options**: [`RestDictionaryServiceConfig`](../type-aliases/RestDictionaryServiceConfig.md)
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:40](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L40)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Configuration options
 
@@ -59,7 +71,11 @@ Configuration options
 
 > **get** **defaultFetcher**(): [`HttpDataFetcher`](../../index/type-aliases/HttpDataFetcher.md)\<[`RestDictionaryServiceData`](../type-aliases/RestDictionaryServiceData.md)\>
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:47](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L47)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:47](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L47)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Provides default
 
@@ -77,7 +93,11 @@ NativeDataFetcher data fetcher
 
 > **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:61](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L61)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:61](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L61)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Fetch dictionary data for a language.
 
@@ -103,7 +123,11 @@ dictionary phrases
 
 > `protected` **getCacheClient**(): [`CacheClient`](../../index/interfaces/CacheClient.md)\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -125,7 +149,11 @@ implementation
 
 > **getCacheValue**(`key`): `null` \| [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Retrieves a
 
@@ -156,7 +184,11 @@ The
 
 > `protected` **getUrl**(`language`): `string`
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:83](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L83)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/rest-dictionary-service.ts:83](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/rest-dictionary-service.ts#L83)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Generate dictionary service url
 
@@ -178,7 +210,11 @@ dictionary service url
 
 > **setCacheValue**(`key`, `value`): [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+=======
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Caches a
 

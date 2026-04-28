@@ -37,7 +37,7 @@ The language
 
 ### retries?
 
-> `optional` **retries**: `number`
+> `optional` **retries?**: `number`
 
 Defined in: sitecore-jss/types/graphql-request-client.d.ts:74
 
@@ -51,7 +51,7 @@ Number of retries for client. Will use the specified `retryStrategy`.
 
 ### retryStrategy?
 
-> `optional` **retryStrategy**: [`RetryStrategy`](../../graphql/interfaces/RetryStrategy.md)
+> `optional` **retryStrategy?**: [`RetryStrategy`](../../graphql/interfaces/RetryStrategy.md)
 
 Defined in: sitecore-jss/types/graphql-request-client.d.ts:79
 

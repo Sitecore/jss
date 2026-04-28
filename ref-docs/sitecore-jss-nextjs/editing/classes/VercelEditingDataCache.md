@@ -6,7 +6,11 @@
 
 # Class: VercelEditingDataCache
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L11)
+=======
+Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:11](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L11)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Implementation of editing cache for Vercel deployments
 Uses Vercel KV database and client to store data
@@ -22,7 +26,11 @@ Set TTL for cache data in constructor (default: 60 seconds)
 
 > **new VercelEditingDataCache**(`redisUrl`, `redisToken`): `VercelEditingDataCache`
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L19)
+=======
+Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L19)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -41,7 +49,11 @@ Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:19](ht
 
 > `protected` **redisCache**: `VercelKV`
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L12)
+=======
+Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L12)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 ## Methods
 
@@ -49,7 +61,11 @@ Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:12](ht
 
 > **get**(`key`): `Promise`\<`undefined` \| [`EditingData`](../type-aliases/EditingData.md)\>
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L41)
+=======
+Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L41)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -71,7 +87,11 @@ Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:41](ht
 
 > **set**(`key`, `editingData`): `Promise`\<`void`\>
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:31](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L31)
+=======
+Defined in: [sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts:31](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/vercel-editing-data-cache.ts#L31)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 

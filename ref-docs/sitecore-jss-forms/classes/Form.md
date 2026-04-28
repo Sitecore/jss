@@ -6,7 +6,11 @@
 
 # Class: Form
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:65](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L65)
+=======
+Defined in: [src/components/form.tsx:65](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L65)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 ## Extends
 
@@ -18,7 +22,11 @@ Defined in: [src/components/form.tsx:65](https://github.com/Sitecore/jss/blob/43
 
 > **new Form**(`props`): `Form`
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:68](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L68)
+=======
+Defined in: [src/components/form.tsx:68](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L68)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -92,7 +100,7 @@ Defined in: node\_modules/@types/react/index.d.ts:971
 
 ### contextType?
 
-> `static` `optional` **contextType**: `Context`\<`any`\>
+> `static` `optional` **contextType?**: `Context`\<`any`\>
 
 Defined in: node\_modules/@types/react/index.d.ts:922
 
@@ -125,7 +133,7 @@ class Foo extends React.Component {
 
 ### ~~propTypes?~~
 
-> `static` `optional` **propTypes**: `any`
+> `static` `optional` **propTypes?**: `any`
 
 Defined in: node\_modules/@types/react/index.d.ts:928
 
@@ -145,7 +153,11 @@ Only kept in types for backwards compatibility. Will be removed in a future majo
 
 > **collectCurrentFieldValues**(): `object`[]
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:336](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L336)
+=======
+Defined in: [src/components/form.tsx:336](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L336)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Returns
 
@@ -363,7 +375,11 @@ this from being invoked.
 
 > **createFieldComponent**(`field`): `ReactNode`
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:143](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L143)
+=======
+Defined in: [src/components/form.tsx:143](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L143)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Creates a field component to render a field based on the form schema data
 
@@ -407,7 +423,11 @@ Defined in: node\_modules/@types/react/index.d.ts:967
 
 > **getCurrentFieldState**(`field`): `null` \| `FieldState`
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:175](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L175)
+=======
+Defined in: [src/components/form.tsx:175](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L175)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Acquires the current form field state for a single field.
 This state can come from two possible sources:
@@ -463,7 +483,11 @@ lifecycle events from running.
 
 > **onButtonClick**(`buttonName`): `void`
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:219](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L219)
+=======
+Defined in: [src/components/form.tsx:219](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L219)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Handler triggered by child components that informs us which button triggered a submit.
 This is important for multistep forms to disambiguate between back and next/submit buttons.
@@ -484,7 +508,11 @@ This is important for multistep forms to disambiguate between back and next/subm
 
 > **onFieldChange**(`key`, `value`, `isValid`, `errors`): `void`
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:231](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L231)
+=======
+Defined in: [src/components/form.tsx:231](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L231)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Handler triggered by child components that updates a given field's current value
 (which we then push back down to the child via prop)
@@ -508,7 +536,11 @@ Handler triggered by child components that updates a given field's current value
 
 > **onSubmit**(`e`): `void`
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:247](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L247)
+=======
+Defined in: [src/components/form.tsx:247](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L247)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Handler triggered when the form is submitted. May transition its state between
 steps in a multistep form or handle a final submit.
@@ -529,7 +561,11 @@ steps in a multistep form or handle a final submit.
 
 > **render**(): `Element`
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:90](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L90)
+=======
+Defined in: [src/components/form.tsx:90](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L90)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Returns
 
@@ -545,7 +581,11 @@ Defined in: [src/components/form.tsx:90](https://github.com/Sitecore/jss/blob/43
 
 > **resetFieldsState**(): `void`
 
+<<<<<<< HEAD
 Defined in: [src/components/form.tsx:349](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L349)
+=======
+Defined in: [src/components/form.tsx:349](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L349)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Removes the current fields' mutated state from this.state,
 which prevents validation issues and mutable field state from following us
@@ -573,7 +613,11 @@ Defined in: node\_modules/@types/react/index.d.ts:962
 
 | Parameter | Type |
 | ------ | ------ |
+<<<<<<< HEAD
 | `state` | `null` \| `FormState` & `FieldStateCollection` \| (`prevState`, `props`) => `null` \| `FormState` & `FieldStateCollection` \| `Pick`\<`FormState` & `FieldStateCollection`, `K`\> \| `Pick`\<`FormState` & `FieldStateCollection`, `K`\> |
+=======
+| `state` | `FormState` & `FieldStateCollection` \| ((`prevState`, `props`) => `FormState` & `FieldStateCollection` \| `Pick`\<`FormState` & `FieldStateCollection`, `K`\> \| `null`) \| `Pick`\<`FormState` & `FieldStateCollection`, `K`\> \| `null` |
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 | `callback?` | () => `void` |
 
 #### Returns

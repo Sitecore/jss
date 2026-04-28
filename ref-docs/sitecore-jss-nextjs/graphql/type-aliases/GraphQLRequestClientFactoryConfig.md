@@ -16,7 +16,7 @@ Configuration type for
 
 ### apiKey?
 
-> `optional` **apiKey**: `string`
+> `optional` **apiKey?**: `string`
 
 Defined in: sitecore-jss/types/graphql-request-client.d.ts:97
 

@@ -16,7 +16,7 @@ Data from rendering params on Sitecore's BYOC rendering
 
 ### ComponentDataOverride?
 
-> `optional` **ComponentDataOverride**: `string`
+> `optional` **ComponentDataOverride?**: `string`
 
 Defined in: sitecore-jss-react/types/components/BYOCComponent.d.ts:31
 
@@ -26,7 +26,7 @@ A JSON object with data sources to be fetched and passed to the component
 
 ### ComponentName?
 
-> `optional` **ComponentName**: `string`
+> `optional` **ComponentName?**: `string`
 
 Defined in: sitecore-jss-react/types/components/BYOCComponent.d.ts:23
 
@@ -36,7 +36,7 @@ Name of the component to render
 
 ### ComponentProps?
 
-> `optional` **ComponentProps**: `string`
+> `optional` **ComponentProps?**: `string`
 
 Defined in: sitecore-jss-react/types/components/BYOCComponent.d.ts:27
 
@@ -46,7 +46,7 @@ JSON props to pass into rendered component
 
 ### RenderingIdentifier?
 
-> `optional` **RenderingIdentifier**: `string`
+> `optional` **RenderingIdentifier?**: `string`
 
 Defined in: sitecore-jss-react/types/components/BYOCComponent.d.ts:36
 
@@ -54,7 +54,7 @@ Defined in: sitecore-jss-react/types/components/BYOCComponent.d.ts:36
 
 ### styles?
 
-> `optional` **styles**: `string`
+> `optional` **styles?**: `string`
 
 Defined in: sitecore-jss-react/types/components/BYOCComponent.d.ts:35
 

@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-react](../README.md) / getContentStylesheetLink
 
-# Variable: getContentStylesheetLink()
+# Variable: getContentStylesheetLink
 
 > `const` **getContentStylesheetLink**: (`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl?`) => `HTMLLink` \| `null`
 

@@ -21,7 +21,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 ### pageSize?
 
-> `optional` **pageSize**: `number`
+> `optional` **pageSize?**: `number`
 
 common variable for all GraphQL queries
 it will be used for every type of query to regulate result batch size

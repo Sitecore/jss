@@ -6,7 +6,11 @@
 
 # Class: PersonalizeHelper
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:17](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L17)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:17](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L17)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 ## Constructors
 
@@ -14,7 +18,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:17](https:/
 
 > **new PersonalizeHelper**(`config`): `PersonalizeHelper`
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L21)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L21)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -32,7 +40,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https:/
 
 > `protected` **config**: [`PersonalizeConfig`](../type-aliases/PersonalizeConfig.md)
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L21)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L21)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 ## Methods
 
@@ -40,7 +52,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:21](https:/
 
 > `protected` **excludeRoute**(`pathname`): `undefined` \| `boolean`
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:187](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L187)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:187](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L187)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -58,7 +74,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:187](https:
 
 > `protected` **extractDebugHeaders**(`incomingHeaders`): `object`
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:191](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L191)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:191](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L191)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -76,7 +96,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:191](https:
 
 > `protected` **getExperienceParams**(`req`): `ExperienceParams`
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:233](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L233)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:233](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L233)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -94,7 +118,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:233](https:
 
 > `protected` **getHostHeader**(`req`): `string`
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:183](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L183)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:183](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L183)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -112,7 +140,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:183](https:
 
 > `protected` **getLanguage**(`layoutData`): `string`
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:179](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L179)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:179](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L179)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -130,7 +162,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:179](https:
 
 > `protected` **getPersonalizeExecutions**(`personalizeInfo`, `language`): `PersonalizeExecution`[]
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:254](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L254)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:254](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L254)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -149,7 +185,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:254](https:
 
 > `protected` **getVariantIds**(`req`, `language`, `pathname`): `Promise`\<`string`[]\>
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:117](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L117)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:117](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L117)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -169,7 +209,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:117](https:
 
 > `protected` **initPersonalizeServer**(`request`, `response`, `hostname`): `Promise`\<`void`\>
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:101](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L101)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:101](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L101)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Init CloudSDK personalization on server side
 
@@ -191,7 +235,11 @@ Init CloudSDK personalization on server side
 
 > `protected` **personalize**(`__namedParameters`, `request`): `Promise`\<\{ `variantId`: `string`; \}\>
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:199](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L199)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:199](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L199)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Parameters
 
@@ -215,7 +263,11 @@ Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:199](https:
 
 > **personalizeLayoutData**(`req`, `res`, `layoutData`): `Promise`\<`LayoutServiceData`\>
 
+<<<<<<< HEAD
 Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:35](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L35)
+=======
+Defined in: [sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts:35](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-proxy/src/personalize/PersonalizeHelper.ts#L35)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 Performs personalize on layout data before a page is rendered
 

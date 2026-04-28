@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / resetEditorChromes
 
-# Variable: resetEditorChromes()
+# Variable: resetEditorChromes
 
 > `const` **resetEditorChromes**: () => `void`
 

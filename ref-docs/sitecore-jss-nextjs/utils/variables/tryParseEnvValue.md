@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [utils](../README.md) / tryParseEnvValue
 
-# Variable: tryParseEnvValue()
+# Variable: tryParseEnvValue
 
 > `const` **tryParseEnvValue**: \<`T`\>(`envValue`, `defaultValue`) => `T`
 

@@ -10,12 +10,12 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:5
 
 ## Indexable
 
-\[`attributeName`: `string`\]: `unknown`
+> \[`attributeName`: `string`\]: `unknown`
 
 ## Properties
 
 ### src?
 
-> `optional` **src**: `string`
+> `optional` **src?**: `string`
 
 Defined in: sitecore-jss-react/types/components/Image.d.ts:7

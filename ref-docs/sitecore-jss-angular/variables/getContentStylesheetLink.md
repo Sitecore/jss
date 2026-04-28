@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / getContentStylesheetLink
 
-# Variable: getContentStylesheetLink()
+# Variable: getContentStylesheetLink
 
 > `const` **getContentStylesheetLink**: (`layoutData`, `sitecoreEdgeContextId`, `sitecoreEdgeUrl?`) => [`HTMLLink`](../type-aliases/HTMLLink.md) \| `null`
 

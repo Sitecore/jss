@@ -20,7 +20,7 @@ Shape of route data returned from Sitecore Layout Service
 
 ### databaseName?
 
-> `optional` **databaseName**: `string`
+> `optional` **databaseName?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:58
 
@@ -28,7 +28,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:58
 
 ### deviceId?
 
-> `optional` **deviceId**: `string`
+> `optional` **deviceId?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:59
 
@@ -36,7 +36,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:59
 
 ### displayName?
 
-> `optional` **displayName**: `string`
+> `optional` **displayName?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:56
 
@@ -44,7 +44,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:56
 
 ### fields?
 
-> `optional` **fields**: `Fields`
+> `optional` **fields?**: `Fields`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:57
 
@@ -52,7 +52,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:57
 
 ### itemId?
 
-> `optional` **itemId**: `string`
+> `optional` **itemId?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:66
 
@@ -60,7 +60,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:66
 
 ### itemLanguage?
 
-> `optional` **itemLanguage**: `string`
+> `optional` **itemLanguage?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:60
 
@@ -68,7 +68,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:60
 
 ### itemVersion?
 
-> `optional` **itemVersion**: `number`
+> `optional` **itemVersion?**: `number`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:61
 
@@ -76,7 +76,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:61
 
 ### layoutId?
 
-> `optional` **layoutId**: `string`
+> `optional` **layoutId?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:62
 
@@ -100,7 +100,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:65
 
 ### templateId?
 
-> `optional` **templateId**: `string`
+> `optional` **templateId?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:63
 
@@ -108,6 +108,6 @@ Defined in: sitecore-jss/types/layout/models.d.ts:63
 
 ### templateName?
 
-> `optional` **templateName**: `string`
+> `optional` **templateName?**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:64

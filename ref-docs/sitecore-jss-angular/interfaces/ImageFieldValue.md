@@ -6,7 +6,11 @@
 
 # Interface: ImageFieldValue
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:19](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L19)
+=======
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:19](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L19)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 ## Extended by
 
@@ -14,23 +18,31 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:19]
 
 ## Indexable
 
-\[`key`: `string`\]: `unknown`
+> \[`key`: `string`\]: `unknown`
 
 ## Properties
 
 ### src?
 
-> `optional` **src**: `string`
+> `optional` **src?**: `string`
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:21](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L21)
+=======
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:21](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L21)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 ***
 
 ### srcSet?
 
-> `optional` **srcSet**: `object`[]
+> `optional` **srcSet?**: `object`[]
 
+<<<<<<< HEAD
 Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
+=======
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
+>>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
 
 #### Index Signature
 
