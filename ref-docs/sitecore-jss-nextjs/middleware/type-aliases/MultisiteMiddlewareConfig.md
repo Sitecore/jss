@@ -8,7 +8,7 @@
 
 > **MultisiteMiddlewareConfig** = `Omit`\<[`MiddlewareBaseConfig`](MiddlewareBaseConfig.md), `"disabled"`\> & `object`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:21](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L21)
+Defined in: [sitecore-jss-nextjs/src/middleware/multisite-middleware.ts:21](https://github.com/Sitecore/jss/blob/52e25b8422c4fe896d141e97a2023346135ddfd2/packages/sitecore-jss-nextjs/src/middleware/multisite-middleware.ts#L21)
 
 ## Type declaration
 

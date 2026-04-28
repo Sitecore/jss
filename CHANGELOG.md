@@ -17,6 +17,25 @@ Our versioning strategy is as follows:
 
 ## 22.12.0
 
+### 🐛 Bug Fixes
+
+* `[create-sitecore-jss]` Fix nextjs-styleguide template build failure ([#2196](https://github.com/Sitecore/jss/pull/2196))
+* `[sitecore-jss-tools]` Fix `jss deploy component` command failing ([#2195](https://github.com/Sitecore/jss/pull/2195))
+* `[sitecore-jss-react]` Form component loses interactivity and state between rerenders ([#2197](https://github.com/Sitecore/jss/pull/2197))
+
+### Chores
+
+* `[sitecore-jss-dev-tools]` `[create-sitecore-jss]` Update `glob` version to latest ([#2194]https://github.com/Sitecore/jss/pull/2194))
+
+## 22.12.1
+
+### 🎉 New Features & Improvements
+
+* `[Next.js]` `[sitecore-jss-nextjs]` Upgrade Next.js to 16.2 ([#2193](https://github.com/Sitecore/jss/pull/2193))
+* `[sitecore-jss]` Add Unified UI origin to allowed origins ([#2192](https://github.com/Sitecore/jss/pull/2192))
+
+## 22.12.0
+
 ### 🎉 New Features & Improvements
 
 * Migrate ESLint to v9 and flat config ([#2186](https://github.com/Sitecore/jss/pull/2186))([#2187](https://github.com/Sitecore/jss/pull/2187))

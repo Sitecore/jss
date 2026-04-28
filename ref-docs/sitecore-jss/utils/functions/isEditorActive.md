@@ -8,7 +8,7 @@
 
 > **isEditorActive**(): `boolean`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:123](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/editing/utils.ts#L123)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:123](https://github.com/Sitecore/jss/blob/52e25b8422c4fe896d141e97a2023346135ddfd2/packages/sitecore-jss/src/editing/utils.ts#L123)
 
 Determines whether the current execution context is within a Sitecore editor.
 Sitecore Editor environment can be identified only in the browser

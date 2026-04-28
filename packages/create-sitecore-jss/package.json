@@ -1,6 +1,6 @@
 {
   "name": "create-sitecore-jss",
-  "version": "22.12.1",
+  "version": "22.13.0-canary.7",
   "description": "Sitecore JSS initializer",
   "bin": "./dist/index.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
     "fs-extra": "^11.3.1",
-    "glob": "^10.4.5",
+    "glob": "^13.0.6",
     "inquirer": "^8.2.4",
     "minimist": "^1.2.8"
   },

@@ -197,4 +197,55 @@ describe('Form', () => {
       );
     });
   });
+
+  it('initializes form DOM only once (prevents re-initialization on re-render)', async () => {
+    const loadFormSpy = sinon
+      .stub()
+      .resolves('<form id="test-form"><input type="text" name="field1" /></form>');
+    const subscribeSpy = sinon.spy();
+    const execSpy = sinon.spy();
+
+    mockFormModule({
+      loadForm: loadFormSpy,
+      subscribeToFormSubmitEvent: subscribeSpy,
+      executeScriptElements: execSpy,
+    });
+
+    const rendered = render(
+      <SitecoreContext api={context.api} layoutData={context.layoutData.normal}>
+        <Form rendering={rendering} params={rendering.params} />
+      </SitecoreContext>
+    );
+
+    // Wait for initial render
+    await waitFor(() => {
+      expect(execSpy.calledOnce).to.be.true;
+      expect(subscribeSpy.calledOnce).to.be.true;
+    });
+
+    // Simulate user entering data
+    const input = rendered.container.querySelector('input[name="field1"]') as HTMLInputElement;
+    if (input) {
+      input.value = 'user-entered-value';
+    }
+
+    // Force re-render with same props
+    rendered.rerender(
+      <SitecoreContext api={context.api} layoutData={context.layoutData.normal}>
+        <Form rendering={rendering} params={rendering.params} />
+      </SitecoreContext>
+    );
+
+    await waitFor(() => {
+      // Scripts and subscription should still only be called once
+      expect(execSpy.calledOnce).to.be.true;
+      expect(subscribeSpy.calledOnce).to.be.true;
+
+      // User input should be preserved
+      const inputAfterRerender = rendered.container.querySelector(
+        'input[name="field1"]'
+      ) as HTMLInputElement;
+      expect(inputAfterRerender?.value).to.equal('user-entered-value');
+    });
+  });
 });

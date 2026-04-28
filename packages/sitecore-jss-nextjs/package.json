@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "22.12.1",
+  "version": "22.13.0-canary.7",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -53,7 +53,7 @@
     "eslint-plugin-react": "^7.37.5",
     "jsdom": "^26.1.0",
     "mocha": "^11.7.0",
-    "next": "^16.1.0",
+    "next": "^16.2.0",
     "nock": "^13.3.0",
     "nyc": "^17.1.0",
     "react": "^19.1.0",
@@ -67,14 +67,14 @@
     "@sitecore-cloudsdk/core": "^0.5.2",
     "@sitecore-cloudsdk/events": "^0.5.2",
     "@sitecore-cloudsdk/personalize": "^0.5.2",
-    "next": "^16.1.0",
+    "next": "^16.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.12.1",
-    "@sitecore-jss/sitecore-jss-dev-tools": "22.12.1",
-    "@sitecore-jss/sitecore-jss-react": "22.12.1",
+    "@sitecore-jss/sitecore-jss": "22.13.0-canary.7",
+    "@sitecore-jss/sitecore-jss-dev-tools": "22.13.0-canary.7",
+    "@sitecore-jss/sitecore-jss-react": "22.13.0-canary.7",
     "@vercel/kv": "^0.2.1",
     "regex-parser": "^2.2.11",
     "sync-disk-cache": "^2.1.0"

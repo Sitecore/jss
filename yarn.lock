@@ -6704,65 +6704,65 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/env@npm:16.2.1"
-  checksum: 10/c4f19f1767d7a1e8e9ff93cdee7e3b6a923d26d9d71f44124a797f03703ab9a18508b5ede997cc99d0307f2e0d0d1c426e9673a6c11ea10e170b87462a572236
+"@next/env@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/env@npm:16.2.4"
+  checksum: 10/e90081137c61cd108a8e07d4d16f815011aaef6e2761d7a99e2e4a6d3682318a43f4857a92be638874d9df30e49f840162b6000905c1ba194deef9bf8439c631
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/swc-darwin-arm64@npm:16.2.1"
+"@next/swc-darwin-arm64@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/swc-darwin-arm64@npm:16.2.4"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/swc-darwin-x64@npm:16.2.1"
+"@next/swc-darwin-x64@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/swc-darwin-x64@npm:16.2.4"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/swc-linux-arm64-gnu@npm:16.2.1"
+"@next/swc-linux-arm64-gnu@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/swc-linux-arm64-gnu@npm:16.2.4"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/swc-linux-arm64-musl@npm:16.2.1"
+"@next/swc-linux-arm64-musl@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/swc-linux-arm64-musl@npm:16.2.4"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/swc-linux-x64-gnu@npm:16.2.1"
+"@next/swc-linux-x64-gnu@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/swc-linux-x64-gnu@npm:16.2.4"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/swc-linux-x64-musl@npm:16.2.1"
+"@next/swc-linux-x64-musl@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/swc-linux-x64-musl@npm:16.2.4"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/swc-win32-arm64-msvc@npm:16.2.1"
+"@next/swc-win32-arm64-msvc@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/swc-win32-arm64-msvc@npm:16.2.4"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:16.2.1":
-  version: 16.2.1
-  resolution: "@next/swc-win32-x64-msvc@npm:16.2.1"
+"@next/swc-win32-x64-msvc@npm:16.2.4":
+  version: 16.2.4
+  resolution: "@next/swc-win32-x64-msvc@npm:16.2.4"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -8234,7 +8234,7 @@ __metadata:
     "@angular/platform-browser-dynamic": "npm:~20.3.10"
     "@angular/router": "npm:~20.3.10"
     "@eslint/js": "npm:^9.15.0"
-    "@sitecore-jss/sitecore-jss": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss": "npm:22.13.0-canary.7"
     "@types/jasmine": "npm:^5.1.8"
     "@types/node": "npm:^24.10.4"
     angular-eslint: "npm:^20.5.1"
@@ -8267,14 +8267,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-cli@workspace:packages/sitecore-jss-cli"
   dependencies:
-    "@sitecore-jss/sitecore-jss-dev-tools": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss-dev-tools": "npm:22.13.0-canary.7"
     "@types/chai": "npm:^4.2.4"
     "@types/cross-spawn": "npm:^6.0.6"
     "@types/mocha": "npm:^10.0.1"
     "@types/node": "npm:^24.10.4"
     "@types/readline-sync": "npm:^1.4.8"
     "@types/resolve": "npm:^1.20.6"
-    "@types/sinon": "npm:^10.0.13"
+    "@types/sinon": "npm:^17.0.4"
     "@types/tmp": "npm:^0.2.6"
     "@types/yargs": "npm:^17.0.33"
     chai: "npm:^4.3.7"
@@ -8299,14 +8299,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-dev-tools@npm:22.12.1, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
+"@sitecore-jss/sitecore-jss-dev-tools@npm:22.13.0-canary.7, @sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-dev-tools@workspace:packages/sitecore-jss-dev-tools"
   dependencies:
     "@babel/core": "npm:^7.28.0"
     "@babel/parser": "npm:^7.28.0"
     "@babel/register": "npm:^7.27.1"
-    "@sitecore-jss/sitecore-jss": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss": "npm:22.13.0-canary.7"
     "@types/chai": "npm:^4.3.4"
     "@types/del": "npm:^4.0.0"
     "@types/express": "npm:^5.0.3"
@@ -8330,7 +8330,7 @@ __metadata:
     express: "npm:^5.1.0"
     form-data: "npm:^4.0.4"
     fs-extra: "npm:^11.3.1"
-    glob: "npm:^10.4.5"
+    glob: "npm:^13.0.6"
     import-fresh: "npm:^3.3.1"
     joi: "npm:^18.0.0"
     js-yaml: "npm:^4.1.0"
@@ -8355,11 +8355,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-forms@npm:22.12.1, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
+"@sitecore-jss/sitecore-jss-forms@npm:22.13.0-canary.7, @sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-forms@workspace:packages/sitecore-jss-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss": "npm:22.13.0-canary.7"
     "@types/chai": "npm:^4.3.4"
     "@types/chai-string": "npm:^1.4.5"
     "@types/lodash.unescape": "npm:^4.0.9"
@@ -8383,9 +8383,9 @@ __metadata:
   dependencies:
     "@sitecore-cloudsdk/core": "npm:^0.5.1"
     "@sitecore-cloudsdk/personalize": "npm:^0.5.1"
-    "@sitecore-jss/sitecore-jss": "npm:22.12.1"
-    "@sitecore-jss/sitecore-jss-dev-tools": "npm:22.12.1"
-    "@sitecore-jss/sitecore-jss-react": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss": "npm:22.13.0-canary.7"
+    "@sitecore-jss/sitecore-jss-dev-tools": "npm:22.13.0-canary.7"
+    "@sitecore-jss/sitecore-jss-react": "npm:22.13.0-canary.7"
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/react": "npm:^16.3.0"
     "@types/chai": "npm:^5.2.2"
@@ -8408,7 +8408,7 @@ __metadata:
     eslint-plugin-react: "npm:^7.37.5"
     jsdom: "npm:^26.1.0"
     mocha: "npm:^11.7.0"
-    next: "npm:^16.1.0"
+    next: "npm:^16.2.0"
     nock: "npm:^13.3.0"
     nyc: "npm:^17.1.0"
     react: "npm:^19.1.0"
@@ -8423,7 +8423,7 @@ __metadata:
     "@sitecore-cloudsdk/core": ^0.5.2
     "@sitecore-cloudsdk/events": ^0.5.2
     "@sitecore-cloudsdk/personalize": ^0.5.2
-    next: ^16.1.0
+    next: ^16.2.0
     react: ^19.1.0
     react-dom: ^19.1.0
   languageName: unknown
@@ -8435,7 +8435,7 @@ __metadata:
   dependencies:
     "@sitecore-cloudsdk/core": "npm:^0.5.1"
     "@sitecore-cloudsdk/personalize": "npm:^0.5.1"
-    "@sitecore-jss/sitecore-jss": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss": "npm:22.13.0-canary.7"
     "@types/chai": "npm:^4.3.4"
     "@types/express": "npm:^5.0.3"
     "@types/mocha": "npm:^10.0.10"
@@ -8467,7 +8467,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react-forms@workspace:packages/sitecore-jss-react-forms"
   dependencies:
-    "@sitecore-jss/sitecore-jss-forms": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss-forms": "npm:22.13.0-canary.7"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/react": "npm:^16.3.0"
     "@testing-library/user-event": "npm:^14.6.1"
@@ -8505,7 +8505,7 @@ __metadata:
     "@babel/plugin-proposal-export-default-from": "npm:^7.5.2"
     "@babel/preset-env": "npm:^7.6.2"
     "@babel/preset-typescript": "npm:^7.6.0"
-    "@sitecore-jss/sitecore-jss": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss": "npm:22.13.0-canary.7"
     "@types/jest": "npm:^24.0.18"
     "@types/prop-types": "npm:^15.7.3"
     "@types/react": "npm:^16.9.5"
@@ -8535,12 +8535,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss-react@npm:22.12.1, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
+"@sitecore-jss/sitecore-jss-react@npm:22.13.0-canary.7, @sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-react@workspace:packages/sitecore-jss-react"
   dependencies:
     "@sitecore-feaas/clientside": "npm:^0.6.2"
-    "@sitecore-jss/sitecore-jss": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss": "npm:22.13.0-canary.7"
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/react": "npm:^16.3.0"
     "@testing-library/user-event": "npm:^14.6.1"
@@ -8612,7 +8612,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-vue@workspace:packages/sitecore-jss-vue"
   dependencies:
-    "@sitecore-jss/sitecore-jss": "npm:22.12.1"
+    "@sitecore-jss/sitecore-jss": "npm:22.13.0-canary.7"
     "@types/jest": "npm:^30.0.0"
     "@types/node": "npm:^24.10.4"
     "@vue/compiler-dom": "npm:^3.5.18"
@@ -8634,7 +8634,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sitecore-jss/sitecore-jss@npm:22.12.1, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
+"@sitecore-jss/sitecore-jss@npm:22.13.0-canary.7, @sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss@workspace:packages/sitecore-jss"
   dependencies:
@@ -9759,15 +9759,6 @@ __metadata:
   dependencies:
     "@types/sinonjs__fake-timers": "npm:*"
   checksum: 10/286c34e66e3573673ba59a332ac81189e20dd591c5c5360c8ff3ed83a59a60bdb1d4c8f13ab8863a4d5ce636282e4b11c640b87f398663eee152988ca09b1933
-  languageName: node
-  linkType: hard
-
-"@types/sinon@npm:^10.0.13":
-  version: 10.0.20
-  resolution: "@types/sinon@npm:10.0.20"
-  dependencies:
-    "@types/sinonjs__fake-timers": "npm:*"
-  checksum: 10/4c62cb8e45298ac8311e312f54e8afe9b170e79a6c1b10459e1216cc58ab66c90c9654d984e96de114003cfc62ddedb94f7e25b571e7da9b08800c9e8d864b0d
   languageName: node
   linkType: hard
 
@@ -14679,7 +14670,7 @@ __metadata:
     ejs: "npm:^3.1.10"
     eslint: "npm:^8.56.0"
     fs-extra: "npm:^11.3.1"
-    glob: "npm:^10.4.5"
+    glob: "npm:^13.0.6"
     inquirer: "npm:^8.2.4"
     minimist: "npm:^1.2.8"
     mocha: "npm:^11.7.5"
@@ -18475,6 +18466,17 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10/698dfe11828b7efd0514cd11e573eaed26b2dff611f0400907281ce3eab0c1e56143ef9b35adc7c77ecc71fba74717b510c7c223d34ca8a98ec81777b293d4ac
+  languageName: node
+  linkType: hard
+
+"glob@npm:^13.0.6":
+  version: 13.0.6
+  resolution: "glob@npm:13.0.6"
+  dependencies:
+    minimatch: "npm:^10.2.2"
+    minipass: "npm:^7.1.3"
+    path-scurry: "npm:^2.0.2"
+  checksum: 10/201ad69e5f0aa74e1d8c00a481581f8b8c804b6a4fbfabeeb8541f5d756932800331daeba99b58fb9e4cd67e12ba5a7eba5b82fb476691588418060b84353214
   languageName: node
   linkType: hard
 
@@ -22862,6 +22864,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^11.0.0":
+  version: 11.3.5
+  resolution: "lru-cache@npm:11.3.5"
+  checksum: 10/3701b77e87765a3aea453402a7850bdbf7e02445210f35bd5ba1561f601f605f488bf9932be4a3851a6664073924f671a1ec99c4a1a98c457e0d126872a3e04f
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^11.1.0":
   version: 11.2.2
   resolution: "lru-cache@npm:11.2.2"
@@ -23917,6 +23926,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minipass@npm:^7.1.3":
+  version: 7.1.3
+  resolution: "minipass@npm:7.1.3"
+  checksum: 10/175e4d5e20980c3cd316ae82d2c031c42f6c746467d8b1905b51060a0ba4461441a0c25bb67c025fd9617f9a3873e152c7b543c6b5ac83a1846be8ade80dffd6
+  languageName: node
+  linkType: hard
+
 "minizlib@npm:^2.1.1, minizlib@npm:^2.1.2":
   version: 2.1.2
   resolution: "minizlib@npm:2.1.2"
@@ -24273,19 +24289,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^16.1.0":
-  version: 16.2.1
-  resolution: "next@npm:16.2.1"
+"next@npm:^16.2.0":
+  version: 16.2.4
+  resolution: "next@npm:16.2.4"
   dependencies:
-    "@next/env": "npm:16.2.1"
-    "@next/swc-darwin-arm64": "npm:16.2.1"
-    "@next/swc-darwin-x64": "npm:16.2.1"
-    "@next/swc-linux-arm64-gnu": "npm:16.2.1"
-    "@next/swc-linux-arm64-musl": "npm:16.2.1"
-    "@next/swc-linux-x64-gnu": "npm:16.2.1"
-    "@next/swc-linux-x64-musl": "npm:16.2.1"
-    "@next/swc-win32-arm64-msvc": "npm:16.2.1"
-    "@next/swc-win32-x64-msvc": "npm:16.2.1"
+    "@next/env": "npm:16.2.4"
+    "@next/swc-darwin-arm64": "npm:16.2.4"
+    "@next/swc-darwin-x64": "npm:16.2.4"
+    "@next/swc-linux-arm64-gnu": "npm:16.2.4"
+    "@next/swc-linux-arm64-musl": "npm:16.2.4"
+    "@next/swc-linux-x64-gnu": "npm:16.2.4"
+    "@next/swc-linux-x64-musl": "npm:16.2.4"
+    "@next/swc-win32-arm64-msvc": "npm:16.2.4"
+    "@next/swc-win32-x64-msvc": "npm:16.2.4"
     "@swc/helpers": "npm:0.5.15"
     baseline-browser-mapping: "npm:^2.9.19"
     caniuse-lite: "npm:^1.0.30001579"
@@ -24329,7 +24345,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 10/319c0b18173a90e53b5e5ffafa8a8fecb7cc340b77728796743edd996c7ee7652201892bff60c32f6a3b75abdff1449b77f13f6fab8fd56d4f9da47cf0fb9299
+  checksum: 10/57aa95316694d378e872a78e1e00380af0c06a3f0062353fea0ce90e4052c6f7dc48139767972c305e7eaaaf7bbfaa29ae7d20de3ba009adc73a43a21685cd09
   languageName: node
   linkType: hard
 
@@ -26006,6 +26022,16 @@ __metadata:
     lru-cache: "npm:^10.2.0"
     minipass: "npm:^5.0.0 || ^6.0.2 || ^7.0.0"
   checksum: 10/5e8845c159261adda6f09814d7725683257fcc85a18f329880ab4d7cc1d12830967eae5d5894e453f341710d5484b8fdbbd4d75181b4d6e1eb2f4dc7aeadc434
+  languageName: node
+  linkType: hard
+
+"path-scurry@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "path-scurry@npm:2.0.2"
+  dependencies:
+    lru-cache: "npm:^11.0.0"
+    minipass: "npm:^7.1.2"
+  checksum: 10/2b4257422bcb870a4c2d205b3acdbb213a72f5e2250f61c80f79c9d014d010f82bdf8584441612c8e1fa4eb098678f5704a66fa8377d72646bad4be38e57a2c3
   languageName: node
   linkType: hard
 
