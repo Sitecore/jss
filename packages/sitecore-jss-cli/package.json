@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-cli",
-  "version": "22.12.1",
+  "version": "22.12.2-canary.0",
   "description": "Sitecore JSS command-line",
   "main": "dist/cjs/cli.js",
   "module": "dist/esm/cli.js",
@@ -32,7 +32,7 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss-dev-tools": "22.12.1",
+    "@sitecore-jss/sitecore-jss-dev-tools": "22.12.2-canary.0",
     "chalk": "^4.1.2",
     "cross-spawn": "^7.0.6",
     "dotenv": "^17.2.1",
@@ -49,7 +49,7 @@
     "@types/node": "^24.10.4",
     "@types/readline-sync": "^1.4.8",
     "@types/resolve": "^1.20.6",
-    "@types/sinon": "^10.0.13",
+    "@types/sinon": "^17.0.4",
     "@types/tmp": "^0.2.6",
     "@types/yargs": "^17.0.33",
     "chai": "^4.3.7",
