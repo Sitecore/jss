@@ -12,7 +12,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:17
 
 ### editableFirstPart?
 
-> `optional` **editableFirstPart?**: `string`
+> `optional` **editableFirstPart**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:19
 
@@ -20,7 +20,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:19
 
 ### editableLastPart?
 
-> `optional` **editableLastPart?**: `string`
+> `optional` **editableLastPart**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:20
 

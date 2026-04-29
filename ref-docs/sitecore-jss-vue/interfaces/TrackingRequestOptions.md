@@ -12,7 +12,7 @@ Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:3
 
 ### action?
 
-> `optional` **action?**: `string`
+> `optional` **action**: `string`
 
 Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:15
 
@@ -42,7 +42,7 @@ Hostname of tracking service; e.g. http://my.site.core
 
 ### querystringParams?
 
-> `optional` **querystringParams?**: `ParsedUrlQueryInput`
+> `optional` **querystringParams**: `ParsedUrlQueryInput`
 
 Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:13
 
@@ -52,7 +52,7 @@ An object of key:value pairs to be stringified and used as querystring parameter
 
 ### serviceUrl?
 
-> `optional` **serviceUrl?**: `string`
+> `optional` **serviceUrl**: `string`
 
 Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:7
 
@@ -62,7 +62,7 @@ Relative path from host to tracking service. Default: /sitecore/api/jss/track
 
 ### test?
 
-> `optional` **test?**: `boolean`
+> `optional` **test**: `boolean`
 
 Defined in: packages/sitecore-jss/types/tracking/trackingRequestOptions.d.ts:17
 

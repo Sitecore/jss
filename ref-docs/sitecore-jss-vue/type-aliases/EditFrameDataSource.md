@@ -14,7 +14,7 @@ Defined in: packages/sitecore-jss/types/editing/edit-frame.d.ts:43
 
 ### databaseName?
 
-> `optional` **databaseName?**: `string`
+> `optional` **databaseName**: `string`
 
 Defined in: packages/sitecore-jss/types/editing/edit-frame.d.ts:45
 
@@ -30,6 +30,6 @@ Defined in: packages/sitecore-jss/types/editing/edit-frame.d.ts:44
 
 ### language?
 
-> `optional` **language?**: `string`
+> `optional` **language**: `string`
 
 Defined in: packages/sitecore-jss/types/editing/edit-frame.d.ts:46

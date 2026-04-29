@@ -18,4 +18,30 @@ Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:17
 
 ## Returns
 
-\<`ComponentProps`\>(`Component`) => (`props`) => `Element`
+> \<`ComponentProps`\>(`Component`): (`props`) => `Element`
+
+### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `ComponentProps` *extends* [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md) |
+
+### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `Component` | `ComponentType`\<`ComponentProps`\> |
+
+### Returns
+
+> (`props`): `Element`
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `EnhancedOmit`\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
+
+#### Returns
+
+`Element`

@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## 22.12.2
 
+### 🎉 New Features & Improvements
+
+* `[Next.js]` `[sitecore-jss-nextjs]` Upgrade Next.js to 16.2 ([#2193](https://github.com/Sitecore/jss/pull/2193))
+
 ### 🐛 Bug Fixes
 
 * `[create-sitecore-jss]` Fix nextjs-styleguide template build failure ([#2196](https://github.com/Sitecore/jss/pull/2196))
@@ -25,7 +29,6 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[Next.js]` `[sitecore-jss-nextjs]` Upgrade Next.js to 16.2 ([#2193](https://github.com/Sitecore/jss/pull/2193))
 * `[sitecore-jss]` Add Unified UI origin to allowed origins ([#2192](https://github.com/Sitecore/jss/pull/2192))
 
 ## 22.12.0
@@ -75,6 +78,18 @@ Our versioning strategy is as follows:
   * Update `apollo-angular` to version 11 to be compatible with Angular v20 compatibility
   * Replace the deprecated `ngIf`, `ngFor` directive usage with `@if` and `@for`
   * Update the inject logic for DI
+
+## 22.9.1
+
+### 🎉 New Features & Improvements
+
+* `[Next.js]` Support component-level data fetching in 404/500 pages ([#2140](https://github.com/Sitecore/jss/pull/2140))
+
+### 🐛 Bug Fixes
+
+* `[React]` Custom properties are not applied to empty field in editing metadata mode ([#2141](https://github.com/Sitecore/jss/pull/2141))
+* `[Next.js]` `[Redirects]` Preserve default locale in external absolute urls ([#2142](https://github.com/Sitecore/jss/pull/2142))
+
 
 ## 22.9.0
 

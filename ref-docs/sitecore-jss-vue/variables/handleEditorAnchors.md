@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-vue](../README.md) / handleEditorAnchors
 
-# Variable: handleEditorAnchors
+# Variable: handleEditorAnchors()
 
 > `const` **handleEditorAnchors**: () => `void`
 

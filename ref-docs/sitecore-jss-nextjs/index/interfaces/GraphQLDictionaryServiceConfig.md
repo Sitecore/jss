@@ -22,7 +22,7 @@ GraphQLDictionaryService instances
 
 ### cacheEnabled?
 
-> `optional` **cacheEnabled?**: `boolean`
+> `optional` **cacheEnabled**: `boolean`
 
 Defined in: sitecore-jss/types/cache-client.d.ts:28
 
@@ -42,7 +42,7 @@ true
 
 ### cacheTimeout?
 
-> `optional` **cacheTimeout?**: `number`
+> `optional` **cacheTimeout**: `number`
 
 Defined in: sitecore-jss/types/cache-client.d.ts:33
 
@@ -73,7 +73,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 ### dictionaryEntryTemplateId?
 
-> `optional` **dictionaryEntryTemplateId?**: `string`
+> `optional` **dictionaryEntryTemplateId**: `string`
 
 Defined in: sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:25
 
@@ -89,7 +89,7 @@ Optional. The template ID to use when searching for dictionary entries.
 
 ### jssAppTemplateId?
 
-> `optional` **jssAppTemplateId?**: `string`
+> `optional` **jssAppTemplateId**: `string`
 
 Defined in: sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:30
 
@@ -105,7 +105,7 @@ Optional. The template ID of a JSS App to use when searching for the appRootId.
 
 ### pageSize?
 
-> `optional` **pageSize?**: `number`
+> `optional` **pageSize**: `number`
 
 Defined in: sitecore-jss/types/graphql/search-service.d.ts:52
 
@@ -127,7 +127,7 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 ### retries?
 
-> `optional` **retries?**: `number`
+> `optional` **retries**: `number`
 
 Defined in: sitecore-jss/types/graphql-request-client.d.ts:74
 
@@ -141,7 +141,7 @@ Number of retries for client. Will use the specified `retryStrategy`.
 
 ### retryStrategy?
 
-> `optional` **retryStrategy?**: [`RetryStrategy`](../../graphql/interfaces/RetryStrategy.md)
+> `optional` **retryStrategy**: [`RetryStrategy`](../../graphql/interfaces/RetryStrategy.md)
 
 Defined in: sitecore-jss/types/graphql-request-client.d.ts:79
 
@@ -156,7 +156,7 @@ back-off factor of 2 for codes 429, 502, 503, 504, 520, 521, 522, 523, 524.
 
 ### rootItemId?
 
-> `optional` **rootItemId?**: `string`
+> `optional` **rootItemId**: `string`
 
 Defined in: sitecore-jss/types/graphql/search-service.d.ts:41
 
@@ -181,7 +181,7 @@ in cases where one is not specified by the caller.
 
 ### templates?
 
-> `optional` **templates?**: `string`
+> `optional` **templates**: `string`
 
 Defined in: sitecore-jss/types/graphql/search-service.d.ts:45
 
@@ -195,7 +195,7 @@ Optional. Sitecore template ID(s). Fetch items that inherit from this template(s
 
 ### useSiteQuery?
 
-> `optional` **useSiteQuery?**: `boolean`
+> `optional` **useSiteQuery**: `boolean`
 
 Defined in: sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:34
 

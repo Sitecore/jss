@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-angular](../README.md) / getEdgeProxyContentUrl
 
-# Variable: getEdgeProxyContentUrl
+# Variable: getEdgeProxyContentUrl()
 
 > `const` **getEdgeProxyContentUrl**: (`sitecoreEdgeContextId`, `sitecoreEdgeUrl?`) => `string`
 

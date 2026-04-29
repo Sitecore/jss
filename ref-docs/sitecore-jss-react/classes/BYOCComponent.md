@@ -6,11 +6,7 @@
 
 # Class: BYOCComponent
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:88](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L88)
-=======
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:88](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L88)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:88](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L88)
 
 BYOCComponent facilitate the rendering of external components. It manages potential errors,
 missing components, and customization of error messages or alternative rendering components.
@@ -29,11 +25,7 @@ component props
 
 > **new BYOCComponent**(`props`): `BYOCComponent`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
-=======
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:91](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L91)
 
 #### Parameters
 
@@ -97,11 +89,7 @@ Defined in: packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:97
 
 > **state**: `Readonly`\<\{ `error?`: `Error`; \}\>
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
-=======
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L89)
 
 #### Overrides
 
@@ -111,7 +99,7 @@ Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:89](ht
 
 ### contextType?
 
-> `static` `optional` **contextType?**: `Context`\<`any`\>
+> `static` `optional` **contextType**: `Context`\<`any`\>
 
 Defined in: packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:922
 
@@ -144,7 +132,7 @@ class Foo extends React.Component {
 
 ### ~~propTypes?~~
 
-> `static` `optional` **propTypes?**: `any`
+> `static` `optional` **propTypes**: `any`
 
 Defined in: packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:928
 
@@ -164,11 +152,7 @@ Only kept in types for backwards compatibility. Will be removed in a future majo
 
 > **componentDidCatch**(`error`): `void`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
-=======
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:101](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L101)
 
 Catches exceptions generated in descendant components. Unhandled exceptions will cause
 the entire component tree to unmount.
@@ -425,11 +409,7 @@ lifecycle events from running.
 
 > **render**(): `Element`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
-=======
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:105](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L105)
 
 #### Returns
 
@@ -457,7 +437,7 @@ Defined in: packages/sitecore-jss-react/node\_modules/@types/react/index.d.ts:96
 
 | Parameter | Type |
 | ------ | ------ |
-| `state` | \{ \} \| ((`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\>) \| `Pick`\<\{ \}, `K`\> |
+| `state` | \{ \} \| (`prevState`, `props`) => \{ \} \| `Pick`\<\{ \}, `K`\> \| `Pick`\<\{ \}, `K`\> |
 | `callback?` | () => `void` |
 
 #### Returns
@@ -628,11 +608,7 @@ this from being invoked.
 
 > `static` **getDerivedStateFromError**(`error`): `object`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)
-=======
-Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-react/src/components/BYOCComponent.tsx:96](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react/src/components/BYOCComponent.tsx#L96)
 
 #### Parameters
 

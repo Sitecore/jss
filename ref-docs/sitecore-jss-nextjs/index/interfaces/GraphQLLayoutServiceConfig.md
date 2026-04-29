@@ -25,9 +25,9 @@ This factory function is used to create and configure GraphQL clients for making
 
 ***
 
-### formatLayoutQuery?
+### formatLayoutQuery()?
 
-> `optional` **formatLayoutQuery?**: (`siteName`, `itemPath`, `locale?`) => `string`
+> `optional` **formatLayoutQuery**: (`siteName`, `itemPath`, `locale?`) => `string`
 
 Defined in: sitecore-jss/types/layout/graphql-layout-service.d.ts:24
 
@@ -53,7 +53,7 @@ layout(site:"${siteName}", routePath:"${itemPath}", language:"${language}")
 
 ### retries?
 
-> `optional` **retries?**: `number`
+> `optional` **retries**: `number`
 
 Defined in: sitecore-jss/types/graphql-request-client.d.ts:74
 
@@ -67,7 +67,7 @@ Number of retries for client. Will use the specified `retryStrategy`.
 
 ### retryStrategy?
 
-> `optional` **retryStrategy?**: [`RetryStrategy`](../../graphql/interfaces/RetryStrategy.md)
+> `optional` **retryStrategy**: [`RetryStrategy`](../../graphql/interfaces/RetryStrategy.md)
 
 Defined in: sitecore-jss/types/graphql-request-client.d.ts:79
 

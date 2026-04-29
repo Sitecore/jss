@@ -12,6 +12,6 @@ Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:5
 
 ### updatable?
 
-> `optional` **updatable?**: `boolean`
+> `optional` **updatable**: `boolean`
 
 Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:6

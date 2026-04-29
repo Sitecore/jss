@@ -10,13 +10,13 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:5
 
 ## Indexable
 
-> \[`attributeName`: `string`\]: `unknown`
+\[`attributeName`: `string`\]: `unknown`
 
 ## Properties
 
 ### anchor?
 
-> `optional` **anchor?**: `string`
+> `optional` **anchor**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:13
 
@@ -24,7 +24,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:13
 
 ### class?
 
-> `optional` **class?**: `string`
+> `optional` **class**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:9
 
@@ -32,7 +32,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:9
 
 ### className?
 
-> `optional` **className?**: `string`
+> `optional` **className**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:8
 
@@ -40,7 +40,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:8
 
 ### href?
 
-> `optional` **href?**: `string`
+> `optional` **href**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:7
 
@@ -48,7 +48,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:7
 
 ### linktype?
 
-> `optional` **linktype?**: `string`
+> `optional` **linktype**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:15
 
@@ -56,7 +56,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:15
 
 ### querystring?
 
-> `optional` **querystring?**: `string`
+> `optional` **querystring**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:14
 
@@ -64,7 +64,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:14
 
 ### target?
 
-> `optional` **target?**: `string`
+> `optional` **target**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:11
 
@@ -72,7 +72,7 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:11
 
 ### text?
 
-> `optional` **text?**: `string`
+> `optional` **text**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:12
 
@@ -80,6 +80,6 @@ Defined in: sitecore-jss-react/types/components/Link.d.ts:12
 
 ### title?
 
-> `optional` **title?**: `string`
+> `optional` **title**: `string`
 
 Defined in: sitecore-jss-react/types/components/Link.d.ts:10

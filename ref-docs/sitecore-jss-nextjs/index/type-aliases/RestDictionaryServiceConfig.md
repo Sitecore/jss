@@ -26,7 +26,7 @@ The Sitecore SSC API key your app uses
 
 ### dataFetcher?
 
-> `optional` **dataFetcher?**: [`HttpDataFetcher`](HttpDataFetcher.md)\<`RestDictionaryServiceData`\>
+> `optional` **dataFetcher**: [`HttpDataFetcher`](HttpDataFetcher.md)\<`RestDictionaryServiceData`\>
 
 Custom data fetcher
 

@@ -28,7 +28,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:91
 
 ### dataSource?
 
-> `optional` **dataSource?**: `string`
+> `optional` **dataSource**: `string`
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:92
 
@@ -36,7 +36,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:92
 
 ### fields?
 
-> `optional` **fields?**: `T`
+> `optional` **fields**: `T`
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:95
 
@@ -44,7 +44,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:95
 
 ### params?
 
-> `optional` **params?**: [`ComponentParams`](ComponentParams.md)
+> `optional` **params**: [`ComponentParams`](ComponentParams.md)
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:96
 
@@ -52,7 +52,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:96
 
 ### placeholders?
 
-> `optional` **placeholders?**: `PlaceholdersData`
+> `optional` **placeholders**: `PlaceholdersData`
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:94
 
@@ -60,6 +60,6 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:94
 
 ### uid?
 
-> `optional` **uid?**: `string`
+> `optional` **uid**: `string`
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:93

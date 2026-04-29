@@ -79,7 +79,7 @@ Defined in: packages/sitecore-jss/node\_modules/graphql-request/build/esm/types.
 
 ### stack?
 
-> `optional` **stack?**: `string`
+> `optional` **stack**: `string`
 
 Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 

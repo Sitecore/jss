@@ -6,59 +6,39 @@
 
 # Interface: FormProps
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:24](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L24)
-=======
-Defined in: [src/components/form.tsx:24](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L24)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:24](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L24)
 
 ## Properties
 
 ### className?
 
-> `optional` **className?**: `string`
+> `optional` **className**: `string`
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:27](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L27)
-=======
-Defined in: [src/components/form.tsx:27](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L27)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:27](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L27)
 
 ***
 
 ### errorComponent?
 
-> `optional` **errorComponent?**: `ComponentType`\<[`ErrorComponentProps`](ErrorComponentProps.md)\>
+> `optional` **errorComponent**: `ComponentType`\<[`ErrorComponentProps`](ErrorComponentProps.md)\>
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:32](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L32)
-=======
-Defined in: [src/components/form.tsx:32](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L32)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:32](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L32)
 
 ***
 
 ### fieldFactory?
 
-> `optional` **fieldFactory?**: [`FieldFactory`](../classes/FieldFactory.md)
+> `optional` **fieldFactory**: [`FieldFactory`](../classes/FieldFactory.md)
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:28](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L28)
-=======
-Defined in: [src/components/form.tsx:28](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L28)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:28](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L28)
 
 ***
 
 ### fieldValidationErrorsComponent?
 
-> `optional` **fieldValidationErrorsComponent?**: `ComponentType`\<[`LabelProps`](../type-aliases/LabelProps.md)\>
+> `optional` **fieldValidationErrorsComponent**: `ComponentType`\<[`LabelProps`](../type-aliases/LabelProps.md)\>
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:39](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L39)
-=======
-Defined in: [src/components/form.tsx:39](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L39)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:39](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L39)
 
 Optionally override the field validation errors display component for any field components that render validation errors
 
@@ -66,13 +46,9 @@ Optionally override the field validation errors display component for any field 
 
 ### fieldWrapperComponent?
 
-> `optional` **fieldWrapperComponent?**: `ComponentType`\<[`FieldWithValueProps`](FieldWithValueProps.md)\<`FormField`\<`ViewModel`\>, `string`\>\>
+> `optional` **fieldWrapperComponent**: `ComponentType`\<[`FieldWithValueProps`](FieldWithValueProps.md)\<`FormField`\<`ViewModel`\>, `string`\>\>
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:33](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L33)
-=======
-Defined in: [src/components/form.tsx:33](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L33)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:33](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L33)
 
 ***
 
@@ -80,23 +56,15 @@ Defined in: [src/components/form.tsx:33](https://github.com/Sitecore/jss/blob/0c
 
 > **form**: `SitecoreForm`
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:25](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L25)
-=======
-Defined in: [src/components/form.tsx:25](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L25)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:25](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L25)
 
 ***
 
 ### formFetcher?
 
-> `optional` **formFetcher?**: `FormFetcher`
+> `optional` **formFetcher**: `FormFetcher`
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:42](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L42)
-=======
-Defined in: [src/components/form.tsx:42](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L42)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:42](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L42)
 
 Fetch function used when submitting the form (defaults to using `fetch`)
 
@@ -104,13 +72,9 @@ Fetch function used when submitting the form (defaults to using `fetch`)
 
 ### labelComponent?
 
-> `optional` **labelComponent?**: `ComponentType`\<[`LabelProps`](../type-aliases/LabelProps.md)\>
+> `optional` **labelComponent**: `ComponentType`\<[`LabelProps`](../type-aliases/LabelProps.md)\>
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:36](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L36)
-=======
-Defined in: [src/components/form.tsx:36](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L36)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:36](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L36)
 
 Optionally override the label component for any field components that render a label
 
@@ -118,25 +82,17 @@ Optionally override the label component for any field components that render a l
 
 ### language?
 
-> `optional` **language?**: `string`
+> `optional` **language**: `string`
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:26](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L26)
-=======
-Defined in: [src/components/form.tsx:26](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L26)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:26](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L26)
 
 ***
 
-### onRedirect?
+### onRedirect()?
 
-> `optional` **onRedirect?**: (`url`) => `void`
+> `optional` **onRedirect**: (`url`) => `void`
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:31](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L31)
-=======
-Defined in: [src/components/form.tsx:31](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L31)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:31](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L31)
 
 #### Parameters
 
@@ -154,11 +110,7 @@ Defined in: [src/components/form.tsx:31](https://github.com/Sitecore/jss/blob/0c
 
 > **sitecoreApiHost**: `string`
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:29](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L29)
-=======
-Defined in: [src/components/form.tsx:29](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L29)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:29](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L29)
 
 ***
 
@@ -166,22 +118,14 @@ Defined in: [src/components/form.tsx:29](https://github.com/Sitecore/jss/blob/0c
 
 > **sitecoreApiKey**: `string`
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:30](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L30)
-=======
-Defined in: [src/components/form.tsx:30](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L30)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:30](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L30)
 
 ***
 
 ### trackerFetcher?
 
-> `optional` **trackerFetcher?**: `TrackerFetcher`
+> `optional` **trackerFetcher**: `TrackerFetcher`
 
-<<<<<<< HEAD
-Defined in: [src/components/form.tsx:45](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-react-forms/src/components/form.tsx#L45)
-=======
-Defined in: [src/components/form.tsx:45](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-react-forms/src/components/form.tsx#L45)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [src/components/form.tsx:45](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-react-forms/src/components/form.tsx#L45)
 
 Fetch function used when posting form field tracking data (defaults to using `fetch`)

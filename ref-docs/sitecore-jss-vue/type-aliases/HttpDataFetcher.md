@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-vue](../README.md) / HttpDataFetcher
 
-# Type Alias: HttpDataFetcher\<T\>
+# Type Alias: HttpDataFetcher()\<T\>
 
 > **HttpDataFetcher**\<`T`\> = (`url`, `data?`) => `Promise`\<`HttpResponse`\<`T`\>\>
 

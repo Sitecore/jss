@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / withEditorChromes
 
-# Variable: withEditorChromes
+# Variable: withEditorChromes()
 
 > `const` **withEditorChromes**: (`WrappedComponent`) => `React.ComponentClass`\<\{ \}, `any`\>
 

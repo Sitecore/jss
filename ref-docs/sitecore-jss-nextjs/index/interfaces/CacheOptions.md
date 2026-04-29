@@ -22,7 +22,7 @@ CacheClient
 
 ### cacheEnabled?
 
-> `optional` **cacheEnabled?**: `boolean`
+> `optional` **cacheEnabled**: `boolean`
 
 Defined in: sitecore-jss/types/cache-client.d.ts:28
 
@@ -38,7 +38,7 @@ true
 
 ### cacheTimeout?
 
-> `optional` **cacheTimeout?**: `number`
+> `optional` **cacheTimeout**: `number`
 
 Defined in: sitecore-jss/types/cache-client.d.ts:33
 

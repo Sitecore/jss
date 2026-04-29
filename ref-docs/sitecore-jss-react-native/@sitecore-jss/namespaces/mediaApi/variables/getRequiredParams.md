@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-react-native](../../../../README.md) / [mediaApi](../README.md) / getRequiredParams
 
-# Variable: getRequiredParams
+# Variable: getRequiredParams()
 
 > `const` **getRequiredParams**: (`qs`) => `object`
 

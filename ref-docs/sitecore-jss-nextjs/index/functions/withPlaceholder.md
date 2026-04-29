@@ -19,4 +19,24 @@ Defined in: sitecore-jss-react/types/enhancers/withPlaceholder.d.ts:35
 
 ## Returns
 
-(`WrappedComponent`) => (`props`) => `Element`
+> (`WrappedComponent`): (`props`) => `Element`
+
+### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `WrappedComponent` | `ComponentClass`\<`PlaceholderProps`, `any`\> \| `FunctionComponent`\<`PlaceholderProps`\> |
+
+### Returns
+
+> (`props`): `Element`
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `props` | `EnhancedOmit`\<`PlaceholderProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\> |
+
+#### Returns
+
+`Element`

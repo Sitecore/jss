@@ -6,11 +6,7 @@
 
 # Abstract Class: DictionaryServiceBase
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:24](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L24)
-=======
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:24](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L24)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:24](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/i18n/dictionary-service.ts#L24)
 
 Base implementation of
 
@@ -34,11 +30,7 @@ DictionaryService that handles caching dictionary values
 
 > **new DictionaryServiceBase**(`options`): `DictionaryServiceBase`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
-=======
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 Initializes a new instance of
 
@@ -63,11 +55,7 @@ Initializes a new instance of
 
 > **options**: [`CacheOptions`](../../index/interfaces/CacheOptions.md)
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
-=======
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/i18n/dictionary-service.ts#L32)
 
 Configuration options
 
@@ -77,11 +65,7 @@ Configuration options
 
 > `abstract` **fetchDictionaryData**(`language`): `Promise`\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
-=======
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:71](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/i18n/dictionary-service.ts#L71)
 
 Fetch dictionary data for a language.
 
@@ -105,11 +89,7 @@ Fetch dictionary data for a language.
 
 > `protected` **getCacheClient**(): [`CacheClient`](../../index/interfaces/CacheClient.md)\<[`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)\>
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
-=======
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:62](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/i18n/dictionary-service.ts#L62)
 
 Gets a cache client that can cache data. Uses memory-cache as the default
 library for caching (@see MemoryCacheClient). Override this method if you
@@ -127,11 +107,7 @@ implementation
 
 > **getCacheValue**(`key`): `null` \| [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
-=======
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:52](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/i18n/dictionary-service.ts#L52)
 
 Retrieves a
 
@@ -162,11 +138,7 @@ The
 
 > **setCacheValue**(`key`, `value`): [`DictionaryPhrases`](../interfaces/DictionaryPhrases.md)
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
-=======
-Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/i18n/dictionary-service.ts:43](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/i18n/dictionary-service.ts#L43)
 
 Caches a
 

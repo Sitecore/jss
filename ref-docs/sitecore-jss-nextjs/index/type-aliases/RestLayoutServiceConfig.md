@@ -34,7 +34,7 @@ The Sitecore SSC API key your app uses
 
 ### configurationName?
 
-> `optional` **configurationName?**: `string`
+> `optional` **configurationName**: `string`
 
 Defined in: sitecore-jss/types/layout/rest-layout-service.d.ts:40
 
@@ -44,7 +44,7 @@ Layout Service "named" configuration
 
 ### dataFetcherResolver?
 
-> `optional` **dataFetcherResolver?**: `DataFetcherResolver`
+> `optional` **dataFetcherResolver**: `DataFetcherResolver`
 
 Defined in: sitecore-jss/types/layout/rest-layout-service.d.ts:36
 
@@ -64,7 +64,7 @@ The JSS application name
 
 ### tracking?
 
-> `optional` **tracking?**: `boolean`
+> `optional` **tracking**: `boolean`
 
 Defined in: sitecore-jss/types/layout/rest-layout-service.d.ts:32
 

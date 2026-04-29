@@ -30,7 +30,7 @@ Response content
 
 ### headers?
 
-> `optional` **headers?**: `HeadersInit`
+> `optional` **headers**: `HeadersInit`
 
 Defined in: packages/sitecore-jss/types/native-fetcher.d.ts:28
 

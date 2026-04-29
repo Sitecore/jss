@@ -6,11 +6,7 @@
 
 # Class: CdpHelper
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:83](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/personalize/utils.ts#L83)
-=======
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:83](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/personalize/utils.ts#L83)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:83](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/personalize/utils.ts#L83)
 
 Static utility class for Sitecore CDP
 
@@ -30,11 +26,7 @@ Static utility class for Sitecore CDP
 
 > `static` **getComponentFriendlyId**(`pageId`, `componentId`, `language`, `scope?`): `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/personalize/utils.ts#L130)
-=======
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/personalize/utils.ts#L130)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:130](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/personalize/utils.ts#L130)
 
 Gets the friendly id for Component A/B Testing in the required format `component_[<scope>_]<pageId>_<componentId>_<language>*`
 
@@ -59,11 +51,7 @@ the friendly id
 
 > `static` **getPageFriendlyId**(`pageId`, `language`, `scope?`): `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/personalize/utils.ts#L115)
-=======
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/personalize/utils.ts#L115)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:115](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/personalize/utils.ts#L115)
 
 Gets the friendly id for (page-level) Embedded Personalization in the required format `embedded_[<scope>_]<id>_<lang>`
 
@@ -87,11 +75,7 @@ the friendly id
 
 > `static` **getPageVariantId**(`pageId`, `language`, `variantId`, `scope?`): `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/personalize/utils.ts#L92)
-=======
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/personalize/utils.ts#L92)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:92](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/personalize/utils.ts#L92)
 
 Gets the page variant id for CDP in the required format
 
@@ -116,11 +100,7 @@ the formatted page variant id
 
 > `static` **normalizeScope**(`scope?`): `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/personalize/utils.ts#L149)
-=======
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/personalize/utils.ts#L149)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:149](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/personalize/utils.ts#L149)
 
 Normalizes the scope from the given string value
 Removes all non-alphanumeric characters

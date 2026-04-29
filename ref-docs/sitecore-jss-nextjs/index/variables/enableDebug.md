@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / enableDebug
 
-# Variable: enableDebug
+# Variable: enableDebug()
 
 > `const` **enableDebug**: (`namespaces`) => `void`
 

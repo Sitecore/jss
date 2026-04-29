@@ -42,6 +42,6 @@ Defined in: sitecore-jss/types/layout/models.d.ts:102
 
 ### type?
 
-> `optional` **type?**: `string`
+> `optional` **type**: `string`
 
 Defined in: sitecore-jss/types/layout/models.d.ts:103

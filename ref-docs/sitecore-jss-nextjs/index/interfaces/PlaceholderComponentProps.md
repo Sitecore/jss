@@ -14,13 +14,13 @@ Defined in: sitecore-jss-react/types/components/Placeholder.d.ts:5
 
 ## Indexable
 
-> \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
 ### componentFactory?
 
-> `optional` **componentFactory?**: [`ComponentFactory`](../type-aliases/ComponentFactory.md)
+> `optional` **componentFactory**: [`ComponentFactory`](../type-aliases/ComponentFactory.md)
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:24
 
@@ -35,7 +35,7 @@ When rendered within a <SitecoreContext> component, defaults to the context comp
 
 ### componentLoadingMessage?
 
-> `optional` **componentLoadingMessage?**: `string`
+> `optional` **componentLoadingMessage**: `string`
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:67
 
@@ -49,7 +49,7 @@ The message that gets displayed while component is loading
 
 ### ~~disableSuspense?~~
 
-> `optional` **disableSuspense?**: `boolean`
+> `optional` **disableSuspense**: `boolean`
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:75
 
@@ -74,7 +74,7 @@ true
 
 ### errorComponent?
 
-> `optional` **errorComponent?**: `ComponentClass`\<`ErrorComponentProps`, `any`\> \| `FC`\<`ErrorComponentProps`\>
+> `optional` **errorComponent**: `ComponentClass`\<`ErrorComponentProps`, `any`\> \| `FC`\<`ErrorComponentProps`\>
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:59
 
@@ -89,7 +89,7 @@ the placeholder
 
 ### fields?
 
-> `optional` **fields?**: `object`
+> `optional` **fields**: `object`
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:29
 
@@ -108,7 +108,7 @@ Any component or placeholder rendered by a placeholder will have access to this 
 
 ### hiddenRenderingComponent?
 
-> `optional` **hiddenRenderingComponent?**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+> `optional` **hiddenRenderingComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:54
 
@@ -122,7 +122,7 @@ A component that is rendered in place of any components that are hidden
 
 ### missingComponentComponent?
 
-> `optional` **missingComponentComponent?**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
+> `optional` **missingComponentComponent**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:50
 
@@ -135,9 +135,9 @@ but do not have a definition in the componentFactory (i.e. don't have a React im
 
 ***
 
-### modifyComponentProps?
+### modifyComponentProps()?
 
-> `optional` **modifyComponentProps?**: (`componentProps`) => `ComponentProps`
+> `optional` **modifyComponentProps**: (`componentProps`) => `ComponentProps`
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:45
 
@@ -178,7 +178,7 @@ Name of the placeholder to render.
 
 ### params?
 
-> `optional` **params?**: `object`
+> `optional` **params**: `object`
 
 Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:36
 
@@ -195,9 +195,9 @@ Any component or placeholder rendered by a placeholder will have access to this 
 
 ***
 
-### render?
+### render()?
 
-> `optional` **render?**: (`components`, `data`, `props`) => `ReactNode`
+> `optional` **render**: (`components`, `data`, `props`) => `ReactNode`
 
 Defined in: sitecore-jss-react/types/components/Placeholder.d.ts:15
 
@@ -218,9 +218,9 @@ Useful for techniques like wrapping each child in a wrapper component.
 
 ***
 
-### renderEach?
+### renderEach()?
 
-> `optional` **renderEach?**: (`component`, `index`) => `ReactNode`
+> `optional` **renderEach**: (`component`, `index`) => `ReactNode`
 
 Defined in: sitecore-jss-react/types/components/Placeholder.d.ts:20
 
@@ -240,9 +240,9 @@ Mutually exclusive with `render`. System components added during Experience Edit
 
 ***
 
-### renderEmpty?
+### renderEmpty()?
 
-> `optional` **renderEmpty?**: (`components`) => `ReactNode`
+> `optional` **renderEmpty**: (`components`) => `ReactNode`
 
 Defined in: sitecore-jss-react/types/components/Placeholder.d.ts:10
 

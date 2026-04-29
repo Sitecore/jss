@@ -6,11 +6,7 @@
 
 # Interface: TextField
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:48](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L48)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:48](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L48)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:48](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L48)
 
 ## Extends
 
@@ -20,13 +16,9 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:48]
 
 ### editable?
 
-> `optional` **editable?**: `string`
+> `optional` **editable**: `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
 
 #### Inherited from
 
@@ -36,7 +28,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](
 
 ### metadata?
 
-> `optional` **metadata?**: `object`
+> `optional` **metadata**: `object`
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
@@ -52,13 +44,9 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
 ### value?
 
-> `optional` **value?**: `string`
+> `optional` **value**: `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
 
 #### Inherited from
 

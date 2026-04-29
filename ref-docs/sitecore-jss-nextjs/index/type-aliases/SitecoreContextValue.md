@@ -14,8 +14,8 @@ Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:36
 
 ### itemId?
 
-> `optional` **itemId?**: `string`
+> `optional` **itemId**: `string`
 
 ### route?
 
-> `optional` **route?**: [`RouteData`](../interfaces/RouteData.md)
+> `optional` **route**: [`RouteData`](../interfaces/RouteData.md)

@@ -12,7 +12,7 @@ Defined in: sitecore-jss/types/site/graphql-siteinfo-service.d.ts:4
 
 ## Indexable
 
-> \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 Additional user-defined properties
 

@@ -63,7 +63,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 ### originalStack?
 
-> `optional` **originalStack?**: `string`
+> `optional` **originalStack**: `string`
 
 Defined in: packages/sitecore-jss-angular/node\_modules/zone.js/lib/zone.d.ts:38
 
@@ -93,7 +93,7 @@ Defined in: packages/sitecore-jss/node\_modules/graphql-request/build/esm/types.
 
 ### stack?
 
-> `optional` **stack?**: `string`
+> `optional` **stack**: `string`
 
 Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 
@@ -105,7 +105,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 ### zoneAwareStack?
 
-> `optional` **zoneAwareStack?**: `string`
+> `optional` **zoneAwareStack**: `string`
 
 Defined in: packages/sitecore-jss-angular/node\_modules/zone.js/lib/zone.d.ts:34
 

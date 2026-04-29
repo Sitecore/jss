@@ -6,11 +6,7 @@
 
 # Class: ServerlessEditingDataService
 
-<<<<<<< HEAD
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:135](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L135)
-=======
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:135](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L135)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:135](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L135)
 
 Service responsible for maintaining Sitecore editor data between requests
 on serverless deployment architectures (e.g. Vercel).
@@ -26,11 +22,7 @@ Utilizes another Next.js API route ('/api/editing/data/[key]') for storage and r
 
 > **new ServerlessEditingDataService**(`config?`): `ServerlessEditingDataService`
 
-<<<<<<< HEAD
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:143](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L143)
-=======
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:143](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L143)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:143](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L143)
 
 #### Parameters
 
@@ -44,15 +36,11 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:143](https:
 
 ## Properties
 
-### generateKey
+### generateKey()
 
 > `protected` **generateKey**: (`data`) => `string`
 
-<<<<<<< HEAD
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
-=======
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:136](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L136)
 
 Unique key generator.
 Need more than just the item GUID since requests are made "live" during editing in EE.
@@ -77,11 +65,7 @@ The unique key
 
 > **getEditingData**(`previewData`): `Promise`\<`undefined` \| [`EditingData`](../type-aliases/EditingData.md)\>
 
-<<<<<<< HEAD
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:188](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L188)
-=======
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:188](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L188)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:188](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L188)
 
 Retrieves Sitecore editor payload data by key
 
@@ -107,11 +91,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 > `protected` **getUrl**(`serverUrl`, `key`, `params?`): `string`
 
-<<<<<<< HEAD
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:205](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L205)
-=======
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:205](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L205)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:205](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L205)
 
 #### Parameters
 
@@ -131,11 +111,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:205](https:
 
 > **setEditingData**(`data`, `serverUrl`, `params?`): `Promise`\<[`EditingPreviewData`](../interfaces/EditingPreviewData.md)\>
 
-<<<<<<< HEAD
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:157](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L157)
-=======
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:157](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L157)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:157](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L157)
 
 Stores Sitecore editor payload data for later retrieval by key
 

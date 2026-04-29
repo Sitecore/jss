@@ -22,7 +22,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:117
 
 ### editable?
 
-> `optional` **editable?**: `string`
+> `optional` **editable**: `string`
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:119
 
@@ -30,7 +30,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:119
 
 ### metadata?
 
-> `optional` **metadata?**: `object`
+> `optional` **metadata**: `object`
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 

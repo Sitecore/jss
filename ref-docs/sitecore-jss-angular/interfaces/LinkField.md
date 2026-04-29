@@ -6,11 +6,7 @@
 
 # Interface: LinkField
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:38](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L38)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:38](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L38)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:38](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L38)
 
 ## Extends
 
@@ -18,19 +14,15 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:38]
 
 ## Indexable
 
-> \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
 ### anchor?
 
-> `optional` **anchor?**: `string`
+> `optional` **anchor**: `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:35](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L35)
 
 #### Inherited from
 
@@ -40,13 +32,9 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:35]
 
 ### editable?
 
-> `optional` **editable?**: `string`
+> `optional` **editable**: `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
 
 #### Inherited from
 
@@ -56,37 +44,25 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](
 
 ### editableFirstPart?
 
-> `optional` **editableFirstPart?**: `string`
+> `optional` **editableFirstPart**: `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:40](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L40)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:40](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L40)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:40](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L40)
 
 ***
 
 ### editableLastPart?
 
-> `optional` **editableLastPart?**: `string`
+> `optional` **editableLastPart**: `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:41](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L41)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:41](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L41)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:41](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L41)
 
 ***
 
 ### href?
 
-> `optional` **href?**: `string`
+> `optional` **href**: `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:33](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L33)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:33](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L33)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:33](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L33)
 
 #### Inherited from
 
@@ -96,7 +72,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:33]
 
 ### metadata?
 
-> `optional` **metadata?**: `object`
+> `optional` **metadata**: `object`
 
 Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
@@ -112,13 +88,9 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
 ### text?
 
-> `optional` **text?**: `string`
+> `optional` **text**: `string`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:34](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L34)
 
 #### Inherited from
 
@@ -128,13 +100,9 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:34]
 
 ### value?
 
-> `optional` **value?**: [`LinkFieldValue`](LinkFieldValue.md)
+> `optional` **value**: [`LinkFieldValue`](LinkFieldValue.md)
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:39](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss-angular/src/components/rendering-field.ts#L39)
-=======
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:39](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L39)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:39](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss-angular/src/components/rendering-field.ts#L39)
 
 #### Overrides
 

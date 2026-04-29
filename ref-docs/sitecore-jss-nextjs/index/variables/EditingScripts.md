@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-nextjs](../../README.md) / [index](../README.md) / EditingScripts
 
-# Variable: EditingScripts
+# Variable: EditingScripts()
 
 > `const` **EditingScripts**: () => `JSX.Element`
 

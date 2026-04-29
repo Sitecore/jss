@@ -6,11 +6,7 @@
 
 # Class: ResponseError
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:29](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/data-fetcher.ts#L29)
-=======
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:29](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/data-fetcher.ts#L29)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:29](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/data-fetcher.ts#L29)
 
 ## Extends
 
@@ -22,11 +18,7 @@ Defined in: [packages/sitecore-jss/src/data-fetcher.ts:29](https://github.com/Si
 
 > **new ResponseError**(`message`, `response`): `ResponseError`
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/data-fetcher.ts#L32)
-=======
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/data-fetcher.ts#L32)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:32](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/data-fetcher.ts#L32)
 
 #### Parameters
 
@@ -73,17 +65,13 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 > **response**: [`HttpResponse`](../interfaces/HttpResponse.md)\<`unknown`\>
 
-<<<<<<< HEAD
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/43b3ff4d11bac85ec373d8926a5e5389166959a7/packages/sitecore-jss/src/data-fetcher.ts#L30)
-=======
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss/src/data-fetcher.ts#L30)
->>>>>>> be76f7acd81394289154e0dcda92acb4232a6028
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:30](https://github.com/Sitecore/jss/blob/3d99ba1905eadb9c76a67a2ce8ba0b9d23b84330/packages/sitecore-jss/src/data-fetcher.ts#L30)
 
 ***
 
 ### stack?
 
-> `optional` **stack?**: `string`
+> `optional` **stack**: `string`
 
 Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
 

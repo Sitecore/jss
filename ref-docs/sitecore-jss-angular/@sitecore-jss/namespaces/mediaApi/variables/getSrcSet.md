@@ -4,7 +4,7 @@
 
 [@sitecore-jss/sitecore-jss-angular](../../../../README.md) / [mediaApi](../README.md) / getSrcSet
 
-# Variable: getSrcSet
+# Variable: getSrcSet()
 
 > `const` **getSrcSet**: (`url`, `srcSet`, `imageParams?`, `mediaUrlPrefix?`) => `string`
 
