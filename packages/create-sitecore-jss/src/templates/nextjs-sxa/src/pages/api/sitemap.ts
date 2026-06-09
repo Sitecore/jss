@@ -67,7 +67,7 @@ const sitemapApi = async (
   res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
   return res.send(`<?xml version="1.0" encoding="UTF-8"?>
-  <sitemapindex xmlns="http://sitemaps.org/schemas/sitemap/0.9">${SitemapLinks}</sitemapindex>
+  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${SitemapLinks}</sitemapindex>
   `);
 };
 
