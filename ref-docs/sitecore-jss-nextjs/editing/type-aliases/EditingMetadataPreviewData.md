@@ -8,7 +8,7 @@
 
 > **EditingMetadataPreviewData** = `object`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:290](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L290)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:290](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L290)
 
 Data for Next.js Preview (Editing) Metadata Edit Mode.
 
@@ -18,7 +18,7 @@ Data for Next.js Preview (Editing) Metadata Edit Mode.
 
 > **editMode**: [`Metadata`](../../index/enumerations/EditMode.md#metadata)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:294](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L294)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:294](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L294)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:294](h
 
 > **itemId**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:292](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L292)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:292](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L292)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:292](h
 
 > **language**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:293](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L293)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:293](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L293)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:293](h
 
 > `optional` **layoutKind?**: `LayoutKind`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:298](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L298)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:298](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L298)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:298](h
 
 > **pageState**: `Exclude`\<[`LayoutServicePageState`](../../index/enumerations/LayoutServicePageState.md), `"Normal"`\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:295](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L295)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:295](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L295)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:295](h
 
 > **site**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:291](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L291)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:291](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L291)
 
 ***
 
@@ -66,7 +66,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:291](h
 
 > **variantIds**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:296](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L296)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:296](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L296)
 
 ***
 
@@ -74,4 +74,4 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:296](h
 
 > `optional` **version?**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:297](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L297)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:297](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L297)

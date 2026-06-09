@@ -8,7 +8,7 @@
 
 > `const` **getStaticProps**: [`GetStaticComponentProps`](../../../type-aliases/GetStaticComponentProps.md)
 
-Defined in: [sitecore-jss-nextjs/src/components/BYOCWrapper.tsx:22](https://github.com/Sitecore/jss/blob/0c2f41e137a292e04b70d8e572725c5b055f64d5/packages/sitecore-jss-nextjs/src/components/BYOCWrapper.tsx#L22)
+Defined in: [sitecore-jss-nextjs/src/components/BYOCWrapper.tsx:22](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-nextjs/src/components/BYOCWrapper.tsx#L22)
 
 Will be called during SSG
 
