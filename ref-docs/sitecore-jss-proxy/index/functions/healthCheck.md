@@ -8,7 +8,7 @@
 
 > **healthCheck**(): `Router`
 
-Defined in: [sitecore-jss-proxy/src/middleware/healthcheck/index.ts:7](https://github.com/Sitecore/jss/blob/0855fc0bf7b8e965294dea4bcc778e59543a60e6/packages/sitecore-jss-proxy/src/middleware/healthcheck/index.ts#L7)
+Defined in: [sitecore-jss-proxy/src/middleware/healthcheck/index.ts:7](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-proxy/src/middleware/healthcheck/index.ts#L7)
 
 Creates a router for health check requests.
 

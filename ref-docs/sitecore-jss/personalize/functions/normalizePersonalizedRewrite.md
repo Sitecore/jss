@@ -8,7 +8,7 @@
 
 > **normalizePersonalizedRewrite**(`pathname`): `string`
 
-Defined in: [packages/sitecore-jss/src/personalize/utils.ts:69](https://github.com/Sitecore/jss/blob/0855fc0bf7b8e965294dea4bcc778e59543a60e6/packages/sitecore-jss/src/personalize/utils.ts#L69)
+Defined in: [packages/sitecore-jss/src/personalize/utils.ts:69](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss/src/personalize/utils.ts#L69)
 
 Normalize a personalized rewrite path (remove personalize data)
 

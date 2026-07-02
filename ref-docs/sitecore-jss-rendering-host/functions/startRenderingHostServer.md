@@ -8,7 +8,7 @@
 
 > **startRenderingHostServer**(`config`): `void`
 
-Defined in: [renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/0855fc0bf7b8e965294dea4bcc778e59543a60e6/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)
+Defined in: [renderingHostServer.ts:47](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-rendering-host/src/renderingHostServer.ts#L47)
 
 ## Parameters
 

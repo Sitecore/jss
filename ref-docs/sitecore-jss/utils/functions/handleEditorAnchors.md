@@ -8,7 +8,7 @@
 
 > **handleEditorAnchors**(): `void`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:147](https://github.com/Sitecore/jss/blob/0855fc0bf7b8e965294dea4bcc778e59543a60e6/packages/sitecore-jss/src/editing/utils.ts#L147)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:147](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss/src/editing/utils.ts#L147)
 
 ## Returns
 

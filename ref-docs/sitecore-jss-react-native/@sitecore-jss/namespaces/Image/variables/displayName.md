@@ -8,4 +8,4 @@
 
 > **displayName**: `string`
 
-Defined in: [sitecore-jss-react-native/src/components/Image.tsx:145](https://github.com/Sitecore/jss/blob/0855fc0bf7b8e965294dea4bcc778e59543a60e6/packages/sitecore-jss-react-native/src/components/Image.tsx#L145)
+Defined in: [sitecore-jss-react-native/src/components/Image.tsx:145](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-react-native/src/components/Image.tsx#L145)

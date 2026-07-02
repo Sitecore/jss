@@ -8,7 +8,7 @@
 
 > **isRegexOrUrl**(`input`): `"url"` \| `"regex"`
 
-Defined in: [packages/sitecore-jss/src/utils/utils.ts:162](https://github.com/Sitecore/jss/blob/0855fc0bf7b8e965294dea4bcc778e59543a60e6/packages/sitecore-jss/src/utils/utils.ts#L162)
+Defined in: [packages/sitecore-jss/src/utils/utils.ts:162](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss/src/utils/utils.ts#L162)
 
 Determines whether the given input is a regular expression or resembles a URL.
 
