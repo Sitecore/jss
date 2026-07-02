@@ -478,6 +478,124 @@ describe('RedirectsMiddleware', () => {
     });
 
     describe('should return appropriate redirect type when redirects exists', () => {
+      describe('malformed regex redirects', () => {
+        let consoleWarnStub: sinon.SinonStub;
+
+        beforeEach(() => {
+          consoleWarnStub = sinon.stub(console, 'warn');
+        });
+
+        afterEach(() => {
+          consoleWarnStub.restore();
+        });
+
+        it('should skip malformed regex and still apply a valid redirect rule', async () => {
+          const cloneUrl = () => Object.assign({}, req.nextUrl);
+          const url = {
+            href: 'http://localhost:3000/new-page',
+            pathname: '/new-page',
+            origin: 'http://localhost:3000',
+            locale: 'en',
+            search: '',
+            clone: cloneUrl,
+          };
+
+          const { res, req } = createTestRequestResponse({
+            response: { url },
+            request: {
+              nextUrl: {
+                pathname: '/old-page',
+                href: 'http://localhost:3000/old-page',
+                locale: 'en',
+                origin: 'http://localhost:3000',
+                clone: cloneUrl,
+              },
+            },
+          });
+
+          setupRedirectStub(301);
+
+          const { finalRes } = await runTestWithRedirect(
+            {
+              redirectMaps: [
+                {
+                  pattern: '^/broken(',
+                  target: '/should-not-match',
+                  redirectType: REDIRECT_TYPE_301,
+                },
+                {
+                  pattern: '/old-page',
+                  target: '/new-page',
+                  redirectType: REDIRECT_TYPE_301,
+                },
+              ],
+              locale: 'en',
+            },
+            req,
+            res
+          );
+
+          expect(consoleWarnStub).to.have.been.calledOnce;
+          expect(consoleWarnStub.firstCall.args[0]).to.include('invalid redirect regex');
+          expect(nextRedirectStub).to.have.been.calledOnce;
+          expect(normalizeUrlValue(nextRedirectStub.getCall(0).args[0])).to.include('/new-page');
+          expect(finalRes.status).to.equal(301);
+        });
+
+        it('should skip malformed regex with capture groups without failing capture substitution', async () => {
+          const cloneUrl = () => Object.assign({}, req.nextUrl);
+          const url = {
+            href: 'http://localhost:3000/new-page/123',
+            pathname: '/new-page/123',
+            origin: 'http://localhost:3000',
+            locale: 'en',
+            search: '',
+            clone: cloneUrl,
+          };
+
+          const { res, req } = createTestRequestResponse({
+            response: { url },
+            request: {
+              nextUrl: {
+                pathname: '/old-page/123',
+                href: 'http://localhost:3000/old-page/123',
+                locale: 'en',
+                origin: 'http://localhost:3000',
+                clone: cloneUrl,
+              },
+            },
+          });
+
+          setupRedirectStub(301);
+
+          await runTestWithRedirect(
+            {
+              redirectMaps: [
+                {
+                  pattern: '^/broken(',
+                  target: '/bad',
+                  redirectType: REDIRECT_TYPE_301,
+                },
+                {
+                  pattern: '/old-page/(\\d+)',
+                  target: '/new-page/$1',
+                  redirectType: REDIRECT_TYPE_301,
+                },
+              ],
+              locale: 'en',
+            },
+            req,
+            res
+          );
+
+          expect(consoleWarnStub).to.have.been.calledOnce;
+          expect(nextRedirectStub).to.have.been.calledOnce;
+          expect(normalizeUrlValue(nextRedirectStub.getCall(0).args[0])).to.include(
+            '/new-page/123'
+          );
+        });
+      });
+
       it('should return 301 redirect', async () => {
         const cloneUrl = () => Object.assign({}, req.nextUrl);
         const url = {
