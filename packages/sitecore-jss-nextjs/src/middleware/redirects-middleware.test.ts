@@ -590,7 +590,9 @@ describe('RedirectsMiddleware', () => {
 
           expect(consoleWarnStub).to.have.been.calledOnce;
           expect(nextRedirectStub).to.have.been.calledOnce;
-          expect(normalizeUrlValue(nextRedirectStub.getCall(0).args[0])).to.include('/new-page/123');
+          expect(normalizeUrlValue(nextRedirectStub.getCall(0).args[0])).to.include(
+            '/new-page/123'
+          );
         });
       });
 
