@@ -8,7 +8,7 @@
 
 > **resolveScJssConfig**(`config?`): `Promise`\<[`ScJssConfig`](../interfaces/ScJssConfig.md)\>
 
-Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:20](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L20)
+Defined in: [sitecore-jss-dev-tools/src/resolve-scjssconfig.ts:20](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-dev-tools/src/resolve-scjssconfig.ts#L20)
 
 ## Parameters
 

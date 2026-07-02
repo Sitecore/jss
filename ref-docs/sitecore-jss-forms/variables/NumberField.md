@@ -8,4 +8,4 @@
 
 > `const` **NumberField**: `React.FunctionComponent`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`NumberInputViewModel`\>\>
 
-Defined in: [src/components/field-templates/number.tsx:7](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-react-forms/src/components/field-templates/number.tsx#L7)
+Defined in: [src/components/field-templates/number.tsx:7](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-react-forms/src/components/field-templates/number.tsx#L7)

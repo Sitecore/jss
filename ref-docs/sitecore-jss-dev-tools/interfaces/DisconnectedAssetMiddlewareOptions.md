@@ -6,7 +6,7 @@
 
 # Interface: DisconnectedAssetMiddlewareOptions
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:9](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L9)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:9](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L9)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:9](
 
 > **manifestPath**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:10](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L10)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:10](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L10)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:10]
 
 > **staticRootPath**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:11](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L11)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/media-service.ts:11](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-dev-tools/src/disconnected-server/media-service.ts#L11)

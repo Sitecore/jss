@@ -8,7 +8,7 @@
 
 > `const` **configLoader**: (`__namedParameters`) => `Promise`\<`any`\> = `config`
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/configLoader.ts:51](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L51)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/configLoader.ts:51](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-dev-tools/src/pipelines/configLoader.ts#L51)
 
 ## Parameters
 

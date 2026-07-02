@@ -8,4 +8,4 @@
 
 > `const` **DateField**: `React.FC`\<[`DateFieldProps`](../interfaces/DateFieldProps.md)\>
 
-Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:24](https://github.com/Sitecore/jss/blob/339481bc59517cc51440ad39494433cdc1a21511/packages/sitecore-jss-react/src/components/Date.tsx#L24)
+Defined in: [packages/sitecore-jss-react/src/components/Date.tsx:24](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-react/src/components/Date.tsx#L24)
