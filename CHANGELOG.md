@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Skip malformed redirect regex rules instead of failing the entire redirect chain ([#2201](https://github.com/Sitecore/jss/pull/2201))
+
 ## 22.12.3
 
 ### 🐛 Bug Fixes
@@ -18,7 +22,6 @@ Our versioning strategy is as follows:
 * `[create-sitecore-jss]` Fix nextjs-styleguide template build failure ([#2196](https://github.com/Sitecore/jss/pull/2196))
 * `[sitecore-jss-tools]` Fix `jss deploy component` command failing ([#2195](https://github.com/Sitecore/jss/pull/2195))
 * `[sitecore-jss-react]` Form component loses interactivity and state between rerenders ([#2197](https://github.com/Sitecore/jss/pull/2197))
-* `[sitecore-jss-nextjs]` Skip malformed redirect regex rules instead of failing the entire redirect chain ([#2201](https://github.com/Sitecore/jss/pull/2201))
 
 ### Chores
 
