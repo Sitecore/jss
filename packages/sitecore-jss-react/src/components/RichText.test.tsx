@@ -77,6 +77,36 @@ describe('<RichText />', () => {
     expect(rendered[0].innerHTML).to.contain('<span class="scChromeData">');
   });
 
+  it('should not replace rendered DOM content when re-rendered with unchanged value', () => {
+    const field = {
+      value: '<a href="/foo">bar</a>',
+    };
+    const { container, rerender } = render(<RichText field={field} />);
+    const anchor = container.querySelector('a');
+    expect(anchor).to.exist;
+
+    rerender(<RichText field={field} />);
+    expect(container.querySelector('a')).to.equal(anchor);
+
+    // new field object, same value — content reference should still be stable
+    rerender(<RichText field={{ value: '<a href="/foo">bar</a>' }} />);
+    expect(container.querySelector('a')).to.equal(anchor);
+  });
+
+  it('should replace rendered DOM content when value changes', () => {
+    const field = {
+      value: '<a href="/foo">bar</a>',
+    };
+    const { container, rerender } = render(<RichText field={field} />);
+    const anchor = container.querySelector('a');
+
+    rerender(<RichText field={{ value: '<a href="/baz">qux</a>' }} />);
+    const newAnchor = container.querySelector('a');
+    expect(newAnchor).to.exist;
+    expect(newAnchor).to.not.equal(anchor);
+    expect(newAnchor.getAttribute('href')).to.equal('/baz');
+  });
+
   it('should render tag with a tag provided', () => {
     const field = {
       value: 'value',
