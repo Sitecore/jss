@@ -15,6 +15,10 @@ Our versioning strategy is as follows:
 
 * `[sitecore-jss-nextjs]` Skip malformed redirect regex rules instead of failing the entire redirect chain ([#2201](https://github.com/Sitecore/jss/pull/2201))
 
+### Chores
+
+* Update `minimatch` dependency resolution for `nx` ([#2205](https://github.com/Sitecore/jss/pull/2205))
+
 ## 22.12.3
 
 ### 🐛 Bug Fixes
