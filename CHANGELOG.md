@@ -15,6 +15,10 @@ Our versioning strategy is as follows:
 
 * `[create-sitecore-jss]` Sitemap index XML xmlns omits the 'www' prefix ([#2199](https://github.com/Sitecore/jss/pull/2199))
 
+### Chores
+
+* Update `minimatch` dependency resolution for `nx` ([#2205](https://github.com/Sitecore/jss/pull/2205))
+
 ## 22.12.3
 
 ### 🐛 Bug Fixes
