@@ -8,4 +8,4 @@
 
 > `const` **VisitorIdentification**: `FC`\<`VisitorIdentificationProps`\> = `VIComponent`
 
-Defined in: [packages/sitecore-jss-react/src/components/VisitorIdentification.tsx:49](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-react/src/components/VisitorIdentification.tsx#L49)
+Defined in: [packages/sitecore-jss-react/src/components/VisitorIdentification.tsx:49](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/VisitorIdentification.tsx#L49)

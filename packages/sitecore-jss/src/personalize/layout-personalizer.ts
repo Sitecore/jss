@@ -135,7 +135,8 @@ export function personalizeComponent(
     if (component.placeholders) {
       component.placeholders[placeholder] = personalizePlaceholder(
         component.placeholders[placeholder],
-        variantIds
+        variantIds,
+        metadataEditing
       );
     }
   });
