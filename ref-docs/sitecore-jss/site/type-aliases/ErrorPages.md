@@ -8,7 +8,7 @@
 
 > **ErrorPages** = `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:47](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L47)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:47](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L47)
 
 Object model of Error Pages result
 
@@ -18,7 +18,7 @@ Object model of Error Pages result
 
 > **notFoundPage**: `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:48](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L48)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:48](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L48)
 
 #### rendered
 
@@ -30,7 +30,7 @@ Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:48](h
 
 > **notFoundPagePath**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:49](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L49)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:49](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L49)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:49](h
 
 > **serverErrorPage**: `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:50](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L50)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:50](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L50)
 
 #### rendered
 
@@ -50,4 +50,4 @@ Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:50](h
 
 > **serverErrorPagePath**: `string`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)
+Defined in: [packages/sitecore-jss/src/site/graphql-error-pages-service.ts:51](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/site/graphql-error-pages-service.ts#L51)
