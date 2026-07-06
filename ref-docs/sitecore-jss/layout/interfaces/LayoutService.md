@@ -6,7 +6,7 @@
 
 # Interface: LayoutService
 
-Defined in: [packages/sitecore-jss/src/layout/layout-service.ts:4](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss/src/layout/layout-service.ts#L4)
+Defined in: [packages/sitecore-jss/src/layout/layout-service.ts:4](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss/src/layout/layout-service.ts#L4)
 
 ## Methods
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss/src/layout/layout-service.ts:4](https://githu
 
 > **fetchLayoutData**(`itemPath`, `language?`, `req?`, `res?`): `Promise`\<[`LayoutServiceData`](LayoutServiceData.md)\>
 
-Defined in: [packages/sitecore-jss/src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss/src/layout/layout-service.ts#L13)
+Defined in: [packages/sitecore-jss/src/layout/layout-service.ts:13](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss/src/layout/layout-service.ts#L13)
 
 Fetch layout data for an item.
 

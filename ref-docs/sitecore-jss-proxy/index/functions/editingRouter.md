@@ -8,7 +8,7 @@
 
 > **editingRouter**(`options`): `Router`
 
-Defined in: [sitecore-jss-proxy/src/middleware/editing/index.ts:106](https://github.com/Sitecore/jss/blob/528a5c314410558456545441bea6e708690e5e01/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L106)
+Defined in: [sitecore-jss-proxy/src/middleware/editing/index.ts:106](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-proxy/src/middleware/editing/index.ts#L106)
 
 Creates a router for editing requests.
 Supports the following routes:
