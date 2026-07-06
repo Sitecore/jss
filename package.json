@@ -43,7 +43,8 @@
     "eslint-plugin-jsx-a11y": "6.7.1",
     "@types/react-native/@types/react": "17.0.34",
     "@types/react-native-htmlview/@types/react": "17.0.34",
-    "rollup": "4.52.5"
+    "rollup": "4.52.5",
+    "minimatch@npm:3.0.5": "npm:3.1.5"
   },
   "workspaces": [
     "packages/*",
