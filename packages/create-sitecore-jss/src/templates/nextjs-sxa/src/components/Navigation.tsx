@@ -39,7 +39,9 @@ const getNavigationText = function(props: NavigationProps): JSX.Element | string
   return text;
 };
 
-const getLinkField = (props: NavigationProps): LinkField & any => ({
+type NavigationLinkField = LinkField & Pick<TextField, 'metadata'>;
+
+const getLinkField = (props: NavigationProps): NavigationLinkField => ({
   value: {
     href: props.fields.Href,
     title: getLinkTitle(props),
