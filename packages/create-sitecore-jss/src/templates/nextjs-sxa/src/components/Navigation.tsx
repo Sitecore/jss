@@ -39,12 +39,13 @@ const getNavigationText = function(props: NavigationProps): JSX.Element | string
   return text;
 };
 
-const getLinkField = (props: NavigationProps): LinkField => ({
+const getLinkField = (props: NavigationProps): LinkField & any => ({
   value: {
     href: props.fields.Href,
     title: getLinkTitle(props),
     querystring: props.fields.Querystring,
   },
+  metadata: props.fields.NavigationTitle?.metadata,
 });
 
 export const Default = (props: NavigationProps): JSX.Element => {
