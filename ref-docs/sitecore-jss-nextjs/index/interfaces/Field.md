@@ -8,9 +8,11 @@
 
 Defined in: sitecore-jss/types/layout/models.d.ts:117
 
+represents the field metadata provided by layout service in editMode 'metadata'
+
 ## Extends
 
-- `FieldMetadata`
+- [`FieldMetadata`](FieldMetadata.md)
 
 ## Type Parameters
 
@@ -40,7 +42,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:125
 
 #### Inherited from
 
-`FieldMetadata.metadata`
+[`FieldMetadata`](FieldMetadata.md).[`metadata`](FieldMetadata.md#metadata)
 
 ***
 

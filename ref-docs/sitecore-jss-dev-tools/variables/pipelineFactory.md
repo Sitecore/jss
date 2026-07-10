@@ -8,7 +8,7 @@
 
 > `const` **pipelineFactory**: `object`
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts:74](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L74)
 
 ## Type Declaration
 

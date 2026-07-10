@@ -6,7 +6,7 @@
 
 # Interface: GoalInstance
 
-Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:7](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/tracking/dataModels.ts#L7)
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:7](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss/src/tracking/dataModels.ts#L7)
 
 ## Indexable
 
@@ -18,6 +18,6 @@ Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:7](https://github.
 
 > **goalId**: `string`
 
-Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:10](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/tracking/dataModels.ts#L10)
+Defined in: [packages/sitecore-jss/src/tracking/dataModels.ts:10](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss/src/tracking/dataModels.ts#L10)
 
 GUID or alias (name) of goal to trigger

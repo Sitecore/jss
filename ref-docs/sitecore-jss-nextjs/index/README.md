@@ -55,6 +55,7 @@
 - [DictionaryService](interfaces/DictionaryService.md)
 - [EventInstance](interfaces/EventInstance.md)
 - [Field](interfaces/Field.md)
+- [FieldMetadata](interfaces/FieldMetadata.md)
 - [FileField](interfaces/FileField.md)
 - [GoalInstance](interfaces/GoalInstance.md)
 - [GraphQLDictionaryServiceConfig](interfaces/GraphQLDictionaryServiceConfig.md)

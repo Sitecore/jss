@@ -6,7 +6,7 @@
 
 # Interface: Item
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:146](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/layout/models.ts#L146)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:146](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss/src/layout/models.ts#L146)
 
 Content data returned from Layout Service
 
@@ -16,7 +16,7 @@ Content data returned from Layout Service
 
 > `optional` **displayName?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:148](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/layout/models.ts#L148)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:148](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss/src/layout/models.ts#L148)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:148](https://github.com/
 
 > **fields**: `object`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:151](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/layout/models.ts#L151)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:151](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss/src/layout/models.ts#L151)
 
 #### Index Signature
 
@@ -36,7 +36,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:151](https://github.com/
 
 > `optional` **id?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:149](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/layout/models.ts#L149)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:149](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss/src/layout/models.ts#L149)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:149](https://github.com/
 
 > **name**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:147](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/layout/models.ts#L147)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:147](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss/src/layout/models.ts#L147)
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:147](https://github.com/
 
 > `optional` **url?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:150](https://github.com/Sitecore/jss/blob/c8a0c4ef6e330de5194a437947b1fae107ebc286/packages/sitecore-jss/src/layout/models.ts#L150)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:150](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss/src/layout/models.ts#L150)
