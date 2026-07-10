@@ -28,6 +28,7 @@ export {
   PlaceholdersData,
   RouteData,
   Field,
+  FieldMetadata,
   Item,
   HtmlElementRendering,
   getChildPlaceholder,

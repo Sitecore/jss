@@ -16,6 +16,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-nextjs]` Skip malformed redirect regex rules instead of failing the entire redirect chain ([#2201](https://github.com/Sitecore/jss/pull/2201))
 * `[sitecore-jss]` Fix personalize hide component not working properly in edit mode for nested personalization ([#2202](https://github.com/Sitecore/jss/pull/2202))
 * `[create-sitecore-jss]` Sitemap index XML xmlns omits the 'www' prefix ([#2199](https://github.com/Sitecore/jss/pull/2199))
+* `[create-sitecore-jss]` Pass `metadata` to navigation link fields to prevent 404 errors when hovering links in Pages ([#2206](https://github.com/Sitecore/jss/pull/2206))
 
 ### Chores
 
