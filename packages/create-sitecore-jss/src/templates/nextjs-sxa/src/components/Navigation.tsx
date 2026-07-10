@@ -1,8 +1,8 @@
 import { useState, JSX } from 'react';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 import {
   Link,
   LinkField,
+  Field,
   Text,
   TextField,
   useSitecoreContext,
@@ -40,7 +40,7 @@ const getNavigationText = function(props: NavigationProps): JSX.Element | string
   return text;
 };
 
-const getLinkField = (props: NavigationProps): LinkField & FieldMetadata => ({
+const getLinkField = (props: NavigationProps): LinkField & Field => ({
   value: {
     href: props.fields.Href,
     title: getLinkTitle(props),
