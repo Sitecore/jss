@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 import { LinkField, JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { Field } from '@sitecore-jss/sitecore-jss-angular';
 
@@ -42,7 +43,7 @@ export class NavigationItemComponent implements OnInit {
     this.childLinkClickEvent.emit(event);
   }
 
-  private getLinkField = (navItemFields: NavItemFields): LinkField => ({
+  private getLinkField = (navItemFields: NavItemFields): LinkField & FieldMetadata => ({
     value: {
       href: navItemFields.Href,
       title: this.getLinkTitle(navItemFields),
