@@ -1,5 +1,5 @@
 import { useState, JSX } from 'react';
-import type { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
+import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 import {
   Link,
   LinkField,
