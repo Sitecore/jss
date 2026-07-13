@@ -8,4 +8,4 @@
 
 > **propTypes**: `WeakValidationMap`\<`RichTextProps`\>
 
-Defined in: [sitecore-jss-react-native/src/components/RichText.tsx:24](https://github.com/Sitecore/jss/blob/4ce2efe7e448483cf1ae360a90417b0dfe43089b/packages/sitecore-jss-react-native/src/components/RichText.tsx#L24)
+Defined in: [sitecore-jss-react-native/src/components/RichText.tsx:24](https://github.com/Sitecore/jss/blob/8267fa90cd426dbf7203bea846c67ee8e2d147ee/packages/sitecore-jss-react-native/src/components/RichText.tsx#L24)
