@@ -9,6 +9,24 @@ Our versioning strategy is as follows:
 - Minor: may include breaking changes in framework packages (e.g. framework upgrades, new features, improvements)
 - Major: may include breaking changes in core packages (e.g. major architectural changes, major features)
 
+## 22.12.4
+
+### 🐛 Bug Fixes
+
+* `[create-sitecore-jss]` Sitemap index XML xmlns omits the 'www' prefix ([#2199](https://github.com/Sitecore/jss/pull/2199))
+
+## 22.12.3
+
+### 🐛 Bug Fixes
+
+* `[create-sitecore-jss]` Fix nextjs-styleguide template build failure ([#2196](https://github.com/Sitecore/jss/pull/2196))
+* `[sitecore-jss-tools]` Fix `jss deploy component` command failing ([#2195](https://github.com/Sitecore/jss/pull/2195))
+* `[sitecore-jss-react]` Form component loses interactivity and state between rerenders ([#2197](https://github.com/Sitecore/jss/pull/2197))
+
+### Chores
+
+* `[sitecore-jss-dev-tools]` `[create-sitecore-jss]` Update `glob` version to latest ([#2194]https://github.com/Sitecore/jss/pull/2194))
+
 ## 22.12.2
 
 ### 🎉 New Features & Improvements
