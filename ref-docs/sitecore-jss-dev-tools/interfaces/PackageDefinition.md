@@ -6,7 +6,7 @@
 
 # Interface: PackageDefinition
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:15](https://github.com/Sitecore/jss/blob/87b8b9e3c4c51c0732fe01e663f3ec503cc0018e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L15)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:15](https://github.com/Sitecore/jss/blob/4de6d9f2ab3a900511e90205b1b0a32718b97204/packages/sitecore-jss-dev-tools/src/templating/components.ts#L15)
 
 Describes a package and components to be imported
 
@@ -16,7 +16,7 @@ Describes a package and components to be imported
 
 > **components**: `object`[]
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:17](https://github.com/Sitecore/jss/blob/87b8b9e3c4c51c0732fe01e663f3ec503cc0018e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:17](https://github.com/Sitecore/jss/blob/4de6d9f2ab3a900511e90205b1b0a32718b97204/packages/sitecore-jss-dev-tools/src/templating/components.ts#L17)
 
 #### componentName
 
@@ -32,4 +32,4 @@ Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:17](https://git
 
 > **name**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:16](https://github.com/Sitecore/jss/blob/87b8b9e3c4c51c0732fe01e663f3ec503cc0018e/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)
+Defined in: [sitecore-jss-dev-tools/src/templating/components.ts:16](https://github.com/Sitecore/jss/blob/4de6d9f2ab3a900511e90205b1b0a32718b97204/packages/sitecore-jss-dev-tools/src/templating/components.ts#L16)
