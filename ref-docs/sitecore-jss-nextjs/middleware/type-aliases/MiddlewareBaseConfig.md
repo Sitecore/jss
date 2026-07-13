@@ -8,7 +8,7 @@
 
 > **MiddlewareBaseConfig** = `object`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:6](https://github.com/Sitecore/jss/blob/4de6d9f2ab3a900511e90205b1b0a32718b97204/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L6)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:6](https://github.com/Sitecore/jss/blob/03347a352cb5d8f36600d79d3357b4302614a29d/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L6)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:6](https://github.
 
 > `optional` **defaultHostname**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:25](https://github.com/Sitecore/jss/blob/4de6d9f2ab3a900511e90205b1b0a32718b97204/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L25)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:25](https://github.com/Sitecore/jss/blob/03347a352cb5d8f36600d79d3357b4302614a29d/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L25)
 
 Fallback hostname in case `host` header is not present
 
@@ -32,7 +32,7 @@ localhost
 
 > `optional` **disabled**: (`req?`, `res?`) => `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:12](https://github.com/Sitecore/jss/blob/4de6d9f2ab3a900511e90205b1b0a32718b97204/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L12)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:12](https://github.com/Sitecore/jss/blob/03347a352cb5d8f36600d79d3357b4302614a29d/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L12)
 
 function, determines if middleware should be turned off, based on cookie, header, or other considerations
 
@@ -53,7 +53,7 @@ function, determines if middleware should be turned off, based on cookie, header
 
 > `optional` **excludeRoute**: (`pathname`) => `boolean`
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:20](https://github.com/Sitecore/jss/blob/4de6d9f2ab3a900511e90205b1b0a32718b97204/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L20)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:20](https://github.com/Sitecore/jss/blob/03347a352cb5d8f36600d79d3357b4302614a29d/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L20)
 
 Function used to determine if route should be excluded.
 By default, files (pathname.includes('.')), Next.js API routes (pathname.startsWith('/api/')), and Sitecore API routes (pathname.startsWith('/sitecore/')) are ignored.
@@ -77,6 +77,6 @@ Whether to exclude the route
 
 > **siteResolver**: [`SiteResolver`](../../index/classes/SiteResolver.md)
 
-Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:29](https://github.com/Sitecore/jss/blob/4de6d9f2ab3a900511e90205b1b0a32718b97204/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L29)
+Defined in: [sitecore-jss-nextjs/src/middleware/middleware.ts:29](https://github.com/Sitecore/jss/blob/03347a352cb5d8f36600d79d3357b4302614a29d/packages/sitecore-jss-nextjs/src/middleware/middleware.ts#L29)
 
 Site resolution implementation by name/hostname
