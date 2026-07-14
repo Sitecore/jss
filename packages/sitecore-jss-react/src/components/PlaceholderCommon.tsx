@@ -65,6 +65,13 @@ export interface PlaceholderProps {
    */
   modifyComponentProps?: (componentProps: ComponentProps) => ComponentProps;
   /**
+   * An alternative to `modifyComponentProps` that allows passing additional props to rendered
+   * components without forwarding Placeholder/SitecoreContext internal props.
+   */
+  passThroughComponentProps?: {
+    [key: string]: unknown;
+  };
+  /**
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
@@ -187,7 +194,11 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       params: placeholderParams,
       missingComponentComponent,
       hiddenRenderingComponent,
-      ...placeholderProps
+      passThroughComponentProps,
+      modifyComponentProps,
+      errorComponent,
+      componentLoadingMessage,
+      disableSuspense,
     } = this.props;
 
     const transformedComponents = placeholderData
@@ -241,9 +252,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           isEmpty = true;
         }
 
-        const finalProps = {
+        // Only pass rendering data props to child components.
+        // Internal Placeholder/SitecoreContext props are excluded.
+        const childProps: ComponentProps = {
           ...commonProps,
-          ...placeholderProps,
           ...((placeholderFields || componentRendering.fields) && {
             fields: { ...placeholderFields, ...componentRendering.fields },
           }),
@@ -258,9 +270,18 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
+        const modifiedProps = modifyComponentProps
+          ? modifyComponentProps(childProps)
+          : childProps;
+
+        const finalProps = {
+          ...modifiedProps,
+          ...passThroughComponentProps,
+        };
+
         let rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
-          this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
+          finalProps
         );
 
         if (!isEmpty) {
@@ -273,17 +294,18 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
 
-          // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
-          // that's why we need to expose element's props here
+          // Pass only ErrorBoundary props here (aligned with Content SDK).
+          // Do not spread child props onto the boundary — that made ErrorBoundary look like the
+          // Sitecore component in React DevTools and leaked Placeholder internals as undefined.
           rendered = (
             <ErrorBoundary
-              key={rendered.type + '-' + index}
-              errorComponent={this.props.errorComponent}
-              componentLoadingMessage={this.props.componentLoadingMessage}
+              key={String(rendered.type) + '-' + index}
               type={type}
               isDynamic={isDynamicComponent || isByocWrapper}
-              disableSuspense={this.props.disableSuspense}
-              {...rendered.props}
+              rendering={componentRendering}
+              {...(errorComponent ? { errorComponent } : {})}
+              {...(componentLoadingMessage ? { componentLoadingMessage } : {})}
+              {...(disableSuspense !== undefined ? { disableSuspense } : {})}
             >
               {rendered}
             </ErrorBoundary>

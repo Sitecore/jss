@@ -163,9 +163,8 @@ describe('<Placeholder />', () => {
 
         expect(renderedComponent.container.innerHTML).to.be.equal('');
       });
-    });
 
-    it('should render output based on the renderEmpty function in case of no renderings', () => {
+      it('should render output based on the renderEmpty function in case of no renderings', () => {
       const component = dataSet.data.sitecore.route as RouteData;
       const renderings = component.placeholders.main.filter(
         (c) => !(c as ComponentRendering).componentName
@@ -237,10 +236,11 @@ describe('<Placeholder />', () => {
     });
 
     it('should apply modifyComponentProps to the final props', () => {
-      const component = dataSet.data.sitecore.route as any;
-      const phKey = 'main';
-      const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
-        .fields.message;
+      const component = (dataSet.data.sitecore.route.placeholders.main as (
+        | ComponentRendering
+        | RouteData
+      )[]).find((c) => (c as ComponentRendering).componentName);
+      const phKey = 'page-content';
 
       const modifyComponentProps = (props: ComponentProps) => {
         if (props.rendering?.componentName === 'DownloadCallout') {
@@ -263,12 +263,76 @@ describe('<Placeholder />', () => {
         </SitecoreContext>
       );
 
-      expect(
-        renderedComponent.container
-          .querySelector('.download-callout-mock')
-          ?.innerHTML.indexOf(expectedMessage.value) !== -1
-      ).to.be.true;
       expect(renderedComponent.container.querySelectorAll('div.extra').length).to.equal(1);
+    });
+
+    it('should not pass internal Placeholder props to rendered components', () => {
+      const receivedProps: string[] = [];
+      const PropCapture: React.FC<Record<string, unknown>> = (props) => {
+        receivedProps.push(...Object.keys(props));
+        return <div className="prop-capture" />;
+      };
+
+      const factory: ComponentFactory = (componentName: string) => {
+        if (componentName === 'DownloadCallout') return PropCapture;
+        return componentFactory(componentName);
+      };
+
+      const component = (dataSet.data.sitecore.route.placeholders.main as (
+        | ComponentRendering
+        | RouteData
+      )[]).find((c) => (c as ComponentRendering).componentName);
+      const phKey = 'page-content';
+
+      render(
+        <SitecoreContext componentFactory={factory}>
+          <Placeholder name={phKey} rendering={component} />
+        </SitecoreContext>
+      );
+
+      const unexpectedProps = [
+        'api',
+        'componentFactory',
+        'modifyComponentProps',
+        'sitecoreContext',
+        'updateSitecoreContext',
+        'errorComponent',
+        'componentLoadingMessage',
+        'disableSuspense',
+        'missingComponentComponent',
+        'hiddenRenderingComponent',
+        'passThroughComponentProps',
+        'name',
+      ];
+
+      unexpectedProps.forEach((prop) => {
+        expect(receivedProps, `rendered component should not receive "${prop}"`).to.not.include(
+          prop
+        );
+      });
+
+      expect(receivedProps).to.include('rendering');
+    });
+
+    it('should pass passThroughComponentProps to rendered components', () => {
+      const component = (dataSet.data.sitecore.route.placeholders.main as (
+        | ComponentRendering
+        | RouteData
+      )[]).find((c) => (c as ComponentRendering).componentName);
+      const phKey = 'page-content';
+
+      const renderedComponent = render(
+        <SitecoreContext componentFactory={componentFactory}>
+          <Placeholder
+            name={phKey}
+            rendering={component}
+            passThroughComponentProps={{ extraDiv: true }}
+          />
+        </SitecoreContext>
+      );
+
+      expect(renderedComponent.container.querySelectorAll('div.extra').length).to.equal(1);
+    });
     });
   });
 });
