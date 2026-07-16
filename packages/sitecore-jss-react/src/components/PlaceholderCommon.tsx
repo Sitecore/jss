@@ -196,9 +196,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       hiddenRenderingComponent,
       passThroughComponentProps,
       modifyComponentProps,
-      errorComponent,
-      componentLoadingMessage,
-      disableSuspense,
     } = this.props;
 
     const transformedComponents = placeholderData
@@ -294,18 +291,17 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
 
-          // Pass only ErrorBoundary props here (aligned with Content SDK).
-          // Do not spread child props onto the boundary — that made ErrorBoundary look like the
-          // Sitecore component in React DevTools and leaked Placeholder internals as undefined.
+          // wrapping with error boundary could cause problems in case where parent component uses withPlaceholder HOC and tries to access its children props
+          // that's why we need to expose element's props here
           rendered = (
             <ErrorBoundary
-              key={String(rendered.type) + '-' + index}
+              key={rendered.type + '-' + index}
+              errorComponent={this.props.errorComponent}
+              componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
               isDynamic={isDynamicComponent || isByocWrapper}
-              rendering={componentRendering}
-              {...(errorComponent ? { errorComponent } : {})}
-              {...(componentLoadingMessage ? { componentLoadingMessage } : {})}
-              {...(disableSuspense !== undefined ? { disableSuspense } : {})}
+              disableSuspense={this.props.disableSuspense}
+              {...rendered.props}
             >
               {rendered}
             </ErrorBoundary>
