@@ -267,9 +267,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
-        const modifiedProps = modifyComponentProps
-          ? modifyComponentProps(childProps)
-          : childProps;
+        const modifiedProps = modifyComponentProps ? modifyComponentProps(childProps) : childProps;
 
         const finalProps = {
           ...modifiedProps,
