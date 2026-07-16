@@ -8,7 +8,7 @@
 
 > **RedirectsQueryResult** = `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:51](https://github.com/Sitecore/jss/blob/8267fa90cd426dbf7203bea846c67ee8e2d147ee/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L51)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:51](https://github.com/Sitecore/jss/blob/80c29300efb14aa5d3f976572a1bdac104be1004/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L51)
 
 The schema of data returned in response to redirects array request
 
@@ -18,7 +18,7 @@ The schema of data returned in response to redirects array request
 
 > **site**: `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:52](https://github.com/Sitecore/jss/blob/8267fa90cd426dbf7203bea846c67ee8e2d147ee/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L52)
+Defined in: [packages/sitecore-jss/src/site/graphql-redirects-service.ts:52](https://github.com/Sitecore/jss/blob/80c29300efb14aa5d3f976572a1bdac104be1004/packages/sitecore-jss/src/site/graphql-redirects-service.ts#L52)
 
 #### siteInfo
 

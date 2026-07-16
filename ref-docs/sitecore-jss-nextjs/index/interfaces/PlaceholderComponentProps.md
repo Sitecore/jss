@@ -37,7 +37,7 @@ When rendered within a <SitecoreContext> component, defaults to the context comp
 
 > `optional` **componentLoadingMessage?**: `string`
 
-Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:67
+Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:74
 
 The message that gets displayed while component is loading
 
@@ -51,7 +51,7 @@ The message that gets displayed while component is loading
 
 > `optional` **disableSuspense?**: `boolean`
 
-Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:75
+Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:82
 
 #### Deprecated
 
@@ -76,7 +76,7 @@ true
 
 > `optional` **errorComponent?**: `ComponentClass`\<`ErrorComponentProps`, `any`\> \| `FC`\<`ErrorComponentProps`\>
 
-Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:59
+Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:66
 
 A component that is rendered in place of the placeholder when an error occurs rendering
 the placeholder
@@ -110,7 +110,7 @@ Any component or placeholder rendered by a placeholder will have access to this 
 
 > `optional` **hiddenRenderingComponent?**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
 
-Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:54
+Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:61
 
 A component that is rendered in place of any components that are hidden
 
@@ -124,7 +124,7 @@ A component that is rendered in place of any components that are hidden
 
 > `optional` **missingComponentComponent?**: `ComponentClass`\<`unknown`, `any`\> \| `FC`\<`unknown`\>
 
-Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:50
+Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:57
 
 A component that is rendered in place of any components that are in this placeholder,
 but do not have a definition in the componentFactory (i.e. don't have a React implementation)
@@ -192,6 +192,25 @@ Any component or placeholder rendered by a placeholder will have access to this 
 #### Inherited from
 
 `PlaceholderProps.params`
+
+***
+
+### passThroughComponentProps?
+
+> `optional` **passThroughComponentProps?**: `object`
+
+Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:50
+
+An alternative to `modifyComponentProps` that allows passing additional props to rendered
+components without forwarding Placeholder/SitecoreContext internal props.
+
+#### Index Signature
+
+\[`key`: `string`\]: `unknown`
+
+#### Inherited from
+
+`PlaceholderProps.passThroughComponentProps`
 
 ***
 
@@ -279,7 +298,7 @@ Rendering data to be used when rendering the placeholder.
 
 > **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:63
+Defined in: sitecore-jss-react/types/components/PlaceholderCommon.d.ts:70
 
 Context data from the Sitecore Layout Service
 

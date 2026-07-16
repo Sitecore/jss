@@ -8,7 +8,7 @@
 
 > `const` **getServerSideProps**: [`GetServerSideComponentProps`](../../../type-aliases/GetServerSideComponentProps.md)
 
-Defined in: [sitecore-jss-nextjs/src/components/BYOCWrapper.tsx:36](https://github.com/Sitecore/jss/blob/8267fa90cd426dbf7203bea846c67ee8e2d147ee/packages/sitecore-jss-nextjs/src/components/BYOCWrapper.tsx#L36)
+Defined in: [sitecore-jss-nextjs/src/components/BYOCWrapper.tsx:36](https://github.com/Sitecore/jss/blob/80c29300efb14aa5d3f976572a1bdac104be1004/packages/sitecore-jss-nextjs/src/components/BYOCWrapper.tsx#L36)
 
 Will be called during SSR
 
