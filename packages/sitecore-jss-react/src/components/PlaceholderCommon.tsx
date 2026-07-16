@@ -65,6 +65,13 @@ export interface PlaceholderProps {
    */
   modifyComponentProps?: (componentProps: ComponentProps) => ComponentProps;
   /**
+   * An alternative to `modifyComponentProps` that allows passing additional props to rendered
+   * components without forwarding Placeholder/SitecoreContext internal props.
+   */
+  passThroughComponentProps?: {
+    [key: string]: unknown;
+  };
+  /**
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
    */
@@ -187,7 +194,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       params: placeholderParams,
       missingComponentComponent,
       hiddenRenderingComponent,
-      ...placeholderProps
+      passThroughComponentProps,
+      modifyComponentProps,
     } = this.props;
 
     const transformedComponents = placeholderData
@@ -241,9 +249,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           isEmpty = true;
         }
 
-        const finalProps = {
+        // Only pass rendering data props to child components.
+        // Internal Placeholder/SitecoreContext props are excluded.
+        const childProps: ComponentProps = {
           ...commonProps,
-          ...placeholderProps,
           ...((placeholderFields || componentRendering.fields) && {
             fields: { ...placeholderFields, ...componentRendering.fields },
           }),
@@ -258,9 +267,16 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
+        const modifiedProps = modifyComponentProps ? modifyComponentProps(childProps) : childProps;
+
+        const finalProps = {
+          ...modifiedProps,
+          ...passThroughComponentProps,
+        };
+
         let rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
-          this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
+          finalProps
         );
 
         if (!isEmpty) {

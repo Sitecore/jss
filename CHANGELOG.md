@@ -15,6 +15,12 @@ Our versioning strategy is as follows:
 
 * `[create-sitecore-jss]` Pass `metadata` to navigation link fields to prevent 404 errors when hovering links in Pages ([#2206](https://github.com/Sitecore/jss/pull/2206))
 
+### 🛠 Breaking Changes
+
+* `[sitecore-jss-react]` Internal props such as `api`, `componentFactory`, `modifyComponentProps`, `sitecoreContext`, and `updateSitecoreContext` are no longer passed to components via `Placeholder` ([#2207](https://github.com/Sitecore/jss/pull/2207))
+  * **Still passed:** `fields`, `params`, `rendering` (+ props from `modifyComponentProps`).
+  * **New prop:** `passThroughComponentProps` — use this to pass additional props to rendered components explicitly.
+
 ## 22.12.4
 
 ### 🐛 Bug Fixes
