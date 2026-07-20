@@ -13,7 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
-* `[create-sitecore-jss]` Fix Vue template build failure caused by `@vue/cli-plugin-eslint` being incompatible with ESLint 9; linting during `vue-cli-service build` is now disabled, use `npm run lint` instead
+* `[create-sitecore-jss]` Fix Vue template build failure caused by `@vue/cli-plugin-eslint` being incompatible with ESLint 9; linting during `vue-cli-service build` is now disabled, use `npm run lint` instead ([#2208](https://github.com/Sitecore/jss/pull/2208))
 * `[create-sitecore-jss]` Pass `metadata` to navigation link fields to prevent 404 errors when hovering links in Pages ([#2206](https://github.com/Sitecore/jss/pull/2206))
 
 ### 🛠 Breaking Changes
