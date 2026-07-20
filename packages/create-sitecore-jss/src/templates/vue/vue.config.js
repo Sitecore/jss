@@ -69,6 +69,11 @@ if (process.env.BUILD_TARGET_ENV === 'server') {
   };
 }
 
+// `@vue/cli-plugin-eslint` still relies on ESLint's removed `extensions` constructor option,
+// which breaks the webpack build when ESLint 9 (flat config) is installed.
+// Linting is already covered by the standalone `lint` script, so disable it here.
+vueConfig.lintOnSave = false;
+
 // We may already have an existing `configureWebpack` definition (e.g. when building the server bundle).
 // So we need to preserve that definition and ensure it is invoked along with the config
 // options that are common to both client/server bundles.
