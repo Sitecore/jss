@@ -8,7 +8,7 @@
 
 > **runPipeline**(`pipeline`): `Promise`\<`any`\>
 
-Defined in: [sitecore-jss-dev-tools/src/pipelines/pipeline.ts:90](https://github.com/Sitecore/jss/blob/80c29300efb14aa5d3f976572a1bdac104be1004/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L90)
+Defined in: [sitecore-jss-dev-tools/src/pipelines/pipeline.ts:90](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss-dev-tools/src/pipelines/pipeline.ts#L90)
 
 ## Parameters
 
