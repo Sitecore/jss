@@ -38,7 +38,6 @@ export default {
   multisite: debug(`${rootNamespace}:multisite`),
   robots: debug(`${rootNamespace}:robots`),
   redirects: debug(`${rootNamespace}:redirects`),
-  personalize: debug(`${rootNamespace}:personalize`),
   errorpages: debug(`${rootNamespace}:errorpages`),
   proxy: debug(`${rootNamespace}:proxy`),
 };

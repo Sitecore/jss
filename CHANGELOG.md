@@ -21,6 +21,16 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Internal props such as `api`, `componentFactory`, `modifyComponentProps`, `sitecoreContext`, and `updateSitecoreContext` are no longer passed to components via `Placeholder` ([#2207](https://github.com/Sitecore/jss/pull/2207))
   * **Still passed:** `fields`, `params`, `rendering` (+ props from `modifyComponentProps`).
   * **New prop:** `passThroughComponentProps` — use this to pass additional props to rendered components explicitly.
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` `[sitecore-jss-proxy]` `[create-sitecore-jss]` Removed Sitecore Personalize (CDP-driven A/B testing / experience variants) and CDP page-view tracking functionality, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK)
+  * Removed `PersonalizeMiddleware`/`PersonalizeMiddlewareConfig` (`sitecore-jss-nextjs`) and `PersonalizeHelper`/`PersonalizeConfig` (`sitecore-jss-proxy`)
+  * Removed `sitecore-jss`'s entire `/personalize` subpath — `GraphQLPersonalizeService`, `personalizeLayout`/`personalizePlaceholder`/`personalizeComponent`, `getPersonalizedRewrite`, `getPersonalizedRewriteData`, `getGroomedVariantIds`, `normalizePersonalizedRewrite`, `CdpHelper`, and `DEFAULT_VARIANT` (and their re-exports from `sitecore-jss-nextjs` and `sitecore-jss-angular`)
+  * Removed `includePersonalizedRoutes` from `GraphQLSitemapService`/`MultisiteGraphQLSitemapService` (SSG personalized route generation)
+  * Removed `variantIds` from `EditingMetadataPreviewData` and the `sc_variant` handling in both the Next.js and proxy editing render middlewares — Pages/Sitecore Editor no longer previews a specific personalization variant while authoring
+  * Removed `CdpPageView` (`nextjs-xmcloud`) and `CdpPageViewComponent` (`angular-xmcloud`), which tracked CDP page-view events
+  * Removed the CloudSDK browser init entirely: `nextjs-xmcloud` no longer overrides the base (no-op) `Bootstrap`, and `angular-xmcloud`'s `CloudSdkInitComponent` has been deleted
+  * The `nextjs-xmcloud`, `node-xmcloud-proxy`, and `angular-xmcloud` templates no longer wire up Personalize middleware/helpers, path-extractor, or page-props-factory plugins for personalized rewrites
+  * `PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT`/`PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT`/`NEXT_PUBLIC_PERSONALIZE_SCOPE`/`PERSONALIZE_SCOPE` env vars have been removed from the `nextjs-xmcloud`, `node-xmcloud-proxy`, and `angular-xmcloud` templates' `.env`
+  * Removed the `personalize` debug channel (`debug.personalize` / `DEBUG=sitecore-jss:personalize`) from `sitecore-jss`
 
 ## 22.12.4
 

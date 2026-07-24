@@ -302,7 +302,6 @@ describe('EditingRenderMiddleware', () => {
       sc_itemid: '{11111111-1111-1111-1111-111111111111}',
       sc_lang: 'en',
       sc_site: 'website',
-      sc_variant: 'dev',
       sc_version: 'latest',
       secret: secret,
       sc_layoutKind: 'shared',
@@ -321,7 +320,6 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantIds: ['dev'],
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
@@ -334,37 +332,6 @@ describe('EditingRenderMiddleware', () => {
         'Content-Security-Policy',
         `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
       );
-    });
-
-    it('should pass multiple variant ids into setPreviewData when sc_variantId parameter has many values', async () => {
-      const query = {
-        mode: 'edit',
-        route: '/styleguide',
-        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
-        sc_lang: 'en',
-        sc_site: 'website',
-        secret: secret,
-        sc_variant: 'id-1,id-2,id-3',
-      } as RenderMetadataQueryParams;
-
-      const req = mockRequest(EE_BODY, query, 'GET');
-      const res = mockResponse();
-
-      const middleware = new EditingRenderMiddleware();
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
-        site: 'website',
-        itemId: '{11111111-1111-1111-1111-111111111111}',
-        language: 'en',
-        variantIds: ['id-1', 'id-2', 'id-3'],
-        version: undefined,
-        editMode: 'metadata',
-        pageState: 'edit',
-        layoutKind: undefined,
-      });
     });
 
     it('should handle request with missing optional parameters', async () => {
@@ -388,7 +355,6 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantIds: ['_default'],
         version: undefined,
         editMode: 'metadata',
         pageState: 'edit',
@@ -421,7 +387,6 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantIds: ['dev'],
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
@@ -439,7 +404,6 @@ describe('EditingRenderMiddleware', () => {
         sc_itemid: '{11111111-1111-1111-1111-111111111111}',
         sc_lang: 'en',
         sc_site: 'website',
-        sc_variant: 'dev',
         sc_version: 'latest',
         secret: secret,
         sc_layoutKind: 'shared',
@@ -457,7 +421,6 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantIds: ['dev'],
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',
@@ -495,7 +458,6 @@ describe('EditingRenderMiddleware', () => {
         site: 'website',
         itemId: '{11111111-1111-1111-1111-111111111111}',
         language: 'en',
-        variantIds: ['dev'],
         version: 'latest',
         editMode: 'metadata',
         pageState: 'edit',

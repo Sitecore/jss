@@ -1,6 +1,5 @@
 import React, { JSX } from 'react';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
-import * as Events from '@sitecore-cloudsdk/events/browser';
 import '@sitecore/components/context';
 import dynamic from 'next/dynamic';
 import config from 'temp/config';
@@ -34,7 +33,6 @@ const BYOCInit = (): JSX.Element | null => {
     sitecoreEdgeContextId: config.sitecoreEdgeContextId,
     pageState: sitecoreContext?.pageState || LayoutServicePageState.Normal,
     siteName: sitecoreContext?.site?.name || config.sitecoreSiteName,
-    eventsSDK: Events,
   });
 
   return <FEAAS.ExternalComponentBundle />;

@@ -90,15 +90,6 @@ export {
   CacheOptions,
   MemoryCacheClient,
 } from '@sitecore-jss/sitecore-jss';
-export {
-  GraphQLPersonalizeService,
-  GraphQLPersonalizeServiceConfig,
-  PersonalizeInfo,
-  CdpHelper,
-  DEFAULT_VARIANT,
-  getGroomedVariantIds,
-  personalizeLayout,
-} from '@sitecore-jss/sitecore-jss/personalize';
 export { isServer } from '@sitecore-jss/sitecore-jss/utils';
 export {
   isEditorActive,

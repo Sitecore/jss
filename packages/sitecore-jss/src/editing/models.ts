@@ -14,7 +14,6 @@ export interface RenderMetadataQueryParams {
   route: string;
   mode: Exclude<LayoutServicePageState, 'normal'> | DesignLibraryMode;
   sc_layoutKind?: LayoutKind;
-  sc_variant?: string;
   sc_version?: string;
 }
 

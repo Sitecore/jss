@@ -19,7 +19,6 @@ import { EditingDataService, editingDataService } from './editing-data-service';
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
 import { enforceCors, getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
-import { DEFAULT_VARIANT } from '@sitecore-jss/sitecore-jss/personalize';
 
 /**
  * Configuration for the Editing Render Middleware.
@@ -293,7 +292,6 @@ export type EditingMetadataPreviewData = {
   language: string;
   editMode: EditMode.Metadata;
   pageState: Exclude<LayoutServicePageState, 'Normal'>;
-  variantIds: string[];
   version?: string;
   layoutKind?: LayoutKind;
 };
@@ -408,8 +406,6 @@ export class MetadataHandler {
           site: query.sc_site,
           itemId: query.sc_itemid,
           language: query.sc_lang,
-          // for sc_variantId we may employ multiple variants (page-layout + component level)
-          variantIds: query.sc_variant?.split(',') || [DEFAULT_VARIANT],
           version: query.sc_version,
           editMode: EditMode.Metadata,
           pageState: query.mode,

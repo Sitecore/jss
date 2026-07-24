@@ -7121,7 +7121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/core@npm:^0.5.1, @sitecore-cloudsdk/core@npm:^0.5.8":
+"@sitecore-cloudsdk/core@npm:^0.5.8":
   version: 0.5.8
   resolution: "@sitecore-cloudsdk/core@npm:0.5.8"
   dependencies:
@@ -7131,24 +7131,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-cloudsdk/events@npm:^0.5.2, @sitecore-cloudsdk/events@npm:^0.5.8":
+"@sitecore-cloudsdk/events@npm:^0.5.2":
   version: 0.5.8
   resolution: "@sitecore-cloudsdk/events@npm:0.5.8"
   dependencies:
     "@sitecore-cloudsdk/core": "npm:^0.5.8"
     "@sitecore-cloudsdk/utils": "npm:^0.5.8"
   checksum: 10/c40bcc1a7cc39856b09b073554df65a90fb05138642d39ffceff76b8408a56e6876323c4428af52b8805b13a57dde99caf6687415dc8a27bcc3c8764b99f999c
-  languageName: node
-  linkType: hard
-
-"@sitecore-cloudsdk/personalize@npm:^0.5.1":
-  version: 0.5.8
-  resolution: "@sitecore-cloudsdk/personalize@npm:0.5.8"
-  dependencies:
-    "@sitecore-cloudsdk/core": "npm:^0.5.8"
-    "@sitecore-cloudsdk/events": "npm:^0.5.8"
-    "@sitecore-cloudsdk/utils": "npm:^0.5.8"
-  checksum: 10/5540e3cf1dd069ac690961f47c3d52f2bfdfb54d8494e05b38d30b43643d48803f10bd4a39bcf1585a520fc80597e052a7b170362c94e6e1f06955ef8c4cb49f
   languageName: node
   linkType: hard
 
@@ -7224,7 +7213,6 @@ __metadata:
     typescript-eslint: "npm:^8.18.0"
     zone.js: "npm:~0.15.0"
   peerDependencies:
-    "@sitecore-cloudsdk/events": ^0.5.2
     "@types/debug": ^4.1.12
     rxjs: ~7.8.1
   languageName: unknown
@@ -7348,8 +7336,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-nextjs@workspace:packages/sitecore-jss-nextjs"
   dependencies:
-    "@sitecore-cloudsdk/core": "npm:^0.5.1"
-    "@sitecore-cloudsdk/personalize": "npm:^0.5.1"
     "@sitecore-jss/sitecore-jss": "npm:23.0.0-canary.9"
     "@sitecore-jss/sitecore-jss-dev-tools": "npm:23.0.0-canary.9"
     "@sitecore-jss/sitecore-jss-react": "npm:23.0.0-canary.9"
@@ -7387,9 +7373,6 @@ __metadata:
     ts-node: "npm:^10.9.1"
     typescript: "npm:~5.6.3"
   peerDependencies:
-    "@sitecore-cloudsdk/core": ^0.5.2
-    "@sitecore-cloudsdk/events": ^0.5.2
-    "@sitecore-cloudsdk/personalize": ^0.5.2
     next: ^16.2.0
     react: ^19.1.0
     react-dom: ^19.1.0
@@ -7400,8 +7383,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-proxy@workspace:packages/sitecore-jss-proxy"
   dependencies:
-    "@sitecore-cloudsdk/core": "npm:^0.5.1"
-    "@sitecore-cloudsdk/personalize": "npm:^0.5.1"
     "@sitecore-jss/sitecore-jss": "npm:23.0.0-canary.9"
     "@types/chai": "npm:^4.3.4"
     "@types/express": "npm:^5.0.3"
@@ -7537,7 +7518,6 @@ __metadata:
     ts-node: "npm:^10.9.1"
     typescript: "npm:~4.9.3"
   peerDependencies:
-    "@sitecore-cloudsdk/events": ^0.5.2
     "@sitecore-feaas/clientside": ^0.6.2
     react: ^19.1.0
     react-dom: ^19.1.0
@@ -22344,7 +22324,7 @@ __metadata:
       optional: true
   bin:
     ngrok: bin/ngrok
-  checksum: 10/b41bef1e9eb6d54be79615801bc8d203a2a6d6f2fd598ec6b40a6d68bebb9ee8f288997c31c56b5fbbc144d4e5220ed1fa50dd0a11b82dbd8645c7b806253090
+  checksum: 10/cc9be1262911d3eab0a619683be9cc9ccc3c3a3559747ea87fbb108460ca9fb93e29172c2f1a883532139bfd8add9b13d3c45887bf14480c10b54ed8f34b113c
   languageName: node
   linkType: hard
 
