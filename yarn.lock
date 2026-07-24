@@ -22324,7 +22324,7 @@ __metadata:
       optional: true
   bin:
     ngrok: bin/ngrok
-  checksum: 10/cc9be1262911d3eab0a619683be9cc9ccc3c3a3559747ea87fbb108460ca9fb93e29172c2f1a883532139bfd8add9b13d3c45887bf14480c10b54ed8f34b113c
+  checksum: 10/b41bef1e9eb6d54be79615801bc8d203a2a6d6f2fd598ec6b40a6d68bebb9ee8f288997c31c56b5fbbc144d4e5220ed1fa50dd0a11b82dbd8645c7b806253090
   languageName: node
   linkType: hard
 
