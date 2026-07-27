@@ -8,4 +8,4 @@
 
 > `const` **userConfigPath**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/setup/setup.ts:13](https://github.com/Sitecore/jss/blob/bb94a11d798b90441596d37d2022c73e9c91df04/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L13)
+Defined in: [sitecore-jss-dev-tools/src/setup/setup.ts:13](https://github.com/Sitecore/jss/blob/f5b4cfdae161b056d3504045ac7b664575e13d27/packages/sitecore-jss-dev-tools/src/setup/setup.ts#L13)
