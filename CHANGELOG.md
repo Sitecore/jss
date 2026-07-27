@@ -31,6 +31,10 @@ Our versioning strategy is as follows:
   * The `nextjs-xmcloud`, `node-xmcloud-proxy`, and `angular-xmcloud` templates no longer wire up Personalize middleware/helpers, path-extractor, or page-props-factory plugins for personalized rewrites
   * `PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT`/`PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT`/`NEXT_PUBLIC_PERSONALIZE_SCOPE`/`PERSONALIZE_SCOPE` env vars have been removed from the `nextjs-xmcloud`, `node-xmcloud-proxy`, and `angular-xmcloud` templates' `.env`
   * Removed the `personalize` debug channel (`debug.personalize` / `DEBUG=sitecore-jss:personalize`) from `sitecore-jss`
+* `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` Removed Sitecore Design Library / Components single-component preview & theming support, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK)
+  * Removed `sitecore-jss`'s `getDesignLibraryStylesheetLinks`, `RestComponentLayoutService`/`ComponentLayoutRequestParams`, `DesignLibraryMode`, `RenderComponentQueryParams`, `ComponentUpdateEventArgs` (from `editing/utils`), and the entire `editing/design-library` module (`DesignLibraryStatus`, `addComponentUpdateHandler`, `getDesignLibraryStatusEvent`, `getDesignLibraryScriptLink`, `isDesignLibraryMode`)
+  * Removed `RenderingType`, `EDITING_COMPONENT_PLACEHOLDER`, `EDITING_COMPONENT_ID` from `sitecore-jss`'s layout models
+  * Removed the `DesignLibrary` component (`sitecore-jss-react`/`sitecore-jss-nextjs`) and the Design Library branch of `EditingScripts`, `withDatasourceCheck`, and `NextImage`
 
 ## 22.12.4
 

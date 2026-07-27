@@ -35,7 +35,7 @@ src/
   components/               # Sitecore + FEAAS + BYOC (FEAASScripts, etc.)
   byoc/                     # BYOC registration (index.tsx, index.client.tsx, index.hybrid.ts)
   lib/
-    page-props-factory/     # + content-styles, component-themes plugins
+    page-props-factory/     # + content-styles plugin
     graphql-editing-service.ts
   proxy.ts                  # Next.js 16 middleware entry; matcher excludes /feaas-render
 temp/                       # config includes sitecoreEdgeUrl, sitecoreEdgeContextId
@@ -94,7 +94,7 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 ### Page and Layout
 
-- **Catch-all:** Same as base — `sitecorePagePropsFactory.create(context)`. XM Cloud add-on adds extra page-props-factory plugins: `content-styles`, `component-themes`. Plugin order must be preserved.
+- **Catch-all:** Same as base — `sitecorePagePropsFactory.create(context)`. XM Cloud add-on adds an extra page-props-factory plugin: `content-styles`. Plugin order must be preserved.
 - **Layout:** `Layout` includes `FEAASScripts` (from Scripts.tsx). `SitecoreContext` receives `api.edge` for Editor integration.
 - **Bootstrap:** This app uses the base (no-op) `Bootstrap`; CloudSDK is not initialized. Sitecore Forms and BYOC/FEAAS component event tracking (which rely on CloudSDK events) will not fire.
 

@@ -40,7 +40,6 @@ export interface LayoutServiceContext {
   site?: {
     name?: string;
   };
-  renderingType?: RenderingType;
   editMode?: EditMode;
   clientScripts?: string[];
   clientData?: Record<string, Record<string, unknown>>;
@@ -161,19 +160,3 @@ export interface PlaceholderData {
   path: string;
   elements: Array<HtmlElementRendering | ComponentRendering>;
 }
-
-/**
- * Editing rendering type
- */
-export enum RenderingType {
-  Component = 'component',
-}
-
-/**
- * Static placeholder name used for component rendering
- */
-export const EDITING_COMPONENT_PLACEHOLDER = 'editing-componentmode-placeholder';
-/**
- * Id of wrapper for component rendering
- */
-export const EDITING_COMPONENT_ID = 'editing-component';

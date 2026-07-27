@@ -1,4 +1,3 @@
-import { Field, GenericFieldValue } from '../layout/models';
 import isServer from '../utils/is-server';
 
 /**
@@ -37,17 +36,6 @@ type ExtendedWindow = Window &
     };
   };
 
-/**
- * Event args for Design Library `update` event
- */
-export interface ComponentUpdateEventArgs {
-  name: string;
-  details?: {
-    uid: string;
-    params?: Record<string, string>;
-    fields?: Record<string, Field<GenericFieldValue>>;
-  };
-}
 /**
  * Application metadata
  */
