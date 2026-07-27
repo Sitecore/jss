@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@sitecore/components": "~2.1.0",
-    "@sitecore-feaas/clientside": "^0.6.2"
-  }
-}

@@ -14,8 +14,7 @@ export const config = {
    * 3. /sitecore/api (Sitecore API routes)
    * 4. /- (Sitecore media)
    * 5. /healthz (Health check)
-   * 6. /feaas-render (FEaaS render)
-   * 7. all root files inside /public
+   * 6. all root files inside /public
    */
-  matcher: ['/', '/((?!api/|_next/|feaas-render|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)'],
+  matcher: ['/', '/((?!api/|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)'],
 };

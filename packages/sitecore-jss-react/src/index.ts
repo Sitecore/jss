@@ -80,21 +80,7 @@ export {
 export { RichText, RichTextProps, RichTextField } from './components/RichText';
 export { Text, TextField } from './components/Text';
 export { DateField, DateFieldProps } from './components/Date';
-export {
-  FEaaSComponent,
-  FEaaSComponentProps,
-  FEaaSComponentParams,
-  fetchFEaaSComponentServerProps,
-} from './components/FEaaSComponent';
-export { FEaaSWrapper } from './components/FEaaSWrapper';
 export { DesignLibrary } from './components/DesignLibrary';
-export {
-  BYOCComponent,
-  BYOCComponentParams,
-  BYOCComponentProps,
-  fetchBYOCComponentServerProps,
-} from './components/BYOCComponent';
-export { BYOCWrapper } from './components/BYOCWrapper';
 export { Link, LinkField, LinkFieldValue, LinkProps } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';
