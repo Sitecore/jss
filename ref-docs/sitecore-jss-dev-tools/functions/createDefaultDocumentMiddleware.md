@@ -8,7 +8,7 @@
 
 > **createDefaultDocumentMiddleware**(`config`): (`req`, `res`, `next`) => `void`
 
-Defined in: [sitecore-jss-dev-tools/src/disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)
+Defined in: [sitecore-jss-dev-tools/src/disconnected-server/default-document.ts:14](https://github.com/Sitecore/jss/blob/f5b4cfdae161b056d3504045ac7b664575e13d27/packages/sitecore-jss-dev-tools/src/disconnected-server/default-document.ts#L14)
 
 ## Parameters
 

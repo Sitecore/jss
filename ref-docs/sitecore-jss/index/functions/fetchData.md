@@ -8,7 +8,7 @@
 
 > **fetchData**\<`T`\>(`url`, `fetcher`, `params?`): `Promise`\<`T`\>
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:45](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss/src/data-fetcher.ts#L45)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:45](https://github.com/Sitecore/jss/blob/f5b4cfdae161b056d3504045ac7b664575e13d27/packages/sitecore-jss/src/data-fetcher.ts#L45)
 
 ## Type Parameters
 
