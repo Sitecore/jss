@@ -31,7 +31,7 @@ Our versioning strategy is as follows:
   * The `nextjs-xmcloud`, `node-xmcloud-proxy`, and `angular-xmcloud` templates no longer wire up Personalize middleware/helpers, path-extractor, or page-props-factory plugins for personalized rewrites
   * `PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT`/`PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT`/`NEXT_PUBLIC_PERSONALIZE_SCOPE`/`PERSONALIZE_SCOPE` env vars have been removed from the `nextjs-xmcloud`, `node-xmcloud-proxy`, and `angular-xmcloud` templates' `.env`
   * Removed the `personalize` debug channel (`debug.personalize` / `DEBUG=sitecore-jss:personalize`) from `sitecore-jss`
-* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` Removed BYOC (Bring Your Own Component) and FEAAS support, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK)
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` Removed BYOC (Bring Your Own Component) and FEAAS support, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK) ([#2211](https://github.com/Sitecore/jss/pull/2211))
   * Removed `sitecore-jss-react`'s `FEaaSComponent`, `FEaaSWrapper`, `fetchFEaaSComponentServerProps`, `BYOCComponent`, `BYOCWrapper`, `fetchBYOCComponentServerProps` and their type exports
   * Removed `sitecore-jss-nextjs`'s `FEaaSWrapper`, `BYOCWrapper`, and `FEAASRenderMiddleware`/`FEAASRenderMiddlewareConfig` (and their re-exports from `sitecore-jss-react`)
   * `Placeholder` no longer supports rendering of FEAAS/BYOC components
