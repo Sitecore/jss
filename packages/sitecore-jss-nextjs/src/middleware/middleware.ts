@@ -64,7 +64,7 @@ export abstract class MiddlewareBase {
     const middlewarePrefetch = req.headers.get('x-middleware-prefetch');
 
     // Some real navigations on different devices may incorrectly include 'prefetch' headers.
-    // To avoid skipping middleware logic in such cases, we treat 'x-middleware-prefetch' as a more reliable signal of true prefetch behavior.
+    // To avoid skipping proxy logic in such cases, we treat 'x-middleware-prefetch' as a more reliable signal of true prefetch behavior.
     if (isKnownDevice && middlewarePrefetch === '1') {
       return false;
     }
