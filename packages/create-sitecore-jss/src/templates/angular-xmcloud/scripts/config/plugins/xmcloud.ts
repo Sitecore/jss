@@ -17,7 +17,6 @@ class XMCloudPlugin implements ConfigPlugin {
       process.env[`${constantCase('sitecoreEdgeUrl')}`]?.replace(/\/$/, '') ||
       'https://edge-platform.sitecorecloud.io';
     const sitecoreEdgeContextId = process.env[`${constantCase('sitecoreEdgeContextId')}`];
-    const personalizeScope = process.env[`${constantCase('personalizeScope')}`]
 
     if (config.sitecoreApiKey && sitecoreEdgeContextId) {
       console.log(
@@ -31,7 +30,6 @@ class XMCloudPlugin implements ConfigPlugin {
       proxyBuildPath,
       sitecoreEdgeUrl,
       sitecoreEdgeContextId,
-      personalizeScope,
     });
   }
 }

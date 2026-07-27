@@ -5,7 +5,6 @@ import { legacyCreateProxyMiddleware as createProxyMiddleware, fixRequestBody } 
 import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter, healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
 import { config, graphQLEndpoint } from './config';
-import { personalizeHelper, personalizePlugin } from './personalize';
 
 const server = express();
 
@@ -102,12 +101,9 @@ server.use(
   createProxyMiddleware({
     target: graphQLEndpoint.target,
     changeOrigin: true,
-    selfHandleResponse: true,
     on: {
       proxyReq: fixRequestBody,
     },
-    // for client-side routing, personalization is performed by modifying layout service response
-    plugins: [personalizePlugin],
   })
 );
 
@@ -148,17 +144,10 @@ server.use(async (req, res) => {
     }
 
     // Language is required. In case it's not specified in the requested URL, fallback to the default language from the app configuration.
-    let layoutData = await layoutService.fetchLayoutData(
+    const layoutData = await layoutService.fetchLayoutData(
       route,
       lang || config.serverBundle.defaultLanguage
     );
-    // for SSR loading routing, personalization is performed by modifying layoutData directly
-    const personalizedLayoutData = await personalizeHelper.personalizeLayoutData(
-      req,
-      res,
-      layoutData
-    );
-    layoutData = personalizedLayoutData;
     const viewBag = { dictionary: {} };
 
     viewBag.dictionary = await dictionaryService.fetchDictionaryData(

@@ -5,7 +5,7 @@
 
 [Documentation](https://doc.sitecore.com/xmc/en/developers/jss/latest/jss-xmc/introducing-sitecore-javascript-rendering-sdk.html)
 
-This Node.js-based proxy app is the backbone for enabling seamless integration between XM Cloud and various SPA frameworks like React, Angular, or Vue laying the groundwork for future JSS starter kits built for other front-end JavaScript frameworks. It acts as a middleware layer to handle critical functionalities such as server-side rendering (SSR), enabling editing and personalization, A/B/n component testing, and integrating Sitecore Forms. By serving as the rendering host, it ensures a smooth connection between Sitecore XM Cloud services and your front-end applications, making it easier to build dynamic, personalized, and localized experiences for users.
+This Node.js-based proxy app is the backbone for enabling seamless integration between XM Cloud and various SPA frameworks like React, Angular, or Vue laying the groundwork for future JSS starter kits built for other front-end JavaScript frameworks. It acts as a middleware layer to handle critical functionalities such as server-side rendering (SSR), enabling editing, and integrating Sitecore Forms. By serving as the rendering host, it ensures a smooth connection between Sitecore XM Cloud services and your front-end applications, making it easier to build dynamic and localized experiences for users.
 
 This is a sample setup showing how you can configure XM Cloud rendering server on top of Node.js and Express.js
 
@@ -14,8 +14,6 @@ This is a sample setup showing how you can configure XM Cloud rendering server o
 - `Context ID`: the Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, forms, and integration settings.
 
 - `XM Cloud Pages editing integration`: full integration with Pages - the dynamic visual page editor of XM Cloud.
-
-- `XM Cloud proxy personalization` with embedded personalization and Component A/B/n Testing support.
 
 - `Forms support`: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms enables marketers to author their own forms, collect data, and analyze form performance.
 
@@ -45,15 +43,6 @@ Here are the main configurations defined in the `config.ts` file in the node XM 
 
   - Configures the port for running the proxy, with a default of 3000 or an environment-specified port.
 
-- Personalization Configuration (personalizeConfig):
-
-  - Sets up Sitecore personalization through PersonalizeConfig, defining settings for both Sitecore Experience Edge and CDP endpoints.
-  - Contains options to control personalization features, including:
-    - Timeouts for Edge and CDP endpoints (default 400ms, configurable via environment variables).
-    - Scope and site name used for Sitecore Personalize.
-    - Enable/Disable Switch: Functions that allow you to conditionally disable personalization based on the environment (such as disabling it in development mode) and and cookie consent policy.
-    - Language Configuration: defaultLanguage serves as a fallback if language data is unavailable in layout data.
-
 This configuration is designed to be flexible and secure, with dynamic settings managed via environment variables where appropriate.
 
 ### Environment Variables
@@ -64,10 +53,8 @@ The following environment variables can be used to configure the Node XM Cloud P
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `PROXY_BUNDLE_PATH` | Path to the JSS SPA app's `server.bundle.js`. Default can be seen in [config.ts](./src/config.ts).                                                                                          |
 | `PROXY_PORT`        | Optional. Port which will be used when start sample. Default can be seen in [config.ts](./src/config.ts).                                                                                   |
-| `DEBUG`             | Optional. Debug level for the proxy. Set the DEBUG environment variable to 'sitecore-jss:_,proxy_,http-proxy-middleware\*, 'sitecore-jss:layout','sitecore-jss:personalize' to see all logs. |
+| `DEBUG`             | Optional. Debug level for the proxy. Set the DEBUG environment variable to 'sitecore-jss:_,proxy_,http-proxy-middleware\*, 'sitecore-jss:layout' to see all logs. |
 | `JSS_EDITING_SECRET`             | Required when working with the Sitecore Editor to secure the `/api/editing/render` endpoint exposed by your proxy app. An alphanumeric value of at least 16 characters is recommended. |
-| `PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT=`             | Optional. Timeout (ms) for Sitecore CDP requests to respond within. Default is 400. |
-| `PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT`             | Optional. Timeout (ms) for Sitecore Experience Edge requests to respond within. Default is 400. |
 
 
 ## Pre-requisites

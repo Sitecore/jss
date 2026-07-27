@@ -9,15 +9,13 @@ This Single Page Application (SPA) built with Angular is designed to be fully co
 
 The Angular XM Cloud integration consists of two parts:
 - `XM Cloud Angular`: simplifies connecting the application to XM Cloud and configuring the integration of multiple composable Sitecore products, and provides out-of-the-box helper components.
-- `XM Cloud Proxy`: Adds integration with XM Cloud for the JSS SPA applications and enables editing, personalization and component A/B/n testing support. See [XM Cloud Proxy](../node-xmcloud-proxy/) for more information.
+- `XM Cloud Proxy`: Adds integration with XM Cloud for the JSS SPA applications and enables editing support. See [XM Cloud Proxy](../node-xmcloud-proxy/) for more information.
 
 The following key features are supported:
 
 - `Context ID`: The Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, forms, and integration settings.
 
 - `XM Cloud Pages editing integration`: full integration with Pages - the dynamic visual page editor of XM Cloud.
-
-- `XM Cloud proxy personalization` with embedded personalization and component A/B/n testing.
 
 - `Forms support`: consume and post XM Cloud Forms in JSS apps. Using Forms, marketers can create forms, collect data, and analyze form performance.
 
@@ -44,7 +42,6 @@ npm run start:connected
 ```
 
 > The following features are not supported in development mode:
-> * personalization
 > * server-side rendering
 > * editing
 

@@ -59,14 +59,6 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
-export {
-  personalizeLayout,
-  getPersonalizedRewrite,
-  getPersonalizedRewriteData,
-  getGroomedVariantIds,
-  normalizePersonalizedRewrite,
-  CdpHelper,
-} from '@sitecore-jss/sitecore-jss/personalize';
 
 export {
   ComponentPropsCollection,

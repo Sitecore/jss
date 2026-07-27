@@ -6,14 +6,8 @@ import {
   EDITING_ALLOWED_ORIGINS,
   RenderMetadataQueryParams,
 } from '@sitecore-jss/sitecore-jss/editing';
-import {
-  DEFAULT_VARIANT,
-  getGroomedVariantIds,
-  personalizeLayout,
-} from '@sitecore-jss/sitecore-jss/personalize';
 import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
 import { AppRenderer, RenderResponse } from '../../types/AppRenderer';
-import { PersonalizeHelper } from '../../personalize';
 
 /**
  * Configuration for the editing render endpoint
@@ -33,10 +27,6 @@ export type EditingRenderEndpointOptions = {
    * The appRenderer will produce the requested route's html
    */
   renderView: AppRenderer;
-  /**
-   * Personalize helper instance passed from proxy app
-   */
-  personalizeHelper?: PersonalizeHelper;
 };
 
 type MetadataRequest = Request & {
@@ -93,14 +83,6 @@ export const editingRenderMiddleware = (config: EditingRenderEndpointOptions) =>
     if (!data || !data.layoutData || !data.dictionary) {
       throw new Error(`Unable to fetch editing data for ${JSON.stringify(query)}`);
     }
-
-    const variantIds = query.sc_variant?.split(',') || [DEFAULT_VARIANT];
-    const personalizeData = getGroomedVariantIds(variantIds);
-    personalizeLayout(
-      data.layoutData,
-      personalizeData.variantId,
-      personalizeData.componentVariantIds
-    );
 
     const viewBag = { dictionary: data.dictionary };
 
