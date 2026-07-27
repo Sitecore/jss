@@ -8,7 +8,7 @@
 
 > **debug**: `object`
 
-Defined in: [packages/sitecore-jss/src/debug.ts:30](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss/src/debug.ts#L30)
+Defined in: [packages/sitecore-jss/src/debug.ts:30](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss/src/debug.ts#L30)
 
 Default Sitecore JSS 'debug' module debuggers. Uses namespace prefix 'sitecore-jss:'.
 See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) for details.
@@ -46,10 +46,6 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 ### multisite
 
 > **multisite**: `Debugger`
-
-### personalize
-
-> **personalize**: `Debugger`
 
 ### proxy
 

@@ -6,7 +6,7 @@
 
 # Enumeration: SitecoreTemplateId
 
-Defined in: [packages/sitecore-jss/src/constants.ts:1](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss/src/constants.ts#L1)
+Defined in: [packages/sitecore-jss/src/constants.ts:1](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss/src/constants.ts#L1)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss/src/constants.ts:1](https://github.com/Siteco
 
 > **DictionaryEntry**: `"6d1cd89719364a3aa511289a94c2a7b1"`
 
-Defined in: [packages/sitecore-jss/src/constants.ts:6](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss/src/constants.ts#L6)
+Defined in: [packages/sitecore-jss/src/constants.ts:6](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss/src/constants.ts#L6)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/sitecore-jss/src/constants.ts:6](https://github.com/Siteco
 
 > **JssApp**: `"061cba1554744b918a0617903b102b82"`
 
-Defined in: [packages/sitecore-jss/src/constants.ts:3](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss/src/constants.ts#L3)
+Defined in: [packages/sitecore-jss/src/constants.ts:3](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss/src/constants.ts#L3)

@@ -18,7 +18,6 @@
 ## Classes
 
 - [BaseJssState](classes/BaseJssState.md)
-- [CdpHelper](classes/CdpHelper.md)
 - [ClientError](classes/ClientError.md)
 - [ComponentNameAndType](classes/ComponentNameAndType.md)
 - [DateDirective](classes/DateDirective.md)
@@ -30,7 +29,6 @@
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
-- [GraphQLPersonalizeService](classes/GraphQLPersonalizeService.md)
 - [GraphQLRequestClient](classes/GraphQLRequestClient.md)
 - [HiddenRenderingComponent](classes/HiddenRenderingComponent.md)
 - [ImageDirective](classes/ImageDirective.md)
@@ -96,20 +94,17 @@
 - [EditFrameDataSource](type-aliases/EditFrameDataSource.md)
 - [FieldEditButton](type-aliases/FieldEditButton.md)
 - [GraphQLClientError](type-aliases/GraphQLClientError.md)
-- [GraphQLPersonalizeServiceConfig](type-aliases/GraphQLPersonalizeServiceConfig.md)
 - [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
 - [HTMLLink](type-aliases/HTMLLink.md)
 - [HttpDataFetcher](type-aliases/HttpDataFetcher.md)
 - [NativeDataFetcherConfig](type-aliases/NativeDataFetcherConfig.md)
 - [NativeDataFetcherError](type-aliases/NativeDataFetcherError.md)
-- [PersonalizeInfo](type-aliases/PersonalizeInfo.md)
 - [PlaceholdersData](type-aliases/PlaceholdersData.md)
 - [WebEditButton](type-aliases/WebEditButton.md)
 
 ## Variables
 
 - [debug](variables/debug.md)
-- [DEFAULT\_VARIANT](variables/DEFAULT_VARIANT.md)
 - [DefaultEditFrameButton](variables/DefaultEditFrameButton.md)
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
 - [DYNAMIC\_COMPONENT](variables/DYNAMIC_COMPONENT.md)
@@ -125,7 +120,5 @@
 
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
 - [getFieldValue](functions/getFieldValue.md)
-- [getGroomedVariantIds](functions/getGroomedVariantIds.md)
 - [isRawRendering](functions/isRawRendering.md)
 - [isServer](functions/isServer.md)
-- [personalizeLayout](functions/personalizeLayout.md)

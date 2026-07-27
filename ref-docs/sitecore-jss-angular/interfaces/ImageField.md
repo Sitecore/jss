@@ -6,7 +6,7 @@
 
 # Interface: ImageField
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:27](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss-angular/src/components/rendering-field.ts#L27)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:27](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss-angular/src/components/rendering-field.ts#L27)
 
 ## Extends
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:27]
 
 > `optional` **editable?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
 
 #### Inherited from
 
@@ -50,7 +50,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:125
 
 > `optional` **src?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:21](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss-angular/src/components/rendering-field.ts#L21)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:21](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss-angular/src/components/rendering-field.ts#L21)
 
 #### Inherited from
 
@@ -62,7 +62,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:21]
 
 > `optional` **srcSet?**: `object`[]
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:22](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss-angular/src/components/rendering-field.ts#L22)
 
 #### Index Signature
 
@@ -78,7 +78,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:22]
 
 > `optional` **value?**: [`ImageFieldValue`](ImageFieldValue.md)
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:28](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss-angular/src/components/rendering-field.ts#L28)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:28](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss-angular/src/components/rendering-field.ts#L28)
 
 #### Overrides
 

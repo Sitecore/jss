@@ -8,4 +8,4 @@
 
 > `const` **ListBox**: `React.FunctionComponent`\<[`ListFieldProps`](../type-aliases/ListFieldProps.md)\<`ListBoxViewModel`\>\>
 
-Defined in: [src/components/field-templates/list-box.tsx:7](https://github.com/Sitecore/jss/blob/2564001d21429235c483053d81dcceab16d16388/packages/sitecore-jss-react-forms/src/components/field-templates/list-box.tsx#L7)
+Defined in: [src/components/field-templates/list-box.tsx:7](https://github.com/Sitecore/jss/blob/1956848c54eef3e84fcabd14c346ac3c33b74731/packages/sitecore-jss-react-forms/src/components/field-templates/list-box.tsx#L7)

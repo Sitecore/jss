@@ -23,7 +23,6 @@
 ## Classes
 
 - [BYOCComponent](classes/BYOCComponent.md)
-- [CdpHelper](classes/CdpHelper.md)
 - [ComponentBuilder](classes/ComponentBuilder.md)
 - [ComponentPropsService](classes/ComponentPropsService.md)
 - [DisconnectedSitemapService](classes/DisconnectedSitemapService.md)
@@ -152,14 +151,9 @@
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
 - [getDesignLibraryStylesheetLinks](functions/getDesignLibraryStylesheetLinks.md)
 - [getFieldValue](functions/getFieldValue.md)
-- [getGroomedVariantIds](functions/getGroomedVariantIds.md)
-- [getPersonalizedRewrite](functions/getPersonalizedRewrite.md)
-- [getPersonalizedRewriteData](functions/getPersonalizedRewriteData.md)
 - [getSiteRewrite](functions/getSiteRewrite.md)
 - [getSiteRewriteData](functions/getSiteRewriteData.md)
-- [normalizePersonalizedRewrite](functions/normalizePersonalizedRewrite.md)
 - [normalizeSiteRewrite](functions/normalizeSiteRewrite.md)
-- [personalizeLayout](functions/personalizeLayout.md)
 - [Placeholder](functions/Placeholder.md)
 - [RichText](functions/RichText.md)
 - [useComponentProps](functions/useComponentProps.md)

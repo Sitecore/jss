@@ -47,10 +47,6 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 
 > **multisite**: `debug.Debugger`
 
-### personalize
-
-> **personalize**: `debug.Debugger`
-
 ### proxy
 
 > **proxy**: `debug.Debugger`
