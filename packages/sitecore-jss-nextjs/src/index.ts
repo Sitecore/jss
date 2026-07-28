@@ -119,7 +119,6 @@ export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
 export {
   ComponentFactory,
-  Form,
   Image,
   ImageField,
   ImageFieldValue,

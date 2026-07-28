@@ -11,7 +11,6 @@ export { RenderComponentComponent } from './components/render-component.componen
 export { DateDirective } from './components/date.directive';
 export { EditFrameComponent } from './components/editframe.component';
 export { EditingScriptsComponent } from './components/editing-scripts.component';
-export { FormComponent } from './components/form.component';
 export {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
