@@ -7105,17 +7105,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sitecore-feaas/clientside@npm:^0.6.2":
-  version: 0.6.4
-  resolution: "@sitecore-feaas/clientside@npm:0.6.4"
-  dependencies:
-    "@sitecore/byoc": "npm:^0.3.0"
-  peerDependencies:
-    react-dom: ">=16.8.0"
-  checksum: 10/994537dafff661396a62ff01609062b2af148985aff97e5005ae6f453a73d450deeb0ca7681540563e34965d6af74462a7d6788f33f55f96f51e613d33d40b69
-  languageName: node
-  linkType: hard
-
 "@sitecore-jss/sitecore-jss-angular-schematics@workspace:packages/sitecore-jss-angular-schematics":
   version: 0.0.0-use.local
   resolution: "@sitecore-jss/sitecore-jss-angular-schematics@workspace:packages/sitecore-jss-angular-schematics"
