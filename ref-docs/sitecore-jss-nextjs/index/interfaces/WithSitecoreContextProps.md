@@ -6,7 +6,7 @@
 
 # Interface: WithSitecoreContextProps
 
-Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:8
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:7
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:8
 
 > `optional` **api?**: `object`
 
-Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:10
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
 
 #### edge?
 
@@ -46,7 +46,7 @@ https://edge-platform.sitecorecloud.io
 
 > **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:8
 
 ***
 
@@ -54,4 +54,4 @@ Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:9
 
 > `optional` **updateSitecoreContext?**: `false` \| ((`value`) => `void`)
 
-Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:11
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:10

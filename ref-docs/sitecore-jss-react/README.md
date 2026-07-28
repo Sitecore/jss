@@ -18,7 +18,6 @@
 
 ## Classes
 
-- [BYOCComponent](classes/BYOCComponent.md)
 - [ClientError](classes/ClientError.md)
 - [ComponentBuilder](classes/ComponentBuilder.md)
 - [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
@@ -75,15 +74,11 @@
 
 ## Type Aliases
 
-- [BYOCComponentParams](type-aliases/BYOCComponentParams.md)
-- [BYOCComponentProps](type-aliases/BYOCComponentProps.md)
 - [ComponentBuilderConfig](type-aliases/ComponentBuilderConfig.md)
 - [ComponentFactory](type-aliases/ComponentFactory.md)
 - [EditButtonTypes](type-aliases/EditButtonTypes.md)
 - [EditFrameDataSource](type-aliases/EditFrameDataSource.md)
 - [EnhancedOmit](type-aliases/EnhancedOmit.md)
-- [FEaaSComponentParams](type-aliases/FEaaSComponentParams.md)
-- [FEaaSComponentProps](type-aliases/FEaaSComponentProps.md)
 - [FieldEditButton](type-aliases/FieldEditButton.md)
 - [GraphQLClientError](type-aliases/GraphQLClientError.md)
 - [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
@@ -119,14 +114,8 @@
 
 ## Functions
 
-- [BYOCWrapper](functions/BYOCWrapper.md)
 - [DesignLibrary](functions/DesignLibrary.md)
 - [EditingScripts](functions/EditingScripts.md)
-- [FEaaSComponent](functions/FEaaSComponent.md)
-- [FEaaSWrapper](functions/FEaaSWrapper.md)
-- [fetchBYOCComponentServerProps](functions/fetchBYOCComponentServerProps.md)
-- [fetchFEaaSComponentServerProps](functions/fetchFEaaSComponentServerProps.md)
-- [Form](functions/Form.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
 - [getDesignLibraryStylesheetLinks](functions/getDesignLibraryStylesheetLinks.md)
 - [getEEMarkup](functions/getEEMarkup.md)

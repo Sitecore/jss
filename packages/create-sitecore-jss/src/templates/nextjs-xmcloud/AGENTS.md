@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a **Sitecore JSS** application built with **Next.js (Pages Router)**, **TypeScript**, and the **XM Cloud add-on**. AI agents work as developer assistants within this scaffolded head application. The app integrates with Sitecore XM Cloud for content, supports **FEAAS (Sitecore Components)**, **BYOC (Bring Your Own Components)**, **Sitecore Forms**, and GraphQL editing for the Sitecore Editor.
+This is a **Sitecore JSS** application built with **Next.js (Pages Router)**, **TypeScript**, and the **XM Cloud add-on**. AI agents work as developer assistants within this scaffolded head application. The app integrates with Sitecore XM Cloud for content, supports **FEAAS (Sitecore Components)**, **BYOC (Bring Your Own Components)**, and GraphQL editing for the Sitecore Editor.
 
 **Scope:** This file applies to **this application only** (a scaffolded head app with XM Cloud add-on). It is **not** the JSS monorepo — for SDK package development use that repo's root `AGENTS.md`. Here we edit app code and config (pages, components, API routes, lib); we do not modify SDK packages or CI.
 
@@ -16,7 +16,7 @@ npm run build           # Build for production
 npm run next:dev        # Start development server
 npm run next:start      # Start production server
 npm run start:connected # Connected dev (bootstrap + next:dev + watch components)
-npm run scaffold        # Add new Sitecore/BYOC component (jss scaffold <ComponentName>)
+npm run scaffold        # Add new Sitecore component (jss scaffold <ComponentName>)
 npm run lint            # Run ESLint
 ```
 
@@ -30,14 +30,11 @@ npm run lint            # Run ESLint
 src/
   pages/
     [[...path]].tsx         # Catch-all Sitecore page (SSG)
-    feaas/render.tsx        # FEAAS render for Component Builder
-    api/editing/            # config.ts, render.ts, feaas/render.ts
-  components/               # Sitecore + FEAAS + BYOC (FEAASScripts, etc.)
-  byoc/                     # BYOC registration (index.tsx, index.client.tsx, index.hybrid.ts)
+    api/editing/            # config.ts, render.ts
   lib/
     page-props-factory/     # + content-styles plugin
     graphql-editing-service.ts
-  proxy.ts                  # Next.js 16 middleware entry; matcher excludes /feaas-render
+  proxy.ts                  # Next.js 16 middleware entry
 temp/                       # config includes sitecoreEdgeUrl, sitecoreEdgeContextId
 next.config.js
 ```
@@ -48,19 +45,6 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 ## Key Concepts for This App (XM Cloud Add-On)
 
-### FEAAS (Sitecore Components)
-
-- **Where:** `src/components/FEAASScripts.tsx`, `src/pages/feaas/render.tsx`, `src/pages/api/editing/feaas/render.ts`, `FEaaSWrapper` in componentBuilder
-- **What it does:** Renders Sitecore Components (FEAAS) in the app. The Component Builder in XM Cloud uses these to display and edit components. `FEAASScripts` registers Next.js Image for FEAAS `img` elements. The `feaas/render` page and `api/editing/feaas/render` API route serve FEAAS content for the Sitecore Editor.
-- **Component registration:** Register FEAAS components in `scripts/generate-component-builder/plugins/feaas.ts`. `FEaaSWrapper` and `BYOCWrapper` (wrapper components) are in componentBuilder.
-- **Do not:** Remove `FEAASScripts` from Layout/Scripts when using Sitecore Components. Keep editing routes in sync with component map. Do not skip FEAAS registration in component-builder plugins.
-
-### BYOC (Bring Your Own Components)
-
-- **Where:** `src/byoc/index.tsx`, `src/byoc/index.client.tsx`, `src/byoc/index.hybrid.ts`
-- **What it does:** Registers custom React components for use in the Sitecore Editor (Component Builder). Add components via `jss scaffold` with the BYOC plugin. The BYOC module exports component registration for server, client, and hybrid rendering.
-- **Do not:** Remove BYOC registration; the Sitecore Editor relies on it for custom components. When adding BYOC components, ensure they are registered in the appropriate index file (client vs server) based on their dependencies.
-
 ### GraphQL Editing Service
 
 - **Where:** `src/lib/graphql-editing-service.ts`
@@ -70,16 +54,15 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 ### Edge Platform Config
 
 - **Where:** `scripts/config/plugins/edge-platform.ts`
-- **What it does:** Adds `sitecoreEdgeUrl` and `sitecoreEdgeContextId` to `temp/config`. Used by SitecoreContext (editing API), BYOC/FEAAS, Sitecore Forms, and GraphQL Experience Edge resolution. Reads from `SITECORE_EDGE_URL` (default `https://edge-platform.sitecorecloud.io`) and `SITECORE_EDGE_CONTEXT_ID`.
+- **What it does:** Adds `sitecoreEdgeUrl` and `sitecoreEdgeContextId` to `temp/config`. Used by SitecoreContext (editing API), BYOC/FEAAS, and GraphQL Experience Edge resolution. Reads from `SITECORE_EDGE_URL` (default `https://edge-platform.sitecorecloud.io`) and `SITECORE_EDGE_CONTEXT_ID`.
 - **Note:** If both `sitecoreApiKey` and `sitecoreEdgeContextId` are set, `sitecoreEdgeContextId` is used (plugin logs a warning).
 - **Env:** `SITECORE_EDGE_URL`, `SITECORE_EDGE_CONTEXT_ID` (or `NEXT_PUBLIC_SITECORE_EDGE_CONTEXT_ID` for client).
 
 ### Editing API Routes (XM Cloud)
 
-- **Where:** `src/pages/api/editing/config.ts`, `render.ts`, `feaas/render.ts`
+- **Where:** `src/pages/api/editing/config.ts`, `render.ts`
 - **config.ts:** `EditingConfigMiddleware` with `components` from componentBuilder and `metadata` from `temp/metadata.json`. Used by Sitecore Editor to determine feature compatibility.
 - **render.ts:** Renders layout for the Sitecore Editor. Uses component map and layout data.
-- **feaas/render.ts:** Renders FEAAS components for the Component Builder in the Editor.
 - **Do not:** Remove or alter these routes; XM Cloud Editor depends on them. Keep `temp/metadata.json` in sync (generated by scripts).
 
 ### SitecoreContext API (Edge)
@@ -96,7 +79,7 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 - **Catch-all:** Same as base — `sitecorePagePropsFactory.create(context)`. XM Cloud add-on adds an extra page-props-factory plugin: `content-styles`. Plugin order must be preserved.
 - **Layout:** `Layout` includes `FEAASScripts` (from Scripts.tsx). `SitecoreContext` receives `api.edge` for Editor integration.
-- **Bootstrap:** This app uses the base (no-op) `Bootstrap`; CloudSDK is not initialized. Sitecore Forms and BYOC/FEAAS component event tracking (which rely on CloudSDK events) will not fire.
+- **Bootstrap:** This app uses the base (no-op) `Bootstrap`; CloudSDK is not initialized. BYOC/FEAAS component event tracking (which relies on CloudSDK events) will not fire.
 
 ### Rewrites and next.config
 
@@ -105,15 +88,15 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 ### Component Builder
 
-- **FEAAS and BYOC:** `scripts/generate-component-builder/plugins/` includes `feaas.ts`, `form.ts`, `byoc.ts`. These register FEAAS, Form, and BYOC components. Do not remove plugin registration when using those features.
+- **FEAAS and BYOC:** `scripts/generate-component-builder/plugins/` includes `feaas.ts`. This registers FEAAS components. Do not remove plugin registration when using that feature.
 
 ---
 
 ## Best Practices (XM Cloud)
 
-- **Quick checks:** If FEAAS components do not render, verify `FEAASScripts` is in Layout/Scripts and component-builder plugins include feaas. Note: Sitecore Forms submission events and BYOC/FEAAS component events do not fire in this app — CloudSDK is not initialized (base no-op Bootstrap is used).
+- **Quick checks:** If FEAAS components do not render, verify `FEAASScripts` is in Layout/Scripts and component-builder plugins include feaas. Note: BYOC/FEAAS component events do not fire in this app — CloudSDK is not initialized (base no-op Bootstrap is used).
 - **Security:** Use env vars only for Edge URL and context ID. Never hardcode. Do not expose in client code except where required (e.g. `NEXT_PUBLIC_*` for client-side config).
-- **Sitecore patterns:** Preserve FEAAS, BYOC, and Forms integration. When adding components, register in the appropriate plugin (component-builder, BYOC, FEAAS). Keep editing API routes and metadata in sync.
+- **Sitecore patterns:** Preserve FEAAS and BYOC integration. When adding components, register in the appropriate plugin (component-builder, BYOC, FEAAS). Keep editing API routes and metadata in sync.
 
 ---
 
@@ -121,7 +104,6 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 | DO | DON'T |
 |----|-------|
-| Keep FEAASScripts and BYOC registration when using those features | Remove FEAASScripts or BYOC when Sitecore Components/custom components are used |
 | Use Edge config from temp/config (sitecoreEdgeUrl, sitecoreEdgeContextId) | Hardcode Edge URLs or context IDs |
 | Pass `api.edge` to SitecoreContext for Editor | Omit api.edge when using XM Cloud Editor |
 | Document Edge env vars in `.env` template | Commit `.env` or expose secrets |
@@ -131,18 +113,15 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 ## Guardrails for Agentic AI (XM Cloud)
 
-- **Preserve behavior:** Do not change FEAAS/BYOC registration or editing API route structure. Preserve Edge config flow (edge-platform plugin → temp/config → SitecoreContext, Forms).
+- **Preserve behavior:** Do not change FEAAS/BYOC registration or editing API route structure. Preserve Edge config flow (edge-platform plugin → temp/config → SitecoreContext).
 - **Do not expand scope:** Limit edits to the app. Do not modify SDK packages.
-- **Follow existing patterns:** When adding FEAAS or BYOC components, use the same registration pattern. Keep editing routes and metadata in sync.
+- **Follow existing patterns:** Keep editing routes and metadata in sync.
 - **Verify and stay safe:** After edits, app should build with `npm run build`. Do not commit secrets. Do not add deps without approval. When in doubt, prefer the existing implementation.
-- **If the user asks for something that conflicts** (e.g. removing FEAAS), explain the constraint and suggest a safe alternative.
 
 ---
 
 ## Example Agent Tasks (XM Cloud)
 
-- **Add a FEAAS component:** Register in `scripts/generate-component-builder/plugins/feaas.ts`; ensure FEaaSWrapper handles it. Add to Layout/placeholder if needed.
-- **Add a BYOC component:** Use `jss scaffold` with BYOC plugin; ensure registration in `src/byoc/index.client.tsx` or `index.tsx` as appropriate.
 - **Add Edge-related env var:** Add to template `.env`; extend `edge-platform.ts` if the var should be in temp/config; never commit real values.
 
 ---
@@ -151,7 +130,7 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 **Never edit:** `.next/`, `node_modules/`, `temp/`.
 
-**Focus on (XM Cloud–specific):** `src/components/FEAASScripts.tsx`, `src/byoc/`, `src/lib/graphql-editing-service.ts`, `src/pages/api/editing/`, `src/pages/feaas/render.tsx`, `scripts/config/plugins/edge-platform.ts`, `scripts/generate-component-builder/plugins/feaas.ts`, `scripts/generate-component-builder/plugins/byoc.ts`.
+**Focus on (XM Cloud–specific):** `src/lib/graphql-editing-service.ts`, `src/pages/api/editing/`, `scripts/config/plugins/edge-platform.ts`.
 
 **Inherits from base:** All boundaries and patterns from the base nextjs template apply (page-props-factory, componentBuilder, layout-service-factory, middleware matcher, rewrites, etc.). See `packages/create-sitecore-jss/src/templates/nextjs/AGENTS.md` in the JSS repo for full base guidance.
 
@@ -161,10 +140,9 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 - [Sitecore JSS Documentation](https://jss.sitecore.com/docs)
 - [Sitecore XM Cloud](https://doc.sitecore.com/xmc)
-- [Sitecore Components (FEAAS)](https://doc.sitecore.com/xmc/en/developers/xm-cloud/sitecore-components.html)
 - **JSS monorepo root AGENTS.md** — For SDK package development.
 - **JSS base nextjs template AGENTS.md** — For core app patterns (page-props-factory, layout service, component builder, etc.).
 
 ---
 
-**Remember:** This app extends the base JSS Next.js template with XM Cloud features. Follow base patterns first; add-on logic builds on them. When in doubt, preserve FEAAS, BYOC, and Forms integration and refer to JSS docs.
+**Remember:** This app extends the base JSS Next.js template with XM Cloud features. Follow base patterns first; add-on logic builds on them. When in doubt, preserve FEAAS and BYOC integration and refer to JSS docs.

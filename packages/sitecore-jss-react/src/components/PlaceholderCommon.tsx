@@ -14,10 +14,6 @@ import {
 import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering } from './HiddenRendering';
-import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent';
-import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
-import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
-import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
 import { SitecoreContextValue } from './SitecoreContext';
 import { PlaceholderMetadata } from './PlaceholderMetadata';
 import ErrorBoundary from './ErrorBoundary';
@@ -227,19 +223,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           component = this.getComponentForRendering(componentRendering);
         }
 
-        // Fallback/defaults for Sitecore Component renderings (in case not defined in component factory)
-        if (!component) {
-          if (componentRendering.componentName === FEAAS_COMPONENT_RENDERING_NAME) {
-            component = FEaaSComponent;
-          } else if (componentRendering.componentName === FEAAS_WRAPPER_RENDERING_NAME) {
-            component = FEaaSWrapper;
-          } else if (componentRendering.componentName === BYOC_COMPONENT_RENDERING_NAME) {
-            component = BYOCComponent;
-          } else if (componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME) {
-            component = BYOCWrapper;
-          }
-        }
-
         if (!component) {
           console.error(
             `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
@@ -283,9 +266,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
           const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
 
-          // the registered BYOC components are imported using dynamic(), so we need to account for that when passing the isDynamic prop to ErrorBoundary
-          const isByocWrapper = componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME;
-
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
 
@@ -297,7 +277,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               errorComponent={this.props.errorComponent}
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
-              isDynamic={isDynamicComponent || isByocWrapper}
+              isDynamic={isDynamicComponent}
               disableSuspense={this.props.disableSuspense}
               {...rendered.props}
             >

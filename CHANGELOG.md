@@ -26,15 +26,20 @@ Our versioning strategy is as follows:
   * Removed `sitecore-jss`'s entire `/personalize` subpath — `GraphQLPersonalizeService`, `personalizeLayout`/`personalizePlaceholder`/`personalizeComponent`, `getPersonalizedRewrite`, `getPersonalizedRewriteData`, `getGroomedVariantIds`, `normalizePersonalizedRewrite`, `CdpHelper`, and `DEFAULT_VARIANT` (and their re-exports from `sitecore-jss-nextjs` and `sitecore-jss-angular`)
   * Removed `includePersonalizedRoutes` from `GraphQLSitemapService`/`MultisiteGraphQLSitemapService` (SSG personalized route generation)
   * Removed `variantIds` from `EditingMetadataPreviewData` and the `sc_variant` handling in both the Next.js and proxy editing render middlewares — Pages/Sitecore Editor no longer previews a specific personalization variant while authoring
-  * Removed `CdpPageView` (`nextjs-xmcloud`) and `CdpPageViewComponent` (`angular-xmcloud`), which tracked CDP page-view events
-  * Removed the CloudSDK browser init entirely: `nextjs-xmcloud` no longer overrides the base (no-op) `Bootstrap`, and `angular-xmcloud`'s `CloudSdkInitComponent` has been deleted
-  * The `nextjs-xmcloud`, `node-xmcloud-proxy`, and `angular-xmcloud` templates no longer wire up Personalize middleware/helpers, path-extractor, or page-props-factory plugins for personalized rewrites
-  * `PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT`/`PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT`/`NEXT_PUBLIC_PERSONALIZE_SCOPE`/`PERSONALIZE_SCOPE` env vars have been removed from the `nextjs-xmcloud`, `node-xmcloud-proxy`, and `angular-xmcloud` templates' `.env`
   * Removed the `personalize` debug channel (`debug.personalize` / `DEBUG=sitecore-jss:personalize`) from `sitecore-jss`
 * `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` Removed Sitecore Design Library / Components single-component preview & theming support, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK) ([#2212](https://github.com/Sitecore/jss/pull/2212))
   * Removed `sitecore-jss`'s `getDesignLibraryStylesheetLinks`, `RestComponentLayoutService`/`ComponentLayoutRequestParams`, `DesignLibraryMode`, `RenderComponentQueryParams`, `ComponentUpdateEventArgs` (from `editing/utils`), and the entire `editing/design-library` module (`DesignLibraryStatus`, `addComponentUpdateHandler`, `getDesignLibraryStatusEvent`, `getDesignLibraryScriptLink`, `isDesignLibraryMode`)
   * Removed `RenderingType`, `EDITING_COMPONENT_PLACEHOLDER`, `EDITING_COMPONENT_ID` from `sitecore-jss`'s layout models
   * Removed the `DesignLibrary` component (`sitecore-jss-react`/`sitecore-jss-nextjs`) and the Design Library branch of `EditingScripts`, `withDatasourceCheck`, and `NextImage`
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` Removed BYOC (Bring Your Own Component) and FEAAS support, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK) ([#2211](https://github.com/Sitecore/jss/pull/2211))
+  * Removed `sitecore-jss-react`'s `FEaaSComponent`, `FEaaSWrapper`, `fetchFEaaSComponentServerProps`, `BYOCComponent`, `BYOCWrapper`, `fetchBYOCComponentServerProps` and their type exports
+  * Removed `sitecore-jss-nextjs`'s `FEaaSWrapper`, `BYOCWrapper`, and `FEAASRenderMiddleware`/`FEAASRenderMiddlewareConfig` (and their re-exports from `sitecore-jss-react`)
+  * `Placeholder` no longer supports rendering of FEAAS/BYOC components
+* `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` `[create-sitecore-jss]` Removed Sitecore XM Cloud Forms support, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK). Sitecore Forms for Sitecore XP remain fully supported via the separate `sitecore-jss-forms`/`sitecore-jss-react-forms` packages, which are unaffected ([#2210](https://github.com/Sitecore/jss/pull/2210))
+  * Removed the `Form` component from `sitecore-jss-react` (and its re-export from `sitecore-jss-nextjs`)
+  * Removed `FormComponent`/`FormRendering` from `sitecore-jss-angular`
+  * Removed `sitecore-jss`'s entire `form` module - and `getEdgeProxyFormsUrl` from `graphql`
+  * Removed the `form` debug channel (`debug.form` / `DEBUG=sitecore-jss:form`) from `sitecore-jss`
 
 ## 22.12.4
 

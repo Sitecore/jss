@@ -10,11 +10,8 @@ import {
 import { expect } from 'chai';
 import { findByText, render } from '@testing-library/react';
 import React from 'react';
-import { spy, stub } from 'sinon';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
 import {
-  byocWrapperData,
-  feaasWrapperData,
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
   sxaRenderingColumnSplitterVariant,
@@ -25,10 +22,6 @@ import {
 } from '../test-data/non-ee-data';
 import * as metadataData from '../test-data/metadata-data';
 import * as SxaRichText from '../test-data/sxa-rich-text';
-import * as BYOCComponent from './BYOCComponent';
-import * as BYOCWrapper from './BYOCWrapper';
-import * as FEAASComponent from './FEaaSComponent';
-import * as FEAASWrapper from './FEaaSWrapper';
 import * as HiddenRendering from './HiddenRendering';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { Placeholder } from './Placeholder';
@@ -468,109 +461,6 @@ describe('SXA rendering variants', () => {
       'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-y'
     );
     expect(renderedComponent.container.querySelectorAll('.default').length).to.equal(1);
-  });
-});
-
-describe('BYOC fallback', () => {
-  let byocComponentStub;
-  let byocWrapperStub;
-
-  const componentFactory: ComponentFactory = (_componentName: string, _exportName?: string) => null;
-
-  it('should render', () => {
-    const component = byocWrapperData.sitecore.route as RouteData;
-    const phKey = 'main';
-
-    byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
-      <p className="byoc-component">Foo</p>
-    ));
-
-    byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
-      <div className="byoc-wrapper">
-        <BYOCComponent.BYOCComponent />
-      </div>
-    ));
-
-    const renderedComponent = render(
-      <SitecoreContext componentFactory={componentFactory}>
-        <Placeholder name={phKey} rendering={component} />
-      </SitecoreContext>
-    );
-
-    expect(renderedComponent.container.querySelectorAll('.byoc-component').length).to.equal(2);
-    expect(renderedComponent.container.querySelectorAll('.byoc-wrapper').length).to.equal(1);
-
-    byocComponentStub.restore();
-    byocWrapperStub.restore();
-  });
-
-  it('should render ErrorBoundary without Suspense for byoc wrapper', () => {
-    const component = byocWrapperData.sitecore.route as RouteData;
-    const phKey = 'main';
-
-    byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
-      <p className="byoc-component">Foo</p>
-    ));
-
-    byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
-      <div className="byoc-wrapper">
-        <BYOCComponent.BYOCComponent />
-      </div>
-    ));
-
-    const renderedComponent = render(
-      <SitecoreContext componentFactory={componentFactory}>
-        <Placeholder name={phKey} rendering={component} />
-      </SitecoreContext>
-    );
-
-    expect(renderedComponent.container.innerHTML).to.not.contain('Loading component...');
-
-    expect(renderedComponent.container.querySelectorAll('.byoc-wrapper').length).to.equal(1);
-
-    const components = renderedComponent.container.querySelectorAll('.byoc-component');
-
-    expect(components.length).to.equal(2);
-
-    expect(components[0].textContent).to.equal('Foo');
-    expect(components[1].textContent).to.equal('Foo');
-
-    byocComponentStub.restore();
-    byocWrapperStub.restore();
-  });
-});
-
-describe('FEaaS fallback', () => {
-  let feaasComponentStub;
-  let feaasWrapperStub;
-
-  const componentFactory: ComponentFactory = (_componentName: string, _exportName?: string) => null;
-
-  it('should render', () => {
-    const component = feaasWrapperData.sitecore.route as RouteData;
-    const phKey = 'main';
-
-    feaasComponentStub = stub(FEAASComponent, 'FEaaSComponent').callsFake(() => (
-      <p className="feaas-component">Foo</p>
-    ));
-
-    feaasWrapperStub = stub(FEAASWrapper, 'FEaaSWrapper').callsFake(() => (
-      <div className="feaas-wrapper">
-        <FEAASComponent.FEaaSComponent />
-      </div>
-    ));
-
-    const renderedComponent = render(
-      <SitecoreContext componentFactory={componentFactory}>
-        <Placeholder name={phKey} rendering={component} />
-      </SitecoreContext>
-    );
-
-    expect(renderedComponent.container.querySelectorAll('.feaas-component').length).to.equal(2);
-    expect(renderedComponent.container.querySelectorAll('.feaas-wrapper').length).to.equal(1);
-
-    feaasComponentStub.restore();
-    feaasWrapperStub.restore();
   });
 });
 

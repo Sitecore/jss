@@ -6,7 +6,7 @@
 
 # Class: SitecoreContext
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:40
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:39
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:40
 
 > **new SitecoreContext**(`props`): `SitecoreContext`
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:42
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:41
 
 #### Parameters
 
@@ -82,7 +82,7 @@ Defined in: sitecore-jss-react/node\_modules/@types/react/index.d.ts:979
 
 > **setContext**: (`value`) => `void`
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:50
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:49
 
 Update context state. Value can be
 
@@ -147,7 +147,7 @@ class Foo extends React.Component {
 
 > `static` **displayName**: `string`
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:41
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:40
 
 ***
 
@@ -217,7 +217,7 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 > **componentDidUpdate**(`prevProps`): `void`
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:44
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:43
 
 Called immediately after updating occurs. Not called for the initial render.
 
@@ -377,7 +377,7 @@ this from being invoked.
 
 > **constructContext**(`layoutData?`): [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:43
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:42
 
 #### Parameters
 
@@ -447,7 +447,7 @@ lifecycle events from running.
 
 > **render**(): `Element`
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:51
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:50
 
 #### Returns
 
