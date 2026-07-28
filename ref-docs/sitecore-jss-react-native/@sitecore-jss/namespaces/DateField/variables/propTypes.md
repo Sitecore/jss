@@ -8,4 +8,4 @@
 
 > **propTypes**: `WeakValidationMap`\<`DateFieldProps`\>
 
-Defined in: [sitecore-jss-react-native/src/components/Date.tsx:47](https://github.com/Sitecore/jss/blob/4d41f4ebbb82bcc6522f425860ad637a0b9e4704/packages/sitecore-jss-react-native/src/components/Date.tsx#L47)
+Defined in: [sitecore-jss-react-native/src/components/Date.tsx:47](https://github.com/Sitecore/jss/blob/feeee86174062aa114322129b917efc3429c1465/packages/sitecore-jss-react-native/src/components/Date.tsx#L47)

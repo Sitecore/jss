@@ -8,4 +8,4 @@
 
 > **propTypes**: `WeakValidationMap`\<`TextProps`\>
 
-Defined in: [sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/4d41f4ebbb82bcc6522f425860ad637a0b9e4704/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)
+Defined in: [sitecore-jss-react-native/src/components/Text.tsx:24](https://github.com/Sitecore/jss/blob/feeee86174062aa114322129b917efc3429c1465/packages/sitecore-jss-react-native/src/components/Text.tsx#L24)
