@@ -6,7 +6,7 @@ type Package = {
   version: string;
 };
 
-const trackedScopes = ['@sitecore', '@sitecore-feaas', '@sitecore-jss'];
+const trackedScopes = ['@sitecore', '@sitecore-jss'];
 
 /**
  * Get application metadata

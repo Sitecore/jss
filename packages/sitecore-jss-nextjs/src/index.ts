@@ -114,10 +114,6 @@ export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { NextImage } from './components/NextImage';
-import * as FEaaSWrapper from './components/FEaaSWrapper';
-import * as BYOCWrapper from './components/BYOCWrapper';
-export { FEaaSWrapper };
-export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
@@ -133,13 +129,6 @@ export {
   TextField,
   DateField,
   EditFrame,
-  FEaaSComponent,
-  FEaaSComponentProps,
-  FEaaSComponentParams,
-  fetchFEaaSComponentServerProps,
-  BYOCComponentParams,
-  BYOCComponent,
-  BYOCComponentProps,
   getDesignLibraryStylesheetLinks,
   File,
   FileField,

@@ -8,7 +8,7 @@
 
 > **ComponentFactory** = (`componentName`, `exportName?`) => `JssComponentType` \| `null`
 
-Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:7
+Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:6
 
 ## Parameters
 

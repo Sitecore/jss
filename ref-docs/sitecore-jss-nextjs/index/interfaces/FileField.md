@@ -6,7 +6,7 @@
 
 # Interface: FileField
 
-Defined in: sitecore-jss-react/types/components/File.d.ts:9
+Defined in: sitecore-jss-react/types/components/File.d.ts:8
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: sitecore-jss-react/types/components/File.d.ts:9
 
 > **value**: `FileFieldValue`
 
-Defined in: sitecore-jss-react/types/components/File.d.ts:10
+Defined in: sitecore-jss-react/types/components/File.d.ts:9

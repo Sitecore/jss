@@ -8,9 +8,7 @@
 
 ## Namespaces
 
-- [BYOCWrapper](namespaces/BYOCWrapper/README.md)
 - [constants](namespaces/constants/README.md)
-- [FEaaSWrapper](namespaces/FEaaSWrapper/README.md)
 - [mediaApi](namespaces/mediaApi/README.md)
 - [trackingApi](namespaces/trackingApi/README.md)
 
@@ -22,7 +20,6 @@
 
 ## Classes
 
-- [BYOCComponent](classes/BYOCComponent.md)
 - [ComponentBuilder](classes/ComponentBuilder.md)
 - [ComponentPropsService](classes/ComponentPropsService.md)
 - [DisconnectedSitemapService](classes/DisconnectedSitemapService.md)
@@ -89,16 +86,12 @@
 
 ## Type Aliases
 
-- [BYOCComponentParams](type-aliases/BYOCComponentParams.md)
-- [BYOCComponentProps](type-aliases/BYOCComponentProps.md)
 - [ComponentBuilderConfig](type-aliases/ComponentBuilderConfig.md)
 - [ComponentFactory](type-aliases/ComponentFactory.md)
 - [ComponentPropsCollection](type-aliases/ComponentPropsCollection.md)
 - [ComponentPropsContextProps](type-aliases/ComponentPropsContextProps.md)
 - [ComponentPropsError](type-aliases/ComponentPropsError.md)
 - [ErrorPages](type-aliases/ErrorPages.md)
-- [FEaaSComponentParams](type-aliases/FEaaSComponentParams.md)
-- [FEaaSComponentProps](type-aliases/FEaaSComponentProps.md)
 - [GetServerSideComponentProps](type-aliases/GetServerSideComponentProps.md)
 - [GetStaticComponentProps](type-aliases/GetStaticComponentProps.md)
 - [GraphQLRobotsServiceConfig](type-aliases/GraphQLRobotsServiceConfig.md)
@@ -132,7 +125,6 @@
 - [EditFrame](variables/EditFrame.md)
 - [EditingScripts](variables/EditingScripts.md)
 - [enableDebug](variables/enableDebug.md)
-- [FEaaSComponent](variables/FEaaSComponent.md)
 - [File](variables/File.md)
 - [getContentStylesheetLink](variables/getContentStylesheetLink.md)
 - [Image](variables/Image.md)
@@ -146,7 +138,6 @@
 ## Functions
 
 - [ComponentPropsContext](functions/ComponentPropsContext.md)
-- [fetchFEaaSComponentServerProps](functions/fetchFEaaSComponentServerProps.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
 - [getDesignLibraryStylesheetLinks](functions/getDesignLibraryStylesheetLinks.md)
 - [getFieldValue](functions/getFieldValue.md)

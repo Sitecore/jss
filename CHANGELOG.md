@@ -27,6 +27,10 @@ Our versioning strategy is as follows:
   * Removed `includePersonalizedRoutes` from `GraphQLSitemapService`/`MultisiteGraphQLSitemapService` (SSG personalized route generation)
   * Removed `variantIds` from `EditingMetadataPreviewData` and the `sc_variant` handling in both the Next.js and proxy editing render middlewares — Pages/Sitecore Editor no longer previews a specific personalization variant while authoring
   * Removed the `personalize` debug channel (`debug.personalize` / `DEBUG=sitecore-jss:personalize`) from `sitecore-jss`
+* `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[create-sitecore-jss]` Removed BYOC (Bring Your Own Component) and FEAAS support, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK) ([#2211](https://github.com/Sitecore/jss/pull/2211))
+  * Removed `sitecore-jss-react`'s `FEaaSComponent`, `FEaaSWrapper`, `fetchFEaaSComponentServerProps`, `BYOCComponent`, `BYOCWrapper`, `fetchBYOCComponentServerProps` and their type exports
+  * Removed `sitecore-jss-nextjs`'s `FEaaSWrapper`, `BYOCWrapper`, and `FEAASRenderMiddleware`/`FEAASRenderMiddlewareConfig` (and their re-exports from `sitecore-jss-react`)
+  * `Placeholder` no longer supports rendering of FEAAS/BYOC components
 * `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` `[create-sitecore-jss]` Removed Sitecore XM Cloud Forms support, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK). Sitecore Forms for Sitecore XP remain fully supported via the separate `sitecore-jss-forms`/`sitecore-jss-react-forms` packages, which are unaffected ([#2210](https://github.com/Sitecore/jss/pull/2210))
   * Removed the `Form` component from `sitecore-jss-react` (and its re-export from `sitecore-jss-nextjs`)
   * Removed `FormComponent`/`FormRendering` from `sitecore-jss-angular`

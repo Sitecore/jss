@@ -6,7 +6,7 @@
 
 # Interface: TextField
 
-Defined in: sitecore-jss-react/types/components/Text.d.ts:5
+Defined in: sitecore-jss-react/types/components/Text.d.ts:4
 
 represents the field metadata provided by layout service in editMode 'metadata'
 
@@ -20,7 +20,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **editable?**: `string`
 
-Defined in: sitecore-jss-react/types/components/Text.d.ts:7
+Defined in: sitecore-jss-react/types/components/Text.d.ts:6
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: sitecore-jss/types/layout/models.d.ts:125
 
 > `optional` **value?**: `string` \| `number`
 
-Defined in: sitecore-jss-react/types/components/Text.d.ts:6
+Defined in: sitecore-jss-react/types/components/Text.d.ts:5

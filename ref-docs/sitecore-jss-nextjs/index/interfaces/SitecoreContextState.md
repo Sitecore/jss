@@ -6,7 +6,7 @@
 
 # Interface: SitecoreContextState
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:29
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:28
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:29
 
 > `optional` **api?**: `object`
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:32
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:31
 
 #### edge?
 
@@ -46,7 +46,7 @@ https://edge-platform.sitecorecloud.io
 
 > **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:31
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:30
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:31
 
 > **setContext**: (`value`) => `void`
 
-Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:30
+Defined in: sitecore-jss-react/types/components/SitecoreContext.d.ts:29
 
 #### Parameters
 

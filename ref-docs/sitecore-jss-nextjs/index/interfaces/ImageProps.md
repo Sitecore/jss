@@ -6,7 +6,7 @@
 
 # Interface: ImageProps
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:30
+Defined in: sitecore-jss-react/types/components/Image.d.ts:29
 
 ## Extends
 
@@ -22,7 +22,7 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:30
 
 > `optional` **editable?**: `boolean`
 
-Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:25
+Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:24
 
 Can be used to explicitly disable inline editing.
 If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
@@ -43,7 +43,7 @@ true
 
 > `optional` **emptyFieldEditingComponent?**: `ComponentClass`\<`ImageProps`, `any`\> \| `FC`\<`ImageProps`\>
 
-Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:31
+Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:30
 
 -- Edit Mode Metadata --
 
@@ -59,7 +59,7 @@ Custom element to render in Pages in Metadata edit mode if field value is empty
 
 > `optional` **field?**: (ImageField \| ImageFieldValue) & FieldMetadata
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:33
+Defined in: sitecore-jss-react/types/components/Image.d.ts:32
 
 Image field data (consistent with other field types)
 
@@ -69,7 +69,7 @@ Image field data (consistent with other field types)
 
 > `optional` **imageParams?**: `object`
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:37
+Defined in: sitecore-jss-react/types/components/Image.d.ts:36
 
 Parameters that will be attached to Sitecore media URLs
 
@@ -83,7 +83,7 @@ Parameters that will be attached to Sitecore media URLs
 
 > `optional` **mediaUrlPrefix?**: `RegExp`
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:48
+Defined in: sitecore-jss-react/types/components/Image.d.ts:47
 
 Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
 
@@ -101,4 +101,4 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 > `optional` **srcSet?**: [`ImageSizeParameters`](ImageSizeParameters.md)[]
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:40
+Defined in: sitecore-jss-react/types/components/Image.d.ts:39

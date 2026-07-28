@@ -13,7 +13,6 @@
 - [EditingDataDiskCache](classes/EditingDataDiskCache.md)
 - [EditingDataMiddleware](classes/EditingDataMiddleware.md)
 - [EditingRenderMiddleware](classes/EditingRenderMiddleware.md)
-- [FEAASRenderMiddleware](classes/FEAASRenderMiddleware.md)
 - [GraphQLEditingService](classes/GraphQLEditingService.md)
 - [ServerlessEditingDataService](classes/ServerlessEditingDataService.md)
 - [VercelEditingDataCache](classes/VercelEditingDataCache.md)
@@ -25,7 +24,6 @@
 - [EditingDataMiddlewareConfig](interfaces/EditingDataMiddlewareConfig.md)
 - [EditingDataService](interfaces/EditingDataService.md)
 - [EditingPreviewData](interfaces/EditingPreviewData.md)
-- [FEAASRenderMiddlewareConfig](interfaces/FEAASRenderMiddlewareConfig.md)
 - [ServerlessEditingDataServiceConfig](interfaces/ServerlessEditingDataServiceConfig.md)
 
 ## Type Aliases

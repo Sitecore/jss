@@ -4,11 +4,9 @@ import {
   Initializer,
   openJsonFile,
   transform,
-  isDevEnvironment,
   DEFAULT_APPNAME,
   incompatibleAddonsMsg,
 } from '../../common';
-import { removeDevDependencies } from './remove-dev-dependencies';
 import { sharedPrerender } from '../nextjs/prompts';
 
 export default class NextjsXMCloudInitializer implements Initializer {
@@ -29,10 +27,6 @@ export default class NextjsXMCloudInitializer implements Initializer {
     const templatePath = path.resolve(__dirname, '../../templates/nextjs-xmcloud');
 
     await transform(templatePath, mergedArgs);
-
-    if (!isDevEnvironment(args.destination)) {
-      removeDevDependencies(args.destination);
-    }
 
     if (
       args.templates.includes('nextjs-styleguide-tracking') ||

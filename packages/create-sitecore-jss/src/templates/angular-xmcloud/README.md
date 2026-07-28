@@ -22,7 +22,6 @@ The following key features are supported:
 > The following features and integrations are not supported by Angular and Proxy apps for XM Cloud:
 > - Multisite
 > - The XM Cloud Components application
-> - BYOC components
 > - SXA sitemap, redirects, error pages
 > - Sitecore Experience Editor
 

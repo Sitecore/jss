@@ -10,7 +10,7 @@
 
 Defined in: sitecore-jss/types/layout/themes.d.ts:10
 
-Walks through rendering tree and returns list of links of all FEAAS, BYOC or SXA Design Library Stylesheets that are used
+Walks through rendering tree and returns list of links of all SXA Design Library Stylesheets that are used
 
 ## Parameters
 
