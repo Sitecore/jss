@@ -6,14 +6,11 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
-  Type,
   inject,
 } from '@angular/core';
 import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import { ImageField, ImageFieldValue } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
-import { DefaultEmptyImageFieldEditingComponent } from './default-empty-image-field-editing-placeholder.component';
-import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({ selector: '[scImage]' })
 export class ImageDirective extends BaseFieldDirective implements OnChanges {
@@ -34,16 +31,6 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scImageAttrs') attrs: { [param: string]: unknown } = {};
 
-  /**
-   * Custom template to render in Pages in Metadata edit mode if field value is empty
-   */
-  @Input('scImageEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
-
-  /**
-   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
-   */
-  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyImageFieldEditingComponent;
-
   private inlineRef: HTMLSpanElement | null = null;
   private templateRef = inject(TemplateRef);
   private renderer = inject(Renderer2);
@@ -63,7 +50,6 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
 
   private updateView() {
     if (!this.shouldRender()) {
-      super.renderEmpty();
       return;
     }
 
@@ -101,9 +87,7 @@ export class ImageDirective extends BaseFieldDirective implements OnChanges {
 
     attrs = this.getImageAttrs(img, overrideAttrs, this.urlParams);
     if (attrs) {
-      this.renderMetadata(MetadataKind.Open);
       this.renderTemplate(attrs);
-      this.renderMetadata(MetadataKind.Close);
     }
   }
 

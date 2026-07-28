@@ -1,16 +1,13 @@
 import React, { ForwardedRef, forwardRef } from 'react';
-import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
-import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
-import { FieldMetadata, isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
+import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface RichTextField extends FieldMetadata {
+export interface RichTextField {
   value?: string;
   editable?: string;
 }
 
-export interface RichTextProps extends EditableFieldProps<RichTextProps> {
+export interface RichTextProps extends EditableFieldProps {
   [htmlAttributes: string]: unknown;
   /** The rich text field data. */
   field?: RichTextField;
@@ -21,32 +18,25 @@ export interface RichTextProps extends EditableFieldProps<RichTextProps> {
   tag?: string;
 }
 
-export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
-  withEmptyFieldEditingComponent<RichTextProps>(
-    // eslint-disable-next-line react/display-name
-    forwardRef(
-      (
-        { field, tag = 'div', editable = true, ...otherProps }: RichTextProps,
-        ref: ForwardedRef<HTMLElement>
-      ) => {
-        if (!field || (!field.editable && isFieldValueEmpty(field))) {
-          return null;
-        }
+export const RichText = forwardRef(
+  (
+    { field, tag = 'div', editable = true, ...otherProps }: RichTextProps,
+    ref: ForwardedRef<HTMLElement>
+  ) => {
+    if (!field || (!field.editable && isFieldValueEmpty(field))) {
+      return null;
+    }
 
-        const htmlProps = {
-          dangerouslySetInnerHTML: {
-            __html: field.editable && editable ? field.editable : field.value,
-          },
-          ref,
-          ...otherProps,
-        };
+    const htmlProps = {
+      dangerouslySetInnerHTML: {
+        __html: field.editable && editable ? field.editable : field.value,
+      },
+      ref,
+      ...otherProps,
+    };
 
-        return React.createElement(tag || 'div', htmlProps);
-      }
-    ),
-    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText, isForwardRef: true }
-  ),
-  true
+    return React.createElement(tag || 'div', htmlProps);
+  }
 );
 
 RichText.displayName = 'RichText';

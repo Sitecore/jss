@@ -3,7 +3,7 @@ import express, { Response } from 'express';
 import compression from 'compression';
 import { legacyCreateProxyMiddleware as createProxyMiddleware, fixRequestBody } from 'http-proxy-middleware';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { editingRouter, healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
+import { healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
 import { config, graphQLEndpoint } from './config';
 
 const server = express();
@@ -26,8 +26,6 @@ const requiredProperties = [
   'defaultLanguage',
   'layoutServiceFactory',
   'dictionaryServiceFactory',
-  'components',
-  'metadata',
 ];
 
 const missingProperties = requiredProperties.filter((property) => !config.serverBundle[property]);
@@ -111,23 +109,6 @@ server.use(
  * The health check endpoint
  */
 server.use(healthCheck());
-
-/**
- * Proxy editing requests through the editing router
- */
-server.use(
-  '/api/editing',
-  editingRouter({
-    config: {
-      components: config.serverBundle.components,
-      metadata: config.serverBundle.metadata,
-    },
-    render: {
-      clientFactory: config.serverBundle.clientFactory,
-      renderView,
-    },
-  })
-);
 
 server.use(async (req, res) => {
   debug.proxy(`performing SSR for ${req.originalUrl}`);

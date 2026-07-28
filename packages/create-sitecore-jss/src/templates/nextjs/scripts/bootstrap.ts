@@ -19,8 +19,3 @@ import './generate-config';
   COMPONENT BUILDER GENERATION
 */
 import './generate-component-builder';
-
-/*
-  META DATA GENERATION
-*/
-import './generate-metadata';

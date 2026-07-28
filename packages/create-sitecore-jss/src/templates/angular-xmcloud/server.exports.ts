@@ -4,7 +4,6 @@ import { dictionaryServiceFactory } from './src/app/lib/dictionary-service-facto
 import { layoutServiceFactory } from './src/app/lib/layout-service-factory';
 import { environment } from './src/environments/environment';
 import { components } from './src/app/components/app-components.module';
-import metadata from './src/environments/metadata.json';
 /**
  * Define the required configuration values to be exported from the server.bundle.ts.
  */
@@ -21,5 +20,4 @@ export {
   defaultLanguage,
   sitecoreSiteName,
   components,
-  metadata,
 };

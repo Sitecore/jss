@@ -95,8 +95,7 @@ export function withPlaceholder(
           if (typeof placeholder !== 'string' && placeholder.placeholder && placeholder.prop) {
             placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
               renderingData,
-              placeholder.placeholder,
-              childProps.sitecoreContext.editMode
+              placeholder.placeholder
             );
             if (placeholderData) {
               childProps[placeholder.prop] = this.getComponentsForRenderingData(placeholderData);
@@ -104,8 +103,7 @@ export function withPlaceholder(
           } else {
             placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
               renderingData,
-              placeholder as string,
-              childProps.sitecoreContext.editMode
+              placeholder as string
             );
             if (placeholderData) {
               childProps[placeholder as string] = this.getComponentsForRenderingData(

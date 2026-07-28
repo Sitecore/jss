@@ -28,7 +28,6 @@ export {
   PlaceholdersData,
   RouteData,
   Field,
-  FieldMetadata,
   Item,
   HtmlElementRendering,
   getChildPlaceholder,
@@ -37,7 +36,6 @@ export {
   ComponentFields,
   ComponentParams,
   getContentStylesheetLink,
-  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
@@ -130,8 +128,6 @@ export {
   File,
   FileField,
   RichTextField,
-  DefaultEmptyFieldEditingComponentImage,
-  DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,
   PlaceholderComponentProps,
   SitecoreContext,
@@ -147,7 +143,4 @@ export {
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
-  withFieldMetadata,
-  withEmptyFieldEditingComponent,
-  EditingScripts,
 } from '@sitecore-jss/sitecore-jss-react';

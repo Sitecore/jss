@@ -2,7 +2,6 @@ import { useState, JSX } from 'react';
 import {
   Link,
   LinkField,
-  FieldMetadata,
   Text,
   TextField,
   useSitecoreContext,
@@ -40,13 +39,12 @@ const getNavigationText = function(props: NavigationProps): JSX.Element | string
   return text;
 };
 
-const getLinkField = (props: NavigationProps): LinkField & FieldMetadata => ({
+const getLinkField = (props: NavigationProps): LinkField => ({
   value: {
     href: props.fields.Href,
     title: getLinkTitle(props),
     querystring: props.fields.Querystring,
   },
-  metadata: props.fields.NavigationTitle?.metadata,
 });
 
 export const Default = (props: NavigationProps): JSX.Element => {

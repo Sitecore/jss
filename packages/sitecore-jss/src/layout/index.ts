@@ -14,8 +14,6 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
-  EditMode,
-  FieldMetadata,
 } from './models';
 
 export {

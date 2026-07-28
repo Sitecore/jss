@@ -47,10 +47,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
     if (
       !field ||
-      (!(field as LinkFieldValue).editable &&
-        !field.value &&
-        !(field as LinkFieldValue).href &&
-        !field.metadata)
+      (!(field as LinkFieldValue).editable && !field.value && !(field as LinkFieldValue).href)
     ) {
       return null;
     }
@@ -58,11 +55,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const value = ((field as LinkFieldValue).href
       ? field
       : (field as LinkField).value) as LinkFieldValue;
-    // fallback to {} if value is undefined; could happen if field is LinkFieldValue, href is empty in metadata mode
     const { href, querystring, anchor } = value || {};
 
-    const isEditing =
-      editable && ((field as LinkFieldValue).editable || (field as LinkFieldValue).metadata);
+    const isEditing = editable && (field as LinkFieldValue).editable;
 
     if (href && !isEditing) {
       const text = showLinkTextWithChildrenPresent || !children ? value.text || value.href : null;
