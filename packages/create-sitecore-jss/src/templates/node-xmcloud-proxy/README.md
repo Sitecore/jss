@@ -5,17 +5,15 @@
 
 [Documentation](https://doc.sitecore.com/xmc/en/developers/jss/latest/jss-xmc/introducing-sitecore-javascript-rendering-sdk.html)
 
-This Node.js-based proxy app is the backbone for enabling seamless integration between XM Cloud and various SPA frameworks like React, Angular, or Vue laying the groundwork for future JSS starter kits built for other front-end JavaScript frameworks. It acts as a middleware layer to handle critical functionalities such as server-side rendering (SSR), enabling editing, and integrating Sitecore Forms. By serving as the rendering host, it ensures a smooth connection between Sitecore XM Cloud services and your front-end applications, making it easier to build dynamic and localized experiences for users.
+This Node.js-based proxy app is the backbone for enabling seamless integration between XM Cloud and various SPA frameworks like React, Angular, or Vue laying the groundwork for future JSS starter kits built for other front-end JavaScript frameworks. It acts as a middleware layer to handle critical functionalities such as server-side rendering (SSR) and enabling editing. By serving as the rendering host, it ensures a smooth connection between Sitecore XM Cloud services and your front-end applications, making it easier to build dynamic and localized experiences for users.
 
 This is a sample setup showing how you can configure XM Cloud rendering server on top of Node.js and Express.js
 
 ## Features Supported
 
-- `Context ID`: the Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, forms, and integration settings.
+- `Context ID`: the Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, and integration settings.
 
 - `XM Cloud Pages editing integration`: full integration with Pages - the dynamic visual page editor of XM Cloud.
-
-- `Forms support`: provides the capability to consume and post Sitecore Forms from JSS apps. Sitecore Forms enables marketers to author their own forms, collect data, and analyze form performance.
 
 - `Internationalization` support.
 

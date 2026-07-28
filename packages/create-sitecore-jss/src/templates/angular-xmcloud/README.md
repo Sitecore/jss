@@ -13,11 +13,9 @@ The Angular XM Cloud integration consists of two parts:
 
 The following key features are supported:
 
-- `Context ID`: The Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, forms, and integration settings.
+- `Context ID`: The Context ID environment variable simplifies setting up and configuring XM Cloud solutions. It's a unified identifier that maps to all your configured resources, such as content, sites, files, and integration settings.
 
 - `XM Cloud Pages editing integration`: full integration with Pages - the dynamic visual page editor of XM Cloud.
-
-- `Forms support`: consume and post XM Cloud Forms in JSS apps. Using Forms, marketers can create forms, collect data, and analyze form performance.
 
 - `Internationalization` support.
 

@@ -28,7 +28,6 @@ export const enableDebug = (namespaces: string) => debug.enable(namespaces);
  * See {@link https://www.npmjs.com/package/debug} for details.
  */
 export default {
-  form: debug(`${rootNamespace}:form`),
   common: debug(`${rootNamespace}:common`),
   http: debug(`${rootNamespace}:http`),
   layout: debug(`${rootNamespace}:layout`),
