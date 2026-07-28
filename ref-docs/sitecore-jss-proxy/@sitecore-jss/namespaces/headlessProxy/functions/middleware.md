@@ -8,7 +8,7 @@
 
 > **middleware**(`renderer`, `config`, `parseRouteUrl`): `RequestHandler`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\>[]
 
-Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:583](https://github.com/Sitecore/jss/blob/f5b4cfdae161b056d3504045ac7b664575e13d27/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L583)
+Defined in: [sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts:583](https://github.com/Sitecore/jss/blob/4d41f4ebbb82bcc6522f425860ad637a0b9e4704/packages/sitecore-jss-proxy/src/middleware/headless-ssr-proxy/index.ts#L583)
 
 ## Parameters
 

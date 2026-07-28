@@ -25,7 +25,6 @@
 - [EditFrameComponent](classes/EditFrameComponent.md)
 - [EditingScriptsComponent](classes/EditingScriptsComponent.md)
 - [FileDirective](classes/FileDirective.md)
-- [FormComponent](classes/FormComponent.md)
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
 - [GraphQLLayoutService](classes/GraphQLLayoutService.md)
