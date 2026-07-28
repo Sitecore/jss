@@ -8,7 +8,7 @@
 
 > **withFieldMetadata**\<`FieldComponentProps`, `RefElementType`\>(`FieldComponent`, `isForwardRef?`): `ForwardRefExoticComponent`\<`PropsWithoutRef`\<`FieldComponentProps`\> & `RefAttributes`\<`RefElementType`\>\> \| ((`props`) => `Element`)
 
-Defined in: sitecore-jss-react/types/enhancers/withFieldMetadata.d.ts:16
+Defined in: sitecore-jss-react/types/enhancers/withFieldMetadata.d.ts:15
 
 Wraps the field component with metadata markup intended to be used for chromes hydration in Pages
 

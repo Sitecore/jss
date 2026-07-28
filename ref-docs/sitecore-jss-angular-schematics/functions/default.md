@@ -8,7 +8,7 @@
 
 > **default**(`options`): (`host`) => `Promise`\<`Rule`\>
 
-Defined in: [index.ts:41](https://github.com/Sitecore/jss/blob/feeee86174062aa114322129b917efc3429c1465/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
+Defined in: [index.ts:41](https://github.com/Sitecore/jss/blob/900803a280ea639d3d6e859884deba410b36d1fc/packages/sitecore-jss-angular-schematics/src/jss-component/index.ts#L41)
 
 ## Parameters
 

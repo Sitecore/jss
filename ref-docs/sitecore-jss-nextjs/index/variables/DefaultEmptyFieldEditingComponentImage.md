@@ -8,4 +8,4 @@
 
 > `const` **DefaultEmptyFieldEditingComponentImage**: `React.FC`\<\{\[`key`: `string`\]: `unknown`; `className?`: `string`; \}\>
 
-Defined in: sitecore-jss-react/types/components/DefaultEmptyFieldEditingComponents.d.ts:7
+Defined in: sitecore-jss-react/types/components/DefaultEmptyFieldEditingComponents.d.ts:6

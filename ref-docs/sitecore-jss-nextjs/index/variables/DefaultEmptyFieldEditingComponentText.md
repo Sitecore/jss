@@ -8,4 +8,4 @@
 
 > `const` **DefaultEmptyFieldEditingComponentText**: `React.FC`\<\{\[`key`: `string`\]: `unknown`; `tag?`: `string`; \}\>
 
-Defined in: sitecore-jss-react/types/components/DefaultEmptyFieldEditingComponents.d.ts:3
+Defined in: sitecore-jss-react/types/components/DefaultEmptyFieldEditingComponents.d.ts:2

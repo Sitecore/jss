@@ -8,4 +8,4 @@
 
 > `const` **EditFrame**: `React.FC`\<`PropsWithChildren`\<`EditFrameProps`\>\>
 
-Defined in: sitecore-jss-react/types/components/EditFrame.d.ts:12
+Defined in: sitecore-jss-react/types/components/EditFrame.d.ts:11
