@@ -6,7 +6,7 @@
 
 # Interface: Metadata
 
-Defined in: sitecore-jss/types/editing/utils.d.ts:33
+Defined in: sitecore-jss/types/editing/utils.d.ts:21
 
 Application metadata
 
@@ -16,7 +16,7 @@ Application metadata
 
 > **packages**: `object`
 
-Defined in: sitecore-jss/types/editing/utils.d.ts:34
+Defined in: sitecore-jss/types/editing/utils.d.ts:22
 
 #### Index Signature
 

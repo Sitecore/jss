@@ -8,7 +8,7 @@
 
 > `const` **handleEditorAnchors**: () => `void`
 
-Defined in: packages/sitecore-jss/types/editing/utils.d.ts:87
+Defined in: packages/sitecore-jss/types/editing/utils.d.ts:75
 
 ## Returns
 

@@ -8,11 +8,10 @@
 
 > `const` **EditingScripts**: () => `JSX.Element`
 
-Defined in: sitecore-jss-react/types/components/EditingScripts.d.ts:8
+Defined in: sitecore-jss-react/types/components/EditingScripts.d.ts:7
 
 - Renders client scripts and data for editing/preview mode for Pages
-- Renders script required for the Design Library (when RenderingType is `component`).
-This script is only rendered when EditMode is Metadata or RenderingType is `component`, otherwise it renders nothing.
+This script is only rendered when EditMode is Metadata, otherwise it renders nothing.
 
 ## Returns
 

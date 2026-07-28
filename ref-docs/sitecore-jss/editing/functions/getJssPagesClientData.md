@@ -8,7 +8,7 @@
 
 > **getJssPagesClientData**(): `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:169](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss/src/editing/utils.ts#L169)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:169](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss/src/editing/utils.ts#L169)
 
 Gets extra JSS clientData scripts to render in XMC Pages in addition to clientData from Pages itself
 

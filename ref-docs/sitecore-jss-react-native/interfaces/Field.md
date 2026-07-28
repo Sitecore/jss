@@ -6,7 +6,7 @@
 
 # Interface: Field\<T\>
 
-Defined in: sitecore-jss/types/layout/models.d.ts:117
+Defined in: sitecore-jss/types/layout/models.d.ts:116
 
 ## Extends
 
@@ -24,7 +24,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:117
 
 > `optional` **editable?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:119
+Defined in: sitecore-jss/types/layout/models.d.ts:118
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:119
 
 > `optional` **metadata?**: `object`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:125
+Defined in: sitecore-jss/types/layout/models.d.ts:124
 
 #### Index Signature
 
@@ -48,4 +48,4 @@ Defined in: sitecore-jss/types/layout/models.d.ts:125
 
 > **value**: `T`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:118
+Defined in: sitecore-jss/types/layout/models.d.ts:117

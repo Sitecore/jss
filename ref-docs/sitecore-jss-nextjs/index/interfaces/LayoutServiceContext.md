@@ -20,7 +20,7 @@ Shape of context data from the Sitecore Layout Service
 
 > `optional` **clientData?**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
 
-Defined in: sitecore-jss/types/layout/models.d.ts:43
+Defined in: sitecore-jss/types/layout/models.d.ts:42
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:43
 
 > `optional` **clientScripts?**: `string`[]
 
-Defined in: sitecore-jss/types/layout/models.d.ts:42
+Defined in: sitecore-jss/types/layout/models.d.ts:41
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:42
 
 > `optional` **editMode?**: [`EditMode`](../enumerations/EditMode.md)
 
-Defined in: sitecore-jss/types/layout/models.d.ts:41
+Defined in: sitecore-jss/types/layout/models.d.ts:40
 
 ***
 
@@ -69,14 +69,6 @@ Defined in: sitecore-jss/types/layout/models.d.ts:32
 > `optional` **pageState?**: [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md)
 
 Defined in: sitecore-jss/types/layout/models.d.ts:35
-
-***
-
-### renderingType?
-
-> `optional` **renderingType?**: `RenderingType`
-
-Defined in: sitecore-jss/types/layout/models.d.ts:40
 
 ***
 

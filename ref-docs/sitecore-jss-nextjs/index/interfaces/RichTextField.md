@@ -28,7 +28,7 @@ Defined in: sitecore-jss-react/types/components/RichText.d.ts:6
 
 > `optional` **metadata?**: `object`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:125
+Defined in: sitecore-jss/types/layout/models.d.ts:124
 
 #### Index Signature
 

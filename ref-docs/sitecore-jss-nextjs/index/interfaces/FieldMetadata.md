@@ -6,7 +6,7 @@
 
 # Interface: FieldMetadata
 
-Defined in: sitecore-jss/types/layout/models.d.ts:124
+Defined in: sitecore-jss/types/layout/models.d.ts:123
 
 represents the field metadata provided by layout service in editMode 'metadata'
 
@@ -22,7 +22,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **metadata?**: `object`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:125
+Defined in: sitecore-jss/types/layout/models.d.ts:124
 
 #### Index Signature
 

@@ -6,7 +6,7 @@
 
 # Interface: Field\<T\>
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:130](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss/src/layout/models.ts#L130)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:130](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss/src/layout/models.ts#L130)
 
 represents the field metadata provided by layout service in editMode 'metadata'
 
@@ -26,7 +26,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **editable?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss/src/layout/models.ts#L132)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:132](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss/src/layout/models.ts#L132)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:132](https://github.com/
 
 > `optional` **metadata?**: `object`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:139](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss/src/layout/models.ts#L139)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:139](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss/src/layout/models.ts#L139)
 
 #### Index Signature
 
@@ -50,4 +50,4 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:139](https://github.com/
 
 > **value**: `T`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:131](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss/src/layout/models.ts#L131)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:131](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss/src/layout/models.ts#L131)

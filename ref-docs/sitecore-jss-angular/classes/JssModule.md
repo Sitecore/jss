@@ -6,7 +6,7 @@
 
 # Class: JssModule
 
-Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:79](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-angular/src/lib.module.ts#L79)
+Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:79](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/lib.module.ts#L79)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:79](https://github.
 
 > `static` **forChild**(`value`): `ModuleWithProviders`\<`JssModule`\>
 
-Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:111](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-angular/src/lib.module.ts#L111)
+Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:111](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/lib.module.ts#L111)
 
 Instantiates a module for a lazy-loaded JSS component(s)
 
@@ -46,7 +46,7 @@ module
 
 > `static` **forRoot**(): `ModuleWithProviders`\<`JssModule`\>
 
-Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:85](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-angular/src/lib.module.ts#L85)
+Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:85](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/lib.module.ts#L85)
 
 Instantiates the JSS module with no component factory.
 Useful for using it from libraries. Most of the time you'd want withComponents()
@@ -63,7 +63,7 @@ module
 
 > `static` **withComponents**(`components`, `lazyComponents?`): `ModuleWithProviders`\<`JssModule`\>
 
-Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:130](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-angular/src/lib.module.ts#L130)
+Defined in: [packages/sitecore-jss-angular/src/lib.module.ts:130](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/lib.module.ts#L130)
 
 Instantiates the JSS module and specifies the mapping from component name to component implementation.
 Appropriate when defining the set of JSS components that your app is aware of.
