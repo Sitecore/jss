@@ -6,7 +6,7 @@
 
 # Interface: ContentFieldValue
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:337](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L337)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:337](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L337)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:337
 
 > `optional` **editable?**: `string`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:345](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L345)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:345](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L345)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:345
 
 > **value**: `string` \| `number` \| `boolean` \| ([`ItemDefinition`](ItemDefinition.md) \| [`ItemReference`](ItemReference.md))[] \| [`ImageFieldValue`](ImageFieldValue.md) \| [`LinkFieldValue`](LinkFieldValue.md)
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:338](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L338)
+Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:338](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L338)

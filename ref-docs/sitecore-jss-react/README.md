@@ -114,10 +114,8 @@
 
 ## Functions
 
-- [DesignLibrary](functions/DesignLibrary.md)
 - [EditingScripts](functions/EditingScripts.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
-- [getDesignLibraryStylesheetLinks](functions/getDesignLibraryStylesheetLinks.md)
 - [getEEMarkup](functions/getEEMarkup.md)
 - [getFieldValue](functions/getFieldValue.md)
 - [useSitecoreContext](functions/useSitecoreContext.md)

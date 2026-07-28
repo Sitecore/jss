@@ -8,7 +8,7 @@
 
 > **EditingRenderMiddlewareConfig** = `object`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:26](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L26)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:24](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L24)
 
 Configuration for the Editing Render Middleware.
 
@@ -18,7 +18,7 @@ Configuration for the Editing Render Middleware.
 
 > `optional` **dataFetcher?**: [`NativeDataFetcher`](../../index/classes/NativeDataFetcher.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:34](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L34)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:32](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L32)
 
 -- Edit Mode Chromes --
 
@@ -40,7 +40,7 @@ NativeDataFetcher
 
 > `optional` **editingDataService?**: [`EditingDataService`](../interfaces/EditingDataService.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:45](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L45)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:43](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L43)
 
 -- Edit Mode Chromes --
 
@@ -65,7 +65,7 @@ EditingDataService
 
 > `optional` **resolvePageUrl?**: (`args`) => `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:59](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L59)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:57](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L57)
 
 -- Edit Mode Chromes / Metadata --
 
@@ -104,7 +104,7 @@ resolveServerUrl
 
 > `optional` **resolveServerUrl?**: (`req`) => `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:69](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L69)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:67](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L67)
 
 -- Edit Mode Chromes --
 

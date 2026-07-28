@@ -16,7 +16,6 @@
 
 - [EditMode](enumerations/EditMode.md)
 - [LayoutServicePageState](enumerations/LayoutServicePageState.md)
-- [RenderingType](enumerations/RenderingType.md)
 
 ## Classes
 
@@ -33,7 +32,6 @@
 - [MemoryCacheClient](classes/MemoryCacheClient.md)
 - [MultisiteGraphQLSitemapService](classes/MultisiteGraphQLSitemapService.md)
 - [NativeDataFetcher](classes/NativeDataFetcher.md)
-- [RestComponentLayoutService](classes/RestComponentLayoutService.md)
 - [RestDictionaryService](classes/RestDictionaryService.md)
 - [RestLayoutService](classes/RestLayoutService.md)
 - [SitecoreContext](classes/SitecoreContext.md)
@@ -121,7 +119,6 @@
 - [debug](variables/debug.md)
 - [DefaultEmptyFieldEditingComponentImage](variables/DefaultEmptyFieldEditingComponentImage.md)
 - [DefaultEmptyFieldEditingComponentText](variables/DefaultEmptyFieldEditingComponentText.md)
-- [DesignLibrary](variables/DesignLibrary.md)
 - [EditFrame](variables/EditFrame.md)
 - [EditingScripts](variables/EditingScripts.md)
 - [enableDebug](variables/enableDebug.md)
@@ -139,7 +136,6 @@
 
 - [ComponentPropsContext](functions/ComponentPropsContext.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
-- [getDesignLibraryStylesheetLinks](functions/getDesignLibraryStylesheetLinks.md)
 - [getFieldValue](functions/getFieldValue.md)
 - [getSiteRewrite](functions/getSiteRewrite.md)
 - [getSiteRewriteData](functions/getSiteRewriteData.md)
