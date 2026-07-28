@@ -4,18 +4,15 @@ import {
   RouteData,
   Field,
   LayoutServiceContextData,
-  getContentStylesheetLink,
   JssModule,
 } from '@sitecore-jss/sitecore-jss-angular';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JssState } from '../../JssState';
 import { JssMetaService } from '../../jss-meta.service';
-import { JssLinkService } from '../../jss-link.service';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { ServerErrorComponent } from '../server-error/server-error.component';
 import { ScriptsComponent } from '../scripts/scripts.component';
-import { environment as env } from '../../../environments/environment';
 import { CommonModule } from '@angular/common';
 
 enum LayoutState {
@@ -44,7 +41,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   private activatedRoute = inject(ActivatedRoute);
   private readonly meta = inject(JssMetaService);
-  private linkService = inject(JssLinkService);
 
   ngOnInit() {
     // route data is populated by the JssRouteResolver
@@ -61,16 +57,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
         this.mainClassPageEditing = data.jssState.sitecore.context.pageEditing
           ? 'editing-mode'
           : 'prod-mode';
-
-        const contentStyles = getContentStylesheetLink(
-          { sitecore: data.jssState.sitecore },
-          env.sitecoreEdgeContextId,
-          env.sitecoreEdgeUrl
-        );
-
-        if (contentStyles) {
-          this.linkService.addHeadLinks(contentStyles);
-        }
       }
 
       if (data.jssState.routeFetchError) {

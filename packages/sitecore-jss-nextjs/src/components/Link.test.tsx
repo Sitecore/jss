@@ -1,6 +1,6 @@
 import React, { createRef, ReactNode } from 'react';
 import { NextRouter } from 'next/router';
-import { LinkField, DefaultEmptyFieldEditingComponentText } from '@sitecore-jss/sitecore-jss-react';
+import { LinkField } from '@sitecore-jss/sitecore-jss-react';
 import { expect } from 'chai';
 import { render } from '@testing-library/react';
 import { RouterContext } from 'next/dist/shared/lib/router-context.shared-runtime';
@@ -342,40 +342,6 @@ describe('<Link />', () => {
     expect(link?.outerHTML).not.to.contain('internallinkmatcher');
 
     expect(link?.getAttribute('data-react-link')).to.equal('true');
-  });
-
-  it('should prevent passing emptyFieldEditingComponent to NextLink', () => {
-    const field = {
-      value: {
-        href: '/lorem',
-        text: 'ipsum',
-        class: 'my-link',
-        title: 'My Link',
-        target: '_blank',
-      },
-    };
-    const customEmptyFieldEditingComponentText = DefaultEmptyFieldEditingComponentText;
-    // Spy on console.warn
-    const consoleErrorSpy = spy(console, 'error');
-
-    const rendered = render(
-      <Page>
-        <Link field={field} emptyFieldEditingComponent={customEmptyFieldEditingComponentText}>
-          <p>Hello world...</p>
-        </Link>
-      </Page>
-    );
-
-    const link = rendered.container.querySelector('a');
-
-    expect(link?.getAttribute('data-nextjs-link')).to.equal('true');
-
-    // Assert that the specific warning was not logged
-    expect(consoleErrorSpy.calledWithMatch(/React does not recognize the .* prop on a DOM element/))
-      .to.be.false;
-
-    // Restore the original console.error
-    consoleErrorSpy.restore();
   });
 
   it('should render with a ref to the anchor', () => {

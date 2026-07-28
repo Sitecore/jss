@@ -30,10 +30,9 @@ npm run lint            # Run ESLint
 src/
   pages/
     [[...path]].tsx         # Catch-all Sitecore page (SSG)
-    api/editing/            # config.ts, render.ts
+    api/editing/            # render.ts
   lib/
-    page-props-factory/     # + content-styles plugin
-    graphql-editing-service.ts
+    page-props-factory/
   proxy.ts                  # Next.js 16 middleware entry
 temp/                       # config includes sitecoreEdgeUrl, sitecoreEdgeContextId
 next.config.js
@@ -70,7 +69,7 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 ### Page and Layout
 
-- **Catch-all:** Same as base — `sitecorePagePropsFactory.create(context)`. XM Cloud add-on adds an extra page-props-factory plugin: `content-styles`. Plugin order must be preserved.
+- **Catch-all:** Same as base — `sitecorePagePropsFactory.create(context)`.
 - **Layout:** `SitecoreContext` receives `api.edge` for Editor integration.
 - **Bootstrap:** This app uses the base (no-op) `Bootstrap`; CloudSDK is not initialized. BYOC/FEAAS component event tracking (which relies on CloudSDK events) will not fire.
 
@@ -123,7 +122,7 @@ All base Next.js JSS concepts apply (page-props-factory, componentBuilder, pathE
 
 **Never edit:** `.next/`, `node_modules/`, `temp/`.
 
-**Focus on (XM Cloud–specific):** `src/lib/graphql-editing-service.ts`, `src/pages/api/editing/`, `scripts/config/plugins/edge-platform.ts`.
+**Focus on (XM Cloud–specific):** `src/pages/api/editing/`, `scripts/config/plugins/edge-platform.ts`.
 
 **Inherits from base:** All boundaries and patterns from the base nextjs template apply (page-props-factory, componentBuilder, layout-service-factory, middleware matcher, rewrites, etc.). See `packages/create-sitecore-jss/src/templates/nextjs/AGENTS.md` in the JSS repo for full base guidance.
 

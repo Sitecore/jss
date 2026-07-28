@@ -35,7 +35,6 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  getContentStylesheetLink,
 } from '@sitecore-jss/sitecore-jss/layout';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {

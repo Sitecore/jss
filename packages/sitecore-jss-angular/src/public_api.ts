@@ -60,7 +60,6 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  getContentStylesheetLink,
   LayoutServiceContext,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
