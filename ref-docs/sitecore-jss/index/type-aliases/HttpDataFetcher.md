@@ -8,7 +8,7 @@
 
 > **HttpDataFetcher**\<`T`\> = (`url`, `data?`) => `Promise`\<[`HttpResponse`](../interfaces/HttpResponse.md)\<`T`\>\>
 
-Defined in: [packages/sitecore-jss/src/data-fetcher.ts:27](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss/src/data-fetcher.ts#L27)
+Defined in: [packages/sitecore-jss/src/data-fetcher.ts:27](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss/src/data-fetcher.ts#L27)
 
 Describes functions that fetch data asynchronously (i.e. from an API endpoint).
 This interface conforms to 'fetch' public API, but is adaptable to other HTTP libraries and

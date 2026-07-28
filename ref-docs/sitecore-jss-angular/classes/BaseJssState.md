@@ -6,7 +6,7 @@
 
 # Class: BaseJssState
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:5](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L5)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:5](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L5)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:5](
 
 > `optional` **sitecore?**: [`LayoutServiceContextData`](../interfaces/LayoutServiceContextData.md) & `object`
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L6)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L6)
 
 #### Type Declaration
 
@@ -38,7 +38,7 @@ Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:6](
 
 > `optional` **viewBag?**: `object`
 
-Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:9](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L9)
+Defined in: [packages/sitecore-jss-angular/src/services/jss-state.service.ts:9](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss-angular/src/services/jss-state.service.ts#L9)
 
 #### Index Signature
 

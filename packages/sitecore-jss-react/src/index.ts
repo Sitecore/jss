@@ -24,7 +24,6 @@ export {
 } from '@sitecore-jss/sitecore-jss/editing';
 export {
   getContentStylesheetLink,
-  getDesignLibraryStylesheetLinks,
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
@@ -79,7 +78,6 @@ export {
 export { RichText, RichTextProps, RichTextField } from './components/RichText';
 export { Text, TextField } from './components/Text';
 export { DateField, DateFieldProps } from './components/Date';
-export { DesignLibrary } from './components/DesignLibrary';
 export { Link, LinkField, LinkFieldValue, LinkProps } from './components/Link';
 export { File, FileField } from './components/File';
 export { VisitorIdentification } from './components/VisitorIdentification';

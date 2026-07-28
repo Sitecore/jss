@@ -22,7 +22,7 @@ the default value to return if the field is not defined
 
 > **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`): `T` \| `undefined`
 
-Defined in: [packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss/src/layout/utils.ts#L16)
+Defined in: [packages/sitecore-jss/src/layout/utils.ts:16](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss/src/layout/utils.ts#L16)
 
 Safely extracts a field value from a rendering or fields object.
 Null will be returned if the field is not defined.
@@ -50,7 +50,7 @@ the field value or null if the field is not defined
 
 > **getFieldValue**\<`T`\>(`renderingOrFields`, `fieldName`, `defaultValue`): `T`
 
-Defined in: [packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/6a2141b19499db8b9d9ff2b68d0840d689bed5d8/packages/sitecore-jss/src/layout/utils.ts#L21)
+Defined in: [packages/sitecore-jss/src/layout/utils.ts:21](https://github.com/Sitecore/jss/blob/f4957d5c6e983a3410c0b93729730736470f6107/packages/sitecore-jss/src/layout/utils.ts#L21)
 
 Safely extracts a field value from a rendering or fields object.
 Null will be returned if the field is not defined.

@@ -38,9 +38,7 @@ export {
   ComponentParams,
   getContentStylesheetLink,
   EditMode,
-  RenderingType,
 } from '@sitecore-jss/sitecore-jss/layout';
-export { RestComponentLayoutService } from '@sitecore-jss/sitecore-jss/editing';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   trackingApi,
@@ -129,11 +127,9 @@ export {
   TextField,
   DateField,
   EditFrame,
-  getDesignLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,
-  DesignLibrary,
   DefaultEmptyFieldEditingComponentImage,
   DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,

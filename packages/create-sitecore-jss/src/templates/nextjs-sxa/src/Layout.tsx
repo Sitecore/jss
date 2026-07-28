@@ -3,16 +3,7 @@
  */
 import { JSX } from 'react';
 import Head from 'next/head';
-import {
-  LayoutServiceData,
-  Field,
-  HTMLLink,
-  Placeholder,
-  <% if (templates.includes('nextjs-xmcloud')) { %>
-  DesignLibrary,
-  RenderingType,
-  <% } %>
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { LayoutServiceData, Field, HTMLLink, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 import Scripts from 'src/Scripts';
 
@@ -68,17 +59,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       </Head>
 
       {/* root placeholder for the app, which we add components to using route data */}
-      <div className={mainClassPageEditing}>
-        <% if (templates.includes('nextjs-xmcloud')) { %>
-          {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
-            <DesignLibrary {...layoutData} />
-          ) : (
-            renderContent()
-          )}
-        <% } else { %>
-          {renderContent()}
-        <% } %>
-      </div>
+      <div className={mainClassPageEditing}>{renderContent()}</div>
     </>
   );
 };
