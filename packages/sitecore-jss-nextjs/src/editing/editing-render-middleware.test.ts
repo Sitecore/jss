@@ -1,25 +1,16 @@
 /* eslint-disable dot-notation */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService, EditingPreviewData } from './editing-data-service';
-import {
-  EDITING_ALLOWED_ORIGINS,
-  QUERY_PARAM_EDITING_SECRET,
-  RenderMetadataQueryParams,
-} from '@sitecore-jss/sitecore-jss/editing';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import {
   QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
   QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,
 } from './constants';
 import { EE_PATH, EE_LANGUAGE, EE_LAYOUT, EE_DICTIONARY, EE_BODY } from '../test-data/ee-data';
-import {
-  ChromesHandler,
-  EditingRenderMiddleware,
-  isEditingMetadataPreviewData,
-} from './editing-render-middleware';
+import { ChromesHandler, EditingRenderMiddleware } from './editing-render-middleware';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
 
@@ -38,7 +29,7 @@ const allowedOrigin = 'https://allowed.com';
 
 const mockRequest = (
   body?: any,
-  query?: Query | RenderMetadataQueryParams,
+  query?: Query,
   method?: string,
   headers?: { [key: string]: string }
 ) => {
@@ -125,7 +116,7 @@ describe('EditingRenderMiddleware', () => {
 
     await handler(req, res);
 
-    expect(res.setHeader).to.have.been.calledWithExactly('Allow', 'GET, POST');
+    expect(res.setHeader).to.have.been.calledWithExactly('Allow', 'POST');
     expect(res.status).to.have.been.calledOnce;
     expect(res.status).to.have.been.calledWith(405);
     expect(res.json).to.have.been.calledOnce;
@@ -203,218 +194,6 @@ describe('EditingRenderMiddleware', () => {
     expect(res.status).to.have.been.calledOnce;
     expect(res.status).to.have.been.calledWith(401);
     expect(res.json).to.have.been.calledOnce;
-  });
-
-  describe('metadata handler', () => {
-    const query = {
-      mode: 'edit',
-      route: '/styleguide',
-      sc_itemid: '{11111111-1111-1111-1111-111111111111}',
-      sc_lang: 'en',
-      sc_site: 'website',
-      sc_version: 'latest',
-      secret: secret,
-      sc_layoutKind: 'shared',
-    } as RenderMetadataQueryParams;
-
-    it('should handle request', async () => {
-      const req = mockRequest(EE_BODY, query, 'GET');
-      const res = mockResponse();
-
-      const middleware = new EditingRenderMiddleware();
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
-        site: 'website',
-        itemId: '{11111111-1111-1111-1111-111111111111}',
-        language: 'en',
-        version: 'latest',
-        editMode: 'metadata',
-        pageState: 'edit',
-        layoutKind: 'shared',
-      });
-
-      expect(res.redirect).to.have.been.calledOnce;
-      expect(res.redirect).to.have.been.calledWith('/styleguide');
-      expect(res.setHeader).to.have.been.calledWith(
-        'Content-Security-Policy',
-        `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
-      );
-    });
-
-    it('should handle request with missing optional parameters', async () => {
-      const queryWithoutOptionalParams = {
-        mode: 'edit',
-        route: '/styleguide',
-        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
-        sc_lang: 'en',
-        sc_site: 'website',
-        secret: secret,
-      } as RenderMetadataQueryParams;
-      const req = mockRequest(EE_BODY, queryWithoutOptionalParams, 'GET');
-      const res = mockResponse();
-
-      const middleware = new EditingRenderMiddleware();
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
-        site: 'website',
-        itemId: '{11111111-1111-1111-1111-111111111111}',
-        language: 'en',
-        version: undefined,
-        editMode: 'metadata',
-        pageState: 'edit',
-        layoutKind: undefined,
-      });
-
-      expect(res.redirect).to.have.been.calledOnce;
-      expect(res.redirect).to.have.been.calledWith('/styleguide');
-      expect(res.setHeader).to.have.been.calledWith(
-        'Content-Security-Policy',
-        `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
-      );
-    });
-
-    it('should use custom resolvePageUrl', async () => {
-      const req = mockRequest(EE_BODY, query, 'GET');
-      const res = mockResponse();
-
-      const middleware = new EditingRenderMiddleware({
-        resolvePageUrl: (args) => {
-          return `/custom/path${args.itemPath}`;
-        },
-      });
-
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
-        site: 'website',
-        itemId: '{11111111-1111-1111-1111-111111111111}',
-        language: 'en',
-        version: 'latest',
-        editMode: 'metadata',
-        pageState: 'edit',
-        layoutKind: 'shared',
-      });
-
-      expect(res.redirect).to.have.been.calledOnce;
-      expect(res.redirect).to.have.been.calledWith('/custom/path/styleguide');
-    });
-
-    it('should handle request with special characters in route', async () => {
-      const query = {
-        mode: 'edit',
-        route: '/Åbout',
-        sc_itemid: '{11111111-1111-1111-1111-111111111111}',
-        sc_lang: 'en',
-        sc_site: 'website',
-        sc_version: 'latest',
-        secret: secret,
-        sc_layoutKind: 'shared',
-      } as RenderMetadataQueryParams;
-
-      const req = mockRequest(EE_BODY, query, 'GET');
-      const res = mockResponse();
-
-      const middleware = new EditingRenderMiddleware();
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(res.setPreviewData, 'set preview mode w/ data').to.have.been.calledWith({
-        site: 'website',
-        itemId: '{11111111-1111-1111-1111-111111111111}',
-        language: 'en',
-        version: 'latest',
-        editMode: 'metadata',
-        pageState: 'edit',
-        layoutKind: 'shared',
-      });
-
-      expect(res.redirect).to.have.been.calledOnce;
-      expect(res.redirect).to.have.been.calledWith('/%C3%85bout');
-      expect(res.setHeader).to.have.been.calledWith(
-        'Content-Security-Policy',
-        `frame-ancestors 'self' https://allowed.com ${EDITING_ALLOWED_ORIGINS.join(' ')}`
-      );
-    });
-
-    it('should response with 400 for missing query params', async () => {
-      const req = mockRequest(EE_BODY, { sc_site: 'website', secret }, 'GET');
-      const res = mockResponse();
-
-      const middleware = new EditingRenderMiddleware();
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(res.status).to.have.been.calledOnce;
-      expect(res.status).to.have.been.calledWith(400);
-      expect(res.json).to.have.been.calledOnce;
-      expect(res.json).to.have.been.calledWith({
-        html:
-          '<html><body>Missing required query parameters: sc_itemid, sc_lang, route, mode</body></html>',
-      });
-    });
-
-    it('isEditingMetadataPreviewData should validate preview data type', () => {
-      const metadataPreviewData = {
-        site: 'website',
-        itemId: '{11111111-1111-1111-1111-111111111111}',
-        language: 'en',
-        version: 'latest',
-        editMode: 'metadata',
-        pageState: 'edit',
-      };
-
-      const chromesPreviewData = {
-        key: 'key1234',
-        serverUrl: 'http://localhost:3000',
-        params: {},
-      };
-
-      expect(isEditingMetadataPreviewData(metadataPreviewData)).to.be.true;
-      expect(isEditingMetadataPreviewData(chromesPreviewData)).to.be.false;
-    });
-
-    it('should modify the Set-Cookie header', async () => {
-      const req = mockRequest(EE_BODY, query, 'GET');
-      const res = mockResponse();
-
-      const middleware = new EditingRenderMiddleware();
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(res.setHeader).to.have.been.calledWith('Set-Cookie', [
-        '__prerender_bypass=1122334455; Path=/; SameSite=None; Secure',
-        '__next_preview_data=6677889900; Path=/; SameSite=None; Secure',
-      ]);
-    });
-
-    it('should set allowed origins when multiple allowed origins are provided in env variable', async () => {
-      process.env.JSS_ALLOWED_ORIGINS = 'https://allowed.com,https://anotherallowed.com';
-      const req = mockRequest(EE_BODY, query, 'GET');
-      const res = mockResponse();
-
-      const middleware = new EditingRenderMiddleware();
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(res.setHeader).to.have.been.calledWith(
-        'Content-Security-Policy',
-        `frame-ancestors 'self' https://allowed.com https://anotherallowed.com ${EDITING_ALLOWED_ORIGINS.join(
-          ' '
-        )}`
-      );
-    });
   });
 
   describe('chromes handler', () => {

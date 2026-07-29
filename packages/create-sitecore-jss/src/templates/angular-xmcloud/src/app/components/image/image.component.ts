@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, inject } from '@a
 import { CommonModule } from '@angular/common';
 import { JssModule } from '@sitecore-jss/sitecore-jss-angular';
 import { Subscription } from 'rxjs';
-import { EditMode, ImageField } from '@sitecore-jss/sitecore-jss-angular';
+import { ImageField } from '@sitecore-jss/sitecore-jss-angular';
 import { SxaComponent } from '../sxa.component';
 import { JssContextService } from '../../jss-context.service';
 
@@ -35,21 +35,12 @@ export class ImageComponent extends SxaComponent implements OnInit, OnDestroy {
       this.classHeroBannerEmpty =
         this.isEditing && imageField?.value?.class === 'scEmptyImage' ? 'hero-banner-empty' : '';
 
-      const isMetadataMode = newState.sitecore?.context?.editMode === EditMode.Metadata;
-      this.modifyImageProps = !isMetadataMode
-        ? {
-            ...imageField,
-            editable: imageField?.editable
-              ?.replace(`width="${imageField?.value?.width}"`, 'width="100%"')
-              .replace(`height="${imageField?.value?.height}"`, 'height="100%"'),
-          }
-        : {
-            ...imageField,
-            value: {
-              ...imageField?.value,
-              style: { width: '100%', height: '100%' },
-            },
-          };
+      this.modifyImageProps = {
+        ...imageField,
+        editable: imageField?.editable
+          ?.replace(`width="${imageField?.value?.width}"`, 'width="100%"')
+          .replace(`height="${imageField?.value?.height}"`, 'height="100%"'),
+      };
     });
   }
 

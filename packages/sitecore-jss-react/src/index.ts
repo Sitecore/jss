@@ -23,7 +23,6 @@ export {
   EditButtonTypes,
 } from '@sitecore-jss/sitecore-jss/editing';
 export {
-  getContentStylesheetLink,
   LayoutService,
   LayoutServiceData,
   LayoutServicePageState,
@@ -40,7 +39,6 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  EditMode,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {
   trackingApi,
@@ -99,10 +97,3 @@ export { withPlaceholder } from './enhancers/withPlaceholder';
 export { withDatasourceCheck } from './enhancers/withDatasourceCheck';
 export { EditFrameProps, EditFrame } from './components/EditFrame';
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
-export { withFieldMetadata } from './enhancers/withFieldMetadata';
-export { withEmptyFieldEditingComponent } from './enhancers/withEmptyFieldEditingComponent';
-export { EditingScripts } from './components/EditingScripts';
-export {
-  DefaultEmptyFieldEditingComponentText,
-  DefaultEmptyFieldEditingComponentImage,
-} from './components/DefaultEmptyFieldEditingComponents';

@@ -8,7 +8,7 @@
 
 > `const` **isEditorActive**: () => `boolean`
 
-Defined in: packages/sitecore-jss/types/editing/utils.d.ts:61
+Defined in: packages/sitecore-jss/types/editing/utils.d.ts:26
 
 Determines whether the current execution context is within a Sitecore editor.
 Sitecore Editor environment can be identified only in the browser

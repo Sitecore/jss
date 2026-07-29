@@ -18,7 +18,6 @@ interface Fields {
         jsonValue: {
           value: string;
           editable?: string;
-          metadata?: { [key: string]: unknown };
         };
       };
     };
@@ -31,7 +30,6 @@ interface Fields {
         jsonValue: {
           value: string;
           editable?: string;
-          metadata?: { [key: string]: unknown };
         };
       };
     };

@@ -6,7 +6,7 @@
 
 # Interface: RouteData\<Fields\>
 
-Defined in: sitecore-jss/types/layout/models.d.ts:53
+Defined in: sitecore-jss/types/layout/models.d.ts:41
 
 Shape of route data returned from Sitecore Layout Service
 
@@ -22,7 +22,7 @@ Shape of route data returned from Sitecore Layout Service
 
 > `optional` **databaseName?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:57
+Defined in: sitecore-jss/types/layout/models.d.ts:45
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:57
 
 > `optional` **deviceId?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:58
+Defined in: sitecore-jss/types/layout/models.d.ts:46
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:58
 
 > `optional` **displayName?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:55
+Defined in: sitecore-jss/types/layout/models.d.ts:43
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:55
 
 > `optional` **fields?**: `Fields`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:56
+Defined in: sitecore-jss/types/layout/models.d.ts:44
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:56
 
 > `optional` **itemId?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:65
+Defined in: sitecore-jss/types/layout/models.d.ts:53
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:65
 
 > `optional` **itemLanguage?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:59
+Defined in: sitecore-jss/types/layout/models.d.ts:47
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:59
 
 > `optional` **itemVersion?**: `number`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:60
+Defined in: sitecore-jss/types/layout/models.d.ts:48
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:60
 
 > `optional` **layoutId?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:61
+Defined in: sitecore-jss/types/layout/models.d.ts:49
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:61
 
 > **name**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:54
+Defined in: sitecore-jss/types/layout/models.d.ts:42
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:54
 
 > **placeholders**: `PlaceholdersData`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:64
+Defined in: sitecore-jss/types/layout/models.d.ts:52
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:64
 
 > `optional` **templateId?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:62
+Defined in: sitecore-jss/types/layout/models.d.ts:50
 
 ***
 
@@ -110,4 +110,4 @@ Defined in: sitecore-jss/types/layout/models.d.ts:62
 
 > `optional` **templateName?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:63
+Defined in: sitecore-jss/types/layout/models.d.ts:51

@@ -6,7 +6,7 @@
 
 # Enumeration: FieldStorage
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:97](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L97)
+Defined in: [manifest/generator/manifest.types.ts:97](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L97)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:97]
 
 > **Shared**: `"shared"`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:99](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L99)
+Defined in: [manifest/generator/manifest.types.ts:99](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L99)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:99]
 
 > **Unversioned**: `"unversioned"`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:100](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L100)
+Defined in: [manifest/generator/manifest.types.ts:100](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L100)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:100
 
 > **Versioned**: `"versioned"`
 
-Defined in: [sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts:98](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L98)
+Defined in: [manifest/generator/manifest.types.ts:98](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L98)

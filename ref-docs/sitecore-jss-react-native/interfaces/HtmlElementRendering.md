@@ -6,7 +6,7 @@
 
 # Interface: HtmlElementRendering
 
-Defined in: sitecore-jss/types/layout/models.d.ts:100
+Defined in: sitecore-jss/types/layout/models.d.ts:88
 
 HTML content used to support Sitecore Experience Editor
 
@@ -16,7 +16,7 @@ HTML content used to support Sitecore Experience Editor
 
 > **attributes**: `object`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:104
+Defined in: sitecore-jss/types/layout/models.d.ts:92
 
 #### Index Signature
 
@@ -28,7 +28,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:104
 
 > **contents**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:103
+Defined in: sitecore-jss/types/layout/models.d.ts:91
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:103
 
 > **name**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:101
+Defined in: sitecore-jss/types/layout/models.d.ts:89
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: sitecore-jss/types/layout/models.d.ts:101
 
 > `optional` **type?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:102
+Defined in: sitecore-jss/types/layout/models.d.ts:90

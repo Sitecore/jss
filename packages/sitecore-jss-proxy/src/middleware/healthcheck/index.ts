@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 
 /**
  * Creates a router for health check requests.
- * @returns {Router} Editing router
+ * @returns {Router} Health check router
  */
 export const healthCheck = (): Router => {
   const router = Router();

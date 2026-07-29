@@ -48,7 +48,6 @@ export class NavigationItemComponent implements OnInit {
       title: this.getLinkTitle(navItemFields),
       querystring: navItemFields.Querystring,
     },
-    metadata: navItemFields.NavigationTitle?.metadata,
   });
 
   private getLinkTitle = (navItemFields: NavItemFields): string | undefined => {

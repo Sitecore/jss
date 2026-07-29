@@ -1,12 +1,9 @@
-export { GraphQLEditingService } from '@sitecore-jss/sitecore-jss/editing';
 export { EditingData } from './editing-data';
 export { EditingDataCache, EditingDataDiskCache } from './editing-data-cache';
 export { EditingDataMiddleware, EditingDataMiddlewareConfig } from './editing-data-middleware';
 export {
   EditingRenderMiddleware,
   EditingRenderMiddlewareConfig,
-  EditingMetadataPreviewData,
-  isEditingMetadataPreviewData,
 } from './editing-render-middleware';
 export {
   EditingPreviewData,
@@ -18,7 +15,3 @@ export {
   editingDataService,
 } from './editing-data-service';
 export { VercelEditingDataCache } from './vercel-editing-data-cache';
-export {
-  EditingConfigMiddleware,
-  EditingConfigMiddlewareConfig,
-} from './editing-config-middleware';

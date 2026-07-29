@@ -7,7 +7,6 @@ import {
   Field,
   Item,
   HtmlElementRendering,
-  EditMode,
   isDynamicPlaceholder,
   getDynamicPlaceholderPattern,
 } from '@sitecore-jss/sitecore-jss/layout';
@@ -15,7 +14,6 @@ import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering } from './HiddenRendering';
 import { SitecoreContextValue } from './SitecoreContext';
-import { PlaceholderMetadata } from './PlaceholderMetadata';
 import ErrorBoundary from './ErrorBoundary';
 
 type ErrorComponentProps = {
@@ -116,16 +114,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
   static getPlaceholderDataFromRenderingData(
     rendering: ComponentRendering | RouteData,
-    name: string,
-    editMode?: EditMode
+    name: string
   ) {
     let result;
-    let phName = name.slice();
+    const phName = name.slice();
 
     /**
      * Process (SXA) dynamic placeholders
      * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
-     * For Metadata EditMode, we need to keep the raw placeholder name in place.
      */
     if (rendering?.placeholders) {
       Object.keys(rendering.placeholders).forEach((placeholder) => {
@@ -134,12 +130,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           : null;
 
         if (patternPlaceholder && patternPlaceholder.test(phName)) {
-          if (editMode === EditMode.Metadata) {
-            phName = placeholder;
-          } else {
-            rendering.placeholders[phName] = rendering.placeholders[placeholder];
-            delete rendering.placeholders[placeholder];
-          }
+          rendering.placeholders[phName] = rendering.placeholders[placeholder];
+          delete rendering.placeholders[placeholder];
         }
       });
     }
@@ -286,30 +278,9 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           );
         }
 
-        // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
-        if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-          return (
-            <PlaceholderMetadata key={key} rendering={rendering as ComponentRendering}>
-              {rendered}
-            </PlaceholderMetadata>
-          );
-        }
-
         return rendered;
       })
       .filter((element) => element); // remove nulls
-
-    if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-      return [
-        <PlaceholderMetadata
-          key={(this.props.rendering as ComponentRendering).uid}
-          placeholderName={name}
-          rendering={this.props.rendering as ComponentRendering}
-        >
-          {transformedComponents}
-        </PlaceholderMetadata>,
-      ];
-    }
 
     return transformedComponents;
   }

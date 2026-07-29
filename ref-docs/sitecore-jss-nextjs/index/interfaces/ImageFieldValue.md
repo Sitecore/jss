@@ -6,7 +6,7 @@
 
 # Interface: ImageFieldValue
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:4
+Defined in: sitecore-jss-react/types/components/Image.d.ts:3
 
 ## Indexable
 
@@ -18,4 +18,4 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:4
 
 > `optional` **src?**: `string`
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:6
+Defined in: sitecore-jss-react/types/components/Image.d.ts:5

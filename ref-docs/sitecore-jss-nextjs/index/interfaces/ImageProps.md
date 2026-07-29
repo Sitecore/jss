@@ -6,11 +6,11 @@
 
 # Interface: ImageProps
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:29
+Defined in: sitecore-jss-react/types/components/Image.d.ts:28
 
 ## Extends
 
-- `EditableFieldProps`\<`ImageProps`\>
+- `EditableFieldProps`
 
 ## Indexable
 
@@ -39,27 +39,11 @@ true
 
 ***
 
-### emptyFieldEditingComponent?
-
-> `optional` **emptyFieldEditingComponent?**: `ComponentClass`\<`ImageProps`, `any`\> \| `FC`\<`ImageProps`\>
-
-Defined in: sitecore-jss-react/types/components/sharedTypes.d.ts:30
-
--- Edit Mode Metadata --
-
-Custom element to render in Pages in Metadata edit mode if field value is empty
-
-#### Inherited from
-
-`EditableFieldProps.emptyFieldEditingComponent`
-
-***
-
 ### field?
 
-> `optional` **field?**: (ImageField \| ImageFieldValue) & FieldMetadata
+> `optional` **field?**: [`ImageField`](ImageField.md) \| [`ImageFieldValue`](ImageFieldValue.md)
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:32
+Defined in: sitecore-jss-react/types/components/Image.d.ts:31
 
 Image field data (consistent with other field types)
 
@@ -69,7 +53,7 @@ Image field data (consistent with other field types)
 
 > `optional` **imageParams?**: `object`
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:36
+Defined in: sitecore-jss-react/types/components/Image.d.ts:35
 
 Parameters that will be attached to Sitecore media URLs
 
@@ -83,7 +67,7 @@ Parameters that will be attached to Sitecore media URLs
 
 > `optional` **mediaUrlPrefix?**: `RegExp`
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:47
+Defined in: sitecore-jss-react/types/components/Image.d.ts:46
 
 Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
 
@@ -101,4 +85,4 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 > `optional` **srcSet?**: [`ImageSizeParameters`](ImageSizeParameters.md)[]
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:39
+Defined in: sitecore-jss-react/types/components/Image.d.ts:38

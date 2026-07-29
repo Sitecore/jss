@@ -10,11 +10,11 @@
 
 - [constants](namespaces/constants/README.md)
 - [mediaApi](namespaces/mediaApi/README.md)
+- [NextImage](namespaces/NextImage/README.md)
 - [trackingApi](namespaces/trackingApi/README.md)
 
 ## Enumerations
 
-- [EditMode](enumerations/EditMode.md)
 - [LayoutServicePageState](enumerations/LayoutServicePageState.md)
 
 ## Classes
@@ -49,7 +49,6 @@
 - [DictionaryService](interfaces/DictionaryService.md)
 - [EventInstance](interfaces/EventInstance.md)
 - [Field](interfaces/Field.md)
-- [FieldMetadata](interfaces/FieldMetadata.md)
 - [FileField](interfaces/FileField.md)
 - [GoalInstance](interfaces/GoalInstance.md)
 - [GraphQLDictionaryServiceConfig](interfaces/GraphQLDictionaryServiceConfig.md)
@@ -117,13 +116,9 @@
 - [ComponentPropsReactContext](variables/ComponentPropsReactContext.md)
 - [DateField](variables/DateField.md)
 - [debug](variables/debug.md)
-- [DefaultEmptyFieldEditingComponentImage](variables/DefaultEmptyFieldEditingComponentImage.md)
-- [DefaultEmptyFieldEditingComponentText](variables/DefaultEmptyFieldEditingComponentText.md)
 - [EditFrame](variables/EditFrame.md)
-- [EditingScripts](variables/EditingScripts.md)
 - [enableDebug](variables/enableDebug.md)
 - [File](variables/File.md)
-- [getContentStylesheetLink](variables/getContentStylesheetLink.md)
 - [Image](variables/Image.md)
 - [Link](variables/Link.md)
 - [NextImage](variables/NextImage.md)
@@ -145,7 +140,5 @@
 - [useComponentProps](functions/useComponentProps.md)
 - [useSitecoreContext](functions/useSitecoreContext.md)
 - [withDatasourceCheck](functions/withDatasourceCheck.md)
-- [withEmptyFieldEditingComponent](functions/withEmptyFieldEditingComponent.md)
-- [withFieldMetadata](functions/withFieldMetadata.md)
 - [withPlaceholder](functions/withPlaceholder.md)
 - [withSitecoreContext](functions/withSitecoreContext.md)

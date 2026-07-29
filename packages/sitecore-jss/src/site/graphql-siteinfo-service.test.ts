@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';

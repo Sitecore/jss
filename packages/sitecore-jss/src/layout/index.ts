@@ -14,8 +14,6 @@ export {
   PlaceholdersData,
   ComponentFields,
   ComponentParams,
-  EditMode,
-  FieldMetadata,
 } from './models';
 
 export {
@@ -26,8 +24,6 @@ export {
   getDynamicPlaceholderPattern,
   EMPTY_DATE_FIELD_VALUE,
 } from './utils';
-
-export { getContentStylesheetLink } from './content-styles';
 
 export { LayoutService } from './layout-service';
 

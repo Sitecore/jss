@@ -4,7 +4,6 @@ import {
   GraphQLRequestClientFactoryConfig,
 } from '@sitecore-jss/sitecore-jss';
 import { DictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
-import { Metadata } from '@sitecore-jss/sitecore-jss/utils';
 import { LayoutService } from '@sitecore-jss/sitecore-jss/layout';
 import { AppRenderer, RouteUrlParser } from '@sitecore-jss/sitecore-jss-proxy';
 import { IncomingMessage } from 'http';
@@ -19,8 +18,6 @@ export interface ServerBundle {
   sitecoreSiteName: string;
   layoutServiceFactory: { create: () => LayoutService };
   dictionaryServiceFactory: { create: () => DictionaryService };
-  components: string[] | Map<string, unknown>;
-  metadata: Metadata;
 }
 
 export interface Config {

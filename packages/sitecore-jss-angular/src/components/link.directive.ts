@@ -6,13 +6,10 @@ import {
   Renderer2,
   SimpleChanges,
   TemplateRef,
-  Type,
   inject,
 } from '@angular/core';
 import { LinkField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
-import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
-import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({ selector: '[scLink]' })
 export class LinkDirective extends BaseFieldDirective implements OnChanges {
@@ -22,15 +19,6 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scLink') field: LinkField;
 
-  /**
-   * Custom template to render in Pages in Metadata edit mode if field value is empty
-   */
-  @Input('scLinkEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
-
-  /**
-   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
-   */
-  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyFieldEditingComponent;
   protected templateRef = inject(TemplateRef);
   protected renderer = inject(Renderer2);
 
@@ -89,14 +77,11 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
   /**
    * Determines if directive should render the field as is
    * Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
-   * or link field text is present and we are not in edit mode 'metadata'
+   * or link field text is present.
    * The right side of the expression was added to preserve existing functionality
    */
   protected shouldRender() {
-    return (
-      super.shouldRender() ||
-      !!((this.field?.text || this.field?.value?.text) && !this.field?.metadata)
-    );
+    return super.shouldRender() || !!(this.field?.text || this.field?.value?.text);
   }
 
   private updateView() {
@@ -105,7 +90,6 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
       this.renderInlineWrapper(field.editableFirstPart, field.editableLastPart);
     } else {
       if (!this.shouldRender()) {
-        super.renderEmpty();
         return;
       }
 
@@ -118,9 +102,7 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
       const mergedAttrs = { ...props, ...this.attrs, href };
 
       delete mergedAttrs.anchor;
-      this.renderMetadata(MetadataKind.Open);
       this.renderTemplate(mergedAttrs, linkText);
-      this.renderMetadata(MetadataKind.Close);
     }
   }
 

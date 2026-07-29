@@ -6,11 +6,7 @@
 
 # Interface: Field\<T\>
 
-Defined in: sitecore-jss/types/layout/models.d.ts:116
-
-## Extends
-
-- `FieldMetadata`
+Defined in: sitecore-jss/types/layout/models.d.ts:104
 
 ## Type Parameters
 
@@ -24,23 +20,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:116
 
 > `optional` **editable?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:118
-
-***
-
-### metadata?
-
-> `optional` **metadata?**: `object`
-
-Defined in: sitecore-jss/types/layout/models.d.ts:124
-
-#### Index Signature
-
-\[`key`: `string`\]: `unknown`
-
-#### Inherited from
-
-`FieldMetadata.metadata`
+Defined in: sitecore-jss/types/layout/models.d.ts:106
 
 ***
 
@@ -48,4 +28,4 @@ Defined in: sitecore-jss/types/layout/models.d.ts:124
 
 > **value**: `T`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:117
+Defined in: sitecore-jss/types/layout/models.d.ts:105

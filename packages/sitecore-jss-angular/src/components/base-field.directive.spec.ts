@@ -1,4 +1,4 @@
-import { Component, DebugElement, Input, TemplateRef } from '@angular/core';
+import { Component, DebugElement, Input } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -18,34 +18,6 @@ class TestComponent {
   @Input() editable = true;
 }
 
-const emptyTextFieldEditingTemplateId = 'emptyTextFieldEditingTemplate';
-const emptyTextFieldEditingTemplate =
-  '<span>[This is a *custom* empty field component for text]</span>';
-
-@Component({
-  selector: 'test-base-template',
-  template: `
-    <span
-      *scTestBase="
-        field;
-        editable: editable;
-        emptyFieldEditingTemplate: ${emptyTextFieldEditingTemplateId}
-      "
-    ></span>
-
-    <ng-template #${emptyTextFieldEditingTemplateId}>
-      ${emptyTextFieldEditingTemplate}
-    </ng-template>
-  `,
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
-  standalone: false,
-})
-class TestEmptyTemplateComponent {
-  @Input() field: TextField;
-  @Input() emptyFieldEditingTemplate: TemplateRef<unknown>;
-  @Input() editable = true;
-}
-
 describe('<span *scTestBase />', () => {
   let fixture: ComponentFixture<TestComponent>;
   let de: DebugElement;
@@ -53,7 +25,7 @@ describe('<span *scTestBase />', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestBaseDirective, TestComponent, TestEmptyTemplateComponent],
+      declarations: [TestBaseDirective, TestComponent],
     });
 
     fixture = TestBed.createComponent(TestComponent);
@@ -96,168 +68,6 @@ describe('<span *scTestBase />', () => {
 
       const spanElement = de.query(By.css('span'));
       expect(spanElement).toBeNull();
-    });
-  });
-
-  describe('edit mode metadata', () => {
-    const testMetadata = {
-      contextItem: {
-        id: '{09A07660-6834-476C-B93B-584248D3003B}',
-        language: 'en',
-        revision: 'a0b36ce0a7db49418edf90eb9621e145',
-        version: 1,
-      },
-      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
-      fieldType: 'single-line',
-      rawValue: 'Test1',
-    };
-
-    it('should render field value if field value is not empty', () => {
-      const field: { [prop: string]: unknown } = {
-        value: 'value',
-        metadata: testMetadata,
-      };
-      comp.field = field;
-      fixture.detectChanges();
-
-      const rendered = de.query(By.css('span')).nativeElement.innerHTML;
-      expect(rendered).toBe('value');
-    });
-
-    describe('field value is empty', () => {
-      it('should render default empty editing component if custom is not provided', () => {
-        const field = {
-          value: '',
-          metadata: testMetadata,
-        };
-        comp.field = field;
-        fixture.detectChanges();
-
-        const rendered = de.nativeElement.innerHTML;
-        expect(rendered).toContain(
-          '<span sc-default-empty-text-field-editing-placeholder="">[No text in field]</span>'
-        );
-      });
-
-      it('should render custom empty editing template if provided', () => {
-        fixture = TestBed.createComponent(TestEmptyTemplateComponent);
-        fixture.detectChanges();
-
-        de = fixture.debugElement;
-        comp = fixture.componentInstance;
-
-        const field = {
-          value: '',
-          metadata: testMetadata,
-        };
-        comp.field = field;
-        fixture.detectChanges();
-
-        const rendered = de.nativeElement.innerHTML;
-        expect(rendered).toContain(emptyTextFieldEditingTemplate);
-      });
-
-      it('should render nothing when field value is empty, when editing is explicitly disabled', () => {
-        const field = {
-          value: '',
-          metadata: testMetadata,
-        };
-        comp.field = field;
-        comp.editable = false;
-        fixture.detectChanges();
-
-        const spanElement = de.query(By.css('span'));
-        expect(spanElement).toBeNull();
-      });
-    });
-
-    describe('with "metadata" property value', () => {
-      describe('and editing enabled', () => {
-        it('should render <img /> with metadata chrome tags', () => {
-          const field = {
-            metadata: testMetadata,
-            value: 'value',
-          };
-          comp.editable = true;
-          comp.field = field;
-          fixture.detectChanges();
-
-          const fieldValue = de.query(By.css('span'));
-          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
-          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
-
-          expect(metadataOpenTag.outerHTML).toEqual(
-            `<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">${JSON.stringify(
-              testMetadata
-            )}</code>`
-          );
-          expect(metadataCloseTag.outerHTML).toEqual(
-            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
-          );
-        });
-
-        it('should render empty field with metadata chrome tags', () => {
-          const field = {
-            metadata: testMetadata,
-            value: '',
-          };
-          comp.editable = true;
-          comp.field = field;
-          fixture.detectChanges();
-
-          const fieldValue = de.query(
-            By.css('span[sc-default-empty-text-field-editing-placeholder]')
-          );
-          const metadataOpenTag = fieldValue.nativeElement.previousElementSibling;
-          const metadataCloseTag = fieldValue.nativeElement.nextElementSibling;
-
-          expect(metadataOpenTag.outerHTML).toEqual(
-            `<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="open" class="scpm">${JSON.stringify(
-              testMetadata
-            )}</code>`
-          );
-          expect(metadataCloseTag.outerHTML).toEqual(
-            '<code scfieldmetadatamarker="" type="text/sitecore" chrometype="field" kind="close" class="scpm"></code>'
-          );
-        });
-      });
-
-      describe('and editing disabled', () => {
-        it('should render <img /> without metadata chrome tags', () => {
-          const field = {
-            metadata: testMetadata,
-            value: 'value',
-          };
-          comp.editable = false;
-          comp.field = field;
-          fixture.detectChanges();
-
-          const fieldEl = de.query(By.css('span'));
-          const metadataOpenTag = fieldEl.nativeElement.previousElementSibling;
-          const metadataCloseTag = fieldEl.nativeElement.nextElementSibling;
-
-          expect(metadataOpenTag).toBeNull();
-          expect(metadataCloseTag).toBeNull();
-        });
-      });
-    });
-
-    describe('without "metadata" property value', () => {
-      it('should render <img /> without metadata chrome tags', () => {
-        const field = {
-          value: 'value',
-        };
-        comp.editable = true;
-        comp.field = field;
-        fixture.detectChanges();
-
-        const fieldEl = de.query(By.css('span'));
-        const metadataOpenTag = fieldEl.nativeElement.previousElementSibling;
-        const metadataCloseTag = fieldEl.nativeElement.nextElementSibling;
-
-        expect(metadataOpenTag).toBeNull();
-        expect(metadataCloseTag).toBeNull();
-      });
     });
   });
 });

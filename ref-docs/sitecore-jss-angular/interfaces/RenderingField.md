@@ -6,11 +6,7 @@
 
 # Interface: RenderingField\<V\>
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
-
-## Extends
-
-- `FieldMetadata`
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:4](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L4)
 
 ## Extended by
 
@@ -32,23 +28,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:4](
 
 > `optional` **editable?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
-
-***
-
-### metadata?
-
-> `optional` **metadata?**: `object`
-
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:124
-
-#### Index Signature
-
-\[`key`: `string`\]: `unknown`
-
-#### Inherited from
-
-`FieldMetadata.metadata`
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
 
 ***
 
@@ -56,4 +36,4 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:124
 
 > `optional` **value?**: `V`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)

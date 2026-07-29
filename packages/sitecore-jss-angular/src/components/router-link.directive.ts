@@ -1,4 +1,4 @@
-import { Directive, Input, TemplateRef, inject } from '@angular/core';
+import { Directive, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LinkDirective } from './link.directive';
 import { LinkField } from './rendering-field';
@@ -11,12 +11,6 @@ export class RouterLinkDirective extends LinkDirective {
 
   @Input('scRouterLink') declare field: LinkField;
 
-  /**
-   * Custom template to render in Pages in Metadata edit mode if field value is empty
-   */
-  @Input('scRouterLinkEmptyFieldEditingTemplate') declare emptyFieldEditingTemplate: TemplateRef<
-    unknown
-  >;
   private router = inject(Router);
 
   protected renderTemplate(props: { [prop: string]: string }, linkText: string) {

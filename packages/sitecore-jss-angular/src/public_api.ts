@@ -10,7 +10,6 @@ export { RenderEmptyDirective } from './components/render-empty.directive';
 export { RenderComponentComponent } from './components/render-component.component';
 export { DateDirective } from './components/date.directive';
 export { EditFrameComponent } from './components/editframe.component';
-export { EditingScriptsComponent } from './components/editing-scripts.component';
 export {
   ComponentNameAndType,
   DYNAMIC_COMPONENT,
@@ -61,8 +60,6 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  getContentStylesheetLink,
-  EditMode,
   LayoutServiceContext,
 } from '@sitecore-jss/sitecore-jss/layout';
 export {

@@ -21,8 +21,3 @@ require('./generate-config');
   COMPONENT FACTORY GENERATION
 */
 require('./generate-component-factory');
-
-/*
-  METADATA GENERATION
-*/
-require('./generate-metadata');

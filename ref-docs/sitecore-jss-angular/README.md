@@ -12,7 +12,6 @@
 
 ## Enumerations
 
-- [EditMode](enumerations/EditMode.md)
 - [LayoutServicePageState](enumerations/LayoutServicePageState.md)
 
 ## Classes
@@ -23,7 +22,6 @@
 - [DateDirective](classes/DateDirective.md)
 - [DefaultRetryStrategy](classes/DefaultRetryStrategy.md)
 - [EditFrameComponent](classes/EditFrameComponent.md)
-- [EditingScriptsComponent](classes/EditingScriptsComponent.md)
 - [FileDirective](classes/FileDirective.md)
 - [GenericLinkDirective](classes/GenericLinkDirective.md)
 - [GraphQLDictionaryService](classes/GraphQLDictionaryService.md)
@@ -109,7 +107,6 @@
 - [DYNAMIC\_COMPONENT](variables/DYNAMIC_COMPONENT.md)
 - [EDGE\_CONFIG](variables/EDGE_CONFIG.md)
 - [enableDebug](variables/enableDebug.md)
-- [getContentStylesheetLink](variables/getContentStylesheetLink.md)
 - [getEdgeProxyContentUrl](variables/getEdgeProxyContentUrl.md)
 - [handleEditorAnchors](variables/handleEditorAnchors.md)
 - [isEditorActive](variables/isEditorActive.md)

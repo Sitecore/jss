@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import fastDeepEqual from 'fast-deep-equal/es6/react';
 import { ComponentFactory } from './sharedTypes';
