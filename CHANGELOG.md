@@ -21,7 +21,7 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Internal props such as `api`, `componentFactory`, `modifyComponentProps`, `sitecoreContext`, and `updateSitecoreContext` are no longer passed to components via `Placeholder` ([#2207](https://github.com/Sitecore/jss/pull/2207))
   * **Still passed:** `fields`, `params`, `rendering` (+ props from `modifyComponentProps`).
   * **New prop:** `passThroughComponentProps` — use this to pass additional props to rendered components explicitly.
-* `[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` `[sitecore-jss-proxy]` `[create-sitecore-jss]` Removed Sitecore Personalize (CDP-driven A/B testing / experience variants) and CDP page-view tracking functionality, as part of removing XM Cloud-only functionality (XM Cloud / Sitecore AI support going forward is provided only by Content SDK) ([#2209](https://github.com/Sitecore/jss/pull/2209))
+* `[sitecore-jss]` `[sitecore-jss-nextjs]` `[sitecore-jss-angular]` `[sitecore-jss-proxy]` `[create-sitecore-jss]` Removed Sitecore Personalize (CDP-driven A/B testing / experience variants) and CDP page-view tracking functionality, as part of removing XM Cloud-only functionality (Sitecore AI support going forward is provided only by Content SDK) ([#2209](https://github.com/Sitecore/jss/pull/2209))
   * Removed `PersonalizeMiddleware`/`PersonalizeMiddlewareConfig` (`sitecore-jss-nextjs`) and `PersonalizeHelper`/`PersonalizeConfig` (`sitecore-jss-proxy`)
   * Removed `sitecore-jss`'s entire `/personalize` subpath — `GraphQLPersonalizeService`, `personalizeLayout`/`personalizePlaceholder`/`personalizeComponent`, `getPersonalizedRewrite`, `getPersonalizedRewriteData`, `getGroomedVariantIds`, `normalizePersonalizedRewrite`, `CdpHelper`, and `DEFAULT_VARIANT` (and their re-exports from `sitecore-jss-nextjs` and `sitecore-jss-angular`)
   * Removed `includePersonalizedRoutes` from `GraphQLSitemapService`/`MultisiteGraphQLSitemapService` (SSG personalized route generation)
@@ -49,6 +49,13 @@ Our versioning strategy is as follows:
   * Removed `sitecore-jss-dev-tools`'s `getMetadata`/`Metadata` (app-metadata generation)
   * Removed `sitecore-jss`'s `getContentStylesheetLink`/`getContentStylesheetUrl` (and their re-exports from `sitecore-jss-react`/`sitecore-jss-nextjs`/`sitecore-jss-angular`) — loaded CKEditor content styles for Pages' rich text editor, unused by classic Experience Editor
   * Removed `sitecore-jss`'s `EDITING_ALLOWED_ORIGINS` (hardcoded `pages.sitecorecloud.io`/`app.sitecorecloud.io` CORS allow-list) - `enforceCors`/`JSS_ALLOWED_ORIGINS` remain unchanged as general-purpose CORS infrastructure for the editing endpoints
+* `[sitecore-jss]` `[sitecore-jss-react]` `[sitecore-jss-angular]` `[create-sitecore-jss]` Removed the `nextjs-xmcloud`, `angular-xmcloud`, and `node-xmcloud-proxy` templates/initializers and the Sitecore Edge Platform GraphQL content proxy, as part of removing XM Cloud-only functionality (Sitecore AI support going forward is provided only by Content SDK) ([#2214](https://github.com/Sitecore/jss/pull/2214))
+  * Removed `create-sitecore-jss`'s `nextjs-xmcloud`, `angular-xmcloud`, and `node-xmcloud-proxy` templates and initializers, and the `nextjs-styleguide-xmcloud`/`angular-xmcloud` sample entries
+  * Removed `sitecore-jss`'s `getEdgeProxyContentUrl` (and `SITECORE_EDGE_URL_DEFAULT` constant) from `graphql` — the last remaining XM Cloud Edge Platform helper, sibling to `getEdgeProxyFormsUrl` removed in #2210
+  * Removed `SitecoreContext`'s `api.edge` (`contextId`/`edgeUrl`) prop from `sitecore-jss-react` (and its re-export via `withSitecoreContext`/`useSitecoreContext`'s `api`)
+  * Removed `sitecore-jss-angular`'s `EDGE_CONFIG`/`EdgeConfigToken`
+  * The `nextjs` and `angular` initializers no longer prompt "Are you building for Sitecore XM Cloud?" — `angular` always scaffolds with the `angular-sxp` add-on
+  * Removed `useSiteQuery` from `GraphQLDictionaryServiceConfig` and `GraphQLDictionaryService.fetchWithSiteQuery` — dictionary data is now always fetched via the search query
 
 ## 22.12.4
 

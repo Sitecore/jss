@@ -1,9 +1,8 @@
 import { HealthcheckMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/monitoring';
 
 /**
- * This Next.js API route is used to handle healthz check request.
- * By default this is used only by Sitecore XM Cloud (when running as editing host),
- * but could be used in other deployment scenarios.
+ * This Next.js API route is used to handle healthz check request,
+ * for use in monitoring and deployment health checks.
  */
 
 // Wire up the HealthcheckMiddleware handler

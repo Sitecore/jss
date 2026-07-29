@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a **Sitecore JSS** application built with **Next.js (Pages Router)** and **TypeScript**. AI agents work as developer assistants within this scaffolded head application. The app integrates with Sitecore XM Cloud (or on-premises) for content, uses Layout Service (REST) or GraphQL for data fetching, and supports SSG or SSR.
+This is a **Sitecore JSS** application built with **Next.js (Pages Router)** and **TypeScript**. AI agents work as developer assistants within this scaffolded head application. The app integrates with on-premises Sitecore for content, uses Layout Service (REST) or GraphQL for data fetching, and supports SSG or SSR.
 
 **Scope:** This file applies to **this application only** (a scaffolded head app). It is **not** the JSS monorepo — for SDK package development use that repo's root `AGENTS.md`. Here we edit app code and config (pages, components, API routes, lib); we do not modify SDK packages or CI.
 
@@ -118,7 +118,7 @@ These are the main head-app–specific concepts. Details are in the sections bel
 
 ### More (editing, rewrites)
 
-- **Editing/preview:** Use `context.preview` and `context.previewData` in the catch-all; `preview-mode` plugin handles it. Editing API routes: `src/pages/api/editing/render.ts`, `api/editing/data/[key].ts` — used by Sitecore Editor (XM Cloud).
+- **Editing/preview:** Use `context.preview` and `context.previewData` in the catch-all; `preview-mode` plugin handles it. Editing API routes: `src/pages/api/editing/render.ts`, `api/editing/data/[key].ts` — used by Sitecore Experience Editor.
 - **Rewrites:** `next.config.js` → rewrites for `/sitecore/api/:path*`, `/-/:path*`, `/healthz` → `/api/healthz`, `/sitecore/service/:path*`. Config from `temp/config` and `temp/next-config-plugins`.
 
 ---
