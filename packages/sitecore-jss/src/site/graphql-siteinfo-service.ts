@@ -86,10 +86,6 @@ export class GraphQLSiteInfoService {
     if (cachedResult) {
       return cachedResult;
     }
-    if (process.env.SITECORE) {
-      debug.multisite('Skipping site information fetch (building on XM Cloud)');
-      return [];
-    }
 
     const results: SiteInfo[] = await this.fetchWithSiteQuery();
 

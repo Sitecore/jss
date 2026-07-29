@@ -93,14 +93,12 @@ describe('EditingRenderMiddleware', () => {
     process.env.JSS_EDITING_SECRET = secret;
     process.env.JSS_ALLOWED_ORIGINS = allowedOrigin;
     delete process.env.VERCEL;
-    delete process.env.SITECORE;
     delete process.env.NETLIFY;
   });
 
   after(() => {
     delete process.env.JSS_EDITING_SECRET;
     delete process.env.VERCEL;
-    delete process.env.SITECORE;
     delete process.env.NETLIFY;
     delete process.env.JSS_ALLOWED_ORIGINS;
   });
@@ -380,27 +378,6 @@ describe('EditingRenderMiddleware', () => {
       await handler(req, res);
 
       expect(fetcher.get).to.have.been.calledWithMatch('https://vercel.com');
-    });
-
-    it('should use https for serverUrl on XM Cloud', async () => {
-      const html = '<html><body>Something amazing</body></html>';
-      const fetcher = mockFetcher(html);
-      const dataService = mockDataService();
-      const query = {} as Query;
-      query[QUERY_PARAM_EDITING_SECRET] = secret;
-      const req = mockRequest(EE_BODY, query, undefined, { host: 'xmc.com' });
-      const res = mockResponse();
-      process.env.SITECORE = '1';
-
-      const middleware = new EditingRenderMiddleware({
-        dataFetcher: fetcher,
-        editingDataService: dataService,
-      });
-      const handler = middleware.getHandler();
-
-      await handler(req, res);
-
-      expect(fetcher.get).to.have.been.calledWithMatch('https://xmc.com');
     });
 
     it('should use https for serverUrl on Netlify', async () => {
