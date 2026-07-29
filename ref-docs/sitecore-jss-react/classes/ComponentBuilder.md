@@ -6,7 +6,7 @@
 
 # Class: ComponentBuilder
 
-Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:17](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-react/src/ComponentBuilder.ts#L17)
+Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:17](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-react/src/ComponentBuilder.ts#L17)
 
 React implementation of component builder class for building components based on the configuration.
 
@@ -16,7 +16,7 @@ React implementation of component builder class for building components based on
 
 > **new ComponentBuilder**(`config`): `ComponentBuilder`
 
-Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:23](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-react/src/ComponentBuilder.ts#L23)
+Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:23](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-react/src/ComponentBuilder.ts#L23)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:23](https://git
 
 > `protected` **components**: `Map`\<`string`, `ComponentType`\>
 
-Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-react/src/ComponentBuilder.ts#L21)
+Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:21](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-react/src/ComponentBuilder.ts#L21)
 
 List of components to be stored
 
@@ -44,7 +44,7 @@ List of components to be stored
 
 > `protected` **config**: [`ComponentBuilderConfig`](../type-aliases/ComponentBuilderConfig.md)\<`ComponentType`\>
 
-Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:23](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-react/src/ComponentBuilder.ts#L23)
+Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:23](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-react/src/ComponentBuilder.ts#L23)
 
 ## Methods
 
@@ -52,7 +52,7 @@ Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:23](https://git
 
 > **getComponentFactory**(): [`ComponentFactory`](../type-aliases/ComponentFactory.md)
 
-Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:31](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-react/src/ComponentBuilder.ts#L31)
+Defined in: [packages/sitecore-jss-react/src/ComponentBuilder.ts:31](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-react/src/ComponentBuilder.ts#L31)
 
 Creates a new instance of component factory
 

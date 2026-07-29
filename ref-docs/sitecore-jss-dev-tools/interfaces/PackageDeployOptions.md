@@ -6,7 +6,7 @@
 
 # Interface: PackageDeployOptions
 
-Defined in: [package-deploy.ts:11](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L11)
+Defined in: [package-deploy.ts:11](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L11)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [package-deploy.ts:11](https://github.com/Sitecore/jss/blob/75441f02
 
 > `optional` **acceptCertificate?**: `string`
 
-Defined in: [package-deploy.ts:17](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L17)
+Defined in: [package-deploy.ts:17](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L17)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [package-deploy.ts:17](https://github.com/Sitecore/jss/blob/75441f02
 
 > **appName**: `string`
 
-Defined in: [package-deploy.ts:13](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L13)
+Defined in: [package-deploy.ts:13](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L13)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [package-deploy.ts:13](https://github.com/Sitecore/jss/blob/75441f02
 
 > `optional` **debugSecurity?**: `boolean`
 
-Defined in: [package-deploy.ts:16](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L16)
+Defined in: [package-deploy.ts:16](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L16)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [package-deploy.ts:16](https://github.com/Sitecore/jss/blob/75441f02
 
 > **importServiceUrl**: `string`
 
-Defined in: [package-deploy.ts:14](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L14)
+Defined in: [package-deploy.ts:14](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L14)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [package-deploy.ts:14](https://github.com/Sitecore/jss/blob/75441f02
 
 > **packagePath**: `string`
 
-Defined in: [package-deploy.ts:12](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L12)
+Defined in: [package-deploy.ts:12](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L12)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [package-deploy.ts:12](https://github.com/Sitecore/jss/blob/75441f02
 
 > `optional` **proxy?**: `string`
 
-Defined in: [package-deploy.ts:18](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L18)
+Defined in: [package-deploy.ts:18](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L18)
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [package-deploy.ts:18](https://github.com/Sitecore/jss/blob/75441f02
 
 > **secret**: `string`
 
-Defined in: [package-deploy.ts:15](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L15)
+Defined in: [package-deploy.ts:15](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/package-deploy.ts#L15)

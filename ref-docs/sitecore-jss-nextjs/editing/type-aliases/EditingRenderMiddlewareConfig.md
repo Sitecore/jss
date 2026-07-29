@@ -8,7 +8,7 @@
 
 > **EditingRenderMiddlewareConfig** = `object`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:18](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L18)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:18](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L18)
 
 Configuration for the Editing Render Middleware.
 
@@ -18,7 +18,7 @@ Configuration for the Editing Render Middleware.
 
 > `optional` **dataFetcher?**: [`NativeDataFetcher`](../../index/classes/NativeDataFetcher.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:24](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L24)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:24](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L24)
 
 The `NativeDataFetcher` instance to use for API requests.
 
@@ -38,7 +38,7 @@ NativeDataFetcher
 
 > `optional` **editingDataService?**: [`EditingDataService`](../interfaces/EditingDataService.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:33](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L33)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:33](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L33)
 
 The `EditingDataService` instance to use.
 This would typically only be necessary if you've got a custom `EditingDataService` instance (e.g. using a custom API route).
@@ -61,7 +61,7 @@ EditingDataService
 
 > `optional` **resolvePageUrl?**: (`args`) => `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:44](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L44)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:44](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L44)
 
 Function used to determine route/page URL to render.
 This may be necessary for certain custom Next.js routing configurations.
@@ -94,7 +94,7 @@ resolveServerUrl
 
 > `optional` **resolveServerUrl?**: (`req`) => `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:52](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L52)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:52](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L52)
 
 Function used to determine the root server URL. This is used for the route/page and subsequent data API requests.
 By default, the host header is used, with https protocol on Vercel (due to serverless function architecture) and http protocol elsewhere.
