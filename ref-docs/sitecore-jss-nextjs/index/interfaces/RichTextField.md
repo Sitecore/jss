@@ -6,13 +6,7 @@
 
 # Interface: RichTextField
 
-Defined in: sitecore-jss-react/types/components/RichText.d.ts:4
-
-represents the field metadata provided by layout service in editMode 'metadata'
-
-## Extends
-
-- [`FieldMetadata`](FieldMetadata.md)
+Defined in: sitecore-jss-react/types/components/RichText.d.ts:3
 
 ## Properties
 
@@ -20,23 +14,7 @@ represents the field metadata provided by layout service in editMode 'metadata'
 
 > `optional` **editable?**: `string`
 
-Defined in: sitecore-jss-react/types/components/RichText.d.ts:6
-
-***
-
-### metadata?
-
-> `optional` **metadata?**: `object`
-
-Defined in: sitecore-jss/types/layout/models.d.ts:124
-
-#### Index Signature
-
-\[`key`: `string`\]: `unknown`
-
-#### Inherited from
-
-[`FieldMetadata`](FieldMetadata.md).[`metadata`](FieldMetadata.md#metadata)
+Defined in: sitecore-jss-react/types/components/RichText.d.ts:5
 
 ***
 
@@ -44,4 +22,4 @@ Defined in: sitecore-jss/types/layout/models.d.ts:124
 
 > `optional` **value?**: `string`
 
-Defined in: sitecore-jss-react/types/components/RichText.d.ts:5
+Defined in: sitecore-jss-react/types/components/RichText.d.ts:4

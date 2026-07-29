@@ -8,7 +8,6 @@
 
 ## Enumerations
 
-- [EditMode](enumerations/EditMode.md)
 - [LayoutServicePageState](enumerations/LayoutServicePageState.md)
 
 ## Classes
@@ -22,7 +21,6 @@
 - [ComponentParams](interfaces/ComponentParams.md)
 - [ComponentRendering](interfaces/ComponentRendering.md)
 - [Field](interfaces/Field.md)
-- [FieldMetadata](interfaces/FieldMetadata.md)
 - [GraphQLLayoutServiceConfig](interfaces/GraphQLLayoutServiceConfig.md)
 - [HtmlElementRendering](interfaces/HtmlElementRendering.md)
 - [Item](interfaces/Item.md)
@@ -48,7 +46,6 @@
 ## Functions
 
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
-- [getContentStylesheetLink](functions/getContentStylesheetLink.md)
 - [getDynamicPlaceholderPattern](functions/getDynamicPlaceholderPattern.md)
 - [getFieldValue](functions/getFieldValue.md)
 - [isDynamicPlaceholder](functions/isDynamicPlaceholder.md)

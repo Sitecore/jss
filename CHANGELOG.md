@@ -48,6 +48,7 @@ Our versioning strategy is as follows:
   * Removed `sitecore-jss-proxy`'s entire `/editing` middleware (`editingRouter`, `editingConfigMiddleware`, `editingRenderMiddleware`) — this subsystem implemented only the Pages metadata protocol with no chromes counterpart
   * Removed `sitecore-jss-dev-tools`'s `getMetadata`/`Metadata` (app-metadata generation)
   * Removed `sitecore-jss`'s `getContentStylesheetLink`/`getContentStylesheetUrl` (and their re-exports from `sitecore-jss-react`/`sitecore-jss-nextjs`/`sitecore-jss-angular`) — loaded CKEditor content styles for Pages' rich text editor, unused by classic Experience Editor
+  * Removed `sitecore-jss`'s `EDITING_ALLOWED_ORIGINS` (hardcoded `pages.sitecorecloud.io`/`app.sitecorecloud.io` CORS allow-list) - `enforceCors`/`JSS_ALLOWED_ORIGINS` remain unchanged as general-purpose CORS infrastructure for the editing endpoints
 
 ## 22.12.4
 

@@ -6,7 +6,7 @@
 
 # Class: SitecoreContext
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:51](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L51)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:50](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L50)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:51](
 
 > **new SitecoreContext**(`props`): `SitecoreContext`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:54](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L54)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:53](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L53)
 
 #### Parameters
 
@@ -127,7 +127,7 @@ class Foo extends React.Component {
 
 > `static` **displayName**: `string` = `'SitecoreContext'`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:52](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L52)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:51](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L51)
 
 ***
 
@@ -197,7 +197,7 @@ Called immediately after a component is mounted. Setting state here will trigger
 
 > **componentDidUpdate**(`prevProps`): `void`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:92](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L92)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:91](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L91)
 
 Called immediately after updating occurs. Not called for the initial render.
 
@@ -357,7 +357,7 @@ this from being invoked.
 
 > **constructContext**(`layoutData?`): [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:78](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L78)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:77](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L77)
 
 #### Parameters
 
@@ -427,7 +427,7 @@ lifecycle events from running.
 
 > **render**(): `Element`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:115](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L115)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:114](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L114)
 
 #### Returns
 
@@ -443,7 +443,7 @@ Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:115]
 
 > **setContext**(`value`): `void`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:107](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L107)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:106](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L106)
 
 Update context state. Value can be
 

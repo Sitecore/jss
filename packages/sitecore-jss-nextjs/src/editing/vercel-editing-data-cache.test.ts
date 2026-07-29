@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, use } from 'chai';
 import * as vercelKv from '@vercel/kv';
 import sinon from 'sinon';

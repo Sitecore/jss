@@ -23,5 +23,4 @@
 
 ## Functions
 
-- [editingRouter](functions/editingRouter.md)
 - [healthCheck](functions/healthCheck.md)

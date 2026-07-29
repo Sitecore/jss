@@ -6,11 +6,7 @@
 
 # Interface: RichTextField
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:8](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/RichText.tsx#L8)
-
-## Extends
-
-- `FieldMetadata`
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:5](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/RichText.tsx#L5)
 
 ## Properties
 
@@ -18,23 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:8](https://
 
 > `optional` **editable?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/RichText.tsx#L10)
-
-***
-
-### metadata?
-
-> `optional` **metadata?**: `object`
-
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:124
-
-#### Index Signature
-
-\[`key`: `string`\]: `unknown`
-
-#### Inherited from
-
-`FieldMetadata.metadata`
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:7](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/RichText.tsx#L7)
 
 ***
 
@@ -42,4 +22,4 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:124
 
 > `optional` **value?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:9](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-react/src/components/RichText.tsx#L9)
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:6](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/RichText.tsx#L6)

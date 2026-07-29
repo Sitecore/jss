@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import sinon, { SinonSpy } from 'sinon';
 import nock from 'nock';
@@ -64,7 +63,7 @@ describe('GraphQLDictionaryService', () => {
     });
     const result = await service.fetchDictionaryData('en');
     expect(result).to.have.all.keys('foo', 'bar');
-    // eslint-disable-next-line no-unused-expressions
+
     expect(nock.isDone()).to.be.true;
   });
 
@@ -244,9 +243,9 @@ describe('GraphQLDictionaryService', () => {
 
     const graphQLClient = service.client as GraphQLClient;
     const graphQLRequestClient = service.client as GraphQLRequestClient;
-    // eslint-disable-next-line no-unused-expressions
+
     expect(graphQLClient).to.exist;
-    // eslint-disable-next-line no-unused-expressions
+
     expect(graphQLRequestClient).to.exist;
   });
 

@@ -10,14 +10,6 @@ export const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
  */
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
 
-/**
- * Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
- */
-export const EDITING_ALLOWED_ORIGINS = [
-  'https://pages.sitecorecloud.io',
-  'https://app.sitecorecloud.io',
-];
-
 type ExtendedWindow = Window &
   typeof globalThis & {
     [key: string]: unknown;
@@ -43,7 +35,7 @@ export class ExperienceEditor {
     if (isServer()) {
       return false;
     }
-    // eslint-disable-next-line
+
     const sc = (window as ExtendedWindow).Sitecore;
     return Boolean(sc && sc.PageModes && sc.PageModes.ChromeManager);
   }

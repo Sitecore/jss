@@ -7,13 +7,15 @@
 ## Namespaces
 
 - [constants](@sitecore-jss/namespaces/constants/README.md)
+- [DateField](@sitecore-jss/namespaces/DateField/README.md)
 - [File](@sitecore-jss/namespaces/File/README.md)
+- [Image](@sitecore-jss/namespaces/Image/README.md)
 - [mediaApi](@sitecore-jss/namespaces/mediaApi/README.md)
+- [Text](@sitecore-jss/namespaces/Text/README.md)
 - [trackingApi](@sitecore-jss/namespaces/trackingApi/README.md)
 
 ## Enumerations
 
-- [EditMode](enumerations/EditMode.md)
 - [LayoutServicePageState](enumerations/LayoutServicePageState.md)
 
 ## Classes
@@ -96,12 +98,9 @@
 - [DateField](variables/DateField.md)
 - [DefaultEditFrameButton](variables/DefaultEditFrameButton.md)
 - [DefaultEditFrameButtons](variables/DefaultEditFrameButtons.md)
-- [DefaultEmptyFieldEditingComponentImage](variables/DefaultEmptyFieldEditingComponentImage.md)
-- [DefaultEmptyFieldEditingComponentText](variables/DefaultEmptyFieldEditingComponentText.md)
 - [EditFrame](variables/EditFrame.md)
 - [enableDebug](variables/enableDebug.md)
 - [File](variables/File.md)
-- [getContentStylesheetLink](variables/getContentStylesheetLink.md)
 - [Image](variables/Image.md)
 - [isEditorActive](variables/isEditorActive.md)
 - [Link](variables/Link.md)
@@ -114,14 +113,11 @@
 
 ## Functions
 
-- [EditingScripts](functions/EditingScripts.md)
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
 - [getEEMarkup](functions/getEEMarkup.md)
 - [getFieldValue](functions/getFieldValue.md)
 - [useSitecoreContext](functions/useSitecoreContext.md)
 - [withDatasourceCheck](functions/withDatasourceCheck.md)
 - [withEditorChromes](functions/withEditorChromes.md)
-- [withEmptyFieldEditingComponent](functions/withEmptyFieldEditingComponent.md)
-- [withFieldMetadata](functions/withFieldMetadata.md)
 - [withPlaceholder](functions/withPlaceholder.md)
 - [withSitecoreContext](functions/withSitecoreContext.md)

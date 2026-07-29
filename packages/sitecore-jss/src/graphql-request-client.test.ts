@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 /* eslint-disable dot-notation */
 import { expect, use, spy } from 'chai';
 import sinon from 'sinon';

@@ -5,10 +5,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const STATIC_PROPS_ID = '__N_SSG';
 const SERVER_PROPS_ID = '__N_SSR';
 import { NativeDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
-import {
-  QUERY_PARAM_EDITING_SECRET,
-  EDITING_ALLOWED_ORIGINS,
-} from '@sitecore-jss/sitecore-jss/editing';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
 import { getJssEditingSecret } from '../utils/utils';
@@ -283,7 +280,7 @@ export class EditingRenderMiddleware extends RenderMiddlewareBase {
       body,
     });
 
-    if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
+    if (!enforceCors(req, res)) {
       debug.editing(
         'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
       );

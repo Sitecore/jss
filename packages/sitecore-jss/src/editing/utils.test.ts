@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect, spy } from 'chai';
 import { isEditorActive, resetEditorChromes } from './utils';
 

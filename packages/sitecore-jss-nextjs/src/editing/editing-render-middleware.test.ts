@@ -4,10 +4,7 @@ import { expect, use } from 'chai';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { NativeDataFetcher } from '@sitecore-jss/sitecore-jss';
 import { EditingDataService, EditingPreviewData } from './editing-data-service';
-import {
-  EDITING_ALLOWED_ORIGINS,
-  QUERY_PARAM_EDITING_SECRET,
-} from '@sitecore-jss/sitecore-jss/editing';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import {
   QUERY_PARAM_VERCEL_PROTECTION_BYPASS,
   QUERY_PARAM_VERCEL_SET_BYPASS_COOKIE,

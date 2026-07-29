@@ -6,7 +6,7 @@
 
 # Interface: FileField
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:17](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L17)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:17](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L17)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:17]
 
 > `optional` **displayName?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:14](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L14)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:14](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L14)
 
 #### Inherited from
 
@@ -30,7 +30,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:14]
 
 > `optional` **editable?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L6)
 
 #### Inherited from
 
@@ -38,27 +38,11 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:6](
 
 ***
 
-### metadata?
-
-> `optional` **metadata?**: `object`
-
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:124
-
-#### Index Signature
-
-\[`key`: `string`\]: `unknown`
-
-#### Inherited from
-
-[`RenderingField`](RenderingField.md).[`metadata`](RenderingField.md#metadata)
-
-***
-
 ### src?
 
 > `optional` **src?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:12](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L12)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:12](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L12)
 
 #### Inherited from
 
@@ -70,7 +54,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:12]
 
 > `optional` **title?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:13](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L13)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:13](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L13)
 
 #### Inherited from
 
@@ -82,7 +66,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:13]
 
 > `optional` **value?**: `FileFieldValue`
 
-Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/a3875474f0467d1f797f9f2665ed814a1c0c85c5/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
+Defined in: [packages/sitecore-jss-angular/src/components/rendering-field.ts:5](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-angular/src/components/rendering-field.ts#L5)
 
 #### Inherited from
 

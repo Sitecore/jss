@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { getEdgeProxyContentUrl } from './graphql-edge-proxy';
 import { SITECORE_EDGE_URL_DEFAULT } from '../constants';

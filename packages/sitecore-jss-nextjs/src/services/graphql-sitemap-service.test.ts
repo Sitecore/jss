@@ -632,9 +632,9 @@ describe('GraphQLSitemapService', () => {
     });
     const graphQLClient = service.client as GraphQLClient;
     const graphQLRequestClient = service.client as GraphQLRequestClient;
-    // eslint-disable-next-line no-unused-expressions
+
     expect(graphQLClient).to.exist;
-    // eslint-disable-next-line no-unused-expressions
+
     expect(graphQLRequestClient).to.exist;
   });
 });

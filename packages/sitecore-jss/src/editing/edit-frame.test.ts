@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import { expect } from 'chai';
 import { DefaultEditFrameButton } from '.';
 import { commandBuilder } from './edit-frame';

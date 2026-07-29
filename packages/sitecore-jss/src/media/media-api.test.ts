@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 // what is `import x = require('x');`? great question: https://github.com/Microsoft/TypeScript/issues/5073
 import chai = require('chai');
 import chaiString = require('chai-string');
@@ -17,12 +15,10 @@ const expect = chai.use(chaiString).expect;
 
 describe('findEditorImageTag', () => {
   it('should find, parse, and return an img tag from EE rendered Image field', () => {
-    /* eslint-disable no-useless-escape */
     const editableField =
       '<input id=\'fld_0FDED3F7211E48A18A466E7F2C95C40E_9DDD62F9D0B1456A8F0ED80B66C98A03_en_1_27eee2bb989840b78cc3e5f5dc81c558_49\' class=\'scFieldValue\' name=\'fld_0FDED3F7211E48A18A466E7F2C95C40E_9DDD62F9D0B1456A8F0ED80B66C98A03_en_1_27eee2bb989840b78cc3e5f5dc81c558_49\' type=\'hidden\' value="&lt;image mediaid=&quot;{49C5EC6F-97CE-4D69-A303-BFBED4768ED2}&quot; /&gt;" /><code id="fld_0FDED3F7211E48A18A466E7F2C95C40E_9DDD62F9D0B1456A8F0ED80B66C98A03_en_1_27eee2bb989840b78cc3e5f5dc81c558_49_edit" type="text/sitecore" chromeType="field" scFieldType="image" class="scpm" kind="open">{"commands":[{"click":"chrome:field:editcontrol({command:\\"webedit:chooseimage\\"})","header":"Choose Image","icon":"/sitecore/shell/themes/standard/custom/16x16/photo_landscape2.png","disabledIcon":"/temp/photo_landscape2_disabled16x16.png","isDivider":false,"tooltip":"Choose an image.","type":""},{"click":"chrome:field:editcontrol({command:\\"webedit:editimage\\"})","header":"Properties","icon":"/sitecore/shell/themes/standard/custom/16x16/photo_landscape2_edit.png","disabledIcon":"/temp/photo_landscape2_edit_disabled16x16.png","isDivider":false,"tooltip":"Modify image appearance.","type":""},{"click":"chrome:field:editcontrol({command:\\"webedit:clearimage\\"})","header":"Clear","icon":"/sitecore/shell/themes/standard/custom/16x16/photo_landscape2_delete.png","disabledIcon":"/temp/photo_landscape2_delete_disabled16x16.png","isDivider":false,"tooltip":"Remove the image.","type":""},{"click":"chrome:common:edititem({command:\\"webedit:open\\"})","header":"Edit the related item","icon":"/temp/iconcache/office/16x16/cubes.png","disabledIcon":"/temp/cubes_disabled16x16.png","isDivider":false,"tooltip":"Edit the related item in the Content Editor.","type":"common"},{"click":"chrome:rendering:personalize({command:\\"webedit:personalize\\"})","header":"Personalize","icon":"/temp/iconcache/office/16x16/users_family.png","disabledIcon":"/temp/users_family_disabled16x16.png","isDivider":false,"tooltip":"Create or edit personalization for this component.","type":"sticky"}],"contextItemUri":"sitecore://master/{0FDED3F7-211E-48A1-8A46-6E7F2C95C40E}?lang=en&ver=1","custom":{},"displayName":"Image","expandedDisplayName":null}</code><img src="http://jssadvancedapp/sitecore/shell/-/media/JssAdvancedApp/assets/img/portfolio/1.ashx?h=350&amp;la=en&amp;w=650&amp;hash=CC5043DC03C6C27F40EDB08CF84AB8670C05D63D" alt="" width="650" height="350" /><code class="scpm" type="text/sitecore" chromeType="field" kind="close"></code>';
     const imgTag =
       '<img src="http://jssadvancedapp/sitecore/shell/-/media/JssAdvancedApp/assets/img/portfolio/1.ashx?h=350&amp;la=en&amp;w=650&amp;hash=CC5043DC03C6C27F40EDB08CF84AB8670C05D63D" alt="" width="650" height="350" />';
-    /* eslint-enable no-useless-escape */
 
     const imgMatch = findEditorImageTag(editableField);
 
@@ -32,7 +28,7 @@ describe('findEditorImageTag', () => {
     expect(imgMatch && Object.keys(imgMatch.attrs).length).to.equal(4);
     expect(imgMatch?.attrs.width).to.equal('650');
     expect(imgMatch?.attrs.height).to.equal('350');
-    expect(imgMatch?.attrs.alt).to.be.empty; // eslint-disable-line no-unused-expressions
+    expect(imgMatch?.attrs.alt).to.be.empty;
     expect(imgMatch?.attrs.src).to.startsWith('http://jssadvancedapp');
     expect(imgMatch?.attrs.src).to.endsWith('CC5043DC03C6C27F40EDB08CF84AB8670C05D63D');
     expect(imgMatch?.attrs.src).to.not.contain('&amp;');

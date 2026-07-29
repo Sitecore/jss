@@ -9,11 +9,9 @@
 ## Classes
 
 - [BasicEditingDataService](classes/BasicEditingDataService.md)
-- [EditingConfigMiddleware](classes/EditingConfigMiddleware.md)
 - [EditingDataDiskCache](classes/EditingDataDiskCache.md)
 - [EditingDataMiddleware](classes/EditingDataMiddleware.md)
 - [EditingRenderMiddleware](classes/EditingRenderMiddleware.md)
-- [GraphQLEditingService](classes/GraphQLEditingService.md)
 - [ServerlessEditingDataService](classes/ServerlessEditingDataService.md)
 - [VercelEditingDataCache](classes/VercelEditingDataCache.md)
 
@@ -28,15 +26,9 @@
 
 ## Type Aliases
 
-- [EditingConfigMiddlewareConfig](type-aliases/EditingConfigMiddlewareConfig.md)
 - [EditingData](type-aliases/EditingData.md)
-- [EditingMetadataPreviewData](type-aliases/EditingMetadataPreviewData.md)
 - [EditingRenderMiddlewareConfig](type-aliases/EditingRenderMiddlewareConfig.md)
 
 ## Variables
 
 - [editingDataService](variables/editingDataService.md)
-
-## Functions
-
-- [isEditingMetadataPreviewData](functions/isEditingMetadataPreviewData.md)

@@ -8,7 +8,7 @@
 
 > `const` **resetEditorChromes**: () => `void`
 
-Defined in: sitecore-jss/types/editing/utils.d.ts:65
+Defined in: sitecore-jss/types/editing/utils.d.ts:30
 
 Resets Sitecore editor "chromes"
 

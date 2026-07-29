@@ -175,14 +175,12 @@ export function commandBuilder(
 
       if (button.parameters) {
         Object.keys(button.parameters).forEach((_) => {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           parameters[_] = button.parameters![_]?.toString() || '';
         });
       }
 
       if (frameParameters) {
         Object.keys(frameParameters).forEach((_) => {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           parameters[_] = frameParameters![_]?.toString() || '';
         });
       }
