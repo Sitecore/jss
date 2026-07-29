@@ -6,7 +6,7 @@
 
 # Interface: ComponentFile
 
-Defined in: [templating/components.ts:6](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/templating/components.ts#L6)
+Defined in: [templating/components.ts:6](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/templating/components.ts#L6)
 
 Describes a file that represents a component definition
 
@@ -16,7 +16,7 @@ Describes a file that represents a component definition
 
 > **componentName**: `string`
 
-Defined in: [templating/components.ts:9](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/templating/components.ts#L9)
+Defined in: [templating/components.ts:9](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/templating/components.ts#L9)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [templating/components.ts:9](https://github.com/Sitecore/jss/blob/f0
 
 > **moduleName**: `string`
 
-Defined in: [templating/components.ts:8](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/templating/components.ts#L8)
+Defined in: [templating/components.ts:8](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/templating/components.ts#L8)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [templating/components.ts:8](https://github.com/Sitecore/jss/blob/f0
 
 > **path**: `string`
 
-Defined in: [templating/components.ts:7](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/templating/components.ts#L7)
+Defined in: [templating/components.ts:7](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/templating/components.ts#L7)

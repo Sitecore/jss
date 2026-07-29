@@ -6,7 +6,7 @@
 
 # Interface: WithSitecoreContextProps
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L14)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L14)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:1
 
 > `optional` **api?**: `object`
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L16)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L16)
 
 #### edge?
 
@@ -46,7 +46,7 @@ https://edge-platform.sitecorecloud.io
 
 > **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L15)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L15)
 
 ***
 
@@ -54,4 +54,4 @@ Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:1
 
 > `optional` **updateSitecoreContext?**: `false` \| ((`value`) => `void`)
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)

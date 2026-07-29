@@ -6,7 +6,7 @@
 
 # Interface: RichTextField
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:5](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/RichText.tsx#L5)
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:5](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react/src/components/RichText.tsx#L5)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:5](https://
 
 > `optional` **editable?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:7](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/RichText.tsx#L7)
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:7](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react/src/components/RichText.tsx#L7)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:7](https://
 
 > `optional` **value?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:6](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/RichText.tsx#L6)
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:6](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react/src/components/RichText.tsx#L6)

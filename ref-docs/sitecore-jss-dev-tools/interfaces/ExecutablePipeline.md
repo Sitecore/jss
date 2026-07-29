@@ -6,7 +6,7 @@
 
 # Interface: ExecutablePipeline
 
-Defined in: [pipelines/pipelineFactory.ts:32](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L32)
+Defined in: [pipelines/pipelineFactory.ts:32](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L32)
 
 ## Extended by
 
@@ -18,7 +18,7 @@ Defined in: [pipelines/pipelineFactory.ts:32](https://github.com/Sitecore/jss/bl
 
 > **args**: `any`
 
-Defined in: [pipelines/pipelineFactory.ts:40](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L40)
+Defined in: [pipelines/pipelineFactory.ts:40](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L40)
 
 Base args object for the pipeline.
 
@@ -28,7 +28,7 @@ Base args object for the pipeline.
 
 > **name**: `string`
 
-Defined in: [pipelines/pipelineFactory.ts:36](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L36)
+Defined in: [pipelines/pipelineFactory.ts:36](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L36)
 
 name of the pipeline
 
@@ -38,7 +38,7 @@ name of the pipeline
 
 > **processors**: () => [`Processor`](Processor.md)[]
 
-Defined in: [pipelines/pipelineFactory.ts:44](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L44)
+Defined in: [pipelines/pipelineFactory.ts:44](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L44)
 
 the processors for the pipeline
 

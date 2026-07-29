@@ -8,7 +8,7 @@
 
 > **getEEMarkup**(`imageField`, `imageParams?`, `mediaUrlPrefix?`, `otherProps?`): `Element`
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:113](https://github.com/Sitecore/jss/blob/f0e2e06bb2f342643ad363bccbc1316fe0bceeee/packages/sitecore-jss-react/src/components/Image.tsx#L113)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:113](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react/src/components/Image.tsx#L113)
 
 ## Parameters
 
