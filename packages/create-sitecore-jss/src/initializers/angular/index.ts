@@ -21,15 +21,8 @@ export default class AngularInitializer implements Initializer {
     await transform(templatePath, mergedArgs);
     const addInitializers: string[] = [];
 
-    if (answers.xmcloud) {
-      if (!args.templates.includes('angular-xmcloud')) {
-        addInitializers.push('angular-xmcloud');
-      }
-    } else {
-      // invoke default non-XMC init
-      if (!args.templates.includes('angular-sxp') && !args.templates.includes('angular-xmcloud')) {
-        addInitializers.push('angular-sxp');
-      }
+    if (!args.templates.includes('angular-sxp')) {
+      addInitializers.push('angular-sxp');
     }
 
     const response = {

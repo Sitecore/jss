@@ -82,7 +82,6 @@ To create a JSS project for an older version of JSS and Sitecore:
 ## Documentation and community resources
 
 - Official JSS documentation:
-  - [XM Cloud](https://doc.sitecore.com/xmc/en/developers/jss/latest/jss-xmc/index-en.html)
   - [XP](https://doc.sitecore.com/xp/en/developers/hd/latest/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html)
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)

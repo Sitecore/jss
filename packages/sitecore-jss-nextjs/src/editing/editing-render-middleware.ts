@@ -205,9 +205,8 @@ export class ChromesHandler extends RenderMiddlewareBase {
    * @param {NextApiRequest} req
    */
   private defaultResolveServerUrl = (req: NextApiRequest) => {
-    // to preserve auth headers, use https if we're in our 3 main hosting options
-    const useHttps =
-      (process.env.VERCEL || process.env.SITECORE || process.env.NETLIFY) !== undefined;
+    // to preserve auth headers, use https if we're in our main hosting options
+    const useHttps = (process.env.VERCEL || process.env.NETLIFY) !== undefined;
     // use https for requests with auth but also support unsecured http rendering hosts
     return `${useHttps ? 'https' : 'http'}://${req.headers.host}`;
   };

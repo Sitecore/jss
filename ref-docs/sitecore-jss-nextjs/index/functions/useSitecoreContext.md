@@ -8,7 +8,7 @@
 
 > **useSitecoreContext**(`options?`): [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)
 
-Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:38
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:37
 
 This hook grants acсess to the current Sitecore page context
 by default JSS includes the following properties in this context:

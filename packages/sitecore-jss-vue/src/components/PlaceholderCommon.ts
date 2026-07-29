@@ -221,7 +221,6 @@ function createRawElement(elem: any) {
 
           // Reset chromes since sometimes experience editor script is executed earlier
           // than Vue script and EE can't set required attributes and chromes aren't visible
-          // Also required for Horizon
           resetEditorChromes();
         }
       });

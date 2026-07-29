@@ -8,7 +8,7 @@
 
 > **WithSitecoreContextHocProps**\<`ComponentProps`\> = `EnhancedOmit`\<`ComponentProps`, keyof [`WithSitecoreContextProps`](../interfaces/WithSitecoreContextProps.md)\>
 
-Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:12
+Defined in: sitecore-jss-react/types/enhancers/withSitecoreContext.d.ts:11
 
 ## Type Parameters
 

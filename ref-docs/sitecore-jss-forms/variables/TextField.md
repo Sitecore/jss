@@ -8,4 +8,4 @@
 
 > `const` **TextField**: `React.FunctionComponent`\<[`FieldWithValueProps`](../interfaces/FieldWithValueProps.md)\<`FormField`\<`TextViewModel`\>, `string`\>\>
 
-Defined in: [src/components/field-templates/text.tsx:5](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-react-forms/src/components/field-templates/text.tsx#L5)
+Defined in: [src/components/field-templates/text.tsx:5](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-react-forms/src/components/field-templates/text.tsx#L5)
