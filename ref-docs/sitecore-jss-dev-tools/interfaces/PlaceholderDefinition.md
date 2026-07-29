@@ -6,7 +6,7 @@
 
 # Interface: PlaceholderDefinition
 
-Defined in: [manifest/generator/manifest.types.ts:166](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L166)
+Defined in: [manifest/generator/manifest.types.ts:166](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L166)
 
 Explicitly defines a placeholder name, and allows setting the display name.
 NOTE: placeholders defined on routes that are not explicitly defined are automatically added.
@@ -18,7 +18,7 @@ Explicit definition is only needed when you wish to specify a display name.
 
 > `optional` **displayName?**: `string`
 
-Defined in: [manifest/generator/manifest.types.ts:168](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L168)
+Defined in: [manifest/generator/manifest.types.ts:168](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L168)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [manifest/generator/manifest.types.ts:168](https://github.com/Siteco
 
 > `optional` **id?**: `string`
 
-Defined in: [manifest/generator/manifest.types.ts:174](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L174)
+Defined in: [manifest/generator/manifest.types.ts:174](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L174)
 
 Optionally specify an ID used when importing the rendering item for this component.
 Can be either a GUID, or a string. ID values must be unique app-wide if specified.
@@ -38,4 +38,4 @@ For Sitecore developers only.
 
 > **name**: `string`
 
-Defined in: [manifest/generator/manifest.types.ts:167](https://github.com/Sitecore/jss/blob/929d50c77d26b9b343517841b1105b6350edff0f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L167)
+Defined in: [manifest/generator/manifest.types.ts:167](https://github.com/Sitecore/jss/blob/75441f02edb56a08f3874c8d79ee4a154b198232/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L167)

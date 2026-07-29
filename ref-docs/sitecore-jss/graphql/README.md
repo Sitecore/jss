@@ -25,7 +25,6 @@
 ## Functions
 
 - [getAppRootId](functions/getAppRootId.md)
-- [getEdgeProxyContentUrl](functions/getEdgeProxyContentUrl.md)
 
 ## References
 
