@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { AngularArgs } from './args';
 import { AngularAnswer, prompts } from './prompts';
-import { Initializer, transform } from '../../common';
+import { Initializer, transform, sitecoreAiNotSupportedMsg } from '../../common';
 
 export default class AngularInitializer implements Initializer {
   get isBase() {
@@ -26,7 +26,10 @@ export default class AngularInitializer implements Initializer {
     }
 
     const response = {
-      nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
+      nextSteps: [
+        `* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`,
+        `* ${sitecoreAiNotSupportedMsg()}`,
+      ],
       appName: answers.appName,
       initializers: addInitializers,
     };

@@ -5,3 +5,5 @@
 -->
 
 [Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-angular.html)
+
+> **Note:** JSS 23 supports Sitecore XP 10.5. Sitecore AI is not supported - use [Sitecore Content SDK](https://doc.sitecore.com/sai/en/developers/content-sdk/sitecore-content-sdk-for-sitecoreai.html) for that scenario.

@@ -8,6 +8,7 @@ import {
   transform,
   writeJsonFile,
   removeFile,
+  sitecoreAiNotSupportedMsg,
 } from '../../common';
 import { prompts, ReactAnswer } from './prompts';
 import { ReactArgs } from './args';
@@ -53,7 +54,10 @@ export default class ReactInitializer implements Initializer {
     }
 
     const response = {
-      nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
+      nextSteps: [
+        `* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`,
+        `* ${sitecoreAiNotSupportedMsg()}`,
+      ],
       appName: answers.appName,
     };
 

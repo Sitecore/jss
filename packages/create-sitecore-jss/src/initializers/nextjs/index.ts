@@ -8,6 +8,7 @@ import {
   isDevEnvironment,
   openJsonFile,
   writeJsonFile,
+  sitecoreAiNotSupportedMsg,
 } from '../../common';
 import { removeDevDependencies } from './remove-dev-dependencies';
 import { NextjsArgs } from './args';
@@ -79,7 +80,10 @@ export default class NextjsInitializer implements Initializer {
     }
 
     const response = {
-      nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
+      nextSteps: [
+        `* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`,
+        `* ${sitecoreAiNotSupportedMsg()}`,
+      ],
       appName: answers.appName,
       initializers: addInitializers,
     };

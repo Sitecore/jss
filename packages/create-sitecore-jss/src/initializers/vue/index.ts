@@ -1,7 +1,7 @@
 ﻿import path from 'path';
 import inquirer from 'inquirer';
 import { prompts, VueAnswer } from './prompts';
-import { Initializer, transform } from '../../common';
+import { Initializer, transform, sitecoreAiNotSupportedMsg } from '../../common';
 import { VueArgs } from './args';
 import chalk from 'chalk';
 
@@ -23,7 +23,10 @@ export default class VueInitializer implements Initializer {
 
     const response = {
       appName: answers.appName,
-      nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
+      nextSteps: [
+        `* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`,
+        `* ${sitecoreAiNotSupportedMsg()}`,
+      ],
     };
 
     return response;
