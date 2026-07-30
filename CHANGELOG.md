@@ -11,6 +11,8 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+> ⚠️ **JSS 23 supports Sitecore XP 10.5 only. Sitecore AI is not supported - use Sitecore Content SDK for that scenario.**
+
 ### 🐛 Bug Fixes
 
 * `[create-sitecore-jss]` Fix Vue template build failure caused by `@vue/cli-plugin-eslint` being incompatible with ESLint 9; linting during `vue-cli-service build` is now disabled, use `npm run lint` instead ([#2208](https://github.com/Sitecore/jss/pull/2208))
