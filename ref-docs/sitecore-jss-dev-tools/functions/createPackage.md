@@ -8,7 +8,7 @@
 
 > **createPackage**(`contentsPath`, `outputPath`, `callback`): `void`
 
-Defined in: [update/index.ts:39](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-dev-tools/src/update/index.ts#L39)
+Defined in: [update/index.ts:39](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-dev-tools/src/update/index.ts#L39)
 
 ## Parameters
 

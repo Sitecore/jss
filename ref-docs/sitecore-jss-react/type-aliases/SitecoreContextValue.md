@@ -8,7 +8,7 @@
 
 > **SitecoreContextValue** = [`LayoutServiceContext`](../interfaces/LayoutServiceContext.md) & `object`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/bcf336c4dfb913d1e935ca844369444e7dac09d8/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L24)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:24](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L24)
 
 ## Type Declaration
 
