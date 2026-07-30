@@ -42,7 +42,7 @@ Our versioning strategy is as follows:
     * Removed `SitecoreContext`'s `api.edge` (`contextId`/`edgeUrl`) prop (and its re-export via `withSitecoreContext`/`useSitecoreContext`'s `api`)
   * **`sitecore-jss-nextjs`**
     * Removed `PersonalizeMiddleware`/`PersonalizeMiddlewareConfig`
-    * Removed `variantIds` from `EditingMetadataPreviewData` and the `sc_variant` handling in the editing render middleware — Pages/Sitecore Editor no longer previews a specific personalization variant while authoring
+    * Removed `variantIds` from `EditingMetadataPreviewData` and the `sc_variant` handling in the editing render middleware - Pages/Sitecore Editor no longer previews a specific personalization variant while authoring
     * Lost the re-export of the `DesignLibrary` component
     * Removed `FEaaSWrapper`, `BYOCWrapper`, and `FEAASRenderMiddleware`/`FEAASRenderMiddlewareConfig` (and their re-exports from `sitecore-jss-react`)
     * Lost the re-export of the `Form` component
@@ -58,14 +58,14 @@ Our versioning strategy is as follows:
   * **`sitecore-jss-proxy`**
     * Removed `PersonalizeHelper`/`PersonalizeConfig`
     * Removed the `sc_variant` handling in the editing render middleware
-    * Removed the entire `/editing` middleware (`editingRouter`, `editingConfigMiddleware`, `editingRenderMiddleware`) — this subsystem implemented only the Pages metadata protocol with no chromes counterpart
+    * Removed the entire `/editing` middleware (`editingRouter`, `editingConfigMiddleware`, `editingRenderMiddleware`) - this subsystem implemented only the Pages metadata protocol with no chromes counterpart
   * **`sitecore-jss-dev-tools`**
     * Removed `getMetadata`/`Metadata` (app-metadata generation)
   * **`create-sitecore-jss`**
     * Removed the `nextjs-xmcloud`, `angular-xmcloud`, and `node-xmcloud-proxy` templates and initializers
 * `[sitecore-jss-react]` Internal props such as `api`, `componentFactory`, `modifyComponentProps`, `sitecoreContext`, and `updateSitecoreContext` are no longer passed to components via `Placeholder` ([#2207](https://github.com/Sitecore/jss/pull/2207))
   * **Still passed:** `fields`, `params`, `rendering` (+ props from `modifyComponentProps`).
-  * **New prop:** `passThroughComponentProps` — use this to pass additional props to rendered components explicitly.
+  * **New prop:** `passThroughComponentProps` - use this to pass additional props to rendered components explicitly.
 
 ## 22.12.4
 
