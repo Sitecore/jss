@@ -69,6 +69,9 @@ Our versioning strategy is as follows:
 * `[sitecore-jss-react]` Internal props such as `api`, `componentFactory`, `modifyComponentProps`, `sitecoreContext`, and `updateSitecoreContext` are no longer passed to components via `Placeholder` ([#2207](https://github.com/Sitecore/jss/pull/2207))
   * **Still passed:** `fields`, `params`, `rendering` (+ props from `modifyComponentProps`).
   * **New prop:** `passThroughComponentProps` - use this to pass additional props to rendered components explicitly.
+* `[sitecore-jss-nextjs]` Removed `VercelEditingDataCache` and the `@vercel/kv` dependency - Vercel KV is deprecated and existing Vercel KV stores are being migrated to Upstash Redis (see [Vercel's KV deprecation notice](https://www.npmjs.com/package/@vercel/kv))
+  * **Replaced by:** `RedisEditingDataCache`, built directly on `@upstash/redis`, with the same `EditingDataCache` behavior (get/set/TTL).
+  * For new projects, provision a Redis integration from the [Vercel Marketplace](https://vercel.com/marketplace?category=storage&search=redis) (e.g. Upstash) and pass its REST URL/token to `RedisEditingDataCache`.
 
 ## 22.12.4
 
