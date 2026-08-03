@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react';
+import React, { ForwardedRef, forwardRef, useMemo } from 'react';
 import { EditableFieldProps } from './sharedTypes';
 import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
@@ -23,14 +23,22 @@ export const RichText = forwardRef(
     { field, tag = 'div', editable = true, ...otherProps }: RichTextProps,
     ref: ForwardedRef<HTMLElement>
   ) => {
-    if (!field || (!field.editable && isFieldValueEmpty(field))) {
+    const html = field && (field.editable && editable ? field.editable : field.value);
+
+    // Keep the object reference stable across re-renders when the html is unchanged,
+    // since React DOM compares dangerouslySetInnerHTML by reference and re-sets
+    // innerHTML (recreating all child DOM nodes) whenever it changes.
+    const dangerouslySetInnerHTML = useMemo(
+      () => (html !== undefined && html !== '' ? { __html: html } : undefined),
+      [html]
+    );
+
+    if (!field || (!field.editable && isFieldValueEmpty(field)) || !dangerouslySetInnerHTML) {
       return null;
     }
 
     const htmlProps = {
-      dangerouslySetInnerHTML: {
-        __html: field.editable && editable ? field.editable : field.value,
-      },
+      dangerouslySetInnerHTML,
       ref,
       ...otherProps,
     };
