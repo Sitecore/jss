@@ -32,7 +32,7 @@ export const RichText = forwardRef(
       () => (html !== undefined && html !== '' ? { __html: html } : undefined),
       [html]
     );
-    
+
     if (!field || (!field.editable && isFieldValueEmpty(field)) || !dangerouslySetInnerHTML) {
       return null;
     }
