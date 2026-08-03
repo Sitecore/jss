@@ -1,7 +1,4 @@
 import React, { ForwardedRef, forwardRef, useMemo } from 'react';
-import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
-import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
 import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
@@ -31,9 +28,12 @@ export const RichText = forwardRef(
     // Keep the object reference stable across re-renders when the html is unchanged,
     // since React DOM compares dangerouslySetInnerHTML by reference and re-sets
     // innerHTML (recreating all child DOM nodes) whenever it changes.
-    const dangerouslySetInnerHTML = useMemo(() => ({ __html: html }), [html]);
+    const dangerouslySetInnerHTML = useMemo(
+      () => (html !== undefined && html !== '' ? { __html: html } : undefined),
+      [html]
+    );
     
-    if (!field || (!field.editable && isFieldValueEmpty(field))) {
+    if (!field || (!field.editable && isFieldValueEmpty(field)) || !dangerouslySetInnerHTML) {
       return null;
     }
 
