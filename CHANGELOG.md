@@ -17,6 +17,7 @@ Our versioning strategy is as follows:
 
 * `[create-sitecore-jss]` Fix Vue template build failure caused by `@vue/cli-plugin-eslint` being incompatible with ESLint 9; linting during `vue-cli-service build` is now disabled, use `npm run lint` instead ([#2208](https://github.com/Sitecore/jss/pull/2208))
 * `[create-sitecore-jss]` Pass `metadata` to navigation link fields to prevent 404 errors when hovering links in Pages ([#2206](https://github.com/Sitecore/jss/pull/2206))
+* `[sitecore-jss-react]` RichText rebuilds `dangerouslySetInnerHTML` on every render, causing full DOM replacement and dropped internal-link listeners ([#2204](https://github.com/Sitecore/jss/pull/2204))
 
 ### 🛠 Breaking Changes
 
@@ -75,7 +76,6 @@ Our versioning strategy is as follows:
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-nextjs]` Skip malformed redirect regex rules instead of failing the entire redirect chain ([#2201](https://github.com/Sitecore/jss/pull/2201))
-* `[sitecore-jss-react]` RichText rebuilds `dangerouslySetInnerHTML` on every render, causing full DOM replacement and dropped internal-link listeners ([#2204](https://github.com/Sitecore/jss/pull/2204))
 * `[sitecore-jss]` Fix personalize hide component not working properly in edit mode for nested personalization ([#2202](https://github.com/Sitecore/jss/pull/2202))
 * `[create-sitecore-jss]` Sitemap index XML xmlns omits the 'www' prefix ([#2199](https://github.com/Sitecore/jss/pull/2199))
 
