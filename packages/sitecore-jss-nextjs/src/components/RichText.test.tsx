@@ -362,6 +362,55 @@ describe('RichText', () => {
     expect(router.prefetch).callCount(0);
   });
 
+  it('should keep internal link click handlers after parent re-render with unchanged HTML', () => {
+    const app = document.createElement('main');
+
+    document.body.appendChild(app);
+
+    const router = Router();
+
+    const props = {
+      field: {
+        value: '<p>Hello <a id="rt-link" href="/foo">home</a></p>',
+      },
+    };
+
+    const PageWithTick = ({ tick }: { tick: number }) => (
+      <Page value={router}>
+        <div data-tick={tick}>
+          <RichText {...props} />
+        </div>
+      </Page>
+    );
+
+    const { rerender } = render(<PageWithTick tick={0} />, { baseElement: app });
+
+    const link = document.querySelector('#rt-link') as HTMLAnchorElement & {
+      __marker?: boolean;
+    };
+
+    expect(link).to.not.equal(null);
+    link.__marker = true;
+
+    link.click();
+    expect(router.push).callCount(1);
+
+    // Unrelated parent re-render must not recreate anchors (listeners would be lost).
+    rerender(<PageWithTick tick={1} />);
+
+    const linkAfter = document.querySelector('#rt-link') as HTMLAnchorElement & {
+      __marker?: boolean;
+    };
+
+    expect(linkAfter).to.equal(link);
+    expect(linkAfter.__marker).to.equal(true);
+
+    linkAfter.click();
+    expect(router.push).callCount(2);
+
+    document.body.removeChild(app);
+  });
+
   it('should call prefetch when prefetchLinks is set to hover', () => {
     const router = Router();
 

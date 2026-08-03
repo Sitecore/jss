@@ -97,4 +97,29 @@ describe('<RichText />', () => {
     expect(rendered[0].outerHTML).to.contain('<h1 class="cssClass" id="lorem">');
     expect(rendered[0].outerHTML).to.contain('value');
   });
+
+  it('should preserve nested DOM nodes across re-renders when HTML is unchanged', () => {
+    const field = {
+      value: '<a id="rt-link" href="/foo">bar</a>',
+    };
+
+    const { container, rerender } = render(<RichText field={field} />);
+    const link = container.querySelector('#rt-link') as HTMLAnchorElement & {
+      __marker?: boolean;
+    };
+
+    expect(link).to.not.equal(null);
+    link.__marker = true;
+
+    // Parent-style re-render with the same field HTML must not recreate child DOM nodes
+    // (React compares dangerouslySetInnerHTML by object reference).
+    rerender(<RichText field={field} />);
+
+    const linkAfter = container.querySelector('#rt-link') as HTMLAnchorElement & {
+      __marker?: boolean;
+    };
+
+    expect(linkAfter).to.equal(link);
+    expect(linkAfter.__marker).to.equal(true);
+  });
 });
