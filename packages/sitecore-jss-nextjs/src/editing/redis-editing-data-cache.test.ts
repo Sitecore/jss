@@ -25,7 +25,7 @@ describe('redis editing data cache', () => {
       .stub(redisCache, 'get')
       .withArgs(key)
       .resolves(value);
-    sandbox.stub(redisCache, 'expire').resolves();
+    sandbox.stub(redisCache, 'del').resolves();
     return { cache, redisCache };
   };
 
@@ -77,7 +77,7 @@ describe('redis editing data cache', () => {
 
     await cache.get(key);
 
-    expect(redisCache.expire).to.have.been.calledWith(key, 0);
+    expect(redisCache.del).to.have.been.calledWith(key);
   });
 
   it('should put entries into storage', async () => {

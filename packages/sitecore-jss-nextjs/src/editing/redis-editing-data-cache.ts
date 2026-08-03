@@ -83,7 +83,7 @@ export class RedisEditingDataCache implements EditingDataCache {
         .get(key)
         .then((entry) => {
           const result = (entry || undefined) as EditingData;
-          this.redisCache.expire(key, 0).then(() => resolve(result));
+          this.redisCache.del(key).then(() => resolve(result));
         })
         .catch((err) => reject(err));
     });
