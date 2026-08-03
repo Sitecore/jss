@@ -8,6 +8,8 @@ Sitecore JSS for SSR using Experience Edge is considered experimental.
 
 [Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/server-side-render-jss-apps-headlessly-using-a-sitecore-experience-edge-endpoint.html)
 
+> **Note:** JSS 23 supports Sitecore XP 10.5. Sitecore AI is not supported - use [Sitecore Content SDK](https://doc.sitecore.com/sai/en/developers/content-sdk/sitecore-content-sdk-for-sitecoreai.html) for that scenario.
+
 > This is a sample setup that is not officially supported by Sitecore.
 
 This is a sample setup showing one of how you can configure rendering server on top of node.js and Express using Experience Edge. It performs only render of the sample app, quering layout data and dictionary data without proxying requests.

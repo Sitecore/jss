@@ -1,6 +1,4 @@
-﻿/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable dot-notation */
+﻿/* eslint-disable dot-notation */
 import { debug, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss';
 import {
   REDIRECT_TYPE_301,
@@ -470,7 +468,7 @@ describe('RedirectsMiddleware', () => {
       });
 
       expect(siteResolver.getByHost).to.be.calledWith(hostname);
-      // eslint-disable-next-line no-unused-expressions
+
       expect(fetchRedirects.called).to.be.true;
       expect(finalRes).to.deep.equal(res);
 
@@ -642,7 +640,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -692,7 +690,7 @@ describe('RedirectsMiddleware', () => {
         normalizeHref(finalRes.url);
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
 
         expect(finalRes).to.deep.equal(res);
@@ -743,7 +741,7 @@ describe('RedirectsMiddleware', () => {
         normalizeHref(finalRes.url);
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
 
         expect(finalRes).to.deep.equal(res);
@@ -796,7 +794,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -848,7 +846,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -899,7 +897,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -991,7 +989,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -1043,7 +1041,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -1096,7 +1094,7 @@ describe('RedirectsMiddleware', () => {
           req,
           res
         );
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -1147,7 +1145,7 @@ describe('RedirectsMiddleware', () => {
           req,
           res
         );
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -1200,7 +1198,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -1251,7 +1249,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -1614,7 +1612,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -1667,7 +1665,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
       });
@@ -1714,7 +1712,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.status).to.equal(res.status);
       });
@@ -1758,7 +1756,7 @@ describe('RedirectsMiddleware', () => {
         );
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.status).to.equal(res.status);
         expect(nextRewriteStub.called).to.be.true;
@@ -1805,7 +1803,7 @@ describe('RedirectsMiddleware', () => {
         );
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.status).to.equal(res.status);
         expect(nextRewriteStub.called).to.be.true;
@@ -2113,7 +2111,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
 
         // Normalize URL shape (string vs object) for comparison instead of deep equality
@@ -2166,7 +2164,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -2225,7 +2223,7 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.headers.has(REWRITE_HEADER_NAME)).to.equal(false);
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes.status).to.equal(res.status);
       });
@@ -2276,7 +2274,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -2328,7 +2326,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -2382,7 +2380,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -2432,7 +2430,7 @@ describe('RedirectsMiddleware', () => {
         normalizeHref(finalRes.url);
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -2483,7 +2481,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -2544,7 +2542,7 @@ describe('RedirectsMiddleware', () => {
         expect(finalRes.headers.has(REWRITE_HEADER_NAME)).to.equal(false);
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);
@@ -2712,7 +2710,7 @@ describe('RedirectsMiddleware', () => {
         });
 
         expect(siteResolver.getByHost).to.be.calledWith(hostname);
-        // eslint-disable-next-line no-unused-expressions
+
         expect(fetchRedirects.called).to.be.true;
         expect(finalRes).to.deep.equal(res);
         expect(finalRes.status).to.equal(res.status);

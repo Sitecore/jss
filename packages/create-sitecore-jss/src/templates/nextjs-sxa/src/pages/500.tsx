@@ -41,14 +41,6 @@ const Custom500 = (props: SitecorePageProps): JSX.Element => {
       <SitecoreContext
         componentFactory={componentBuilder.getComponentFactory()}
         layoutData={props.layoutData}
-        <% if (templates.includes('nextjs-xmcloud')) { %>
-          api={{
-            edge: {
-              contextId: config.sitecoreEdgeContextId,
-              edgeUrl: config.sitecoreEdgeUrl,
-            },
-          }}
-        <% } %>
       >
         <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
       </SitecoreContext>

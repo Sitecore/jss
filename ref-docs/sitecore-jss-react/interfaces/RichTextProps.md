@@ -6,11 +6,11 @@
 
 # Interface: RichTextProps
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:13](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/RichText.tsx#L13)
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:10](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/components/RichText.tsx#L10)
 
 ## Extends
 
-- `EditableFieldProps`\<`RichTextProps`\>
+- `EditableFieldProps`
 
 ## Indexable
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:13](https:/
 
 > `optional` **editable?**: `boolean`
 
-Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
+Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
 
 Can be used to explicitly disable inline editing.
 If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
@@ -39,27 +39,11 @@ true
 
 ***
 
-### emptyFieldEditingComponent?
-
-> `optional` **emptyFieldEditingComponent?**: `ComponentClass`\<`RichTextProps`, `any`\> \| `FC`\<`RichTextProps`\>
-
-Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:36](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/sharedTypes.ts#L36)
-
--- Edit Mode Metadata --
-
-Custom element to render in Pages in Metadata edit mode if field value is empty
-
-#### Inherited from
-
-`EditableFieldProps.emptyFieldEditingComponent`
-
-***
-
 ### field?
 
 > `optional` **field?**: [`RichTextField`](RichTextField.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:16](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/RichText.tsx#L16)
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:13](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/components/RichText.tsx#L13)
 
 The rich text field data.
 
@@ -69,7 +53,7 @@ The rich text field data.
 
 > `optional` **tag?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:21](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/RichText.tsx#L21)
+Defined in: [packages/sitecore-jss-react/src/components/RichText.tsx:18](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/components/RichText.tsx#L18)
 
 The HTML element that will wrap the contents of the field.
 

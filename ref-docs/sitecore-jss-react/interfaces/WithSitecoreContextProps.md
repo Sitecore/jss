@@ -6,47 +6,15 @@
 
 # Interface: WithSitecoreContextProps
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L14)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:10](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L10)
 
 ## Properties
-
-### api?
-
-> `optional` **api?**: `object`
-
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:16](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L16)
-
-#### edge?
-
-> `optional` **edge?**: `object`
-
-Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
-
-##### edge.contextId
-
-> **contextId**: `string`
-
-A unified identifier used to connect and retrieve data from XM Cloud instance
-
-##### edge.edgeUrl?
-
-> `optional` **edgeUrl?**: `string`
-
-XM Cloud endpoint that the app will communicate and retrieve data from
-
-###### Default
-
-```ts
-https://edge-platform.sitecorecloud.io
-```
-
-***
 
 ### sitecoreContext
 
 > **sitecoreContext**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:15](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L15)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:11](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L11)
 
 ***
 
@@ -54,4 +22,4 @@ Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:1
 
 > `optional` **updateSitecoreContext?**: `false` \| ((`value`) => `void`)
 
-Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:17](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L17)
+Defined in: [packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/enhancers/withSitecoreContext.tsx#L12)

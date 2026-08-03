@@ -6,7 +6,7 @@
 
 # Class: FieldFactory
 
-Defined in: [src/field-factory.tsx:14](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react-forms/src/field-factory.tsx#L14)
+Defined in: [src/field-factory.tsx:14](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react-forms/src/field-factory.tsx#L14)
 
 Maps field type IDs from Sitecore (/sitecore/system/Settings/Forms/Field Types)
 into an implementing React component - this is very similar to the JSS componentFactory,
@@ -18,7 +18,7 @@ but it maps form element components instead of layout components
 
 > **new FieldFactory**(): `FieldFactory`
 
-Defined in: [src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
+Defined in: [src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react-forms/src/field-factory.tsx#L18)
 
 #### Returns
 
@@ -30,7 +30,7 @@ Defined in: [src/field-factory.tsx:18](https://github.com/Sitecore/jss/blob/cc15
 
 > **get**(`field`, `props`): `ReactNode`
 
-Defined in: [src/field-factory.tsx:37](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react-forms/src/field-factory.tsx#L37)
+Defined in: [src/field-factory.tsx:37](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react-forms/src/field-factory.tsx#L37)
 
 #### Parameters
 
@@ -49,7 +49,7 @@ Defined in: [src/field-factory.tsx:37](https://github.com/Sitecore/jss/blob/cc15
 
 > **setComponent**\<`TProps`\>(`type`, `component`): `void`
 
-Defined in: [src/field-factory.tsx:30](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react-forms/src/field-factory.tsx#L30)
+Defined in: [src/field-factory.tsx:30](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react-forms/src/field-factory.tsx#L30)
 
 #### Type Parameters
 
@@ -74,7 +74,7 @@ Defined in: [src/field-factory.tsx:30](https://github.com/Sitecore/jss/blob/cc15
 
 > **setComponentNotFoundComponent**(`component`): `void`
 
-Defined in: [src/field-factory.tsx:26](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react-forms/src/field-factory.tsx#L26)
+Defined in: [src/field-factory.tsx:26](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react-forms/src/field-factory.tsx#L26)
 
 #### Parameters
 

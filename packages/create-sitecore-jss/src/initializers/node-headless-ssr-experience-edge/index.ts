@@ -1,5 +1,5 @@
 import path from 'path';
-import { Initializer, transform, BaseArgs } from '../../common';
+import { Initializer, transform, BaseArgs, sitecoreAiNotSupportedMsg } from '../../common';
 
 export default class NodeHeadlessSsrExperienceEdgeInitializer implements Initializer {
   get isBase(): boolean {
@@ -15,6 +15,7 @@ export default class NodeHeadlessSsrExperienceEdgeInitializer implements Initial
 
     return {
       appName: 'node-headless-ssr-experience-edge',
+      nextSteps: [`* ${sitecoreAiNotSupportedMsg()}`],
     };
   }
 }

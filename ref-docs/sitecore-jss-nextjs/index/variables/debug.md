@@ -31,10 +31,6 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 
 > **errorpages**: `debug.Debugger`
 
-### form
-
-> **form**: `debug.Debugger`
-
 ### http
 
 > **http**: `debug.Debugger`
@@ -46,10 +42,6 @@ See [https://www.npmjs.com/package/debug](https://www.npmjs.com/package/debug) f
 ### multisite
 
 > **multisite**: `debug.Debugger`
-
-### personalize
-
-> **personalize**: `debug.Debugger`
 
 ### proxy
 

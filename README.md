@@ -4,6 +4,8 @@
 
 This repository contains source code for all Sitecore JSS packages and templates to help you get started using Sitecore JSS.
 
+> **Note:** JSS 23 supports Sitecore XP 10.5. Sitecore AI is not supported - use [Sitecore Content SDK](https://doc.sitecore.com/sai/en/developers/content-sdk/sitecore-content-sdk-for-sitecoreai.html) for that scenario.
+
 ## Getting started with JSS
 
 To develop a JSS application, you need:
@@ -82,7 +84,6 @@ To create a JSS project for an older version of JSS and Sitecore:
 ## Documentation and community resources
 
 - Official JSS documentation:
-  - [XM Cloud](https://doc.sitecore.com/xmc/en/developers/jss/latest/jss-xmc/index-en.html)
   - [XP](https://doc.sitecore.com/xp/en/developers/hd/latest/sitecore-headless-development/sitecore-javascript-rendering-sdks--jss-.html)
 - [StackExchange](https://sitecore.stackexchange.com/)
 - [Community Slack](https://sitecorechat.slack.com/messages/jss)

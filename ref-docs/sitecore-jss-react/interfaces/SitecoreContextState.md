@@ -6,47 +6,15 @@
 
 # Interface: SitecoreContextState
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:33](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L33)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L12)
 
 ## Properties
-
-### api?
-
-> `optional` **api?**: `object`
-
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:36](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L36)
-
-#### edge?
-
-> `optional` **edge?**: `object`
-
-Sitecore XM Cloud Edge endpoint credentials for Sitecore connection.
-
-##### edge.contextId
-
-> **contextId**: `string`
-
-A unified identifier used to connect and retrieve data from XM Cloud instance
-
-##### edge.edgeUrl?
-
-> `optional` **edgeUrl?**: `string`
-
-XM Cloud endpoint that the app will communicate and retrieve data from
-
-###### Default
-
-```ts
-https://edge-platform.sitecorecloud.io
-```
-
-***
 
 ### context
 
 > **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L35)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L14)
 
 ***
 
@@ -54,7 +22,7 @@ Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:35](
 
 > **setContext**: (`value`) => `void`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:34](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L34)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:13](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L13)
 
 #### Parameters
 

@@ -1,16 +1,6 @@
-import {
-  Directive,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  TemplateRef,
-  Type,
-  inject,
-} from '@angular/core';
+import { Directive, Input, OnChanges, SimpleChanges, TemplateRef, inject } from '@angular/core';
 import { TextField } from './rendering-field';
 import { BaseFieldDirective } from './base-field.directive';
-import { DefaultEmptyFieldEditingComponent } from './default-empty-text-field-editing-placeholder.component';
-import { MetadataKind } from '@sitecore-jss/sitecore-jss/editing';
 
 @Directive({
   selector: '[scText]',
@@ -22,15 +12,6 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
 
   @Input('scText') field: TextField;
 
-  /**
-   * Custom template to render in Pages in Metadata edit mode if field value is empty
-   */
-  @Input('scTextEmptyFieldEditingTemplate') emptyFieldEditingTemplate: TemplateRef<unknown>;
-
-  /**
-   * Default component to render in Pages in Metadata edit mode if field value is empty and emptyFieldEditingTemplate is not provided
-   */
-  protected defaultFieldEditingComponent: Type<unknown> = DefaultEmptyFieldEditingComponent;
   private templateRef = inject(TemplateRef);
 
   ngOnChanges(changes: SimpleChanges) {
@@ -43,13 +24,10 @@ export class TextDirective extends BaseFieldDirective implements OnChanges {
 
   private updateView() {
     if (!this.shouldRender()) {
-      super.renderEmpty();
       return;
     }
 
-    this.renderMetadata(MetadataKind.Open);
     this.viewRef = this.viewContainer.createEmbeddedView(this.templateRef);
-    this.renderMetadata(MetadataKind.Close);
 
     const field = this.field;
     let editable = this.editable;

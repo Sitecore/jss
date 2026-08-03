@@ -10,6 +10,8 @@ The setup is using `sitecore-jss-proxy` that enables request proxying to Sitecor
 
 [Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/walkthrough--rendering-a-jss-app-server-side-using-the-headless-jss-proxy.html)
 
+> **Note:** JSS 23 supports Sitecore XP 10.5. Sitecore AI is not supported - use [Sitecore Content SDK](https://doc.sitecore.com/sai/en/developers/content-sdk/sitecore-content-sdk-for-sitecoreai.html) for that scenario.
+
 > This is a sample setup that is not officially supported by Sitecore.
 
 You can use this as a starting point to unlock deployment of your JSS apps to any managed node.js hosting environment (Azure App Service, Heroku, IBM BlueMix, you name it).

@@ -9,8 +9,6 @@ export interface JssConfig extends Record<string, string | boolean | undefined> 
   defaultLanguage?: string;
   graphQLEndpoint?: string;
   graphQLEndpointPath?: string;
-  <% if (!locals.xmcloud) { -%>
   layoutServiceConfigurationName?: string;
-  <% } -%>
   defaultServerRoute?: string;
 }

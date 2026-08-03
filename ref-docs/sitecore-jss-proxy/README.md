@@ -4,7 +4,23 @@
 
 # @sitecore-jss/sitecore-jss-proxy
 
-## Modules
+## Namespaces
 
-- [index](index/README.md)
-- [personalize](personalize/README.md)
+- [headlessProxy](@sitecore-jss/namespaces/headlessProxy/README.md)
+
+## Interfaces
+
+- [RenderResponse](interfaces/RenderResponse.md)
+
+## Type Aliases
+
+- [AppRenderer](type-aliases/AppRenderer.md)
+- [RouteUrlParser](type-aliases/RouteUrlParser.md)
+
+## Variables
+
+- [GRAPHQL\_LAYOUT\_QUERY\_NAME](variables/GRAPHQL_LAYOUT_QUERY_NAME.md)
+
+## Functions
+
+- [healthCheck](functions/healthCheck.md)

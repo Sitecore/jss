@@ -8,9 +8,7 @@
 
 ## Enumerations
 
-- [EditMode](enumerations/EditMode.md)
 - [LayoutServicePageState](enumerations/LayoutServicePageState.md)
-- [RenderingType](enumerations/RenderingType.md)
 
 ## Classes
 
@@ -23,7 +21,6 @@
 - [ComponentParams](interfaces/ComponentParams.md)
 - [ComponentRendering](interfaces/ComponentRendering.md)
 - [Field](interfaces/Field.md)
-- [FieldMetadata](interfaces/FieldMetadata.md)
 - [GraphQLLayoutServiceConfig](interfaces/GraphQLLayoutServiceConfig.md)
 - [HtmlElementRendering](interfaces/HtmlElementRendering.md)
 - [Item](interfaces/Item.md)
@@ -43,16 +40,12 @@
 
 ## Variables
 
-- [EDITING\_COMPONENT\_ID](variables/EDITING_COMPONENT_ID.md)
-- [EDITING\_COMPONENT\_PLACEHOLDER](variables/EDITING_COMPONENT_PLACEHOLDER.md)
 - [EMPTY\_DATE\_FIELD\_VALUE](variables/EMPTY_DATE_FIELD_VALUE.md)
 - [GRAPHQL\_LAYOUT\_QUERY\_NAME](variables/GRAPHQL_LAYOUT_QUERY_NAME.md)
 
 ## Functions
 
 - [getChildPlaceholder](functions/getChildPlaceholder.md)
-- [getContentStylesheetLink](functions/getContentStylesheetLink.md)
-- [getDesignLibraryStylesheetLinks](functions/getDesignLibraryStylesheetLinks.md)
 - [getDynamicPlaceholderPattern](functions/getDynamicPlaceholderPattern.md)
 - [getFieldValue](functions/getFieldValue.md)
 - [isDynamicPlaceholder](functions/isDynamicPlaceholder.md)

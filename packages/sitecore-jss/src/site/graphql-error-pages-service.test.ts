@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import sinon, { SinonSpy } from 'sinon';
 import nock from 'nock';
@@ -116,7 +115,6 @@ describe('GraphQLErrorPagesService', () => {
       });
       const errorPages = await service.fetchErrorPages();
 
-      // eslint-disable-next-line no-unused-expressions
       expect(errorPages).to.be.null;
       return expect(nock.isDone()).to.be.true;
     });

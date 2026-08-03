@@ -8,7 +8,7 @@
 
 > **EditingRenderMiddlewareConfig** = `object`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:27](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L27)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:18](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L18)
 
 Configuration for the Editing Render Middleware.
 
@@ -18,9 +18,7 @@ Configuration for the Editing Render Middleware.
 
 > `optional` **dataFetcher?**: [`NativeDataFetcher`](../../index/classes/NativeDataFetcher.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:35](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L35)
-
--- Edit Mode Chromes --
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:24](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L24)
 
 The `NativeDataFetcher` instance to use for API requests.
 
@@ -40,9 +38,7 @@ NativeDataFetcher
 
 > `optional` **editingDataService?**: [`EditingDataService`](../interfaces/EditingDataService.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:46](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L46)
-
--- Edit Mode Chromes --
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:33](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L33)
 
 The `EditingDataService` instance to use.
 This would typically only be necessary if you've got a custom `EditingDataService` instance (e.g. using a custom API route).
@@ -65,9 +61,7 @@ EditingDataService
 
 > `optional` **resolvePageUrl?**: (`args`) => `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:60](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L60)
-
--- Edit Mode Chromes / Metadata --
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:44](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L44)
 
 Function used to determine route/page URL to render.
 This may be necessary for certain custom Next.js routing configurations.
@@ -78,7 +72,7 @@ This may be necessary for certain custom Next.js routing configurations.
 | ------ | ------ | ------ |
 | `args` | \{ `itemPath`: `string`; `serverUrl?`: `string`; \} | Arguments for resolving the page URL |
 | `args.itemPath` | `string` | - |
-| `args.serverUrl?` | `string` | The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only. |
+| `args.serverUrl?` | `string` | The root server URL e.g. 'http://localhost:3000'. |
 
 #### Returns
 
@@ -88,11 +82,7 @@ The URL to render
 
 #### Default
 
-`${serverUrl}${itemPath}` In Edit Mode Chromes
-
-#### Default
-
-`${itemPath}` In XMCloud Pages for Edit Mode Metadata
+`${serverUrl}${itemPath}`
 
 #### See
 
@@ -104,9 +94,7 @@ resolveServerUrl
 
 > `optional` **resolveServerUrl?**: (`req`) => `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:70](https://github.com/Sitecore/jss/blob/cc154d76fec0a008a94d401253ee5ca8b2c1e88a/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L70)
-
--- Edit Mode Chromes --
+Defined in: [sitecore-jss-nextjs/src/editing/editing-render-middleware.ts:52](https://github.com/Sitecore/jss/blob/18d1835ceed2295614003c2a97b4bdf43ef246f7/packages/sitecore-jss-nextjs/src/editing/editing-render-middleware.ts#L52)
 
 Function used to determine the root server URL. This is used for the route/page and subsequent data API requests.
 By default, the host header is used, with https protocol on Vercel (due to serverless function architecture) and http protocol elsewhere.

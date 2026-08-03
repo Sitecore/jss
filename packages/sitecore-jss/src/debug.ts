@@ -28,7 +28,6 @@ export const enableDebug = (namespaces: string) => debug.enable(namespaces);
  * See {@link https://www.npmjs.com/package/debug} for details.
  */
 export default {
-  form: debug(`${rootNamespace}:form`),
   common: debug(`${rootNamespace}:common`),
   http: debug(`${rootNamespace}:http`),
   layout: debug(`${rootNamespace}:layout`),
@@ -38,7 +37,6 @@ export default {
   multisite: debug(`${rootNamespace}:multisite`),
   robots: debug(`${rootNamespace}:robots`),
   redirects: debug(`${rootNamespace}:redirects`),
-  personalize: debug(`${rootNamespace}:personalize`),
   errorpages: debug(`${rootNamespace}:errorpages`),
   proxy: debug(`${rootNamespace}:proxy`),
 };

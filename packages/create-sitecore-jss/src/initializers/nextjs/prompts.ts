@@ -2,7 +2,6 @@ import { QuestionCollection } from 'inquirer';
 import CheckboxPrompt from 'inquirer/lib/prompts/checkbox';
 
 import { clientAppPrompts, ClientAppAnswer, incompatibleAddonsMsg, sxpPrompts } from '../../common';
-import { NextjsArgs } from './args';
 
 export enum Prerender {
   SSG = 'SSG',
@@ -11,7 +10,6 @@ export enum Prerender {
 
 export type NextjsAnswer = ClientAppAnswer & {
   prerender: Prerender;
-  xmcloud: boolean;
 };
 
 const DEFAULT_PRERENDER = Prerender.SSG;
@@ -27,7 +25,6 @@ export const sharedPrerender = {
   prerender: DEFAULT_PRERENDER,
 };
 
-// still need sxp prompts here until sitecore/config is no longer added to xmc app
 export const prompts: QuestionCollection<NextjsAnswer> = [
   ...clientAppPrompts,
   ...sxpPrompts,
@@ -42,22 +39,6 @@ export const prompts: QuestionCollection<NextjsAnswer> = [
         answers.prerender = DEFAULT_PRERENDER;
       }
       return !answers.prerender;
-    },
-  },
-  {
-    type: 'confirm',
-    name: 'xmcloud',
-    message: 'Are you building for Sitecore XM Cloud?',
-    default: false,
-    when: (answers: NextjsAnswer & NextjsArgs): boolean => {
-      // don't prompt if --yes or nextjs-xmcloud template was specified
-      if (answers.yes) {
-        return false;
-      } else if (answers.templates.includes('nextjs-xmcloud')) {
-        answers.xmcloud = true;
-        return false;
-      }
-      return true;
     },
   },
 ];

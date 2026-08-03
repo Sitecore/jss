@@ -5,6 +5,8 @@
 -->
 [Documentation (Experience Platform)](https://doc.sitecore.com/xp/en/developers/hd/22/sitecore-headless-development/sitecore-javascript-rendering-sdk--jss--for-react.html)
 
+> **Note:** JSS 23 supports Sitecore XP 10.5. Sitecore AI is not supported - use [Sitecore Content SDK](https://doc.sitecore.com/sai/en/developers/content-sdk/sitecore-content-sdk-for-sitecoreai.html) for that scenario.
+
 ## Disconnected Sitecore-less Development
 
 Use `jss start` to run a local development server. Sitecore is not required to be installed, and content data is pulled from static local sources.

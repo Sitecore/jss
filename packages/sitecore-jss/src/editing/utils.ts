@@ -1,4 +1,3 @@
-import { Field, GenericFieldValue } from '../layout/models';
 import isServer from '../utils/is-server';
 
 /**
@@ -10,20 +9,6 @@ export const DEFAULT_PLACEHOLDER_UID = '00000000-0000-0000-0000-000000000000';
  * Query parameter for editing secret
  */
 export const QUERY_PARAM_EDITING_SECRET = 'secret';
-
-/**
- * ID to be used as a marker for a script rendered in XMC Pages
- * Should identify app is in XM Cloud Pages editing mode
- */
-export const PAGES_EDITING_MARKER = 'jss-hrz-editing';
-
-/**
- * Default allowed origins for editing requests. This is used to enforce CORS, CSP headers.
- */
-export const EDITING_ALLOWED_ORIGINS = [
-  'https://pages.sitecorecloud.io',
-  'https://app.sitecorecloud.io',
-];
 
 type ExtendedWindow = Window &
   typeof globalThis & {
@@ -38,24 +23,6 @@ type ExtendedWindow = Window &
   };
 
 /**
- * Event args for Design Library `update` event
- */
-export interface ComponentUpdateEventArgs {
-  name: string;
-  details?: {
-    uid: string;
-    params?: Record<string, string>;
-    fields?: Record<string, Field<GenericFieldValue>>;
-  };
-}
-/**
- * Application metadata
- */
-export interface Metadata {
-  packages: { [key: string]: string };
-}
-
-/**
  * Static utility class for Sitecore Experience Editor
  */
 export class ExperienceEditor {
@@ -68,7 +35,7 @@ export class ExperienceEditor {
     if (isServer()) {
       return false;
     }
-    // eslint-disable-next-line
+
     const sc = (window as ExtendedWindow).Sitecore;
     return Boolean(sc && sc.PageModes && sc.PageModes.ChromeManager);
   }
@@ -81,47 +48,12 @@ export class ExperienceEditor {
 }
 
 /**
- * Copy of chrome rediscovery contract from Horizon (chrome-rediscovery.contract.ts)
- */
-export const ChromeRediscoveryGlobalFunctionName = {
-  name: 'Sitecore.Horizon.ResetChromes',
-};
-
-/**
- * Static utility class for Sitecore Pages Editor (ex-Horizon)
- */
-export class HorizonEditor {
-  /**
-   * Determines whether the current execution context is within a Pages Editor.
-   * Pages Editor environment can be identified only in the browser
-   * @returns true if executing within a Pages Editor
-   */
-  static isActive(): boolean {
-    if (isServer()) {
-      return false;
-    }
-    // Check for Chromes mode
-    const chromesCheck = window.location.search.indexOf('sc_headless_mode=edit') > -1;
-    // JSS will render a jss-exclusive script element in Metadata mode to indicate edit mode in Pages
-    return chromesCheck || !!window.document.getElementById(PAGES_EDITING_MARKER);
-  }
-  static resetChromes(): void {
-    if (isServer()) {
-      return;
-    }
-    // Reset chromes in Pages
-    (window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] &&
-      ((window as ExtendedWindow)[ChromeRediscoveryGlobalFunctionName.name] as () => void)();
-  }
-}
-
-/**
  * Determines whether the current execution context is within a Sitecore editor.
  * Sitecore Editor environment can be identified only in the browser
  * @returns true if executing within a Sitecore editor
  */
 export const isEditorActive = (): boolean => {
-  return ExperienceEditor.isActive() || HorizonEditor.isActive();
+  return ExperienceEditor.isActive();
 };
 
 /**
@@ -130,8 +62,6 @@ export const isEditorActive = (): boolean => {
 export const resetEditorChromes = (): void => {
   if (ExperienceEditor.isActive()) {
     ExperienceEditor.resetChromes();
-  } else if (HorizonEditor.isActive()) {
-    HorizonEditor.resetChromes();
   }
 };
 
@@ -172,15 +102,4 @@ export const handleEditorAnchors = () => {
   if (targetNode) {
     observer.observe(targetNode, observerOptions);
   }
-};
-
-/**
- * Gets extra JSS clientData scripts to render in XMC Pages in addition to clientData from Pages itself
- * @returns {Record} collection of clientData
- */
-export const getJssPagesClientData = () => {
-  const clientData: Record<string, Record<string, unknown>> = {};
-  clientData[PAGES_EDITING_MARKER] = {};
-
-  return clientData;
 };

@@ -2,7 +2,6 @@ import React from 'react';
 import { PlaceholderCommon, PlaceholderProps } from './PlaceholderCommon';
 import { withComponentFactory } from '../enhancers/withComponentFactory';
 import { ComponentRendering, HtmlElementRendering } from '@sitecore-jss/sitecore-jss/layout';
-import { HorizonEditor } from '@sitecore-jss/sitecore-jss/editing';
 import { withSitecoreContext } from '../enhancers/withSitecoreContext';
 
 export interface PlaceholderComponentProps extends PlaceholderProps {
@@ -49,13 +48,6 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
     super(props);
   }
 
-  componentDidMount() {
-    super.componentDidMount();
-    if (this.isEmpty && HorizonEditor.isActive()) {
-      HorizonEditor.resetChromes();
-    }
-  }
-
   /**
    * In case we need to render an empty placeholder, some part of the markup will be inserted by the EE,
    * so we need to separate the empty placeholder's markup and allow React reconciliation to be executed correctly
@@ -88,8 +80,7 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
 
     const placeholderData = PlaceholderCommon.getPlaceholderDataFromRenderingData(
       renderingData,
-      this.props.name,
-      this.props.sitecoreContext?.editMode
+      this.props.name
     );
 
     this.isEmpty = placeholderData.every((rendering: ComponentRendering | HtmlElementRendering) =>

@@ -1,10 +1,8 @@
 import {
   LayoutService,
   GraphQLLayoutService,
-  <% if (!locals.xmcloud) { -%>
   RestLayoutService,
   constants,
-   <% } -%>
 } from '@sitecore-jss/sitecore-jss-angular';
 import { environment } from '../../environments/environment';
 import clientFactory from './graphql-client-factory';
@@ -12,7 +10,6 @@ import clientFactory from './graphql-client-factory';
 export class LayoutServiceFactory {
   create(): LayoutService {
     const service =
-    <% if (!locals.xmcloud) { -%>
       process.env.FETCH_WITH === constants.FETCH_WITH.REST
         ? new RestLayoutService({
             apiHost: environment.sitecoreApiHost,
@@ -20,9 +17,7 @@ export class LayoutServiceFactory {
             siteName: environment.sitecoreSiteName,
             configurationName: environment.layoutServiceConfigurationName,
           })
-        : 
-    <% } -%>
-        new GraphQLLayoutService({
+        : new GraphQLLayoutService({
             clientFactory,
             siteName: environment.sitecoreSiteName,
           });

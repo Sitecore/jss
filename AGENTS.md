@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This repository is **Sitecore JavaScript Services (JSS)** — a TypeScript monorepo of SDK packages, scaffolding CLI, and samples for building applications with Sitecore XM Cloud and on-premises. AI agents work as developer assistants to implement features, fix bugs, add tests, and maintain templates.
+This repository is **Sitecore JavaScript Services (JSS)** — a TypeScript monorepo of SDK packages, scaffolding CLI, and samples for building applications with on-premises Sitecore (Sitecore AI support is provided by the separate Sitecore Content SDK). AI agents work as developer assistants to implement features, fix bugs, add tests, and maintain templates.
 
 **Main tasks:** Generate JSS SDK code, perform safe edits in packages and templates, update tests. Do not modify global config (CI, root tooling) without explicit instruction.
 
@@ -59,7 +59,7 @@ jss/
 
 **Key locations:**
 - **Sources:** `src/**` in each package
-- **Templates:** `packages/create-sitecore-jss/src/templates/` — nextjs, angular, vue, react, nextjs-styleguide, nextjs-sxa, nextjs-xmcloud, etc.
+- **Templates:** `packages/create-sitecore-jss/src/templates/` — nextjs, angular, vue, react, nextjs-styleguide, nextjs-sxa, etc.
 - **Initializers:** `packages/create-sitecore-jss/src/initializers/` — drive scaffolding via `initRunner(initializers, args)`
 - **Common processes:** `packages/create-sitecore-jss/src/common/` — transform, install, lint utilities
 - **Environment variables:** Templates use `.env` files (e.g. `templates/nextjs/.env`) with EJS tokens; never commit `.env` or `.env.local` in samples
@@ -171,8 +171,6 @@ yarn test-packages
 ## Links
 
 - [Sitecore JSS Documentation](https://jss.sitecore.com/docs)
-- [Creating a JSS App for XM Cloud](https://doc.sitecore.com/xmc/en/developers/content-sdk/creating-a-jss-app-for-xm-cloud.html)
-- [XM Cloud Documentation](https://doc.sitecore.com/xmc)
 
 ---
 

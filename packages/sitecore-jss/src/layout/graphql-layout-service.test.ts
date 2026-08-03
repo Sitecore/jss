@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect, use } from 'chai';
 import sinon, { SinonSpy } from 'sinon';
 import spies from 'chai-spies';

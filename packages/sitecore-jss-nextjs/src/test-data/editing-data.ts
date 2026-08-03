@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 export const data = {
   path: '/Styleguide',
   layoutData: {
