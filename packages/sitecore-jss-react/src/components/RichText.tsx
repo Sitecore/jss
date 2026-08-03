@@ -27,7 +27,7 @@ export const RichText = forwardRef(
     // parent re-render when the HTML string is unchanged (preserves DOM nodes / listeners).
     const html = field?.editable && editable ? field.editable : field?.value;
     const dangerouslySetInnerHTML = useMemo(
-      () => (html != null && html !== '' ? { __html: html } : undefined),
+      () => (html !== undefined && html !== '' ? { __html: html } : undefined),
       [html]
     );
 
