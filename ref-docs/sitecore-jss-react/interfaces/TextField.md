@@ -6,7 +6,7 @@
 
 # Interface: TextField
 
-Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:5](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-react/src/components/Text.tsx#L5)
+Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:5](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-react/src/components/Text.tsx#L5)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:5](https://gith
 
 > `optional` **editable?**: `string`
 
-Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:7](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-react/src/components/Text.tsx#L7)
+Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:7](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-react/src/components/Text.tsx#L7)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:7](https://gith
 
 > `optional` **value?**: `string` \| `number`
 
-Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:6](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-react/src/components/Text.tsx#L6)
+Defined in: [packages/sitecore-jss-react/src/components/Text.tsx:6](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-react/src/components/Text.tsx#L6)

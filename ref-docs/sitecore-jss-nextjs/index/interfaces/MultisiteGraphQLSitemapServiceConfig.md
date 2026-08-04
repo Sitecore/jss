@@ -6,7 +6,7 @@
 
 # Interface: MultisiteGraphQLSitemapServiceConfig
 
-Defined in: [sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:15](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L15)
+Defined in: [sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:15](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L15)
 
 Configuration options for
 
@@ -24,7 +24,7 @@ GraphQLSitemapService instances
 
 > **clientFactory**: [`GraphQLRequestClientFactory`](../../graphql/type-aliases/GraphQLRequestClientFactory.md)
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:120](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L120)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:120](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L120)
 
 A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
 This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -39,7 +39,7 @@ This factory function is used to create and configure GraphQL clients for making
 
 > `optional` **excludedPaths?**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:75](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L75)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:75](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L75)
 
 Optional. Paths starting with these provided prefixes will be excluded from returned results.
 
@@ -53,7 +53,7 @@ Optional. Paths starting with these provided prefixes will be excluded from retu
 
 > `optional` **includedPaths?**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:71](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L71)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:71](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L71)
 
 Optional. Only paths starting with these provided prefixes will be returned.
 
@@ -67,7 +67,7 @@ Optional. Only paths starting with these provided prefixes will be returned.
 
 > `optional` **pageSize?**: `number`
 
-Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:83](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L83)
+Defined in: [sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts:83](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-nextjs/src/services/base-graphql-sitemap-service.ts#L83)
 
 common variable for all GraphQL queries
 it will be used for every type of query to regulate result batch size
@@ -89,6 +89,6 @@ Optional. How many result items to fetch in each GraphQL call. This is needed fo
 
 > **sites**: `string`[]
 
-Defined in: [sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L19)
+Defined in: [sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts:19](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-nextjs/src/services/mutisite-graphql-sitemap-service.ts#L19)
 
 Names of the configured sites

@@ -6,7 +6,7 @@
 
 # Interface: Processor
 
-Defined in: [pipelines/pipelineFactory.ts:3](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L3)
+Defined in: [pipelines/pipelineFactory.ts:3](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L3)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [pipelines/pipelineFactory.ts:3](https://github.com/Sitecore/jss/blo
 
 > `optional` **args?**: `any`
 
-Defined in: [pipelines/pipelineFactory.ts:19](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L19)
+Defined in: [pipelines/pipelineFactory.ts:19](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L19)
 
 additional arguments that should be passed to the processor when invoked
 
@@ -24,7 +24,7 @@ additional arguments that should be passed to the processor when invoked
 
 > `optional` **modulePath?**: `string` \| \{ `filePath`: `string`; `workingDirectory`: `string`; \}
 
-Defined in: [pipelines/pipelineFactory.ts:11](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L11)
+Defined in: [pipelines/pipelineFactory.ts:11](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L11)
 
 optional but must be specified if process is not
 
@@ -34,7 +34,7 @@ optional but must be specified if process is not
 
 > `optional` **moduleWrapper?**: `any`
 
-Defined in: [pipelines/pipelineFactory.ts:20](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L20)
+Defined in: [pipelines/pipelineFactory.ts:20](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L20)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [pipelines/pipelineFactory.ts:20](https://github.com/Sitecore/jss/bl
 
 > **name**: `string`
 
-Defined in: [pipelines/pipelineFactory.ts:7](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L7)
+Defined in: [pipelines/pipelineFactory.ts:7](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L7)
 
 name of the processor
 
@@ -52,7 +52,7 @@ name of the processor
 
 > `optional` **process?**: (`args`) => `any`
 
-Defined in: [pipelines/pipelineFactory.ts:15](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L15)
+Defined in: [pipelines/pipelineFactory.ts:15](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/pipelines/pipelineFactory.ts#L15)
 
 optional but must be specified if modulePath is not
 

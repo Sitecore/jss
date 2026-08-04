@@ -6,7 +6,7 @@
 
 # Interface: GeneratePlaceholdersPipelineArgs
 
-Defined in: [manifest/generator/manifest.types.ts:403](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L403)
+Defined in: [manifest/generator/manifest.types.ts:403](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L403)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [manifest/generator/manifest.types.ts:403](https://github.com/Siteco
 
 > **items**: [`RouteDefinition`](RouteDefinition.md)[]
 
-Defined in: [manifest/generator/manifest.types.ts:404](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L404)
+Defined in: [manifest/generator/manifest.types.ts:404](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L404)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [manifest/generator/manifest.types.ts:404](https://github.com/Siteco
 
 > **pipelines**: `object`
 
-Defined in: [manifest/generator/manifest.types.ts:410](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L410)
+Defined in: [manifest/generator/manifest.types.ts:410](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L410)
 
 #### Index Signature
 
@@ -34,7 +34,7 @@ Defined in: [manifest/generator/manifest.types.ts:410](https://github.com/Siteco
 
 > **placeholderNames**: `string`[]
 
-Defined in: [manifest/generator/manifest.types.ts:407](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L407)
+Defined in: [manifest/generator/manifest.types.ts:407](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L407)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [manifest/generator/manifest.types.ts:407](https://github.com/Siteco
 
 > **placeholders**: [`PlaceholderDefinition`](PlaceholderDefinition.md)[]
 
-Defined in: [manifest/generator/manifest.types.ts:406](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L406)
+Defined in: [manifest/generator/manifest.types.ts:406](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L406)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [manifest/generator/manifest.types.ts:406](https://github.com/Siteco
 
 > **renderings**: `any`[]
 
-Defined in: [manifest/generator/manifest.types.ts:405](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L405)
+Defined in: [manifest/generator/manifest.types.ts:405](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L405)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: [manifest/generator/manifest.types.ts:405](https://github.com/Siteco
 
 > **rootPlaceholders**: `string`[]
 
-Defined in: [manifest/generator/manifest.types.ts:408](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L408)
+Defined in: [manifest/generator/manifest.types.ts:408](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L408)
 
 ***
 
@@ -66,4 +66,4 @@ Defined in: [manifest/generator/manifest.types.ts:408](https://github.com/Siteco
 
 > **skipPlaceholderBlacklist**: `boolean`
 
-Defined in: [manifest/generator/manifest.types.ts:409](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L409)
+Defined in: [manifest/generator/manifest.types.ts:409](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L409)

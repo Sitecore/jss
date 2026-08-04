@@ -6,7 +6,7 @@
 
 # Class: DateDirective
 
-Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:9](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/date.directive.ts#L9)
+Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:9](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/date.directive.ts#L9)
 
 ## Extends
 
@@ -36,7 +36,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:9](h
 
 > **editable**: `boolean` = `true`
 
-Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:16](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/date.directive.ts#L16)
+Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:16](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/date.directive.ts#L16)
 
 #### Overrides
 
@@ -48,7 +48,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:16](
 
 > **field**: `DateField`
 
-Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:18](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/date.directive.ts#L18)
+Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:18](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/date.directive.ts#L18)
 
 #### Overrides
 
@@ -60,7 +60,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:18](
 
 > `optional` **format?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:10](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/date.directive.ts#L10)
+Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:10](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/date.directive.ts#L10)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:10](
 
 > `optional` **locale?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:14](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/date.directive.ts#L14)
+Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:14](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/date.directive.ts#L14)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:14](
 
 > `optional` **timezone?**: `string`
 
-Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:12](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/date.directive.ts#L12)
+Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:12](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/date.directive.ts#L12)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:12](
 
 > `protected` **viewContainer**: `ViewContainerRef`
 
-Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:10](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L10)
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:10](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L10)
 
 #### Inherited from
 
@@ -96,7 +96,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.t
 
 > `protected` **viewRef**: `EmbeddedViewRef`\<`unknown`\>
 
-Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:11](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L11)
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:11](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L11)
 
 #### Inherited from
 
@@ -108,7 +108,7 @@ Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.t
 
 > **ngOnChanges**(`changes`): `void`
 
-Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:23](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/date.directive.ts#L23)
+Defined in: [packages/sitecore-jss-angular/src/components/date.directive.ts:23](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/date.directive.ts#L23)
 
 A callback method that is invoked immediately after the
 default change detector has checked data-bound properties
@@ -135,7 +135,7 @@ children are checked.
 
 > `protected` **shouldRender**(): `boolean`
 
-Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:19](https://github.com/Sitecore/jss/blob/548a0b4c75ca6c8e4efd93e9a3ccf5685ae96ac6/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L19)
+Defined in: [packages/sitecore-jss-angular/src/components/base-field.directive.ts:19](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-angular/src/components/base-field.directive.ts#L19)
 
 Determines if directive should render the field as is
 Returns true if we are in edit mode 'chromes' (field.editable is present) or field is not empty
