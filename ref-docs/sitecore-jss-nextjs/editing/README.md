@@ -12,8 +12,8 @@
 - [EditingDataDiskCache](classes/EditingDataDiskCache.md)
 - [EditingDataMiddleware](classes/EditingDataMiddleware.md)
 - [EditingRenderMiddleware](classes/EditingRenderMiddleware.md)
+- [RedisEditingDataCache](classes/RedisEditingDataCache.md)
 - [ServerlessEditingDataService](classes/ServerlessEditingDataService.md)
-- [VercelEditingDataCache](classes/VercelEditingDataCache.md)
 
 ## Interfaces
 
@@ -22,6 +22,7 @@
 - [EditingDataMiddlewareConfig](interfaces/EditingDataMiddlewareConfig.md)
 - [EditingDataService](interfaces/EditingDataService.md)
 - [EditingPreviewData](interfaces/EditingPreviewData.md)
+- [RedisEditingDataCacheOptions](interfaces/RedisEditingDataCacheOptions.md)
 - [ServerlessEditingDataServiceConfig](interfaces/ServerlessEditingDataServiceConfig.md)
 
 ## Type Aliases
