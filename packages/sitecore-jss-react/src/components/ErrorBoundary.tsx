@@ -54,6 +54,13 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     );
   }
 
+  isPageEditing(): boolean {
+    return (
+      !!this.props.sitecoreContext?.pageEditing ||
+      this.props.sitecoreContext?.pageState === LayoutServicePageState.Edit
+    );
+  }
+
   render() {
     if (this.state.error) {
       if (this.props.errorComponent) {
@@ -81,17 +88,32 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     }
 
     // do not apply suspense when suspense is disabled or when on already dynamic components
+    let content: ReactNode;
     if ((this.props.disableSuspense ?? true) || this.props.isDynamic) {
-      return this.props.children;
+      content = this.props.children;
+    } else {
+      content = (
+        <Suspense
+          fallback={<h4>{this.props.componentLoadingMessage || this.defaultLoadingMessage}</h4>}
+        >
+          {this.props.children}
+        </Suspense>
+      );
     }
 
-    return (
-      <Suspense
-        fallback={<h4>{this.props.componentLoadingMessage || this.defaultLoadingMessage}</h4>}
-      >
-        {this.props.children}
-      </Suspense>
-    );
+    // Experience Editor tags the outermost DOM node of each rendering (sc-part-of,
+    // scEnabledChrome) after SSR. Own that node in the SDK during editing so hydration
+    // mismatches can be suppressed without requiring suppressHydrationWarning on every
+    // app component. `display: contents` keeps SXA/Bootstrap column layout intact.
+    if (this.isPageEditing()) {
+      return (
+        <div suppressHydrationWarning style={{ display: 'contents' }}>
+          {content}
+        </div>
+      );
+    }
+
+    return content;
   }
 }
 

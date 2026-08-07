@@ -63,8 +63,10 @@ export interface ImageProps extends EditableFieldProps {
 const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (
   // create an inline wrapper and use dangerouslySetInnerHTML.
   // if we try to parse the EE value, the parser will strip invalid or disallowed attributes from html elements - and EE uses several
+  // Experience Editor rewrites this chrome markup client-side after SSR.
   <span
     className="sc-image-wrapper"
+    suppressHydrationWarning
     {...otherProps}
     dangerouslySetInnerHTML={{ __html: editableMarkup }}
   />

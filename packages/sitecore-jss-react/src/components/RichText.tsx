@@ -40,6 +40,8 @@ export const RichText = forwardRef(
     const htmlProps = {
       dangerouslySetInnerHTML,
       ref,
+      // Experience Editor rewrites editable chrome markup client-side after SSR.
+      ...(field.editable && editable ? { suppressHydrationWarning: true } : {}),
       ...otherProps,
     };
 

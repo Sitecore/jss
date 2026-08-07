@@ -339,6 +339,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       props.ref = this.addRef; // only need ref for placeholder containers, trying to add it to other components (e.g. stateless components) may result in a warning.
     }
 
+    // Editing middleware renames phkey→key in the HTML EE loads; EE may also mutate chrome
+    // attributes before React hydrates. Suppress the expected mismatch on these SDK nodes.
+    props.suppressHydrationWarning = true;
+
     return React.createElement(elem.name, props);
   }
 
