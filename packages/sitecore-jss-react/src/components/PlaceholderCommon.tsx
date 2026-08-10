@@ -337,11 +337,9 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     if (!Array.isArray(attributes) && attributes && attributes.chrometype === 'placeholder') {
       props.phkey = elem.attributes.key; // props that get rendered as dom attribute names need to be lowercase, otherwise React complains.
       props.ref = this.addRef; // only need ref for placeholder containers, trying to add it to other components (e.g. stateless components) may result in a warning.
+      // EE may mutate chrome
+      props.suppressHydrationWarning = true;
     }
-
-    // Editing middleware renames phkey→key in the HTML EE loads; EE may also mutate chrome
-    // attributes before React hydrates. Suppress the expected mismatch on these SDK nodes.
-    props.suppressHydrationWarning = true;
 
     return React.createElement(elem.name, props);
   }

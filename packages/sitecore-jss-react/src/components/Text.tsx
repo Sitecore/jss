@@ -80,11 +80,6 @@ export const Text: React.FC<TextProps> = ({
     htmlProps.dangerouslySetInnerHTML = {
       __html: output,
     };
-
-    // Experience Editor rewrites editable chrome markup client-side after SSR.
-    if (isEditable) {
-      htmlProps.suppressHydrationWarning = true;
-    }
   } else {
     children = output;
   }
