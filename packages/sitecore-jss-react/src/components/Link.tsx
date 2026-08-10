@@ -56,6 +56,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
       const htmlProps = {
         className: 'sc-link-wrapper',
+        // Experience Editor rewrites this chrome markup client-side after SSR.
+        suppressHydrationWarning: true,
         dangerouslySetInnerHTML: {
           __html: markup,
         },

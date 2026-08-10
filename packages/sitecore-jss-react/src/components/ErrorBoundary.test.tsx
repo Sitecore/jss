@@ -78,6 +78,33 @@ describe('ErrorBoundary', () => {
       expect(ems[1].textContent).to.equal(errorMessage);
     });
 
+    it('Should wrap children in edit mode so Experience Editor chrome mutations can be suppressed', () => {
+      const setContext = spy();
+
+      const testComponentProps = {
+        context: {
+          pageEditing: true,
+          pageState: LayoutServicePageState.Edit,
+        },
+        setContext,
+      };
+
+      const rendered = render(
+        <SitecoreContextReactContext.Provider value={testComponentProps}>
+          <ErrorBoundary>
+            <span data-testid="child">Rendered child</span>
+          </ErrorBoundary>
+        </SitecoreContextReactContext.Provider>
+      );
+
+      const wrapper = rendered.container.firstElementChild as HTMLElement;
+      expect(wrapper?.tagName).to.equal('DIV');
+      expect(wrapper?.style.display).to.equal('contents');
+      expect(wrapper?.querySelector('[data-testid="child"]')?.textContent).to.equal(
+        'Rendered child'
+      );
+    });
+
     it('Should render errors message and errored component name when error is thrown in preview mode', () => {
       const setContext = spy();
 

@@ -56,7 +56,12 @@ class PlaceholderComponent extends PlaceholderCommon<PlaceholderComponentProps> 
    * @returns react node
    */
   renderEmptyPlaceholder(node: React.ReactNode | React.ReactElement[]) {
-    return <div className="sc-jss-empty-placeholder">{node}</div>;
+    // Experience Editor may mutate empty-placeholder chrome between SSR and hydration.
+    return (
+      <div className="sc-jss-empty-placeholder" suppressHydrationWarning>
+        {node}
+      </div>
+    );
   }
 
   render() {
