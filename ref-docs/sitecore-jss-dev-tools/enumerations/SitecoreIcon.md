@@ -6,7 +6,7 @@
 
 # Enumeration: SitecoreIcon
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1)
+Defined in: [manifest/generator/SitecoreIcon.ts:1](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1](https://github.com/Sitecore/j
 
 > **About**: `"Office/16x16/about.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:2](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L2)
+Defined in: [manifest/generator/SitecoreIcon.ts:2](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L2)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:2](https://github.com/Sitecore/j
 
 > **Add**: `"Office/16x16/add.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:3](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L3)
+Defined in: [manifest/generator/SitecoreIcon.ts:3](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L3)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:3](https://github.com/Sitecore/j
 
 > **AddDomain**: `"Office/16x16/add_domain.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:4](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L4)
+Defined in: [manifest/generator/SitecoreIcon.ts:4](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L4)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:4](https://github.com/Sitecore/j
 
 > **AddFavorites**: `"Office/16x16/add_favorites.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:5](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L5)
+Defined in: [manifest/generator/SitecoreIcon.ts:5](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L5)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:5](https://github.com/Sitecore/j
 
 > **AddField**: `"Office/16x16/add_field.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:6](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L6)
+Defined in: [manifest/generator/SitecoreIcon.ts:6](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L6)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:6](https://github.com/Sitecore/j
 
 > **AddRole**: `"Office/16x16/add_role.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:7](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L7)
+Defined in: [manifest/generator/SitecoreIcon.ts:7](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L7)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:7](https://github.com/Sitecore/j
 
 > **AddSearch**: `"Office/16x16/add_search.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:8](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L8)
+Defined in: [manifest/generator/SitecoreIcon.ts:8](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L8)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:8](https://github.com/Sitecore/j
 
 > **AddUser**: `"Office/16x16/add_user.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:9](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L9)
+Defined in: [manifest/generator/SitecoreIcon.ts:9](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L9)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:9](https://github.com/Sitecore/j
 
 > **AddVersion**: `"Office/16x16/add_version.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:10](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L10)
+Defined in: [manifest/generator/SitecoreIcon.ts:10](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L10)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:10](https://github.com/Sitecore/
 
 > **Airbrush**: `"Office/16x16/airbrush.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:11](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L11)
+Defined in: [manifest/generator/SitecoreIcon.ts:11](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L11)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:11](https://github.com/Sitecore/
 
 > **Airplane**: `"Office/16x16/airplane.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:12](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L12)
+Defined in: [manifest/generator/SitecoreIcon.ts:12](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L12)
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:12](https://github.com/Sitecore/
 
 > **Airplane2**: `"Office/16x16/airplane2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:13](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L13)
+Defined in: [manifest/generator/SitecoreIcon.ts:13](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L13)
 
 ***
 
@@ -110,7 +110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:13](https://github.com/Sitecore/
 
 > **Airplane2Landing**: `"Office/16x16/airplane2_landing.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:14](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L14)
+Defined in: [manifest/generator/SitecoreIcon.ts:14](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L14)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:14](https://github.com/Sitecore/
 
 > **Airplane2Starting**: `"Office/16x16/airplane2_starting.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:15](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L15)
+Defined in: [manifest/generator/SitecoreIcon.ts:15](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L15)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:15](https://github.com/Sitecore/
 
 > **Alarmclock**: `"Office/16x16/alarmclock.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:16](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L16)
+Defined in: [manifest/generator/SitecoreIcon.ts:16](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L16)
 
 ***
 
@@ -134,7 +134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:16](https://github.com/Sitecore/
 
 > **Ambulance**: `"Office/16x16/ambulance.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:17](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L17)
+Defined in: [manifest/generator/SitecoreIcon.ts:17](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L17)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:17](https://github.com/Sitecore/
 
 > **Anchor**: `"Office/16x16/anchor.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:18](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L18)
+Defined in: [manifest/generator/SitecoreIcon.ts:18](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L18)
 
 ***
 
@@ -150,7 +150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:18](https://github.com/Sitecore/
 
 > **Angel**: `"Office/16x16/angel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:19](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L19)
+Defined in: [manifest/generator/SitecoreIcon.ts:19](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L19)
 
 ***
 
@@ -158,7 +158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:19](https://github.com/Sitecore/
 
 > **Antenna**: `"Office/16x16/antenna.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:20](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L20)
+Defined in: [manifest/generator/SitecoreIcon.ts:20](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L20)
 
 ***
 
@@ -166,7 +166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:20](https://github.com/Sitecore/
 
 > **Apple**: `"Office/16x16/apple.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:21](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L21)
+Defined in: [manifest/generator/SitecoreIcon.ts:21](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L21)
 
 ***
 
@@ -174,7 +174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:21](https://github.com/Sitecore/
 
 > **AppleBite**: `"Office/16x16/apple_bite.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:22](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L22)
+Defined in: [manifest/generator/SitecoreIcon.ts:22](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L22)
 
 ***
 
@@ -182,7 +182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:22](https://github.com/Sitecore/
 
 > **ArchiveItem**: `"Office/16x16/archive_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:23](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L23)
+Defined in: [manifest/generator/SitecoreIcon.ts:23](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L23)
 
 ***
 
@@ -190,7 +190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:23](https://github.com/Sitecore/
 
 > **ArchiveVersion**: `"Office/16x16/archive_version.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:24](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L24)
+Defined in: [manifest/generator/SitecoreIcon.ts:24](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L24)
 
 ***
 
@@ -198,7 +198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:24](https://github.com/Sitecore/
 
 > **ArrowAround**: `"Office/16x16/arrow_around.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:25](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L25)
+Defined in: [manifest/generator/SitecoreIcon.ts:25](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L25)
 
 ***
 
@@ -206,7 +206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:25](https://github.com/Sitecore/
 
 > **ArrowBarrier**: `"Office/16x16/arrow_barrier.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:26](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L26)
+Defined in: [manifest/generator/SitecoreIcon.ts:26](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L26)
 
 ***
 
@@ -214,7 +214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:26](https://github.com/Sitecore/
 
 > **ArrowCircle**: `"Office/16x16/arrow_circle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:27](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L27)
+Defined in: [manifest/generator/SitecoreIcon.ts:27](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L27)
 
 ***
 
@@ -222,7 +222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:27](https://github.com/Sitecore/
 
 > **ArrowCircle2**: `"Office/16x16/arrow_circle2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:28](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L28)
+Defined in: [manifest/generator/SitecoreIcon.ts:28](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L28)
 
 ***
 
@@ -230,7 +230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:28](https://github.com/Sitecore/
 
 > **ArrowCross**: `"Office/16x16/arrow_cross.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:29](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L29)
+Defined in: [manifest/generator/SitecoreIcon.ts:29](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L29)
 
 ***
 
@@ -238,7 +238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:29](https://github.com/Sitecore/
 
 > **ArrowCurve\_left**: `"Office/16x16/arrow_curve_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:30](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L30)
+Defined in: [manifest/generator/SitecoreIcon.ts:30](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L30)
 
 ***
 
@@ -246,7 +246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:30](https://github.com/Sitecore/
 
 > **ArrowDown**: `"Office/16x16/arrow_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:31](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L31)
+Defined in: [manifest/generator/SitecoreIcon.ts:31](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L31)
 
 ***
 
@@ -254,7 +254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:31](https://github.com/Sitecore/
 
 > **ArrowDown\_left**: `"Office/16x16/arrow_down_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:32](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L32)
+Defined in: [manifest/generator/SitecoreIcon.ts:32](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L32)
 
 ***
 
@@ -262,7 +262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:32](https://github.com/Sitecore/
 
 > **ArrowDown\_right**: `"Office/16x16/arrow_down_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:33](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L33)
+Defined in: [manifest/generator/SitecoreIcon.ts:33](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L33)
 
 ***
 
@@ -270,7 +270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:33](https://github.com/Sitecore/
 
 > **ArrowFork**: `"Office/16x16/arrow_fork.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:34](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L34)
+Defined in: [manifest/generator/SitecoreIcon.ts:34](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L34)
 
 ***
 
@@ -278,7 +278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:34](https://github.com/Sitecore/
 
 > **ArrowFork2**: `"Office/16x16/arrow_fork2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:35](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L35)
+Defined in: [manifest/generator/SitecoreIcon.ts:35](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L35)
 
 ***
 
@@ -286,7 +286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:35](https://github.com/Sitecore/
 
 > **ArrowFrom**: `"Office/16x16/arrow_from.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:36](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L36)
+Defined in: [manifest/generator/SitecoreIcon.ts:36](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L36)
 
 ***
 
@@ -294,7 +294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:36](https://github.com/Sitecore/
 
 > **ArrowInto**: `"Office/16x16/arrow_into.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:37](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L37)
+Defined in: [manifest/generator/SitecoreIcon.ts:37](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L37)
 
 ***
 
@@ -302,7 +302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:37](https://github.com/Sitecore/
 
 > **ArrowJoin**: `"Office/16x16/arrow_join.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:38](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L38)
+Defined in: [manifest/generator/SitecoreIcon.ts:38](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L38)
 
 ***
 
@@ -310,7 +310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:38](https://github.com/Sitecore/
 
 > **ArrowJoin2**: `"Office/16x16/arrow_join2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:39](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L39)
+Defined in: [manifest/generator/SitecoreIcon.ts:39](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L39)
 
 ***
 
@@ -318,7 +318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:39](https://github.com/Sitecore/
 
 > **ArrowJunction**: `"Office/16x16/arrow_junction.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:40](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L40)
+Defined in: [manifest/generator/SitecoreIcon.ts:40](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L40)
 
 ***
 
@@ -326,7 +326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:40](https://github.com/Sitecore/
 
 > **ArrowLeft**: `"Office/16x16/arrow_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:41](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L41)
+Defined in: [manifest/generator/SitecoreIcon.ts:41](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L41)
 
 ***
 
@@ -334,7 +334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:41](https://github.com/Sitecore/
 
 > **ArrowLoop**: `"Office/16x16/arrow_loop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:42](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L42)
+Defined in: [manifest/generator/SitecoreIcon.ts:42](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L42)
 
 ***
 
@@ -342,7 +342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:42](https://github.com/Sitecore/
 
 > **ArrowLoop2**: `"Office/16x16/arrow_loop2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:43](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L43)
+Defined in: [manifest/generator/SitecoreIcon.ts:43](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L43)
 
 ***
 
@@ -350,7 +350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:43](https://github.com/Sitecore/
 
 > **ArrowLoop3**: `"Office/16x16/arrow_loop3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:44](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L44)
+Defined in: [manifest/generator/SitecoreIcon.ts:44](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L44)
 
 ***
 
@@ -358,7 +358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:44](https://github.com/Sitecore/
 
 > **ArrowMerge**: `"Office/16x16/arrow_merge.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:45](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L45)
+Defined in: [manifest/generator/SitecoreIcon.ts:45](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L45)
 
 ***
 
@@ -366,7 +366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:45](https://github.com/Sitecore/
 
 > **ArrowMerge2**: `"Office/16x16/arrow_merge2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:46](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L46)
+Defined in: [manifest/generator/SitecoreIcon.ts:46](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L46)
 
 ***
 
@@ -374,7 +374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:46](https://github.com/Sitecore/
 
 > **ArrowMix**: `"Office/16x16/arrow_mix.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:47](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L47)
+Defined in: [manifest/generator/SitecoreIcon.ts:47](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L47)
 
 ***
 
@@ -382,7 +382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:47](https://github.com/Sitecore/
 
 > **ArrowOut**: `"Office/16x16/arrow_out.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:48](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L48)
+Defined in: [manifest/generator/SitecoreIcon.ts:48](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L48)
 
 ***
 
@@ -390,7 +390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:48](https://github.com/Sitecore/
 
 > **ArrowOver**: `"Office/16x16/arrow_over.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:49](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L49)
+Defined in: [manifest/generator/SitecoreIcon.ts:49](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L49)
 
 ***
 
@@ -398,7 +398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:49](https://github.com/Sitecore/
 
 > **ArrowRight**: `"Office/16x16/arrow_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:50](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L50)
+Defined in: [manifest/generator/SitecoreIcon.ts:50](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L50)
 
 ***
 
@@ -406,7 +406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:50](https://github.com/Sitecore/
 
 > **ArrowShuffle**: `"Office/16x16/arrow_shuffle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:51](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L51)
+Defined in: [manifest/generator/SitecoreIcon.ts:51](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L51)
 
 ***
 
@@ -414,7 +414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:51](https://github.com/Sitecore/
 
 > **ArrowSpread**: `"Office/16x16/arrow_spread.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:52](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L52)
+Defined in: [manifest/generator/SitecoreIcon.ts:52](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L52)
 
 ***
 
@@ -422,7 +422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:52](https://github.com/Sitecore/
 
 > **ArrowSpread2**: `"Office/16x16/arrow_spread2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:53](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L53)
+Defined in: [manifest/generator/SitecoreIcon.ts:53](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L53)
 
 ***
 
@@ -430,7 +430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:53](https://github.com/Sitecore/
 
 > **ArrowSquiggly**: `"Office/16x16/arrow_squiggly.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:54](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L54)
+Defined in: [manifest/generator/SitecoreIcon.ts:54](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L54)
 
 ***
 
@@ -438,7 +438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:54](https://github.com/Sitecore/
 
 > **ArrowThrough**: `"Office/16x16/arrow_through.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:55](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L55)
+Defined in: [manifest/generator/SitecoreIcon.ts:55](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L55)
 
 ***
 
@@ -446,7 +446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:55](https://github.com/Sitecore/
 
 > **ArrowTo**: `"Office/16x16/arrow_to.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:56](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L56)
+Defined in: [manifest/generator/SitecoreIcon.ts:56](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L56)
 
 ***
 
@@ -454,7 +454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:56](https://github.com/Sitecore/
 
 > **ArrowTurn\_left**: `"Office/16x16/arrow_turn_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:57](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L57)
+Defined in: [manifest/generator/SitecoreIcon.ts:57](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L57)
 
 ***
 
@@ -462,7 +462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:57](https://github.com/Sitecore/
 
 > **ArrowU\_turn**: `"Office/16x16/arrow_u_turn.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:61](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L61)
+Defined in: [manifest/generator/SitecoreIcon.ts:61](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L61)
 
 ***
 
@@ -470,7 +470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:61](https://github.com/Sitecore/
 
 > **ArrowUp**: `"Office/16x16/arrow_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:58](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L58)
+Defined in: [manifest/generator/SitecoreIcon.ts:58](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L58)
 
 ***
 
@@ -478,7 +478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:58](https://github.com/Sitecore/
 
 > **ArrowUp\_left**: `"Office/16x16/arrow_up_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:59](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L59)
+Defined in: [manifest/generator/SitecoreIcon.ts:59](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L59)
 
 ***
 
@@ -486,7 +486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:59](https://github.com/Sitecore/
 
 > **ArrowUp\_right**: `"Office/16x16/arrow_up_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:60](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L60)
+Defined in: [manifest/generator/SitecoreIcon.ts:60](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L60)
 
 ***
 
@@ -494,7 +494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:60](https://github.com/Sitecore/
 
 > **AssignSecurity**: `"Office/16x16/assign_security.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:62](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L62)
+Defined in: [manifest/generator/SitecoreIcon.ts:62](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L62)
 
 ***
 
@@ -502,7 +502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:62](https://github.com/Sitecore/
 
 > **Astrologer**: `"Office/16x16/astrologer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:63](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L63)
+Defined in: [manifest/generator/SitecoreIcon.ts:63](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L63)
 
 ***
 
@@ -510,7 +510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:63](https://github.com/Sitecore/
 
 > **Astronaut**: `"Office/16x16/astronaut.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:64](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L64)
+Defined in: [manifest/generator/SitecoreIcon.ts:64](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L64)
 
 ***
 
@@ -518,7 +518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:64](https://github.com/Sitecore/
 
 > **Athlete**: `"Office/16x16/athlete.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:65](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L65)
+Defined in: [manifest/generator/SitecoreIcon.ts:65](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L65)
 
 ***
 
@@ -526,7 +526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:65](https://github.com/Sitecore/
 
 > **Atom**: `"Office/16x16/atom.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:66](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L66)
+Defined in: [manifest/generator/SitecoreIcon.ts:66](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L66)
 
 ***
 
@@ -534,7 +534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:66](https://github.com/Sitecore/
 
 > **Atom2**: `"Office/16x16/atom2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:67](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L67)
+Defined in: [manifest/generator/SitecoreIcon.ts:67](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L67)
 
 ***
 
@@ -542,7 +542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:67](https://github.com/Sitecore/
 
 > **AuctionHammer**: `"Office/16x16/auction_hammer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:68](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L68)
+Defined in: [manifest/generator/SitecoreIcon.ts:68](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L68)
 
 ***
 
@@ -550,7 +550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:68](https://github.com/Sitecore/
 
 > **AudioCassette**: `"Office/16x16/audio_cassette.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:69](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L69)
+Defined in: [manifest/generator/SitecoreIcon.ts:69](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L69)
 
 ***
 
@@ -558,7 +558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:69](https://github.com/Sitecore/
 
 > **Axe**: `"Office/16x16/axe.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:70](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L70)
+Defined in: [manifest/generator/SitecoreIcon.ts:70](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L70)
 
 ***
 
@@ -566,7 +566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:70](https://github.com/Sitecore/
 
 > **Baby**: `"Office/16x16/baby.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:71](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L71)
+Defined in: [manifest/generator/SitecoreIcon.ts:71](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L71)
 
 ***
 
@@ -574,7 +574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:71](https://github.com/Sitecore/
 
 > **Back**: `"Office/16x16/back.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:72](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L72)
+Defined in: [manifest/generator/SitecoreIcon.ts:72](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L72)
 
 ***
 
@@ -582,7 +582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:72](https://github.com/Sitecore/
 
 > **Bacon**: `"Office/16x16/bacon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:73](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L73)
+Defined in: [manifest/generator/SitecoreIcon.ts:73](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L73)
 
 ***
 
@@ -590,7 +590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:73](https://github.com/Sitecore/
 
 > **Bacteria**: `"Office/16x16/bacteria.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:74](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L74)
+Defined in: [manifest/generator/SitecoreIcon.ts:74](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L74)
 
 ***
 
@@ -598,7 +598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:74](https://github.com/Sitecore/
 
 > **Balloon**: `"Office/16x16/balloon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:75](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L75)
+Defined in: [manifest/generator/SitecoreIcon.ts:75](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L75)
 
 ***
 
@@ -606,7 +606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:75](https://github.com/Sitecore/
 
 > **Balloons**: `"Office/16x16/balloons.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:76](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L76)
+Defined in: [manifest/generator/SitecoreIcon.ts:76](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L76)
 
 ***
 
@@ -614,7 +614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:76](https://github.com/Sitecore/
 
 > **Ballpen**: `"Office/16x16/ballpen.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:77](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L77)
+Defined in: [manifest/generator/SitecoreIcon.ts:77](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L77)
 
 ***
 
@@ -622,7 +622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:77](https://github.com/Sitecore/
 
 > **Banana**: `"Office/16x16/banana.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:78](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L78)
+Defined in: [manifest/generator/SitecoreIcon.ts:78](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L78)
 
 ***
 
@@ -630,7 +630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:78](https://github.com/Sitecore/
 
 > **BandAid**: `"Office/16x16/band_aid.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:79](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L79)
+Defined in: [manifest/generator/SitecoreIcon.ts:79](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L79)
 
 ***
 
@@ -638,7 +638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:79](https://github.com/Sitecore/
 
 > **BankBuilding**: `"Office/16x16/bank_building.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:80](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L80)
+Defined in: [manifest/generator/SitecoreIcon.ts:80](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L80)
 
 ***
 
@@ -646,7 +646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:80](https://github.com/Sitecore/
 
 > **Barcode**: `"Office/16x16/barcode.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:81](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L81)
+Defined in: [manifest/generator/SitecoreIcon.ts:81](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L81)
 
 ***
 
@@ -654,7 +654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:81](https://github.com/Sitecore/
 
 > **BarcodeScanner**: `"Office/16x16/barcode_scanner.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:82](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L82)
+Defined in: [manifest/generator/SitecoreIcon.ts:82](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L82)
 
 ***
 
@@ -662,7 +662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:82](https://github.com/Sitecore/
 
 > **Barrel**: `"Office/16x16/barrel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:83](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L83)
+Defined in: [manifest/generator/SitecoreIcon.ts:83](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L83)
 
 ***
 
@@ -670,7 +670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:83](https://github.com/Sitecore/
 
 > **Barrels**: `"Office/16x16/barrels.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:84](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L84)
+Defined in: [manifest/generator/SitecoreIcon.ts:84](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L84)
 
 ***
 
@@ -678,7 +678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:84](https://github.com/Sitecore/
 
 > **BarrierClosed**: `"Office/16x16/barrier_closed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:85](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L85)
+Defined in: [manifest/generator/SitecoreIcon.ts:85](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L85)
 
 ***
 
@@ -686,7 +686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:85](https://github.com/Sitecore/
 
 > **BarrierOpen**: `"Office/16x16/barrier_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:86](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L86)
+Defined in: [manifest/generator/SitecoreIcon.ts:86](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L86)
 
 ***
 
@@ -694,7 +694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:86](https://github.com/Sitecore/
 
 > **Baseball**: `"Office/16x16/baseball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:87](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L87)
+Defined in: [manifest/generator/SitecoreIcon.ts:87](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L87)
 
 ***
 
@@ -702,7 +702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:87](https://github.com/Sitecore/
 
 > **Basketball**: `"Office/16x16/basketball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:88](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L88)
+Defined in: [manifest/generator/SitecoreIcon.ts:88](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L88)
 
 ***
 
@@ -710,7 +710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:88](https://github.com/Sitecore/
 
 > **BatteryCharge**: `"Office/16x16/battery_charge.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:89](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L89)
+Defined in: [manifest/generator/SitecoreIcon.ts:89](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L89)
 
 ***
 
@@ -718,7 +718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:89](https://github.com/Sitecore/
 
 > **BatteryPlus\_minus**: `"Office/16x16/battery_plus_minus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:90](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L90)
+Defined in: [manifest/generator/SitecoreIcon.ts:90](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L90)
 
 ***
 
@@ -726,7 +726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:90](https://github.com/Sitecore/
 
 > **BatteryStatus0**: `"Office/16x16/battery_status0.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:91](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L91)
+Defined in: [manifest/generator/SitecoreIcon.ts:91](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L91)
 
 ***
 
@@ -734,7 +734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:91](https://github.com/Sitecore/
 
 > **BatteryStatus1**: `"Office/16x16/battery_status1.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:92](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L92)
+Defined in: [manifest/generator/SitecoreIcon.ts:92](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L92)
 
 ***
 
@@ -742,7 +742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:92](https://github.com/Sitecore/
 
 > **BatteryStatus2**: `"Office/16x16/battery_status2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:93](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L93)
+Defined in: [manifest/generator/SitecoreIcon.ts:93](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L93)
 
 ***
 
@@ -750,7 +750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:93](https://github.com/Sitecore/
 
 > **BatteryStatus3**: `"Office/16x16/battery_status3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:94](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L94)
+Defined in: [manifest/generator/SitecoreIcon.ts:94](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L94)
 
 ***
 
@@ -758,7 +758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:94](https://github.com/Sitecore/
 
 > **BatteryStatus4**: `"Office/16x16/battery_status4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:95](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L95)
+Defined in: [manifest/generator/SitecoreIcon.ts:95](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L95)
 
 ***
 
@@ -766,7 +766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:95](https://github.com/Sitecore/
 
 > **BatteryStatus5**: `"Office/16x16/battery_status5.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:96](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L96)
+Defined in: [manifest/generator/SitecoreIcon.ts:96](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L96)
 
 ***
 
@@ -774,7 +774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:96](https://github.com/Sitecore/
 
 > **Beaker**: `"Office/16x16/beaker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:97](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L97)
+Defined in: [manifest/generator/SitecoreIcon.ts:97](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L97)
 
 ***
 
@@ -782,7 +782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:97](https://github.com/Sitecore/
 
 > **Beaker2**: `"Office/16x16/beaker2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:98](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L98)
+Defined in: [manifest/generator/SitecoreIcon.ts:98](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L98)
 
 ***
 
@@ -790,7 +790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:98](https://github.com/Sitecore/
 
 > **Bed**: `"Office/16x16/bed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:99](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L99)
+Defined in: [manifest/generator/SitecoreIcon.ts:99](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L99)
 
 ***
 
@@ -798,7 +798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:99](https://github.com/Sitecore/
 
 > **BedEmpty**: `"Office/16x16/bed_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:100](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L100)
+Defined in: [manifest/generator/SitecoreIcon.ts:100](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L100)
 
 ***
 
@@ -806,7 +806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:100](https://github.com/Sitecore
 
 > **Bell**: `"Office/16x16/bell.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:101](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L101)
+Defined in: [manifest/generator/SitecoreIcon.ts:101](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L101)
 
 ***
 
@@ -814,7 +814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:101](https://github.com/Sitecore
 
 > **BeverageCan**: `"Office/16x16/beverage_can.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:102](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L102)
+Defined in: [manifest/generator/SitecoreIcon.ts:102](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L102)
 
 ***
 
@@ -822,7 +822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:102](https://github.com/Sitecore
 
 > **Bible**: `"Office/16x16/bible.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:103](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L103)
+Defined in: [manifest/generator/SitecoreIcon.ts:103](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L103)
 
 ***
 
@@ -830,7 +830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:103](https://github.com/Sitecore
 
 > **Bicycle**: `"Office/16x16/bicycle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:104](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L104)
+Defined in: [manifest/generator/SitecoreIcon.ts:104](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L104)
 
 ***
 
@@ -838,7 +838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:104](https://github.com/Sitecore
 
 > **Bicyclist**: `"Office/16x16/bicyclist.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:105](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L105)
+Defined in: [manifest/generator/SitecoreIcon.ts:105](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L105)
 
 ***
 
@@ -846,7 +846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:105](https://github.com/Sitecore
 
 > **Binocular**: `"Office/16x16/binocular.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:106](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L106)
+Defined in: [manifest/generator/SitecoreIcon.ts:106](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L106)
 
 ***
 
@@ -854,7 +854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:106](https://github.com/Sitecore
 
 > **Blackboard**: `"Office/16x16/blackboard.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:107](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L107)
+Defined in: [manifest/generator/SitecoreIcon.ts:107](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L107)
 
 ***
 
@@ -862,7 +862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:107](https://github.com/Sitecore
 
 > **Blot**: `"Office/16x16/blot.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:108](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L108)
+Defined in: [manifest/generator/SitecoreIcon.ts:108](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L108)
 
 ***
 
@@ -870,7 +870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:108](https://github.com/Sitecore
 
 > **BodyScale**: `"Office/16x16/body_scale.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:109](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L109)
+Defined in: [manifest/generator/SitecoreIcon.ts:109](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L109)
 
 ***
 
@@ -878,7 +878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:109](https://github.com/Sitecore
 
 > **Bomb**: `"Office/16x16/bomb.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:110](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L110)
+Defined in: [manifest/generator/SitecoreIcon.ts:110](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L110)
 
 ***
 
@@ -886,7 +886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:110](https://github.com/Sitecore
 
 > **Bomb2**: `"Office/16x16/bomb2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:111](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L111)
+Defined in: [manifest/generator/SitecoreIcon.ts:111](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L111)
 
 ***
 
@@ -894,7 +894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:111](https://github.com/Sitecore
 
 > **Bone**: `"Office/16x16/bone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:112](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L112)
+Defined in: [manifest/generator/SitecoreIcon.ts:112](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L112)
 
 ***
 
@@ -902,7 +902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:112](https://github.com/Sitecore
 
 > **Book**: `"Office/16x16/book.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:113](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L113)
+Defined in: [manifest/generator/SitecoreIcon.ts:113](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L113)
 
 ***
 
@@ -910,7 +910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:113](https://github.com/Sitecore
 
 > **Book2**: `"Office/16x16/book2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:114](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L114)
+Defined in: [manifest/generator/SitecoreIcon.ts:114](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L114)
 
 ***
 
@@ -918,7 +918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:114](https://github.com/Sitecore
 
 > **BookBookmark**: `"Office/16x16/book_bookmark.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:119](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L119)
+Defined in: [manifest/generator/SitecoreIcon.ts:119](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L119)
 
 ***
 
@@ -926,7 +926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:119](https://github.com/Sitecore
 
 > **BookHeadphones**: `"Office/16x16/book_headphones.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:120](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L120)
+Defined in: [manifest/generator/SitecoreIcon.ts:120](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L120)
 
 ***
 
@@ -934,7 +934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:120](https://github.com/Sitecore
 
 > **Bookkeeper**: `"Office/16x16/bookkeeper.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:115](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L115)
+Defined in: [manifest/generator/SitecoreIcon.ts:115](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L115)
 
 ***
 
@@ -942,7 +942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:115](https://github.com/Sitecore
 
 > **Bookmark**: `"Office/16x16/bookmark.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:116](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L116)
+Defined in: [manifest/generator/SitecoreIcon.ts:116](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L116)
 
 ***
 
@@ -950,7 +950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:116](https://github.com/Sitecore
 
 > **Bookmarks**: `"Office/16x16/bookmarks.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:117](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L117)
+Defined in: [manifest/generator/SitecoreIcon.ts:117](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L117)
 
 ***
 
@@ -958,7 +958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:117](https://github.com/Sitecore
 
 > **BookOpen**: `"Office/16x16/book_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:121](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L121)
+Defined in: [manifest/generator/SitecoreIcon.ts:121](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L121)
 
 ***
 
@@ -966,7 +966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:121](https://github.com/Sitecore
 
 > **Books**: `"Office/16x16/books.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:118](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L118)
+Defined in: [manifest/generator/SitecoreIcon.ts:118](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L118)
 
 ***
 
@@ -974,7 +974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:118](https://github.com/Sitecore
 
 > **BookTelephone**: `"Office/16x16/book_telephone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:122](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L122)
+Defined in: [manifest/generator/SitecoreIcon.ts:122](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L122)
 
 ***
 
@@ -982,7 +982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:122](https://github.com/Sitecore
 
 > **Boombox**: `"Office/16x16/boombox.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:123](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L123)
+Defined in: [manifest/generator/SitecoreIcon.ts:123](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L123)
 
 ***
 
@@ -990,7 +990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:123](https://github.com/Sitecore
 
 > **BottleBubbles**: `"Office/16x16/bottle_bubbles.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:124](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L124)
+Defined in: [manifest/generator/SitecoreIcon.ts:124](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L124)
 
 ***
 
@@ -998,7 +998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:124](https://github.com/Sitecore
 
 > **BowlingBall**: `"Office/16x16/bowling_ball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:125](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L125)
+Defined in: [manifest/generator/SitecoreIcon.ts:125](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L125)
 
 ***
 
@@ -1006,7 +1006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:125](https://github.com/Sitecore
 
 > **BowlingPin**: `"Office/16x16/bowling_pin.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:126](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L126)
+Defined in: [manifest/generator/SitecoreIcon.ts:126](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L126)
 
 ***
 
@@ -1014,7 +1014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:126](https://github.com/Sitecore
 
 > **BowlingPins**: `"Office/16x16/bowling_pins.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:127](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L127)
+Defined in: [manifest/generator/SitecoreIcon.ts:127](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L127)
 
 ***
 
@@ -1022,7 +1022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:127](https://github.com/Sitecore
 
 > **BowTie**: `"Office/16x16/bow_tie.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:128](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L128)
+Defined in: [manifest/generator/SitecoreIcon.ts:128](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L128)
 
 ***
 
@@ -1030,7 +1030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:128](https://github.com/Sitecore
 
 > **BoxClosed**: `"Office/16x16/box_closed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:129](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L129)
+Defined in: [manifest/generator/SitecoreIcon.ts:129](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L129)
 
 ***
 
@@ -1038,7 +1038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:129](https://github.com/Sitecore
 
 > **BoxInto**: `"Office/16x16/box_into.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:130](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L130)
+Defined in: [manifest/generator/SitecoreIcon.ts:130](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L130)
 
 ***
 
@@ -1046,7 +1046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:130](https://github.com/Sitecore
 
 > **BoxOpen**: `"Office/16x16/box_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:131](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L131)
+Defined in: [manifest/generator/SitecoreIcon.ts:131](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L131)
 
 ***
 
@@ -1054,7 +1054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:131](https://github.com/Sitecore
 
 > **BoxOut**: `"Office/16x16/box_out.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:132](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L132)
+Defined in: [manifest/generator/SitecoreIcon.ts:132](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L132)
 
 ***
 
@@ -1062,7 +1062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:132](https://github.com/Sitecore
 
 > **Boy**: `"Office/16x16/boy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:133](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L133)
+Defined in: [manifest/generator/SitecoreIcon.ts:133](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L133)
 
 ***
 
@@ -1070,7 +1070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:133](https://github.com/Sitecore
 
 > **Brain**: `"Office/16x16/brain.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:134](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L134)
+Defined in: [manifest/generator/SitecoreIcon.ts:134](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L134)
 
 ***
 
@@ -1078,7 +1078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:134](https://github.com/Sitecore
 
 > **Brickwall**: `"Office/16x16/brickwall.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:135](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L135)
+Defined in: [manifest/generator/SitecoreIcon.ts:135](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L135)
 
 ***
 
@@ -1086,7 +1086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:135](https://github.com/Sitecore
 
 > **Briefcase**: `"Office/16x16/briefcase.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:136](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L136)
+Defined in: [manifest/generator/SitecoreIcon.ts:136](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L136)
 
 ***
 
@@ -1094,7 +1094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:136](https://github.com/Sitecore
 
 > **Briefcase2**: `"Office/16x16/briefcase2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:137](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L137)
+Defined in: [manifest/generator/SitecoreIcon.ts:137](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L137)
 
 ***
 
@@ -1102,7 +1102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:137](https://github.com/Sitecore
 
 > **BriefcaseDocument**: `"Office/16x16/briefcase_document.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:138](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L138)
+Defined in: [manifest/generator/SitecoreIcon.ts:138](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L138)
 
 ***
 
@@ -1110,7 +1110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:138](https://github.com/Sitecore
 
 > **Brush**: `"Office/16x16/brush.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:139](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L139)
+Defined in: [manifest/generator/SitecoreIcon.ts:139](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L139)
 
 ***
 
@@ -1118,7 +1118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:139](https://github.com/Sitecore
 
 > **Bucket**: `"Office/16x16/bucket.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:140](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L140)
+Defined in: [manifest/generator/SitecoreIcon.ts:140](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L140)
 
 ***
 
@@ -1126,7 +1126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:140](https://github.com/Sitecore
 
 > **BucketItem**: `"Office/16x16/bucket_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:141](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L141)
+Defined in: [manifest/generator/SitecoreIcon.ts:141](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L141)
 
 ***
 
@@ -1134,7 +1134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:141](https://github.com/Sitecore
 
 > **Bug**: `"Office/16x16/bug.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:142](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L142)
+Defined in: [manifest/generator/SitecoreIcon.ts:142](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L142)
 
 ***
 
@@ -1142,7 +1142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:142](https://github.com/Sitecore
 
 > **Bug2**: `"Office/16x16/bug2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:143](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L143)
+Defined in: [manifest/generator/SitecoreIcon.ts:143](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L143)
 
 ***
 
@@ -1150,7 +1150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:143](https://github.com/Sitecore
 
 > **Bulldozer**: `"Office/16x16/bulldozer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:144](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L144)
+Defined in: [manifest/generator/SitecoreIcon.ts:144](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L144)
 
 ***
 
@@ -1158,7 +1158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:144](https://github.com/Sitecore
 
 > **Buoy**: `"Office/16x16/buoy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:145](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L145)
+Defined in: [manifest/generator/SitecoreIcon.ts:145](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L145)
 
 ***
 
@@ -1166,7 +1166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:145](https://github.com/Sitecore
 
 > **Bus**: `"Office/16x16/bus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:146](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L146)
+Defined in: [manifest/generator/SitecoreIcon.ts:146](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L146)
 
 ***
 
@@ -1174,7 +1174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:146](https://github.com/Sitecore
 
 > **Bus2**: `"Office/16x16/bus2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:147](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L147)
+Defined in: [manifest/generator/SitecoreIcon.ts:147](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L147)
 
 ***
 
@@ -1182,7 +1182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:147](https://github.com/Sitecore
 
 > **Businessperson**: `"Office/16x16/businessperson.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:148](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L148)
+Defined in: [manifest/generator/SitecoreIcon.ts:148](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L148)
 
 ***
 
@@ -1190,7 +1190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:148](https://github.com/Sitecore
 
 > **Businessperson2**: `"Office/16x16/businessperson2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:149](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L149)
+Defined in: [manifest/generator/SitecoreIcon.ts:149](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L149)
 
 ***
 
@@ -1198,7 +1198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:149](https://github.com/Sitecore
 
 > **Button**: `"Office/16x16/button.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:150](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L150)
+Defined in: [manifest/generator/SitecoreIcon.ts:150](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L150)
 
 ***
 
@@ -1206,7 +1206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:150](https://github.com/Sitecore
 
 > **Cabinet**: `"Office/16x16/cabinet.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:151](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L151)
+Defined in: [manifest/generator/SitecoreIcon.ts:151](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L151)
 
 ***
 
@@ -1214,7 +1214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:151](https://github.com/Sitecore
 
 > **Cabinet2**: `"Office/16x16/cabinet2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:152](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L152)
+Defined in: [manifest/generator/SitecoreIcon.ts:152](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L152)
 
 ***
 
@@ -1222,7 +1222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:152](https://github.com/Sitecore
 
 > **CabinetOpen**: `"Office/16x16/cabinet_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:153](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L153)
+Defined in: [manifest/generator/SitecoreIcon.ts:153](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L153)
 
 ***
 
@@ -1230,7 +1230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:153](https://github.com/Sitecore
 
 > **Cactus**: `"Office/16x16/cactus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:154](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L154)
+Defined in: [manifest/generator/SitecoreIcon.ts:154](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L154)
 
 ***
 
@@ -1238,7 +1238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:154](https://github.com/Sitecore
 
 > **CakeSlice**: `"Office/16x16/cake_slice.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:155](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L155)
+Defined in: [manifest/generator/SitecoreIcon.ts:155](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L155)
 
 ***
 
@@ -1246,7 +1246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:155](https://github.com/Sitecore
 
 > **Calculator**: `"Office/16x16/calculator.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:156](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L156)
+Defined in: [manifest/generator/SitecoreIcon.ts:156](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L156)
 
 ***
 
@@ -1254,7 +1254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:156](https://github.com/Sitecore
 
 > **Calendar**: `"Office/16x16/calendar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:157](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L157)
+Defined in: [manifest/generator/SitecoreIcon.ts:157](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L157)
 
 ***
 
@@ -1262,7 +1262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:157](https://github.com/Sitecore
 
 > **Calendar1**: `"Office/16x16/calendar_1.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:158](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L158)
+Defined in: [manifest/generator/SitecoreIcon.ts:158](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L158)
 
 ***
 
@@ -1270,7 +1270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:158](https://github.com/Sitecore
 
 > **Calendar3**: `"Office/16x16/calendar_3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:159](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L159)
+Defined in: [manifest/generator/SitecoreIcon.ts:159](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L159)
 
 ***
 
@@ -1278,7 +1278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:159](https://github.com/Sitecore
 
 > **Calendar31**: `"Office/16x16/calendar_31.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:160](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L160)
+Defined in: [manifest/generator/SitecoreIcon.ts:160](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L160)
 
 ***
 
@@ -1286,7 +1286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:160](https://github.com/Sitecore
 
 > **Calendar5**: `"Office/16x16/calendar_5.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:161](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L161)
+Defined in: [manifest/generator/SitecoreIcon.ts:161](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L161)
 
 ***
 
@@ -1294,7 +1294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:161](https://github.com/Sitecore
 
 > **Calendar52**: `"Office/16x16/calendar_52.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:162](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L162)
+Defined in: [manifest/generator/SitecoreIcon.ts:162](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L162)
 
 ***
 
@@ -1302,7 +1302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:162](https://github.com/Sitecore
 
 > **Calendar7**: `"Office/16x16/calendar_7.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:163](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L163)
+Defined in: [manifest/generator/SitecoreIcon.ts:163](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L163)
 
 ***
 
@@ -1310,7 +1310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:163](https://github.com/Sitecore
 
 > **CalendarClock**: `"Office/16x16/calendar_clock.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:164](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L164)
+Defined in: [manifest/generator/SitecoreIcon.ts:164](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L164)
 
 ***
 
@@ -1318,7 +1318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:164](https://github.com/Sitecore
 
 > **CalibrationMark**: `"Office/16x16/calibration_mark.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:165](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L165)
+Defined in: [manifest/generator/SitecoreIcon.ts:165](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L165)
 
 ***
 
@@ -1326,7 +1326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:165](https://github.com/Sitecore
 
 > **Caliper**: `"Office/16x16/caliper.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:166](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L166)
+Defined in: [manifest/generator/SitecoreIcon.ts:166](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L166)
 
 ***
 
@@ -1334,7 +1334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:166](https://github.com/Sitecore
 
 > **Camera**: `"Office/16x16/camera.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:167](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L167)
+Defined in: [manifest/generator/SitecoreIcon.ts:167](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L167)
 
 ***
 
@@ -1342,7 +1342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:167](https://github.com/Sitecore
 
 > **Candle**: `"Office/16x16/candle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:168](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L168)
+Defined in: [manifest/generator/SitecoreIcon.ts:168](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L168)
 
 ***
 
@@ -1350,7 +1350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:168](https://github.com/Sitecore
 
 > **CandleHolder**: `"Office/16x16/candle_holder.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:169](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L169)
+Defined in: [manifest/generator/SitecoreIcon.ts:169](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L169)
 
 ***
 
@@ -1358,7 +1358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:169](https://github.com/Sitecore
 
 > **CarCompact**: `"Office/16x16/car_compact.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:172](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L172)
+Defined in: [manifest/generator/SitecoreIcon.ts:172](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L172)
 
 ***
 
@@ -1366,7 +1366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:172](https://github.com/Sitecore
 
 > **CarCompact2**: `"Office/16x16/car_compact2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:173](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L173)
+Defined in: [manifest/generator/SitecoreIcon.ts:173](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L173)
 
 ***
 
@@ -1374,7 +1374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:173](https://github.com/Sitecore
 
 > **CardTerminal**: `"Office/16x16/card_terminal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:170](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L170)
+Defined in: [manifest/generator/SitecoreIcon.ts:170](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L170)
 
 ***
 
@@ -1382,7 +1382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:170](https://github.com/Sitecore
 
 > **CardTerminal2**: `"Office/16x16/card_terminal2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:171](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L171)
+Defined in: [manifest/generator/SitecoreIcon.ts:171](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L171)
 
 ***
 
@@ -1390,7 +1390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:171](https://github.com/Sitecore
 
 > **CarSedan**: `"Office/16x16/car_sedan.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:174](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L174)
+Defined in: [manifest/generator/SitecoreIcon.ts:174](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L174)
 
 ***
 
@@ -1398,7 +1398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:174](https://github.com/Sitecore
 
 > **CarSedan2**: `"Office/16x16/car_sedan2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:175](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L175)
+Defined in: [manifest/generator/SitecoreIcon.ts:175](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L175)
 
 ***
 
@@ -1406,7 +1406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:175](https://github.com/Sitecore
 
 > **CarSports**: `"Office/16x16/car_sports.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:176](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L176)
+Defined in: [manifest/generator/SitecoreIcon.ts:176](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L176)
 
 ***
 
@@ -1414,7 +1414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:176](https://github.com/Sitecore
 
 > **Cashier**: `"Office/16x16/cashier.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:177](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L177)
+Defined in: [manifest/generator/SitecoreIcon.ts:177](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L177)
 
 ***
 
@@ -1422,7 +1422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:177](https://github.com/Sitecore
 
 > **CashRegister**: `"Office/16x16/cash_register.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:178](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L178)
+Defined in: [manifest/generator/SitecoreIcon.ts:178](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L178)
 
 ***
 
@@ -1430,7 +1430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:178](https://github.com/Sitecore
 
 > **Cask**: `"Office/16x16/cask.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:179](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L179)
+Defined in: [manifest/generator/SitecoreIcon.ts:179](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L179)
 
 ***
 
@@ -1438,7 +1438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:179](https://github.com/Sitecore
 
 > **Castle**: `"Office/16x16/castle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:180](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L180)
+Defined in: [manifest/generator/SitecoreIcon.ts:180](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L180)
 
 ***
 
@@ -1446,7 +1446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:180](https://github.com/Sitecore
 
 > **Cd**: `"Office/16x16/cd.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:181](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L181)
+Defined in: [manifest/generator/SitecoreIcon.ts:181](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L181)
 
 ***
 
@@ -1454,7 +1454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:181](https://github.com/Sitecore
 
 > **CdBurn**: `"Office/16x16/cd_burn.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:182](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L182)
+Defined in: [manifest/generator/SitecoreIcon.ts:182](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L182)
 
 ***
 
@@ -1462,7 +1462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:182](https://github.com/Sitecore
 
 > **CdCase**: `"Office/16x16/cd_case.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:183](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L183)
+Defined in: [manifest/generator/SitecoreIcon.ts:183](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L183)
 
 ***
 
@@ -1470,7 +1470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:183](https://github.com/Sitecore
 
 > **CdDrive**: `"Office/16x16/cd_drive.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:184](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L184)
+Defined in: [manifest/generator/SitecoreIcon.ts:184](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L184)
 
 ***
 
@@ -1478,7 +1478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:184](https://github.com/Sitecore
 
 > **CdMusic**: `"Office/16x16/cd_music.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:185](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L185)
+Defined in: [manifest/generator/SitecoreIcon.ts:185](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L185)
 
 ***
 
@@ -1486,7 +1486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:185](https://github.com/Sitecore
 
 > **CdPirated**: `"Office/16x16/cd_pirated.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:186](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L186)
+Defined in: [manifest/generator/SitecoreIcon.ts:186](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L186)
 
 ***
 
@@ -1494,7 +1494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:186](https://github.com/Sitecore
 
 > **CdWindow**: `"Office/16x16/cd_window.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:187](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L187)
+Defined in: [manifest/generator/SitecoreIcon.ts:187](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L187)
 
 ***
 
@@ -1502,7 +1502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:187](https://github.com/Sitecore
 
 > **CentralBank**: `"Office/16x16/central_bank.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:188](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L188)
+Defined in: [manifest/generator/SitecoreIcon.ts:188](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L188)
 
 ***
 
@@ -1510,7 +1510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:188](https://github.com/Sitecore
 
 > **CentralBank\_dollar**: `"Office/16x16/central_bank_dollar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:189](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L189)
+Defined in: [manifest/generator/SitecoreIcon.ts:189](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L189)
 
 ***
 
@@ -1518,7 +1518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:189](https://github.com/Sitecore
 
 > **CentralBank\_euro**: `"Office/16x16/central_bank_euro.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:190](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L190)
+Defined in: [manifest/generator/SitecoreIcon.ts:190](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L190)
 
 ***
 
@@ -1526,7 +1526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:190](https://github.com/Sitecore
 
 > **ChampagneGlass**: `"Office/16x16/champagne_glass.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:191](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L191)
+Defined in: [manifest/generator/SitecoreIcon.ts:191](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L191)
 
 ***
 
@@ -1534,7 +1534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:191](https://github.com/Sitecore
 
 > **ChangeOvner**: `"Office/16x16/change_ovner.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:192](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L192)
+Defined in: [manifest/generator/SitecoreIcon.ts:192](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L192)
 
 ***
 
@@ -1542,7 +1542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:192](https://github.com/Sitecore
 
 > **ChangeTemplate**: `"Office/16x16/change_template.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:193](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L193)
+Defined in: [manifest/generator/SitecoreIcon.ts:193](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L193)
 
 ***
 
@@ -1550,7 +1550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:193](https://github.com/Sitecore
 
 > **ChartArea**: `"Office/16x16/chart_area.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:194](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L194)
+Defined in: [manifest/generator/SitecoreIcon.ts:194](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L194)
 
 ***
 
@@ -1558,7 +1558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:194](https://github.com/Sitecore
 
 > **ChartBar**: `"Office/16x16/chart_bar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:195](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L195)
+Defined in: [manifest/generator/SitecoreIcon.ts:195](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L195)
 
 ***
 
@@ -1566,7 +1566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:195](https://github.com/Sitecore
 
 > **ChartBubble**: `"Office/16x16/chart_bubble.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:196](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L196)
+Defined in: [manifest/generator/SitecoreIcon.ts:196](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L196)
 
 ***
 
@@ -1574,7 +1574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:196](https://github.com/Sitecore
 
 > **ChartCandlestick**: `"Office/16x16/chart_candlestick.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:197](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L197)
+Defined in: [manifest/generator/SitecoreIcon.ts:197](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L197)
 
 ***
 
@@ -1582,7 +1582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:197](https://github.com/Sitecore
 
 > **ChartColumn**: `"Office/16x16/chart_column.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:198](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L198)
+Defined in: [manifest/generator/SitecoreIcon.ts:198](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L198)
 
 ***
 
@@ -1590,7 +1590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:198](https://github.com/Sitecore
 
 > **ChartColumn\_stacked**: `"Office/16x16/chart_column_stacked.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:199](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L199)
+Defined in: [manifest/generator/SitecoreIcon.ts:199](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L199)
 
 ***
 
@@ -1598,7 +1598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:199](https://github.com/Sitecore
 
 > **ChartDonut**: `"Office/16x16/chart_donut.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:200](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L200)
+Defined in: [manifest/generator/SitecoreIcon.ts:200](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L200)
 
 ***
 
@@ -1606,7 +1606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:200](https://github.com/Sitecore
 
 > **ChartDot**: `"Office/16x16/chart_dot.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:201](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L201)
+Defined in: [manifest/generator/SitecoreIcon.ts:201](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L201)
 
 ***
 
@@ -1614,7 +1614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:201](https://github.com/Sitecore
 
 > **ChartFunnel**: `"Office/16x16/chart_funnel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:202](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L202)
+Defined in: [manifest/generator/SitecoreIcon.ts:202](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L202)
 
 ***
 
@@ -1622,7 +1622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:202](https://github.com/Sitecore
 
 > **ChartGantt**: `"Office/16x16/chart_gantt.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:203](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L203)
+Defined in: [manifest/generator/SitecoreIcon.ts:203](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L203)
 
 ***
 
@@ -1630,7 +1630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:203](https://github.com/Sitecore
 
 > **ChartHi\_lo**: `"Office/16x16/chart_hi_lo.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:204](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L204)
+Defined in: [manifest/generator/SitecoreIcon.ts:204](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L204)
 
 ***
 
@@ -1638,7 +1638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:204](https://github.com/Sitecore
 
 > **ChartLine**: `"Office/16x16/chart_line.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:205](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L205)
+Defined in: [manifest/generator/SitecoreIcon.ts:205](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L205)
 
 ***
 
@@ -1646,7 +1646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:205](https://github.com/Sitecore
 
 > **ChartPie**: `"Office/16x16/chart_pie.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:206](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L206)
+Defined in: [manifest/generator/SitecoreIcon.ts:206](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L206)
 
 ***
 
@@ -1654,7 +1654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:206](https://github.com/Sitecore
 
 > **ChartPyramid**: `"Office/16x16/chart_pyramid.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:207](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L207)
+Defined in: [manifest/generator/SitecoreIcon.ts:207](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L207)
 
 ***
 
@@ -1662,7 +1662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:207](https://github.com/Sitecore
 
 > **ChartRadar**: `"Office/16x16/chart_radar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:208](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L208)
+Defined in: [manifest/generator/SitecoreIcon.ts:208](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L208)
 
 ***
 
@@ -1670,7 +1670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:208](https://github.com/Sitecore
 
 > **ChartRenko**: `"Office/16x16/chart_renko.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:209](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L209)
+Defined in: [manifest/generator/SitecoreIcon.ts:209](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L209)
 
 ***
 
@@ -1678,7 +1678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:209](https://github.com/Sitecore
 
 > **ChartSpline**: `"Office/16x16/chart_spline.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:210](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L210)
+Defined in: [manifest/generator/SitecoreIcon.ts:210](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L210)
 
 ***
 
@@ -1686,7 +1686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:210](https://github.com/Sitecore
 
 > **ChartStep**: `"Office/16x16/chart_step.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:211](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L211)
+Defined in: [manifest/generator/SitecoreIcon.ts:211](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L211)
 
 ***
 
@@ -1694,7 +1694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:211](https://github.com/Sitecore
 
 > **Check**: `"Office/16x16/check.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:212](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L212)
+Defined in: [manifest/generator/SitecoreIcon.ts:212](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L212)
 
 ***
 
@@ -1702,7 +1702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:212](https://github.com/Sitecore
 
 > **CheckboxGroup**: `"Office/16x16/checkbox_group.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:213](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L213)
+Defined in: [manifest/generator/SitecoreIcon.ts:213](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L213)
 
 ***
 
@@ -1710,7 +1710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:213](https://github.com/Sitecore
 
 > **CheckboxSelected**: `"Office/16x16/checkbox_selected.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:214](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L214)
+Defined in: [manifest/generator/SitecoreIcon.ts:214](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L214)
 
 ***
 
@@ -1718,7 +1718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:214](https://github.com/Sitecore
 
 > **CheckboxUnselected**: `"Office/16x16/checkbox_unselected.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:215](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L215)
+Defined in: [manifest/generator/SitecoreIcon.ts:215](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L215)
 
 ***
 
@@ -1726,7 +1726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:215](https://github.com/Sitecore
 
 > **ChessPiece\_bishop**: `"Office/16x16/chess_piece_bishop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:216](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L216)
+Defined in: [manifest/generator/SitecoreIcon.ts:216](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L216)
 
 ***
 
@@ -1734,7 +1734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:216](https://github.com/Sitecore
 
 > **ChessPiece\_king**: `"Office/16x16/chess_piece_king.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:217](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L217)
+Defined in: [manifest/generator/SitecoreIcon.ts:217](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L217)
 
 ***
 
@@ -1742,7 +1742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:217](https://github.com/Sitecore
 
 > **ChessPiece\_knight**: `"Office/16x16/chess_piece_knight.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:218](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L218)
+Defined in: [manifest/generator/SitecoreIcon.ts:218](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L218)
 
 ***
 
@@ -1750,7 +1750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:218](https://github.com/Sitecore
 
 > **ChessPiece\_pawn**: `"Office/16x16/chess_piece_pawn.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:219](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L219)
+Defined in: [manifest/generator/SitecoreIcon.ts:219](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L219)
 
 ***
 
@@ -1758,7 +1758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:219](https://github.com/Sitecore
 
 > **ChessPiece\_queen**: `"Office/16x16/chess_piece_queen.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:220](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L220)
+Defined in: [manifest/generator/SitecoreIcon.ts:220](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L220)
 
 ***
 
@@ -1766,7 +1766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:220](https://github.com/Sitecore
 
 > **ChessPiece\_rook**: `"Office/16x16/chess_piece_rook.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:221](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L221)
+Defined in: [manifest/generator/SitecoreIcon.ts:221](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L221)
 
 ***
 
@@ -1774,7 +1774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:221](https://github.com/Sitecore
 
 > **ChristianCross**: `"Office/16x16/christian_cross.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:222](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L222)
+Defined in: [manifest/generator/SitecoreIcon.ts:222](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L222)
 
 ***
 
@@ -1782,7 +1782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:222](https://github.com/Sitecore
 
 > **Cigarette**: `"Office/16x16/cigarette.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:223](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L223)
+Defined in: [manifest/generator/SitecoreIcon.ts:223](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L223)
 
 ***
 
@@ -1790,7 +1790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:223](https://github.com/Sitecore
 
 > **Clapperboard**: `"Office/16x16/clapperboard.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:224](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L224)
+Defined in: [manifest/generator/SitecoreIcon.ts:224](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L224)
 
 ***
 
@@ -1798,7 +1798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:224](https://github.com/Sitecore
 
 > **ClapperboardClosed**: `"Office/16x16/clapperboard_closed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:225](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L225)
+Defined in: [manifest/generator/SitecoreIcon.ts:225](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L225)
 
 ***
 
@@ -1806,7 +1806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:225](https://github.com/Sitecore
 
 > **ClearReminder**: `"Office/16x16/clear_reminder.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:226](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L226)
+Defined in: [manifest/generator/SitecoreIcon.ts:226](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L226)
 
 ***
 
@@ -1814,7 +1814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:226](https://github.com/Sitecore
 
 > **Clef**: `"Office/16x16/clef.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:227](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L227)
+Defined in: [manifest/generator/SitecoreIcon.ts:227](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L227)
 
 ***
 
@@ -1822,7 +1822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:227](https://github.com/Sitecore
 
 > **ClientNetwork**: `"Office/16x16/client_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:229](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L229)
+Defined in: [manifest/generator/SitecoreIcon.ts:229](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L229)
 
 ***
 
@@ -1830,7 +1830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:229](https://github.com/Sitecore
 
 > **Clients**: `"Office/16x16/clients.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:228](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L228)
+Defined in: [manifest/generator/SitecoreIcon.ts:228](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L228)
 
 ***
 
@@ -1838,7 +1838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:228](https://github.com/Sitecore
 
 > **Clipboard**: `"Office/16x16/clipboard.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:230](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L230)
+Defined in: [manifest/generator/SitecoreIcon.ts:230](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L230)
 
 ***
 
@@ -1846,7 +1846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:230](https://github.com/Sitecore
 
 > **ClipboardCheck\_edit**: `"Office/16x16/clipboard_check_edit.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:232](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L232)
+Defined in: [manifest/generator/SitecoreIcon.ts:232](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L232)
 
 ***
 
@@ -1854,7 +1854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:232](https://github.com/Sitecore
 
 > **ClipboardChecks**: `"Office/16x16/clipboard_checks.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:231](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L231)
+Defined in: [manifest/generator/SitecoreIcon.ts:231](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L231)
 
 ***
 
@@ -1862,7 +1862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:231](https://github.com/Sitecore
 
 > **ClipboardEmpty**: `"Office/16x16/clipboard_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:233](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L233)
+Defined in: [manifest/generator/SitecoreIcon.ts:233](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L233)
 
 ***
 
@@ -1870,7 +1870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:233](https://github.com/Sitecore
 
 > **ClipboardPaste**: `"Office/16x16/clipboard_paste.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:234](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L234)
+Defined in: [manifest/generator/SitecoreIcon.ts:234](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L234)
 
 ***
 
@@ -1878,7 +1878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:234](https://github.com/Sitecore
 
 > **ClipboardPaste\_no\_format**: `"Office/16x16/clipboard_paste_no_format.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:235](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L235)
+Defined in: [manifest/generator/SitecoreIcon.ts:235](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L235)
 
 ***
 
@@ -1886,7 +1886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:235](https://github.com/Sitecore
 
 > **Clock**: `"Office/16x16/clock.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:236](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L236)
+Defined in: [manifest/generator/SitecoreIcon.ts:236](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L236)
 
 ***
 
@@ -1894,7 +1894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:236](https://github.com/Sitecore
 
 > **ClockBack**: `"Office/16x16/clock_back.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:237](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L237)
+Defined in: [manifest/generator/SitecoreIcon.ts:237](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L237)
 
 ***
 
@@ -1902,7 +1902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:237](https://github.com/Sitecore
 
 > **ClockForward**: `"Office/16x16/clock_forward.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:238](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L238)
+Defined in: [manifest/generator/SitecoreIcon.ts:238](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L238)
 
 ***
 
@@ -1910,7 +1910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:238](https://github.com/Sitecore
 
 > **CloneItem**: `"Office/16x16/clone_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:239](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L239)
+Defined in: [manifest/generator/SitecoreIcon.ts:239](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L239)
 
 ***
 
@@ -1918,7 +1918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:239](https://github.com/Sitecore
 
 > **Close**: `"Office/16x16/close.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:240](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L240)
+Defined in: [manifest/generator/SitecoreIcon.ts:240](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L240)
 
 ***
 
@@ -1926,7 +1926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:240](https://github.com/Sitecore
 
 > **Cloud**: `"Office/16x16/cloud.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:241](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L241)
+Defined in: [manifest/generator/SitecoreIcon.ts:241](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L241)
 
 ***
 
@@ -1934,7 +1934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:241](https://github.com/Sitecore
 
 > **CloudDark**: `"Office/16x16/cloud_dark.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:242](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L242)
+Defined in: [manifest/generator/SitecoreIcon.ts:242](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L242)
 
 ***
 
@@ -1942,7 +1942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:242](https://github.com/Sitecore
 
 > **CloudDownload**: `"Office/16x16/cloud_download.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:243](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L243)
+Defined in: [manifest/generator/SitecoreIcon.ts:243](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L243)
 
 ***
 
@@ -1950,7 +1950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:243](https://github.com/Sitecore
 
 > **CloudFlash**: `"Office/16x16/cloud_flash.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:244](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L244)
+Defined in: [manifest/generator/SitecoreIcon.ts:244](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L244)
 
 ***
 
@@ -1958,7 +1958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:244](https://github.com/Sitecore
 
 > **CloudHail**: `"Office/16x16/cloud_hail.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:245](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L245)
+Defined in: [manifest/generator/SitecoreIcon.ts:245](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L245)
 
 ***
 
@@ -1966,7 +1966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:245](https://github.com/Sitecore
 
 > **CloudMoon**: `"Office/16x16/cloud_moon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:246](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L246)
+Defined in: [manifest/generator/SitecoreIcon.ts:246](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L246)
 
 ***
 
@@ -1974,7 +1974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:246](https://github.com/Sitecore
 
 > **CloudNetwork**: `"Office/16x16/cloud_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:247](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L247)
+Defined in: [manifest/generator/SitecoreIcon.ts:247](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L247)
 
 ***
 
@@ -1982,7 +1982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:247](https://github.com/Sitecore
 
 > **CloudRain**: `"Office/16x16/cloud_rain.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:248](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L248)
+Defined in: [manifest/generator/SitecoreIcon.ts:248](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L248)
 
 ***
 
@@ -1990,7 +1990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:248](https://github.com/Sitecore
 
 > **CloudRefresh**: `"Office/16x16/cloud_refresh.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:249](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L249)
+Defined in: [manifest/generator/SitecoreIcon.ts:249](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L249)
 
 ***
 
@@ -1998,7 +1998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:249](https://github.com/Sitecore
 
 > **CloudSnow**: `"Office/16x16/cloud_snow.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:250](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L250)
+Defined in: [manifest/generator/SitecoreIcon.ts:250](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L250)
 
 ***
 
@@ -2006,7 +2006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:250](https://github.com/Sitecore
 
 > **CloudSun**: `"Office/16x16/cloud_sun.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:251](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L251)
+Defined in: [manifest/generator/SitecoreIcon.ts:251](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L251)
 
 ***
 
@@ -2014,7 +2014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:251](https://github.com/Sitecore
 
 > **CloudUpdown**: `"Office/16x16/cloud_updown.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:252](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L252)
+Defined in: [manifest/generator/SitecoreIcon.ts:252](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L252)
 
 ***
 
@@ -2022,7 +2022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:252](https://github.com/Sitecore
 
 > **CloudUpload**: `"Office/16x16/cloud_upload.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:253](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L253)
+Defined in: [manifest/generator/SitecoreIcon.ts:253](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L253)
 
 ***
 
@@ -2030,7 +2030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:253](https://github.com/Sitecore
 
 > **Coathanger**: `"Office/16x16/coathanger.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:254](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L254)
+Defined in: [manifest/generator/SitecoreIcon.ts:254](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L254)
 
 ***
 
@@ -2038,7 +2038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:254](https://github.com/Sitecore
 
 > **Cocktail**: `"Office/16x16/cocktail.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:255](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L255)
+Defined in: [manifest/generator/SitecoreIcon.ts:255](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L255)
 
 ***
 
@@ -2046,7 +2046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:255](https://github.com/Sitecore
 
 > **Cocktail2**: `"Office/16x16/cocktail2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:256](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L256)
+Defined in: [manifest/generator/SitecoreIcon.ts:256](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L256)
 
 ***
 
@@ -2054,7 +2054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:256](https://github.com/Sitecore
 
 > **CoffeeBean**: `"Office/16x16/coffee_bean.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:257](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L257)
+Defined in: [manifest/generator/SitecoreIcon.ts:257](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L257)
 
 ***
 
@@ -2062,7 +2062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:257](https://github.com/Sitecore
 
 > **CoffeeBeans**: `"Office/16x16/coffee_beans.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:258](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L258)
+Defined in: [manifest/generator/SitecoreIcon.ts:258](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L258)
 
 ***
 
@@ -2070,7 +2070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:258](https://github.com/Sitecore
 
 > **CoffeeMachine**: `"Office/16x16/coffee_machine.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:259](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L259)
+Defined in: [manifest/generator/SitecoreIcon.ts:259](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L259)
 
 ***
 
@@ -2078,7 +2078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:259](https://github.com/Sitecore
 
 > **Comb**: `"Office/16x16/comb.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:260](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L260)
+Defined in: [manifest/generator/SitecoreIcon.ts:260](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L260)
 
 ***
 
@@ -2086,7 +2086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:260](https://github.com/Sitecore
 
 > **CompactCamera**: `"Office/16x16/compact_camera.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:261](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L261)
+Defined in: [manifest/generator/SitecoreIcon.ts:261](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L261)
 
 ***
 
@@ -2094,7 +2094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:261](https://github.com/Sitecore
 
 > **CompareVersions**: `"Office/16x16/compare_versions.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:262](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L262)
+Defined in: [manifest/generator/SitecoreIcon.ts:262](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L262)
 
 ***
 
@@ -2102,7 +2102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:262](https://github.com/Sitecore
 
 > **Compass**: `"Office/16x16/compass.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:263](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L263)
+Defined in: [manifest/generator/SitecoreIcon.ts:263](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L263)
 
 ***
 
@@ -2110,7 +2110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:263](https://github.com/Sitecore
 
 > **Compasses**: `"Office/16x16/compasses.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:264](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L264)
+Defined in: [manifest/generator/SitecoreIcon.ts:264](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L264)
 
 ***
 
@@ -2118,7 +2118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:264](https://github.com/Sitecore
 
 > **Compress**: `"Office/16x16/compress.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:265](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L265)
+Defined in: [manifest/generator/SitecoreIcon.ts:265](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L265)
 
 ***
 
@@ -2126,7 +2126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:265](https://github.com/Sitecore
 
 > **Compress2**: `"Office/16x16/compress2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:266](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L266)
+Defined in: [manifest/generator/SitecoreIcon.ts:266](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L266)
 
 ***
 
@@ -2134,7 +2134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:266](https://github.com/Sitecore
 
 > **Console**: `"Office/16x16/console.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:267](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L267)
+Defined in: [manifest/generator/SitecoreIcon.ts:267](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L267)
 
 ***
 
@@ -2142,7 +2142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:267](https://github.com/Sitecore
 
 > **ConsoleNetwork**: `"Office/16x16/console_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:268](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L268)
+Defined in: [manifest/generator/SitecoreIcon.ts:268](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L268)
 
 ***
 
@@ -2150,7 +2150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:268](https://github.com/Sitecore
 
 > **ConstructionBarrier**: `"Office/16x16/construction_barrier.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:269](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L269)
+Defined in: [manifest/generator/SitecoreIcon.ts:269](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L269)
 
 ***
 
@@ -2158,7 +2158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:269](https://github.com/Sitecore
 
 > **Contrast**: `"Office/16x16/contrast.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:270](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L270)
+Defined in: [manifest/generator/SitecoreIcon.ts:270](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L270)
 
 ***
 
@@ -2166,7 +2166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:270](https://github.com/Sitecore
 
 > **ContrastLow**: `"Office/16x16/contrast_low.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:271](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L271)
+Defined in: [manifest/generator/SitecoreIcon.ts:271](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L271)
 
 ***
 
@@ -2174,7 +2174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:271](https://github.com/Sitecore
 
 > **ControlPanel**: `"Office/16x16/control_panel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:272](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L272)
+Defined in: [manifest/generator/SitecoreIcon.ts:272](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L272)
 
 ***
 
@@ -2182,7 +2182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:272](https://github.com/Sitecore
 
 > **ControlPanel2**: `"Office/16x16/control_panel2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:273](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L273)
+Defined in: [manifest/generator/SitecoreIcon.ts:273](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L273)
 
 ***
 
@@ -2190,7 +2190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:273](https://github.com/Sitecore
 
 > **Cook**: `"Office/16x16/cook.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:274](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L274)
+Defined in: [manifest/generator/SitecoreIcon.ts:274](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L274)
 
 ***
 
@@ -2198,7 +2198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:274](https://github.com/Sitecore
 
 > **Cookies**: `"Office/16x16/cookies.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:275](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L275)
+Defined in: [manifest/generator/SitecoreIcon.ts:275](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L275)
 
 ***
 
@@ -2206,7 +2206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:275](https://github.com/Sitecore
 
 > **CoolingTower**: `"Office/16x16/cooling_tower.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:276](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L276)
+Defined in: [manifest/generator/SitecoreIcon.ts:276](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L276)
 
 ***
 
@@ -2214,7 +2214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:276](https://github.com/Sitecore
 
 > **CoolingTower\_smoke**: `"Office/16x16/cooling_tower_smoke.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:277](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L277)
+Defined in: [manifest/generator/SitecoreIcon.ts:277](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L277)
 
 ***
 
@@ -2222,7 +2222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:277](https://github.com/Sitecore
 
 > **Copy**: `"Office/16x16/copy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:278](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L278)
+Defined in: [manifest/generator/SitecoreIcon.ts:278](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L278)
 
 ***
 
@@ -2230,7 +2230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:278](https://github.com/Sitecore
 
 > **CopyTo**: `"Office/16x16/copy_to.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:279](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L279)
+Defined in: [manifest/generator/SitecoreIcon.ts:279](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L279)
 
 ***
 
@@ -2238,7 +2238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:279](https://github.com/Sitecore
 
 > **CorrectionFluid**: `"Office/16x16/correction_fluid.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:280](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L280)
+Defined in: [manifest/generator/SitecoreIcon.ts:280](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L280)
 
 ***
 
@@ -2246,7 +2246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:280](https://github.com/Sitecore
 
 > **Cpu**: `"Office/16x16/cpu.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:281](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L281)
+Defined in: [manifest/generator/SitecoreIcon.ts:281](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L281)
 
 ***
 
@@ -2254,7 +2254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:281](https://github.com/Sitecore
 
 > **Cpu2**: `"Office/16x16/cpu2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:282](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L282)
+Defined in: [manifest/generator/SitecoreIcon.ts:282](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L282)
 
 ***
 
@@ -2262,7 +2262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:282](https://github.com/Sitecore
 
 > **Crack**: `"Office/16x16/crack.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:283](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L283)
+Defined in: [manifest/generator/SitecoreIcon.ts:283](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L283)
 
 ***
 
@@ -2270,7 +2270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:283](https://github.com/Sitecore
 
 > **CrashTest\_dummy**: `"Office/16x16/crash_test_dummy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:284](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L284)
+Defined in: [manifest/generator/SitecoreIcon.ts:284](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L284)
 
 ***
 
@@ -2278,7 +2278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:284](https://github.com/Sitecore
 
 > **CreateTemplate**: `"Office/16x16/create_template.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:285](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L285)
+Defined in: [manifest/generator/SitecoreIcon.ts:285](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L285)
 
 ***
 
@@ -2286,7 +2286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:285](https://github.com/Sitecore
 
 > **CreditCard**: `"Office/16x16/credit_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:286](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L286)
+Defined in: [manifest/generator/SitecoreIcon.ts:286](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L286)
 
 ***
 
@@ -2294,7 +2294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:286](https://github.com/Sitecore
 
 > **CreditCard2**: `"Office/16x16/credit_card2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:287](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L287)
+Defined in: [manifest/generator/SitecoreIcon.ts:287](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L287)
 
 ***
 
@@ -2302,7 +2302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:287](https://github.com/Sitecore
 
 > **CreditCards**: `"Office/16x16/credit_cards.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:288](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L288)
+Defined in: [manifest/generator/SitecoreIcon.ts:288](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L288)
 
 ***
 
@@ -2310,7 +2310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:288](https://github.com/Sitecore
 
 > **Criminal**: `"Office/16x16/criminal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:289](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L289)
+Defined in: [manifest/generator/SitecoreIcon.ts:289](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L289)
 
 ***
 
@@ -2318,7 +2318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:289](https://github.com/Sitecore
 
 > **Crown**: `"Office/16x16/crown.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:290](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L290)
+Defined in: [manifest/generator/SitecoreIcon.ts:290](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L290)
 
 ***
 
@@ -2326,7 +2326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:290](https://github.com/Sitecore
 
 > **CubeMolecule**: `"Office/16x16/cube_molecule.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:292](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L292)
+Defined in: [manifest/generator/SitecoreIcon.ts:292](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L292)
 
 ***
 
@@ -2334,7 +2334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:292](https://github.com/Sitecore
 
 > **CubeMolecule2**: `"Office/16x16/cube_molecule2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:293](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L293)
+Defined in: [manifest/generator/SitecoreIcon.ts:293](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L293)
 
 ***
 
@@ -2342,7 +2342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:293](https://github.com/Sitecore
 
 > **Cubes**: `"Office/16x16/cubes.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:291](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L291)
+Defined in: [manifest/generator/SitecoreIcon.ts:291](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L291)
 
 ***
 
@@ -2350,7 +2350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:291](https://github.com/Sitecore
 
 > **Cup**: `"Office/16x16/cup.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:294](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L294)
+Defined in: [manifest/generator/SitecoreIcon.ts:294](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L294)
 
 ***
 
@@ -2358,7 +2358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:294](https://github.com/Sitecore
 
 > **Cut**: `"Office/16x16/cut.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:295](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L295)
+Defined in: [manifest/generator/SitecoreIcon.ts:295](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L295)
 
 ***
 
@@ -2366,7 +2366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:295](https://github.com/Sitecore
 
 > **Data**: `"Office/16x16/data.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:296](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L296)
+Defined in: [manifest/generator/SitecoreIcon.ts:296](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L296)
 
 ***
 
@@ -2374,7 +2374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:296](https://github.com/Sitecore
 
 > **DataCloud**: `"Office/16x16/data_cloud.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:297](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L297)
+Defined in: [manifest/generator/SitecoreIcon.ts:297](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L297)
 
 ***
 
@@ -2382,7 +2382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:297](https://github.com/Sitecore
 
 > **DataCopy**: `"Office/16x16/data_copy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:298](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L298)
+Defined in: [manifest/generator/SitecoreIcon.ts:298](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L298)
 
 ***
 
@@ -2390,7 +2390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:298](https://github.com/Sitecore
 
 > **DataFloppy\_disk**: `"Office/16x16/data_floppy_disk.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:299](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L299)
+Defined in: [manifest/generator/SitecoreIcon.ts:299](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L299)
 
 ***
 
@@ -2398,7 +2398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:299](https://github.com/Sitecore
 
 > **DataNetwork**: `"Office/16x16/data_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:300](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L300)
+Defined in: [manifest/generator/SitecoreIcon.ts:300](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L300)
 
 ***
 
@@ -2406,7 +2406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:300](https://github.com/Sitecore
 
 > **DataScroll**: `"Office/16x16/data_scroll.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:301](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L301)
+Defined in: [manifest/generator/SitecoreIcon.ts:301](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L301)
 
 ***
 
@@ -2414,7 +2414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:301](https://github.com/Sitecore
 
 > **DataShared**: `"Office/16x16/data_shared.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:302](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L302)
+Defined in: [manifest/generator/SitecoreIcon.ts:302](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L302)
 
 ***
 
@@ -2422,7 +2422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:302](https://github.com/Sitecore
 
 > **Debug**: `"Office/16x16/debug.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:303](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L303)
+Defined in: [manifest/generator/SitecoreIcon.ts:303](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L303)
 
 ***
 
@@ -2430,7 +2430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:303](https://github.com/Sitecore
 
 > **DefaultUser**: `"Office/16x16/default_user.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:304](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L304)
+Defined in: [manifest/generator/SitecoreIcon.ts:304](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L304)
 
 ***
 
@@ -2438,7 +2438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:304](https://github.com/Sitecore
 
 > **Delete**: `"Office/16x16/delete.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:305](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L305)
+Defined in: [manifest/generator/SitecoreIcon.ts:305](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L305)
 
 ***
 
@@ -2446,7 +2446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:305](https://github.com/Sitecore
 
 > **DeleteField**: `"Office/16x16/delete_field.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:306](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L306)
+Defined in: [manifest/generator/SitecoreIcon.ts:306](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L306)
 
 ***
 
@@ -2454,7 +2454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:306](https://github.com/Sitecore
 
 > **DeliveryTruck**: `"Office/16x16/delivery_truck.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:307](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L307)
+Defined in: [manifest/generator/SitecoreIcon.ts:307](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L307)
 
 ***
 
@@ -2462,7 +2462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:307](https://github.com/Sitecore
 
 > **DeskLamp**: `"Office/16x16/desk_lamp.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:309](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L309)
+Defined in: [manifest/generator/SitecoreIcon.ts:309](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L309)
 
 ***
 
@@ -2470,7 +2470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:309](https://github.com/Sitecore
 
 > **Desktop**: `"Office/16x16/desktop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:308](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L308)
+Defined in: [manifest/generator/SitecoreIcon.ts:308](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L308)
 
 ***
 
@@ -2478,7 +2478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:308](https://github.com/Sitecore
 
 > **Devil**: `"Office/16x16/devil.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:310](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L310)
+Defined in: [manifest/generator/SitecoreIcon.ts:310](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L310)
 
 ***
 
@@ -2486,7 +2486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:310](https://github.com/Sitecore
 
 > **Diamond**: `"Office/16x16/diamond.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:311](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L311)
+Defined in: [manifest/generator/SitecoreIcon.ts:311](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L311)
 
 ***
 
@@ -2494,7 +2494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:311](https://github.com/Sitecore
 
 > **DiamondRing**: `"Office/16x16/diamond_ring.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:312](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L312)
+Defined in: [manifest/generator/SitecoreIcon.ts:312](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L312)
 
 ***
 
@@ -2502,7 +2502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:312](https://github.com/Sitecore
 
 > **Dictionary**: `"Office/16x16/dictionary.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:313](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L313)
+Defined in: [manifest/generator/SitecoreIcon.ts:313](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L313)
 
 ***
 
@@ -2510,7 +2510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:313](https://github.com/Sitecore
 
 > **Die**: `"Office/16x16/die.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:314](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L314)
+Defined in: [manifest/generator/SitecoreIcon.ts:314](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L314)
 
 ***
 
@@ -2518,7 +2518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:314](https://github.com/Sitecore
 
 > **Disability**: `"Office/16x16/disability.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:315](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L315)
+Defined in: [manifest/generator/SitecoreIcon.ts:315](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L315)
 
 ***
 
@@ -2526,7 +2526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:315](https://github.com/Sitecore
 
 > **Dna**: `"Office/16x16/dna.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:316](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L316)
+Defined in: [manifest/generator/SitecoreIcon.ts:316](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L316)
 
 ***
 
@@ -2534,7 +2534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:316](https://github.com/Sitecore
 
 > **Doctor**: `"Office/16x16/doctor.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:317](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L317)
+Defined in: [manifest/generator/SitecoreIcon.ts:317](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L317)
 
 ***
 
@@ -2542,7 +2542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:317](https://github.com/Sitecore
 
 > **DocumentAttachment**: `"Office/16x16/document_attachment.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:320](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L320)
+Defined in: [manifest/generator/SitecoreIcon.ts:320](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L320)
 
 ***
 
@@ -2550,7 +2550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:320](https://github.com/Sitecore
 
 > **DocumentCenter**: `"Office/16x16/document_center.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:321](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L321)
+Defined in: [manifest/generator/SitecoreIcon.ts:321](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L321)
 
 ***
 
@@ -2558,7 +2558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:321](https://github.com/Sitecore
 
 > **DocumentCenter\_horizontal**: `"Office/16x16/document_center_horizontal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:322](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L322)
+Defined in: [manifest/generator/SitecoreIcon.ts:322](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L322)
 
 ***
 
@@ -2566,7 +2566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:322](https://github.com/Sitecore
 
 > **DocumentCenter\_vertical**: `"Office/16x16/document_center_vertical.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:323](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L323)
+Defined in: [manifest/generator/SitecoreIcon.ts:323](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L323)
 
 ***
 
@@ -2574,7 +2574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:323](https://github.com/Sitecore
 
 > **DocumentChart**: `"Office/16x16/document_chart.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:324](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L324)
+Defined in: [manifest/generator/SitecoreIcon.ts:324](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L324)
 
 ***
 
@@ -2582,7 +2582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:324](https://github.com/Sitecore
 
 > **DocumentCup**: `"Office/16x16/document_cup.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:325](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L325)
+Defined in: [manifest/generator/SitecoreIcon.ts:325](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L325)
 
 ***
 
@@ -2590,7 +2590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:325](https://github.com/Sitecore
 
 > **DocumentEmpty**: `"Office/16x16/document_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:326](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L326)
+Defined in: [manifest/generator/SitecoreIcon.ts:326](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L326)
 
 ***
 
@@ -2598,7 +2598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:326](https://github.com/Sitecore
 
 > **DocumentEmpty\_landscape**: `"Office/16x16/document_empty_landscape.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:327](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L327)
+Defined in: [manifest/generator/SitecoreIcon.ts:327](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L327)
 
 ***
 
@@ -2606,7 +2606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:327](https://github.com/Sitecore
 
 > **DocumentFooter**: `"Office/16x16/document_footer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:328](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L328)
+Defined in: [manifest/generator/SitecoreIcon.ts:328](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L328)
 
 ***
 
@@ -2614,7 +2614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:328](https://github.com/Sitecore
 
 > **DocumentGear**: `"Office/16x16/document_gear.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:329](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L329)
+Defined in: [manifest/generator/SitecoreIcon.ts:329](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L329)
 
 ***
 
@@ -2622,7 +2622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:329](https://github.com/Sitecore
 
 > **DocumentHeader**: `"Office/16x16/document_header.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:330](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L330)
+Defined in: [manifest/generator/SitecoreIcon.ts:330](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L330)
 
 ***
 
@@ -2630,7 +2630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:330](https://github.com/Sitecore
 
 > **DocumentHeart**: `"Office/16x16/document_heart.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:331](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L331)
+Defined in: [manifest/generator/SitecoreIcon.ts:331](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L331)
 
 ***
 
@@ -2638,7 +2638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:331](https://github.com/Sitecore
 
 > **DocumentHeight**: `"Office/16x16/document_height.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:332](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L332)
+Defined in: [manifest/generator/SitecoreIcon.ts:332](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L332)
 
 ***
 
@@ -2646,7 +2646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:332](https://github.com/Sitecore
 
 > **DocumentJson**: `"Office/16x16/document_json.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:333](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L333)
+Defined in: [manifest/generator/SitecoreIcon.ts:333](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L333)
 
 ***
 
@@ -2654,7 +2654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:333](https://github.com/Sitecore
 
 > **DocumentMusic**: `"Office/16x16/document_music.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:334](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L334)
+Defined in: [manifest/generator/SitecoreIcon.ts:334](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L334)
 
 ***
 
@@ -2662,7 +2662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:334](https://github.com/Sitecore
 
 > **DocumentNotebook**: `"Office/16x16/document_notebook.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:335](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L335)
+Defined in: [manifest/generator/SitecoreIcon.ts:335](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L335)
 
 ***
 
@@ -2670,7 +2670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:335](https://github.com/Sitecore
 
 > **DocumentOrientation\_landscape**: `"Office/16x16/document_orientation_landscape.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:336](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L336)
+Defined in: [manifest/generator/SitecoreIcon.ts:336](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L336)
 
 ***
 
@@ -2678,7 +2678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:336](https://github.com/Sitecore
 
 > **DocumentOrientation\_portrait**: `"Office/16x16/document_orientation_portrait.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:337](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L337)
+Defined in: [manifest/generator/SitecoreIcon.ts:337](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L337)
 
 ***
 
@@ -2686,7 +2686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:337](https://github.com/Sitecore
 
 > **DocumentPage\_number**: `"Office/16x16/document_page_number.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:338](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L338)
+Defined in: [manifest/generator/SitecoreIcon.ts:338](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L338)
 
 ***
 
@@ -2694,7 +2694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:338](https://github.com/Sitecore
 
 > **DocumentPinned**: `"Office/16x16/document_pinned.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:339](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L339)
+Defined in: [manifest/generator/SitecoreIcon.ts:339](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L339)
 
 ***
 
@@ -2702,7 +2702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:339](https://github.com/Sitecore
 
 > **DocumentPulse**: `"Office/16x16/document_pulse.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:340](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L340)
+Defined in: [manifest/generator/SitecoreIcon.ts:340](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L340)
 
 ***
 
@@ -2710,7 +2710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:340](https://github.com/Sitecore
 
 > **DocumentSelection**: `"Office/16x16/document_selection.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:341](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L341)
+Defined in: [manifest/generator/SitecoreIcon.ts:341](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L341)
 
 ***
 
@@ -2718,7 +2718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:341](https://github.com/Sitecore
 
 > **DocumentsEmpty**: `"Office/16x16/documents_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:318](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L318)
+Defined in: [manifest/generator/SitecoreIcon.ts:318](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L318)
 
 ***
 
@@ -2726,7 +2726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:318](https://github.com/Sitecore
 
 > **DocumentsExchange**: `"Office/16x16/documents_exchange.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:319](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L319)
+Defined in: [manifest/generator/SitecoreIcon.ts:319](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L319)
 
 ***
 
@@ -2734,7 +2734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:319](https://github.com/Sitecore
 
 > **DocumentSize**: `"Office/16x16/document_size.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:342](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L342)
+Defined in: [manifest/generator/SitecoreIcon.ts:342](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L342)
 
 ***
 
@@ -2742,7 +2742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:342](https://github.com/Sitecore
 
 > **DocumentTag**: `"Office/16x16/document_tag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:343](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L343)
+Defined in: [manifest/generator/SitecoreIcon.ts:343](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L343)
 
 ***
 
@@ -2750,7 +2750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:343](https://github.com/Sitecore
 
 > **DocumentText**: `"Office/16x16/document_text.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:344](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L344)
+Defined in: [manifest/generator/SitecoreIcon.ts:344](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L344)
 
 ***
 
@@ -2758,7 +2758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:344](https://github.com/Sitecore
 
 > **DocumentWidth**: `"Office/16x16/document_width.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:345](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L345)
+Defined in: [manifest/generator/SitecoreIcon.ts:345](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L345)
 
 ***
 
@@ -2766,7 +2766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:345](https://github.com/Sitecore
 
 > **DocumentZip**: `"Office/16x16/document_zip.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:346](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L346)
+Defined in: [manifest/generator/SitecoreIcon.ts:346](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L346)
 
 ***
 
@@ -2774,7 +2774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:346](https://github.com/Sitecore
 
 > **DomeCamera**: `"Office/16x16/dome_camera.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:347](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L347)
+Defined in: [manifest/generator/SitecoreIcon.ts:347](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L347)
 
 ***
 
@@ -2782,7 +2782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:347](https://github.com/Sitecore
 
 > **DoorClosed**: `"Office/16x16/door_closed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:348](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L348)
+Defined in: [manifest/generator/SitecoreIcon.ts:348](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L348)
 
 ***
 
@@ -2790,7 +2790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:348](https://github.com/Sitecore
 
 > **DoorExit**: `"Office/16x16/door_exit.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:349](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L349)
+Defined in: [manifest/generator/SitecoreIcon.ts:349](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L349)
 
 ***
 
@@ -2798,7 +2798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:349](https://github.com/Sitecore
 
 > **DoorOpen**: `"Office/16x16/door_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:350](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L350)
+Defined in: [manifest/generator/SitecoreIcon.ts:350](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L350)
 
 ***
 
@@ -2806,7 +2806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:350](https://github.com/Sitecore
 
 > **DotMatrix**: `"Office/16x16/dot_matrix.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:351](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L351)
+Defined in: [manifest/generator/SitecoreIcon.ts:351](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L351)
 
 ***
 
@@ -2814,7 +2814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:351](https://github.com/Sitecore
 
 > **Download**: `"Office/16x16/download.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:352](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L352)
+Defined in: [manifest/generator/SitecoreIcon.ts:352](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L352)
 
 ***
 
@@ -2822,7 +2822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:352](https://github.com/Sitecore
 
 > **Dram**: `"Office/16x16/dram.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:353](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L353)
+Defined in: [manifest/generator/SitecoreIcon.ts:353](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L353)
 
 ***
 
@@ -2830,7 +2830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:353](https://github.com/Sitecore
 
 > **Drink**: `"Office/16x16/drink.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:354](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L354)
+Defined in: [manifest/generator/SitecoreIcon.ts:354](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L354)
 
 ***
 
@@ -2838,7 +2838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:354](https://github.com/Sitecore
 
 > **Drop**: `"Office/16x16/drop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:355](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L355)
+Defined in: [manifest/generator/SitecoreIcon.ts:355](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L355)
 
 ***
 
@@ -2846,7 +2846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:355](https://github.com/Sitecore
 
 > **DropDown\_list**: `"Office/16x16/drop_down_list.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:356](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L356)
+Defined in: [manifest/generator/SitecoreIcon.ts:356](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L356)
 
 ***
 
@@ -2854,7 +2854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:356](https://github.com/Sitecore
 
 > **Dude1**: `"Office/16x16/dude1.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:357](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L357)
+Defined in: [manifest/generator/SitecoreIcon.ts:357](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L357)
 
 ***
 
@@ -2862,7 +2862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:357](https://github.com/Sitecore
 
 > **Dude2**: `"Office/16x16/dude2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:358](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L358)
+Defined in: [manifest/generator/SitecoreIcon.ts:358](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L358)
 
 ***
 
@@ -2870,7 +2870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:358](https://github.com/Sitecore
 
 > **Dude3**: `"Office/16x16/dude3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:359](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L359)
+Defined in: [manifest/generator/SitecoreIcon.ts:359](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L359)
 
 ***
 
@@ -2878,7 +2878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:359](https://github.com/Sitecore
 
 > **Dude4**: `"Office/16x16/dude4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:360](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L360)
+Defined in: [manifest/generator/SitecoreIcon.ts:360](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L360)
 
 ***
 
@@ -2886,7 +2886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:360](https://github.com/Sitecore
 
 > **Dude5**: `"Office/16x16/dude5.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:361](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L361)
+Defined in: [manifest/generator/SitecoreIcon.ts:361](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L361)
 
 ***
 
@@ -2894,7 +2894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:361](https://github.com/Sitecore
 
 > **Dude6**: `"Office/16x16/dude6.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:362](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L362)
+Defined in: [manifest/generator/SitecoreIcon.ts:362](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L362)
 
 ***
 
@@ -2902,7 +2902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:362](https://github.com/Sitecore
 
 > **Dumbbell**: `"Office/16x16/dumbbell.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:363](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L363)
+Defined in: [manifest/generator/SitecoreIcon.ts:363](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L363)
 
 ***
 
@@ -2910,7 +2910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:363](https://github.com/Sitecore
 
 > **DumpTruck**: `"Office/16x16/dump_truck.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:364](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L364)
+Defined in: [manifest/generator/SitecoreIcon.ts:364](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L364)
 
 ***
 
@@ -2918,7 +2918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:364](https://github.com/Sitecore
 
 > **Dynamite**: `"Office/16x16/dynamite.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:365](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L365)
+Defined in: [manifest/generator/SitecoreIcon.ts:365](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L365)
 
 ***
 
@@ -2926,7 +2926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:365](https://github.com/Sitecore
 
 > **Ear**: `"Office/16x16/ear.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:366](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L366)
+Defined in: [manifest/generator/SitecoreIcon.ts:366](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L366)
 
 ***
 
@@ -2934,7 +2934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:366](https://github.com/Sitecore
 
 > **Earth**: `"Office/16x16/earth.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:367](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L367)
+Defined in: [manifest/generator/SitecoreIcon.ts:367](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L367)
 
 ***
 
@@ -2942,7 +2942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:367](https://github.com/Sitecore
 
 > **Earth2**: `"Office/16x16/earth2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:368](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L368)
+Defined in: [manifest/generator/SitecoreIcon.ts:368](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L368)
 
 ***
 
@@ -2950,7 +2950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:368](https://github.com/Sitecore
 
 > **EarthLink**: `"Office/16x16/earth_link.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:369](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L369)
+Defined in: [manifest/generator/SitecoreIcon.ts:369](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L369)
 
 ***
 
@@ -2958,7 +2958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:369](https://github.com/Sitecore
 
 > **EarthLocation**: `"Office/16x16/earth_location.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:370](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L370)
+Defined in: [manifest/generator/SitecoreIcon.ts:370](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L370)
 
 ***
 
@@ -2966,7 +2966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:370](https://github.com/Sitecore
 
 > **EarthMusic**: `"Office/16x16/earth_music.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:371](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L371)
+Defined in: [manifest/generator/SitecoreIcon.ts:371](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L371)
 
 ***
 
@@ -2974,7 +2974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:371](https://github.com/Sitecore
 
 > **EarthNetwork**: `"Office/16x16/earth_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:372](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L372)
+Defined in: [manifest/generator/SitecoreIcon.ts:372](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L372)
 
 ***
 
@@ -2982,7 +2982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:372](https://github.com/Sitecore
 
 > **Edit**: `"Office/16x16/edit.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:373](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L373)
+Defined in: [manifest/generator/SitecoreIcon.ts:373](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L373)
 
 ***
 
@@ -2990,7 +2990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:373](https://github.com/Sitecore
 
 > **EditDomain**: `"Office/16x16/edit_domain.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:374](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L374)
+Defined in: [manifest/generator/SitecoreIcon.ts:374](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L374)
 
 ***
 
@@ -2998,7 +2998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:374](https://github.com/Sitecore
 
 > **EditIn\_workflow**: `"Office/16x16/edit_in_workflow.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:375](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L375)
+Defined in: [manifest/generator/SitecoreIcon.ts:375](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L375)
 
 ***
 
@@ -3006,7 +3006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:375](https://github.com/Sitecore
 
 > **EditTemplate**: `"Office/16x16/edit_template.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:376](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L376)
+Defined in: [manifest/generator/SitecoreIcon.ts:376](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L376)
 
 ***
 
@@ -3014,7 +3014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:376](https://github.com/Sitecore
 
 > **EditUser**: `"Office/16x16/edit_user.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:377](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L377)
+Defined in: [manifest/generator/SitecoreIcon.ts:377](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L377)
 
 ***
 
@@ -3022,7 +3022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:377](https://github.com/Sitecore
 
 > **Eightball**: `"Office/16x16/eightball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:378](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L378)
+Defined in: [manifest/generator/SitecoreIcon.ts:378](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L378)
 
 ***
 
@@ -3030,7 +3030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:378](https://github.com/Sitecore
 
 > **ElectricIron**: `"Office/16x16/electric_iron.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:379](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L379)
+Defined in: [manifest/generator/SitecoreIcon.ts:379](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L379)
 
 ***
 
@@ -3038,7 +3038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:379](https://github.com/Sitecore
 
 > **Element**: `"Office/16x16/element.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:380](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L380)
+Defined in: [manifest/generator/SitecoreIcon.ts:380](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L380)
 
 ***
 
@@ -3046,7 +3046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:380](https://github.com/Sitecore
 
 > **ElementCopy**: `"Office/16x16/element_copy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:390](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L390)
+Defined in: [manifest/generator/SitecoreIcon.ts:390](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L390)
 
 ***
 
@@ -3054,7 +3054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:390](https://github.com/Sitecore
 
 > **Elements**: `"Office/16x16/elements.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:381](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L381)
+Defined in: [manifest/generator/SitecoreIcon.ts:381](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L381)
 
 ***
 
@@ -3062,7 +3062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:381](https://github.com/Sitecore
 
 > **Elements2**: `"Office/16x16/elements2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:382](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L382)
+Defined in: [manifest/generator/SitecoreIcon.ts:382](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L382)
 
 ***
 
@@ -3070,7 +3070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:382](https://github.com/Sitecore
 
 > **Elements3**: `"Office/16x16/elements3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:383](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L383)
+Defined in: [manifest/generator/SitecoreIcon.ts:383](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L383)
 
 ***
 
@@ -3078,7 +3078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:383](https://github.com/Sitecore
 
 > **Elements4**: `"Office/16x16/elements4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:384](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L384)
+Defined in: [manifest/generator/SitecoreIcon.ts:384](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L384)
 
 ***
 
@@ -3086,7 +3086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:384](https://github.com/Sitecore
 
 > **ElementsBranch**: `"Office/16x16/elements_branch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:385](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L385)
+Defined in: [manifest/generator/SitecoreIcon.ts:385](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L385)
 
 ***
 
@@ -3094,7 +3094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:385](https://github.com/Sitecore
 
 > **ElementsCascade**: `"Office/16x16/elements_cascade.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:386](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L386)
+Defined in: [manifest/generator/SitecoreIcon.ts:386](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L386)
 
 ***
 
@@ -3102,7 +3102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:386](https://github.com/Sitecore
 
 > **ElementSelection**: `"Office/16x16/element_selection.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:391](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L391)
+Defined in: [manifest/generator/SitecoreIcon.ts:391](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L391)
 
 ***
 
@@ -3110,7 +3110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:391](https://github.com/Sitecore
 
 > **ElementsHierarchy**: `"Office/16x16/elements_hierarchy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:387](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L387)
+Defined in: [manifest/generator/SitecoreIcon.ts:387](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L387)
 
 ***
 
@@ -3118,7 +3118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:387](https://github.com/Sitecore
 
 > **ElementsSelection**: `"Office/16x16/elements_selection.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:388](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L388)
+Defined in: [manifest/generator/SitecoreIcon.ts:388](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L388)
 
 ***
 
@@ -3126,7 +3126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:388](https://github.com/Sitecore
 
 > **ElementsTree**: `"Office/16x16/elements_tree.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:389](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L389)
+Defined in: [manifest/generator/SitecoreIcon.ts:389](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L389)
 
 ***
 
@@ -3134,7 +3134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:389](https://github.com/Sitecore
 
 > **EmergencyStop\_button**: `"Office/16x16/emergency_stop_button.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:392](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L392)
+Defined in: [manifest/generator/SitecoreIcon.ts:392](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L392)
 
 ***
 
@@ -3142,7 +3142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:392](https://github.com/Sitecore
 
 > **EmoticonAngry**: `"Office/16x16/emoticon_angry.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:393](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L393)
+Defined in: [manifest/generator/SitecoreIcon.ts:393](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L393)
 
 ***
 
@@ -3150,7 +3150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:393](https://github.com/Sitecore
 
 > **EmoticonBlink**: `"Office/16x16/emoticon_blink.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:394](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L394)
+Defined in: [manifest/generator/SitecoreIcon.ts:394](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L394)
 
 ***
 
@@ -3158,7 +3158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:394](https://github.com/Sitecore
 
 > **EmoticonClown**: `"Office/16x16/emoticon_clown.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:395](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L395)
+Defined in: [manifest/generator/SitecoreIcon.ts:395](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L395)
 
 ***
 
@@ -3166,7 +3166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:395](https://github.com/Sitecore
 
 > **EmoticonConfused**: `"Office/16x16/emoticon_confused.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:396](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L396)
+Defined in: [manifest/generator/SitecoreIcon.ts:396](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L396)
 
 ***
 
@@ -3174,7 +3174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:396](https://github.com/Sitecore
 
 > **EmoticonCool**: `"Office/16x16/emoticon_cool.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:397](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L397)
+Defined in: [manifest/generator/SitecoreIcon.ts:397](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L397)
 
 ***
 
@@ -3182,7 +3182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:397](https://github.com/Sitecore
 
 > **EmoticonCry**: `"Office/16x16/emoticon_cry.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:398](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L398)
+Defined in: [manifest/generator/SitecoreIcon.ts:398](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L398)
 
 ***
 
@@ -3190,7 +3190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:398](https://github.com/Sitecore
 
 > **EmoticonFrown**: `"Office/16x16/emoticon_frown.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:399](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L399)
+Defined in: [manifest/generator/SitecoreIcon.ts:399](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L399)
 
 ***
 
@@ -3198,7 +3198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:399](https://github.com/Sitecore
 
 > **EmoticonGrin**: `"Office/16x16/emoticon_grin.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:400](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L400)
+Defined in: [manifest/generator/SitecoreIcon.ts:400](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L400)
 
 ***
 
@@ -3206,7 +3206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:400](https://github.com/Sitecore
 
 > **EmoticonKiss**: `"Office/16x16/emoticon_kiss.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:401](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L401)
+Defined in: [manifest/generator/SitecoreIcon.ts:401](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L401)
 
 ***
 
@@ -3214,7 +3214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:401](https://github.com/Sitecore
 
 > **EmoticonSmile**: `"Office/16x16/emoticon_smile.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:402](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L402)
+Defined in: [manifest/generator/SitecoreIcon.ts:402](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L402)
 
 ***
 
@@ -3222,7 +3222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:402](https://github.com/Sitecore
 
 > **EmoticonStraight\_face**: `"Office/16x16/emoticon_straight_face.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:403](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L403)
+Defined in: [manifest/generator/SitecoreIcon.ts:403](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L403)
 
 ***
 
@@ -3230,7 +3230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:403](https://github.com/Sitecore
 
 > **EmoticonSurprised**: `"Office/16x16/emoticon_surprised.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:404](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L404)
+Defined in: [manifest/generator/SitecoreIcon.ts:404](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L404)
 
 ***
 
@@ -3238,7 +3238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:404](https://github.com/Sitecore
 
 > **EmoticonTongue**: `"Office/16x16/emoticon_tongue.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:405](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L405)
+Defined in: [manifest/generator/SitecoreIcon.ts:405](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L405)
 
 ***
 
@@ -3246,7 +3246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:405](https://github.com/Sitecore
 
 > **Engineer**: `"Office/16x16/engineer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:406](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L406)
+Defined in: [manifest/generator/SitecoreIcon.ts:406](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L406)
 
 ***
 
@@ -3254,7 +3254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:406](https://github.com/Sitecore
 
 > **Envelope2**: `"Office/16x16/envelope2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:407](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L407)
+Defined in: [manifest/generator/SitecoreIcon.ts:407](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L407)
 
 ***
 
@@ -3262,7 +3262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:407](https://github.com/Sitecore
 
 > **Environment**: `"Office/16x16/environment.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:408](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L408)
+Defined in: [manifest/generator/SitecoreIcon.ts:408](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L408)
 
 ***
 
@@ -3270,7 +3270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:408](https://github.com/Sitecore
 
 > **Equalizer**: `"Office/16x16/equalizer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:409](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L409)
+Defined in: [manifest/generator/SitecoreIcon.ts:409](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L409)
 
 ***
 
@@ -3278,7 +3278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:409](https://github.com/Sitecore
 
 > **Erase**: `"Office/16x16/erase.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:410](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L410)
+Defined in: [manifest/generator/SitecoreIcon.ts:410](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L410)
 
 ***
 
@@ -3286,7 +3286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:410](https://github.com/Sitecore
 
 > **Escalator**: `"Office/16x16/escalator.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:411](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L411)
+Defined in: [manifest/generator/SitecoreIcon.ts:411](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L411)
 
 ***
 
@@ -3294,7 +3294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:411](https://github.com/Sitecore
 
 > **EscalatorDown**: `"Office/16x16/escalator_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:412](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L412)
+Defined in: [manifest/generator/SitecoreIcon.ts:412](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L412)
 
 ***
 
@@ -3302,7 +3302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:412](https://github.com/Sitecore
 
 > **EscalatorUp**: `"Office/16x16/escalator_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:413](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L413)
+Defined in: [manifest/generator/SitecoreIcon.ts:413](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L413)
 
 ***
 
@@ -3310,7 +3310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:413](https://github.com/Sitecore
 
 > **Excavator**: `"Office/16x16/excavator.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:414](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L414)
+Defined in: [manifest/generator/SitecoreIcon.ts:414](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L414)
 
 ***
 
@@ -3318,7 +3318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:414](https://github.com/Sitecore
 
 > **Explosion**: `"Office/16x16/explosion.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:415](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L415)
+Defined in: [manifest/generator/SitecoreIcon.ts:415](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L415)
 
 ***
 
@@ -3326,7 +3326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:415](https://github.com/Sitecore
 
 > **Eye**: `"Office/16x16/eye.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:416](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L416)
+Defined in: [manifest/generator/SitecoreIcon.ts:416](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L416)
 
 ***
 
@@ -3334,7 +3334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:416](https://github.com/Sitecore
 
 > **EyeBlind**: `"Office/16x16/eye_blind.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:418](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L418)
+Defined in: [manifest/generator/SitecoreIcon.ts:418](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L418)
 
 ***
 
@@ -3342,7 +3342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:418](https://github.com/Sitecore
 
 > **Eyeglasses**: `"Office/16x16/eyeglasses.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:417](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L417)
+Defined in: [manifest/generator/SitecoreIcon.ts:417](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L417)
 
 ***
 
@@ -3350,7 +3350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:417](https://github.com/Sitecore
 
 > **EyeScan**: `"Office/16x16/eye_scan.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:419](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L419)
+Defined in: [manifest/generator/SitecoreIcon.ts:419](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L419)
 
 ***
 
@@ -3358,7 +3358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:419](https://github.com/Sitecore
 
 > **FaceScan**: `"Office/16x16/face_scan.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:420](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L420)
+Defined in: [manifest/generator/SitecoreIcon.ts:420](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L420)
 
 ***
 
@@ -3366,7 +3366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:420](https://github.com/Sitecore
 
 > **Factory**: `"Office/16x16/factory.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:421](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L421)
+Defined in: [manifest/generator/SitecoreIcon.ts:421](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L421)
 
 ***
 
@@ -3374,7 +3374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:421](https://github.com/Sitecore
 
 > **FaxMachine**: `"Office/16x16/fax_machine.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:422](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L422)
+Defined in: [manifest/generator/SitecoreIcon.ts:422](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L422)
 
 ***
 
@@ -3382,7 +3382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:422](https://github.com/Sitecore
 
 > **FeedingBottle**: `"Office/16x16/feeding_bottle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:423](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L423)
+Defined in: [manifest/generator/SitecoreIcon.ts:423](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L423)
 
 ***
 
@@ -3390,7 +3390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:423](https://github.com/Sitecore
 
 > **Fence**: `"Office/16x16/fence.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:424](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L424)
+Defined in: [manifest/generator/SitecoreIcon.ts:424](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L424)
 
 ***
 
@@ -3398,7 +3398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:424](https://github.com/Sitecore
 
 > **FilesStatically**: `"Office/16x16/files_statically.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:425](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L425)
+Defined in: [manifest/generator/SitecoreIcon.ts:425](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L425)
 
 ***
 
@@ -3406,7 +3406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:425](https://github.com/Sitecore
 
 > **Film**: `"Office/16x16/film.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:426](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L426)
+Defined in: [manifest/generator/SitecoreIcon.ts:426](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L426)
 
 ***
 
@@ -3414,7 +3414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:426](https://github.com/Sitecore
 
 > **FilmCartridge**: `"Office/16x16/film_cartridge.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:427](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L427)
+Defined in: [manifest/generator/SitecoreIcon.ts:427](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L427)
 
 ***
 
@@ -3422,7 +3422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:427](https://github.com/Sitecore
 
 > **FilterAnd\_sort**: `"Office/16x16/filter_and_sort.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:428](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L428)
+Defined in: [manifest/generator/SitecoreIcon.ts:428](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L428)
 
 ***
 
@@ -3430,7 +3430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:428](https://github.com/Sitecore
 
 > **FindAgain**: `"Office/16x16/find_again.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:429](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L429)
+Defined in: [manifest/generator/SitecoreIcon.ts:429](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L429)
 
 ***
 
@@ -3438,7 +3438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:429](https://github.com/Sitecore
 
 > **FindReplace**: `"Office/16x16/find_replace.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:430](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L430)
+Defined in: [manifest/generator/SitecoreIcon.ts:430](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L430)
 
 ***
 
@@ -3446,7 +3446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:430](https://github.com/Sitecore
 
 > **FindText**: `"Office/16x16/find_text.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:431](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L431)
+Defined in: [manifest/generator/SitecoreIcon.ts:431](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L431)
 
 ***
 
@@ -3454,7 +3454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:431](https://github.com/Sitecore
 
 > **Fingerprint**: `"Office/16x16/fingerprint.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:432](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L432)
+Defined in: [manifest/generator/SitecoreIcon.ts:432](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L432)
 
 ***
 
@@ -3462,7 +3462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:432](https://github.com/Sitecore
 
 > **FingerprintScan**: `"Office/16x16/fingerprint_scan.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:433](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L433)
+Defined in: [manifest/generator/SitecoreIcon.ts:433](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L433)
 
 ***
 
@@ -3470,7 +3470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:433](https://github.com/Sitecore
 
 > **Fire**: `"Office/16x16/fire.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:434](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L434)
+Defined in: [manifest/generator/SitecoreIcon.ts:434](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L434)
 
 ***
 
@@ -3478,7 +3478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:434](https://github.com/Sitecore
 
 > **FireExtinguisher**: `"Office/16x16/fire_extinguisher.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:437](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L437)
+Defined in: [manifest/generator/SitecoreIcon.ts:437](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L437)
 
 ***
 
@@ -3486,7 +3486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:437](https://github.com/Sitecore
 
 > **Firewall**: `"Office/16x16/firewall.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:435](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L435)
+Defined in: [manifest/generator/SitecoreIcon.ts:435](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L435)
 
 ***
 
@@ -3494,7 +3494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:435](https://github.com/Sitecore
 
 > **Firewall2**: `"Office/16x16/firewall2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:436](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L436)
+Defined in: [manifest/generator/SitecoreIcon.ts:436](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L436)
 
 ***
 
@@ -3502,7 +3502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:436](https://github.com/Sitecore
 
 > **FirstAid**: `"Office/16x16/first_aid.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:438](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L438)
+Defined in: [manifest/generator/SitecoreIcon.ts:438](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L438)
 
 ***
 
@@ -3510,7 +3510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:438](https://github.com/Sitecore
 
 > **FishBowl**: `"Office/16x16/fish_bowl.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:439](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L439)
+Defined in: [manifest/generator/SitecoreIcon.ts:439](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L439)
 
 ***
 
@@ -3518,7 +3518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:439](https://github.com/Sitecore
 
 > **FitTo\_height**: `"Office/16x16/fit_to_height.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:440](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L440)
+Defined in: [manifest/generator/SitecoreIcon.ts:440](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L440)
 
 ***
 
@@ -3526,7 +3526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:440](https://github.com/Sitecore
 
 > **FitTo\_size**: `"Office/16x16/fit_to_size.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:441](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L441)
+Defined in: [manifest/generator/SitecoreIcon.ts:441](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L441)
 
 ***
 
@@ -3534,7 +3534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:441](https://github.com/Sitecore
 
 > **FitTo\_width**: `"Office/16x16/fit_to_width.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:442](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L442)
+Defined in: [manifest/generator/SitecoreIcon.ts:442](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L442)
 
 ***
 
@@ -3542,7 +3542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:442](https://github.com/Sitecore
 
 > **FlagGeneric**: `"Office/16x16/flag_generic.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:443](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L443)
+Defined in: [manifest/generator/SitecoreIcon.ts:443](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L443)
 
 ***
 
@@ -3550,7 +3550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:443](https://github.com/Sitecore
 
 > **Flame**: `"Office/16x16/flame.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:444](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L444)
+Defined in: [manifest/generator/SitecoreIcon.ts:444](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L444)
 
 ***
 
@@ -3558,7 +3558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:444](https://github.com/Sitecore
 
 > **Flashlight**: `"Office/16x16/flashlight.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:445](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L445)
+Defined in: [manifest/generator/SitecoreIcon.ts:445](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L445)
 
 ***
 
@@ -3566,7 +3566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:445](https://github.com/Sitecore
 
 > **FlatscreenTv**: `"Office/16x16/flatscreen_tv.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:446](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L446)
+Defined in: [manifest/generator/SitecoreIcon.ts:446](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L446)
 
 ***
 
@@ -3574,7 +3574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:446](https://github.com/Sitecore
 
 > **FloppyDisk**: `"Office/16x16/floppy_disk.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:447](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L447)
+Defined in: [manifest/generator/SitecoreIcon.ts:447](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L447)
 
 ***
 
@@ -3582,7 +3582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:447](https://github.com/Sitecore
 
 > **FloppyDisk\_window**: `"Office/16x16/floppy_disk_window.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:449](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L449)
+Defined in: [manifest/generator/SitecoreIcon.ts:449](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L449)
 
 ***
 
@@ -3590,7 +3590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:449](https://github.com/Sitecore
 
 > **FloppyDisks**: `"Office/16x16/floppy_disks.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:448](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L448)
+Defined in: [manifest/generator/SitecoreIcon.ts:448](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L448)
 
 ***
 
@@ -3598,7 +3598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:448](https://github.com/Sitecore
 
 > **FloppyDrive**: `"Office/16x16/floppy_drive.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:450](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L450)
+Defined in: [manifest/generator/SitecoreIcon.ts:450](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L450)
 
 ***
 
@@ -3606,7 +3606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:450](https://github.com/Sitecore
 
 > **Flower**: `"Office/16x16/flower.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:451](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L451)
+Defined in: [manifest/generator/SitecoreIcon.ts:451](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L451)
 
 ***
 
@@ -3614,7 +3614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:451](https://github.com/Sitecore
 
 > **Folder**: `"Office/16x16/folder.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:452](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L452)
+Defined in: [manifest/generator/SitecoreIcon.ts:452](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L452)
 
 ***
 
@@ -3622,7 +3622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:452](https://github.com/Sitecore
 
 > **Folder2**: `"Office/16x16/folder2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:453](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L453)
+Defined in: [manifest/generator/SitecoreIcon.ts:453](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L453)
 
 ***
 
@@ -3630,7 +3630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:453](https://github.com/Sitecore
 
 > **FolderDocument**: `"Office/16x16/folder_document.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:456](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L456)
+Defined in: [manifest/generator/SitecoreIcon.ts:456](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L456)
 
 ***
 
@@ -3638,7 +3638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:456](https://github.com/Sitecore
 
 > **FolderDocument2**: `"Office/16x16/folder_document2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:457](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L457)
+Defined in: [manifest/generator/SitecoreIcon.ts:457](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L457)
 
 ***
 
@@ -3646,7 +3646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:457](https://github.com/Sitecore
 
 > **FolderInto**: `"Office/16x16/folder_into.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:458](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L458)
+Defined in: [manifest/generator/SitecoreIcon.ts:458](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L458)
 
 ***
 
@@ -3654,7 +3654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:458](https://github.com/Sitecore
 
 > **FolderMusic**: `"Office/16x16/folder_music.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:459](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L459)
+Defined in: [manifest/generator/SitecoreIcon.ts:459](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L459)
 
 ***
 
@@ -3662,7 +3662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:459](https://github.com/Sitecore
 
 > **FolderNetwork**: `"Office/16x16/folder_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:460](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L460)
+Defined in: [manifest/generator/SitecoreIcon.ts:460](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L460)
 
 ***
 
@@ -3670,7 +3670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:460](https://github.com/Sitecore
 
 > **FolderOpen**: `"Office/16x16/folder_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:461](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L461)
+Defined in: [manifest/generator/SitecoreIcon.ts:461](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L461)
 
 ***
 
@@ -3678,7 +3678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:461](https://github.com/Sitecore
 
 > **FolderOut**: `"Office/16x16/folder_out.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:462](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L462)
+Defined in: [manifest/generator/SitecoreIcon.ts:462](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L462)
 
 ***
 
@@ -3686,7 +3686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:462](https://github.com/Sitecore
 
 > **Folders**: `"Office/16x16/folders.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:454](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L454)
+Defined in: [manifest/generator/SitecoreIcon.ts:454](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L454)
 
 ***
 
@@ -3694,7 +3694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:454](https://github.com/Sitecore
 
 > **Folders2**: `"Office/16x16/folders2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:455](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L455)
+Defined in: [manifest/generator/SitecoreIcon.ts:455](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L455)
 
 ***
 
@@ -3702,7 +3702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:455](https://github.com/Sitecore
 
 > **FolderShared**: `"Office/16x16/folder_shared.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:463](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L463)
+Defined in: [manifest/generator/SitecoreIcon.ts:463](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L463)
 
 ***
 
@@ -3710,7 +3710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:463](https://github.com/Sitecore
 
 > **FolderWindow**: `"Office/16x16/folder_window.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:464](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L464)
+Defined in: [manifest/generator/SitecoreIcon.ts:464](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L464)
 
 ***
 
@@ -3718,7 +3718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:464](https://github.com/Sitecore
 
 > **FolderZip**: `"Office/16x16/folder_zip.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:465](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L465)
+Defined in: [manifest/generator/SitecoreIcon.ts:465](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L465)
 
 ***
 
@@ -3726,7 +3726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:465](https://github.com/Sitecore
 
 > **FoldingRule**: `"Office/16x16/folding_rule.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:466](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L466)
+Defined in: [manifest/generator/SitecoreIcon.ts:466](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L466)
 
 ***
 
@@ -3734,7 +3734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:466](https://github.com/Sitecore
 
 > **Font**: `"Office/16x16/font.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:467](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L467)
+Defined in: [manifest/generator/SitecoreIcon.ts:467](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L467)
 
 ***
 
@@ -3742,7 +3742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:467](https://github.com/Sitecore
 
 > **FontStyle\_bold**: `"Office/16x16/font_style_bold.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:468](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L468)
+Defined in: [manifest/generator/SitecoreIcon.ts:468](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L468)
 
 ***
 
@@ -3750,7 +3750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:468](https://github.com/Sitecore
 
 > **FontStyle\_italics**: `"Office/16x16/font_style_italics.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:469](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L469)
+Defined in: [manifest/generator/SitecoreIcon.ts:469](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L469)
 
 ***
 
@@ -3758,7 +3758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:469](https://github.com/Sitecore
 
 > **FontStyle\_normal**: `"Office/16x16/font_style_normal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:470](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L470)
+Defined in: [manifest/generator/SitecoreIcon.ts:470](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L470)
 
 ***
 
@@ -3766,7 +3766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:470](https://github.com/Sitecore
 
 > **FontStyle\_strikethrough**: `"Office/16x16/font_style_strikethrough.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:471](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L471)
+Defined in: [manifest/generator/SitecoreIcon.ts:471](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L471)
 
 ***
 
@@ -3774,7 +3774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:471](https://github.com/Sitecore
 
 > **FontStyle\_subscript**: `"Office/16x16/font_style_subscript.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:472](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L472)
+Defined in: [manifest/generator/SitecoreIcon.ts:472](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L472)
 
 ***
 
@@ -3782,7 +3782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:472](https://github.com/Sitecore
 
 > **FontStyle\_superscript**: `"Office/16x16/font_style_superscript.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:473](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L473)
+Defined in: [manifest/generator/SitecoreIcon.ts:473](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L473)
 
 ***
 
@@ -3790,7 +3790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:473](https://github.com/Sitecore
 
 > **FontStyle\_underline**: `"Office/16x16/font_style_underline.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:474](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L474)
+Defined in: [manifest/generator/SitecoreIcon.ts:474](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L474)
 
 ***
 
@@ -3798,7 +3798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:474](https://github.com/Sitecore
 
 > **Football**: `"Office/16x16/football.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:475](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L475)
+Defined in: [manifest/generator/SitecoreIcon.ts:475](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L475)
 
 ***
 
@@ -3806,7 +3806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:475](https://github.com/Sitecore
 
 > **Formula**: `"Office/16x16/formula.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:476](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L476)
+Defined in: [manifest/generator/SitecoreIcon.ts:476](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L476)
 
 ***
 
@@ -3814,7 +3814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:476](https://github.com/Sitecore
 
 > **FortressTower**: `"Office/16x16/fortress_tower.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:477](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L477)
+Defined in: [manifest/generator/SitecoreIcon.ts:477](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L477)
 
 ***
 
@@ -3822,7 +3822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:477](https://github.com/Sitecore
 
 > **FriedEgg**: `"Office/16x16/fried_egg.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:478](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L478)
+Defined in: [manifest/generator/SitecoreIcon.ts:478](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L478)
 
 ***
 
@@ -3830,7 +3830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:478](https://github.com/Sitecore
 
 > **FriedEgg\_bacon**: `"Office/16x16/fried_egg_bacon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:479](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L479)
+Defined in: [manifest/generator/SitecoreIcon.ts:479](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L479)
 
 ***
 
@@ -3838,7 +3838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:479](https://github.com/Sitecore
 
 > **FromExisting\_package**: `"Office/16x16/from_existing_package.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:480](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L480)
+Defined in: [manifest/generator/SitecoreIcon.ts:480](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L480)
 
 ***
 
@@ -3846,7 +3846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:480](https://github.com/Sitecore
 
 > **Front**: `"Office/16x16/front.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:481](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L481)
+Defined in: [manifest/generator/SitecoreIcon.ts:481](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L481)
 
 ***
 
@@ -3854,7 +3854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:481](https://github.com/Sitecore
 
 > **FuelDispenser**: `"Office/16x16/fuel_dispenser.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:482](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L482)
+Defined in: [manifest/generator/SitecoreIcon.ts:482](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L482)
 
 ***
 
@@ -3862,7 +3862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:482](https://github.com/Sitecore
 
 > **Funnel**: `"Office/16x16/funnel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:483](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L483)
+Defined in: [manifest/generator/SitecoreIcon.ts:483](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L483)
 
 ***
 
@@ -3870,7 +3870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:483](https://github.com/Sitecore
 
 > **GamblingChip**: `"Office/16x16/gambling_chip.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:484](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L484)
+Defined in: [manifest/generator/SitecoreIcon.ts:484](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L484)
 
 ***
 
@@ -3878,7 +3878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:484](https://github.com/Sitecore
 
 > **GamblingChips**: `"Office/16x16/gambling_chips.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:485](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L485)
+Defined in: [manifest/generator/SitecoreIcon.ts:485](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L485)
 
 ***
 
@@ -3886,7 +3886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:485](https://github.com/Sitecore
 
 > **Gamepad**: `"Office/16x16/gamepad.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:486](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L486)
+Defined in: [manifest/generator/SitecoreIcon.ts:486](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L486)
 
 ***
 
@@ -3894,7 +3894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:486](https://github.com/Sitecore
 
 > **Garbage**: `"Office/16x16/garbage.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:487](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L487)
+Defined in: [manifest/generator/SitecoreIcon.ts:487](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L487)
 
 ***
 
@@ -3902,7 +3902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:487](https://github.com/Sitecore
 
 > **GarbageCan**: `"Office/16x16/garbage_can.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:488](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L488)
+Defined in: [manifest/generator/SitecoreIcon.ts:488](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L488)
 
 ***
 
@@ -3910,7 +3910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:488](https://github.com/Sitecore
 
 > **GarbageContainer**: `"Office/16x16/garbage_container.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:489](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L489)
+Defined in: [manifest/generator/SitecoreIcon.ts:489](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L489)
 
 ***
 
@@ -3918,7 +3918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:489](https://github.com/Sitecore
 
 > **GarbageFull**: `"Office/16x16/garbage_full.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:490](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L490)
+Defined in: [manifest/generator/SitecoreIcon.ts:490](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L490)
 
 ***
 
@@ -3926,7 +3926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:490](https://github.com/Sitecore
 
 > **GarbageHalf\_full**: `"Office/16x16/garbage_half_full.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:491](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L491)
+Defined in: [manifest/generator/SitecoreIcon.ts:491](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L491)
 
 ***
 
@@ -3934,7 +3934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:491](https://github.com/Sitecore
 
 > **GarbageOverflow**: `"Office/16x16/garbage_overflow.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:492](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L492)
+Defined in: [manifest/generator/SitecoreIcon.ts:492](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L492)
 
 ***
 
@@ -3942,7 +3942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:492](https://github.com/Sitecore
 
 > **Gauge**: `"Office/16x16/gauge.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:493](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L493)
+Defined in: [manifest/generator/SitecoreIcon.ts:493](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L493)
 
 ***
 
@@ -3950,7 +3950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:493](https://github.com/Sitecore
 
 > **GauzeBandage**: `"Office/16x16/gauze_bandage.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:494](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L494)
+Defined in: [manifest/generator/SitecoreIcon.ts:494](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L494)
 
 ***
 
@@ -3958,7 +3958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:494](https://github.com/Sitecore
 
 > **Gearwheel**: `"Office/16x16/gearwheel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:495](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L495)
+Defined in: [manifest/generator/SitecoreIcon.ts:495](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L495)
 
 ***
 
@@ -3966,7 +3966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:495](https://github.com/Sitecore
 
 > **Gearwheels**: `"Office/16x16/gearwheels.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:496](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L496)
+Defined in: [manifest/generator/SitecoreIcon.ts:496](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L496)
 
 ***
 
@@ -3974,7 +3974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:496](https://github.com/Sitecore
 
 > **Genius**: `"Office/16x16/genius.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:497](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L497)
+Defined in: [manifest/generator/SitecoreIcon.ts:497](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L497)
 
 ***
 
@@ -3982,7 +3982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:497](https://github.com/Sitecore
 
 > **Gift**: `"Office/16x16/gift.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:498](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L498)
+Defined in: [manifest/generator/SitecoreIcon.ts:498](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L498)
 
 ***
 
@@ -3990,7 +3990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:498](https://github.com/Sitecore
 
 > **Girl**: `"Office/16x16/girl.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:499](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L499)
+Defined in: [manifest/generator/SitecoreIcon.ts:499](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L499)
 
 ***
 
@@ -3998,7 +3998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:499](https://github.com/Sitecore
 
 > **GlassCracked**: `"Office/16x16/glass_cracked.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:500](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L500)
+Defined in: [manifest/generator/SitecoreIcon.ts:500](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L500)
 
 ***
 
@@ -4006,7 +4006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:500](https://github.com/Sitecore
 
 > **GlassFork**: `"Office/16x16/glass_fork.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:501](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L501)
+Defined in: [manifest/generator/SitecoreIcon.ts:501](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L501)
 
 ***
 
@@ -4014,7 +4014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:501](https://github.com/Sitecore
 
 > **Globe**: `"Office/16x16/globe.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:502](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L502)
+Defined in: [manifest/generator/SitecoreIcon.ts:502](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L502)
 
 ***
 
@@ -4022,7 +4022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:502](https://github.com/Sitecore
 
 > **Goal**: `"Office/16x16/goal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:503](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L503)
+Defined in: [manifest/generator/SitecoreIcon.ts:503](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L503)
 
 ***
 
@@ -4030,7 +4030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:503](https://github.com/Sitecore
 
 > **GoalBall**: `"Office/16x16/goal_ball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:504](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L504)
+Defined in: [manifest/generator/SitecoreIcon.ts:504](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L504)
 
 ***
 
@@ -4038,7 +4038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:504](https://github.com/Sitecore
 
 > **Goblet**: `"Office/16x16/goblet.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:505](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L505)
+Defined in: [manifest/generator/SitecoreIcon.ts:505](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L505)
 
 ***
 
@@ -4046,7 +4046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:505](https://github.com/Sitecore
 
 > **Goldfish**: `"Office/16x16/goldfish.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:506](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L506)
+Defined in: [manifest/generator/SitecoreIcon.ts:506](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L506)
 
 ***
 
@@ -4054,7 +4054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:506](https://github.com/Sitecore
 
 > **GolfBall**: `"Office/16x16/golf_ball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:507](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L507)
+Defined in: [manifest/generator/SitecoreIcon.ts:507](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L507)
 
 ***
 
@@ -4062,7 +4062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:507](https://github.com/Sitecore
 
 > **GolfClub\_iron**: `"Office/16x16/golf_club_iron.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:508](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L508)
+Defined in: [manifest/generator/SitecoreIcon.ts:508](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L508)
 
 ***
 
@@ -4070,7 +4070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:508](https://github.com/Sitecore
 
 > **GolfClub\_putter**: `"Office/16x16/golf_club_putter.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:509](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L509)
+Defined in: [manifest/generator/SitecoreIcon.ts:509](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L509)
 
 ***
 
@@ -4078,7 +4078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:509](https://github.com/Sitecore
 
 > **GolfClub\_wood**: `"Office/16x16/golf_club_wood.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:510](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L510)
+Defined in: [manifest/generator/SitecoreIcon.ts:510](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L510)
 
 ***
 
@@ -4086,7 +4086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:510](https://github.com/Sitecore
 
 > **GolfFlag**: `"Office/16x16/golf_flag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:511](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L511)
+Defined in: [manifest/generator/SitecoreIcon.ts:511](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L511)
 
 ***
 
@@ -4094,7 +4094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:511](https://github.com/Sitecore
 
 > **GotoBranch**: `"Office/16x16/goto_branch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:512](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L512)
+Defined in: [manifest/generator/SitecoreIcon.ts:512](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L512)
 
 ***
 
@@ -4102,7 +4102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:512](https://github.com/Sitecore
 
 > **GotoTemplate**: `"Office/16x16/goto_template.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:513](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L513)
+Defined in: [manifest/generator/SitecoreIcon.ts:513](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L513)
 
 ***
 
@@ -4110,7 +4110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:513](https://github.com/Sitecore
 
 > **Graduate**: `"Office/16x16/graduate.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:514](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L514)
+Defined in: [manifest/generator/SitecoreIcon.ts:514](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L514)
 
 ***
 
@@ -4118,7 +4118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:514](https://github.com/Sitecore
 
 > **GraduationHat**: `"Office/16x16/graduation_hat.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:515](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L515)
+Defined in: [manifest/generator/SitecoreIcon.ts:515](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L515)
 
 ***
 
@@ -4126,7 +4126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:515](https://github.com/Sitecore
 
 > **GraduationHat2**: `"Office/16x16/graduation_hat2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:516](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L516)
+Defined in: [manifest/generator/SitecoreIcon.ts:516](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L516)
 
 ***
 
@@ -4134,7 +4134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:516](https://github.com/Sitecore
 
 > **Graph**: `"Office/16x16/graph.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:517](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L517)
+Defined in: [manifest/generator/SitecoreIcon.ts:517](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L517)
 
 ***
 
@@ -4142,7 +4142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:517](https://github.com/Sitecore
 
 > **GraphClaw**: `"Office/16x16/graph_claw.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:518](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L518)
+Defined in: [manifest/generator/SitecoreIcon.ts:518](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L518)
 
 ***
 
@@ -4150,7 +4150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:518](https://github.com/Sitecore
 
 > **GraphConnection**: `"Office/16x16/graph_connection.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:519](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L519)
+Defined in: [manifest/generator/SitecoreIcon.ts:519](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L519)
 
 ***
 
@@ -4158,7 +4158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:519](https://github.com/Sitecore
 
 > **GraphConnection\_directed**: `"Office/16x16/graph_connection_directed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:520](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L520)
+Defined in: [manifest/generator/SitecoreIcon.ts:520](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L520)
 
 ***
 
@@ -4166,7 +4166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:520](https://github.com/Sitecore
 
 > **GraphFork**: `"Office/16x16/graph_fork.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:521](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L521)
+Defined in: [manifest/generator/SitecoreIcon.ts:521](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L521)
 
 ***
 
@@ -4174,7 +4174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:521](https://github.com/Sitecore
 
 > **GraphFork2**: `"Office/16x16/graph_fork2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:522](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L522)
+Defined in: [manifest/generator/SitecoreIcon.ts:522](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L522)
 
 ***
 
@@ -4182,7 +4182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:522](https://github.com/Sitecore
 
 > **GraphFrom**: `"Office/16x16/graph_from.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:523](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L523)
+Defined in: [manifest/generator/SitecoreIcon.ts:523](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L523)
 
 ***
 
@@ -4190,7 +4190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:523](https://github.com/Sitecore
 
 > **GraphNode**: `"Office/16x16/graph_node.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:524](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L524)
+Defined in: [manifest/generator/SitecoreIcon.ts:524](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L524)
 
 ***
 
@@ -4198,7 +4198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:524](https://github.com/Sitecore
 
 > **GraphSelf\_loop**: `"Office/16x16/graph_self_loop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:525](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L525)
+Defined in: [manifest/generator/SitecoreIcon.ts:525](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L525)
 
 ***
 
@@ -4206,7 +4206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:525](https://github.com/Sitecore
 
 > **GraphSquare**: `"Office/16x16/graph_square.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:526](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L526)
+Defined in: [manifest/generator/SitecoreIcon.ts:526](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L526)
 
 ***
 
@@ -4214,7 +4214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:526](https://github.com/Sitecore
 
 > **GraphStar**: `"Office/16x16/graph_star.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:527](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L527)
+Defined in: [manifest/generator/SitecoreIcon.ts:527](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L527)
 
 ***
 
@@ -4222,7 +4222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:527](https://github.com/Sitecore
 
 > **GraphTo**: `"Office/16x16/graph_to.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:528](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L528)
+Defined in: [manifest/generator/SitecoreIcon.ts:528](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L528)
 
 ***
 
@@ -4230,7 +4230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:528](https://github.com/Sitecore
 
 > **GraphTriangle**: `"Office/16x16/graph_triangle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:529](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L529)
+Defined in: [manifest/generator/SitecoreIcon.ts:529](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L529)
 
 ***
 
@@ -4238,7 +4238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:529](https://github.com/Sitecore
 
 > **Guard**: `"Office/16x16/guard.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:530](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L530)
+Defined in: [manifest/generator/SitecoreIcon.ts:530](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L530)
 
 ***
 
@@ -4246,7 +4246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:530](https://github.com/Sitecore
 
 > **Gun**: `"Office/16x16/gun.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:531](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L531)
+Defined in: [manifest/generator/SitecoreIcon.ts:531](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L531)
 
 ***
 
@@ -4254,7 +4254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:531](https://github.com/Sitecore
 
 > **Hamburger**: `"Office/16x16/hamburger.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:532](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L532)
+Defined in: [manifest/generator/SitecoreIcon.ts:532](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L532)
 
 ***
 
@@ -4262,7 +4262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:532](https://github.com/Sitecore
 
 > **Hammer**: `"Office/16x16/hammer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:533](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L533)
+Defined in: [manifest/generator/SitecoreIcon.ts:533](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L533)
 
 ***
 
@@ -4270,7 +4270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:533](https://github.com/Sitecore
 
 > **Handbag**: `"Office/16x16/handbag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:534](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L534)
+Defined in: [manifest/generator/SitecoreIcon.ts:534](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L534)
 
 ***
 
@@ -4278,7 +4278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:534](https://github.com/Sitecore
 
 > **HandCard**: `"Office/16x16/hand_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:536](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L536)
+Defined in: [manifest/generator/SitecoreIcon.ts:536](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L536)
 
 ***
 
@@ -4286,7 +4286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:536](https://github.com/Sitecore
 
 > **HandCount\_four**: `"Office/16x16/hand_count_four.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:537](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L537)
+Defined in: [manifest/generator/SitecoreIcon.ts:537](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L537)
 
 ***
 
@@ -4294,7 +4294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:537](https://github.com/Sitecore
 
 > **HandCount\_one**: `"Office/16x16/hand_count_one.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:538](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L538)
+Defined in: [manifest/generator/SitecoreIcon.ts:538](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L538)
 
 ***
 
@@ -4302,7 +4302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:538](https://github.com/Sitecore
 
 > **HandCount\_three**: `"Office/16x16/hand_count_three.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:539](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L539)
+Defined in: [manifest/generator/SitecoreIcon.ts:539](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L539)
 
 ***
 
@@ -4310,7 +4310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:539](https://github.com/Sitecore
 
 > **HandCount\_zero**: `"Office/16x16/hand_count_zero.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:540](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L540)
+Defined in: [manifest/generator/SitecoreIcon.ts:540](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L540)
 
 ***
 
@@ -4318,7 +4318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:540](https://github.com/Sitecore
 
 > **HandFist2**: `"Office/16x16/hand_fist2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:541](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L541)
+Defined in: [manifest/generator/SitecoreIcon.ts:541](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L541)
 
 ***
 
@@ -4326,7 +4326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:541](https://github.com/Sitecore
 
 > **HandFour**: `"Office/16x16/hand_four.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:542](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L542)
+Defined in: [manifest/generator/SitecoreIcon.ts:542](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L542)
 
 ***
 
@@ -4334,7 +4334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:542](https://github.com/Sitecore
 
 > **HandGun**: `"Office/16x16/hand_gun.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:543](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L543)
+Defined in: [manifest/generator/SitecoreIcon.ts:543](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L543)
 
 ***
 
@@ -4342,7 +4342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:543](https://github.com/Sitecore
 
 > **HandOffer**: `"Office/16x16/hand_offer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:544](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L544)
+Defined in: [manifest/generator/SitecoreIcon.ts:544](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L544)
 
 ***
 
@@ -4350,7 +4350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:544](https://github.com/Sitecore
 
 > **HandPoint\_left**: `"Office/16x16/hand_point_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:545](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L545)
+Defined in: [manifest/generator/SitecoreIcon.ts:545](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L545)
 
 ***
 
@@ -4358,7 +4358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:545](https://github.com/Sitecore
 
 > **HandPoint\_left2**: `"Office/16x16/hand_point_left2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:546](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L546)
+Defined in: [manifest/generator/SitecoreIcon.ts:546](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L546)
 
 ***
 
@@ -4366,7 +4366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:546](https://github.com/Sitecore
 
 > **HandPoint\_right**: `"Office/16x16/hand_point_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:547](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L547)
+Defined in: [manifest/generator/SitecoreIcon.ts:547](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L547)
 
 ***
 
@@ -4374,7 +4374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:547](https://github.com/Sitecore
 
 > **HandPoint\_right2**: `"Office/16x16/hand_point_right2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:548](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L548)
+Defined in: [manifest/generator/SitecoreIcon.ts:548](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L548)
 
 ***
 
@@ -4382,7 +4382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:548](https://github.com/Sitecore
 
 > **HandPoint\_up**: `"Office/16x16/hand_point_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:549](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L549)
+Defined in: [manifest/generator/SitecoreIcon.ts:549](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L549)
 
 ***
 
@@ -4390,7 +4390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:549](https://github.com/Sitecore
 
 > **HandPoint\_up2**: `"Office/16x16/hand_point_up2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:550](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L550)
+Defined in: [manifest/generator/SitecoreIcon.ts:550](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L550)
 
 ***
 
@@ -4398,7 +4398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:550](https://github.com/Sitecore
 
 > **Handshake**: `"Office/16x16/handshake.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:535](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L535)
+Defined in: [manifest/generator/SitecoreIcon.ts:535](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L535)
 
 ***
 
@@ -4406,7 +4406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:535](https://github.com/Sitecore
 
 > **HandSpread**: `"Office/16x16/hand_spread.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:551](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L551)
+Defined in: [manifest/generator/SitecoreIcon.ts:551](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L551)
 
 ***
 
@@ -4414,7 +4414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:551](https://github.com/Sitecore
 
 > **HandStop2**: `"Office/16x16/hand_stop2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:552](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L552)
+Defined in: [manifest/generator/SitecoreIcon.ts:552](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L552)
 
 ***
 
@@ -4422,7 +4422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:552](https://github.com/Sitecore
 
 > **HandThumb\_down**: `"Office/16x16/hand_thumb_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:553](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L553)
+Defined in: [manifest/generator/SitecoreIcon.ts:553](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L553)
 
 ***
 
@@ -4430,7 +4430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:553](https://github.com/Sitecore
 
 > **HandThumb\_up**: `"Office/16x16/hand_thumb_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:554](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L554)
+Defined in: [manifest/generator/SitecoreIcon.ts:554](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L554)
 
 ***
 
@@ -4438,7 +4438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:554](https://github.com/Sitecore
 
 > **HandTouch**: `"Office/16x16/hand_touch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:555](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L555)
+Defined in: [manifest/generator/SitecoreIcon.ts:555](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L555)
 
 ***
 
@@ -4446,7 +4446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:555](https://github.com/Sitecore
 
 > **HandTruck**: `"Office/16x16/hand_truck.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:556](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L556)
+Defined in: [manifest/generator/SitecoreIcon.ts:556](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L556)
 
 ***
 
@@ -4454,7 +4454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:556](https://github.com/Sitecore
 
 > **HandTruck\_box**: `"Office/16x16/hand_truck_box.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:557](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L557)
+Defined in: [manifest/generator/SitecoreIcon.ts:557](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L557)
 
 ***
 
@@ -4462,7 +4462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:557](https://github.com/Sitecore
 
 > **HandTruck\_suitcase**: `"Office/16x16/hand_truck_suitcase.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:558](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L558)
+Defined in: [manifest/generator/SitecoreIcon.ts:558](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L558)
 
 ***
 
@@ -4470,7 +4470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:558](https://github.com/Sitecore
 
 > **HardDrive**: `"Office/16x16/hard_drive.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:559](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L559)
+Defined in: [manifest/generator/SitecoreIcon.ts:559](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L559)
 
 ***
 
@@ -4478,7 +4478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:559](https://github.com/Sitecore
 
 > **HardDrive\_network**: `"Office/16x16/hard_drive_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:560](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L560)
+Defined in: [manifest/generator/SitecoreIcon.ts:560](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L560)
 
 ***
 
@@ -4486,7 +4486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:560](https://github.com/Sitecore
 
 > **Hat**: `"Office/16x16/hat.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:561](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L561)
+Defined in: [manifest/generator/SitecoreIcon.ts:561](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L561)
 
 ***
 
@@ -4494,7 +4494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:561](https://github.com/Sitecore
 
 > **Hat2**: `"Office/16x16/hat2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:562](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L562)
+Defined in: [manifest/generator/SitecoreIcon.ts:562](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L562)
 
 ***
 
@@ -4502,7 +4502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:562](https://github.com/Sitecore
 
 > **Headphones**: `"Office/16x16/headphones.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:563](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L563)
+Defined in: [manifest/generator/SitecoreIcon.ts:563](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L563)
 
 ***
 
@@ -4510,7 +4510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:563](https://github.com/Sitecore
 
 > **Headset**: `"Office/16x16/headset.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:564](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L564)
+Defined in: [manifest/generator/SitecoreIcon.ts:564](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L564)
 
 ***
 
@@ -4518,7 +4518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:564](https://github.com/Sitecore
 
 > **Heart**: `"Office/16x16/heart.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:565](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L565)
+Defined in: [manifest/generator/SitecoreIcon.ts:565](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L565)
 
 ***
 
@@ -4526,7 +4526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:565](https://github.com/Sitecore
 
 > **Heartbeat**: `"Office/16x16/heartbeat.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:566](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L566)
+Defined in: [manifest/generator/SitecoreIcon.ts:566](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L566)
 
 ***
 
@@ -4534,7 +4534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:566](https://github.com/Sitecore
 
 > **HeartBroken**: `"Office/16x16/heart_broken.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:567](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L567)
+Defined in: [manifest/generator/SitecoreIcon.ts:567](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L567)
 
 ***
 
@@ -4542,7 +4542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:567](https://github.com/Sitecore
 
 > **History**: `"Office/16x16/history.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:568](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L568)
+Defined in: [manifest/generator/SitecoreIcon.ts:568](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L568)
 
 ***
 
@@ -4550,7 +4550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:568](https://github.com/Sitecore
 
 > **History2**: `"Office/16x16/history2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:569](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L569)
+Defined in: [manifest/generator/SitecoreIcon.ts:569](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L569)
 
 ***
 
@@ -4558,7 +4558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:569](https://github.com/Sitecore
 
 > **HolePunch**: `"Office/16x16/hole_punch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:570](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L570)
+Defined in: [manifest/generator/SitecoreIcon.ts:570](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L570)
 
 ***
 
@@ -4566,7 +4566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:570](https://github.com/Sitecore
 
 > **Holmes**: `"Office/16x16/holmes.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:571](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L571)
+Defined in: [manifest/generator/SitecoreIcon.ts:571](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L571)
 
 ***
 
@@ -4574,7 +4574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:571](https://github.com/Sitecore
 
 > **Home**: `"Office/16x16/home.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:572](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L572)
+Defined in: [manifest/generator/SitecoreIcon.ts:572](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L572)
 
 ***
 
@@ -4582,7 +4582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:572](https://github.com/Sitecore
 
 > **HomeFire**: `"Office/16x16/home_fire.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:573](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L573)
+Defined in: [manifest/generator/SitecoreIcon.ts:573](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L573)
 
 ***
 
@@ -4590,7 +4590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:573](https://github.com/Sitecore
 
 > **HomeLock**: `"Office/16x16/home_lock.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:574](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L574)
+Defined in: [manifest/generator/SitecoreIcon.ts:574](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L574)
 
 ***
 
@@ -4598,7 +4598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:574](https://github.com/Sitecore
 
 > **HomeWater**: `"Office/16x16/home_water.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:575](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L575)
+Defined in: [manifest/generator/SitecoreIcon.ts:575](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L575)
 
 ***
 
@@ -4606,7 +4606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:575](https://github.com/Sitecore
 
 > **Hospital**: `"Office/16x16/hospital.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:576](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L576)
+Defined in: [manifest/generator/SitecoreIcon.ts:576](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L576)
 
 ***
 
@@ -4614,7 +4614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:576](https://github.com/Sitecore
 
 > **Hourglass**: `"Office/16x16/hourglass.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:577](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L577)
+Defined in: [manifest/generator/SitecoreIcon.ts:577](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L577)
 
 ***
 
@@ -4622,7 +4622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:577](https://github.com/Sitecore
 
 > **HtmlTag**: `"Office/16x16/html_tag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:578](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L578)
+Defined in: [manifest/generator/SitecoreIcon.ts:578](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L578)
 
 ***
 
@@ -4630,7 +4630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:578](https://github.com/Sitecore
 
 > **HtmlTag2**: `"Office/16x16/html_tag2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:579](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L579)
+Defined in: [manifest/generator/SitecoreIcon.ts:579](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L579)
 
 ***
 
@@ -4638,7 +4638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:579](https://github.com/Sitecore
 
 > **IceCream**: `"Office/16x16/ice_cream.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:580](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L580)
+Defined in: [manifest/generator/SitecoreIcon.ts:580](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L580)
 
 ***
 
@@ -4646,7 +4646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:580](https://github.com/Sitecore
 
 > **IceCream2**: `"Office/16x16/ice_cream2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:581](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L581)
+Defined in: [manifest/generator/SitecoreIcon.ts:581](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L581)
 
 ***
 
@@ -4654,7 +4654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:581](https://github.com/Sitecore
 
 > **IdBadge**: `"Office/16x16/id_badge.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:582](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L582)
+Defined in: [manifest/generator/SitecoreIcon.ts:582](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L582)
 
 ***
 
@@ -4662,7 +4662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:582](https://github.com/Sitecore
 
 > **IdCard**: `"Office/16x16/id_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:583](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L583)
+Defined in: [manifest/generator/SitecoreIcon.ts:583](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L583)
 
 ***
 
@@ -4670,7 +4670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:583](https://github.com/Sitecore
 
 > **IdCards**: `"Office/16x16/id_cards.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:584](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L584)
+Defined in: [manifest/generator/SitecoreIcon.ts:584](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L584)
 
 ***
 
@@ -4678,7 +4678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:584](https://github.com/Sitecore
 
 > **Inbox**: `"Office/16x16/inbox.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:585](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L585)
+Defined in: [manifest/generator/SitecoreIcon.ts:585](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L585)
 
 ***
 
@@ -4686,7 +4686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:585](https://github.com/Sitecore
 
 > **InboxEmpty**: `"Office/16x16/inbox_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:586](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L586)
+Defined in: [manifest/generator/SitecoreIcon.ts:586](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L586)
 
 ***
 
@@ -4694,7 +4694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:586](https://github.com/Sitecore
 
 > **InboxFull**: `"Office/16x16/inbox_full.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:587](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L587)
+Defined in: [manifest/generator/SitecoreIcon.ts:587](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L587)
 
 ***
 
@@ -4702,7 +4702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:587](https://github.com/Sitecore
 
 > **InboxInto**: `"Office/16x16/inbox_into.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:588](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L588)
+Defined in: [manifest/generator/SitecoreIcon.ts:588](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L588)
 
 ***
 
@@ -4710,7 +4710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:588](https://github.com/Sitecore
 
 > **InboxOut**: `"Office/16x16/inbox_out.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:589](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L589)
+Defined in: [manifest/generator/SitecoreIcon.ts:589](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L589)
 
 ***
 
@@ -4718,7 +4718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:589](https://github.com/Sitecore
 
 > **IndentDecrease**: `"Office/16x16/indent_decrease.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:590](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L590)
+Defined in: [manifest/generator/SitecoreIcon.ts:590](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L590)
 
 ***
 
@@ -4726,7 +4726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:590](https://github.com/Sitecore
 
 > **IndentIncrease**: `"Office/16x16/indent_increase.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:591](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L591)
+Defined in: [manifest/generator/SitecoreIcon.ts:591](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L591)
 
 ***
 
@@ -4734,7 +4734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:591](https://github.com/Sitecore
 
 > **Index**: `"Office/16x16/index.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:592](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L592)
+Defined in: [manifest/generator/SitecoreIcon.ts:592](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L592)
 
 ***
 
@@ -4742,7 +4742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:592](https://github.com/Sitecore
 
 > **Index2**: `"Office/16x16/index2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:593](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L593)
+Defined in: [manifest/generator/SitecoreIcon.ts:593](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L593)
 
 ***
 
@@ -4750,7 +4750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:593](https://github.com/Sitecore
 
 > **Information**: `"Office/16x16/information.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:594](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L594)
+Defined in: [manifest/generator/SitecoreIcon.ts:594](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L594)
 
 ***
 
@@ -4758,7 +4758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:594](https://github.com/Sitecore
 
 > **InsertFrom\_template**: `"Office/16x16/insert_from_template.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:595](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L595)
+Defined in: [manifest/generator/SitecoreIcon.ts:595](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L595)
 
 ***
 
@@ -4766,7 +4766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:595](https://github.com/Sitecore
 
 > **InsertOption**: `"Office/16x16/insert_option.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:596](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L596)
+Defined in: [manifest/generator/SitecoreIcon.ts:596](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L596)
 
 ***
 
@@ -4774,7 +4774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:596](https://github.com/Sitecore
 
 > **InsertOption\_assign**: `"Office/16x16/insert_option_assign.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:597](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L597)
+Defined in: [manifest/generator/SitecoreIcon.ts:597](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L597)
 
 ***
 
@@ -4782,7 +4782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:597](https://github.com/Sitecore
 
 > **InsertOption\_asssign**: `"Office/16x16/insert_option_asssign.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:598](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L598)
+Defined in: [manifest/generator/SitecoreIcon.ts:598](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L598)
 
 ***
 
@@ -4790,7 +4790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:598](https://github.com/Sitecore
 
 > **InsertOption\_reset**: `"Office/16x16/insert_option_reset.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:599](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L599)
+Defined in: [manifest/generator/SitecoreIcon.ts:599](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L599)
 
 ***
 
@@ -4798,7 +4798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:599](https://github.com/Sitecore
 
 > **Install**: `"Office/16x16/install.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:600](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L600)
+Defined in: [manifest/generator/SitecoreIcon.ts:600](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L600)
 
 ***
 
@@ -4806,7 +4806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:600](https://github.com/Sitecore
 
 > **InvoiceDollar**: `"Office/16x16/invoice_dollar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:601](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L601)
+Defined in: [manifest/generator/SitecoreIcon.ts:601](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L601)
 
 ***
 
@@ -4814,7 +4814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:601](https://github.com/Sitecore
 
 > **InvoiceEuro**: `"Office/16x16/invoice_euro.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:602](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L602)
+Defined in: [manifest/generator/SitecoreIcon.ts:602](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L602)
 
 ***
 
@@ -4822,7 +4822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:602](https://github.com/Sitecore
 
 > **ItemLock**: `"Office/16x16/item_lock.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:603](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L603)
+Defined in: [manifest/generator/SitecoreIcon.ts:603](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L603)
 
 ***
 
@@ -4830,7 +4830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:603](https://github.com/Sitecore
 
 > **Jackhammer**: `"Office/16x16/jackhammer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:604](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L604)
+Defined in: [manifest/generator/SitecoreIcon.ts:604](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L604)
 
 ***
 
@@ -4838,7 +4838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:604](https://github.com/Sitecore
 
 > **Jar**: `"Office/16x16/jar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:605](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L605)
+Defined in: [manifest/generator/SitecoreIcon.ts:605](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L605)
 
 ***
 
@@ -4846,7 +4846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:605](https://github.com/Sitecore
 
 > **JarCoffee\_bean**: `"Office/16x16/jar_coffee_bean.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:606](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L606)
+Defined in: [manifest/generator/SitecoreIcon.ts:606](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L606)
 
 ***
 
@@ -4854,7 +4854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:606](https://github.com/Sitecore
 
 > **JarCookies**: `"Office/16x16/jar_cookies.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:607](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L607)
+Defined in: [manifest/generator/SitecoreIcon.ts:607](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L607)
 
 ***
 
@@ -4862,7 +4862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:607](https://github.com/Sitecore
 
 > **JarEarth**: `"Office/16x16/jar_earth.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:608](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L608)
+Defined in: [manifest/generator/SitecoreIcon.ts:608](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L608)
 
 ***
 
@@ -4870,7 +4870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:608](https://github.com/Sitecore
 
 > **Jerrycan**: `"Office/16x16/jerrycan.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:609](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L609)
+Defined in: [manifest/generator/SitecoreIcon.ts:609](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L609)
 
 ***
 
@@ -4878,7 +4878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:609](https://github.com/Sitecore
 
 > **Joystick**: `"Office/16x16/joystick.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:610](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L610)
+Defined in: [manifest/generator/SitecoreIcon.ts:610](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L610)
 
 ***
 
@@ -4886,7 +4886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:610](https://github.com/Sitecore
 
 > **Key**: `"Office/16x16/key.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:611](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L611)
+Defined in: [manifest/generator/SitecoreIcon.ts:611](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L611)
 
 ***
 
@@ -4894,7 +4894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:611](https://github.com/Sitecore
 
 > **Key2**: `"Office/16x16/key2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:612](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L612)
+Defined in: [manifest/generator/SitecoreIcon.ts:612](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L612)
 
 ***
 
@@ -4902,7 +4902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:612](https://github.com/Sitecore
 
 > **Key3**: `"Office/16x16/key3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:613](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L613)
+Defined in: [manifest/generator/SitecoreIcon.ts:613](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L613)
 
 ***
 
@@ -4910,7 +4910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:613](https://github.com/Sitecore
 
 > **Keyboard**: `"Office/16x16/keyboard.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:614](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L614)
+Defined in: [manifest/generator/SitecoreIcon.ts:614](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L614)
 
 ***
 
@@ -4918,7 +4918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:614](https://github.com/Sitecore
 
 > **KeyboardKey\_0**: `"Office/16x16/keyboard_key_0.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:615](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L615)
+Defined in: [manifest/generator/SitecoreIcon.ts:615](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L615)
 
 ***
 
@@ -4926,7 +4926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:615](https://github.com/Sitecore
 
 > **KeyboardKey\_1**: `"Office/16x16/keyboard_key_1.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:616](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L616)
+Defined in: [manifest/generator/SitecoreIcon.ts:616](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L616)
 
 ***
 
@@ -4934,7 +4934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:616](https://github.com/Sitecore
 
 > **KeyboardKey\_2**: `"Office/16x16/keyboard_key_2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:617](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L617)
+Defined in: [manifest/generator/SitecoreIcon.ts:617](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L617)
 
 ***
 
@@ -4942,7 +4942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:617](https://github.com/Sitecore
 
 > **KeyboardKey\_3**: `"Office/16x16/keyboard_key_3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:618](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L618)
+Defined in: [manifest/generator/SitecoreIcon.ts:618](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L618)
 
 ***
 
@@ -4950,7 +4950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:618](https://github.com/Sitecore
 
 > **KeyboardKey\_4**: `"Office/16x16/keyboard_key_4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:619](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L619)
+Defined in: [manifest/generator/SitecoreIcon.ts:619](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L619)
 
 ***
 
@@ -4958,7 +4958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:619](https://github.com/Sitecore
 
 > **KeyboardKey\_5**: `"Office/16x16/keyboard_key_5.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:620](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L620)
+Defined in: [manifest/generator/SitecoreIcon.ts:620](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L620)
 
 ***
 
@@ -4966,7 +4966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:620](https://github.com/Sitecore
 
 > **KeyboardKey\_6**: `"Office/16x16/keyboard_key_6.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:621](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L621)
+Defined in: [manifest/generator/SitecoreIcon.ts:621](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L621)
 
 ***
 
@@ -4974,7 +4974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:621](https://github.com/Sitecore
 
 > **KeyboardKey\_7**: `"Office/16x16/keyboard_key_7.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:622](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L622)
+Defined in: [manifest/generator/SitecoreIcon.ts:622](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L622)
 
 ***
 
@@ -4982,7 +4982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:622](https://github.com/Sitecore
 
 > **KeyboardKey\_8**: `"Office/16x16/keyboard_key_8.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:623](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L623)
+Defined in: [manifest/generator/SitecoreIcon.ts:623](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L623)
 
 ***
 
@@ -4990,7 +4990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:623](https://github.com/Sitecore
 
 > **KeyboardKey\_9**: `"Office/16x16/keyboard_key_9.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:624](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L624)
+Defined in: [manifest/generator/SitecoreIcon.ts:624](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L624)
 
 ***
 
@@ -4998,7 +4998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:624](https://github.com/Sitecore
 
 > **KeyboardKey\_a**: `"Office/16x16/keyboard_key_a.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:625](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L625)
+Defined in: [manifest/generator/SitecoreIcon.ts:625](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L625)
 
 ***
 
@@ -5006,7 +5006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:625](https://github.com/Sitecore
 
 > **KeyboardKey\_b**: `"Office/16x16/keyboard_key_b.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:626](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L626)
+Defined in: [manifest/generator/SitecoreIcon.ts:626](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L626)
 
 ***
 
@@ -5014,7 +5014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:626](https://github.com/Sitecore
 
 > **KeyboardKey\_c**: `"Office/16x16/keyboard_key_c.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:627](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L627)
+Defined in: [manifest/generator/SitecoreIcon.ts:627](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L627)
 
 ***
 
@@ -5022,7 +5022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:627](https://github.com/Sitecore
 
 > **KeyboardKey\_clock**: `"Office/16x16/keyboard_key_clock.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:628](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L628)
+Defined in: [manifest/generator/SitecoreIcon.ts:628](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L628)
 
 ***
 
@@ -5030,7 +5030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:628](https://github.com/Sitecore
 
 > **KeyboardKey\_d**: `"Office/16x16/keyboard_key_d.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:629](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L629)
+Defined in: [manifest/generator/SitecoreIcon.ts:629](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L629)
 
 ***
 
@@ -5038,7 +5038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:629](https://github.com/Sitecore
 
 > **KeyboardKey\_down**: `"Office/16x16/keyboard_key_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:630](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L630)
+Defined in: [manifest/generator/SitecoreIcon.ts:630](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L630)
 
 ***
 
@@ -5046,7 +5046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:630](https://github.com/Sitecore
 
 > **KeyboardKey\_e**: `"Office/16x16/keyboard_key_e.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:631](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L631)
+Defined in: [manifest/generator/SitecoreIcon.ts:631](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L631)
 
 ***
 
@@ -5054,7 +5054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:631](https://github.com/Sitecore
 
 > **KeyboardKey\_empty**: `"Office/16x16/keyboard_key_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:632](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L632)
+Defined in: [manifest/generator/SitecoreIcon.ts:632](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L632)
 
 ***
 
@@ -5062,7 +5062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:632](https://github.com/Sitecore
 
 > **KeyboardKey\_enter**: `"Office/16x16/keyboard_key_enter.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:633](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L633)
+Defined in: [manifest/generator/SitecoreIcon.ts:633](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L633)
 
 ***
 
@@ -5070,7 +5070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:633](https://github.com/Sitecore
 
 > **KeyboardKey\_f**: `"Office/16x16/keyboard_key_f.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:634](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L634)
+Defined in: [manifest/generator/SitecoreIcon.ts:634](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L634)
 
 ***
 
@@ -5078,7 +5078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:634](https://github.com/Sitecore
 
 > **KeyboardKey\_g**: `"Office/16x16/keyboard_key_g.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:635](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L635)
+Defined in: [manifest/generator/SitecoreIcon.ts:635](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L635)
 
 ***
 
@@ -5086,7 +5086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:635](https://github.com/Sitecore
 
 > **KeyboardKey\_h**: `"Office/16x16/keyboard_key_h.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:636](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L636)
+Defined in: [manifest/generator/SitecoreIcon.ts:636](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L636)
 
 ***
 
@@ -5094,7 +5094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:636](https://github.com/Sitecore
 
 > **KeyboardKey\_i**: `"Office/16x16/keyboard_key_i.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:637](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L637)
+Defined in: [manifest/generator/SitecoreIcon.ts:637](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L637)
 
 ***
 
@@ -5102,7 +5102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:637](https://github.com/Sitecore
 
 > **KeyboardKey\_j**: `"Office/16x16/keyboard_key_j.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:638](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L638)
+Defined in: [manifest/generator/SitecoreIcon.ts:638](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L638)
 
 ***
 
@@ -5110,7 +5110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:638](https://github.com/Sitecore
 
 > **KeyboardKey\_k**: `"Office/16x16/keyboard_key_k.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:639](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L639)
+Defined in: [manifest/generator/SitecoreIcon.ts:639](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L639)
 
 ***
 
@@ -5118,7 +5118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:639](https://github.com/Sitecore
 
 > **KeyboardKey\_l**: `"Office/16x16/keyboard_key_l.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:640](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L640)
+Defined in: [manifest/generator/SitecoreIcon.ts:640](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L640)
 
 ***
 
@@ -5126,7 +5126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:640](https://github.com/Sitecore
 
 > **KeyboardKey\_left**: `"Office/16x16/keyboard_key_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:641](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L641)
+Defined in: [manifest/generator/SitecoreIcon.ts:641](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L641)
 
 ***
 
@@ -5134,7 +5134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:641](https://github.com/Sitecore
 
 > **KeyboardKey\_m**: `"Office/16x16/keyboard_key_m.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:642](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L642)
+Defined in: [manifest/generator/SitecoreIcon.ts:642](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L642)
 
 ***
 
@@ -5142,7 +5142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:642](https://github.com/Sitecore
 
 > **KeyboardKey\_minus**: `"Office/16x16/keyboard_key_minus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:643](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L643)
+Defined in: [manifest/generator/SitecoreIcon.ts:643](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L643)
 
 ***
 
@@ -5150,7 +5150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:643](https://github.com/Sitecore
 
 > **KeyboardKey\_n**: `"Office/16x16/keyboard_key_n.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:644](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L644)
+Defined in: [manifest/generator/SitecoreIcon.ts:644](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L644)
 
 ***
 
@@ -5158,7 +5158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:644](https://github.com/Sitecore
 
 > **KeyboardKey\_o**: `"Office/16x16/keyboard_key_o.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:645](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L645)
+Defined in: [manifest/generator/SitecoreIcon.ts:645](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L645)
 
 ***
 
@@ -5166,7 +5166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:645](https://github.com/Sitecore
 
 > **KeyboardKey\_p**: `"Office/16x16/keyboard_key_p.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:646](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L646)
+Defined in: [manifest/generator/SitecoreIcon.ts:646](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L646)
 
 ***
 
@@ -5174,7 +5174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:646](https://github.com/Sitecore
 
 > **KeyboardKey\_plus**: `"Office/16x16/keyboard_key_plus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:647](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L647)
+Defined in: [manifest/generator/SitecoreIcon.ts:647](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L647)
 
 ***
 
@@ -5182,7 +5182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:647](https://github.com/Sitecore
 
 > **KeyboardKey\_q**: `"Office/16x16/keyboard_key_q.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:648](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L648)
+Defined in: [manifest/generator/SitecoreIcon.ts:648](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L648)
 
 ***
 
@@ -5190,7 +5190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:648](https://github.com/Sitecore
 
 > **KeyboardKey\_r**: `"Office/16x16/keyboard_key_r.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:649](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L649)
+Defined in: [manifest/generator/SitecoreIcon.ts:649](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L649)
 
 ***
 
@@ -5198,7 +5198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:649](https://github.com/Sitecore
 
 > **KeyboardKey\_right**: `"Office/16x16/keyboard_key_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:650](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L650)
+Defined in: [manifest/generator/SitecoreIcon.ts:650](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L650)
 
 ***
 
@@ -5206,7 +5206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:650](https://github.com/Sitecore
 
 > **KeyboardKey\_s**: `"Office/16x16/keyboard_key_s.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:651](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L651)
+Defined in: [manifest/generator/SitecoreIcon.ts:651](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L651)
 
 ***
 
@@ -5214,7 +5214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:651](https://github.com/Sitecore
 
 > **KeyboardKey\_shift**: `"Office/16x16/keyboard_key_shift.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:652](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L652)
+Defined in: [manifest/generator/SitecoreIcon.ts:652](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L652)
 
 ***
 
@@ -5222,7 +5222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:652](https://github.com/Sitecore
 
 > **KeyboardKey\_speaker**: `"Office/16x16/keyboard_key_speaker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:653](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L653)
+Defined in: [manifest/generator/SitecoreIcon.ts:653](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L653)
 
 ***
 
@@ -5230,7 +5230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:653](https://github.com/Sitecore
 
 > **KeyboardKey\_t**: `"Office/16x16/keyboard_key_t.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:654](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L654)
+Defined in: [manifest/generator/SitecoreIcon.ts:654](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L654)
 
 ***
 
@@ -5238,7 +5238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:654](https://github.com/Sitecore
 
 > **KeyboardKey\_u**: `"Office/16x16/keyboard_key_u.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:655](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L655)
+Defined in: [manifest/generator/SitecoreIcon.ts:655](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L655)
 
 ***
 
@@ -5246,7 +5246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:655](https://github.com/Sitecore
 
 > **KeyboardKey\_up**: `"Office/16x16/keyboard_key_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:656](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L656)
+Defined in: [manifest/generator/SitecoreIcon.ts:656](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L656)
 
 ***
 
@@ -5254,7 +5254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:656](https://github.com/Sitecore
 
 > **KeyboardKey\_v**: `"Office/16x16/keyboard_key_v.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:657](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L657)
+Defined in: [manifest/generator/SitecoreIcon.ts:657](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L657)
 
 ***
 
@@ -5262,7 +5262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:657](https://github.com/Sitecore
 
 > **KeyboardKey\_w**: `"Office/16x16/keyboard_key_w.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:658](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L658)
+Defined in: [manifest/generator/SitecoreIcon.ts:658](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L658)
 
 ***
 
@@ -5270,7 +5270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:658](https://github.com/Sitecore
 
 > **KeyboardKey\_x**: `"Office/16x16/keyboard_key_x.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:659](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L659)
+Defined in: [manifest/generator/SitecoreIcon.ts:659](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L659)
 
 ***
 
@@ -5278,7 +5278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:659](https://github.com/Sitecore
 
 > **KeyboardKey\_y**: `"Office/16x16/keyboard_key_y.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:660](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L660)
+Defined in: [manifest/generator/SitecoreIcon.ts:660](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L660)
 
 ***
 
@@ -5286,7 +5286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:660](https://github.com/Sitecore
 
 > **KeyboardKey\_z**: `"Office/16x16/keyboard_key_z.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:661](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L661)
+Defined in: [manifest/generator/SitecoreIcon.ts:661](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L661)
 
 ***
 
@@ -5294,7 +5294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:661](https://github.com/Sitecore
 
 > **KeyboardWireless**: `"Office/16x16/keyboard_wireless.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:662](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L662)
+Defined in: [manifest/generator/SitecoreIcon.ts:662](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L662)
 
 ***
 
@@ -5302,7 +5302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:662](https://github.com/Sitecore
 
 > **Keyhole**: `"Office/16x16/keyhole.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:663](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L663)
+Defined in: [manifest/generator/SitecoreIcon.ts:663](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L663)
 
 ***
 
@@ -5310,7 +5310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:663](https://github.com/Sitecore
 
 > **Keypad**: `"Office/16x16/keypad.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:664](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L664)
+Defined in: [manifest/generator/SitecoreIcon.ts:664](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L664)
 
 ***
 
@@ -5318,7 +5318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:664](https://github.com/Sitecore
 
 > **Keys**: `"Office/16x16/keys.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:665](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L665)
+Defined in: [manifest/generator/SitecoreIcon.ts:665](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L665)
 
 ***
 
@@ -5326,7 +5326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:665](https://github.com/Sitecore
 
 > **Knife**: `"Office/16x16/knife.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:666](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L666)
+Defined in: [manifest/generator/SitecoreIcon.ts:666](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L666)
 
 ***
 
@@ -5334,7 +5334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:666](https://github.com/Sitecore
 
 > **KnifeFork**: `"Office/16x16/knife_fork.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:667](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L667)
+Defined in: [manifest/generator/SitecoreIcon.ts:667](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L667)
 
 ***
 
@@ -5342,7 +5342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:667](https://github.com/Sitecore
 
 > **KnifeFork\_spoon**: `"Office/16x16/knife_fork_spoon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:668](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L668)
+Defined in: [manifest/generator/SitecoreIcon.ts:668](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L668)
 
 ***
 
@@ -5350,7 +5350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:668](https://github.com/Sitecore
 
 > **Knot**: `"Office/16x16/knot.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:669](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L669)
+Defined in: [manifest/generator/SitecoreIcon.ts:669](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L669)
 
 ***
 
@@ -5358,7 +5358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:669](https://github.com/Sitecore
 
 > **Laptop**: `"Office/16x16/laptop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:670](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L670)
+Defined in: [manifest/generator/SitecoreIcon.ts:670](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L670)
 
 ***
 
@@ -5366,7 +5366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:670](https://github.com/Sitecore
 
 > **LaserPointer**: `"Office/16x16/laser_pointer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:671](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L671)
+Defined in: [manifest/generator/SitecoreIcon.ts:671](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L671)
 
 ***
 
@@ -5374,7 +5374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:671](https://github.com/Sitecore
 
 > **Layout**: `"Office/16x16/layout.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:672](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L672)
+Defined in: [manifest/generator/SitecoreIcon.ts:672](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L672)
 
 ***
 
@@ -5382,7 +5382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:672](https://github.com/Sitecore
 
 > **LayoutCenter**: `"Office/16x16/layout_center.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:673](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L673)
+Defined in: [manifest/generator/SitecoreIcon.ts:673](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L673)
 
 ***
 
@@ -5390,7 +5390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:673](https://github.com/Sitecore
 
 > **LayoutDetails**: `"Office/16x16/layout_details.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:674](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L674)
+Defined in: [manifest/generator/SitecoreIcon.ts:674](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L674)
 
 ***
 
@@ -5398,7 +5398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:674](https://github.com/Sitecore
 
 > **LayoutEast**: `"Office/16x16/layout_east.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:675](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L675)
+Defined in: [manifest/generator/SitecoreIcon.ts:675](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L675)
 
 ***
 
@@ -5406,7 +5406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:675](https://github.com/Sitecore
 
 > **LayoutHorizontal**: `"Office/16x16/layout_horizontal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:676](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L676)
+Defined in: [manifest/generator/SitecoreIcon.ts:676](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L676)
 
 ***
 
@@ -5414,7 +5414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:676](https://github.com/Sitecore
 
 > **LayoutNorth**: `"Office/16x16/layout_north.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:677](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L677)
+Defined in: [manifest/generator/SitecoreIcon.ts:677](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L677)
 
 ***
 
@@ -5422,7 +5422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:677](https://github.com/Sitecore
 
 > **LayoutNortheast**: `"Office/16x16/layout_northeast.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:678](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L678)
+Defined in: [manifest/generator/SitecoreIcon.ts:678](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L678)
 
 ***
 
@@ -5430,7 +5430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:678](https://github.com/Sitecore
 
 > **LayoutNorthwest**: `"Office/16x16/layout_northwest.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:679](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L679)
+Defined in: [manifest/generator/SitecoreIcon.ts:679](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L679)
 
 ***
 
@@ -5438,7 +5438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:679](https://github.com/Sitecore
 
 > **LayoutSouth**: `"Office/16x16/layout_south.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:680](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L680)
+Defined in: [manifest/generator/SitecoreIcon.ts:680](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L680)
 
 ***
 
@@ -5446,7 +5446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:680](https://github.com/Sitecore
 
 > **LayoutSoutheast**: `"Office/16x16/layout_southeast.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:681](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L681)
+Defined in: [manifest/generator/SitecoreIcon.ts:681](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L681)
 
 ***
 
@@ -5454,7 +5454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:681](https://github.com/Sitecore
 
 > **LayoutSouthwest**: `"Office/16x16/layout_southwest.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:682](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L682)
+Defined in: [manifest/generator/SitecoreIcon.ts:682](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L682)
 
 ***
 
@@ -5462,7 +5462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:682](https://github.com/Sitecore
 
 > **LayoutVertical**: `"Office/16x16/layout_vertical.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:683](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L683)
+Defined in: [manifest/generator/SitecoreIcon.ts:683](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L683)
 
 ***
 
@@ -5470,7 +5470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:683](https://github.com/Sitecore
 
 > **LayoutWest**: `"Office/16x16/layout_west.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:684](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L684)
+Defined in: [manifest/generator/SitecoreIcon.ts:684](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L684)
 
 ***
 
@@ -5478,7 +5478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:684](https://github.com/Sitecore
 
 > **Leaf**: `"Office/16x16/leaf.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:685](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L685)
+Defined in: [manifest/generator/SitecoreIcon.ts:685](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L685)
 
 ***
 
@@ -5486,7 +5486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:685](https://github.com/Sitecore
 
 > **Lectern**: `"Office/16x16/lectern.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:686](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L686)
+Defined in: [manifest/generator/SitecoreIcon.ts:686](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L686)
 
 ***
 
@@ -5494,7 +5494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:686](https://github.com/Sitecore
 
 > **Lecture**: `"Office/16x16/lecture.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:687](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L687)
+Defined in: [manifest/generator/SitecoreIcon.ts:687](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L687)
 
 ***
 
@@ -5502,7 +5502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:687](https://github.com/Sitecore
 
 > **Led**: `"Office/16x16/led.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:688](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L688)
+Defined in: [manifest/generator/SitecoreIcon.ts:688](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L688)
 
 ***
 
@@ -5510,7 +5510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:688](https://github.com/Sitecore
 
 > **Lemon**: `"Office/16x16/lemon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:689](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L689)
+Defined in: [manifest/generator/SitecoreIcon.ts:689](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L689)
 
 ***
 
@@ -5518,7 +5518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:689](https://github.com/Sitecore
 
 > **Lifebelt**: `"Office/16x16/lifebelt.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:690](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L690)
+Defined in: [manifest/generator/SitecoreIcon.ts:690](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L690)
 
 ***
 
@@ -5526,7 +5526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:690](https://github.com/Sitecore
 
 > **LightbulbOff**: `"Office/16x16/lightbulb_off.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:691](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L691)
+Defined in: [manifest/generator/SitecoreIcon.ts:691](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L691)
 
 ***
 
@@ -5534,7 +5534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:691](https://github.com/Sitecore
 
 > **LightbulbOn**: `"Office/16x16/lightbulb_on.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:692](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L692)
+Defined in: [manifest/generator/SitecoreIcon.ts:692](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L692)
 
 ***
 
@@ -5542,7 +5542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:692](https://github.com/Sitecore
 
 > **Lighthouse**: `"Office/16x16/lighthouse.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:693](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L693)
+Defined in: [manifest/generator/SitecoreIcon.ts:693](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L693)
 
 ***
 
@@ -5550,7 +5550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:693](https://github.com/Sitecore
 
 > **LineBreak**: `"Office/16x16/line_break.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:694](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L694)
+Defined in: [manifest/generator/SitecoreIcon.ts:694](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L694)
 
 ***
 
@@ -5558,7 +5558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:694](https://github.com/Sitecore
 
 > **LineSpacing\_paragraph**: `"Office/16x16/line_spacing_paragraph.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:695](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L695)
+Defined in: [manifest/generator/SitecoreIcon.ts:695](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L695)
 
 ***
 
@@ -5566,7 +5566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:695](https://github.com/Sitecore
 
 > **LineSpacing\_text**: `"Office/16x16/line_spacing_text.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:696](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L696)
+Defined in: [manifest/generator/SitecoreIcon.ts:696](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L696)
 
 ***
 
@@ -5574,7 +5574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:696](https://github.com/Sitecore
 
 > **Link**: `"Office/16x16/link.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:697](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L697)
+Defined in: [manifest/generator/SitecoreIcon.ts:697](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L697)
 
 ***
 
@@ -5582,7 +5582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:697](https://github.com/Sitecore
 
 > **LinkBroken**: `"Office/16x16/link_broken.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:698](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L698)
+Defined in: [manifest/generator/SitecoreIcon.ts:698](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L698)
 
 ***
 
@@ -5590,7 +5590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:698](https://github.com/Sitecore
 
 > **ListStyle\_bullets**: `"Office/16x16/list_style_bullets.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:699](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L699)
+Defined in: [manifest/generator/SitecoreIcon.ts:699](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L699)
 
 ***
 
@@ -5598,7 +5598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:699](https://github.com/Sitecore
 
 > **ListStyle\_numbered**: `"Office/16x16/list_style_numbered.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:700](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L700)
+Defined in: [manifest/generator/SitecoreIcon.ts:700](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L700)
 
 ***
 
@@ -5606,7 +5606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:700](https://github.com/Sitecore
 
 > **ListStyle\_roman**: `"Office/16x16/list_style_roman.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:701](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L701)
+Defined in: [manifest/generator/SitecoreIcon.ts:701](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L701)
 
 ***
 
@@ -5614,7 +5614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:701](https://github.com/Sitecore
 
 > **LocationPin**: `"Office/16x16/location_pin.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:702](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L702)
+Defined in: [manifest/generator/SitecoreIcon.ts:702](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L702)
 
 ***
 
@@ -5622,7 +5622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:702](https://github.com/Sitecore
 
 > **Lock**: `"Office/16x16/lock.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:703](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L703)
+Defined in: [manifest/generator/SitecoreIcon.ts:703](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L703)
 
 ***
 
@@ -5630,7 +5630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:703](https://github.com/Sitecore
 
 > **Lock2**: `"Office/16x16/lock2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:704](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L704)
+Defined in: [manifest/generator/SitecoreIcon.ts:704](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L704)
 
 ***
 
@@ -5638,7 +5638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:704](https://github.com/Sitecore
 
 > **Lock3**: `"Office/16x16/lock3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:705](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L705)
+Defined in: [manifest/generator/SitecoreIcon.ts:705](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L705)
 
 ***
 
@@ -5646,7 +5646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:705](https://github.com/Sitecore
 
 > **LockOpen**: `"Office/16x16/lock_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:706](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L706)
+Defined in: [manifest/generator/SitecoreIcon.ts:706](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L706)
 
 ***
 
@@ -5654,7 +5654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:706](https://github.com/Sitecore
 
 > **LogicAnd**: `"Office/16x16/logic_and.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:707](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L707)
+Defined in: [manifest/generator/SitecoreIcon.ts:707](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L707)
 
 ***
 
@@ -5662,7 +5662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:707](https://github.com/Sitecore
 
 > **LogicNot**: `"Office/16x16/logic_not.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:708](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L708)
+Defined in: [manifest/generator/SitecoreIcon.ts:708](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L708)
 
 ***
 
@@ -5670,7 +5670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:708](https://github.com/Sitecore
 
 > **LogicOr**: `"Office/16x16/logic_or.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:709](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L709)
+Defined in: [manifest/generator/SitecoreIcon.ts:709](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L709)
 
 ***
 
@@ -5678,7 +5678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:709](https://github.com/Sitecore
 
 > **LogicXor**: `"Office/16x16/logic_xor.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:710](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L710)
+Defined in: [manifest/generator/SitecoreIcon.ts:710](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L710)
 
 ***
 
@@ -5686,7 +5686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:710](https://github.com/Sitecore
 
 > **LogIn**: `"Office/16x16/log_in.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:711](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L711)
+Defined in: [manifest/generator/SitecoreIcon.ts:711](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L711)
 
 ***
 
@@ -5694,7 +5694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:711](https://github.com/Sitecore
 
 > **LogOut**: `"Office/16x16/log_out.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:712](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L712)
+Defined in: [manifest/generator/SitecoreIcon.ts:712](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L712)
 
 ***
 
@@ -5702,7 +5702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:712](https://github.com/Sitecore
 
 > **Lollipop**: `"Office/16x16/lollipop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:713](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L713)
+Defined in: [manifest/generator/SitecoreIcon.ts:713](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L713)
 
 ***
 
@@ -5710,7 +5710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:713](https://github.com/Sitecore
 
 > **Loudspeaker**: `"Office/16x16/loudspeaker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:714](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L714)
+Defined in: [manifest/generator/SitecoreIcon.ts:714](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L714)
 
 ***
 
@@ -5718,7 +5718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:714](https://github.com/Sitecore
 
 > **Loudspeaker2**: `"Office/16x16/loudspeaker2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:715](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L715)
+Defined in: [manifest/generator/SitecoreIcon.ts:715](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L715)
 
 ***
 
@@ -5726,7 +5726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:715](https://github.com/Sitecore
 
 > **Loudspeaker3**: `"Office/16x16/loudspeaker3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:716](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L716)
+Defined in: [manifest/generator/SitecoreIcon.ts:716](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L716)
 
 ***
 
@@ -5734,7 +5734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:716](https://github.com/Sitecore
 
 > **Loudspeaker4**: `"Office/16x16/loudspeaker4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:717](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L717)
+Defined in: [manifest/generator/SitecoreIcon.ts:717](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L717)
 
 ***
 
@@ -5742,7 +5742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:717](https://github.com/Sitecore
 
 > **LoudspeakerBox**: `"Office/16x16/loudspeaker_box.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:718](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L718)
+Defined in: [manifest/generator/SitecoreIcon.ts:718](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L718)
 
 ***
 
@@ -5750,7 +5750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:718](https://github.com/Sitecore
 
 > **LoudspeakerNetwork**: `"Office/16x16/loudspeaker_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:719](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L719)
+Defined in: [manifest/generator/SitecoreIcon.ts:719](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L719)
 
 ***
 
@@ -5758,7 +5758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:719](https://github.com/Sitecore
 
 > **LoudspeakerOff**: `"Office/16x16/loudspeaker_off.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:720](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L720)
+Defined in: [manifest/generator/SitecoreIcon.ts:720](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L720)
 
 ***
 
@@ -5766,7 +5766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:720](https://github.com/Sitecore
 
 > **MagazineFolder**: `"Office/16x16/magazine_folder.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:721](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L721)
+Defined in: [manifest/generator/SitecoreIcon.ts:721](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L721)
 
 ***
 
@@ -5774,7 +5774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:721](https://github.com/Sitecore
 
 > **Magician**: `"Office/16x16/magician.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:722](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L722)
+Defined in: [manifest/generator/SitecoreIcon.ts:722](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L722)
 
 ***
 
@@ -5782,7 +5782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:722](https://github.com/Sitecore
 
 > **MagicWand**: `"Office/16x16/magic_wand.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:723](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L723)
+Defined in: [manifest/generator/SitecoreIcon.ts:723](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L723)
 
 ***
 
@@ -5790,7 +5790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:723](https://github.com/Sitecore
 
 > **Magnet**: `"Office/16x16/magnet.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:724](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L724)
+Defined in: [manifest/generator/SitecoreIcon.ts:724](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L724)
 
 ***
 
@@ -5798,7 +5798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:724](https://github.com/Sitecore
 
 > **MagnifyingGlass**: `"Office/16x16/magnifying_glass.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:725](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L725)
+Defined in: [manifest/generator/SitecoreIcon.ts:725](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L725)
 
 ***
 
@@ -5806,7 +5806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:725](https://github.com/Sitecore
 
 > **MagnifyingGlass\_black**: `"Office/16x16/magnifying_glass_black.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:726](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L726)
+Defined in: [manifest/generator/SitecoreIcon.ts:726](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L726)
 
 ***
 
@@ -5814,7 +5814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:726](https://github.com/Sitecore
 
 > **Mail**: `"Office/16x16/mail.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:727](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L727)
+Defined in: [manifest/generator/SitecoreIcon.ts:727](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L727)
 
 ***
 
@@ -5822,7 +5822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:727](https://github.com/Sitecore
 
 > **MailAttachment**: `"Office/16x16/mail_attachment.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:731](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L731)
+Defined in: [manifest/generator/SitecoreIcon.ts:731](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L731)
 
 ***
 
@@ -5830,7 +5830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:731](https://github.com/Sitecore
 
 > **MailboxEmpty**: `"Office/16x16/mailbox_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:728](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L728)
+Defined in: [manifest/generator/SitecoreIcon.ts:728](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L728)
 
 ***
 
@@ -5838,7 +5838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:728](https://github.com/Sitecore
 
 > **MailboxFull**: `"Office/16x16/mailbox_full.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:729](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L729)
+Defined in: [manifest/generator/SitecoreIcon.ts:729](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L729)
 
 ***
 
@@ -5846,7 +5846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:729](https://github.com/Sitecore
 
 > **MailBug**: `"Office/16x16/mail_bug.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:732](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L732)
+Defined in: [manifest/generator/SitecoreIcon.ts:732](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L732)
 
 ***
 
@@ -5854,7 +5854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:732](https://github.com/Sitecore
 
 > **MailCloud**: `"Office/16x16/mail_cloud.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:733](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L733)
+Defined in: [manifest/generator/SitecoreIcon.ts:733](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L733)
 
 ***
 
@@ -5862,7 +5862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:733](https://github.com/Sitecore
 
 > **MailEarth**: `"Office/16x16/mail_earth.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:734](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L734)
+Defined in: [manifest/generator/SitecoreIcon.ts:734](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L734)
 
 ***
 
@@ -5870,7 +5870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:734](https://github.com/Sitecore
 
 > **MailExchange**: `"Office/16x16/mail_exchange.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:735](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L735)
+Defined in: [manifest/generator/SitecoreIcon.ts:735](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L735)
 
 ***
 
@@ -5878,7 +5878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:735](https://github.com/Sitecore
 
 > **MailFilter**: `"Office/16x16/mail_filter.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:736](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L736)
+Defined in: [manifest/generator/SitecoreIcon.ts:736](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L736)
 
 ***
 
@@ -5886,7 +5886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:736](https://github.com/Sitecore
 
 > **MailForward**: `"Office/16x16/mail_forward.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:737](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L737)
+Defined in: [manifest/generator/SitecoreIcon.ts:737](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L737)
 
 ***
 
@@ -5894,7 +5894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:737](https://github.com/Sitecore
 
 > **MailInto**: `"Office/16x16/mail_into.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:738](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L738)
+Defined in: [manifest/generator/SitecoreIcon.ts:738](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L738)
 
 ***
 
@@ -5902,7 +5902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:738](https://github.com/Sitecore
 
 > **MailOpen**: `"Office/16x16/mail_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:739](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L739)
+Defined in: [manifest/generator/SitecoreIcon.ts:739](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L739)
 
 ***
 
@@ -5910,7 +5910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:739](https://github.com/Sitecore
 
 > **MailOpen2**: `"Office/16x16/mail_open2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:740](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L740)
+Defined in: [manifest/generator/SitecoreIcon.ts:740](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L740)
 
 ***
 
@@ -5918,7 +5918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:740](https://github.com/Sitecore
 
 > **MailOut**: `"Office/16x16/mail_out.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:741](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L741)
+Defined in: [manifest/generator/SitecoreIcon.ts:741](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L741)
 
 ***
 
@@ -5926,7 +5926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:741](https://github.com/Sitecore
 
 > **MailReply**: `"Office/16x16/mail_reply.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:742](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L742)
+Defined in: [manifest/generator/SitecoreIcon.ts:742](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L742)
 
 ***
 
@@ -5934,7 +5934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:742](https://github.com/Sitecore
 
 > **MailReply\_all**: `"Office/16x16/mail_reply_all.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:743](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L743)
+Defined in: [manifest/generator/SitecoreIcon.ts:743](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L743)
 
 ***
 
@@ -5942,7 +5942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:743](https://github.com/Sitecore
 
 > **Mails**: `"Office/16x16/mails.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:730](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L730)
+Defined in: [manifest/generator/SitecoreIcon.ts:730](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L730)
 
 ***
 
@@ -5950,7 +5950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:730](https://github.com/Sitecore
 
 > **MailSealed**: `"Office/16x16/mail_sealed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:744](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L744)
+Defined in: [manifest/generator/SitecoreIcon.ts:744](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L744)
 
 ***
 
@@ -5958,7 +5958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:744](https://github.com/Sitecore
 
 > **MailVirus**: `"Office/16x16/mail_virus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:745](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L745)
+Defined in: [manifest/generator/SitecoreIcon.ts:745](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L745)
 
 ***
 
@@ -5966,7 +5966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:745](https://github.com/Sitecore
 
 > **MailWrite**: `"Office/16x16/mail_write.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:746](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L746)
+Defined in: [manifest/generator/SitecoreIcon.ts:746](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L746)
 
 ***
 
@@ -5974,7 +5974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:746](https://github.com/Sitecore
 
 > **Man1**: `"Office/16x16/man_1.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:747](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L747)
+Defined in: [manifest/generator/SitecoreIcon.ts:747](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L747)
 
 ***
 
@@ -5982,7 +5982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:747](https://github.com/Sitecore
 
 > **Man2**: `"Office/16x16/man_2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:748](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L748)
+Defined in: [manifest/generator/SitecoreIcon.ts:748](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L748)
 
 ***
 
@@ -5990,7 +5990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:748](https://github.com/Sitecore
 
 > **Man3**: `"Office/16x16/man_3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:749](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L749)
+Defined in: [manifest/generator/SitecoreIcon.ts:749](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L749)
 
 ***
 
@@ -5998,7 +5998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:749](https://github.com/Sitecore
 
 > **Man4**: `"Office/16x16/man_4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:750](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L750)
+Defined in: [manifest/generator/SitecoreIcon.ts:750](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L750)
 
 ***
 
@@ -6006,7 +6006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:750](https://github.com/Sitecore
 
 > **Man5**: `"Office/16x16/man_5.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:751](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L751)
+Defined in: [manifest/generator/SitecoreIcon.ts:751](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L751)
 
 ***
 
@@ -6014,7 +6014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:751](https://github.com/Sitecore
 
 > **Man6**: `"Office/16x16/man_6.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:752](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L752)
+Defined in: [manifest/generator/SitecoreIcon.ts:752](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L752)
 
 ***
 
@@ -6022,7 +6022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:752](https://github.com/Sitecore
 
 > **Man7**: `"Office/16x16/man_7.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:753](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L753)
+Defined in: [manifest/generator/SitecoreIcon.ts:753](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L753)
 
 ***
 
@@ -6030,7 +6030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:753](https://github.com/Sitecore
 
 > **Man8**: `"Office/16x16/man_8.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:754](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L754)
+Defined in: [manifest/generator/SitecoreIcon.ts:754](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L754)
 
 ***
 
@@ -6038,7 +6038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:754](https://github.com/Sitecore
 
 > **Map**: `"Office/16x16/map.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:755](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L755)
+Defined in: [manifest/generator/SitecoreIcon.ts:755](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L755)
 
 ***
 
@@ -6046,7 +6046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:755](https://github.com/Sitecore
 
 > **MapLocation**: `"Office/16x16/map_location.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:756](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L756)
+Defined in: [manifest/generator/SitecoreIcon.ts:756](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L756)
 
 ***
 
@@ -6054,7 +6054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:756](https://github.com/Sitecore
 
 > **MapLocation2**: `"Office/16x16/map_location2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:757](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L757)
+Defined in: [manifest/generator/SitecoreIcon.ts:757](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L757)
 
 ***
 
@@ -6062,7 +6062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:757](https://github.com/Sitecore
 
 > **MapRoads**: `"Office/16x16/map_roads.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:758](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L758)
+Defined in: [manifest/generator/SitecoreIcon.ts:758](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L758)
 
 ***
 
@@ -6070,7 +6070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:758](https://github.com/Sitecore
 
 > **MapRoute**: `"Office/16x16/map_route.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:759](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L759)
+Defined in: [manifest/generator/SitecoreIcon.ts:759](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L759)
 
 ***
 
@@ -6078,7 +6078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:759](https://github.com/Sitecore
 
 > **Marionette**: `"Office/16x16/marionette.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:760](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L760)
+Defined in: [manifest/generator/SitecoreIcon.ts:760](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L760)
 
 ***
 
@@ -6086,7 +6086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:760](https://github.com/Sitecore
 
 > **Marker**: `"Office/16x16/marker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:761](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L761)
+Defined in: [manifest/generator/SitecoreIcon.ts:761](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L761)
 
 ***
 
@@ -6094,7 +6094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:761](https://github.com/Sitecore
 
 > **MarketStand**: `"Office/16x16/market_stand.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:762](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L762)
+Defined in: [manifest/generator/SitecoreIcon.ts:762](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L762)
 
 ***
 
@@ -6102,7 +6102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:762](https://github.com/Sitecore
 
 > **Markup**: `"Office/16x16/markup.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:763](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L763)
+Defined in: [manifest/generator/SitecoreIcon.ts:763](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L763)
 
 ***
 
@@ -6110,7 +6110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:763](https://github.com/Sitecore
 
 > **Mask**: `"Office/16x16/mask.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:764](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L764)
+Defined in: [manifest/generator/SitecoreIcon.ts:764](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L764)
 
 ***
 
@@ -6118,7 +6118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:764](https://github.com/Sitecore
 
 > **Masks**: `"Office/16x16/masks.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:765](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L765)
+Defined in: [manifest/generator/SitecoreIcon.ts:765](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L765)
 
 ***
 
@@ -6126,7 +6126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:765](https://github.com/Sitecore
 
 > **Maximize**: `"Office/16x16/maximize.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:766](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L766)
+Defined in: [manifest/generator/SitecoreIcon.ts:766](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L766)
 
 ***
 
@@ -6134,7 +6134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:766](https://github.com/Sitecore
 
 > **Medal**: `"Office/16x16/medal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:767](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L767)
+Defined in: [manifest/generator/SitecoreIcon.ts:767](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L767)
 
 ***
 
@@ -6142,7 +6142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:767](https://github.com/Sitecore
 
 > **Medal2**: `"Office/16x16/medal2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:768](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L768)
+Defined in: [manifest/generator/SitecoreIcon.ts:768](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L768)
 
 ***
 
@@ -6150,7 +6150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:768](https://github.com/Sitecore
 
 > **MediaBeginning**: `"Office/16x16/media_beginning.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:769](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L769)
+Defined in: [manifest/generator/SitecoreIcon.ts:769](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L769)
 
 ***
 
@@ -6158,7 +6158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:769](https://github.com/Sitecore
 
 > **MediaEject**: `"Office/16x16/media_eject.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:770](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L770)
+Defined in: [manifest/generator/SitecoreIcon.ts:770](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L770)
 
 ***
 
@@ -6166,7 +6166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:770](https://github.com/Sitecore
 
 > **MediaEnd**: `"Office/16x16/media_end.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:771](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L771)
+Defined in: [manifest/generator/SitecoreIcon.ts:771](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L771)
 
 ***
 
@@ -6174,7 +6174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:771](https://github.com/Sitecore
 
 > **MediaFast\_forward**: `"Office/16x16/media_fast_forward.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:772](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L772)
+Defined in: [manifest/generator/SitecoreIcon.ts:772](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L772)
 
 ***
 
@@ -6182,7 +6182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:772](https://github.com/Sitecore
 
 > **MediaPause**: `"Office/16x16/media_pause.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:773](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L773)
+Defined in: [manifest/generator/SitecoreIcon.ts:773](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L773)
 
 ***
 
@@ -6190,7 +6190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:773](https://github.com/Sitecore
 
 > **MediaPlay**: `"Office/16x16/media_play.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:774](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L774)
+Defined in: [manifest/generator/SitecoreIcon.ts:774](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L774)
 
 ***
 
@@ -6198,7 +6198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:774](https://github.com/Sitecore
 
 > **MediaRecord**: `"Office/16x16/media_record.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:775](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L775)
+Defined in: [manifest/generator/SitecoreIcon.ts:775](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L775)
 
 ***
 
@@ -6206,7 +6206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:775](https://github.com/Sitecore
 
 > **MediaRewind**: `"Office/16x16/media_rewind.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:776](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L776)
+Defined in: [manifest/generator/SitecoreIcon.ts:776](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L776)
 
 ***
 
@@ -6214,7 +6214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:776](https://github.com/Sitecore
 
 > **MediaStep\_back**: `"Office/16x16/media_step_back.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:777](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L777)
+Defined in: [manifest/generator/SitecoreIcon.ts:777](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L777)
 
 ***
 
@@ -6222,7 +6222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:777](https://github.com/Sitecore
 
 > **MediaStep\_forward**: `"Office/16x16/media_step_forward.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:778](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L778)
+Defined in: [manifest/generator/SitecoreIcon.ts:778](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L778)
 
 ***
 
@@ -6230,7 +6230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:778](https://github.com/Sitecore
 
 > **MediaStop**: `"Office/16x16/media_stop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:779](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L779)
+Defined in: [manifest/generator/SitecoreIcon.ts:779](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L779)
 
 ***
 
@@ -6238,7 +6238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:779](https://github.com/Sitecore
 
 > **MedicalBag**: `"Office/16x16/medical_bag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:780](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L780)
+Defined in: [manifest/generator/SitecoreIcon.ts:780](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L780)
 
 ***
 
@@ -6246,7 +6246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:780](https://github.com/Sitecore
 
 > **Megaphone**: `"Office/16x16/megaphone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:781](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L781)
+Defined in: [manifest/generator/SitecoreIcon.ts:781](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L781)
 
 ***
 
@@ -6254,7 +6254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:781](https://github.com/Sitecore
 
 > **MemoryStick**: `"Office/16x16/memory_stick.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:782](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L782)
+Defined in: [manifest/generator/SitecoreIcon.ts:782](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L782)
 
 ***
 
@@ -6262,7 +6262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:782](https://github.com/Sitecore
 
 > **Message**: `"Office/16x16/message.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:783](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L783)
+Defined in: [manifest/generator/SitecoreIcon.ts:783](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L783)
 
 ***
 
@@ -6270,7 +6270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:783](https://github.com/Sitecore
 
 > **Messages**: `"Office/16x16/messages.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:784](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L784)
+Defined in: [manifest/generator/SitecoreIcon.ts:784](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L784)
 
 ***
 
@@ -6278,7 +6278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:784](https://github.com/Sitecore
 
 > **Microphone**: `"Office/16x16/microphone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:785](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L785)
+Defined in: [manifest/generator/SitecoreIcon.ts:785](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L785)
 
 ***
 
@@ -6286,7 +6286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:785](https://github.com/Sitecore
 
 > **Microscope**: `"Office/16x16/microscope.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:786](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L786)
+Defined in: [manifest/generator/SitecoreIcon.ts:786](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L786)
 
 ***
 
@@ -6294,7 +6294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:786](https://github.com/Sitecore
 
 > **Minibus**: `"Office/16x16/minibus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:787](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L787)
+Defined in: [manifest/generator/SitecoreIcon.ts:787](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L787)
 
 ***
 
@@ -6302,7 +6302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:787](https://github.com/Sitecore
 
 > **Minimize**: `"Office/16x16/minimize.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:788](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L788)
+Defined in: [manifest/generator/SitecoreIcon.ts:788](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L788)
 
 ***
 
@@ -6310,7 +6310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:788](https://github.com/Sitecore
 
 > **Minus**: `"Office/16x16/minus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:789](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L789)
+Defined in: [manifest/generator/SitecoreIcon.ts:789](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L789)
 
 ***
 
@@ -6318,7 +6318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:789](https://github.com/Sitecore
 
 > **MirrorHorizontally**: `"Office/16x16/mirror_horizontally.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:790](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L790)
+Defined in: [manifest/generator/SitecoreIcon.ts:790](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L790)
 
 ***
 
@@ -6326,7 +6326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:790](https://github.com/Sitecore
 
 > **MirrorVertically**: `"Office/16x16/mirror_vertically.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:791](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L791)
+Defined in: [manifest/generator/SitecoreIcon.ts:791](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L791)
 
 ***
 
@@ -6334,7 +6334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:791](https://github.com/Sitecore
 
 > **Missile**: `"Office/16x16/missile.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:792](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L792)
+Defined in: [manifest/generator/SitecoreIcon.ts:792](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L792)
 
 ***
 
@@ -6342,7 +6342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:792](https://github.com/Sitecore
 
 > **Missile2**: `"Office/16x16/missile2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:793](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L793)
+Defined in: [manifest/generator/SitecoreIcon.ts:793](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L793)
 
 ***
 
@@ -6350,7 +6350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:793](https://github.com/Sitecore
 
 > **MobileCrane**: `"Office/16x16/mobile_crane.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:794](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L794)
+Defined in: [manifest/generator/SitecoreIcon.ts:794](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L794)
 
 ***
 
@@ -6358,7 +6358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:794](https://github.com/Sitecore
 
 > **MobilePhone**: `"Office/16x16/mobile_phone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:795](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L795)
+Defined in: [manifest/generator/SitecoreIcon.ts:795](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L795)
 
 ***
 
@@ -6366,7 +6366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:795](https://github.com/Sitecore
 
 > **Modem**: `"Office/16x16/modem.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:796](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L796)
+Defined in: [manifest/generator/SitecoreIcon.ts:796](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L796)
 
 ***
 
@@ -6374,7 +6374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:796](https://github.com/Sitecore
 
 > **ModemEarth**: `"Office/16x16/modem_earth.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:797](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L797)
+Defined in: [manifest/generator/SitecoreIcon.ts:797](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L797)
 
 ***
 
@@ -6382,7 +6382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:797](https://github.com/Sitecore
 
 > **MoleculeH2o**: `"Office/16x16/molecule_h2o.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:798](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L798)
+Defined in: [manifest/generator/SitecoreIcon.ts:798](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L798)
 
 ***
 
@@ -6390,7 +6390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:798](https://github.com/Sitecore
 
 > **Money**: `"Office/16x16/money.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:799](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L799)
+Defined in: [manifest/generator/SitecoreIcon.ts:799](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L799)
 
 ***
 
@@ -6398,7 +6398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:799](https://github.com/Sitecore
 
 > **Money2**: `"Office/16x16/money2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:800](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L800)
+Defined in: [manifest/generator/SitecoreIcon.ts:800](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L800)
 
 ***
 
@@ -6406,7 +6406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:800](https://github.com/Sitecore
 
 > **Moneybag**: `"Office/16x16/moneybag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:801](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L801)
+Defined in: [manifest/generator/SitecoreIcon.ts:801](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L801)
 
 ***
 
@@ -6414,7 +6414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:801](https://github.com/Sitecore
 
 > **MoneybagCoins**: `"Office/16x16/moneybag_coins.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:802](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L802)
+Defined in: [manifest/generator/SitecoreIcon.ts:802](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L802)
 
 ***
 
@@ -6422,7 +6422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:802](https://github.com/Sitecore
 
 > **MoneybagDollar**: `"Office/16x16/moneybag_dollar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:803](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L803)
+Defined in: [manifest/generator/SitecoreIcon.ts:803](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L803)
 
 ***
 
@@ -6430,7 +6430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:803](https://github.com/Sitecore
 
 > **MoneybagEuro**: `"Office/16x16/moneybag_euro.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:804](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L804)
+Defined in: [manifest/generator/SitecoreIcon.ts:804](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L804)
 
 ***
 
@@ -6438,7 +6438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:804](https://github.com/Sitecore
 
 > **MoneyBill\_cut**: `"Office/16x16/money_bill_cut.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:806](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L806)
+Defined in: [manifest/generator/SitecoreIcon.ts:806](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L806)
 
 ***
 
@@ -6446,7 +6446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:806](https://github.com/Sitecore
 
 > **MoneyBill\_fire**: `"Office/16x16/money_bill_fire.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:807](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L807)
+Defined in: [manifest/generator/SitecoreIcon.ts:807](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L807)
 
 ***
 
@@ -6454,7 +6454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:807](https://github.com/Sitecore
 
 > **MoneyBills**: `"Office/16x16/money_bills.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:805](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L805)
+Defined in: [manifest/generator/SitecoreIcon.ts:805](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L805)
 
 ***
 
@@ -6462,7 +6462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:805](https://github.com/Sitecore
 
 > **MoneyCoin**: `"Office/16x16/money_coin.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:808](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L808)
+Defined in: [manifest/generator/SitecoreIcon.ts:808](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L808)
 
 ***
 
@@ -6470,7 +6470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:808](https://github.com/Sitecore
 
 > **MoneyCoins**: `"Office/16x16/money_coins.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:809](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L809)
+Defined in: [manifest/generator/SitecoreIcon.ts:809](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L809)
 
 ***
 
@@ -6478,7 +6478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:809](https://github.com/Sitecore
 
 > **MoneyCoins2**: `"Office/16x16/money_coins2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:810](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L810)
+Defined in: [manifest/generator/SitecoreIcon.ts:810](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L810)
 
 ***
 
@@ -6486,7 +6486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:810](https://github.com/Sitecore
 
 > **MoneyDollar**: `"Office/16x16/money_dollar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:811](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L811)
+Defined in: [manifest/generator/SitecoreIcon.ts:811](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L811)
 
 ***
 
@@ -6494,7 +6494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:811](https://github.com/Sitecore
 
 > **MoneyEuro**: `"Office/16x16/money_euro.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:812](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L812)
+Defined in: [manifest/generator/SitecoreIcon.ts:812](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L812)
 
 ***
 
@@ -6502,7 +6502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:812](https://github.com/Sitecore
 
 > **MoneyRefund**: `"Office/16x16/money_refund.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:813](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L813)
+Defined in: [manifest/generator/SitecoreIcon.ts:813](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L813)
 
 ***
 
@@ -6510,7 +6510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:813](https://github.com/Sitecore
 
 > **Monitor**: `"Office/16x16/monitor.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:814](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L814)
+Defined in: [manifest/generator/SitecoreIcon.ts:814](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L814)
 
 ***
 
@@ -6518,7 +6518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:814](https://github.com/Sitecore
 
 > **MonitorHeight**: `"Office/16x16/monitor_height.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:815](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L815)
+Defined in: [manifest/generator/SitecoreIcon.ts:815](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L815)
 
 ***
 
@@ -6526,7 +6526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:815](https://github.com/Sitecore
 
 > **MonitorSize**: `"Office/16x16/monitor_size.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:816](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L816)
+Defined in: [manifest/generator/SitecoreIcon.ts:816](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L816)
 
 ***
 
@@ -6534,7 +6534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:816](https://github.com/Sitecore
 
 > **MonitorSleep**: `"Office/16x16/monitor_sleep.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:817](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L817)
+Defined in: [manifest/generator/SitecoreIcon.ts:817](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L817)
 
 ***
 
@@ -6542,7 +6542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:817](https://github.com/Sitecore
 
 > **MonitorTest\_card**: `"Office/16x16/monitor_test_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:818](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L818)
+Defined in: [manifest/generator/SitecoreIcon.ts:818](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L818)
 
 ***
 
@@ -6550,7 +6550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:818](https://github.com/Sitecore
 
 > **MonitorTouch**: `"Office/16x16/monitor_touch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:819](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L819)
+Defined in: [manifest/generator/SitecoreIcon.ts:819](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L819)
 
 ***
 
@@ -6558,7 +6558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:819](https://github.com/Sitecore
 
 > **MonitorWidth**: `"Office/16x16/monitor_width.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:820](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L820)
+Defined in: [manifest/generator/SitecoreIcon.ts:820](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L820)
 
 ***
 
@@ -6566,7 +6566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:820](https://github.com/Sitecore
 
 > **Moon**: `"Office/16x16/moon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:821](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L821)
+Defined in: [manifest/generator/SitecoreIcon.ts:821](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L821)
 
 ***
 
@@ -6574,7 +6574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:821](https://github.com/Sitecore
 
 > **MoonHalf**: `"Office/16x16/moon_half.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:822](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L822)
+Defined in: [manifest/generator/SitecoreIcon.ts:822](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L822)
 
 ***
 
@@ -6582,7 +6582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:822](https://github.com/Sitecore
 
 > **Mosquito**: `"Office/16x16/mosquito.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:823](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L823)
+Defined in: [manifest/generator/SitecoreIcon.ts:823](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L823)
 
 ***
 
@@ -6590,7 +6590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:823](https://github.com/Sitecore
 
 > **Motorbike**: `"Office/16x16/motorbike.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:824](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L824)
+Defined in: [manifest/generator/SitecoreIcon.ts:824](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L824)
 
 ***
 
@@ -6598,7 +6598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:824](https://github.com/Sitecore
 
 > **Motorcyclist**: `"Office/16x16/motorcyclist.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:825](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L825)
+Defined in: [manifest/generator/SitecoreIcon.ts:825](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L825)
 
 ***
 
@@ -6606,7 +6606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:825](https://github.com/Sitecore
 
 > **MotorScooter**: `"Office/16x16/motor_scooter.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:826](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L826)
+Defined in: [manifest/generator/SitecoreIcon.ts:826](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L826)
 
 ***
 
@@ -6614,7 +6614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:826](https://github.com/Sitecore
 
 > **Mouse**: `"Office/16x16/mouse.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:827](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L827)
+Defined in: [manifest/generator/SitecoreIcon.ts:827](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L827)
 
 ***
 
@@ -6622,7 +6622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:827](https://github.com/Sitecore
 
 > **Mouse2**: `"Office/16x16/mouse2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:828](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L828)
+Defined in: [manifest/generator/SitecoreIcon.ts:828](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L828)
 
 ***
 
@@ -6630,7 +6630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:828](https://github.com/Sitecore
 
 > **Mouse2Left\_button**: `"Office/16x16/mouse2_left_button.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:829](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L829)
+Defined in: [manifest/generator/SitecoreIcon.ts:829](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L829)
 
 ***
 
@@ -6638,7 +6638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:829](https://github.com/Sitecore
 
 > **Mouse2Right\_button**: `"Office/16x16/mouse2_right_button.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:830](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L830)
+Defined in: [manifest/generator/SitecoreIcon.ts:830](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L830)
 
 ***
 
@@ -6646,7 +6646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:830](https://github.com/Sitecore
 
 > **MouseLeft\_button**: `"Office/16x16/mouse_left_button.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:831](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L831)
+Defined in: [manifest/generator/SitecoreIcon.ts:831](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L831)
 
 ***
 
@@ -6654,7 +6654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:831](https://github.com/Sitecore
 
 > **MousePointer**: `"Office/16x16/mouse_pointer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:832](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L832)
+Defined in: [manifest/generator/SitecoreIcon.ts:832](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L832)
 
 ***
 
@@ -6662,7 +6662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:832](https://github.com/Sitecore
 
 > **MouseRight\_button**: `"Office/16x16/mouse_right_button.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:833](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L833)
+Defined in: [manifest/generator/SitecoreIcon.ts:833](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L833)
 
 ***
 
@@ -6670,7 +6670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:833](https://github.com/Sitecore
 
 > **MoveTo**: `"Office/16x16/move_to.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:834](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L834)
+Defined in: [manifest/generator/SitecoreIcon.ts:834](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L834)
 
 ***
 
@@ -6678,7 +6678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:834](https://github.com/Sitecore
 
 > **Movie**: `"Office/16x16/movie.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:835](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L835)
+Defined in: [manifest/generator/SitecoreIcon.ts:835](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L835)
 
 ***
 
@@ -6686,7 +6686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:835](https://github.com/Sitecore
 
 > **MovieCamera**: `"Office/16x16/movie_camera.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:837](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L837)
+Defined in: [manifest/generator/SitecoreIcon.ts:837](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L837)
 
 ***
 
@@ -6694,7 +6694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:837](https://github.com/Sitecore
 
 > **Movies**: `"Office/16x16/movies.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:836](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L836)
+Defined in: [manifest/generator/SitecoreIcon.ts:836](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L836)
 
 ***
 
@@ -6702,7 +6702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:836](https://github.com/Sitecore
 
 > **MovingTruck**: `"Office/16x16/moving_truck.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:838](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L838)
+Defined in: [manifest/generator/SitecoreIcon.ts:838](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L838)
 
 ***
 
@@ -6710,7 +6710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:838](https://github.com/Sitecore
 
 > **Mug**: `"Office/16x16/mug.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:839](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L839)
+Defined in: [manifest/generator/SitecoreIcon.ts:839](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L839)
 
 ***
 
@@ -6718,7 +6718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:839](https://github.com/Sitecore
 
 > **MugTea**: `"Office/16x16/mug_tea.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:840](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L840)
+Defined in: [manifest/generator/SitecoreIcon.ts:840](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L840)
 
 ***
 
@@ -6726,7 +6726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:840](https://github.com/Sitecore
 
 > **Mushroom**: `"Office/16x16/mushroom.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:841](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L841)
+Defined in: [manifest/generator/SitecoreIcon.ts:841](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L841)
 
 ***
 
@@ -6734,7 +6734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:841](https://github.com/Sitecore
 
 > **Music**: `"Office/16x16/music.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:842](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L842)
+Defined in: [manifest/generator/SitecoreIcon.ts:842](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L842)
 
 ***
 
@@ -6742,7 +6742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:842](https://github.com/Sitecore
 
 > **Nail**: `"Office/16x16/nail.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:843](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L843)
+Defined in: [manifest/generator/SitecoreIcon.ts:843](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L843)
 
 ***
 
@@ -6750,7 +6750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:843](https://github.com/Sitecore
 
 > **NavDown**: `"Office/16x16/nav_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:862](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L862)
+Defined in: [manifest/generator/SitecoreIcon.ts:862](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L862)
 
 ***
 
@@ -6758,7 +6758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:862](https://github.com/Sitecore
 
 > **NavDown\_left**: `"Office/16x16/nav_down_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:863](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L863)
+Defined in: [manifest/generator/SitecoreIcon.ts:863](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L863)
 
 ***
 
@@ -6766,7 +6766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:863](https://github.com/Sitecore
 
 > **NavDown\_right**: `"Office/16x16/nav_down_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:864](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L864)
+Defined in: [manifest/generator/SitecoreIcon.ts:864](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L864)
 
 ***
 
@@ -6774,7 +6774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:864](https://github.com/Sitecore
 
 > **NavigateBeginning**: `"Office/16x16/navigate_beginning.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:844](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L844)
+Defined in: [manifest/generator/SitecoreIcon.ts:844](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L844)
 
 ***
 
@@ -6782,7 +6782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:844](https://github.com/Sitecore
 
 > **NavigateCheck**: `"Office/16x16/navigate_check.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:845](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L845)
+Defined in: [manifest/generator/SitecoreIcon.ts:845](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L845)
 
 ***
 
@@ -6790,7 +6790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:845](https://github.com/Sitecore
 
 > **NavigateClose**: `"Office/16x16/navigate_close.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:846](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L846)
+Defined in: [manifest/generator/SitecoreIcon.ts:846](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L846)
 
 ***
 
@@ -6798,7 +6798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:846](https://github.com/Sitecore
 
 > **NavigateDown**: `"Office/16x16/navigate_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:847](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L847)
+Defined in: [manifest/generator/SitecoreIcon.ts:847](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L847)
 
 ***
 
@@ -6806,7 +6806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:847](https://github.com/Sitecore
 
 > **NavigateDown\_lightgrey**: `"Office/16x16/navigate_down_lightgrey.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:849](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L849)
+Defined in: [manifest/generator/SitecoreIcon.ts:849](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L849)
 
 ***
 
@@ -6814,7 +6814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:849](https://github.com/Sitecore
 
 > **NavigateDown2**: `"Office/16x16/navigate_down2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:848](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L848)
+Defined in: [manifest/generator/SitecoreIcon.ts:848](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L848)
 
 ***
 
@@ -6822,7 +6822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:848](https://github.com/Sitecore
 
 > **NavigateEnd**: `"Office/16x16/navigate_end.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:850](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L850)
+Defined in: [manifest/generator/SitecoreIcon.ts:850](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L850)
 
 ***
 
@@ -6830,7 +6830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:850](https://github.com/Sitecore
 
 > **NavigateLeft**: `"Office/16x16/navigate_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:851](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L851)
+Defined in: [manifest/generator/SitecoreIcon.ts:851](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L851)
 
 ***
 
@@ -6838,7 +6838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:851](https://github.com/Sitecore
 
 > **NavigateLeft2**: `"Office/16x16/navigate_left2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:852](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L852)
+Defined in: [manifest/generator/SitecoreIcon.ts:852](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L852)
 
 ***
 
@@ -6846,7 +6846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:852](https://github.com/Sitecore
 
 > **NavigateMinus**: `"Office/16x16/navigate_minus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:853](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L853)
+Defined in: [manifest/generator/SitecoreIcon.ts:853](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L853)
 
 ***
 
@@ -6854,7 +6854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:853](https://github.com/Sitecore
 
 > **NavigateOpen**: `"Office/16x16/navigate_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:854](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L854)
+Defined in: [manifest/generator/SitecoreIcon.ts:854](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L854)
 
 ***
 
@@ -6862,7 +6862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:854](https://github.com/Sitecore
 
 > **NavigatePlus**: `"Office/16x16/navigate_plus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:855](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L855)
+Defined in: [manifest/generator/SitecoreIcon.ts:855](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L855)
 
 ***
 
@@ -6870,7 +6870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:855](https://github.com/Sitecore
 
 > **NavigateRight**: `"Office/16x16/navigate_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:856](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L856)
+Defined in: [manifest/generator/SitecoreIcon.ts:856](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L856)
 
 ***
 
@@ -6878,7 +6878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:856](https://github.com/Sitecore
 
 > **NavigateRight2**: `"Office/16x16/navigate_right2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:857](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L857)
+Defined in: [manifest/generator/SitecoreIcon.ts:857](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L857)
 
 ***
 
@@ -6886,7 +6886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:857](https://github.com/Sitecore
 
 > **NavigateSubitems**: `"Office/16x16/navigate_subitems.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:858](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L858)
+Defined in: [manifest/generator/SitecoreIcon.ts:858](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L858)
 
 ***
 
@@ -6894,7 +6894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:858](https://github.com/Sitecore
 
 > **NavigateUp**: `"Office/16x16/navigate_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:859](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L859)
+Defined in: [manifest/generator/SitecoreIcon.ts:859](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L859)
 
 ***
 
@@ -6902,7 +6902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:859](https://github.com/Sitecore
 
 > **NavigateUp\_lightgrey**: `"Office/16x16/navigate_up_lightgrey.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:861](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L861)
+Defined in: [manifest/generator/SitecoreIcon.ts:861](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L861)
 
 ***
 
@@ -6910,7 +6910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:861](https://github.com/Sitecore
 
 > **NavigateUp2**: `"Office/16x16/navigate_up2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:860](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L860)
+Defined in: [manifest/generator/SitecoreIcon.ts:860](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L860)
 
 ***
 
@@ -6918,7 +6918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:860](https://github.com/Sitecore
 
 > **NavLeft**: `"Office/16x16/nav_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:865](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L865)
+Defined in: [manifest/generator/SitecoreIcon.ts:865](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L865)
 
 ***
 
@@ -6926,7 +6926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:865](https://github.com/Sitecore
 
 > **NavPlain**: `"Office/16x16/nav_plain.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:866](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L866)
+Defined in: [manifest/generator/SitecoreIcon.ts:866](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L866)
 
 ***
 
@@ -6934,7 +6934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:866](https://github.com/Sitecore
 
 > **NavRedo**: `"Office/16x16/nav_redo.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:867](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L867)
+Defined in: [manifest/generator/SitecoreIcon.ts:867](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L867)
 
 ***
 
@@ -6942,7 +6942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:867](https://github.com/Sitecore
 
 > **NavRefresh**: `"Office/16x16/nav_refresh.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:868](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L868)
+Defined in: [manifest/generator/SitecoreIcon.ts:868](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L868)
 
 ***
 
@@ -6950,7 +6950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:868](https://github.com/Sitecore
 
 > **NavRight**: `"Office/16x16/nav_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:869](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L869)
+Defined in: [manifest/generator/SitecoreIcon.ts:869](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L869)
 
 ***
 
@@ -6958,7 +6958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:869](https://github.com/Sitecore
 
 > **NavUndo**: `"Office/16x16/nav_undo.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:870](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L870)
+Defined in: [manifest/generator/SitecoreIcon.ts:870](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L870)
 
 ***
 
@@ -6966,7 +6966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:870](https://github.com/Sitecore
 
 > **NavUp**: `"Office/16x16/nav_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:871](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L871)
+Defined in: [manifest/generator/SitecoreIcon.ts:871](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L871)
 
 ***
 
@@ -6974,7 +6974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:871](https://github.com/Sitecore
 
 > **NavUp\_left**: `"Office/16x16/nav_up_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:872](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L872)
+Defined in: [manifest/generator/SitecoreIcon.ts:872](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L872)
 
 ***
 
@@ -6982,7 +6982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:872](https://github.com/Sitecore
 
 > **NavUp\_right**: `"Office/16x16/nav_up_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:873](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L873)
+Defined in: [manifest/generator/SitecoreIcon.ts:873](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L873)
 
 ***
 
@@ -6990,7 +6990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:873](https://github.com/Sitecore
 
 > **NetworkNode**: `"Office/16x16/network_node.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:874](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L874)
+Defined in: [manifest/generator/SitecoreIcon.ts:874](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L874)
 
 ***
 
@@ -6998,7 +6998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:874](https://github.com/Sitecore
 
 > **NetworkNode2**: `"Office/16x16/network_node2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:875](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L875)
+Defined in: [manifest/generator/SitecoreIcon.ts:875](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L875)
 
 ***
 
@@ -7006,7 +7006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:875](https://github.com/Sitecore
 
 > **NewPackage**: `"Office/16x16/new_package.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:878](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L878)
+Defined in: [manifest/generator/SitecoreIcon.ts:878](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L878)
 
 ***
 
@@ -7014,7 +7014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:878](https://github.com/Sitecore
 
 > **Newspaper**: `"Office/16x16/newspaper.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:876](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L876)
+Defined in: [manifest/generator/SitecoreIcon.ts:876](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L876)
 
 ***
 
@@ -7022,7 +7022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:876](https://github.com/Sitecore
 
 > **NewtonsCradle**: `"Office/16x16/newtons_cradle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:877](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L877)
+Defined in: [manifest/generator/SitecoreIcon.ts:877](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L877)
 
 ***
 
@@ -7030,7 +7030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:877](https://github.com/Sitecore
 
 > **Nose**: `"Office/16x16/nose.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:879](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L879)
+Defined in: [manifest/generator/SitecoreIcon.ts:879](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L879)
 
 ***
 
@@ -7038,7 +7038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:879](https://github.com/Sitecore
 
 > **Note**: `"Office/16x16/note.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:880](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L880)
+Defined in: [manifest/generator/SitecoreIcon.ts:880](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L880)
 
 ***
 
@@ -7046,7 +7046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:880](https://github.com/Sitecore
 
 > **NoteBlock**: `"Office/16x16/note_block.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:884](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L884)
+Defined in: [manifest/generator/SitecoreIcon.ts:884](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L884)
 
 ***
 
@@ -7054,7 +7054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:884](https://github.com/Sitecore
 
 > **Notebook**: `"Office/16x16/notebook.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:881](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L881)
+Defined in: [manifest/generator/SitecoreIcon.ts:881](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L881)
 
 ***
 
@@ -7062,7 +7062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:881](https://github.com/Sitecore
 
 > **Notebook2**: `"Office/16x16/notebook2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:882](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L882)
+Defined in: [manifest/generator/SitecoreIcon.ts:882](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L882)
 
 ***
 
@@ -7070,7 +7070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:882](https://github.com/Sitecore
 
 > **Notebook3**: `"Office/16x16/notebook3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:883](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L883)
+Defined in: [manifest/generator/SitecoreIcon.ts:883](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L883)
 
 ***
 
@@ -7078,7 +7078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:883](https://github.com/Sitecore
 
 > **NotePinned**: `"Office/16x16/note_pinned.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:885](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L885)
+Defined in: [manifest/generator/SitecoreIcon.ts:885](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L885)
 
 ***
 
@@ -7086,7 +7086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:885](https://github.com/Sitecore
 
 > **NoteText**: `"Office/16x16/note_text.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:886](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L886)
+Defined in: [manifest/generator/SitecoreIcon.ts:886](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L886)
 
 ***
 
@@ -7094,7 +7094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:886](https://github.com/Sitecore
 
 > **NumbersField**: `"Office/16x16/numbers_field.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:887](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L887)
+Defined in: [manifest/generator/SitecoreIcon.ts:887](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L887)
 
 ***
 
@@ -7102,7 +7102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:887](https://github.com/Sitecore
 
 > **NumericKeypad**: `"Office/16x16/numeric_keypad.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:888](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L888)
+Defined in: [manifest/generator/SitecoreIcon.ts:888](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L888)
 
 ***
 
@@ -7110,7 +7110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:888](https://github.com/Sitecore
 
 > **ObjectAlignment\_bottom**: `"Office/16x16/object_alignment_bottom.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:896](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L896)
+Defined in: [manifest/generator/SitecoreIcon.ts:896](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L896)
 
 ***
 
@@ -7118,7 +7118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:896](https://github.com/Sitecore
 
 > **ObjectAlignment\_center**: `"Office/16x16/object_alignment_center.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:897](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L897)
+Defined in: [manifest/generator/SitecoreIcon.ts:897](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L897)
 
 ***
 
@@ -7126,7 +7126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:897](https://github.com/Sitecore
 
 > **ObjectAlignment\_horizontal**: `"Office/16x16/object_alignment_horizontal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:898](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L898)
+Defined in: [manifest/generator/SitecoreIcon.ts:898](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L898)
 
 ***
 
@@ -7134,7 +7134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:898](https://github.com/Sitecore
 
 > **ObjectAlignment\_left**: `"Office/16x16/object_alignment_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:899](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L899)
+Defined in: [manifest/generator/SitecoreIcon.ts:899](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L899)
 
 ***
 
@@ -7142,7 +7142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:899](https://github.com/Sitecore
 
 > **ObjectAlignment\_right**: `"Office/16x16/object_alignment_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:900](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L900)
+Defined in: [manifest/generator/SitecoreIcon.ts:900](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L900)
 
 ***
 
@@ -7150,7 +7150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:900](https://github.com/Sitecore
 
 > **ObjectAlignment\_top**: `"Office/16x16/object_alignment_top.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:901](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L901)
+Defined in: [manifest/generator/SitecoreIcon.ts:901](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L901)
 
 ***
 
@@ -7158,7 +7158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:901](https://github.com/Sitecore
 
 > **ObjectAlignment\_vertical**: `"Office/16x16/object_alignment_vertical.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:902](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L902)
+Defined in: [manifest/generator/SitecoreIcon.ts:902](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L902)
 
 ***
 
@@ -7166,7 +7166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:902](https://github.com/Sitecore
 
 > **ObjectBall**: `"Office/16x16/object_ball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:903](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L903)
+Defined in: [manifest/generator/SitecoreIcon.ts:903](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L903)
 
 ***
 
@@ -7174,7 +7174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:903](https://github.com/Sitecore
 
 > **ObjectCone**: `"Office/16x16/object_cone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:904](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L904)
+Defined in: [manifest/generator/SitecoreIcon.ts:904](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L904)
 
 ***
 
@@ -7182,7 +7182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:904](https://github.com/Sitecore
 
 > **ObjectCube**: `"Office/16x16/object_cube.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:905](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L905)
+Defined in: [manifest/generator/SitecoreIcon.ts:905](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L905)
 
 ***
 
@@ -7190,7 +7190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:905](https://github.com/Sitecore
 
 > **ObjectCylinder**: `"Office/16x16/object_cylinder.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:906](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L906)
+Defined in: [manifest/generator/SitecoreIcon.ts:906](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L906)
 
 ***
 
@@ -7198,7 +7198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:906](https://github.com/Sitecore
 
 > **Objects**: `"Office/16x16/objects.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:889](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L889)
+Defined in: [manifest/generator/SitecoreIcon.ts:889](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L889)
 
 ***
 
@@ -7206,7 +7206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:889](https://github.com/Sitecore
 
 > **Objects2**: `"Office/16x16/objects2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:890](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L890)
+Defined in: [manifest/generator/SitecoreIcon.ts:890](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L890)
 
 ***
 
@@ -7214,7 +7214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:890](https://github.com/Sitecore
 
 > **Objects3**: `"Office/16x16/objects3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:891](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L891)
+Defined in: [manifest/generator/SitecoreIcon.ts:891](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L891)
 
 ***
 
@@ -7222,7 +7222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:891](https://github.com/Sitecore
 
 > **Objects4**: `"Office/16x16/objects4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:892](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L892)
+Defined in: [manifest/generator/SitecoreIcon.ts:892](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L892)
 
 ***
 
@@ -7230,7 +7230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:892](https://github.com/Sitecore
 
 > **ObjectsExchange**: `"Office/16x16/objects_exchange.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:893](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L893)
+Defined in: [manifest/generator/SitecoreIcon.ts:893](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L893)
 
 ***
 
@@ -7238,7 +7238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:893](https://github.com/Sitecore
 
 > **ObjectsTransform**: `"Office/16x16/objects_transform.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:894](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L894)
+Defined in: [manifest/generator/SitecoreIcon.ts:894](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L894)
 
 ***
 
@@ -7246,7 +7246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:894](https://github.com/Sitecore
 
 > **ObjectsTransform2**: `"Office/16x16/objects_transform2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:895](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L895)
+Defined in: [manifest/generator/SitecoreIcon.ts:895](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L895)
 
 ***
 
@@ -7254,7 +7254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:895](https://github.com/Sitecore
 
 > **Odometer**: `"Office/16x16/odometer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:907](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L907)
+Defined in: [manifest/generator/SitecoreIcon.ts:907](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L907)
 
 ***
 
@@ -7262,7 +7262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:907](https://github.com/Sitecore
 
 > **OfficeBuilding**: `"Office/16x16/office_building.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:908](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L908)
+Defined in: [manifest/generator/SitecoreIcon.ts:908](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L908)
 
 ***
 
@@ -7270,7 +7270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:908](https://github.com/Sitecore
 
 > **OfficeBuilding2**: `"Office/16x16/office_building2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:909](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L909)
+Defined in: [manifest/generator/SitecoreIcon.ts:909](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L909)
 
 ***
 
@@ -7278,7 +7278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:909](https://github.com/Sitecore
 
 > **OfficeChair**: `"Office/16x16/office_chair.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:910](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L910)
+Defined in: [manifest/generator/SitecoreIcon.ts:910](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L910)
 
 ***
 
@@ -7286,7 +7286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:910](https://github.com/Sitecore
 
 > **OrganizeFavorites**: `"Office/16x16/organize_favorites.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:911](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L911)
+Defined in: [manifest/generator/SitecoreIcon.ts:911](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L911)
 
 ***
 
@@ -7294,7 +7294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:911](https://github.com/Sitecore
 
 > **Pacemaker**: `"Office/16x16/pacemaker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:912](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L912)
+Defined in: [manifest/generator/SitecoreIcon.ts:912](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L912)
 
 ***
 
@@ -7302,7 +7302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:912](https://github.com/Sitecore
 
 > **Package**: `"Office/16x16/package.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:913](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L913)
+Defined in: [manifest/generator/SitecoreIcon.ts:913](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L913)
 
 ***
 
@@ -7310,7 +7310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:913](https://github.com/Sitecore
 
 > **Pager**: `"Office/16x16/pager.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:914](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L914)
+Defined in: [manifest/generator/SitecoreIcon.ts:914](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L914)
 
 ***
 
@@ -7318,7 +7318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:914](https://github.com/Sitecore
 
 > **PaintBrush**: `"Office/16x16/paint_brush.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:921](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L921)
+Defined in: [manifest/generator/SitecoreIcon.ts:921](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L921)
 
 ***
 
@@ -7326,7 +7326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:921](https://github.com/Sitecore
 
 > **PaintBucket**: `"Office/16x16/paint_bucket.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:922](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L922)
+Defined in: [manifest/generator/SitecoreIcon.ts:922](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L922)
 
 ***
 
@@ -7334,7 +7334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:922](https://github.com/Sitecore
 
 > **PaintersPalette**: `"Office/16x16/painters_palette.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:915](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L915)
+Defined in: [manifest/generator/SitecoreIcon.ts:915](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L915)
 
 ***
 
@@ -7342,7 +7342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:915](https://github.com/Sitecore
 
 > **PaintersPalette\_brush**: `"Office/16x16/painters_palette_brush.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:917](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L917)
+Defined in: [manifest/generator/SitecoreIcon.ts:917](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L917)
 
 ***
 
@@ -7350,7 +7350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:917](https://github.com/Sitecore
 
 > **PaintersPalette\_empty**: `"Office/16x16/painters_palette_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:918](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L918)
+Defined in: [manifest/generator/SitecoreIcon.ts:918](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L918)
 
 ***
 
@@ -7358,7 +7358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:918](https://github.com/Sitecore
 
 > **PaintersPalette2**: `"Office/16x16/painters_palette2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:916](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L916)
+Defined in: [manifest/generator/SitecoreIcon.ts:916](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L916)
 
 ***
 
@@ -7366,7 +7366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:916](https://github.com/Sitecore
 
 > **PaintingLandscape**: `"Office/16x16/painting_landscape.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:919](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L919)
+Defined in: [manifest/generator/SitecoreIcon.ts:919](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L919)
 
 ***
 
@@ -7374,7 +7374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:919](https://github.com/Sitecore
 
 > **PaintingPortrait**: `"Office/16x16/painting_portrait.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:920](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L920)
+Defined in: [manifest/generator/SitecoreIcon.ts:920](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L920)
 
 ***
 
@@ -7382,7 +7382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:920](https://github.com/Sitecore
 
 > **PaintRoller**: `"Office/16x16/paint_roller.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:923](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L923)
+Defined in: [manifest/generator/SitecoreIcon.ts:923](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L923)
 
 ***
 
@@ -7390,7 +7390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:923](https://github.com/Sitecore
 
 > **Paperclip**: `"Office/16x16/paperclip.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:924](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L924)
+Defined in: [manifest/generator/SitecoreIcon.ts:924](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L924)
 
 ***
 
@@ -7398,7 +7398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:924](https://github.com/Sitecore
 
 > **Paperclip2**: `"Office/16x16/paperclip2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:925](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L925)
+Defined in: [manifest/generator/SitecoreIcon.ts:925](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L925)
 
 ***
 
@@ -7406,7 +7406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:925](https://github.com/Sitecore
 
 > **PaperRoll**: `"Office/16x16/paper_roll.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:926](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L926)
+Defined in: [manifest/generator/SitecoreIcon.ts:926](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L926)
 
 ***
 
@@ -7414,7 +7414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:926](https://github.com/Sitecore
 
 > **Passport**: `"Office/16x16/passport.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:927](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L927)
+Defined in: [manifest/generator/SitecoreIcon.ts:927](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L927)
 
 ***
 
@@ -7422,7 +7422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:927](https://github.com/Sitecore
 
 > **PasswordConfirm**: `"Office/16x16/password_confirm.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:928](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L928)
+Defined in: [manifest/generator/SitecoreIcon.ts:928](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L928)
 
 ***
 
@@ -7430,7 +7430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:928](https://github.com/Sitecore
 
 > **PasswordField**: `"Office/16x16/password_field.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:929](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L929)
+Defined in: [manifest/generator/SitecoreIcon.ts:929](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L929)
 
 ***
 
@@ -7438,7 +7438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:929](https://github.com/Sitecore
 
 > **Pastor**: `"Office/16x16/pastor.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:930](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L930)
+Defined in: [manifest/generator/SitecoreIcon.ts:930](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L930)
 
 ***
 
@@ -7446,7 +7446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:930](https://github.com/Sitecore
 
 > **Pawn**: `"Office/16x16/pawn.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:931](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L931)
+Defined in: [manifest/generator/SitecoreIcon.ts:931](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L931)
 
 ***
 
@@ -7454,7 +7454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:931](https://github.com/Sitecore
 
 > **PciCard**: `"Office/16x16/pci_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:932](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L932)
+Defined in: [manifest/generator/SitecoreIcon.ts:932](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L932)
 
 ***
 
@@ -7462,7 +7462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:932](https://github.com/Sitecore
 
 > **PciCard\_network**: `"Office/16x16/pci_card_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:933](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L933)
+Defined in: [manifest/generator/SitecoreIcon.ts:933](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L933)
 
 ***
 
@@ -7470,7 +7470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:933](https://github.com/Sitecore
 
 > **Pencil**: `"Office/16x16/pencil.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:934](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L934)
+Defined in: [manifest/generator/SitecoreIcon.ts:934](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L934)
 
 ***
 
@@ -7478,7 +7478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:934](https://github.com/Sitecore
 
 > **Pentagram**: `"Office/16x16/pentagram.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:935](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L935)
+Defined in: [manifest/generator/SitecoreIcon.ts:935](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L935)
 
 ***
 
@@ -7486,7 +7486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:935](https://github.com/Sitecore
 
 > **Perfume**: `"Office/16x16/perfume.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:936](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L936)
+Defined in: [manifest/generator/SitecoreIcon.ts:936](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L936)
 
 ***
 
@@ -7494,7 +7494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:936](https://github.com/Sitecore
 
 > **Person**: `"Office/16x16/person.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:937](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L937)
+Defined in: [manifest/generator/SitecoreIcon.ts:937](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L937)
 
 ***
 
@@ -7502,7 +7502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:937](https://github.com/Sitecore
 
 > **PetBottle**: `"Office/16x16/pet_bottle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:938](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L938)
+Defined in: [manifest/generator/SitecoreIcon.ts:938](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L938)
 
 ***
 
@@ -7510,7 +7510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:938](https://github.com/Sitecore
 
 > **PhoneHang\_up**: `"Office/16x16/phone_hang_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:939](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L939)
+Defined in: [manifest/generator/SitecoreIcon.ts:939](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L939)
 
 ***
 
@@ -7518,7 +7518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:939](https://github.com/Sitecore
 
 > **PhonePick\_up**: `"Office/16x16/phone_pick_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:940](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L940)
+Defined in: [manifest/generator/SitecoreIcon.ts:940](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L940)
 
 ***
 
@@ -7526,7 +7526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:940](https://github.com/Sitecore
 
 > **PhoneReceiver**: `"Office/16x16/phone_receiver.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:941](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L941)
+Defined in: [manifest/generator/SitecoreIcon.ts:941](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L941)
 
 ***
 
@@ -7534,7 +7534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:941](https://github.com/Sitecore
 
 > **PhoneReceiver2**: `"Office/16x16/phone_receiver2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:942](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L942)
+Defined in: [manifest/generator/SitecoreIcon.ts:942](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L942)
 
 ***
 
@@ -7542,7 +7542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:942](https://github.com/Sitecore
 
 > **PhoneSpeaker**: `"Office/16x16/phone_speaker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:943](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L943)
+Defined in: [manifest/generator/SitecoreIcon.ts:943](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L943)
 
 ***
 
@@ -7550,7 +7550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:943](https://github.com/Sitecore
 
 > **PhoneSpeech\_bubble**: `"Office/16x16/phone_speech_bubble.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:944](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L944)
+Defined in: [manifest/generator/SitecoreIcon.ts:944](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L944)
 
 ***
 
@@ -7558,7 +7558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:944](https://github.com/Sitecore
 
 > **PhotoLandscape**: `"Office/16x16/photo_landscape.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:945](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L945)
+Defined in: [manifest/generator/SitecoreIcon.ts:945](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L945)
 
 ***
 
@@ -7566,7 +7566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:945](https://github.com/Sitecore
 
 > **PhotoPortrait**: `"Office/16x16/photo_portrait.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:946](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L946)
+Defined in: [manifest/generator/SitecoreIcon.ts:946](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L946)
 
 ***
 
@@ -7574,7 +7574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:946](https://github.com/Sitecore
 
 > **Piece**: `"Office/16x16/piece.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:947](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L947)
+Defined in: [manifest/generator/SitecoreIcon.ts:947](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L947)
 
 ***
 
@@ -7582,7 +7582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:947](https://github.com/Sitecore
 
 > **Piece2**: `"Office/16x16/piece2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:948](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L948)
+Defined in: [manifest/generator/SitecoreIcon.ts:948](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L948)
 
 ***
 
@@ -7590,7 +7590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:948](https://github.com/Sitecore
 
 > **Pieces**: `"Office/16x16/pieces.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:949](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L949)
+Defined in: [manifest/generator/SitecoreIcon.ts:949](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L949)
 
 ***
 
@@ -7598,7 +7598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:949](https://github.com/Sitecore
 
 > **PiggyBank**: `"Office/16x16/piggy_bank.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:950](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L950)
+Defined in: [manifest/generator/SitecoreIcon.ts:950](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L950)
 
 ***
 
@@ -7606,7 +7606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:950](https://github.com/Sitecore
 
 > **Pill**: `"Office/16x16/pill.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:951](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L951)
+Defined in: [manifest/generator/SitecoreIcon.ts:951](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L951)
 
 ***
 
@@ -7614,7 +7614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:951](https://github.com/Sitecore
 
 > **Pill2**: `"Office/16x16/pill2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:952](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L952)
+Defined in: [manifest/generator/SitecoreIcon.ts:952](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L952)
 
 ***
 
@@ -7622,7 +7622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:952](https://github.com/Sitecore
 
 > **Pilot**: `"Office/16x16/pilot.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:953](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L953)
+Defined in: [manifest/generator/SitecoreIcon.ts:953](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L953)
 
 ***
 
@@ -7630,7 +7630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:953](https://github.com/Sitecore
 
 > **Pin**: `"Office/16x16/pin.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:954](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L954)
+Defined in: [manifest/generator/SitecoreIcon.ts:954](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L954)
 
 ***
 
@@ -7638,7 +7638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:954](https://github.com/Sitecore
 
 > **Pin2**: `"Office/16x16/pin2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:955](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L955)
+Defined in: [manifest/generator/SitecoreIcon.ts:955](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L955)
 
 ***
 
@@ -7646,7 +7646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:955](https://github.com/Sitecore
 
 > **Pipette**: `"Office/16x16/pipette.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:956](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L956)
+Defined in: [manifest/generator/SitecoreIcon.ts:956](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L956)
 
 ***
 
@@ -7654,7 +7654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:956](https://github.com/Sitecore
 
 > **Plant**: `"Office/16x16/plant.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:957](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L957)
+Defined in: [manifest/generator/SitecoreIcon.ts:957](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L957)
 
 ***
 
@@ -7662,7 +7662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:957](https://github.com/Sitecore
 
 > **PlatformTruck\_box**: `"Office/16x16/platform_truck_box.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:958](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L958)
+Defined in: [manifest/generator/SitecoreIcon.ts:958](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L958)
 
 ***
 
@@ -7670,7 +7670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:958](https://github.com/Sitecore
 
 > **PlatformTruck\_empty**: `"Office/16x16/platform_truck_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:959](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L959)
+Defined in: [manifest/generator/SitecoreIcon.ts:959](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L959)
 
 ***
 
@@ -7678,7 +7678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:959](https://github.com/Sitecore
 
 > **PlatformTruck\_suitcase**: `"Office/16x16/platform_truck_suitcase.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:960](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L960)
+Defined in: [manifest/generator/SitecoreIcon.ts:960](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L960)
 
 ***
 
@@ -7686,7 +7686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:960](https://github.com/Sitecore
 
 > **PlayingCard\_clubs**: `"Office/16x16/playing_card_clubs.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:962](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L962)
+Defined in: [manifest/generator/SitecoreIcon.ts:962](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L962)
 
 ***
 
@@ -7694,7 +7694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:962](https://github.com/Sitecore
 
 > **PlayingCard\_diamonds**: `"Office/16x16/playing_card_diamonds.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:963](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L963)
+Defined in: [manifest/generator/SitecoreIcon.ts:963](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L963)
 
 ***
 
@@ -7702,7 +7702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:963](https://github.com/Sitecore
 
 > **PlayingCard\_hearts**: `"Office/16x16/playing_card_hearts.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:964](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L964)
+Defined in: [manifest/generator/SitecoreIcon.ts:964](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L964)
 
 ***
 
@@ -7710,7 +7710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:964](https://github.com/Sitecore
 
 > **PlayingCard\_spades**: `"Office/16x16/playing_card_spades.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:965](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L965)
+Defined in: [manifest/generator/SitecoreIcon.ts:965](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L965)
 
 ***
 
@@ -7718,7 +7718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:965](https://github.com/Sitecore
 
 > **PlayingCards**: `"Office/16x16/playing_cards.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:961](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L961)
+Defined in: [manifest/generator/SitecoreIcon.ts:961](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L961)
 
 ***
 
@@ -7726,7 +7726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:961](https://github.com/Sitecore
 
 > **Plug**: `"Office/16x16/plug.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:966](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L966)
+Defined in: [manifest/generator/SitecoreIcon.ts:966](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L966)
 
 ***
 
@@ -7734,7 +7734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:966](https://github.com/Sitecore
 
 > **Plug2**: `"Office/16x16/plug2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:967](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L967)
+Defined in: [manifest/generator/SitecoreIcon.ts:967](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L967)
 
 ***
 
@@ -7742,7 +7742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:967](https://github.com/Sitecore
 
 > **PlugCinch**: `"Office/16x16/plug_cinch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:968](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L968)
+Defined in: [manifest/generator/SitecoreIcon.ts:968](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L968)
 
 ***
 
@@ -7750,7 +7750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:968](https://github.com/Sitecore
 
 > **PlugLan**: `"Office/16x16/plug_lan.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:969](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L969)
+Defined in: [manifest/generator/SitecoreIcon.ts:969](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L969)
 
 ***
 
@@ -7758,7 +7758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:969](https://github.com/Sitecore
 
 > **PlugUsb**: `"Office/16x16/plug_usb.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:970](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L970)
+Defined in: [manifest/generator/SitecoreIcon.ts:970](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L970)
 
 ***
 
@@ -7766,7 +7766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:970](https://github.com/Sitecore
 
 > **Plus**: `"Office/16x16/plus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:971](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L971)
+Defined in: [manifest/generator/SitecoreIcon.ts:971](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L971)
 
 ***
 
@@ -7774,7 +7774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:971](https://github.com/Sitecore
 
 > **PortfolioFolder**: `"Office/16x16/portfolio_folder.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:972](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L972)
+Defined in: [manifest/generator/SitecoreIcon.ts:972](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L972)
 
 ***
 
@@ -7782,7 +7782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:972](https://github.com/Sitecore
 
 > **PostageStamp**: `"Office/16x16/postage_stamp.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:973](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L973)
+Defined in: [manifest/generator/SitecoreIcon.ts:973](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L973)
 
 ***
 
@@ -7790,7 +7790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:973](https://github.com/Sitecore
 
 > **Power**: `"Office/16x16/power.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:974](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L974)
+Defined in: [manifest/generator/SitecoreIcon.ts:974](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L974)
 
 ***
 
@@ -7798,7 +7798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:974](https://github.com/Sitecore
 
 > **PowerDrill**: `"Office/16x16/power_drill.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:975](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L975)
+Defined in: [manifest/generator/SitecoreIcon.ts:975](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L975)
 
 ***
 
@@ -7806,7 +7806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:975](https://github.com/Sitecore
 
 > **PrecisionSquare**: `"Office/16x16/precision_square.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:976](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L976)
+Defined in: [manifest/generator/SitecoreIcon.ts:976](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L976)
 
 ***
 
@@ -7814,7 +7814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:976](https://github.com/Sitecore
 
 > **Presentation2**: `"Office/16x16/presentation2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:977](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L977)
+Defined in: [manifest/generator/SitecoreIcon.ts:977](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L977)
 
 ***
 
@@ -7822,7 +7822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:977](https://github.com/Sitecore
 
 > **PresentationChart**: `"Office/16x16/presentation_chart.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:978](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L978)
+Defined in: [manifest/generator/SitecoreIcon.ts:978](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L978)
 
 ***
 
@@ -7830,7 +7830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:978](https://github.com/Sitecore
 
 > **PresentationEmpty**: `"Office/16x16/presentation_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:979](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L979)
+Defined in: [manifest/generator/SitecoreIcon.ts:979](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L979)
 
 ***
 
@@ -7838,7 +7838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:979](https://github.com/Sitecore
 
 > **PressureSprayer**: `"Office/16x16/pressure_sprayer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:980](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L980)
+Defined in: [manifest/generator/SitecoreIcon.ts:980](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L980)
 
 ***
 
@@ -7846,7 +7846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:980](https://github.com/Sitecore
 
 > **Pretzel**: `"Office/16x16/pretzel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:981](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L981)
+Defined in: [manifest/generator/SitecoreIcon.ts:981](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L981)
 
 ***
 
@@ -7854,7 +7854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:981](https://github.com/Sitecore
 
 > **Preview**: `"Office/16x16/preview.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:982](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L982)
+Defined in: [manifest/generator/SitecoreIcon.ts:982](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L982)
 
 ***
 
@@ -7862,7 +7862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:982](https://github.com/Sitecore
 
 > **PreviewPackage**: `"Office/16x16/preview_package.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:983](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L983)
+Defined in: [manifest/generator/SitecoreIcon.ts:983](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L983)
 
 ***
 
@@ -7870,7 +7870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:983](https://github.com/Sitecore
 
 > **PriceSticker**: `"Office/16x16/price_sticker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:984](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L984)
+Defined in: [manifest/generator/SitecoreIcon.ts:984](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L984)
 
 ***
 
@@ -7878,7 +7878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:984](https://github.com/Sitecore
 
 > **PrintCalculator**: `"Office/16x16/print_calculator.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:987](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L987)
+Defined in: [manifest/generator/SitecoreIcon.ts:987](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L987)
 
 ***
 
@@ -7886,7 +7886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:987](https://github.com/Sitecore
 
 > **Printer**: `"Office/16x16/printer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:985](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L985)
+Defined in: [manifest/generator/SitecoreIcon.ts:985](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L985)
 
 ***
 
@@ -7894,7 +7894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:985](https://github.com/Sitecore
 
 > **PrinterNetwork**: `"Office/16x16/printer_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:986](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L986)
+Defined in: [manifest/generator/SitecoreIcon.ts:986](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L986)
 
 ***
 
@@ -7902,7 +7902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:986](https://github.com/Sitecore
 
 > **ProgressBar**: `"Office/16x16/progress_bar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:988](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L988)
+Defined in: [manifest/generator/SitecoreIcon.ts:988](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L988)
 
 ***
 
@@ -7910,7 +7910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:988](https://github.com/Sitecore
 
 > **Projector**: `"Office/16x16/projector.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:989](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L989)
+Defined in: [manifest/generator/SitecoreIcon.ts:989](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L989)
 
 ***
 
@@ -7918,7 +7918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:989](https://github.com/Sitecore
 
 > **ProtectItem**: `"Office/16x16/protect_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:990](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L990)
+Defined in: [manifest/generator/SitecoreIcon.ts:990](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L990)
 
 ***
 
@@ -7926,7 +7926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:990](https://github.com/Sitecore
 
 > **Publish**: `"Office/16x16/publish.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:991](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L991)
+Defined in: [manifest/generator/SitecoreIcon.ts:991](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L991)
 
 ***
 
@@ -7934,7 +7934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:991](https://github.com/Sitecore
 
 > **PublishingPreview**: `"Office/16x16/publishing_preview.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:992](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L992)
+Defined in: [manifest/generator/SitecoreIcon.ts:992](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L992)
 
 ***
 
@@ -7942,7 +7942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:992](https://github.com/Sitecore
 
 > **PublishingRestrictions**: `"Office/16x16/publishing_restrictions.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:993](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L993)
+Defined in: [manifest/generator/SitecoreIcon.ts:993](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L993)
 
 ***
 
@@ -7950,7 +7950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:993](https://github.com/Sitecore
 
 > **PublishingViewer**: `"Office/16x16/publishing_viewer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:994](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L994)
+Defined in: [manifest/generator/SitecoreIcon.ts:994](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L994)
 
 ***
 
@@ -7958,7 +7958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:994](https://github.com/Sitecore
 
 > **PublishItem**: `"Office/16x16/publish_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:995](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L995)
+Defined in: [manifest/generator/SitecoreIcon.ts:995](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L995)
 
 ***
 
@@ -7966,7 +7966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:995](https://github.com/Sitecore
 
 > **PurchaseOrder**: `"Office/16x16/purchase_order.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:996](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L996)
+Defined in: [manifest/generator/SitecoreIcon.ts:996](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L996)
 
 ***
 
@@ -7974,7 +7974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:996](https://github.com/Sitecore
 
 > **Purse**: `"Office/16x16/purse.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:997](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L997)
+Defined in: [manifest/generator/SitecoreIcon.ts:997](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L997)
 
 ***
 
@@ -7982,7 +7982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:997](https://github.com/Sitecore
 
 > **Pylon**: `"Office/16x16/pylon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:998](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L998)
+Defined in: [manifest/generator/SitecoreIcon.ts:998](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L998)
 
 ***
 
@@ -7990,7 +7990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:998](https://github.com/Sitecore
 
 > **Question**: `"Office/16x16/question.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:999](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L999)
+Defined in: [manifest/generator/SitecoreIcon.ts:999](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L999)
 
 ***
 
@@ -7998,7 +7998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:999](https://github.com/Sitecore
 
 > **QuotationMark**: `"Office/16x16/quotation_mark.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1000](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1000)
+Defined in: [manifest/generator/SitecoreIcon.ts:1000](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1000)
 
 ***
 
@@ -8006,7 +8006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1000](https://github.com/Sitecor
 
 > **QuotationMark2**: `"Office/16x16/quotation_mark2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1001](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1001)
+Defined in: [manifest/generator/SitecoreIcon.ts:1001](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1001)
 
 ***
 
@@ -8014,7 +8014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1001](https://github.com/Sitecor
 
 > **QuotationMarks**: `"Office/16x16/quotation_marks.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1002](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1002)
+Defined in: [manifest/generator/SitecoreIcon.ts:1002](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1002)
 
 ***
 
@@ -8022,7 +8022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1002](https://github.com/Sitecor
 
 > **RackServer**: `"Office/16x16/rack_server.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1003](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1003)
+Defined in: [manifest/generator/SitecoreIcon.ts:1003](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1003)
 
 ***
 
@@ -8030,7 +8030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1003](https://github.com/Sitecor
 
 > **RackServer\_network**: `"Office/16x16/rack_server_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1005](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1005)
+Defined in: [manifest/generator/SitecoreIcon.ts:1005](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1005)
 
 ***
 
@@ -8038,7 +8038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1005](https://github.com/Sitecor
 
 > **RackServers**: `"Office/16x16/rack_servers.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1004](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1004)
+Defined in: [manifest/generator/SitecoreIcon.ts:1004](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1004)
 
 ***
 
@@ -8046,7 +8046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1004](https://github.com/Sitecor
 
 > **Radar**: `"Office/16x16/radar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1006](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1006)
+Defined in: [manifest/generator/SitecoreIcon.ts:1006](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1006)
 
 ***
 
@@ -8054,7 +8054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1006](https://github.com/Sitecor
 
 > **Radiation**: `"Office/16x16/radiation.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1007](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1007)
+Defined in: [manifest/generator/SitecoreIcon.ts:1007](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1007)
 
 ***
 
@@ -8062,7 +8062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1007](https://github.com/Sitecor
 
 > **Radio**: `"Office/16x16/radio.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1008](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1008)
+Defined in: [manifest/generator/SitecoreIcon.ts:1008](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1008)
 
 ***
 
@@ -8070,7 +8070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1008](https://github.com/Sitecor
 
 > **RadioButton\_group**: `"Office/16x16/radio_button_group.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1009](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1009)
+Defined in: [manifest/generator/SitecoreIcon.ts:1009](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1009)
 
 ***
 
@@ -8078,7 +8078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1009](https://github.com/Sitecor
 
 > **RadioButton\_selected**: `"Office/16x16/radio_button_selected.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1010](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1010)
+Defined in: [manifest/generator/SitecoreIcon.ts:1010](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1010)
 
 ***
 
@@ -8086,7 +8086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1010](https://github.com/Sitecor
 
 > **RadioButton\_unselected**: `"Office/16x16/radio_button_unselected.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1011](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1011)
+Defined in: [manifest/generator/SitecoreIcon.ts:1011](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1011)
 
 ***
 
@@ -8094,7 +8094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1011](https://github.com/Sitecor
 
 > **RainDrops**: `"Office/16x16/rain_drops.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1012](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1012)
+Defined in: [manifest/generator/SitecoreIcon.ts:1012](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1012)
 
 ***
 
@@ -8102,7 +8102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1012](https://github.com/Sitecor
 
 > **RebuildAll\_indexes**: `"Office/16x16/rebuild_all_indexes.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1013](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1013)
+Defined in: [manifest/generator/SitecoreIcon.ts:1013](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1013)
 
 ***
 
@@ -8110,7 +8110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1013](https://github.com/Sitecor
 
 > **RebuildIndex**: `"Office/16x16/rebuild_index.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1014](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1014)
+Defined in: [manifest/generator/SitecoreIcon.ts:1014](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1014)
 
 ***
 
@@ -8118,7 +8118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1014](https://github.com/Sitecor
 
 > **ReceiptBook**: `"Office/16x16/receipt_book.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1015](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1015)
+Defined in: [manifest/generator/SitecoreIcon.ts:1015](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1015)
 
 ***
 
@@ -8126,7 +8126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1015](https://github.com/Sitecor
 
 > **Record**: `"Office/16x16/record.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1016](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1016)
+Defined in: [manifest/generator/SitecoreIcon.ts:1016](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1016)
 
 ***
 
@@ -8134,7 +8134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1016](https://github.com/Sitecor
 
 > **RecordPlayer**: `"Office/16x16/record_player.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1017](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1017)
+Defined in: [manifest/generator/SitecoreIcon.ts:1017](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1017)
 
 ***
 
@@ -8142,7 +8142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1017](https://github.com/Sitecor
 
 > **Redo**: `"Office/16x16/redo.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1018](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1018)
+Defined in: [manifest/generator/SitecoreIcon.ts:1018](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1018)
 
 ***
 
@@ -8150,7 +8150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1018](https://github.com/Sitecor
 
 > **Refresh**: `"Office/16x16/refresh.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1019](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1019)
+Defined in: [manifest/generator/SitecoreIcon.ts:1019](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1019)
 
 ***
 
@@ -8158,7 +8158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1019](https://github.com/Sitecor
 
 > **Registry**: `"Office/16x16/registry.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1020](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1020)
+Defined in: [manifest/generator/SitecoreIcon.ts:1020](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1020)
 
 ***
 
@@ -8166,7 +8166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1020](https://github.com/Sitecor
 
 > **ReindexTree**: `"Office/16x16/reindex_tree.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1021](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1021)
+Defined in: [manifest/generator/SitecoreIcon.ts:1021](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1021)
 
 ***
 
@@ -8174,7 +8174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1021](https://github.com/Sitecor
 
 > **RemoteControl**: `"Office/16x16/remote_control.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1022](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1022)
+Defined in: [manifest/generator/SitecoreIcon.ts:1022](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1022)
 
 ***
 
@@ -8182,7 +8182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1022](https://github.com/Sitecor
 
 > **RemoveVersion**: `"Office/16x16/remove_version.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1023](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1023)
+Defined in: [manifest/generator/SitecoreIcon.ts:1023](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1023)
 
 ***
 
@@ -8190,7 +8190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1023](https://github.com/Sitecor
 
 > **Repeat**: `"Office/16x16/repeat.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1024](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1024)
+Defined in: [manifest/generator/SitecoreIcon.ts:1024](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1024)
 
 ***
 
@@ -8198,7 +8198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1024](https://github.com/Sitecor
 
 > **ResetBucketable**: `"Office/16x16/reset_bucketable.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1025](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1025)
+Defined in: [manifest/generator/SitecoreIcon.ts:1025](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1025)
 
 ***
 
@@ -8206,7 +8206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1025](https://github.com/Sitecor
 
 > **ResetFields**: `"Office/16x16/reset_fields.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1026](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1026)
+Defined in: [manifest/generator/SitecoreIcon.ts:1026](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1026)
 
 ***
 
@@ -8214,7 +8214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1026](https://github.com/Sitecor
 
 > **ResetLayout**: `"Office/16x16/reset_layout.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1027](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1027)
+Defined in: [manifest/generator/SitecoreIcon.ts:1027](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1027)
 
 ***
 
@@ -8222,7 +8222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1027](https://github.com/Sitecor
 
 > **ResetSettings**: `"Office/16x16/reset_settings.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1028](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1028)
+Defined in: [manifest/generator/SitecoreIcon.ts:1028](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1028)
 
 ***
 
@@ -8230,7 +8230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1028](https://github.com/Sitecor
 
 > **ResetWorkflow**: `"Office/16x16/reset_workflow.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1029](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1029)
+Defined in: [manifest/generator/SitecoreIcon.ts:1029](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1029)
 
 ***
 
@@ -8238,7 +8238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1029](https://github.com/Sitecor
 
 > **Resize**: `"Office/16x16/resize.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1030](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1030)
+Defined in: [manifest/generator/SitecoreIcon.ts:1030](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1030)
 
 ***
 
@@ -8246,7 +8246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1030](https://github.com/Sitecor
 
 > **Reticle**: `"Office/16x16/reticle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1031](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1031)
+Defined in: [manifest/generator/SitecoreIcon.ts:1031](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1031)
 
 ***
 
@@ -8254,7 +8254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1031](https://github.com/Sitecor
 
 > **RevertBucket**: `"Office/16x16/revert_bucket.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1032](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1032)
+Defined in: [manifest/generator/SitecoreIcon.ts:1032](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1032)
 
 ***
 
@@ -8262,7 +8262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1032](https://github.com/Sitecor
 
 > **RevertDatabase**: `"Office/16x16/revert_database.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1033](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1033)
+Defined in: [manifest/generator/SitecoreIcon.ts:1033](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1033)
 
 ***
 
@@ -8270,7 +8270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1033](https://github.com/Sitecor
 
 > **RevertDomain**: `"Office/16x16/revert_domain.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1034](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1034)
+Defined in: [manifest/generator/SitecoreIcon.ts:1034](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1034)
 
 ***
 
@@ -8278,7 +8278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1034](https://github.com/Sitecor
 
 > **RevertItem**: `"Office/16x16/revert_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1035](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1035)
+Defined in: [manifest/generator/SitecoreIcon.ts:1035](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1035)
 
 ***
 
@@ -8286,7 +8286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1035](https://github.com/Sitecor
 
 > **RevertRole**: `"Office/16x16/revert_role.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1036](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1036)
+Defined in: [manifest/generator/SitecoreIcon.ts:1036](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1036)
 
 ***
 
@@ -8294,7 +8294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1036](https://github.com/Sitecor
 
 > **RevertRoles**: `"Office/16x16/revert_roles.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1037](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1037)
+Defined in: [manifest/generator/SitecoreIcon.ts:1037](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1037)
 
 ***
 
@@ -8302,7 +8302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1037](https://github.com/Sitecor
 
 > **RevertTree**: `"Office/16x16/revert_tree.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1038](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1038)
+Defined in: [manifest/generator/SitecoreIcon.ts:1038](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1038)
 
 ***
 
@@ -8310,7 +8310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1038](https://github.com/Sitecor
 
 > **RevertUser**: `"Office/16x16/revert_user.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1039](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1039)
+Defined in: [manifest/generator/SitecoreIcon.ts:1039](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1039)
 
 ***
 
@@ -8318,7 +8318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1039](https://github.com/Sitecor
 
 > **RevertUsers**: `"Office/16x16/revert_users.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1040](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1040)
+Defined in: [manifest/generator/SitecoreIcon.ts:1040](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1040)
 
 ***
 
@@ -8326,7 +8326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1040](https://github.com/Sitecor
 
 > **RfidChip**: `"Office/16x16/rfid_chip.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1041](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1041)
+Defined in: [manifest/generator/SitecoreIcon.ts:1041](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1041)
 
 ***
 
@@ -8334,7 +8334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1041](https://github.com/Sitecor
 
 > **RoadRoller**: `"Office/16x16/road_roller.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1042](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1042)
+Defined in: [manifest/generator/SitecoreIcon.ts:1042](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1042)
 
 ***
 
@@ -8342,7 +8342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1042](https://github.com/Sitecor
 
 > **Robot**: `"Office/16x16/robot.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1043](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1043)
+Defined in: [manifest/generator/SitecoreIcon.ts:1043](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1043)
 
 ***
 
@@ -8350,7 +8350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1043](https://github.com/Sitecor
 
 > **Rocket**: `"Office/16x16/rocket.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1044](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1044)
+Defined in: [manifest/generator/SitecoreIcon.ts:1044](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1044)
 
 ***
 
@@ -8358,7 +8358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1044](https://github.com/Sitecor
 
 > **RotateLeft**: `"Office/16x16/rotate_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1045](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1045)
+Defined in: [manifest/generator/SitecoreIcon.ts:1045](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1045)
 
 ***
 
@@ -8366,7 +8366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1045](https://github.com/Sitecor
 
 > **RotateRight**: `"Office/16x16/rotate_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1046](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1046)
+Defined in: [manifest/generator/SitecoreIcon.ts:1046](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1046)
 
 ***
 
@@ -8374,7 +8374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1046](https://github.com/Sitecor
 
 > **RouletteWheel**: `"Office/16x16/roulette_wheel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1047](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1047)
+Defined in: [manifest/generator/SitecoreIcon.ts:1047](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1047)
 
 ***
 
@@ -8382,7 +8382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1047](https://github.com/Sitecor
 
 > **RouteSign**: `"Office/16x16/route_sign.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1048](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1048)
+Defined in: [manifest/generator/SitecoreIcon.ts:1048](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1048)
 
 ***
 
@@ -8390,7 +8390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1048](https://github.com/Sitecor
 
 > **Rss**: `"Office/16x16/rss.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1049](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1049)
+Defined in: [manifest/generator/SitecoreIcon.ts:1049](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1049)
 
 ***
 
@@ -8398,7 +8398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1049](https://github.com/Sitecor
 
 > **RubberStamp**: `"Office/16x16/rubber_stamp.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1050](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1050)
+Defined in: [manifest/generator/SitecoreIcon.ts:1050](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1050)
 
 ***
 
@@ -8406,7 +8406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1050](https://github.com/Sitecor
 
 > **Safe**: `"Office/16x16/safe.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1051](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1051)
+Defined in: [manifest/generator/SitecoreIcon.ts:1051](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1051)
 
 ***
 
@@ -8414,7 +8414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1051](https://github.com/Sitecor
 
 > **SafeInto**: `"Office/16x16/safe_into.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1054](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1054)
+Defined in: [manifest/generator/SitecoreIcon.ts:1054](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1054)
 
 ***
 
@@ -8422,7 +8422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1054](https://github.com/Sitecor
 
 > **SafeOpen\_empty**: `"Office/16x16/safe_open_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1055](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1055)
+Defined in: [manifest/generator/SitecoreIcon.ts:1055](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1055)
 
 ***
 
@@ -8430,7 +8430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1055](https://github.com/Sitecor
 
 > **SafeOpen\_full**: `"Office/16x16/safe_open_full.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1056](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1056)
+Defined in: [manifest/generator/SitecoreIcon.ts:1056](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1056)
 
 ***
 
@@ -8438,7 +8438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1056](https://github.com/Sitecor
 
 > **SafeOut**: `"Office/16x16/safe_out.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1057](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1057)
+Defined in: [manifest/generator/SitecoreIcon.ts:1057](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1057)
 
 ***
 
@@ -8446,7 +8446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1057](https://github.com/Sitecor
 
 > **SafetyPin**: `"Office/16x16/safety_pin.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1052](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1052)
+Defined in: [manifest/generator/SitecoreIcon.ts:1052](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1052)
 
 ***
 
@@ -8454,7 +8454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1052](https://github.com/Sitecor
 
 > **SafetyPin\_open**: `"Office/16x16/safety_pin_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1053](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1053)
+Defined in: [manifest/generator/SitecoreIcon.ts:1053](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1053)
 
 ***
 
@@ -8462,7 +8462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1053](https://github.com/Sitecor
 
 > **SalesQuotation**: `"Office/16x16/sales_quotation.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1058](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1058)
+Defined in: [manifest/generator/SitecoreIcon.ts:1058](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1058)
 
 ***
 
@@ -8470,7 +8470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1058](https://github.com/Sitecor
 
 > **SatelliteDish**: `"Office/16x16/satellite_dish.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1059](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1059)
+Defined in: [manifest/generator/SitecoreIcon.ts:1059](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1059)
 
 ***
 
@@ -8478,7 +8478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1059](https://github.com/Sitecor
 
 > **Sausage**: `"Office/16x16/sausage.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1060](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1060)
+Defined in: [manifest/generator/SitecoreIcon.ts:1060](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1060)
 
 ***
 
@@ -8486,7 +8486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1060](https://github.com/Sitecor
 
 > **SaveAnd\_close**: `"Office/16x16/save_and_close.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1061](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1061)
+Defined in: [manifest/generator/SitecoreIcon.ts:1061](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1061)
 
 ***
 
@@ -8494,7 +8494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1061](https://github.com/Sitecor
 
 > **SaveAs**: `"Office/16x16/save_as.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1062](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1062)
+Defined in: [manifest/generator/SitecoreIcon.ts:1062](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1062)
 
 ***
 
@@ -8502,7 +8502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1062](https://github.com/Sitecor
 
 > **Scales**: `"Office/16x16/scales.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1063](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1063)
+Defined in: [manifest/generator/SitecoreIcon.ts:1063](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1063)
 
 ***
 
@@ -8510,7 +8510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1063](https://github.com/Sitecor
 
 > **Scanner**: `"Office/16x16/scanner.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1064](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1064)
+Defined in: [manifest/generator/SitecoreIcon.ts:1064](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1064)
 
 ***
 
@@ -8518,7 +8518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1064](https://github.com/Sitecor
 
 > **Scientist**: `"Office/16x16/scientist.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1065](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1065)
+Defined in: [manifest/generator/SitecoreIcon.ts:1065](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1065)
 
 ***
 
@@ -8526,7 +8526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1065](https://github.com/Sitecor
 
 > **Screwdriver**: `"Office/16x16/screwdriver.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1066](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1066)
+Defined in: [manifest/generator/SitecoreIcon.ts:1066](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1066)
 
 ***
 
@@ -8534,7 +8534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1066](https://github.com/Sitecor
 
 > **Scroll**: `"Office/16x16/scroll.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1067](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1067)
+Defined in: [manifest/generator/SitecoreIcon.ts:1067](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1067)
 
 ***
 
@@ -8542,7 +8542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1067](https://github.com/Sitecor
 
 > **Scroll2**: `"Office/16x16/scroll2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1068](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1068)
+Defined in: [manifest/generator/SitecoreIcon.ts:1068](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1068)
 
 ***
 
@@ -8550,7 +8550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1068](https://github.com/Sitecor
 
 > **ScrollBar\_horizontal**: `"Office/16x16/scroll_bar_horizontal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1069](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1069)
+Defined in: [manifest/generator/SitecoreIcon.ts:1069](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1069)
 
 ***
 
@@ -8558,7 +8558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1069](https://github.com/Sitecor
 
 > **ScrollBar\_vertical**: `"Office/16x16/scroll_bar_vertical.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1070](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1070)
+Defined in: [manifest/generator/SitecoreIcon.ts:1070](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1070)
 
 ***
 
@@ -8566,7 +8566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1070](https://github.com/Sitecor
 
 > **SdCard**: `"Office/16x16/sd_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1071](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1071)
+Defined in: [manifest/generator/SitecoreIcon.ts:1071](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1071)
 
 ***
 
@@ -8574,7 +8574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1071](https://github.com/Sitecor
 
 > **SecurityAgent**: `"Office/16x16/security_agent.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1072](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1072)
+Defined in: [manifest/generator/SitecoreIcon.ts:1072](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1072)
 
 ***
 
@@ -8582,7 +8582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1072](https://github.com/Sitecor
 
 > **SecurityBadge**: `"Office/16x16/security_badge.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1073](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1073)
+Defined in: [manifest/generator/SitecoreIcon.ts:1073](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1073)
 
 ***
 
@@ -8590,7 +8590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1073](https://github.com/Sitecor
 
 > **SecurityDetails**: `"Office/16x16/security_details.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1074](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1074)
+Defined in: [manifest/generator/SitecoreIcon.ts:1074](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1074)
 
 ***
 
@@ -8598,7 +8598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1074](https://github.com/Sitecor
 
 > **Selection**: `"Office/16x16/selection.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1075](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1075)
+Defined in: [manifest/generator/SitecoreIcon.ts:1075](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1075)
 
 ***
 
@@ -8606,7 +8606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1075](https://github.com/Sitecor
 
 > **SelectionDelete**: `"Office/16x16/selection_delete.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1076](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1076)
+Defined in: [manifest/generator/SitecoreIcon.ts:1076](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1076)
 
 ***
 
@@ -8614,7 +8614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1076](https://github.com/Sitecor
 
 > **SelectionFind**: `"Office/16x16/selection_find.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1077](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1077)
+Defined in: [manifest/generator/SitecoreIcon.ts:1077](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1077)
 
 ***
 
@@ -8622,7 +8622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1077](https://github.com/Sitecor
 
 > **SelectionRecycle**: `"Office/16x16/selection_recycle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1078](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1078)
+Defined in: [manifest/generator/SitecoreIcon.ts:1078](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1078)
 
 ***
 
@@ -8630,7 +8630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1078](https://github.com/Sitecor
 
 > **SelectionRefresh**: `"Office/16x16/selection_refresh.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1079](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1079)
+Defined in: [manifest/generator/SitecoreIcon.ts:1079](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1079)
 
 ***
 
@@ -8638,7 +8638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1079](https://github.com/Sitecor
 
 > **SelectionView**: `"Office/16x16/selection_view.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1080](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1080)
+Defined in: [manifest/generator/SitecoreIcon.ts:1080](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1080)
 
 ***
 
@@ -8646,7 +8646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1080](https://github.com/Sitecor
 
 > **SerializeDomain**: `"Office/16x16/serialize_domain.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1081](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1081)
+Defined in: [manifest/generator/SitecoreIcon.ts:1081](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1081)
 
 ***
 
@@ -8654,7 +8654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1081](https://github.com/Sitecor
 
 > **SerializeItem**: `"Office/16x16/serialize_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1082](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1082)
+Defined in: [manifest/generator/SitecoreIcon.ts:1082](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1082)
 
 ***
 
@@ -8662,7 +8662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1082](https://github.com/Sitecor
 
 > **SerializeRole**: `"Office/16x16/serialize_role.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1083](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1083)
+Defined in: [manifest/generator/SitecoreIcon.ts:1083](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1083)
 
 ***
 
@@ -8670,7 +8670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1083](https://github.com/Sitecor
 
 > **SerializeRoles**: `"Office/16x16/serialize_roles.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1084](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1084)
+Defined in: [manifest/generator/SitecoreIcon.ts:1084](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1084)
 
 ***
 
@@ -8678,7 +8678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1084](https://github.com/Sitecor
 
 > **SerializeTree**: `"Office/16x16/serialize_tree.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1085](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1085)
+Defined in: [manifest/generator/SitecoreIcon.ts:1085](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1085)
 
 ***
 
@@ -8686,7 +8686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1085](https://github.com/Sitecor
 
 > **SerializeUser**: `"Office/16x16/serialize_user.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1086](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1086)
+Defined in: [manifest/generator/SitecoreIcon.ts:1086](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1086)
 
 ***
 
@@ -8694,7 +8694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1086](https://github.com/Sitecor
 
 > **SerializeUsers**: `"Office/16x16/serialize_users.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1087](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1087)
+Defined in: [manifest/generator/SitecoreIcon.ts:1087](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1087)
 
 ***
 
@@ -8702,7 +8702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1087](https://github.com/Sitecor
 
 > **Server**: `"Office/16x16/server.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1088](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1088)
+Defined in: [manifest/generator/SitecoreIcon.ts:1088](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1088)
 
 ***
 
@@ -8710,7 +8710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1088](https://github.com/Sitecor
 
 > **Server2**: `"Office/16x16/server2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1089](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1089)
+Defined in: [manifest/generator/SitecoreIcon.ts:1089](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1089)
 
 ***
 
@@ -8718,7 +8718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1089](https://github.com/Sitecor
 
 > **ServerClient**: `"Office/16x16/server_client.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1090](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1090)
+Defined in: [manifest/generator/SitecoreIcon.ts:1090](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1090)
 
 ***
 
@@ -8726,7 +8726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1090](https://github.com/Sitecor
 
 > **ServerClient\_exchange**: `"Office/16x16/server_client_exchange.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1091](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1091)
+Defined in: [manifest/generator/SitecoreIcon.ts:1091](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1091)
 
 ***
 
@@ -8734,7 +8734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1091](https://github.com/Sitecor
 
 > **ServerCloud**: `"Office/16x16/server_cloud.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1092](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1092)
+Defined in: [manifest/generator/SitecoreIcon.ts:1092](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1092)
 
 ***
 
@@ -8742,7 +8742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1092](https://github.com/Sitecor
 
 > **ServerDocument**: `"Office/16x16/server_document.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1093](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1093)
+Defined in: [manifest/generator/SitecoreIcon.ts:1093](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1093)
 
 ***
 
@@ -8750,7 +8750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1093](https://github.com/Sitecor
 
 > **ServerEarth**: `"Office/16x16/server_earth.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1094](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1094)
+Defined in: [manifest/generator/SitecoreIcon.ts:1094](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1094)
 
 ***
 
@@ -8758,7 +8758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1094](https://github.com/Sitecor
 
 > **ServerFrom\_client**: `"Office/16x16/server_from_client.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1095](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1095)
+Defined in: [manifest/generator/SitecoreIcon.ts:1095](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1095)
 
 ***
 
@@ -8766,7 +8766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1095](https://github.com/Sitecor
 
 > **ServerId\_card**: `"Office/16x16/server_id_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1096](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1096)
+Defined in: [manifest/generator/SitecoreIcon.ts:1096](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1096)
 
 ***
 
@@ -8774,7 +8774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1096](https://github.com/Sitecor
 
 > **ServerMail**: `"Office/16x16/server_mail.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1097](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1097)
+Defined in: [manifest/generator/SitecoreIcon.ts:1097](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1097)
 
 ***
 
@@ -8782,7 +8782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1097](https://github.com/Sitecor
 
 > **ServerMail\_download**: `"Office/16x16/server_mail_download.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1098](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1098)
+Defined in: [manifest/generator/SitecoreIcon.ts:1098](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1098)
 
 ***
 
@@ -8790,7 +8790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1098](https://github.com/Sitecor
 
 > **ServerMail\_upload**: `"Office/16x16/server_mail_upload.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1099](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1099)
+Defined in: [manifest/generator/SitecoreIcon.ts:1099](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1099)
 
 ***
 
@@ -8798,7 +8798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1099](https://github.com/Sitecor
 
 > **ServerNetwork**: `"Office/16x16/server_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1100](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1100)
+Defined in: [manifest/generator/SitecoreIcon.ts:1100](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1100)
 
 ***
 
@@ -8806,7 +8806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1100](https://github.com/Sitecor
 
 > **ServerTo\_client**: `"Office/16x16/server_to_client.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1101](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1101)
+Defined in: [manifest/generator/SitecoreIcon.ts:1101](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1101)
 
 ***
 
@@ -8814,7 +8814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1101](https://github.com/Sitecor
 
 > **ServiceBell**: `"Office/16x16/service_bell.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1102](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1102)
+Defined in: [manifest/generator/SitecoreIcon.ts:1102](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1102)
 
 ***
 
@@ -8822,7 +8822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1102](https://github.com/Sitecor
 
 > **SetArchive\_date**: `"Office/16x16/set_archive_date.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1103](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1103)
+Defined in: [manifest/generator/SitecoreIcon.ts:1103](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1103)
 
 ***
 
@@ -8830,7 +8830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1103](https://github.com/Sitecor
 
 > **SetCustom\_editors**: `"Office/16x16/set_custom_editors.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1104](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1104)
+Defined in: [manifest/generator/SitecoreIcon.ts:1104](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1104)
 
 ***
 
@@ -8838,7 +8838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1104](https://github.com/Sitecor
 
 > **SetDefault\_worflow**: `"Office/16x16/set_default_worflow.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1105](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1105)
+Defined in: [manifest/generator/SitecoreIcon.ts:1105](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1105)
 
 ***
 
@@ -8846,7 +8846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1105](https://github.com/Sitecor
 
 > **SetReminder**: `"Office/16x16/set_reminder.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1106](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1106)
+Defined in: [manifest/generator/SitecoreIcon.ts:1106](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1106)
 
 ***
 
@@ -8854,7 +8854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1106](https://github.com/Sitecor
 
 > **ShapeCircle**: `"Office/16x16/shape_circle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1108](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1108)
+Defined in: [manifest/generator/SitecoreIcon.ts:1108](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1108)
 
 ***
 
@@ -8862,7 +8862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1108](https://github.com/Sitecor
 
 > **ShapeEllipse**: `"Office/16x16/shape_ellipse.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1109](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1109)
+Defined in: [manifest/generator/SitecoreIcon.ts:1109](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1109)
 
 ***
 
@@ -8870,7 +8870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1109](https://github.com/Sitecor
 
 > **ShapeHexagon**: `"Office/16x16/shape_hexagon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1110](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1110)
+Defined in: [manifest/generator/SitecoreIcon.ts:1110](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1110)
 
 ***
 
@@ -8878,7 +8878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1110](https://github.com/Sitecor
 
 > **ShapeOctagon**: `"Office/16x16/shape_octagon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1111](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1111)
+Defined in: [manifest/generator/SitecoreIcon.ts:1111](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1111)
 
 ***
 
@@ -8886,7 +8886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1111](https://github.com/Sitecor
 
 > **ShapePentagon**: `"Office/16x16/shape_pentagon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1112](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1112)
+Defined in: [manifest/generator/SitecoreIcon.ts:1112](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1112)
 
 ***
 
@@ -8894,7 +8894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1112](https://github.com/Sitecor
 
 > **ShapeRectangle**: `"Office/16x16/shape_rectangle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1113](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1113)
+Defined in: [manifest/generator/SitecoreIcon.ts:1113](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1113)
 
 ***
 
@@ -8902,7 +8902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1113](https://github.com/Sitecor
 
 > **ShapeRhomb**: `"Office/16x16/shape_rhomb.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1114](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1114)
+Defined in: [manifest/generator/SitecoreIcon.ts:1114](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1114)
 
 ***
 
@@ -8910,7 +8910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1114](https://github.com/Sitecor
 
 > **Shapes**: `"Office/16x16/shapes.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1107](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1107)
+Defined in: [manifest/generator/SitecoreIcon.ts:1107](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1107)
 
 ***
 
@@ -8918,7 +8918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1107](https://github.com/Sitecor
 
 > **ShapeSquare**: `"Office/16x16/shape_square.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1115](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1115)
+Defined in: [manifest/generator/SitecoreIcon.ts:1115](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1115)
 
 ***
 
@@ -8926,7 +8926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1115](https://github.com/Sitecor
 
 > **ShapeTriangle**: `"Office/16x16/shape_triangle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1116](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1116)
+Defined in: [manifest/generator/SitecoreIcon.ts:1116](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1116)
 
 ***
 
@@ -8934,7 +8934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1116](https://github.com/Sitecor
 
 > **ShelfEmpty**: `"Office/16x16/shelf_empty.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1117](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1117)
+Defined in: [manifest/generator/SitecoreIcon.ts:1117](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1117)
 
 ***
 
@@ -8942,7 +8942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1117](https://github.com/Sitecor
 
 > **ShelfFull**: `"Office/16x16/shelf_full.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1118](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1118)
+Defined in: [manifest/generator/SitecoreIcon.ts:1118](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1118)
 
 ***
 
@@ -8950,7 +8950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1118](https://github.com/Sitecor
 
 > **Shield**: `"Office/16x16/shield.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1119](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1119)
+Defined in: [manifest/generator/SitecoreIcon.ts:1119](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1119)
 
 ***
 
@@ -8958,7 +8958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1119](https://github.com/Sitecor
 
 > **ShipsWheel**: `"Office/16x16/ships_wheel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1120](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1120)
+Defined in: [manifest/generator/SitecoreIcon.ts:1120](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1120)
 
 ***
 
@@ -8966,7 +8966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1120](https://github.com/Sitecor
 
 > **ShoppingBag**: `"Office/16x16/shopping_bag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1121](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1121)
+Defined in: [manifest/generator/SitecoreIcon.ts:1121](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1121)
 
 ***
 
@@ -8974,7 +8974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1121](https://github.com/Sitecor
 
 > **ShoppingBag\_full**: `"Office/16x16/shopping_bag_full.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1122](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1122)
+Defined in: [manifest/generator/SitecoreIcon.ts:1122](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1122)
 
 ***
 
@@ -8982,7 +8982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1122](https://github.com/Sitecor
 
 > **ShoppingBasket**: `"Office/16x16/shopping_basket.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1123](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1123)
+Defined in: [manifest/generator/SitecoreIcon.ts:1123](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1123)
 
 ***
 
@@ -8990,7 +8990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1123](https://github.com/Sitecor
 
 > **ShoppingCart**: `"Office/16x16/shopping_cart.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1124](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1124)
+Defined in: [manifest/generator/SitecoreIcon.ts:1124](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1124)
 
 ***
 
@@ -8998,7 +8998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1124](https://github.com/Sitecor
 
 > **ShoppingCart\_full**: `"Office/16x16/shopping_cart_full.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1126](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1126)
+Defined in: [manifest/generator/SitecoreIcon.ts:1126](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1126)
 
 ***
 
@@ -9006,7 +9006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1126](https://github.com/Sitecor
 
 > **ShoppingCart2**: `"Office/16x16/shopping_cart2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1125](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1125)
+Defined in: [manifest/generator/SitecoreIcon.ts:1125](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1125)
 
 ***
 
@@ -9014,7 +9014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1125](https://github.com/Sitecor
 
 > **Shredder**: `"Office/16x16/shredder.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1127](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1127)
+Defined in: [manifest/generator/SitecoreIcon.ts:1127](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1127)
 
 ***
 
@@ -9022,7 +9022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1127](https://github.com/Sitecor
 
 > **Shutter**: `"Office/16x16/shutter.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1128](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1128)
+Defined in: [manifest/generator/SitecoreIcon.ts:1128](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1128)
 
 ***
 
@@ -9030,7 +9030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1128](https://github.com/Sitecor
 
 > **SignalFlag**: `"Office/16x16/signal_flag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1130](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1130)
+Defined in: [manifest/generator/SitecoreIcon.ts:1130](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1130)
 
 ***
 
@@ -9038,7 +9038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1130](https://github.com/Sitecor
 
 > **SignalFlag\_checkered**: `"Office/16x16/signal_flag_checkered.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1131](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1131)
+Defined in: [manifest/generator/SitecoreIcon.ts:1131](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1131)
 
 ***
 
@@ -9046,7 +9046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1131](https://github.com/Sitecor
 
 > **SignalingDisc**: `"Office/16x16/signaling_disc.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1129](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1129)
+Defined in: [manifest/generator/SitecoreIcon.ts:1129](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1129)
 
 ***
 
@@ -9054,7 +9054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1129](https://github.com/Sitecor
 
 > **SignalStrength\_0**: `"Office/16x16/signal_strength_0.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1132](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1132)
+Defined in: [manifest/generator/SitecoreIcon.ts:1132](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1132)
 
 ***
 
@@ -9062,7 +9062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1132](https://github.com/Sitecor
 
 > **SignalStrength\_1**: `"Office/16x16/signal_strength_1.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1133](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1133)
+Defined in: [manifest/generator/SitecoreIcon.ts:1133](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1133)
 
 ***
 
@@ -9070,7 +9070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1133](https://github.com/Sitecor
 
 > **SignalStrength\_2**: `"Office/16x16/signal_strength_2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1134](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1134)
+Defined in: [manifest/generator/SitecoreIcon.ts:1134](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1134)
 
 ***
 
@@ -9078,7 +9078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1134](https://github.com/Sitecor
 
 > **SignalStrength\_3**: `"Office/16x16/signal_strength_3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1135](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1135)
+Defined in: [manifest/generator/SitecoreIcon.ts:1135](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1135)
 
 ***
 
@@ -9086,7 +9086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1135](https://github.com/Sitecor
 
 > **SignalStrength\_4**: `"Office/16x16/signal_strength_4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1136](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1136)
+Defined in: [manifest/generator/SitecoreIcon.ts:1136](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1136)
 
 ***
 
@@ -9094,7 +9094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1136](https://github.com/Sitecor
 
 > **SignalStrength\_5**: `"Office/16x16/signal_strength_5.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1137](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1137)
+Defined in: [manifest/generator/SitecoreIcon.ts:1137](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1137)
 
 ***
 
@@ -9102,7 +9102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1137](https://github.com/Sitecor
 
 > **SignForbidden**: `"Office/16x16/sign_forbidden.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1141](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1141)
+Defined in: [manifest/generator/SitecoreIcon.ts:1141](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1141)
 
 ***
 
@@ -9110,7 +9110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1141](https://github.com/Sitecor
 
 > **Signpost**: `"Office/16x16/signpost.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1138](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1138)
+Defined in: [manifest/generator/SitecoreIcon.ts:1138](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1138)
 
 ***
 
@@ -9118,7 +9118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1138](https://github.com/Sitecor
 
 > **Signpost2**: `"Office/16x16/signpost2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1139](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1139)
+Defined in: [manifest/generator/SitecoreIcon.ts:1139](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1139)
 
 ***
 
@@ -9126,7 +9126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1139](https://github.com/Sitecor
 
 > **Signpost3**: `"Office/16x16/signpost3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1140](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1140)
+Defined in: [manifest/generator/SitecoreIcon.ts:1140](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1140)
 
 ***
 
@@ -9134,7 +9134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1140](https://github.com/Sitecor
 
 > **SignStop**: `"Office/16x16/sign_stop.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1142](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1142)
+Defined in: [manifest/generator/SitecoreIcon.ts:1142](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1142)
 
 ***
 
@@ -9142,7 +9142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1142](https://github.com/Sitecor
 
 > **SignWarning**: `"Office/16x16/sign_warning.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1143](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1143)
+Defined in: [manifest/generator/SitecoreIcon.ts:1143](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1143)
 
 ***
 
@@ -9150,7 +9150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1143](https://github.com/Sitecor
 
 > **SignWarning\_biohazard**: `"Office/16x16/sign_warning_biohazard.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1144](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1144)
+Defined in: [manifest/generator/SitecoreIcon.ts:1144](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1144)
 
 ***
 
@@ -9158,7 +9158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1144](https://github.com/Sitecor
 
 > **SignWarning\_flammable**: `"Office/16x16/sign_warning_flammable.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1145](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1145)
+Defined in: [manifest/generator/SitecoreIcon.ts:1145](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1145)
 
 ***
 
@@ -9166,7 +9166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1145](https://github.com/Sitecor
 
 > **SignWarning\_harmful**: `"Office/16x16/sign_warning_harmful.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1146](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1146)
+Defined in: [manifest/generator/SitecoreIcon.ts:1146](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1146)
 
 ***
 
@@ -9174,7 +9174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1146](https://github.com/Sitecor
 
 > **SignWarning\_radiation**: `"Office/16x16/sign_warning_radiation.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1147](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1147)
+Defined in: [manifest/generator/SitecoreIcon.ts:1147](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1147)
 
 ***
 
@@ -9182,7 +9182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1147](https://github.com/Sitecor
 
 > **SignWarning\_toxic**: `"Office/16x16/sign_warning_toxic.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1148](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1148)
+Defined in: [manifest/generator/SitecoreIcon.ts:1148](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1148)
 
 ***
 
@@ -9190,7 +9190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1148](https://github.com/Sitecor
 
 > **SignWarning\_voltage**: `"Office/16x16/sign_warning_voltage.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1149](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1149)
+Defined in: [manifest/generator/SitecoreIcon.ts:1149](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1149)
 
 ***
 
@@ -9198,7 +9198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1149](https://github.com/Sitecor
 
 > **SignYield**: `"Office/16x16/sign_yield.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1150](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1150)
+Defined in: [manifest/generator/SitecoreIcon.ts:1150](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1150)
 
 ***
 
@@ -9206,7 +9206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1150](https://github.com/Sitecor
 
 > **SimCard**: `"Office/16x16/sim_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1151](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1151)
+Defined in: [manifest/generator/SitecoreIcon.ts:1151](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1151)
 
 ***
 
@@ -9214,7 +9214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1151](https://github.com/Sitecor
 
 > **Singer**: `"Office/16x16/singer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1152](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1152)
+Defined in: [manifest/generator/SitecoreIcon.ts:1152](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1152)
 
 ***
 
@@ -9222,7 +9222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1152](https://github.com/Sitecor
 
 > **Sizes**: `"Office/16x16/sizes.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1153](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1153)
+Defined in: [manifest/generator/SitecoreIcon.ts:1153](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1153)
 
 ***
 
@@ -9230,7 +9230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1153](https://github.com/Sitecor
 
 > **SkinCow**: `"Office/16x16/skin_cow.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1154](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1154)
+Defined in: [manifest/generator/SitecoreIcon.ts:1154](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1154)
 
 ***
 
@@ -9238,7 +9238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1154](https://github.com/Sitecor
 
 > **Skull**: `"Office/16x16/skull.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1155](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1155)
+Defined in: [manifest/generator/SitecoreIcon.ts:1155](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1155)
 
 ***
 
@@ -9246,7 +9246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1155](https://github.com/Sitecor
 
 > **Skull2**: `"Office/16x16/skull2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1156](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1156)
+Defined in: [manifest/generator/SitecoreIcon.ts:1156](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1156)
 
 ***
 
@@ -9254,7 +9254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1156](https://github.com/Sitecor
 
 > **Slider**: `"Office/16x16/slider.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1157](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1157)
+Defined in: [manifest/generator/SitecoreIcon.ts:1157](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1157)
 
 ***
 
@@ -9262,7 +9262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1157](https://github.com/Sitecor
 
 > **SmallTruck**: `"Office/16x16/small_truck.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1158](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1158)
+Defined in: [manifest/generator/SitecoreIcon.ts:1158](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1158)
 
 ***
 
@@ -9270,7 +9270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1158](https://github.com/Sitecor
 
 > **Smartcard**: `"Office/16x16/smartcard.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1159](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1159)
+Defined in: [manifest/generator/SitecoreIcon.ts:1159](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1159)
 
 ***
 
@@ -9278,7 +9278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1159](https://github.com/Sitecor
 
 > **Smartphone**: `"Office/16x16/smartphone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1160](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1160)
+Defined in: [manifest/generator/SitecoreIcon.ts:1160](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1160)
 
 ***
 
@@ -9286,7 +9286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1160](https://github.com/Sitecor
 
 > **SmartphoneCloud**: `"Office/16x16/smartphone_cloud.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1161](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1161)
+Defined in: [manifest/generator/SitecoreIcon.ts:1161](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1161)
 
 ***
 
@@ -9294,7 +9294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1161](https://github.com/Sitecor
 
 > **Snowflake**: `"Office/16x16/snowflake.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1162](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1162)
+Defined in: [manifest/generator/SitecoreIcon.ts:1162](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1162)
 
 ***
 
@@ -9302,7 +9302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1162](https://github.com/Sitecor
 
 > **SoapDispenser**: `"Office/16x16/soap_dispenser.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1163](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1163)
+Defined in: [manifest/generator/SitecoreIcon.ts:1163](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1163)
 
 ***
 
@@ -9310,7 +9310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1163](https://github.com/Sitecor
 
 > **SoccerBall**: `"Office/16x16/soccer_ball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1164](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1164)
+Defined in: [manifest/generator/SitecoreIcon.ts:1164](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1164)
 
 ***
 
@@ -9318,7 +9318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1164](https://github.com/Sitecor
 
 > **Sort19\_ascending**: `"Office/16x16/sort_19_ascending.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1165](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1165)
+Defined in: [manifest/generator/SitecoreIcon.ts:1165](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1165)
 
 ***
 
@@ -9326,7 +9326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1165](https://github.com/Sitecor
 
 > **Sort19\_descending**: `"Office/16x16/sort_19_descending.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1166](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1166)
+Defined in: [manifest/generator/SitecoreIcon.ts:1166](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1166)
 
 ***
 
@@ -9334,7 +9334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1166](https://github.com/Sitecor
 
 > **SortAscending**: `"Office/16x16/sort_ascending.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1167](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1167)
+Defined in: [manifest/generator/SitecoreIcon.ts:1167](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1167)
 
 ***
 
@@ -9342,7 +9342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1167](https://github.com/Sitecor
 
 > **SortAscending2**: `"Office/16x16/sort_ascending2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1168](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1168)
+Defined in: [manifest/generator/SitecoreIcon.ts:1168](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1168)
 
 ***
 
@@ -9350,7 +9350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1168](https://github.com/Sitecor
 
 > **SortAz\_ascending**: `"Office/16x16/sort_az_ascending.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1169](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1169)
+Defined in: [manifest/generator/SitecoreIcon.ts:1169](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1169)
 
 ***
 
@@ -9358,7 +9358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1169](https://github.com/Sitecor
 
 > **SortAz\_ascending2**: `"Office/16x16/sort_az_ascending2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1170](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1170)
+Defined in: [manifest/generator/SitecoreIcon.ts:1170](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1170)
 
 ***
 
@@ -9366,7 +9366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1170](https://github.com/Sitecor
 
 > **SortAz\_descending**: `"Office/16x16/sort_az_descending.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1171](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1171)
+Defined in: [manifest/generator/SitecoreIcon.ts:1171](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1171)
 
 ***
 
@@ -9374,7 +9374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1171](https://github.com/Sitecor
 
 > **SortAz\_descending2**: `"Office/16x16/sort_az_descending2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1172](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1172)
+Defined in: [manifest/generator/SitecoreIcon.ts:1172](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1172)
 
 ***
 
@@ -9382,7 +9382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1172](https://github.com/Sitecor
 
 > **SortDescending**: `"Office/16x16/sort_descending.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1173](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1173)
+Defined in: [manifest/generator/SitecoreIcon.ts:1173](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1173)
 
 ***
 
@@ -9390,7 +9390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1173](https://github.com/Sitecor
 
 > **SortDescending2**: `"Office/16x16/sort_descending2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1174](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1174)
+Defined in: [manifest/generator/SitecoreIcon.ts:1174](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1174)
 
 ***
 
@@ -9398,7 +9398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1174](https://github.com/Sitecor
 
 > **SortDown**: `"Office/16x16/sort_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1175](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1175)
+Defined in: [manifest/generator/SitecoreIcon.ts:1175](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1175)
 
 ***
 
@@ -9406,7 +9406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1175](https://github.com/Sitecor
 
 > **SortDown\_minus**: `"Office/16x16/sort_down_minus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1176](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1176)
+Defined in: [manifest/generator/SitecoreIcon.ts:1176](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1176)
 
 ***
 
@@ -9414,7 +9414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1176](https://github.com/Sitecor
 
 > **SortDown\_plus**: `"Office/16x16/sort_down_plus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1177](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1177)
+Defined in: [manifest/generator/SitecoreIcon.ts:1177](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1177)
 
 ***
 
@@ -9422,7 +9422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1177](https://github.com/Sitecor
 
 > **SortUp**: `"Office/16x16/sort_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1178](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1178)
+Defined in: [manifest/generator/SitecoreIcon.ts:1178](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1178)
 
 ***
 
@@ -9430,7 +9430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1178](https://github.com/Sitecor
 
 > **SortUp\_down**: `"Office/16x16/sort_up_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1179](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1179)
+Defined in: [manifest/generator/SitecoreIcon.ts:1179](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1179)
 
 ***
 
@@ -9438,7 +9438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1179](https://github.com/Sitecor
 
 > **SortUp\_down\_question**: `"Office/16x16/sort_up_down_question.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1181](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1181)
+Defined in: [manifest/generator/SitecoreIcon.ts:1181](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1181)
 
 ***
 
@@ -9446,7 +9446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1181](https://github.com/Sitecor
 
 > **SortUp\_down2**: `"Office/16x16/sort_up_down2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1180](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1180)
+Defined in: [manifest/generator/SitecoreIcon.ts:1180](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1180)
 
 ***
 
@@ -9454,7 +9454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1180](https://github.com/Sitecor
 
 > **SortUp\_minus**: `"Office/16x16/sort_up_minus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1182](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1182)
+Defined in: [manifest/generator/SitecoreIcon.ts:1182](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1182)
 
 ***
 
@@ -9462,7 +9462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1182](https://github.com/Sitecor
 
 > **SortUp\_plus**: `"Office/16x16/sort_up_plus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1183](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1183)
+Defined in: [manifest/generator/SitecoreIcon.ts:1183](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1183)
 
 ***
 
@@ -9470,7 +9470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1183](https://github.com/Sitecor
 
 > **Spam**: `"Office/16x16/spam.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1184](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1184)
+Defined in: [manifest/generator/SitecoreIcon.ts:1184](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1184)
 
 ***
 
@@ -9478,7 +9478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1184](https://github.com/Sitecor
 
 > **SpeechBalloon**: `"Office/16x16/speech_balloon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1185](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1185)
+Defined in: [manifest/generator/SitecoreIcon.ts:1185](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1185)
 
 ***
 
@@ -9486,7 +9486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1185](https://github.com/Sitecor
 
 > **SpeechBalloon\_answer**: `"Office/16x16/speech_balloon_answer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1186](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1186)
+Defined in: [manifest/generator/SitecoreIcon.ts:1186](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1186)
 
 ***
 
@@ -9494,7 +9494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1186](https://github.com/Sitecor
 
 > **SpeechBalloon\_question**: `"Office/16x16/speech_balloon_question.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1187](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1187)
+Defined in: [manifest/generator/SitecoreIcon.ts:1187](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1187)
 
 ***
 
@@ -9502,7 +9502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1187](https://github.com/Sitecor
 
 > **Spellcheck**: `"Office/16x16/spellcheck.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1188](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1188)
+Defined in: [manifest/generator/SitecoreIcon.ts:1188](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1188)
 
 ***
 
@@ -9510,7 +9510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1188](https://github.com/Sitecor
 
 > **Spellcheck2**: `"Office/16x16/spellcheck2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1189](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1189)
+Defined in: [manifest/generator/SitecoreIcon.ts:1189](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1189)
 
 ***
 
@@ -9518,7 +9518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1189](https://github.com/Sitecor
 
 > **Spider**: `"Office/16x16/spider.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1190](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1190)
+Defined in: [manifest/generator/SitecoreIcon.ts:1190](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1190)
 
 ***
 
@@ -9526,7 +9526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1190](https://github.com/Sitecor
 
 > **SpiritLevel**: `"Office/16x16/spirit_level.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1191](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1191)
+Defined in: [manifest/generator/SitecoreIcon.ts:1191](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1191)
 
 ***
 
@@ -9534,7 +9534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1191](https://github.com/Sitecor
 
 > **SprayCan**: `"Office/16x16/spray_can.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1192](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1192)
+Defined in: [manifest/generator/SitecoreIcon.ts:1192](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1192)
 
 ***
 
@@ -9542,7 +9542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1192](https://github.com/Sitecor
 
 > **Spreadsheed**: `"Office/16x16/spreadsheed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1193](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1193)
+Defined in: [manifest/generator/SitecoreIcon.ts:1193](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1193)
 
 ***
 
@@ -9550,7 +9550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1193](https://github.com/Sitecor
 
 > **SpreadsheedCell**: `"Office/16x16/spreadsheed_cell.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1194](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1194)
+Defined in: [manifest/generator/SitecoreIcon.ts:1194](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1194)
 
 ***
 
@@ -9558,7 +9558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1194](https://github.com/Sitecor
 
 > **SpreadsheedChart**: `"Office/16x16/spreadsheed_chart.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1195](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1195)
+Defined in: [manifest/generator/SitecoreIcon.ts:1195](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1195)
 
 ***
 
@@ -9566,7 +9566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1195](https://github.com/Sitecor
 
 > **SpreadsheedColumn**: `"Office/16x16/spreadsheed_column.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1196](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1196)
+Defined in: [manifest/generator/SitecoreIcon.ts:1196](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1196)
 
 ***
 
@@ -9574,7 +9574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1196](https://github.com/Sitecor
 
 > **SpreadsheedData**: `"Office/16x16/spreadsheed_data.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1197](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1197)
+Defined in: [manifest/generator/SitecoreIcon.ts:1197](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1197)
 
 ***
 
@@ -9582,7 +9582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1197](https://github.com/Sitecor
 
 > **SpreadsheedRow**: `"Office/16x16/spreadsheed_row.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1198](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1198)
+Defined in: [manifest/generator/SitecoreIcon.ts:1198](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1198)
 
 ***
 
@@ -9590,7 +9590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1198](https://github.com/Sitecor
 
 > **SpreadsheedSort\_ascending**: `"Office/16x16/spreadsheed_sort_ascending.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1199](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1199)
+Defined in: [manifest/generator/SitecoreIcon.ts:1199](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1199)
 
 ***
 
@@ -9598,7 +9598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1199](https://github.com/Sitecor
 
 > **SpreadsheedSort\_descending**: `"Office/16x16/spreadsheed_sort_descending.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1200](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1200)
+Defined in: [manifest/generator/SitecoreIcon.ts:1200](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1200)
 
 ***
 
@@ -9606,7 +9606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1200](https://github.com/Sitecor
 
 > **SpreadsheedSum**: `"Office/16x16/spreadsheed_sum.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1201](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1201)
+Defined in: [manifest/generator/SitecoreIcon.ts:1201](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1201)
 
 ***
 
@@ -9614,7 +9614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1201](https://github.com/Sitecor
 
 > **Spy**: `"Office/16x16/spy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1202](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1202)
+Defined in: [manifest/generator/SitecoreIcon.ts:1202](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1202)
 
 ***
 
@@ -9622,7 +9622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1202](https://github.com/Sitecor
 
 > **SsdDrive**: `"Office/16x16/ssd_drive.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1203](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1203)
+Defined in: [manifest/generator/SitecoreIcon.ts:1203](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1203)
 
 ***
 
@@ -9630,7 +9630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1203](https://github.com/Sitecor
 
 > **StairsDown**: `"Office/16x16/stairs_down.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1204](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1204)
+Defined in: [manifest/generator/SitecoreIcon.ts:1204](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1204)
 
 ***
 
@@ -9638,7 +9638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1204](https://github.com/Sitecor
 
 > **StairsUp**: `"Office/16x16/stairs_up.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1205](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1205)
+Defined in: [manifest/generator/SitecoreIcon.ts:1205](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1205)
 
 ***
 
@@ -9646,7 +9646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1205](https://github.com/Sitecor
 
 > **Standby**: `"Office/16x16/standby.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1206](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1206)
+Defined in: [manifest/generator/SitecoreIcon.ts:1206](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1206)
 
 ***
 
@@ -9654,7 +9654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1206](https://github.com/Sitecor
 
 > **Stapler**: `"Office/16x16/stapler.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1207](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1207)
+Defined in: [manifest/generator/SitecoreIcon.ts:1207](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1207)
 
 ***
 
@@ -9662,7 +9662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1207](https://github.com/Sitecor
 
 > **Star**: `"Office/16x16/star.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1208](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1208)
+Defined in: [manifest/generator/SitecoreIcon.ts:1208](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1208)
 
 ***
 
@@ -9670,7 +9670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1208](https://github.com/Sitecor
 
 > **Star2**: `"Office/16x16/star2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1209](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1209)
+Defined in: [manifest/generator/SitecoreIcon.ts:1209](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1209)
 
 ***
 
@@ -9678,7 +9678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1209](https://github.com/Sitecor
 
 > **StarAnd\_crescent**: `"Office/16x16/star_and_crescent.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1210](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1210)
+Defined in: [manifest/generator/SitecoreIcon.ts:1210](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1210)
 
 ***
 
@@ -9686,7 +9686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1210](https://github.com/Sitecor
 
 > **StarOf\_david**: `"Office/16x16/star_of_david.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1211](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1211)
+Defined in: [manifest/generator/SitecoreIcon.ts:1211](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1211)
 
 ***
 
@@ -9694,7 +9694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1211](https://github.com/Sitecor
 
 > **SteeringWheel**: `"Office/16x16/steering_wheel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1212](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1212)
+Defined in: [manifest/generator/SitecoreIcon.ts:1212](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1212)
 
 ***
 
@@ -9702,7 +9702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1212](https://github.com/Sitecor
 
 > **Step**: `"Office/16x16/step.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1213](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1213)
+Defined in: [manifest/generator/SitecoreIcon.ts:1213](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1213)
 
 ***
 
@@ -9710,7 +9710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1213](https://github.com/Sitecor
 
 > **StickyNote**: `"Office/16x16/sticky_note.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1214](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1214)
+Defined in: [manifest/generator/SitecoreIcon.ts:1214](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1214)
 
 ***
 
@@ -9718,7 +9718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1214](https://github.com/Sitecor
 
 > **StickyNote\_text**: `"Office/16x16/sticky_note_text.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1215](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1215)
+Defined in: [manifest/generator/SitecoreIcon.ts:1215](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1215)
 
 ***
 
@@ -9726,7 +9726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1215](https://github.com/Sitecor
 
 > **Stockbroker**: `"Office/16x16/stockbroker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1216](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1216)
+Defined in: [manifest/generator/SitecoreIcon.ts:1216](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1216)
 
 ***
 
@@ -9734,7 +9734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1216](https://github.com/Sitecor
 
 > **Stockbroker2**: `"Office/16x16/stockbroker2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1217](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1217)
+Defined in: [manifest/generator/SitecoreIcon.ts:1217](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1217)
 
 ***
 
@@ -9742,7 +9742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1217](https://github.com/Sitecor
 
 > **StockTicker**: `"Office/16x16/stock_ticker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1218](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1218)
+Defined in: [manifest/generator/SitecoreIcon.ts:1218](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1218)
 
 ***
 
@@ -9750,7 +9750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1218](https://github.com/Sitecor
 
 > **Stopwatch**: `"Office/16x16/stopwatch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1219](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1219)
+Defined in: [manifest/generator/SitecoreIcon.ts:1219](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1219)
 
 ***
 
@@ -9758,7 +9758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1219](https://github.com/Sitecor
 
 > **Stopwatch2**: `"Office/16x16/stopwatch2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1220](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1220)
+Defined in: [manifest/generator/SitecoreIcon.ts:1220](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1220)
 
 ***
 
@@ -9766,7 +9766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1220](https://github.com/Sitecor
 
 > **Store**: `"Office/16x16/store.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1221](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1221)
+Defined in: [manifest/generator/SitecoreIcon.ts:1221](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1221)
 
 ***
 
@@ -9774,7 +9774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1221](https://github.com/Sitecor
 
 > **Submarine**: `"Office/16x16/submarine.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1222](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1222)
+Defined in: [manifest/generator/SitecoreIcon.ts:1222](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1222)
 
 ***
 
@@ -9782,7 +9782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1222](https://github.com/Sitecor
 
 > **Submit**: `"Office/16x16/submit.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1223](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1223)
+Defined in: [manifest/generator/SitecoreIcon.ts:1223](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1223)
 
 ***
 
@@ -9790,7 +9790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1223](https://github.com/Sitecor
 
 > **Suitcase**: `"Office/16x16/suitcase.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1224](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1224)
+Defined in: [manifest/generator/SitecoreIcon.ts:1224](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1224)
 
 ***
 
@@ -9798,7 +9798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1224](https://github.com/Sitecor
 
 > **Suitcase2**: `"Office/16x16/suitcase2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1225](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1225)
+Defined in: [manifest/generator/SitecoreIcon.ts:1225](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1225)
 
 ***
 
@@ -9806,7 +9806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1225](https://github.com/Sitecor
 
 > **Sum**: `"Office/16x16/sum.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1226](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1226)
+Defined in: [manifest/generator/SitecoreIcon.ts:1226](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1226)
 
 ***
 
@@ -9814,7 +9814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1226](https://github.com/Sitecor
 
 > **Sun**: `"Office/16x16/sun.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1227](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1227)
+Defined in: [manifest/generator/SitecoreIcon.ts:1227](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1227)
 
 ***
 
@@ -9822,7 +9822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1227](https://github.com/Sitecor
 
 > **SunDimmed**: `"Office/16x16/sun_dimmed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1229](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1229)
+Defined in: [manifest/generator/SitecoreIcon.ts:1229](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1229)
 
 ***
 
@@ -9830,7 +9830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1229](https://github.com/Sitecor
 
 > **Sunglasses**: `"Office/16x16/sunglasses.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1228](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1228)
+Defined in: [manifest/generator/SitecoreIcon.ts:1228](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1228)
 
 ***
 
@@ -9838,7 +9838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1228](https://github.com/Sitecor
 
 > **SunHalf**: `"Office/16x16/sun_half.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1230](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1230)
+Defined in: [manifest/generator/SitecoreIcon.ts:1230](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1230)
 
 ***
 
@@ -9846,7 +9846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1230](https://github.com/Sitecor
 
 > **Surgeon**: `"Office/16x16/surgeon.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1231](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1231)
+Defined in: [manifest/generator/SitecoreIcon.ts:1231](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1231)
 
 ***
 
@@ -9854,7 +9854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1231](https://github.com/Sitecor
 
 > **SurveillanceCamera**: `"Office/16x16/surveillance_camera.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1232](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1232)
+Defined in: [manifest/generator/SitecoreIcon.ts:1232](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1232)
 
 ***
 
@@ -9862,7 +9862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1232](https://github.com/Sitecor
 
 > **SurveillanceCamera2**: `"Office/16x16/surveillance_camera2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1233](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1233)
+Defined in: [manifest/generator/SitecoreIcon.ts:1233](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1233)
 
 ***
 
@@ -9870,7 +9870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1233](https://github.com/Sitecor
 
 > **Switch2Off**: `"Office/16x16/switch2_off.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1234](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1234)
+Defined in: [manifest/generator/SitecoreIcon.ts:1234](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1234)
 
 ***
 
@@ -9878,7 +9878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1234](https://github.com/Sitecor
 
 > **Switch2On**: `"Office/16x16/switch2_on.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1235](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1235)
+Defined in: [manifest/generator/SitecoreIcon.ts:1235](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1235)
 
 ***
 
@@ -9886,7 +9886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1235](https://github.com/Sitecor
 
 > **Switch3Off**: `"Office/16x16/switch3_off.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1236](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1236)
+Defined in: [manifest/generator/SitecoreIcon.ts:1236](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1236)
 
 ***
 
@@ -9894,7 +9894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1236](https://github.com/Sitecor
 
 > **Switch3On**: `"Office/16x16/switch3_on.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1237](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1237)
+Defined in: [manifest/generator/SitecoreIcon.ts:1237](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1237)
 
 ***
 
@@ -9902,7 +9902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1237](https://github.com/Sitecor
 
 > **SwitchOff**: `"Office/16x16/switch_off.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1238](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1238)
+Defined in: [manifest/generator/SitecoreIcon.ts:1238](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1238)
 
 ***
 
@@ -9910,7 +9910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1238](https://github.com/Sitecor
 
 > **SwitchOn**: `"Office/16x16/switch_on.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1239](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1239)
+Defined in: [manifest/generator/SitecoreIcon.ts:1239](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1239)
 
 ***
 
@@ -9918,7 +9918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1239](https://github.com/Sitecor
 
 > **Sword**: `"Office/16x16/sword.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1240](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1240)
+Defined in: [manifest/generator/SitecoreIcon.ts:1240](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1240)
 
 ***
 
@@ -9926,7 +9926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1240](https://github.com/Sitecor
 
 > **SymbolFemale**: `"Office/16x16/symbol_female.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1241](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1241)
+Defined in: [manifest/generator/SitecoreIcon.ts:1241](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1241)
 
 ***
 
@@ -9934,7 +9934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1241](https://github.com/Sitecor
 
 > **SymbolMale**: `"Office/16x16/symbol_male.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1242](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1242)
+Defined in: [manifest/generator/SitecoreIcon.ts:1242](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1242)
 
 ***
 
@@ -9942,7 +9942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1242](https://github.com/Sitecor
 
 > **SyncBucket**: `"Office/16x16/sync_bucket.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1243](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1243)
+Defined in: [manifest/generator/SitecoreIcon.ts:1243](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1243)
 
 ***
 
@@ -9950,7 +9950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1243](https://github.com/Sitecor
 
 > **Table**: `"Office/16x16/table.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1244](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1244)
+Defined in: [manifest/generator/SitecoreIcon.ts:1244](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1244)
 
 ***
 
@@ -9958,7 +9958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1244](https://github.com/Sitecor
 
 > **Tables**: `"Office/16x16/tables.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1245](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1245)
+Defined in: [manifest/generator/SitecoreIcon.ts:1245](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1245)
 
 ***
 
@@ -9966,7 +9966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1245](https://github.com/Sitecor
 
 > **TableSelection\_all**: `"Office/16x16/table_selection_all.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1248](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1248)
+Defined in: [manifest/generator/SitecoreIcon.ts:1248](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1248)
 
 ***
 
@@ -9974,7 +9974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1248](https://github.com/Sitecor
 
 > **TableSelection\_block**: `"Office/16x16/table_selection_block.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1249](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1249)
+Defined in: [manifest/generator/SitecoreIcon.ts:1249](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1249)
 
 ***
 
@@ -9982,7 +9982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1249](https://github.com/Sitecor
 
 > **TableSelection\_cell**: `"Office/16x16/table_selection_cell.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1250](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1250)
+Defined in: [manifest/generator/SitecoreIcon.ts:1250](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1250)
 
 ***
 
@@ -9990,7 +9990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1250](https://github.com/Sitecor
 
 > **TableSelection\_column**: `"Office/16x16/table_selection_column.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1251](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1251)
+Defined in: [manifest/generator/SitecoreIcon.ts:1251](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1251)
 
 ***
 
@@ -9998,7 +9998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1251](https://github.com/Sitecor
 
 > **TableSelection\_range**: `"Office/16x16/table_selection_range.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1252](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1252)
+Defined in: [manifest/generator/SitecoreIcon.ts:1252](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1252)
 
 ***
 
@@ -10006,7 +10006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1252](https://github.com/Sitecor
 
 > **TableSelection\_row**: `"Office/16x16/table_selection_row.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1253](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1253)
+Defined in: [manifest/generator/SitecoreIcon.ts:1253](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1253)
 
 ***
 
@@ -10014,7 +10014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1253](https://github.com/Sitecor
 
 > **TabletComputer**: `"Office/16x16/tablet_computer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1246](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1246)
+Defined in: [manifest/generator/SitecoreIcon.ts:1246](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1246)
 
 ***
 
@@ -10022,7 +10022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1246](https://github.com/Sitecor
 
 > **TabletComputer\_touch**: `"Office/16x16/tablet_computer_touch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1247](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1247)
+Defined in: [manifest/generator/SitecoreIcon.ts:1247](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1247)
 
 ***
 
@@ -10030,7 +10030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1247](https://github.com/Sitecor
 
 > **TabPane**: `"Office/16x16/tab_pane.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1254](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1254)
+Defined in: [manifest/generator/SitecoreIcon.ts:1254](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1254)
 
 ***
 
@@ -10038,7 +10038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1254](https://github.com/Sitecor
 
 > **Tag**: `"Office/16x16/tag.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1255](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1255)
+Defined in: [manifest/generator/SitecoreIcon.ts:1255](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1255)
 
 ***
 
@@ -10046,7 +10046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1255](https://github.com/Sitecor
 
 > **Tags**: `"Office/16x16/tags.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1256](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1256)
+Defined in: [manifest/generator/SitecoreIcon.ts:1256](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1256)
 
 ***
 
@@ -10054,7 +10054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1256](https://github.com/Sitecor
 
 > **TankTruck**: `"Office/16x16/tank_truck.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1257](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1257)
+Defined in: [manifest/generator/SitecoreIcon.ts:1257](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1257)
 
 ***
 
@@ -10062,7 +10062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1257](https://github.com/Sitecor
 
 > **TapeMeasure**: `"Office/16x16/tape_measure.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1258](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1258)
+Defined in: [manifest/generator/SitecoreIcon.ts:1258](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1258)
 
 ***
 
@@ -10070,7 +10070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1258](https://github.com/Sitecor
 
 > **TapeMeasure2**: `"Office/16x16/tape_measure2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1259](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1259)
+Defined in: [manifest/generator/SitecoreIcon.ts:1259](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1259)
 
 ***
 
@@ -10078,7 +10078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1259](https://github.com/Sitecor
 
 > **Target**: `"Office/16x16/target.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1260](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1260)
+Defined in: [manifest/generator/SitecoreIcon.ts:1260](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1260)
 
 ***
 
@@ -10086,7 +10086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1260](https://github.com/Sitecor
 
 > **Telephone**: `"Office/16x16/telephone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1261](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1261)
+Defined in: [manifest/generator/SitecoreIcon.ts:1261](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1261)
 
 ***
 
@@ -10094,7 +10094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1261](https://github.com/Sitecor
 
 > **Telephone2**: `"Office/16x16/telephone2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1262](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1262)
+Defined in: [manifest/generator/SitecoreIcon.ts:1262](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1262)
 
 ***
 
@@ -10102,7 +10102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1262](https://github.com/Sitecor
 
 > **TelephoneBox**: `"Office/16x16/telephone_box.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1263](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1263)
+Defined in: [manifest/generator/SitecoreIcon.ts:1263](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1263)
 
 ***
 
@@ -10110,7 +10110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1263](https://github.com/Sitecor
 
 > **Template**: `"Office/16x16/template.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1264](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1264)
+Defined in: [manifest/generator/SitecoreIcon.ts:1264](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1264)
 
 ***
 
@@ -10118,7 +10118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1264](https://github.com/Sitecor
 
 > **Temple**: `"Office/16x16/temple.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1265](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1265)
+Defined in: [manifest/generator/SitecoreIcon.ts:1265](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1265)
 
 ***
 
@@ -10126,7 +10126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1265](https://github.com/Sitecor
 
 > **TennisBall**: `"Office/16x16/tennis_ball.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1266](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1266)
+Defined in: [manifest/generator/SitecoreIcon.ts:1266](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1266)
 
 ***
 
@@ -10134,7 +10134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1266](https://github.com/Sitecor
 
 > **Tent**: `"Office/16x16/tent.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1267](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1267)
+Defined in: [manifest/generator/SitecoreIcon.ts:1267](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1267)
 
 ***
 
@@ -10142,7 +10142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1267](https://github.com/Sitecor
 
 > **Terrorist**: `"Office/16x16/terrorist.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1268](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1268)
+Defined in: [manifest/generator/SitecoreIcon.ts:1268](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1268)
 
 ***
 
@@ -10150,7 +10150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1268](https://github.com/Sitecor
 
 > **TestCard**: `"Office/16x16/test_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1269](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1269)
+Defined in: [manifest/generator/SitecoreIcon.ts:1269](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1269)
 
 ***
 
@@ -10158,7 +10158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1269](https://github.com/Sitecor
 
 > **Text**: `"Office/16x16/text.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1270](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1270)
+Defined in: [manifest/generator/SitecoreIcon.ts:1270](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1270)
 
 ***
 
@@ -10166,7 +10166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1270](https://github.com/Sitecor
 
 > **TextAlign\_center**: `"Office/16x16/text_align_center.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1271](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1271)
+Defined in: [manifest/generator/SitecoreIcon.ts:1271](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1271)
 
 ***
 
@@ -10174,7 +10174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1271](https://github.com/Sitecor
 
 > **TextAlign\_justified**: `"Office/16x16/text_align_justified.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1272](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1272)
+Defined in: [manifest/generator/SitecoreIcon.ts:1272](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1272)
 
 ***
 
@@ -10182,7 +10182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1272](https://github.com/Sitecor
 
 > **TextAlign\_left**: `"Office/16x16/text_align_left.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1273](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1273)
+Defined in: [manifest/generator/SitecoreIcon.ts:1273](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1273)
 
 ***
 
@@ -10190,7 +10190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1273](https://github.com/Sitecor
 
 > **TextAlign\_right**: `"Office/16x16/text_align_right.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1274](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1274)
+Defined in: [manifest/generator/SitecoreIcon.ts:1274](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1274)
 
 ***
 
@@ -10198,7 +10198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1274](https://github.com/Sitecor
 
 > **TextBraille**: `"Office/16x16/text_braille.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1275](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1275)
+Defined in: [manifest/generator/SitecoreIcon.ts:1275](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1275)
 
 ***
 
@@ -10206,7 +10206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1275](https://github.com/Sitecor
 
 > **TextField**: `"Office/16x16/text_field.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1276](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1276)
+Defined in: [manifest/generator/SitecoreIcon.ts:1276](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1276)
 
 ***
 
@@ -10214,7 +10214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1276](https://github.com/Sitecor
 
 > **TextSpeaker**: `"Office/16x16/text_speaker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1277](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1277)
+Defined in: [manifest/generator/SitecoreIcon.ts:1277](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1277)
 
 ***
 
@@ -10222,7 +10222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1277](https://github.com/Sitecor
 
 > **Thermometer**: `"Office/16x16/thermometer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1278](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1278)
+Defined in: [manifest/generator/SitecoreIcon.ts:1278](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1278)
 
 ***
 
@@ -10230,7 +10230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1278](https://github.com/Sitecor
 
 > **Thermometer2**: `"Office/16x16/thermometer2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1279](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1279)
+Defined in: [manifest/generator/SitecoreIcon.ts:1279](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1279)
 
 ***
 
@@ -10238,7 +10238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1279](https://github.com/Sitecor
 
 > **Thought**: `"Office/16x16/thought.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1280](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1280)
+Defined in: [manifest/generator/SitecoreIcon.ts:1280](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1280)
 
 ***
 
@@ -10246,7 +10246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1280](https://github.com/Sitecor
 
 > **Thread**: `"Office/16x16/thread.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1281](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1281)
+Defined in: [manifest/generator/SitecoreIcon.ts:1281](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1281)
 
 ***
 
@@ -10254,7 +10254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1281](https://github.com/Sitecor
 
 > **Ticket**: `"Office/16x16/ticket.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1282](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1282)
+Defined in: [manifest/generator/SitecoreIcon.ts:1282](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1282)
 
 ***
 
@@ -10262,7 +10262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1282](https://github.com/Sitecor
 
 > **Timer**: `"Office/16x16/timer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1283](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1283)
+Defined in: [manifest/generator/SitecoreIcon.ts:1283](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1283)
 
 ***
 
@@ -10270,7 +10270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1283](https://github.com/Sitecor
 
 > **Toolbox**: `"Office/16x16/toolbox.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1284](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1284)
+Defined in: [manifest/generator/SitecoreIcon.ts:1284](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1284)
 
 ***
 
@@ -10278,7 +10278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1284](https://github.com/Sitecor
 
 > **Tools**: `"Office/16x16/tools.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1285](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1285)
+Defined in: [manifest/generator/SitecoreIcon.ts:1285](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1285)
 
 ***
 
@@ -10286,7 +10286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1285](https://github.com/Sitecor
 
 > **ToolTip**: `"Office/16x16/tool_tip.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1286](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1286)
+Defined in: [manifest/generator/SitecoreIcon.ts:1286](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1286)
 
 ***
 
@@ -10294,7 +10294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1286](https://github.com/Sitecor
 
 > **Tooth**: `"Office/16x16/tooth.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1287](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1287)
+Defined in: [manifest/generator/SitecoreIcon.ts:1287](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1287)
 
 ***
 
@@ -10302,7 +10302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1287](https://github.com/Sitecor
 
 > **ToothCarious**: `"Office/16x16/tooth_carious.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1288](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1288)
+Defined in: [manifest/generator/SitecoreIcon.ts:1288](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1288)
 
 ***
 
@@ -10310,7 +10310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1288](https://github.com/Sitecor
 
 > **Torpedo**: `"Office/16x16/torpedo.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1289](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1289)
+Defined in: [manifest/generator/SitecoreIcon.ts:1289](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1289)
 
 ***
 
@@ -10318,7 +10318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1289](https://github.com/Sitecor
 
 > **Touch**: `"Office/16x16/touch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1290](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1290)
+Defined in: [manifest/generator/SitecoreIcon.ts:1290](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1290)
 
 ***
 
@@ -10326,7 +10326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1290](https://github.com/Sitecor
 
 > **TowerCrane**: `"Office/16x16/tower_crane.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1291](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1291)
+Defined in: [manifest/generator/SitecoreIcon.ts:1291](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1291)
 
 ***
 
@@ -10334,7 +10334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1291](https://github.com/Sitecor
 
 > **Tractor**: `"Office/16x16/tractor.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1292](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1292)
+Defined in: [manifest/generator/SitecoreIcon.ts:1292](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1292)
 
 ***
 
@@ -10342,7 +10342,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1292](https://github.com/Sitecor
 
 > **TrafficlightGreen**: `"Office/16x16/trafficlight_green.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1293](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1293)
+Defined in: [manifest/generator/SitecoreIcon.ts:1293](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1293)
 
 ***
 
@@ -10350,7 +10350,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1293](https://github.com/Sitecor
 
 > **TrafficlightOff**: `"Office/16x16/trafficlight_off.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1294](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1294)
+Defined in: [manifest/generator/SitecoreIcon.ts:1294](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1294)
 
 ***
 
@@ -10358,7 +10358,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1294](https://github.com/Sitecor
 
 > **TrafficlightOn**: `"Office/16x16/trafficlight_on.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1295](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1295)
+Defined in: [manifest/generator/SitecoreIcon.ts:1295](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1295)
 
 ***
 
@@ -10366,7 +10366,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1295](https://github.com/Sitecor
 
 > **TrafficlightRed**: `"Office/16x16/trafficlight_red.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1296](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1296)
+Defined in: [manifest/generator/SitecoreIcon.ts:1296](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1296)
 
 ***
 
@@ -10374,7 +10374,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1296](https://github.com/Sitecor
 
 > **TrafficlightRed\_yellow**: `"Office/16x16/trafficlight_red_yellow.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1297](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1297)
+Defined in: [manifest/generator/SitecoreIcon.ts:1297](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1297)
 
 ***
 
@@ -10382,7 +10382,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1297](https://github.com/Sitecor
 
 > **TrafficlightYellow**: `"Office/16x16/trafficlight_yellow.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1298](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1298)
+Defined in: [manifest/generator/SitecoreIcon.ts:1298](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1298)
 
 ***
 
@@ -10390,7 +10390,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1298](https://github.com/Sitecor
 
 > **Transfer**: `"Office/16x16/transfer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1299](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1299)
+Defined in: [manifest/generator/SitecoreIcon.ts:1299](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1299)
 
 ***
 
@@ -10398,7 +10398,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1299](https://github.com/Sitecor
 
 > **Tree**: `"Office/16x16/tree.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1300](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1300)
+Defined in: [manifest/generator/SitecoreIcon.ts:1300](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1300)
 
 ***
 
@@ -10406,7 +10406,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1300](https://github.com/Sitecor
 
 > **TrojanHorse**: `"Office/16x16/trojan_horse.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1301](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1301)
+Defined in: [manifest/generator/SitecoreIcon.ts:1301](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1301)
 
 ***
 
@@ -10414,7 +10414,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1301](https://github.com/Sitecor
 
 > **Trophy**: `"Office/16x16/trophy.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1302](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1302)
+Defined in: [manifest/generator/SitecoreIcon.ts:1302](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1302)
 
 ***
 
@@ -10422,7 +10422,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1302](https://github.com/Sitecor
 
 > **Truck**: `"Office/16x16/truck.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1303](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1303)
+Defined in: [manifest/generator/SitecoreIcon.ts:1303](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1303)
 
 ***
 
@@ -10430,7 +10430,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1303](https://github.com/Sitecor
 
 > **Truck2**: `"Office/16x16/truck2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1304](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1304)
+Defined in: [manifest/generator/SitecoreIcon.ts:1304](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1304)
 
 ***
 
@@ -10438,7 +10438,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1304](https://github.com/Sitecor
 
 > **TruckContainer**: `"Office/16x16/truck_container.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1305](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1305)
+Defined in: [manifest/generator/SitecoreIcon.ts:1305](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1305)
 
 ***
 
@@ -10446,7 +10446,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1305](https://github.com/Sitecor
 
 > **Tv**: `"Office/16x16/tv.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1306](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1306)
+Defined in: [manifest/generator/SitecoreIcon.ts:1306](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1306)
 
 ***
 
@@ -10454,7 +10454,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1306](https://github.com/Sitecor
 
 > **Ufo**: `"Office/16x16/ufo.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1307](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1307)
+Defined in: [manifest/generator/SitecoreIcon.ts:1307](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1307)
 
 ***
 
@@ -10462,7 +10462,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1307](https://github.com/Sitecor
 
 > **UmbrellaClosed**: `"Office/16x16/umbrella_closed.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1308](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1308)
+Defined in: [manifest/generator/SitecoreIcon.ts:1308](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1308)
 
 ***
 
@@ -10470,7 +10470,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1308](https://github.com/Sitecor
 
 > **UmbrellaOpen**: `"Office/16x16/umbrella_open.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1309](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1309)
+Defined in: [manifest/generator/SitecoreIcon.ts:1309](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1309)
 
 ***
 
@@ -10478,7 +10478,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1309](https://github.com/Sitecor
 
 > **UncloneItem**: `"Office/16x16/unclone_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1310](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1310)
+Defined in: [manifest/generator/SitecoreIcon.ts:1310](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1310)
 
 ***
 
@@ -10486,7 +10486,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1310](https://github.com/Sitecor
 
 > **Undo**: `"Office/16x16/undo.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1311](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1311)
+Defined in: [manifest/generator/SitecoreIcon.ts:1311](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1311)
 
 ***
 
@@ -10494,7 +10494,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1311](https://github.com/Sitecor
 
 > **Uninstall**: `"Office/16x16/uninstall.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1312](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1312)
+Defined in: [manifest/generator/SitecoreIcon.ts:1312](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1312)
 
 ***
 
@@ -10502,7 +10502,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1312](https://github.com/Sitecor
 
 > **UpdateDatabase**: `"Office/16x16/update_database.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1313](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1313)
+Defined in: [manifest/generator/SitecoreIcon.ts:1313](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1313)
 
 ***
 
@@ -10510,7 +10510,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1313](https://github.com/Sitecor
 
 > **UpdateItem**: `"Office/16x16/update_item.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1314](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1314)
+Defined in: [manifest/generator/SitecoreIcon.ts:1314](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1314)
 
 ***
 
@@ -10518,7 +10518,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1314](https://github.com/Sitecor
 
 > **UpdateTree**: `"Office/16x16/update_tree.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1315](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1315)
+Defined in: [manifest/generator/SitecoreIcon.ts:1315](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1315)
 
 ***
 
@@ -10526,7 +10526,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1315](https://github.com/Sitecor
 
 > **Upload**: `"Office/16x16/upload.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1316](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1316)
+Defined in: [manifest/generator/SitecoreIcon.ts:1316](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1316)
 
 ***
 
@@ -10534,7 +10534,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1316](https://github.com/Sitecor
 
 > **User**: `"Office/16x16/user.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1317](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1317)
+Defined in: [manifest/generator/SitecoreIcon.ts:1317](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1317)
 
 ***
 
@@ -10542,7 +10542,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1317](https://github.com/Sitecor
 
 > **UserEarth**: `"Office/16x16/user_earth.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1328](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1328)
+Defined in: [manifest/generator/SitecoreIcon.ts:1328](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1328)
 
 ***
 
@@ -10550,7 +10550,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1328](https://github.com/Sitecor
 
 > **UserGlasses**: `"Office/16x16/user_glasses.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1329](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1329)
+Defined in: [manifest/generator/SitecoreIcon.ts:1329](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1329)
 
 ***
 
@@ -10558,7 +10558,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1329](https://github.com/Sitecor
 
 > **UserHeadphones**: `"Office/16x16/user_headphones.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1330](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1330)
+Defined in: [manifest/generator/SitecoreIcon.ts:1330](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1330)
 
 ***
 
@@ -10566,7 +10566,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1330](https://github.com/Sitecor
 
 > **UserHeadset**: `"Office/16x16/user_headset.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1331](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1331)
+Defined in: [manifest/generator/SitecoreIcon.ts:1331](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1331)
 
 ***
 
@@ -10574,7 +10574,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1331](https://github.com/Sitecor
 
 > **UserMessage**: `"Office/16x16/user_message.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1332](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1332)
+Defined in: [manifest/generator/SitecoreIcon.ts:1332](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1332)
 
 ***
 
@@ -10582,7 +10582,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1332](https://github.com/Sitecor
 
 > **UserMonitor**: `"Office/16x16/user_monitor.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1333](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1333)
+Defined in: [manifest/generator/SitecoreIcon.ts:1333](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1333)
 
 ***
 
@@ -10590,7 +10590,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1333](https://github.com/Sitecor
 
 > **Users**: `"Office/16x16/users.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1318](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1318)
+Defined in: [manifest/generator/SitecoreIcon.ts:1318](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1318)
 
 ***
 
@@ -10598,7 +10598,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1318](https://github.com/Sitecor
 
 > **Users2**: `"Office/16x16/users2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1319](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1319)
+Defined in: [manifest/generator/SitecoreIcon.ts:1319](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1319)
 
 ***
 
@@ -10606,7 +10606,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1319](https://github.com/Sitecor
 
 > **Users3**: `"Office/16x16/users3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1320](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1320)
+Defined in: [manifest/generator/SitecoreIcon.ts:1320](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1320)
 
 ***
 
@@ -10614,7 +10614,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1320](https://github.com/Sitecor
 
 > **Users4**: `"Office/16x16/users4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1321](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1321)
+Defined in: [manifest/generator/SitecoreIcon.ts:1321](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1321)
 
 ***
 
@@ -10622,7 +10622,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1321](https://github.com/Sitecor
 
 > **Users5**: `"Office/16x16/users5.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1322](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1322)
+Defined in: [manifest/generator/SitecoreIcon.ts:1322](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1322)
 
 ***
 
@@ -10630,7 +10630,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1322](https://github.com/Sitecor
 
 > **UsersCrowd**: `"Office/16x16/users_crowd.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1323](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1323)
+Defined in: [manifest/generator/SitecoreIcon.ts:1323](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1323)
 
 ***
 
@@ -10638,7 +10638,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1323](https://github.com/Sitecor
 
 > **UsersFamily**: `"Office/16x16/users_family.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1324](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1324)
+Defined in: [manifest/generator/SitecoreIcon.ts:1324](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1324)
 
 ***
 
@@ -10646,7 +10646,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1324](https://github.com/Sitecor
 
 > **UserSmartphone**: `"Office/16x16/user_smartphone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1334](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1334)
+Defined in: [manifest/generator/SitecoreIcon.ts:1334](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1334)
 
 ***
 
@@ -10654,7 +10654,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1334](https://github.com/Sitecor
 
 > **UsersMeeting**: `"Office/16x16/users_meeting.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1325](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1325)
+Defined in: [manifest/generator/SitecoreIcon.ts:1325](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1325)
 
 ***
 
@@ -10662,7 +10662,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1325](https://github.com/Sitecor
 
 > **UsersRelation**: `"Office/16x16/users_relation.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1326](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1326)
+Defined in: [manifest/generator/SitecoreIcon.ts:1326](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1326)
 
 ***
 
@@ -10670,7 +10670,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1326](https://github.com/Sitecor
 
 > **UsersRelation2**: `"Office/16x16/users_relation2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1327](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1327)
+Defined in: [manifest/generator/SitecoreIcon.ts:1327](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1327)
 
 ***
 
@@ -10678,7 +10678,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1327](https://github.com/Sitecor
 
 > **UserTelephone**: `"Office/16x16/user_telephone.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1335](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1335)
+Defined in: [manifest/generator/SitecoreIcon.ts:1335](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1335)
 
 ***
 
@@ -10686,7 +10686,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1335](https://github.com/Sitecor
 
 > **UtilityKnife**: `"Office/16x16/utility_knife.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1336](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1336)
+Defined in: [manifest/generator/SitecoreIcon.ts:1336](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1336)
 
 ***
 
@@ -10694,7 +10694,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1336](https://github.com/Sitecor
 
 > **ValidationRules**: `"Office/16x16/validation_rules.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1337](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1337)
+Defined in: [manifest/generator/SitecoreIcon.ts:1337](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1337)
 
 ***
 
@@ -10702,7 +10702,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1337](https://github.com/Sitecor
 
 > **Van**: `"Office/16x16/van.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1338](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1338)
+Defined in: [manifest/generator/SitecoreIcon.ts:1338](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1338)
 
 ***
 
@@ -10710,7 +10710,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1338](https://github.com/Sitecor
 
 > **VectorCircle**: `"Office/16x16/vector_circle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1339](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1339)
+Defined in: [manifest/generator/SitecoreIcon.ts:1339](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1339)
 
 ***
 
@@ -10718,7 +10718,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1339](https://github.com/Sitecor
 
 > **VectorCurve\_cubic**: `"Office/16x16/vector_curve_cubic.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1340](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1340)
+Defined in: [manifest/generator/SitecoreIcon.ts:1340](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1340)
 
 ***
 
@@ -10726,7 +10726,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1340](https://github.com/Sitecor
 
 > **VectorCurve\_quadratic**: `"Office/16x16/vector_curve_quadratic.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1341](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1341)
+Defined in: [manifest/generator/SitecoreIcon.ts:1341](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1341)
 
 ***
 
@@ -10734,7 +10734,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1341](https://github.com/Sitecor
 
 > **VectorEllipse**: `"Office/16x16/vector_ellipse.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1342](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1342)
+Defined in: [manifest/generator/SitecoreIcon.ts:1342](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1342)
 
 ***
 
@@ -10742,7 +10742,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1342](https://github.com/Sitecor
 
 > **VectorLine**: `"Office/16x16/vector_line.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1343](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1343)
+Defined in: [manifest/generator/SitecoreIcon.ts:1343](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1343)
 
 ***
 
@@ -10750,7 +10750,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1343](https://github.com/Sitecor
 
 > **VectorSquare**: `"Office/16x16/vector_square.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1344](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1344)
+Defined in: [manifest/generator/SitecoreIcon.ts:1344](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1344)
 
 ***
 
@@ -10758,7 +10758,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1344](https://github.com/Sitecor
 
 > **VectorTriangle**: `"Office/16x16/vector_triangle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1345](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1345)
+Defined in: [manifest/generator/SitecoreIcon.ts:1345](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1345)
 
 ***
 
@@ -10766,7 +10766,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1345](https://github.com/Sitecor
 
 > **VideoCamera**: `"Office/16x16/video_camera.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1347](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1347)
+Defined in: [manifest/generator/SitecoreIcon.ts:1347](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1347)
 
 ***
 
@@ -10774,7 +10774,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1347](https://github.com/Sitecor
 
 > **VideoChat**: `"Office/16x16/video_chat.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1348](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1348)
+Defined in: [manifest/generator/SitecoreIcon.ts:1348](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1348)
 
 ***
 
@@ -10782,7 +10782,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1348](https://github.com/Sitecor
 
 > **VideoChat2**: `"Office/16x16/video_chat2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1349](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1349)
+Defined in: [manifest/generator/SitecoreIcon.ts:1349](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1349)
 
 ***
 
@@ -10790,7 +10790,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1349](https://github.com/Sitecor
 
 > **Videotape**: `"Office/16x16/videotape.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1346](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1346)
+Defined in: [manifest/generator/SitecoreIcon.ts:1346](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1346)
 
 ***
 
@@ -10798,7 +10798,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1346](https://github.com/Sitecor
 
 > **View1\_1**: `"Office/16x16/view_1_1.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1350](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1350)
+Defined in: [manifest/generator/SitecoreIcon.ts:1350](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1350)
 
 ***
 
@@ -10806,7 +10806,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1350](https://github.com/Sitecor
 
 > **ViewLocked\_documents**: `"Office/16x16/view_locked_documents.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1351](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1351)
+Defined in: [manifest/generator/SitecoreIcon.ts:1351](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1351)
 
 ***
 
@@ -10814,7 +10814,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1351](https://github.com/Sitecor
 
 > **Virus**: `"Office/16x16/virus.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1352](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1352)
+Defined in: [manifest/generator/SitecoreIcon.ts:1352](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1352)
 
 ***
 
@@ -10822,7 +10822,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1352](https://github.com/Sitecor
 
 > **WalkieTalkie**: `"Office/16x16/walkie_talkie.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1353](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1353)
+Defined in: [manifest/generator/SitecoreIcon.ts:1353](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1353)
 
 ***
 
@@ -10830,7 +10830,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1353](https://github.com/Sitecor
 
 > **WallBarbed\_wire**: `"Office/16x16/wall_barbed_wire.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1355](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1355)
+Defined in: [manifest/generator/SitecoreIcon.ts:1355](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1355)
 
 ***
 
@@ -10838,7 +10838,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1355](https://github.com/Sitecor
 
 > **Wallet**: `"Office/16x16/wallet.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1354](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1354)
+Defined in: [manifest/generator/SitecoreIcon.ts:1354](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1354)
 
 ***
 
@@ -10846,7 +10846,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1354](https://github.com/Sitecor
 
 > **Water**: `"Office/16x16/water.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1356](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1356)
+Defined in: [manifest/generator/SitecoreIcon.ts:1356](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1356)
 
 ***
 
@@ -10854,7 +10854,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1356](https://github.com/Sitecor
 
 > **WaterFish**: `"Office/16x16/water_fish.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1359](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1359)
+Defined in: [manifest/generator/SitecoreIcon.ts:1359](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1359)
 
 ***
 
@@ -10862,7 +10862,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1359](https://github.com/Sitecor
 
 > **WateringCan**: `"Office/16x16/watering_can.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1357](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1357)
+Defined in: [manifest/generator/SitecoreIcon.ts:1357](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1357)
 
 ***
 
@@ -10870,7 +10870,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1357](https://github.com/Sitecor
 
 > **WateringCan\_half**: `"Office/16x16/watering_can_half.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1358](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1358)
+Defined in: [manifest/generator/SitecoreIcon.ts:1358](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1358)
 
 ***
 
@@ -10878,7 +10878,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1358](https://github.com/Sitecor
 
 > **WaterTap**: `"Office/16x16/water_tap.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1360](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1360)
+Defined in: [manifest/generator/SitecoreIcon.ts:1360](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1360)
 
 ***
 
@@ -10886,7 +10886,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1360](https://github.com/Sitecor
 
 > **WaxSeal**: `"Office/16x16/wax_seal.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1361](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1361)
+Defined in: [manifest/generator/SitecoreIcon.ts:1361](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1361)
 
 ***
 
@@ -10894,7 +10894,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1361](https://github.com/Sitecor
 
 > **WaxSeal\_broken**: `"Office/16x16/wax_seal_broken.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1362](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1362)
+Defined in: [manifest/generator/SitecoreIcon.ts:1362](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1362)
 
 ***
 
@@ -10902,7 +10902,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1362](https://github.com/Sitecor
 
 > **Web**: `"Office/16x16/web.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1363](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1363)
+Defined in: [manifest/generator/SitecoreIcon.ts:1363](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1363)
 
 ***
 
@@ -10910,7 +10910,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1363](https://github.com/Sitecor
 
 > **Webcam**: `"Office/16x16/webcam.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1364](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1364)
+Defined in: [manifest/generator/SitecoreIcon.ts:1364](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1364)
 
 ***
 
@@ -10918,7 +10918,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1364](https://github.com/Sitecor
 
 > **Weight**: `"Office/16x16/weight.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1365](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1365)
+Defined in: [manifest/generator/SitecoreIcon.ts:1365](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1365)
 
 ***
 
@@ -10926,7 +10926,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1365](https://github.com/Sitecor
 
 > **Weight2**: `"Office/16x16/weight2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1366](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1366)
+Defined in: [manifest/generator/SitecoreIcon.ts:1366](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1366)
 
 ***
 
@@ -10934,7 +10934,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1366](https://github.com/Sitecor
 
 > **Wheel**: `"Office/16x16/wheel.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1367](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1367)
+Defined in: [manifest/generator/SitecoreIcon.ts:1367](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1367)
 
 ***
 
@@ -10942,7 +10942,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1367](https://github.com/Sitecor
 
 > **WheelLoader**: `"Office/16x16/wheel_loader.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1368](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1368)
+Defined in: [manifest/generator/SitecoreIcon.ts:1368](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1368)
 
 ***
 
@@ -10950,7 +10950,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1368](https://github.com/Sitecor
 
 > **Whistle**: `"Office/16x16/whistle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1369](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1369)
+Defined in: [manifest/generator/SitecoreIcon.ts:1369](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1369)
 
 ***
 
@@ -10958,7 +10958,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1369](https://github.com/Sitecor
 
 > **WhistleNoise**: `"Office/16x16/whistle_noise.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1370](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1370)
+Defined in: [manifest/generator/SitecoreIcon.ts:1370](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1370)
 
 ***
 
@@ -10966,7 +10966,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1370](https://github.com/Sitecor
 
 > **WindEngine**: `"Office/16x16/wind_engine.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1397](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1397)
+Defined in: [manifest/generator/SitecoreIcon.ts:1397](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1397)
 
 ***
 
@@ -10974,7 +10974,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1397](https://github.com/Sitecor
 
 > **WindEngine\_offshore**: `"Office/16x16/wind_engine_offshore.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1398](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1398)
+Defined in: [manifest/generator/SitecoreIcon.ts:1398](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1398)
 
 ***
 
@@ -10982,7 +10982,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1398](https://github.com/Sitecor
 
 > **Window**: `"Office/16x16/window.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1371](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1371)
+Defined in: [manifest/generator/SitecoreIcon.ts:1371](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1371)
 
 ***
 
@@ -10990,7 +10990,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1371](https://github.com/Sitecor
 
 > **WindowCd**: `"Office/16x16/window_cd.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1374](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1374)
+Defined in: [manifest/generator/SitecoreIcon.ts:1374](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1374)
 
 ***
 
@@ -10998,7 +10998,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1374](https://github.com/Sitecor
 
 > **WindowClose**: `"Office/16x16/window_close.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1375](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1375)
+Defined in: [manifest/generator/SitecoreIcon.ts:1375](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1375)
 
 ***
 
@@ -11006,7 +11006,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1375](https://github.com/Sitecor
 
 > **WindowDialog**: `"Office/16x16/window_dialog.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1376](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1376)
+Defined in: [manifest/generator/SitecoreIcon.ts:1376](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1376)
 
 ***
 
@@ -11014,7 +11014,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1376](https://github.com/Sitecor
 
 > **WindowEarth**: `"Office/16x16/window_earth.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1377](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1377)
+Defined in: [manifest/generator/SitecoreIcon.ts:1377](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1377)
 
 ***
 
@@ -11022,7 +11022,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1377](https://github.com/Sitecor
 
 > **WindowEqualizer**: `"Office/16x16/window_equalizer.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1378](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1378)
+Defined in: [manifest/generator/SitecoreIcon.ts:1378](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1378)
 
 ***
 
@@ -11030,7 +11030,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1378](https://github.com/Sitecor
 
 > **WindowFont**: `"Office/16x16/window_font.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1379](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1379)
+Defined in: [manifest/generator/SitecoreIcon.ts:1379](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1379)
 
 ***
 
@@ -11038,7 +11038,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1379](https://github.com/Sitecor
 
 > **WindowGear**: `"Office/16x16/window_gear.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1380](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1380)
+Defined in: [manifest/generator/SitecoreIcon.ts:1380](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1380)
 
 ***
 
@@ -11046,7 +11046,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1380](https://github.com/Sitecor
 
 > **WindowHeight**: `"Office/16x16/window_height.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1381](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1381)
+Defined in: [manifest/generator/SitecoreIcon.ts:1381](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1381)
 
 ***
 
@@ -11054,7 +11054,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1381](https://github.com/Sitecor
 
 > **WindowKey**: `"Office/16x16/window_key.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1382](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1382)
+Defined in: [manifest/generator/SitecoreIcon.ts:1382](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1382)
 
 ***
 
@@ -11062,7 +11062,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1382](https://github.com/Sitecor
 
 > **WindowNetwork**: `"Office/16x16/window_network.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1383](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1383)
+Defined in: [manifest/generator/SitecoreIcon.ts:1383](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1383)
 
 ***
 
@@ -11070,7 +11070,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1383](https://github.com/Sitecor
 
 > **WindowOscillograph**: `"Office/16x16/window_oscillograph.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1384](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1384)
+Defined in: [manifest/generator/SitecoreIcon.ts:1384](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1384)
 
 ***
 
@@ -11078,7 +11078,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1384](https://github.com/Sitecor
 
 > **Windows**: `"Office/16x16/windows.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1372](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1372)
+Defined in: [manifest/generator/SitecoreIcon.ts:1372](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1372)
 
 ***
 
@@ -11086,7 +11086,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1372](https://github.com/Sitecor
 
 > **WindowsClose**: `"Office/16x16/windows_close.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1373](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1373)
+Defined in: [manifest/generator/SitecoreIcon.ts:1373](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1373)
 
 ***
 
@@ -11094,7 +11094,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1373](https://github.com/Sitecor
 
 > **WindowSidebar**: `"Office/16x16/window_sidebar.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1385](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1385)
+Defined in: [manifest/generator/SitecoreIcon.ts:1385](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1385)
 
 ***
 
@@ -11102,7 +11102,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1385](https://github.com/Sitecor
 
 > **WindowSize**: `"Office/16x16/window_size.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1386](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1386)
+Defined in: [manifest/generator/SitecoreIcon.ts:1386](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1386)
 
 ***
 
@@ -11110,7 +11110,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1386](https://github.com/Sitecor
 
 > **WindowSplit\_hor**: `"Office/16x16/window_split_hor.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1387](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1387)
+Defined in: [manifest/generator/SitecoreIcon.ts:1387](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1387)
 
 ***
 
@@ -11118,7 +11118,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1387](https://github.com/Sitecor
 
 > **WindowSplit\_ver**: `"Office/16x16/window_split_ver.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1388](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1388)
+Defined in: [manifest/generator/SitecoreIcon.ts:1388](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1388)
 
 ***
 
@@ -11126,7 +11126,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1388](https://github.com/Sitecor
 
 > **WindowStar**: `"Office/16x16/window_star.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1389](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1389)
+Defined in: [manifest/generator/SitecoreIcon.ts:1389](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1389)
 
 ***
 
@@ -11134,7 +11134,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1389](https://github.com/Sitecor
 
 > **WindowTest\_card**: `"Office/16x16/window_test_card.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1390](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1390)
+Defined in: [manifest/generator/SitecoreIcon.ts:1390](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1390)
 
 ***
 
@@ -11142,7 +11142,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1390](https://github.com/Sitecor
 
 > **WindowTime**: `"Office/16x16/window_time.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1391](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1391)
+Defined in: [manifest/generator/SitecoreIcon.ts:1391](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1391)
 
 ***
 
@@ -11150,7 +11150,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1391](https://github.com/Sitecor
 
 > **WindowTouch**: `"Office/16x16/window_touch.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1392](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1392)
+Defined in: [manifest/generator/SitecoreIcon.ts:1392](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1392)
 
 ***
 
@@ -11158,7 +11158,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1392](https://github.com/Sitecor
 
 > **WindowWarning**: `"Office/16x16/window_warning.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1393](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1393)
+Defined in: [manifest/generator/SitecoreIcon.ts:1393](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1393)
 
 ***
 
@@ -11166,7 +11166,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1393](https://github.com/Sitecor
 
 > **WindowWidth**: `"Office/16x16/window_width.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1394](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1394)
+Defined in: [manifest/generator/SitecoreIcon.ts:1394](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1394)
 
 ***
 
@@ -11174,7 +11174,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1394](https://github.com/Sitecor
 
 > **Windsock**: `"Office/16x16/windsock.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1395](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1395)
+Defined in: [manifest/generator/SitecoreIcon.ts:1395](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1395)
 
 ***
 
@@ -11182,7 +11182,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1395](https://github.com/Sitecor
 
 > **WindupKey**: `"Office/16x16/windup_key.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1396](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1396)
+Defined in: [manifest/generator/SitecoreIcon.ts:1396](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1396)
 
 ***
 
@@ -11190,7 +11190,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1396](https://github.com/Sitecor
 
 > **Wine**: `"Office/16x16/wine.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1399](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1399)
+Defined in: [manifest/generator/SitecoreIcon.ts:1399](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1399)
 
 ***
 
@@ -11198,7 +11198,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1399](https://github.com/Sitecor
 
 > **WineBottle**: `"Office/16x16/wine_bottle.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1400](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1400)
+Defined in: [manifest/generator/SitecoreIcon.ts:1400](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1400)
 
 ***
 
@@ -11206,7 +11206,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1400](https://github.com/Sitecor
 
 > **WineGlass**: `"Office/16x16/wine_glass.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1401](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1401)
+Defined in: [manifest/generator/SitecoreIcon.ts:1401](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1401)
 
 ***
 
@@ -11214,7 +11214,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1401](https://github.com/Sitecor
 
 > **WlanAntenna**: `"Office/16x16/wlan_antenna.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1402](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1402)
+Defined in: [manifest/generator/SitecoreIcon.ts:1402](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1402)
 
 ***
 
@@ -11222,7 +11222,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1402](https://github.com/Sitecor
 
 > **WlanRouter**: `"Office/16x16/wlan_router.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1403](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1403)
+Defined in: [manifest/generator/SitecoreIcon.ts:1403](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1403)
 
 ***
 
@@ -11230,7 +11230,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1403](https://github.com/Sitecor
 
 > **Woman1**: `"Office/16x16/woman_1.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1404](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1404)
+Defined in: [manifest/generator/SitecoreIcon.ts:1404](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1404)
 
 ***
 
@@ -11238,7 +11238,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1404](https://github.com/Sitecor
 
 > **Woman2**: `"Office/16x16/woman_2.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1405](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1405)
+Defined in: [manifest/generator/SitecoreIcon.ts:1405](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1405)
 
 ***
 
@@ -11246,7 +11246,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1405](https://github.com/Sitecor
 
 > **Woman3**: `"Office/16x16/woman_3.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1406](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1406)
+Defined in: [manifest/generator/SitecoreIcon.ts:1406](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1406)
 
 ***
 
@@ -11254,7 +11254,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1406](https://github.com/Sitecor
 
 > **Woman4**: `"Office/16x16/woman_4.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1407](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1407)
+Defined in: [manifest/generator/SitecoreIcon.ts:1407](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1407)
 
 ***
 
@@ -11262,7 +11262,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1407](https://github.com/Sitecor
 
 > **Woman5**: `"Office/16x16/woman_5.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1408](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1408)
+Defined in: [manifest/generator/SitecoreIcon.ts:1408](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1408)
 
 ***
 
@@ -11270,7 +11270,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1408](https://github.com/Sitecor
 
 > **Woman6**: `"Office/16x16/woman_6.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1409](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1409)
+Defined in: [manifest/generator/SitecoreIcon.ts:1409](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1409)
 
 ***
 
@@ -11278,7 +11278,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1409](https://github.com/Sitecor
 
 > **Woman7**: `"Office/16x16/woman_7.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1410](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1410)
+Defined in: [manifest/generator/SitecoreIcon.ts:1410](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1410)
 
 ***
 
@@ -11286,7 +11286,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1410](https://github.com/Sitecor
 
 > **Woman8**: `"Office/16x16/woman_8.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1411](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1411)
+Defined in: [manifest/generator/SitecoreIcon.ts:1411](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1411)
 
 ***
 
@@ -11294,7 +11294,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1411](https://github.com/Sitecor
 
 > **Worker**: `"Office/16x16/worker.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1412](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1412)
+Defined in: [manifest/generator/SitecoreIcon.ts:1412](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1412)
 
 ***
 
@@ -11302,7 +11302,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1412](https://github.com/Sitecor
 
 > **Workplace**: `"Office/16x16/workplace.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1413](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1413)
+Defined in: [manifest/generator/SitecoreIcon.ts:1413](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1413)
 
 ***
 
@@ -11310,7 +11310,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1413](https://github.com/Sitecor
 
 > **Workstation**: `"Office/16x16/workstation.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1414](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1414)
+Defined in: [manifest/generator/SitecoreIcon.ts:1414](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1414)
 
 ***
 
@@ -11318,7 +11318,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1414](https://github.com/Sitecor
 
 > **Wrench**: `"Office/16x16/wrench.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1415](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1415)
+Defined in: [manifest/generator/SitecoreIcon.ts:1415](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1415)
 
 ***
 
@@ -11326,7 +11326,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1415](https://github.com/Sitecor
 
 > **Yinyang**: `"Office/16x16/yinyang.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1416](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1416)
+Defined in: [manifest/generator/SitecoreIcon.ts:1416](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1416)
 
 ***
 
@@ -11334,7 +11334,7 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1416](https://github.com/Sitecor
 
 > **ZoomIn**: `"Office/16x16/zoom_in.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1417](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1417)
+Defined in: [manifest/generator/SitecoreIcon.ts:1417](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1417)
 
 ***
 
@@ -11342,4 +11342,4 @@ Defined in: [manifest/generator/SitecoreIcon.ts:1417](https://github.com/Sitecor
 
 > **ZoomOut**: `"Office/16x16/zoom_out.png"`
 
-Defined in: [manifest/generator/SitecoreIcon.ts:1418](https://github.com/Sitecore/jss/blob/8c8c2fd3ea11ac4977b4c586a483fa5005d4096d/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1418)
+Defined in: [manifest/generator/SitecoreIcon.ts:1418](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/manifest/generator/SitecoreIcon.ts#L1418)
