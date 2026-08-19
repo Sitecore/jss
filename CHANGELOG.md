@@ -15,7 +15,7 @@ Our versioning strategy is as follows:
 
 ### 🎉 New Features & Improvements
 
-* `[sitecore-jss]` `[sitecore-jss-react]` Treat Layout Service `dataSourceResolveFailed` as an invalid datasource in `withDatasourceCheck()`
+* `[sitecore-jss]` `[sitecore-jss-react]` Treat Layout Service `dataSourceResolveFailed` as an invalid datasource in `withDatasourceCheck()` ([#2219](https://github.com/Sitecore/jss/pull/2219))
 
 ### 🐛 Bug Fixes
 
