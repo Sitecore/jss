@@ -14,18 +14,40 @@ export interface WithDatasourceCheckProps {
 
 export interface WithDatasourceCheckOptions {
   /**
-   * A component that is rendered when a datasource is missing during editing.
+   * A component that is rendered when a datasource is missing or failed to resolve during editing.
    * If unspecified, a default component with message is displayed.
    */
   editingErrorComponent?: React.ComponentClass<unknown> | React.FC<unknown>;
 }
 
 /**
- * Checks whether a Sitecore datasource is present and renders appropriately depending on page mode (normal vs editing).
+ * Returns true when the rendering has a datasource and Layout Service did not report a resolve failure.
+ * @param {ComponentRendering} [rendering] rendering data from Layout Service
+ * @returns {boolean} whether the datasource is present and valid
+ */
+function hasValidDatasource(rendering?: ComponentRendering): boolean {
+  if (!rendering?.dataSource) {
+    return false;
+  }
+
+  return rendering.dataSourceResolveFailed !== true;
+}
+
+/**
+ * Checks whether a Sitecore datasource is present and valid, then renders appropriately depending on page mode (normal vs editing).
+ * `dataSourceResolveFailed: true` is treated the same as a missing datasource. If the property is omitted, the original presence check is used.
  * @param {WithDatasourceCheckOptions} [options]
  * @returns
- *  The wrapped component, if a datasource is present.
- *  A null component (in normal mode) or an error component (in editing mode), if a datasource is not present.
+ *  The wrapped component, if a datasource is present and valid.
+ *  A null component (in normal mode) or an error component (in editing mode), if a datasource is missing or failed to resolve.
+ * @example
+ * // Wrap once. Deleted/archived datasources (dataSourceResolveFailed: true) use the same
+ * // fallback as a missing datasource: hide in normal mode, show an editing error in editing mode.
+ * const ContentBlock = (props) => <div>{props.fields.heading}</div>;
+ * export default withDatasourceCheck()(ContentBlock);
+ *
+ * // Layout Service: { componentName: 'ContentBlock', dataSource: '{id}', dataSourceResolveFailed: true }
+ * // → ContentBlock is not rendered; no extra app-level check is required.
  */
 export function withDatasourceCheck(options?: WithDatasourceCheckOptions) {
   return function withDatasourceCheckHoc<ComponentProps extends WithDatasourceCheckProps>(
@@ -35,7 +57,7 @@ export function withDatasourceCheck(options?: WithDatasourceCheckOptions) {
       const { sitecoreContext } = useSitecoreContext();
       const EditingError = options?.editingErrorComponent ?? DefaultEditingError;
 
-      return props.rendering?.dataSource ? (
+      return hasValidDatasource(props.rendering) ? (
         <Component {...props} />
       ) : sitecoreContext.pageEditing ? (
         <EditingError />
