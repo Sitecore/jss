@@ -164,13 +164,13 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.container.innerHTML).to.be.empty;
   });
 
-  it('should return wrapped component when dataSourceResolveFailed is false', () => {
+  it('should return wrapped component when isContentResolved is true', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {
       rendering: {
         componentName: 'TestComponent',
         dataSource: '{CACDB205-2386-4271-9F05-AE20AAC2A39E}',
-        dataSourceResolveFailed: false,
+        isContentResolved: true,
       },
     };
 
@@ -184,13 +184,13 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.container.innerHTML).to.contain(props.rendering.dataSource);
   });
 
-  it('should return wrapped component when dataSourceResolveFailed is false in editing mode', () => {
+  it('should return wrapped component when isContentResolved is true in editing mode', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {
       rendering: {
         componentName: 'TestComponent',
         dataSource: '{CACDB205-2386-4271-9F05-AE20AAC2A39E}',
-        dataSourceResolveFailed: false,
+        isContentResolved: true,
       },
     };
 
@@ -204,13 +204,13 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.container.innerHTML).to.contain(props.rendering.dataSource);
   });
 
-  it('should return null when dataSourceResolveFailed is true in normal mode', () => {
+  it('should return null when isContentResolved is false in normal mode', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {
       rendering: {
         componentName: 'TestComponent',
         dataSource: '{CACDB205-2386-4271-9F05-AE20AAC2A39E}',
-        dataSourceResolveFailed: true,
+        isContentResolved: false,
       },
     };
 
@@ -223,13 +223,13 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.container.innerHTML).to.be.empty;
   });
 
-  it('should return default error component when dataSourceResolveFailed is true in editing mode', () => {
+  it('should return default error component when isContentResolved is false in editing mode', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {
       rendering: {
         componentName: 'TestComponent',
         dataSource: '{CACDB205-2386-4271-9F05-AE20AAC2A39E}',
-        dataSourceResolveFailed: true,
+        isContentResolved: false,
       },
     };
 
@@ -242,13 +242,13 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.container.querySelectorAll('div.sc-jss-editing-error')).to.have.length(1);
   });
 
-  it('should not render when the datasource item was deleted and dataSourceResolveFailed is true', () => {
+  it('should not render when the datasource item was deleted and isContentResolved is false', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {
       rendering: {
         componentName: 'TestComponent',
         dataSource: '{DELETED-DATASOURCE-ID}',
-        dataSourceResolveFailed: true,
+        isContentResolved: false,
       },
     };
 
@@ -261,13 +261,13 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.container.innerHTML).to.be.empty;
   });
 
-  it('should not render when the datasource item was archived and dataSourceResolveFailed is true', () => {
+  it('should not render when the datasource item was archived and isContentResolved is false', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {
       rendering: {
         componentName: 'TestComponent',
         dataSource: '{ARCHIVED-DATASOURCE-ID}',
-        dataSourceResolveFailed: true,
+        isContentResolved: false,
       },
     };
 
@@ -280,13 +280,13 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.container.innerHTML).to.be.empty;
   });
 
-  it('should preserve existing missing-datasource behavior when dataSourceResolveFailed is false', () => {
+  it('should preserve existing missing-datasource behavior when isContentResolved is true', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const props = {
       rendering: {
         componentName: 'TestComponent',
         dataSource: '',
-        dataSourceResolveFailed: false,
+        isContentResolved: true,
       },
     };
 
@@ -299,7 +299,7 @@ describe('withDatasourceCheck', () => {
     expect(wrapper.container.innerHTML).to.be.empty;
   });
 
-  it('should preserve existing behavior when dataSourceResolveFailed is absent', () => {
+  it('should preserve existing behavior when isContentResolved is absent', () => {
     const TestComponentWithDatasourceCheck = withDatasourceCheck()(TestComponent);
     const propsWithDatasource = {
       rendering: {
@@ -334,12 +334,12 @@ describe('withDatasourceCheck', () => {
     const nestedChild = {
       componentName: 'ChildComponent',
       dataSource: '{CHILD-DATASOURCE-ID}',
-      dataSourceResolveFailed: true,
+      isContentResolved: false,
     };
     const parentRendering = {
       componentName: 'ParentComponent',
       dataSource: '{PARENT-DATASOURCE-ID}',
-      dataSourceResolveFailed: false,
+      isContentResolved: true,
       placeholders: {
         nested: [nestedChild],
       },
