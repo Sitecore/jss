@@ -6,7 +6,7 @@
 
 # Class: RedisEditingDataCache
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:34](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L34)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:34](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L34)
 
 Implementation of editing cache backed by a Redis-compatible REST API (e.g. Upstash Redis,
 available as a Vercel Marketplace integration, or any self-hosted Upstash-compatible endpoint).
@@ -22,7 +22,7 @@ Set TTL for cache data in constructor (default: 120 seconds)
 
 > **new RedisEditingDataCache**(`options`): `RedisEditingDataCache`
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L41)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:41](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L41)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:41](htt
 
 > `protected` **redisCache**: `Redis`
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:35](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L35)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:35](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L35)
 
 ## Methods
 
@@ -48,7 +48,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:35](htt
 
 > **get**(`key`): `Promise`\<[`EditingData`](../type-aliases/EditingData.md) \| `undefined`\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:79](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L79)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:79](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L79)
 
 Retrieves editing data for `key` from Redis storage. The entry is expired (invalidated)
 immediately after being read, since it is only ever meant to be retrieved once.
@@ -75,7 +75,7 @@ The [EditingData](../type-aliases/EditingData.md) for `key`, or `undefined` on a
 
 > **set**(`key`, `editingData`): `Promise`\<`void`\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:63](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L63)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:63](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L63)
 
 Stores editing data in Redis storage, keyed by `key`, with a TTL of [RedisEditingDataCacheOptions.defaultTtl](../interfaces/RedisEditingDataCacheOptions.md#defaultttl)
 

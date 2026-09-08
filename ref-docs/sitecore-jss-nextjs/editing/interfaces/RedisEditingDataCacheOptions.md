@@ -6,7 +6,7 @@
 
 # Interface: RedisEditingDataCacheOptions
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:9](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L9)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:9](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L9)
 
 Options for [RedisEditingDataCache](../classes/RedisEditingDataCache.md)
 
@@ -16,7 +16,7 @@ Options for [RedisEditingDataCache](../classes/RedisEditingDataCache.md)
 
 > `optional` **defaultTtl?**: `number`
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:26](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L26)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:26](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L26)
 
 TTL (in seconds) applied to cache entries on `set`
 
@@ -32,7 +32,7 @@ TTL (in seconds) applied to cache entries on `set`
 
 > **redisToken**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:21](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L21)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:21](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L21)
 
 Redis REST API endpoint token. On Vercel, Redis Marketplace integrations (e.g. Upstash) inject this
 as process.env.KV_REST_API_TOKEN - use process.env.UPSTASH_REDIS_REST_TOKEN only if connecting to an
@@ -44,7 +44,7 @@ Upstash database directly, outside of a Vercel integration.
 
 > **redisUrl**: `string`
 
-Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:15](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L15)
+Defined in: [sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts:15](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/redis-editing-data-cache.ts#L15)
 
 Redis REST API endpoint URL. On Vercel, Redis Marketplace integrations (e.g. Upstash) inject this
 as process.env.KV_REST_API_URL - use process.env.UPSTASH_REDIS_REST_URL only if connecting to an
