@@ -6,7 +6,7 @@
 
 # Interface: ImageProps
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:37](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-react/src/components/Image.tsx#L37)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:37](https://github.com/Sitecore/jss/blob/8a860497599fff48344819f724f0293af1acc602/packages/sitecore-jss-react/src/components/Image.tsx#L37)
 
 ## Extends
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:37](https://gi
 
 > `optional` **editable?**: `boolean`
 
-Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
+Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:30](https://github.com/Sitecore/jss/blob/8a860497599fff48344819f724f0293af1acc602/packages/sitecore-jss-react/src/components/sharedTypes.ts#L30)
 
 Can be used to explicitly disable inline editing.
 If true and `field.editable` has a value, then `field.editable` will be processed and rendered as component output. If false, `field.editable` value will be ignored and not rendered.
@@ -43,7 +43,7 @@ true
 
 > `optional` **field?**: [`ImageFieldValue`](ImageFieldValue.md) \| [`ImageField`](ImageField.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:40](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-react/src/components/Image.tsx#L40)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:40](https://github.com/Sitecore/jss/blob/8a860497599fff48344819f724f0293af1acc602/packages/sitecore-jss-react/src/components/Image.tsx#L40)
 
 Image field data (consistent with other field types)
 
@@ -53,7 +53,7 @@ Image field data (consistent with other field types)
 
 > `optional` **imageParams?**: `object`
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:45](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-react/src/components/Image.tsx#L45)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:45](https://github.com/Sitecore/jss/blob/8a860497599fff48344819f724f0293af1acc602/packages/sitecore-jss-react/src/components/Image.tsx#L45)
 
 Parameters that will be attached to Sitecore media URLs
 
@@ -67,7 +67,7 @@ Parameters that will be attached to Sitecore media URLs
 
 > `optional` **mediaUrlPrefix?**: `RegExp`
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:58](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-react/src/components/Image.tsx#L58)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:58](https://github.com/Sitecore/jss/blob/8a860497599fff48344819f724f0293af1acc602/packages/sitecore-jss-react/src/components/Image.tsx#L58)
 
 Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia` or `/~/jssmedia`.
 
@@ -85,4 +85,4 @@ Custom regexp that finds media URL prefix that will be replaced by `/-/jssmedia`
 
 > `optional` **srcSet?**: [`ImageSizeParameters`](ImageSizeParameters.md)[]
 
-Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:49](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-react/src/components/Image.tsx#L49)
+Defined in: [packages/sitecore-jss-react/src/components/Image.tsx:49](https://github.com/Sitecore/jss/blob/8a860497599fff48344819f724f0293af1acc602/packages/sitecore-jss-react/src/components/Image.tsx#L49)
