@@ -11,6 +11,8 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+## 23.0.0
+
 > ⚠️ **JSS 23 supports Sitecore XP 10.5 only. Sitecore AI is not supported - use Sitecore Content SDK for that scenario.**
 
 ### 🐛 Bug Fixes
