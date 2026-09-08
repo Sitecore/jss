@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is **Sitecore JavaScript Services (JSS)** — a TypeScript/JavaScript SDK for building modern web applications with Sitecore XM Cloud and on-premises. The project provides core layout/GraphQL functionality, React/Angular/Vue/Next.js integrations, and CLI tools for scaffolding applications.
+This is **Sitecore JavaScript Services (JSS)** — a TypeScript/JavaScript SDK for building modern web applications with on-premises Sitecore (Sitecore AI support is provided by the separate Content SDK). The project provides core layout/GraphQL functionality, React/Angular/Vue/Next.js integrations, and CLI tools for scaffolding applications.
 
 ### Tech Stack
 - **Language**: TypeScript (Node LTS)
@@ -200,7 +200,7 @@ JSDoc Comments:
 
 ## Sitecore JSS Rules
 
-### XM Cloud / Sitecore Integration
+### Sitecore Integration
 
 Configuration:
 - Use environment variables for API endpoints and keys: `SITECORE_API_KEY`, `SITECORE_API_HOST`, `GRAPH_QL_ENDPOINT`

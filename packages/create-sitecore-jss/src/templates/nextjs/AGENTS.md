@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a **Sitecore JSS** application built with **Next.js (Pages Router)** and **TypeScript**. AI agents work as developer assistants within this scaffolded head application. The app integrates with Sitecore XM Cloud (or on-premises) for content, uses Layout Service (REST) or GraphQL for data fetching, and supports SSG or SSR.
+This is a **Sitecore JSS** application built with **Next.js (Pages Router)** and **TypeScript**. AI agents work as developer assistants within this scaffolded head application. The app integrates with on-premises Sitecore for content, uses Layout Service (REST) or GraphQL for data fetching, and supports SSG or SSR.
 
 **Scope:** This file applies to **this application only** (a scaffolded head app). It is **not** the JSS monorepo — for SDK package development use that repo's root `AGENTS.md`. Here we edit app code and config (pages, components, API routes, lib); we do not modify SDK packages or CI.
 
@@ -96,7 +96,7 @@ These are the main head-app–specific concepts. Details are in the sections bel
 ### Middleware (proxy)
 
 - **Where:** `src/proxy.ts` — Next.js 16 entry point for middleware (replaces `middleware.ts`). Re-exports `lib/middleware`.
-- **What it does:** Runs on each request (respecting `config.matcher`). Plugin chain from `temp/middleware-plugins.ts`; plugins in `src/lib/middleware/plugins/`. Base template may have no custom plugins; add-ons (e.g. nextjs-xmcloud) inject plugins (e.g. Personalize). **Do not change plugin order.** Matcher excludes `/api`, `/_next`, `/healthz`, `/sitecore/api`, `/-`, static files.
+- **What it does:** Runs on each request (respecting `config.matcher`). Plugin chain from `temp/middleware-plugins.ts`; plugins in `src/lib/middleware/plugins/`. Base template may have no custom plugins; add-ons can inject plugins. **Do not change plugin order.** Matcher excludes `/api`, `/_next`, `/healthz`, `/sitecore/api`, `/-`, static files.
 - **Config:** `proxy.ts` exports `config.matcher` array. Keep middleware lightweight; do not add heavy logic without excluding paths.
 
 ### Config and Env
@@ -109,7 +109,7 @@ These are the main head-app–specific concepts. Details are in the sections bel
 ### Site Resolver and Path Extractor
 
 - **Site resolver:** `src/lib/site-resolver/` — plugins resolve site. Default plugin adds `config.sitecoreSiteName` with `hostName: '*'`. Used by `site` plugin in page-props-factory.
-- **Path extractor:** `src/lib/extract-path/` — `pathExtractor.extract(context.params)` normalizes path from `params.path` (array or string) to leading-slash format. Plugins in `extract-path/plugins/` can transform path (e.g. personalization add-on).
+- **Path extractor:** `src/lib/extract-path/` — `pathExtractor.extract(context.params)` normalizes path from `params.path` (array or string) to leading-slash format. Plugins in `extract-path/plugins/` can transform the path.
 
 ### Sitemap Fetcher (SSG)
 
@@ -118,7 +118,7 @@ These are the main head-app–specific concepts. Details are in the sections bel
 
 ### More (editing, rewrites)
 
-- **Editing/preview:** Use `context.preview` and `context.previewData` in the catch-all; `preview-mode` plugin handles it. Editing API routes: `src/pages/api/editing/render.ts`, `api/editing/data/[key].ts` — used by Sitecore Editor (XM Cloud).
+- **Editing/preview:** Use `context.preview` and `context.previewData` in the catch-all; `preview-mode` plugin handles it. Editing API routes: `src/pages/api/editing/render.ts`, `api/editing/data/[key].ts` — used by Sitecore Experience Editor.
 - **Rewrites:** `next.config.js` → rewrites for `/sitecore/api/:path*`, `/-/:path*`, `/healthz` → `/api/healthz`, `/sitecore/service/:path*`. Config from `temp/config` and `temp/next-config-plugins`.
 
 ---
@@ -143,7 +143,7 @@ These are the main head-app–specific concepts. Details are in the sections bel
 
 - **Middleware:** `src/proxy.ts` → `lib/middleware`. Plugins from `temp/middleware-plugins` (generated from `lib/middleware/plugins/`). Chain runs in `order`; each plugin receives req and previous response.
 - **Matcher:** Excludes `/api`, `/_next`, `/healthz`, `/sitecore/api`, `/-`, `favicon.ico`, `sc_logo.svg`. Add new exclusions if adding routes.
-- **Add-ons:** nextjs-xmcloud adds Personalize plugin. Do not change order when combining add-ons.
+- **Add-ons:** Add-on templates may inject additional middleware plugins. Do not change order when combining add-ons.
 
 ### API Routes
 
@@ -153,7 +153,7 @@ These are the main head-app–specific concepts. Details are in the sections bel
 
 ### Layout and Components
 
-- **Layout:** `Layout.tsx` renders page layout and placeholders. The catch-all page wraps content in `SitecoreContext` and `ComponentPropsContext`; `Layout` uses `componentBuilder.getComponentFactory({ isEditing })` and `Placeholder` for dynamic layout. `_app.tsx` includes `Bootstrap` and `I18nProvider`; base Bootstrap returns null (XM Cloud add-on extends it for CloudSDK/CDP).
+- **Layout:** `Layout.tsx` renders page layout and placeholders. The catch-all page wraps content in `SitecoreContext` and `ComponentPropsContext`; `Layout` uses `componentBuilder.getComponentFactory({ isEditing })` and `Placeholder` for dynamic layout. `_app.tsx` includes `Bootstrap` and `I18nProvider`; base Bootstrap returns null (add-ons may extend it for their own initialization logic).
 - **404 / _error:** `NotFound` component. When catch-all returns `notFound: true`, Next.js renders `404.tsx` (which renders `<NotFound />`). `_error.tsx` handles 500 and other server/client errors (Next.js error boundary).
 - **Component registration:** All components in `componentBuilder` (from `temp/componentBuilder.ts`). Add via `jss scaffold` or `scripts/generate-component-builder/plugins/`.
 

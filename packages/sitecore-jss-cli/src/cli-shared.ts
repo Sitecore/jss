@@ -1,4 +1,5 @@
 import yargs, { Argv, CommandModule } from 'yargs';
+import chalk from 'chalk';
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
@@ -6,6 +7,10 @@ import yargs, { Argv, CommandModule } from 'yargs';
 process.on('unhandledRejection', (err) => {
   throw err;
 });
+
+const sitecoreAiNotSupportedMsg = chalk.yellow(
+  'Note: JSS 23 supports Sitecore XP 10.5. Sitecore AI is not supported - use Sitecore Content SDK for that scenario.'
+);
 
 /**
  * @param {any} commands
@@ -44,9 +49,13 @@ export default async function cli(commands: {
     }
   }
 
-  const argv = await appCommands.demandCommand(1).help().argv;
+  const argv = await appCommands
+    .demandCommand(1)
+    .help()
+    .epilogue(sitecoreAiNotSupportedMsg).argv;
 
   if (!argv._[0]) {
     console.log('Missing command. Use --help to see all available options.');
+    console.log(sitecoreAiNotSupportedMsg);
   }
 }

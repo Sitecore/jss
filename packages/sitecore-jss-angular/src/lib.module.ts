@@ -33,8 +33,6 @@ import { RouterLinkDirective } from './components/router-link.directive';
 import { TextDirective } from './components/text.directive';
 import { JssComponentFactoryService } from './services/jss-component-factory.service';
 import { JssStateService } from './services/jss-state.service';
-import { EditingScriptsComponent } from './components/editing-scripts.component';
-import { FormComponent } from './components/form.component';
 
 @NgModule({
   imports: [
@@ -56,8 +54,6 @@ import { FormComponent } from './components/form.component';
     MissingComponentComponent,
     HiddenRenderingComponent,
     EditFrameComponent,
-    EditingScriptsComponent,
-    FormComponent,
   ],
   exports: [
     FileDirective,
@@ -75,8 +71,6 @@ import { FormComponent } from './components/form.component';
     RichTextDirective,
     TextDirective,
     EditFrameComponent,
-    EditingScriptsComponent,
-    FormComponent,
   ],
 })
 export class JssModule {

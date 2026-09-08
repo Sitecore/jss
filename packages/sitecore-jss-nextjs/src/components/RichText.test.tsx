@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { ReactNode } from 'react';
 import { use, expect } from 'chai';
 import { NextRouter } from 'next/router';
@@ -31,7 +30,7 @@ const Router = (): { push: SinonSpy } & Omit<NextRouter, 'push'> => ({
 });
 
 // Should provide RouterContext in case if we render Link from next/link
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 const Page = ({ children, value }: { children: ReactNode; value?: any }) => (
   <RouterContext.Provider value={value || Router()}>{children}</RouterContext.Provider>
 );
@@ -398,147 +397,5 @@ describe('RichText', () => {
     expect(router.prefetch).callCount(2);
     expect(prefetched['/hoverprefetched1']).to.equal(true);
     expect(prefetched['/hoverprefetched2']).to.equal(true);
-  });
-
-  describe('editMode metadata', () => {
-    const testMetadata = {
-      contextItem: {
-        id: '{09A07660-6834-476C-B93B-584248D3003B}',
-        language: 'en',
-        revision: 'a0b36ce0a7db49418edf90eb9621e145',
-        version: 1,
-      },
-      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
-      fieldType: 'image',
-      rawValue: 'Test1',
-    };
-
-    it('should render field metadata component when metadata property is present', () => {
-      const app = document.createElement('main');
-
-      document.body.appendChild(app);
-
-      const router = Router();
-
-      const props = {
-        field: {
-          value: `
-          <div id="test">
-            <h1>Hello!</h1>
-            <a href="/t10">1</a>
-            <a href="/t10">2</a>
-            <a href="/contains-children"><span id="child">Title</span></a>
-          </div>`,
-          metadata: testMetadata,
-        },
-      };
-
-      const rendered = render(
-        <Page value={router}>
-          <RichText {...props} prefetchLinks={false} />
-        </Page>,
-        { baseElement: app }
-      );
-
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code><div>
-          `,
-          `<div id="test">
-            <h1>Hello!</h1>
-            <a href="/t10">1</a>
-            <a href="/t10">2</a>
-            <a href="/contains-children"><span id="child">Title</span></a>
-          </div></div><code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>`,
-        ].join('')
-      );
-    });
-
-    it('should render default empty field placeholder when field value is empty in edit mode metadata', () => {
-      const app = document.createElement('main');
-      document.body.appendChild(app);
-      const router = Router();
-
-      const props = {
-        field: {
-          value: '',
-          metadata: testMetadata,
-        },
-      };
-
-      const rendered = render(
-        <Page value={router}>
-          <RichText {...props} />
-        </Page>,
-        { baseElement: app }
-      );
-
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<span>[No text in field]</span>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render custom empty field placeholder when provided, when field value is empty in edit mode metadata', () => {
-      const app = document.createElement('main');
-      document.body.appendChild(app);
-      const router = Router();
-
-      const props = {
-        field: {
-          value: '',
-          metadata: testMetadata,
-        },
-      };
-
-      const EmptyFieldEditingComponent: React.FC = () => (
-        <span className="empty-field-value-placeholder">Custom Empty field value</span>
-      );
-
-      const rendered = render(
-        <Page value={router}>
-          <RichText {...props} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
-        </Page>,
-        { baseElement: app }
-      );
-
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render nothing when field value is empty, when editing is explicitly disabled in edit mode metadata ', () => {
-      const app = document.createElement('main');
-      document.body.appendChild(app);
-      const router = Router();
-
-      const props = {
-        field: {
-          value: '',
-          metadata: testMetadata,
-        },
-      };
-      const rendered = render(
-        <Page value={router}>
-          <RichText {...props} editable={false} />
-        </Page>,
-        { baseElement: app }
-      );
-
-      expect(rendered.container.innerHTML).to.equal('');
-    });
   });
 });

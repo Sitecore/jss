@@ -9,11 +9,6 @@
 ## Classes
 
 - [ExperienceEditor](classes/ExperienceEditor.md)
-- [HorizonEditor](classes/HorizonEditor.md)
-
-## Interfaces
-
-- [Metadata](interfaces/Metadata.md)
 
 ## Type Aliases
 

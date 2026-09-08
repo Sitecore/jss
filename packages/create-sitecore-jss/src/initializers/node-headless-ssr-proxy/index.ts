@@ -1,5 +1,5 @@
 import path from 'path';
-import { Initializer, transform, BaseArgs } from '../../common';
+import { Initializer, transform, BaseArgs, sitecoreAiNotSupportedMsg } from '../../common';
 
 export default class NodeHeadlessSsrProxyInitializer implements Initializer {
   get isBase(): boolean {
@@ -12,6 +12,7 @@ export default class NodeHeadlessSsrProxyInitializer implements Initializer {
 
     return {
       appName: 'node-headless-ssr-proxy',
+      nextSteps: [`* ${sitecoreAiNotSupportedMsg()}`],
     };
   }
 }

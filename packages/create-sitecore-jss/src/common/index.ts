@@ -7,6 +7,7 @@ export {
   DEFAULT_APPNAME,
   incompatibleAddonsMsg,
   missingAddonMsg,
+  sitecoreAiNotSupportedMsg,
 } from './prompts/base';
 export { StyleguideAnswer, styleguidePrompts } from './prompts/styleguide';
 export { SxpAnswer, sxpPrompts } from './prompts/sxp';

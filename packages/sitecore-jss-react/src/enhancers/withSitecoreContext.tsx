@@ -1,10 +1,6 @@
 import React from 'react';
 import { EnhancedOmit } from '@sitecore-jss/sitecore-jss/utils';
-import {
-  SitecoreContextReactContext,
-  SitecoreContextState,
-  SitecoreContextValue,
-} from '../components/SitecoreContext';
+import { SitecoreContextReactContext, SitecoreContextValue } from '../components/SitecoreContext';
 
 export interface WithSitecoreContextOptions {
   updatable?: boolean;
@@ -13,7 +9,6 @@ export interface WithSitecoreContextOptions {
 // The props that HOC will inject
 export interface WithSitecoreContextProps {
   sitecoreContext: SitecoreContextValue;
-  api?: SitecoreContextState['api'];
   updateSitecoreContext?: ((value: SitecoreContextValue) => void) | false;
 }
 
@@ -37,7 +32,6 @@ export function withSitecoreContext(options?: WithSitecoreContextOptions) {
             <Component
               {...(props as ComponentProps)}
               sitecoreContext={context.context}
-              api={context.api}
               updateSitecoreContext={options && options.updatable && context.setContext}
             />
           )}
@@ -73,7 +67,6 @@ export function useSitecoreContext(options?: WithSitecoreContextOptions): WithSi
   const updatable = options?.updatable;
 
   return {
-    api: reactContext.api,
     sitecoreContext: reactContext.context,
     updateSitecoreContext: updatable ? reactContext.setContext : undefined,
   };

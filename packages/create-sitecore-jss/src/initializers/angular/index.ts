@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { AngularArgs } from './args';
 import { AngularAnswer, prompts } from './prompts';
-import { Initializer, transform } from '../../common';
+import { Initializer, transform, sitecoreAiNotSupportedMsg } from '../../common';
 
 export default class AngularInitializer implements Initializer {
   get isBase() {
@@ -21,19 +21,15 @@ export default class AngularInitializer implements Initializer {
     await transform(templatePath, mergedArgs);
     const addInitializers: string[] = [];
 
-    if (answers.xmcloud) {
-      if (!args.templates.includes('angular-xmcloud')) {
-        addInitializers.push('angular-xmcloud');
-      }
-    } else {
-      // invoke default non-XMC init
-      if (!args.templates.includes('angular-sxp') && !args.templates.includes('angular-xmcloud')) {
-        addInitializers.push('angular-sxp');
-      }
+    if (!args.templates.includes('angular-sxp')) {
+      addInitializers.push('angular-sxp');
     }
 
     const response = {
-      nextSteps: [`* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`],
+      nextSteps: [
+        `* Connect to Sitecore with ${chalk.green('jss setup')} (optional)`,
+        `* ${sitecoreAiNotSupportedMsg()}`,
+      ],
       appName: answers.appName,
       initializers: addInitializers,
     };

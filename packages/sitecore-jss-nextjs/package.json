@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "22.13.0-canary.8",
+  "version": "23.0.0-canary.20",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -30,8 +30,6 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore-cloudsdk/core": "^0.5.1",
-    "@sitecore-cloudsdk/personalize": "^0.5.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.0",
     "@types/chai": "^5.2.2",
@@ -64,18 +62,15 @@
     "typescript": "~5.6.3"
   },
   "peerDependencies": {
-    "@sitecore-cloudsdk/core": "^0.5.2",
-    "@sitecore-cloudsdk/events": "^0.5.2",
-    "@sitecore-cloudsdk/personalize": "^0.5.2",
     "next": "^16.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "22.13.0-canary.8",
-    "@sitecore-jss/sitecore-jss-dev-tools": "22.13.0-canary.8",
-    "@sitecore-jss/sitecore-jss-react": "22.13.0-canary.8",
-    "@vercel/kv": "^0.2.1",
+    "@sitecore-jss/sitecore-jss": "23.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-dev-tools": "23.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss-react": "23.0.0-canary.20",
+    "@upstash/redis": "^1.38.0",
     "regex-parser": "^2.2.11",
     "sync-disk-cache": "^2.1.0"
   },

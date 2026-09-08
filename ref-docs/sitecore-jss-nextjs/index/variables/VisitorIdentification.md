@@ -8,4 +8,4 @@
 
 > `const` **VisitorIdentification**: `React.FC`\<`VisitorIdentificationProps`\>
 
-Defined in: sitecore-jss-react/types/components/VisitorIdentification.d.ts:11
+Defined in: sitecore-jss-react/types/components/VisitorIdentification.d.ts:10

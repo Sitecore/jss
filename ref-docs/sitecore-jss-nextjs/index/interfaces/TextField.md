@@ -6,11 +6,7 @@
 
 # Interface: TextField
 
-Defined in: sitecore-jss-react/types/components/Text.d.ts:5
-
-## Extends
-
-- `FieldMetadata`
+Defined in: sitecore-jss-react/types/components/Text.d.ts:3
 
 ## Properties
 
@@ -18,23 +14,7 @@ Defined in: sitecore-jss-react/types/components/Text.d.ts:5
 
 > `optional` **editable?**: `string`
 
-Defined in: sitecore-jss-react/types/components/Text.d.ts:7
-
-***
-
-### metadata?
-
-> `optional` **metadata?**: `object`
-
-Defined in: sitecore-jss/types/layout/models.d.ts:125
-
-#### Index Signature
-
-\[`key`: `string`\]: `unknown`
-
-#### Inherited from
-
-`FieldMetadata.metadata`
+Defined in: sitecore-jss-react/types/components/Text.d.ts:5
 
 ***
 
@@ -42,4 +22,4 @@ Defined in: sitecore-jss/types/layout/models.d.ts:125
 
 > `optional` **value?**: `string` \| `number`
 
-Defined in: sitecore-jss-react/types/components/Text.d.ts:6
+Defined in: sitecore-jss-react/types/components/Text.d.ts:4

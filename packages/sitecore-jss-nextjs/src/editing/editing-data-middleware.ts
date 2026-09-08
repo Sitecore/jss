@@ -1,10 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { EditingDataCache, editingDataDiskCache } from './editing-data-cache';
 import { EditingData, isEditingData } from './editing-data';
-import {
-  EDITING_ALLOWED_ORIGINS,
-  QUERY_PARAM_EDITING_SECRET,
-} from '@sitecore-jss/sitecore-jss/editing';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import { getJssEditingSecret } from '../utils/utils';
 import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 import { debug } from '@sitecore-jss/sitecore-jss';
@@ -56,7 +53,7 @@ export class EditingDataMiddleware {
     const secret = query[QUERY_PARAM_EDITING_SECRET];
     const key = query[this.queryParamKey];
 
-    if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
+    if (!enforceCors(req, res)) {
       debug.editing(
         'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
       );

@@ -1,7 +1,7 @@
 import path from 'path';
 import inquirer from 'inquirer';
 import { prompts, ReactNativeAnswer } from './prompts';
-import { Initializer, transform } from '../../common';
+import { Initializer, transform, sitecoreAiNotSupportedMsg } from '../../common';
 import { ReactNativeArgs } from './args';
 
 export default class ReactNativeInitializer implements Initializer {
@@ -22,6 +22,7 @@ export default class ReactNativeInitializer implements Initializer {
 
     const response = {
       appName: answers.appName,
+      nextSteps: [`* ${sitecoreAiNotSupportedMsg()}`],
     };
 
     return response;

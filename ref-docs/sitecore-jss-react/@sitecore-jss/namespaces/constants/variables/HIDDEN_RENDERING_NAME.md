@@ -8,4 +8,4 @@
 
 > `const` **HIDDEN\_RENDERING\_NAME**: `"Hidden Rendering"` = `"Hidden Rendering"`
 
-Defined in: packages/sitecore-jss/types/constants.d.ts:15
+Defined in: packages/sitecore-jss/types/constants.d.ts:14

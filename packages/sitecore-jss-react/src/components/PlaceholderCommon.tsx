@@ -7,19 +7,13 @@ import {
   Field,
   Item,
   HtmlElementRendering,
-  EditMode,
   isDynamicPlaceholder,
   getDynamicPlaceholderPattern,
 } from '@sitecore-jss/sitecore-jss/layout';
 import { constants } from '@sitecore-jss/sitecore-jss';
 import { convertAttributesToReactProps } from '../utils';
 import { HiddenRendering } from './HiddenRendering';
-import { FEaaSComponent, FEAAS_COMPONENT_RENDERING_NAME } from './FEaaSComponent';
-import { FEaaSWrapper, FEAAS_WRAPPER_RENDERING_NAME } from './FEaaSWrapper';
-import { BYOCComponent, BYOC_COMPONENT_RENDERING_NAME } from './BYOCComponent';
-import { BYOCWrapper, BYOC_WRAPPER_RENDERING_NAME } from './BYOCWrapper';
 import { SitecoreContextValue } from './SitecoreContext';
-import { PlaceholderMetadata } from './PlaceholderMetadata';
 import ErrorBoundary from './ErrorBoundary';
 
 type ErrorComponentProps = {
@@ -64,6 +58,13 @@ export interface PlaceholderProps {
    * @returns {ComponentProps} modified or initial props
    */
   modifyComponentProps?: (componentProps: ComponentProps) => ComponentProps;
+  /**
+   * An alternative to `modifyComponentProps` that allows passing additional props to rendered
+   * components without forwarding Placeholder/SitecoreContext internal props.
+   */
+  passThroughComponentProps?: {
+    [key: string]: unknown;
+  };
   /**
    * A component that is rendered in place of any components that are in this placeholder,
    * but do not have a definition in the componentFactory (i.e. don't have a React implementation)
@@ -113,16 +114,14 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
 
   static getPlaceholderDataFromRenderingData(
     rendering: ComponentRendering | RouteData,
-    name: string,
-    editMode?: EditMode
+    name: string
   ) {
     let result;
-    let phName = name.slice();
+    const phName = name.slice();
 
     /**
      * Process (SXA) dynamic placeholders
      * Find and replace the matching dynamic placeholder e.g 'nameOfContainer-{*}' with the requested e.g. 'nameOfContainer-1'.
-     * For Metadata EditMode, we need to keep the raw placeholder name in place.
      */
     if (rendering?.placeholders) {
       Object.keys(rendering.placeholders).forEach((placeholder) => {
@@ -131,12 +130,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           : null;
 
         if (patternPlaceholder && patternPlaceholder.test(phName)) {
-          if (editMode === EditMode.Metadata) {
-            phName = placeholder;
-          } else {
-            rendering.placeholders[phName] = rendering.placeholders[placeholder];
-            delete rendering.placeholders[placeholder];
-          }
+          rendering.placeholders[phName] = rendering.placeholders[placeholder];
+          delete rendering.placeholders[placeholder];
         }
       });
     }
@@ -187,7 +182,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
       params: placeholderParams,
       missingComponentComponent,
       hiddenRenderingComponent,
-      ...placeholderProps
+      passThroughComponentProps,
+      modifyComponentProps,
     } = this.props;
 
     const transformedComponents = placeholderData
@@ -219,19 +215,6 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           component = this.getComponentForRendering(componentRendering);
         }
 
-        // Fallback/defaults for Sitecore Component renderings (in case not defined in component factory)
-        if (!component) {
-          if (componentRendering.componentName === FEAAS_COMPONENT_RENDERING_NAME) {
-            component = FEaaSComponent;
-          } else if (componentRendering.componentName === FEAAS_WRAPPER_RENDERING_NAME) {
-            component = FEaaSWrapper;
-          } else if (componentRendering.componentName === BYOC_COMPONENT_RENDERING_NAME) {
-            component = BYOCComponent;
-          } else if (componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME) {
-            component = BYOCWrapper;
-          }
-        }
-
         if (!component) {
           console.error(
             `Placeholder ${name} contains unknown component ${componentRendering.componentName}. Ensure that a React component exists for it, and that it is registered in your componentFactory.js.`
@@ -241,9 +224,10 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           isEmpty = true;
         }
 
-        const finalProps = {
+        // Only pass rendering data props to child components.
+        // Internal Placeholder/SitecoreContext props are excluded.
+        const childProps: ComponentProps = {
           ...commonProps,
-          ...placeholderProps,
           ...((placeholderFields || componentRendering.fields) && {
             fields: { ...placeholderFields, ...componentRendering.fields },
           }),
@@ -258,17 +242,21 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           rendering: componentRendering,
         };
 
+        const modifiedProps = modifyComponentProps ? modifyComponentProps(childProps) : childProps;
+
+        const finalProps = {
+          ...modifiedProps,
+          ...passThroughComponentProps,
+        };
+
         let rendered = React.createElement<{ [attr: string]: unknown }>(
           component as React.ComponentType,
-          this.props.modifyComponentProps ? this.props.modifyComponentProps(finalProps) : finalProps
+          finalProps
         );
 
         if (!isEmpty) {
           // assign type based on passed element - type='text/sitecore' should be ignored when renderEach Placeholder prop function is being used
           const type = rendered.props.type === 'text/sitecore' ? rendered.props.type : '';
-
-          // the registered BYOC components are imported using dynamic(), so we need to account for that when passing the isDynamic prop to ErrorBoundary
-          const isByocWrapper = componentRendering.componentName === BYOC_WRAPPER_RENDERING_NAME;
 
           // all dynamic elements will have a separate render prop
           const isDynamicComponent = !!(component as JssComponentType).render?.preload;
@@ -281,7 +269,7 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
               errorComponent={this.props.errorComponent}
               componentLoadingMessage={this.props.componentLoadingMessage}
               type={type}
-              isDynamic={isDynamicComponent || isByocWrapper}
+              isDynamic={isDynamicComponent}
               disableSuspense={this.props.disableSuspense}
               {...rendered.props}
             >
@@ -290,30 +278,9 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
           );
         }
 
-        // if editMode is equal to 'metadata' then emit shallow chromes for hydration in Pages
-        if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-          return (
-            <PlaceholderMetadata key={key} rendering={rendering as ComponentRendering}>
-              {rendered}
-            </PlaceholderMetadata>
-          );
-        }
-
         return rendered;
       })
       .filter((element) => element); // remove nulls
-
-    if (this.props.sitecoreContext?.editMode === EditMode.Metadata) {
-      return [
-        <PlaceholderMetadata
-          key={(this.props.rendering as ComponentRendering).uid}
-          placeholderName={name}
-          rendering={this.props.rendering as ComponentRendering}
-        >
-          {transformedComponents}
-        </PlaceholderMetadata>,
-      ];
-    }
 
     return transformedComponents;
   }
@@ -370,6 +337,8 @@ export class PlaceholderCommon<T extends PlaceholderProps> extends React.Compone
     if (!Array.isArray(attributes) && attributes && attributes.chrometype === 'placeholder') {
       props.phkey = elem.attributes.key; // props that get rendered as dom attribute names need to be lowercase, otherwise React complains.
       props.ref = this.addRef; // only need ref for placeholder containers, trying to add it to other components (e.g. stateless components) may result in a warning.
+      // EE may mutate chrome
+      props.suppressHydrationWarning = true;
     }
 
     return React.createElement(elem.name, props);

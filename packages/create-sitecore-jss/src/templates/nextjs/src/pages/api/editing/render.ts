@@ -15,8 +15,8 @@ import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editi
  */
 
 /**
- * For Vercel deployments: 
- * if you experience crashes in editing, you may need to use VercelEditingDataCache or a custom Redis data cache implementation with EditingRenderMiddleware
+ * For Vercel deployments:
+ * if you experience crashes in editing, you may need to use RedisEditingDataCache (backed by a Redis integration from the Vercel Marketplace, e.g. Upstash) or a custom data cache implementation with EditingRenderMiddleware
  * Please refer to documentation for a detailed guide.
  */
 

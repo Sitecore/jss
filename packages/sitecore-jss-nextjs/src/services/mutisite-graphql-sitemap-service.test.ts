@@ -6,7 +6,6 @@ import {
 } from './mutisite-graphql-sitemap-service';
 import { getSiteEmptyError, languageError } from './graphql-sitemap-service';
 import sitemapDefaultQueryResult from '../test-data/sitemapDefaultQueryResult.json';
-import sitemapPersonalizeQueryResult from '../test-data/sitemapPersonalizeQueryResult.json';
 import sitemapServiceMultisiteResult from '../test-data/sitemapServiceMultisiteResult';
 import { GraphQLClient, GraphQLRequestClient } from '@sitecore-jss/sitecore-jss/graphql';
 
@@ -407,120 +406,6 @@ describe('MultisiteGraphQLSitemapService', () => {
         return expect(nock.isDone()).to.be.true;
       });
 
-      it('should return aggregated paths for multiple sites and personalized sites', async () => {
-        const multipleSites = ['site1', 'site2'];
-        const lang = 'ua';
-
-        nock(endpoint)
-          .post('/', /PersonalizeSitemapQuery/gi)
-          .reply(200, sitemapPersonalizeQueryResult);
-
-        nock(endpoint)
-          .persist()
-          .post('/', (body) => {
-            return body.variables.siteName === multipleSites[1];
-          })
-          .reply(200, {
-            data: {
-              site: {
-                siteInfo: {
-                  routes: {
-                    total: 4,
-                    pageInfo: {
-                      hasNext: false,
-                    },
-                    results: [
-                      {
-                        path: '/',
-                      },
-                      {
-                        path: '/x1',
-                      },
-                      {
-                        path: '/y1/y2/y3/y4',
-                      },
-                      {
-                        path: '/y1/y2',
-                      },
-                    ],
-                  },
-                },
-              },
-            },
-          });
-
-        const service = new MultisiteGraphQLSitemapService({
-          clientFactory,
-          sites: multipleSites,
-          includePersonalizedRoutes: true,
-        });
-        const sitemap = await service.fetchSSGSitemap([lang]);
-
-        expect(sitemap).to.deep.equal([
-          {
-            params: {
-              path: ['_site_site1'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_variantId_green', '_site_site1'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_site_site1', 'y1', 'y2', 'y3', 'y4'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_variantId_green', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_variantId_red', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_variantId_purple', '_site_site1', 'y1', 'y2', 'y3', 'y4'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_site_site2'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_site_site2', 'x1'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_site_site2', 'y1', 'y2', 'y3', 'y4'],
-            },
-            locale: lang,
-          },
-          {
-            params: {
-              path: ['_site_site2', 'y1', 'y2'],
-            },
-            locale: lang,
-          },
-        ]);
-        return expect(nock.isDone()).to.be.true;
-      });
-
       it('should work when null results are present', async () => {
         const lang = 'en';
 
@@ -757,9 +642,9 @@ describe('MultisiteGraphQLSitemapService', () => {
     });
     const graphQLClient = service.client as GraphQLClient;
     const graphQLRequestClient = service.client as GraphQLRequestClient;
-    // eslint-disable-next-line no-unused-expressions
+
     expect(graphQLClient).to.exist;
-    // eslint-disable-next-line no-unused-expressions
+
     expect(graphQLRequestClient).to.exist;
   });
 });

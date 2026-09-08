@@ -6,6 +6,6 @@
 
 # Variable: Link
 
-> `const` **Link**: `React.FC`\<[`LinkProps`](../type-aliases/LinkProps.md)\>
+> `const` **Link**: `ForwardRefExoticComponent`\<`Omit`\<[`LinkProps`](../type-aliases/LinkProps.md), `"ref"`\> & `RefAttributes`\<`HTMLAnchorElement`\>\>
 
-Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:41](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-react/src/components/Link.tsx#L41)
+Defined in: [packages/sitecore-jss-react/src/components/Link.tsx:37](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-react/src/components/Link.tsx#L37)

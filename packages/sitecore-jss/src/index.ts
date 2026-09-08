@@ -2,7 +2,6 @@
 // and to keep react-native working with cjs modules.
 
 import * as constants from './constants';
-import * as form from './form';
 
 export { default as debug, Debugger, enableDebug } from './debug';
 export { HttpDataFetcher, HttpResponse, fetchData, ResponseError } from './data-fetcher';
@@ -25,4 +24,3 @@ export {
 } from './native-fetcher';
 export { HTMLLink } from './models';
 export { constants };
-export { form };

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { getPublicUrl, getJssEditingSecret } from './utils';
 

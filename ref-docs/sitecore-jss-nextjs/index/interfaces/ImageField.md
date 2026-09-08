@@ -6,7 +6,7 @@
 
 # Interface: ImageField
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:9
+Defined in: sitecore-jss-react/types/components/Image.d.ts:7
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:9
 
 > `optional` **editable?**: `string`
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:11
+Defined in: sitecore-jss-react/types/components/Image.d.ts:9
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: sitecore-jss-react/types/components/Image.d.ts:11
 
 > `optional` **value?**: [`ImageFieldValue`](ImageFieldValue.md)
 
-Defined in: sitecore-jss-react/types/components/Image.d.ts:10
+Defined in: sitecore-jss-react/types/components/Image.d.ts:8

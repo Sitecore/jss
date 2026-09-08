@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import nock from 'nock';
@@ -76,7 +74,6 @@ describe('GraphQLSiteInfoService', () => {
   afterEach(() => {
     nock.cleanAll();
     spy.restore(debug.multisite);
-    delete process.env.SITECORE;
   });
 
   after(() => {
@@ -204,18 +201,6 @@ describe('GraphQLSiteInfoService', () => {
       .reply(200, emptyResponse);
     const resultCached = await service.fetchSiteInfo();
     expect(resultCached).to.deep.equal([]);
-  });
-
-  it('should skip on XM Cloud', async () => {
-    process.env.SITECORE = 'true';
-    nock(endpoint)
-      .post('/')
-      .reply(200, emptyResponse);
-    const service = new GraphQLSiteInfoService({ clientFactory });
-    const result = await service.fetchSiteInfo();
-    expect(result).to.deep.equal([]);
-    expect(debug.multisite.log, 'log debug message').to.be.called.once;
-    expect(nock.isDone(), 'skip request').to.be.false;
   });
 
   it('should filter out default website', async () => {

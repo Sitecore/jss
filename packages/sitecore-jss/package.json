@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss",
-  "version": "22.13.0-canary.8",
+  "version": "23.0.0-canary.20",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -11,7 +11,7 @@
     "test": "mocha --require ts-node/register \"./src/**/*.test.ts\"",
     "prepublishOnly": "npm run build",
     "coverage": "nyc npm test",
-    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/graphql/index.ts --entryPoints src/i18n/index.ts --entryPoints src/layout/index.ts --entryPoints src/media/index.ts --entryPoints src/personalize/index.ts --entryPoints src/site/index.ts --entryPoints src/tracking/index.ts --entryPoints src/utils/index.ts --entryPoints src/editing/index.ts --githubPages false"
+    "generate-docs": "npx typedoc --plugin typedoc-plugin-markdown --outputFileStrategy Members --parametersFormat table --readme none --out ../../ref-docs/sitecore-jss --entryPoints src/index.ts --entryPoints src/graphql/index.ts --entryPoints src/i18n/index.ts --entryPoints src/layout/index.ts --entryPoints src/media/index.ts --entryPoints src/site/index.ts --entryPoints src/tracking/index.ts --entryPoints src/utils/index.ts --entryPoints src/editing/index.ts --githubPages false"
   },
   "engines": {
     "node": ">=24"
@@ -30,7 +30,6 @@
     "url": "https://github.com/sitecore/jss/issues"
   },
   "devDependencies": {
-    "@sitecore-cloudsdk/events": "^0.5.2",
     "@types/chai": "^4.2.3",
     "@types/chai-spies": "^1.0.3",
     "@types/chai-string": "^1.4.2",
@@ -56,9 +55,6 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.8.1",
     "typescript": "~5.9.2"
-  },
-  "peerDependencies": {
-    "@sitecore-cloudsdk/events": "^0.5.2"
   },
   "dependencies": {
     "chalk": "^4.1.0",

@@ -20,7 +20,3 @@
 - [GraphQLClientError](type-aliases/GraphQLClientError.md)
 - [GraphQLRequestClientFactory](type-aliases/GraphQLRequestClientFactory.md)
 - [GraphQLRequestClientFactoryConfig](type-aliases/GraphQLRequestClientFactoryConfig.md)
-
-## Variables
-
-- [getEdgeProxyContentUrl](variables/getEdgeProxyContentUrl.md)

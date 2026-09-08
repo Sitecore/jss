@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/prop-types */
 import {
   ComponentRendering,
@@ -10,11 +7,8 @@ import {
 import { expect } from 'chai';
 import { findByText, render } from '@testing-library/react';
 import React from 'react';
-import { spy, stub } from 'sinon';
 import { convertedData as eeData, emptyPlaceholderData } from '../test-data/ee-data';
 import {
-  byocWrapperData,
-  feaasWrapperData,
   convertedDevData as nonEeDevData,
   convertedLayoutServiceData as nonEeLsData,
   sxaRenderingColumnSplitterVariant,
@@ -23,12 +17,7 @@ import {
   sxaRenderingVariantDoubleDigitDynamicPlaceholder as sxaRenderingDoubleDigitContainerName,
   sxaRenderingVariantDataWithoutCommonContainerName as sxaRenderingWithoutContainerName,
 } from '../test-data/non-ee-data';
-import * as metadataData from '../test-data/metadata-data';
 import * as SxaRichText from '../test-data/sxa-rich-text';
-import * as BYOCComponent from './BYOCComponent';
-import * as BYOCWrapper from './BYOCWrapper';
-import * as FEAASComponent from './FEaaSComponent';
-import * as FEAASWrapper from './FEaaSWrapper';
 import * as HiddenRendering from './HiddenRendering';
 import { MissingComponent, MissingComponentProps } from './MissingComponent';
 import { Placeholder } from './Placeholder';
@@ -163,112 +152,176 @@ describe('<Placeholder />', () => {
 
         expect(renderedComponent.container.innerHTML).to.be.equal('');
       });
-    });
 
-    it('should render output based on the renderEmpty function in case of no renderings', () => {
-      const component = dataSet.data.sitecore.route as RouteData;
-      const renderings = component.placeholders.main.filter(
-        (c) => !(c as ComponentRendering).componentName
-      );
-      const myComponent = {
-        ...component,
-        placeholders: {
-          ...component.placeholders,
-          main: [...renderings],
-        },
-      };
+      it('should render output based on the renderEmpty function in case of no renderings', () => {
+        const component = dataSet.data.sitecore.route as RouteData;
+        const renderings = component.placeholders.main.filter(
+          (c) => !(c as ComponentRendering).componentName
+        );
+        const myComponent = {
+          ...component,
+          placeholders: {
+            ...component.placeholders,
+            main: [...renderings],
+          },
+        };
 
-      const phKey = 'main';
+        const phKey = 'main';
 
-      const renderedComponent = render(
-        <SitecoreContext componentFactory={componentFactory}>
-          <Placeholder
-            name={phKey}
-            rendering={myComponent}
-            renderEmpty={(comp) => <div className="wrapper">{comp}</div>}
-          />
-        </SitecoreContext>
-      );
+        const renderedComponent = render(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={myComponent}
+              renderEmpty={(comp) => <div className="wrapper">{comp}</div>}
+            />
+          </SitecoreContext>
+        );
 
-      expect(renderedComponent.container.querySelectorAll('.wrapper').length).to.equal(1);
-      expect(
-        renderedComponent.container.querySelectorAll('.download-callout-mock').length
-      ).to.equal(0);
-      expect(renderedComponent.container.querySelectorAll('.home-mock').length).to.equal(0);
-      expect(renderedComponent.container.querySelectorAll('.jumbotron-mock').length).to.equal(0);
-    });
+        expect(renderedComponent.container.querySelectorAll('.wrapper').length).to.equal(1);
+        expect(
+          renderedComponent.container.querySelectorAll('.download-callout-mock').length
+        ).to.equal(0);
+        expect(renderedComponent.container.querySelectorAll('.home-mock').length).to.equal(0);
+        expect(renderedComponent.container.querySelectorAll('.jumbotron-mock').length).to.equal(0);
+      });
 
-    it('should render output based on the renderEmpty function in case of empty placeholder', () => {
-      const route = emptyPlaceholderData.sitecore.route as RouteData;
-      const phKey = 'mainEmpty';
+      it('should render output based on the renderEmpty function in case of empty placeholder', () => {
+        const route = emptyPlaceholderData.sitecore.route as RouteData;
+        const phKey = 'mainEmpty';
 
-      const renderedComponent = render(
-        <SitecoreContext componentFactory={componentFactory}>
-          <Placeholder
-            name={phKey}
-            rendering={route}
-            renderEmpty={() => <span>My name is empty placeholder</span>}
-          />
-        </SitecoreContext>
-      );
+        const renderedComponent = render(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={route}
+              renderEmpty={() => <span>My name is empty placeholder</span>}
+            />
+          </SitecoreContext>
+        );
 
-      expect(renderedComponent.container.innerHTML).to.equal(
-        '<div class="sc-jss-empty-placeholder"><span>My name is empty placeholder</span></div>'
-      );
-    });
+        expect(renderedComponent.container.innerHTML).to.equal(
+          '<div class="sc-jss-empty-placeholder"><span>My name is empty placeholder</span></div>'
+        );
+      });
 
-    it('should pass properties to nested components', () => {
-      const component = dataSet.data.sitecore.route as any;
-      const phKey = 'main';
-      const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
-        .fields.message;
+      it('should pass properties to nested components', () => {
+        const component = dataSet.data.sitecore.route as any;
+        const phKey = 'main';
+        const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
+          .fields.message;
 
-      const renderedComponent = render(
-        <SitecoreContext componentFactory={componentFactory}>
-          <Placeholder name={phKey} rendering={component} />
-        </SitecoreContext>
-      );
+        const renderedComponent = render(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder name={phKey} rendering={component} />
+          </SitecoreContext>
+        );
 
-      expect(
-        renderedComponent.container
-          .querySelector('.download-callout-mock')
-          ?.innerHTML.indexOf(expectedMessage.value) !== -1
-      ).to.be.true;
-    });
+        expect(
+          renderedComponent.container
+            .querySelector('.download-callout-mock')
+            ?.innerHTML.indexOf(expectedMessage.value) !== -1
+        ).to.be.true;
+      });
 
-    it('should apply modifyComponentProps to the final props', () => {
-      const component = dataSet.data.sitecore.route as any;
-      const phKey = 'main';
-      const expectedMessage = (component.placeholders.main as any[]).find((c) => c.componentName)
-        .fields.message;
+      it('should apply modifyComponentProps to the final props', () => {
+        const component = (dataSet.data.sitecore.route.placeholders.main as (
+          | ComponentRendering
+          | RouteData
+        )[]).find((c) => (c as ComponentRendering).componentName);
+        const phKey = 'page-content';
 
-      const modifyComponentProps = (props: ComponentProps) => {
-        if (props.rendering?.componentName === 'DownloadCallout') {
-          return {
-            ...props,
-            extraDiv: true,
-          };
-        }
+        const modifyComponentProps = (props: ComponentProps) => {
+          if (props.rendering?.componentName === 'DownloadCallout') {
+            return {
+              ...props,
+              extraDiv: true,
+            };
+          }
 
-        return props;
-      };
+          return props;
+        };
 
-      const renderedComponent = render(
-        <SitecoreContext componentFactory={componentFactory}>
-          <Placeholder
-            name={phKey}
-            rendering={component}
-            modifyComponentProps={modifyComponentProps}
-          />
-        </SitecoreContext>
-      );
+        const renderedComponent = render(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={component}
+              modifyComponentProps={modifyComponentProps}
+            />
+          </SitecoreContext>
+        );
 
-      expect(
-        renderedComponent.container
-          .querySelector('.download-callout-mock')
-          ?.innerHTML.indexOf(expectedMessage.value) !== -1
-      ).to.be.true;
-      expect(renderedComponent.container.querySelectorAll('div.extra').length).to.equal(1);
+        expect(renderedComponent.container.querySelectorAll('div.extra').length).to.equal(1);
+      });
+
+      it('should not pass internal Placeholder props to rendered components', () => {
+        const receivedProps: string[] = [];
+        const PropCapture: React.FC<Record<string, unknown>> = (props) => {
+          receivedProps.push(...Object.keys(props));
+          return <div className="prop-capture" />;
+        };
+
+        const factory: ComponentFactory = (componentName: string) => {
+          if (componentName === 'DownloadCallout') return PropCapture;
+          return componentFactory(componentName);
+        };
+
+        const component = (dataSet.data.sitecore.route.placeholders.main as (
+          | ComponentRendering
+          | RouteData
+        )[]).find((c) => (c as ComponentRendering).componentName);
+        const phKey = 'page-content';
+
+        render(
+          <SitecoreContext componentFactory={factory}>
+            <Placeholder name={phKey} rendering={component} />
+          </SitecoreContext>
+        );
+
+        const unexpectedProps = [
+          'api',
+          'componentFactory',
+          'modifyComponentProps',
+          'sitecoreContext',
+          'updateSitecoreContext',
+          'errorComponent',
+          'componentLoadingMessage',
+          'disableSuspense',
+          'missingComponentComponent',
+          'hiddenRenderingComponent',
+          'passThroughComponentProps',
+          'name',
+        ];
+
+        unexpectedProps.forEach((prop) => {
+          expect(receivedProps, `rendered component should not receive "${prop}"`).to.not.include(
+            prop
+          );
+        });
+
+        expect(receivedProps).to.include('rendering');
+      });
+
+      it('should pass passThroughComponentProps to rendered components', () => {
+        const component = (dataSet.data.sitecore.route.placeholders.main as (
+          | ComponentRendering
+          | RouteData
+        )[]).find((c) => (c as ComponentRendering).componentName);
+        const phKey = 'page-content';
+
+        const renderedComponent = render(
+          <SitecoreContext componentFactory={componentFactory}>
+            <Placeholder
+              name={phKey}
+              rendering={component}
+              passThroughComponentProps={{ extraDiv: true }}
+            />
+          </SitecoreContext>
+        );
+
+        expect(renderedComponent.container.querySelectorAll('div.extra').length).to.equal(1);
+      });
     });
   });
 });
@@ -404,109 +457,6 @@ describe('SXA rendering variants', () => {
       'rendering-variant col-9|col-sm-10|col-md-12|col-lg-6|col-xl-7|col-xxl-8 test-css-class-y'
     );
     expect(renderedComponent.container.querySelectorAll('.default').length).to.equal(1);
-  });
-});
-
-describe('BYOC fallback', () => {
-  let byocComponentStub;
-  let byocWrapperStub;
-
-  const componentFactory: ComponentFactory = (_componentName: string, _exportName?: string) => null;
-
-  it('should render', () => {
-    const component = byocWrapperData.sitecore.route as RouteData;
-    const phKey = 'main';
-
-    byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
-      <p className="byoc-component">Foo</p>
-    ));
-
-    byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
-      <div className="byoc-wrapper">
-        <BYOCComponent.BYOCComponent />
-      </div>
-    ));
-
-    const renderedComponent = render(
-      <SitecoreContext componentFactory={componentFactory}>
-        <Placeholder name={phKey} rendering={component} />
-      </SitecoreContext>
-    );
-
-    expect(renderedComponent.container.querySelectorAll('.byoc-component').length).to.equal(2);
-    expect(renderedComponent.container.querySelectorAll('.byoc-wrapper').length).to.equal(1);
-
-    byocComponentStub.restore();
-    byocWrapperStub.restore();
-  });
-
-  it('should render ErrorBoundary without Suspense for byoc wrapper', () => {
-    const component = byocWrapperData.sitecore.route as RouteData;
-    const phKey = 'main';
-
-    byocComponentStub = stub(BYOCComponent, 'BYOCComponent').callsFake(() => (
-      <p className="byoc-component">Foo</p>
-    ));
-
-    byocWrapperStub = stub(BYOCWrapper, 'BYOCWrapper').callsFake(() => (
-      <div className="byoc-wrapper">
-        <BYOCComponent.BYOCComponent />
-      </div>
-    ));
-
-    const renderedComponent = render(
-      <SitecoreContext componentFactory={componentFactory}>
-        <Placeholder name={phKey} rendering={component} />
-      </SitecoreContext>
-    );
-
-    expect(renderedComponent.container.innerHTML).to.not.contain('Loading component...');
-
-    expect(renderedComponent.container.querySelectorAll('.byoc-wrapper').length).to.equal(1);
-
-    const components = renderedComponent.container.querySelectorAll('.byoc-component');
-
-    expect(components.length).to.equal(2);
-
-    expect(components[0].textContent).to.equal('Foo');
-    expect(components[1].textContent).to.equal('Foo');
-
-    byocComponentStub.restore();
-    byocWrapperStub.restore();
-  });
-});
-
-describe('FEaaS fallback', () => {
-  let feaasComponentStub;
-  let feaasWrapperStub;
-
-  const componentFactory: ComponentFactory = (_componentName: string, _exportName?: string) => null;
-
-  it('should render', () => {
-    const component = feaasWrapperData.sitecore.route as RouteData;
-    const phKey = 'main';
-
-    feaasComponentStub = stub(FEAASComponent, 'FEaaSComponent').callsFake(() => (
-      <p className="feaas-component">Foo</p>
-    ));
-
-    feaasWrapperStub = stub(FEAASWrapper, 'FEaaSWrapper').callsFake(() => (
-      <div className="feaas-wrapper">
-        <FEAASComponent.FEaaSComponent />
-      </div>
-    ));
-
-    const renderedComponent = render(
-      <SitecoreContext componentFactory={componentFactory}>
-        <Placeholder name={phKey} rendering={component} />
-      </SitecoreContext>
-    );
-
-    expect(renderedComponent.container.querySelectorAll('.feaas-component').length).to.equal(2);
-    expect(renderedComponent.container.querySelectorAll('.feaas-wrapper').length).to.equal(1);
-
-    feaasComponentStub.restore();
-    feaasWrapperStub.restore();
   });
 });
 
@@ -895,152 +845,6 @@ it('should render custom HiddenRendering when rendering is hidden', () => {
       'Hidden Rendering'
     )
   );
-});
-
-describe('PlaceholderMetadata', () => {
-  const {
-    layoutData,
-    layoutDataForNestedDynamicPlaceholder,
-    layoutDataWithEmptyPlaceholder,
-    layoutDataWithUnknownComponent,
-  } = metadataData;
-
-  const componentFactory: ComponentFactory = (componentName: string) => {
-    const components = new Map<string, React.FC>();
-
-    components.set('Header', () => (
-      <div className="header-wrapper">
-        <Placeholder name="logo" rendering={layoutData.sitecore.route.placeholders.main[0]} />
-      </div>
-    ));
-    components.set('Logo', () => <div className="Logo-mock" />);
-
-    return components.get(componentName) || null;
-  };
-
-  it('should render <PlaceholderMetadata> with nested placeholder components', () => {
-    const wrapper = render(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name="main" rendering={layoutData.sitecore.route} />
-      </SitecoreContext>,
-      { container: document.body }
-    );
-
-    expect(wrapper?.baseElement.innerHTML).to.equal(
-      [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
-        '<div class="header-wrapper">',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code>',
-        '<div class="Logo-mock"></div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-        '</div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-      ].join('')
-    );
-
-    expect(wrapper?.container.querySelectorAll('.scpm').length).to.equal(8);
-  });
-
-  it('should render code blocks even if placeholder is empty', () => {
-    const wrapper = render(
-      <SitecoreContext
-        componentFactory={componentFactory}
-        layoutData={layoutDataWithEmptyPlaceholder}
-      >
-        <Placeholder name="main" rendering={layoutDataWithEmptyPlaceholder.sitecore.route} />
-      </SitecoreContext>,
-      { container: document.body }
-    );
-
-    expect(wrapper.baseElement?.innerHTML).to.equal(
-      [
-        '<div class="sc-jss-empty-placeholder">',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-        '</div>',
-      ].join('')
-    );
-  });
-
-  it('should render missing component with code blocks if component is not registered', () => {
-    const wrapper = render(
-      <SitecoreContext
-        componentFactory={componentFactory}
-        layoutData={layoutDataWithUnknownComponent}
-      >
-        <Placeholder name="main" rendering={layoutDataWithUnknownComponent.sitecore.route} />
-      </SitecoreContext>
-    );
-
-    expect(wrapper?.container.innerHTML).to.equal(
-      [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="main_00000000-0000-0000-0000-000000000000"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="123"></code>',
-        '<div style="background: darkorange; outline: 5px solid orange; padding: 10px; color: white; max-width: 500px;"><h2>Unknown</h2><p>JSS component is missing React implementation. See the developer console for more information.</p></div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-      ].join('')
-    );
-  });
-
-  it('should render dynamic placeholder', () => {
-    const phKey = 'container-1';
-    const layoutData = layoutDataForNestedDynamicPlaceholder('container-{*}');
-    const wrapper = render(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name={phKey} rendering={layoutData.sitecore.route} />
-      </SitecoreContext>
-    );
-
-    expect(wrapper?.container.innerHTML).to.equal(
-      [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="container-{*}_00000000-0000-0000-0000-000000000000"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
-        '<div class="header-wrapper">',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code>',
-        '<div class="Logo-mock"></div><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-        '</div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-      ].join('')
-    );
-
-    expect(wrapper?.container.querySelectorAll('.scpm')?.length).to.equal(8);
-  });
-
-  it('should render double digit dynamic placeholder', () => {
-    const phKey = 'container-1-2';
-    const layoutData = layoutDataForNestedDynamicPlaceholder('container-1-{*}');
-    const wrapper = render(
-      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
-        <Placeholder name={phKey} rendering={layoutData.sitecore.route} />
-      </SitecoreContext>
-    );
-
-    expect(wrapper?.container.innerHTML).to.equal(
-      [
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="container-1-{*}_00000000-0000-0000-0000-000000000000"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="nested123"></code>',
-        '<div class="header-wrapper">',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="open" id="logo_nested123"></code>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="open" id="deep123"></code>',
-        '<div class="Logo-mock"></div><code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-        '</div>',
-        '<code type="text/sitecore" chrometype="rendering" class="scpm" kind="close"></code>',
-        '<code type="text/sitecore" chrometype="placeholder" class="scpm" kind="close"></code>',
-      ].join('')
-    );
-
-    // 4 placeholders in total, 8 code blocks
-    expect(wrapper?.container.querySelectorAll('.scpm').length).to.equal(8);
-  });
 });
 
 after(() => {

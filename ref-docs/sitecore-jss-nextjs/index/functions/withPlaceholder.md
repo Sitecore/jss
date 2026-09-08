@@ -8,7 +8,7 @@
 
 > **withPlaceholder**(`placeholders`, `options?`): (`WrappedComponent`) => (`props`) => `Element`
 
-Defined in: sitecore-jss-react/types/enhancers/withPlaceholder.d.ts:35
+Defined in: sitecore-jss-react/types/enhancers/withPlaceholder.d.ts:34
 
 ## Parameters
 

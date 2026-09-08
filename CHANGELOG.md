@@ -11,6 +11,84 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+> ⚠️ **JSS 23 supports Sitecore XP 10.5 only. Sitecore AI is not supported - use Sitecore Content SDK for that scenario.**
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-react]` Suppress hydration mismatch warnings in Experience Editor by adding `suppressHydrationWarning` to SDK chrome paths (ErrorBoundary, placeholders, field components)([#2218](https://github.com/Sitecore/jss/pull/2218))
+* `[create-sitecore-jss]` Fix Vue template build failure caused by `@vue/cli-plugin-eslint` being incompatible with ESLint 9; linting during `vue-cli-service build` is now disabled, use `npm run lint` instead ([#2208](https://github.com/Sitecore/jss/pull/2208))
+* `[create-sitecore-jss]` Pass `metadata` to navigation link fields to prevent 404 errors when hovering links in Pages ([#2206](https://github.com/Sitecore/jss/pull/2206))
+* `[sitecore-jss-react]` RichText rebuilds `dangerouslySetInnerHTML` on every render, causing full DOM replacement and dropped internal-link listeners ([#2204](https://github.com/Sitecore/jss/pull/2204))
+
+### 🛠 Breaking Changes
+
+* **Removed Sitecore AI related functionality across all JSS packages**
+  * Going forward, Sitecore AI is supported exclusively via Content SDK; Sitecore XP support is unaffected.
+  * This consolidates the removal of Personalize/CDP tracking ([#2209](https://github.com/Sitecore/jss/pull/2209)), Design Library preview & theming ([#2212](https://github.com/Sitecore/jss/pull/2212)), BYOC/FEAAS ([#2211](https://github.com/Sitecore/jss/pull/2211)), Sitecore AI Forms ([#2210](https://github.com/Sitecore/jss/pull/2210) - Sitecore Forms for Sitecore XP, via the separate `sitecore-jss-forms`/`sitecore-jss-react-forms` packages, is unaffected), Pages/Metadata Edit Mode ([#2213](https://github.com/Sitecore/jss/pull/2213) - classic Sitecore Experience Editor "chromes" support is fully retained), and the `nextjs-xmcloud`/`angular-xmcloud`/`node-xmcloud-proxy` templates & Sitecore Edge Platform ([#2214](https://github.com/Sitecore/jss/pull/2214)).
+  * Changes by package:
+  * **`sitecore-jss`**
+    * Removed the entire `/personalize` subpath (`GraphQLPersonalizeService`, `personalizeLayout`/`personalizePlaceholder`/`personalizeComponent`, `getPersonalizedRewrite`, `getPersonalizedRewriteData`, `getGroomedVariantIds`, `normalizePersonalizedRewrite`, `CdpHelper`, `DEFAULT_VARIANT`) and the `personalize` debug channel (`DEBUG=sitecore-jss:personalize`)
+    * Removed `includePersonalizedRoutes` from `GraphQLSitemapService`/`MultisiteGraphQLSitemapService` (SSG personalized route generation)
+    * Removed `getDesignLibraryStylesheetLinks`, `RestComponentLayoutService`/`ComponentLayoutRequestParams`, `DesignLibraryMode`, `RenderComponentQueryParams`, `ComponentUpdateEventArgs` (from `editing/utils`), and the entire `editing/design-library` module (`DesignLibraryStatus`, `addComponentUpdateHandler`, `getDesignLibraryStatusEvent`, `getDesignLibraryScriptLink`, `isDesignLibraryMode`)
+    * Removed `RenderingType`, `EDITING_COMPONENT_PLACEHOLDER`, `EDITING_COMPONENT_ID` from the layout models
+    * Removed the entire `form` module, `getEdgeProxyFormsUrl` (from `graphql`), and the `form` debug channel (`DEBUG=sitecore-jss:form`)
+    * Removed `GraphQLEditingService`, `RenderMetadataQueryParams`, `LayoutKind`, `MetadataKind`, `HorizonEditor`, `getJssPagesClientData`, `PAGES_EDITING_MARKER`, the `Metadata` app-metadata interface, `FieldMetadata` interface / `Field.metadata`, and the `EditMode` enum / `LayoutServiceContext.editMode`/`clientScripts`/`clientData` fields
+    * Removed `getContentStylesheetLink`/`getContentStylesheetUrl` (loaded CKEditor content styles for Pages' rich text editor, unused by classic Experience Editor) and `EDITING_ALLOWED_ORIGINS` (hardcoded `pages.sitecorecloud.io`/`app.sitecorecloud.io` CORS allow-list - `enforceCors`/`JSS_ALLOWED_ORIGINS` remain unchanged as general-purpose CORS infrastructure)
+    * Removed `getEdgeProxyContentUrl` and the `SITECORE_EDGE_URL_DEFAULT` constant from `graphql`
+    * Removed `useSiteQuery` from `GraphQLDictionaryServiceConfig` and `GraphQLDictionaryService.fetchWithSiteQuery` - dictionary data is now always fetched via the search query
+    * Removed the `process.env.SITECORE` (Sitecore AI hosting detection) special-casing from `GraphQLSiteInfoService.fetchSiteInfo` (no longer skips the site-info fetch)
+  * **`sitecore-jss-react`**
+    * Lost the re-export of the removed Personalize APIs
+    * Removed the `DesignLibrary` component
+    * Removed `FEaaSComponent`, `FEaaSWrapper`, `fetchFEaaSComponentServerProps`, `BYOCComponent`, `BYOCWrapper`, `fetchBYOCComponentServerProps` (and their type exports); `Placeholder` no longer supports rendering of FEAAS/BYOC components
+    * Removed the `Form` component
+    * Removed `PlaceholderMetadata`, `FieldMetadata`, `withFieldMetadata`, `withEmptyFieldEditingComponent`, `DefaultEmptyFieldEditingComponentText`/`DefaultEmptyFieldEditingComponentImage`, and `EditingScripts` - `Text`/`Date`/`Link`/`RichText`/`Image`/`NextImage` no longer wrap output in metadata chrome markers
+    * Lost the re-export of `getContentStylesheetLink`/`getContentStylesheetUrl`
+    * Removed `SitecoreContext`'s `api.edge` (`contextId`/`edgeUrl`) prop (and its re-export via `withSitecoreContext`/`useSitecoreContext`'s `api`)
+  * **`sitecore-jss-nextjs`**
+    * Removed `PersonalizeMiddleware`/`PersonalizeMiddlewareConfig`
+    * Removed `variantIds` from `EditingMetadataPreviewData` and the `sc_variant` handling in the editing render middleware - Pages/Sitecore Editor no longer previews a specific personalization variant while authoring
+    * Lost the re-export of the `DesignLibrary` component
+    * Removed `FEaaSWrapper`, `BYOCWrapper`, and `FEAASRenderMiddleware`/`FEAASRenderMiddlewareConfig` (and their re-exports from `sitecore-jss-react`)
+    * Lost the re-export of the `Form` component
+    * Removed `MetadataHandler`, `EditingConfigMiddleware`/`EditingConfigMiddlewareConfig`, `EditingMetadataPreviewData`, `isEditingMetadataPreviewData`; `EditingRenderMiddleware` no longer handles GET requests (POST/chromes only); lost the re-export of the metadata-related `sitecore-jss-react` exports
+    * Lost the re-export of `getContentStylesheetLink`/`getContentStylesheetUrl`
+    * Removed the `process.env.SITECORE` special-casing from `EditingRenderMiddleware`'s default `resolveServerUrl` (no longer forces `https` based on it)
+  * **`sitecore-jss-angular`**
+    * Lost the re-export of Personalize's `DEFAULT_VARIANT` and related APIs
+    * Removed `FormComponent`/`FormRendering`
+    * Removed `FieldMetadataMarkerComponent`, `EditingScriptsComponent`, `DefaultEmptyTextFieldEditingPlaceholderComponent`/`DefaultEmptyImageFieldEditingPlaceholderComponent`; removed `BaseFieldDirective.renderEmpty()`/`renderMetadata()` and `PlaceholderComponent`'s metadata code-block rendering - `TextDirective`/`DateDirective`/`LinkDirective`/`RichTextDirective`/`ImageDirective` no longer render metadata chrome markers
+    * Lost the re-export of `getContentStylesheetLink`/`getContentStylesheetUrl`
+    * Removed `EDGE_CONFIG`/`EdgeConfigToken`
+  * **`sitecore-jss-proxy`**
+    * Removed `PersonalizeHelper`/`PersonalizeConfig`
+    * Removed the `sc_variant` handling in the editing render middleware
+    * Removed the entire `/editing` middleware (`editingRouter`, `editingConfigMiddleware`, `editingRenderMiddleware`) - this subsystem implemented only the Pages metadata protocol with no chromes counterpart
+  * **`sitecore-jss-dev-tools`**
+    * Removed `getMetadata`/`Metadata` (app-metadata generation)
+  * **`create-sitecore-jss`**
+    * Removed the `nextjs-xmcloud`, `angular-xmcloud`, and `node-xmcloud-proxy` templates and initializers
+* `[sitecore-jss-react]` Internal props such as `api`, `componentFactory`, `modifyComponentProps`, `sitecoreContext`, and `updateSitecoreContext` are no longer passed to components via `Placeholder` ([#2207](https://github.com/Sitecore/jss/pull/2207))
+  * **Still passed:** `fields`, `params`, `rendering` (+ props from `modifyComponentProps`).
+  * **New prop:** `passThroughComponentProps` - use this to pass additional props to rendered components explicitly.
+* `[sitecore-jss-nextjs]` Removed `VercelEditingDataCache` and the `@vercel/kv` dependency - Vercel KV is deprecated and existing Vercel KV stores are being migrated to Upstash Redis (see [Vercel's KV deprecation notice](https://www.npmjs.com/package/@vercel/kv)) ([#2216](https://github.com/Sitecore/jss/pull/2216))
+  * **Replaced by:** `RedisEditingDataCache`, built directly on `@upstash/redis`, with the same `EditingDataCache` behavior (get/set/TTL).
+  * For new projects, provision a Redis integration from the [Vercel Marketplace](https://vercel.com/marketplace?category=storage&search=redis) (e.g. Upstash) and pass its REST URL/token to `RedisEditingDataCache`.
+
+## 22.12.4
+
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-nextjs]` Skip malformed redirect regex rules instead of failing the entire redirect chain ([#2201](https://github.com/Sitecore/jss/pull/2201))
+* `[sitecore-jss]` Fix personalize hide component not working properly in edit mode for nested personalization ([#2202](https://github.com/Sitecore/jss/pull/2202))
+* `[create-sitecore-jss]` Sitemap index XML xmlns omits the 'www' prefix ([#2199](https://github.com/Sitecore/jss/pull/2199))
+
+### Chores
+
+* Update `minimatch` dependency resolution for `nx` ([#2205](https://github.com/Sitecore/jss/pull/2205))
+
+## 22.12.3
+
 ### 🐛 Bug Fixes
 
 * `[create-sitecore-jss]` Fix nextjs-styleguide template build failure ([#2196](https://github.com/Sitecore/jss/pull/2196))

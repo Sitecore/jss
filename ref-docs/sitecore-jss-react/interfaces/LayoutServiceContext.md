@@ -6,7 +6,7 @@
 
 # Interface: LayoutServiceContext
 
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:30
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:21
 
 Shape of context data from the Sitecore Layout Service
 
@@ -16,35 +16,11 @@ Shape of context data from the Sitecore Layout Service
 
 ## Properties
 
-### clientData?
-
-> `optional` **clientData?**: `Record`\<`string`, `Record`\<`string`, `unknown`\>\>
-
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:43
-
-***
-
-### clientScripts?
-
-> `optional` **clientScripts?**: `string`[]
-
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:42
-
-***
-
-### editMode?
-
-> `optional` **editMode?**: [`EditMode`](../enumerations/EditMode.md)
-
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:41
-
-***
-
 ### itemPath?
 
 > `optional` **itemPath?**: `string`
 
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:34
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:25
 
 ***
 
@@ -52,7 +28,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:34
 
 > `optional` **language?**: `string`
 
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:33
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:24
 
 ***
 
@@ -60,7 +36,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:33
 
 > `optional` **pageEditing?**: `boolean`
 
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:32
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:23
 
 ***
 
@@ -68,15 +44,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:32
 
 > `optional` **pageState?**: [`LayoutServicePageState`](../enumerations/LayoutServicePageState.md)
 
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:35
-
-***
-
-### renderingType?
-
-> `optional` **renderingType?**: `RenderingType`
-
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:40
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:26
 
 ***
 
@@ -84,7 +52,7 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:40
 
 > `optional` **site?**: `object`
 
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:37
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:28
 
 #### name?
 
@@ -96,4 +64,4 @@ Defined in: packages/sitecore-jss/types/layout/models.d.ts:37
 
 > `optional` **visitorIdentificationTimestamp?**: `number`
 
-Defined in: packages/sitecore-jss/types/layout/models.d.ts:36
+Defined in: packages/sitecore-jss/types/layout/models.d.ts:27

@@ -17,14 +17,6 @@
     }
   },
   {
-    "initializers": ["nextjs", "nextjs-styleguide", "nextjs-xmcloud"],
-    "args": {
-      "appName": "nextjs-styleguide-xmcloud",
-      "fetchWith": "GraphQL",
-      "prerender": "SSG"
-    }
-  },
-  {
     "initializers": ["nextjs", "nextjs-sxa"],
     "args": {
       "appName": "nextjs-sxa",
@@ -43,12 +35,6 @@
     "initializers": ["angular"],
     "args": {
       "appName": "angular-vanilla"
-    }
-  },
-  {
-    "initializers": ["angular", "angular-xmcloud"],
-    "args": {
-      "appName": "angular-xmcloud"
     }
   },
   {

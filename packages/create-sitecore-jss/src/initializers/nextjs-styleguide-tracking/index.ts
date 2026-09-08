@@ -6,7 +6,6 @@ import {
   DEFAULT_APPNAME,
   ClientAppArgs,
   missingAddonMsg,
-  incompatibleAddonsMsg,
 } from '../../common';
 
 export default class NextjsStyleguideInitializer implements Initializer {
@@ -32,13 +31,6 @@ export default class NextjsStyleguideInitializer implements Initializer {
       !pkg.config?.templates?.includes('nextjs-styleguide')
     ) {
       console.log(missingAddonMsg('nextjs-styleguide-tracking', 'nextjs-styleguide'));
-    }
-
-    if (
-      args.templates.includes('nextjs-xmcloud') ||
-      pkg.config?.templates?.includes('nextjs-xmcloud')
-    ) {
-      console.log(incompatibleAddonsMsg('nextjs-styleguide-tracking', 'nextjs-xmcloud'));
     }
 
     const response = {
