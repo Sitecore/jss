@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import chai, { use } from 'chai';
 import chaiString from 'chai-string';
 import { render } from '@testing-library/react';
@@ -10,7 +9,6 @@ import {
   LayoutServicePageState,
   SitecoreContextReactContext,
 } from '@sitecore-jss/sitecore-jss-react';
-import { RenderingType } from '@sitecore-jss/sitecore-jss/layout';
 import Image, { ImageLoader } from 'next/image';
 import { spy, match } from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -386,179 +384,6 @@ describe('<NextImage />', () => {
     });
   });
 
-  describe('editMode metadata', () => {
-    const testEditingContext = {
-      ...testContextProps,
-      context: {
-        pageState: LayoutServicePageState.Edit,
-      },
-    };
-    const testMetadata = {
-      contextItem: {
-        id: '{09A07660-6834-476C-B93B-584248D3003B}',
-        language: 'en',
-        revision: 'a0b36ce0a7db49418edf90eb9621e145',
-        version: 1,
-      },
-      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
-      fieldType: 'image',
-      rawValue: 'Test1',
-    };
-
-    it('should render field metadata component when metadata property is present', () => {
-      const field = {
-        value: { src: '/assets/img/test0.png', alt: 'my image' },
-        metadata: testMetadata,
-      };
-
-      const rendered = render(
-        <SitecoreContextReactContext.Provider value={testEditingContext}>
-          <NextImage field={field} fill={true} />
-        </SitecoreContextReactContext.Provider>
-      );
-      // we expect imgSrc from nextjs optimizations to be absent in editing/metadata mode
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<img alt="my image" data-unoptimized="true" loading="lazy" decoding="async" data-nimg="fill" style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;" src="/assets/img/test0.png">',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render default empty field component for Image when field value src is not present', () => {
-      const field = {
-        value: {},
-        metadata: testMetadata,
-      };
-
-      const rendered = render(
-        <SitecoreContextReactContext.Provider value={testEditingContext}>
-          <NextImage field={field} />
-        </SitecoreContextReactContext.Provider>
-      );
-      const defaultEmptyImagePlaceholder = render(<DefaultEmptyFieldEditingComponentImage />);
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          defaultEmptyImagePlaceholder.container.innerHTML,
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render default empty field component for Image when field src is not present', () => {
-      const field = {
-        src: undefined,
-        metadata: testMetadata,
-      };
-
-      const rendered = render(
-        <SitecoreContextReactContext.Provider value={testEditingContext}>
-          <NextImage field={field} />
-        </SitecoreContextReactContext.Provider>
-      );
-      const defaultEmptyImagePlaceholder = render(<DefaultEmptyFieldEditingComponentImage />);
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          defaultEmptyImagePlaceholder.container.innerHTML,
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render custom empty field component when provided, when field value src is not present', () => {
-      const field = {
-        value: {},
-        metadata: testMetadata,
-      };
-
-      const EmptyFieldEditingComponent: React.FC = () => (
-        <span className="empty-field-value-placeholder">Custom Empty field value</span>
-      );
-
-      const rendered = render(
-        <SitecoreContextReactContext.Provider value={testEditingContext}>
-          <NextImage field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
-        </SitecoreContextReactContext.Provider>
-      );
-
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render custom empty field component when provided, when field src is not present', () => {
-      const field = {
-        src: undefined,
-        metadata: testMetadata,
-      };
-
-      const EmptyFieldEditingComponent: React.FC = () => (
-        <span className="empty-field-value-placeholder">Custom Empty field value</span>
-      );
-
-      const rendered = render(
-        <SitecoreContextReactContext.Provider value={testEditingContext}>
-          <NextImage field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
-        </SitecoreContextReactContext.Provider>
-      );
-
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render nothing when field value is not present, when editing is explicitly disabled', () => {
-      const field = {
-        value: {},
-        metadata: testMetadata,
-      };
-
-      const rendered = render(
-        <SitecoreContextReactContext.Provider value={testEditingContext}>
-          <NextImage field={field} editable={false} />
-        </SitecoreContextReactContext.Provider>
-      );
-
-      expect(rendered.container.innerHTML).to.equal('');
-    });
-
-    it('should render nothing when field src is not present, when editing is explicitly disabled', () => {
-      const field = {
-        src: undefined,
-        metadata: testMetadata,
-      };
-
-      const rendered = render(
-        <SitecoreContextReactContext.Provider value={testEditingContext}>
-          <NextImage field={field} editable={false} />
-        </SitecoreContextReactContext.Provider>
-      );
-
-      expect(rendered.container.innerHTML).to.equal('');
-    });
-  });
-
   describe('unoptimized property manipulation', () => {
     const props = {
       field: { value: { src: '/assets/img/test0.png' } },
@@ -596,23 +421,6 @@ describe('<NextImage />', () => {
         </SitecoreContextReactContext.Provider>
       ).container.querySelector('img');
       expect(rendered?.getAttribute('data-unoptimized')).to.equal('true');
-    });
-
-    it('should render unoptimized image in component rendering type', () => {
-      const testEditingContext = {
-        ...testContextProps,
-        context: {
-          ...testContextProps.context,
-          renderingType: RenderingType.Component,
-        },
-      };
-      const rendered = render(
-        <SitecoreContextReactContext.Provider value={testEditingContext}>
-          <NextImage loader={mockLoader} {...props} />
-        </SitecoreContextReactContext.Provider>
-      );
-      const img = rendered.container.querySelector('img')!;
-      expect(img.getAttribute('data-unoptimized')).to.equal('true');
     });
 
     it('should render respect original unoptimized value in normal mode', () => {

@@ -1,16 +1,13 @@
-import React, { ForwardedRef, forwardRef } from 'react';
-import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
-import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
+import React, { ForwardedRef, forwardRef, useMemo } from 'react';
 import { EditableFieldProps } from './sharedTypes';
-import { FieldMetadata, isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
+import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface RichTextField extends FieldMetadata {
+export interface RichTextField {
   value?: string;
   editable?: string;
 }
 
-export interface RichTextProps extends EditableFieldProps<RichTextProps> {
+export interface RichTextProps extends EditableFieldProps {
   [htmlAttributes: string]: unknown;
   /** The rich text field data. */
   field?: RichTextField;
@@ -21,32 +18,35 @@ export interface RichTextProps extends EditableFieldProps<RichTextProps> {
   tag?: string;
 }
 
-export const RichText: React.FC<RichTextProps> = withFieldMetadata<RichTextProps>(
-  withEmptyFieldEditingComponent<RichTextProps>(
-    // eslint-disable-next-line react/display-name
-    forwardRef(
-      (
-        { field, tag = 'div', editable = true, ...otherProps }: RichTextProps,
-        ref: ForwardedRef<HTMLElement>
-      ) => {
-        if (!field || (!field.editable && isFieldValueEmpty(field))) {
-          return null;
-        }
+export const RichText = forwardRef(
+  (
+    { field, tag = 'div', editable = true, ...otherProps }: RichTextProps,
+    ref: ForwardedRef<HTMLElement>
+  ) => {
+    const html = field && (field.editable && editable ? field.editable : field.value);
 
-        const htmlProps = {
-          dangerouslySetInnerHTML: {
-            __html: field.editable && editable ? field.editable : field.value,
-          },
-          ref,
-          ...otherProps,
-        };
+    // Keep the object reference stable across re-renders when the html is unchanged,
+    // since React DOM compares dangerouslySetInnerHTML by reference and re-sets
+    // innerHTML (recreating all child DOM nodes) whenever it changes.
+    const dangerouslySetInnerHTML = useMemo(
+      () => (html !== undefined && html !== '' ? { __html: html } : undefined),
+      [html]
+    );
 
-        return React.createElement(tag || 'div', htmlProps);
-      }
-    ),
-    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText, isForwardRef: true }
-  ),
-  true
+    if (!field || (!field.editable && isFieldValueEmpty(field)) || !dangerouslySetInnerHTML) {
+      return null;
+    }
+
+    const htmlProps = {
+      dangerouslySetInnerHTML,
+      ref,
+      // Experience Editor rewrites editable chrome markup client-side after SSR.
+      ...(field.editable && editable ? { suppressHydrationWarning: true } : {}),
+      ...otherProps,
+    };
+
+    return React.createElement(tag || 'div', htmlProps);
+  }
 );
 
 RichText.displayName = 'RichText';

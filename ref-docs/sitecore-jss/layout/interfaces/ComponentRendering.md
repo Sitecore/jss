@@ -6,7 +6,7 @@
 
 # Interface: ComponentRendering\<T\>
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:99](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss/src/layout/models.ts#L99)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:85](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss/src/layout/models.ts#L85)
 
 Definition of a component instance within a placeholder on a route
 
@@ -22,7 +22,7 @@ Definition of a component instance within a placeholder on a route
 
 > **componentName**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:100](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss/src/layout/models.ts#L100)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:86](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss/src/layout/models.ts#L86)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:100](https://github.com/
 
 > `optional` **dataSource?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:101](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss/src/layout/models.ts#L101)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:87](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss/src/layout/models.ts#L87)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:101](https://github.com/
 
 > `optional` **fields?**: `T`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:104](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss/src/layout/models.ts#L104)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:90](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss/src/layout/models.ts#L90)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:104](https://github.com/
 
 > `optional` **params?**: [`ComponentParams`](ComponentParams.md)
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:105](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss/src/layout/models.ts#L105)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:91](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss/src/layout/models.ts#L91)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:105](https://github.com/
 
 > `optional` **placeholders?**: [`PlaceholdersData`](../type-aliases/PlaceholdersData.md)\<`string`\>
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:103](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss/src/layout/models.ts#L103)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:89](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss/src/layout/models.ts#L89)
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [packages/sitecore-jss/src/layout/models.ts:103](https://github.com/
 
 > `optional` **uid?**: `string`
 
-Defined in: [packages/sitecore-jss/src/layout/models.ts:102](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss/src/layout/models.ts#L102)
+Defined in: [packages/sitecore-jss/src/layout/models.ts:88](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss/src/layout/models.ts#L88)

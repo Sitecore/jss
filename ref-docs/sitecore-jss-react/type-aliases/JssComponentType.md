@@ -8,7 +8,7 @@
 
 > **JssComponentType** = `ComponentType` & `object`
 
-Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:15](https://github.com/Sitecore/jss/blob/9c992fec1a30bc8998b71d2f419e33fa2be407d6/packages/sitecore-jss-react/src/components/sharedTypes.ts#L15)
+Defined in: [packages/sitecore-jss-react/src/components/sharedTypes.ts:15](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-react/src/components/sharedTypes.ts#L15)
 
 Component type returned from component builder / factory
 

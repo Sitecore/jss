@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect, spy, use } from 'chai';
 import spies from 'chai-spies';
 import { IncomingMessage, ServerResponse } from 'http';

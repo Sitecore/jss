@@ -33,7 +33,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
     ...rest
   } = props;
   const hasText = props.field && props.field.value;
-  const isEditing = editable && props.field && (props.field.editable || props.field.metadata);
+  const isEditing = editable && props.field && props.field.editable;
 
   const router = useRouter();
   const richTextRef = useRef<HTMLElement>(null);

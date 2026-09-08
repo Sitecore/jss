@@ -6,8 +6,7 @@ import {
 import { SitecoreTemplateId } from '../constants';
 import { DictionaryPhrases, DictionaryServiceBase } from './dictionary-service';
 import { CacheOptions } from '../cache-client';
-import { getAppRootId, SearchQueryService, PageInfo, SearchQueryVariables } from '../graphql';
-import { siteNameError, languageError } from '../graphql/app-root-query';
+import { getAppRootId, SearchQueryService, SearchQueryVariables } from '../graphql';
 import debug from '../debug';
 
 /** @private */
@@ -51,30 +50,6 @@ const query = /* GraphQL */ `
   }
 `;
 
-const siteQuery = /* GraphQL */ `
-  query DictionarySiteQuery(
-    $siteName: String!
-    $language: String!
-    $pageSize: Int = 500
-    $after: String
-  ) {
-    site {
-      siteInfo(site: $siteName) {
-        dictionary(language: $language, first: $pageSize, after: $after) {
-          pageInfo {
-            endCursor
-            hasNext
-          }
-          results {
-            key
-            value
-          }
-        }
-      }
-    }
-  }
-`;
-
 /**
  * Configuration options for @see GraphQLDictionaryService instances
  */
@@ -105,11 +80,6 @@ export interface GraphQLDictionaryServiceConfig
    * @default '061cba1554744b918a0617903b102b82' (/sitecore/templates/Foundation/JavaScript Services/App)
    */
   jssAppTemplateId?: string;
-
-  /**
-   * Optional. Use site query for dictionary fetch instead of search query (XM Cloud only)
-   */
-  useSiteQuery?: boolean;
 }
 
 /**
@@ -118,17 +88,6 @@ export interface GraphQLDictionaryServiceConfig
 export type DictionaryQueryResult = {
   key: { value: string };
   phrase: { value: string };
-};
-
-export type DictionarySiteQueryResponse = {
-  site: {
-    siteInfo: {
-      dictionary: {
-        results: { key: string; value: string }[];
-        pageInfo: PageInfo;
-      };
-    };
-  };
 };
 
 /**
@@ -164,9 +123,7 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       return cachedValue;
     }
 
-    const phrases = this.options.useSiteQuery
-      ? await this.fetchWithSiteQuery(language)
-      : await this.fetchWithSearchQuery(language);
+    const phrases = await this.fetchWithSearchQuery(language);
 
     this.setCacheValue(cacheKey, phrases);
     return phrases;
@@ -174,7 +131,6 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
 
   /**
    * Fetches dictionary data with search query
-   * This is the default behavior for non-XMCloud deployments. Uses `query` to retrieve data.
    * @param {string} language the language to fetch
    * @returns {Promise<DictionaryPhrases>} dictionary phrases
    * @throws {Error} if the app root was not found for the specified site and language.
@@ -208,52 +164,6 @@ export class GraphQLDictionaryService extends DictionaryServiceBase {
       .then((results) => {
         results.forEach((item) => (phrases[item.key.value] = item.phrase.value));
       });
-
-    return phrases;
-  }
-
-  /**
-   * Fetches dictionary data with site query
-   * This is the default behavior for XMCloud deployments. Uses `siteQuery` to retrieve data.
-   * @param {string} language the language to fetch
-   * @returns {Promise<DictionaryPhrases>} dictionary phrases
-   */
-  async fetchWithSiteQuery(language: string): Promise<DictionaryPhrases> {
-    const phrases: DictionaryPhrases = {};
-    debug.dictionary('fetching dictionary data for %s %s', language, this.options.siteName);
-    let results: { key: string; value: string }[] = [];
-    let hasNext = true;
-    let after = '';
-
-    if (!this.options.siteName) {
-      throw new RangeError(siteNameError);
-    }
-
-    if (!language) {
-      throw new RangeError(languageError);
-    }
-
-    while (hasNext) {
-      const fetchResponse = await this.graphQLClient.request<DictionarySiteQueryResponse>(
-        siteQuery,
-        {
-          siteName: this.options.siteName,
-          language,
-          pageSize: this.options.pageSize,
-          after,
-        }
-      );
-
-      if (fetchResponse?.site?.siteInfo?.dictionary) {
-        results = results.concat(fetchResponse.site.siteInfo.dictionary.results);
-        after = fetchResponse.site.siteInfo.dictionary.pageInfo.endCursor;
-        hasNext = fetchResponse.site.siteInfo.dictionary.pageInfo.hasNext;
-      } else {
-        hasNext = false;
-      }
-    }
-
-    results.forEach((item) => (phrases[item.key] = item.value));
 
     return phrases;
   }

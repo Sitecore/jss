@@ -6,7 +6,7 @@
 
 # Interface: Item
 
-Defined in: sitecore-jss/types/layout/models.d.ts:132
+Defined in: sitecore-jss/types/layout/models.d.ts:111
 
 Content data returned from Layout Service
 
@@ -16,7 +16,7 @@ Content data returned from Layout Service
 
 > `optional` **displayName?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:134
+Defined in: sitecore-jss/types/layout/models.d.ts:113
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:134
 
 > **fields**: `object`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:137
+Defined in: sitecore-jss/types/layout/models.d.ts:116
 
 #### Index Signature
 
@@ -36,7 +36,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:137
 
 > `optional` **id?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:135
+Defined in: sitecore-jss/types/layout/models.d.ts:114
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: sitecore-jss/types/layout/models.d.ts:135
 
 > **name**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:133
+Defined in: sitecore-jss/types/layout/models.d.ts:112
 
 ***
 
@@ -52,4 +52,4 @@ Defined in: sitecore-jss/types/layout/models.d.ts:133
 
 > `optional` **url?**: `string`
 
-Defined in: sitecore-jss/types/layout/models.d.ts:136
+Defined in: sitecore-jss/types/layout/models.d.ts:115

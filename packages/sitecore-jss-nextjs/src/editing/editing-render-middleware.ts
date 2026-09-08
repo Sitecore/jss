@@ -5,37 +5,24 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const STATIC_PROPS_ID = '__N_SSG';
 const SERVER_PROPS_ID = '__N_SSR';
 import { NativeDataFetcher, debug } from '@sitecore-jss/sitecore-jss';
-import { EditMode, LayoutServicePageState } from '@sitecore-jss/sitecore-jss/layout';
-import {
-  QUERY_PARAM_EDITING_SECRET,
-  EDITING_ALLOWED_ORIGINS,
-  RenderMetadataQueryParams,
-  LayoutKind,
-  isDesignLibraryMode,
-  DesignLibraryMode,
-} from '@sitecore-jss/sitecore-jss/editing';
+import { QUERY_PARAM_EDITING_SECRET } from '@sitecore-jss/sitecore-jss/editing';
 import { EditingData } from './editing-data';
 import { EditingDataService, editingDataService } from './editing-data-service';
 import { getJssEditingSecret } from '../utils/utils';
 import { RenderMiddlewareBase } from './render-middleware';
-import { enforceCors, getAllowedOriginsFromEnv } from '@sitecore-jss/sitecore-jss/utils';
-import { DEFAULT_VARIANT } from '@sitecore-jss/sitecore-jss/personalize';
+import { enforceCors } from '@sitecore-jss/sitecore-jss/utils';
 
 /**
  * Configuration for the Editing Render Middleware.
  */
 export type EditingRenderMiddlewareConfig = {
   /**
-   * -- Edit Mode Chromes --
-   *
    * The `NativeDataFetcher` instance to use for API requests.
    * @default new NativeDataFetcher()
    * @see NativeDataFetcher
    */
   dataFetcher?: NativeDataFetcher;
   /**
-   * -- Edit Mode Chromes --
-   *
    * The `EditingDataService` instance to use.
    * This would typically only be necessary if you've got a custom `EditingDataService` instance (e.g. using a custom API route).
    * By default, this is `editingDataService` (the `EditingDataService` default instance).
@@ -45,22 +32,17 @@ export type EditingRenderMiddlewareConfig = {
    */
   editingDataService?: EditingDataService;
   /**
-   * -- Edit Mode Chromes / Metadata --
-   *
    * Function used to determine route/page URL to render.
    * This may be necessary for certain custom Next.js routing configurations.
    * @param {object} args Arguments for resolving the page URL
-   * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'. Available in Chromes Edit Mode only.
+   * @param {string} args.serverUrl The root server URL e.g. 'http://localhost:3000'.
    * @param {string} itemPath The Sitecore relative item path e.g. '/styleguide'
    * @returns {string} The URL to render
-   * @default `${serverUrl}${itemPath}` In Edit Mode Chromes
-   * @default `${itemPath}` In XMCloud Pages for Edit Mode Metadata
+   * @default `${serverUrl}${itemPath}`
    * @see resolveServerUrl
    */
   resolvePageUrl?: (args: { serverUrl?: string; itemPath: string }) => string;
   /**
-   * -- Edit Mode Chromes --
-   *
    * Function used to determine the root server URL. This is used for the route/page and subsequent data API requests.
    * By default, the host header is used, with https protocol on Vercel (due to serverless function architecture) and http protocol elsewhere.
    * @param {NextApiRequest} req The current request.
@@ -186,7 +168,6 @@ export class ChromesHandler extends RenderMiddlewareBase {
 
       if (error.response) {
         console.info(
-          // eslint-disable-next-line quotes
           "Hint: for non-standard server or Next.js route configurations, you may need to override the 'resolveServerUrl' or 'resolvePageUrl' available on the 'EditingRenderMiddleware' config."
         );
       }
@@ -224,9 +205,8 @@ export class ChromesHandler extends RenderMiddlewareBase {
    * @param {NextApiRequest} req
    */
   private defaultResolveServerUrl = (req: NextApiRequest) => {
-    // to preserve auth headers, use https if we're in our 3 main hosting options
-    const useHttps =
-      (process.env.VERCEL || process.env.SITECORE || process.env.NETLIFY) !== undefined;
+    // to preserve auth headers, use https if we're in our main hosting options
+    const useHttps = (process.env.VERCEL || process.env.NETLIFY) !== undefined;
     // use https for requests with auth but also support unsecured http rendering hosts
     return `${useHttps ? 'https' : 'http'}://${req.headers.host}`;
   };
@@ -270,219 +250,6 @@ export class ChromesHandler extends RenderMiddlewareBase {
 }
 
 /**
- * Configuration for the Editing Metadata Handler.
- */
-export type EditingRenderMiddlewareMetadataConfig = Pick<
-  EditingRenderMiddlewareConfig,
-  'resolvePageUrl'
->;
-
-/**
- * Next.js API request with Metadata query parameters.
- */
-export type MetadataNextApiRequest = NextApiRequest & {
-  query: RenderMetadataQueryParams;
-};
-
-/**
- * Data for Next.js Preview (Editing) Metadata Edit Mode.
- */
-export type EditingMetadataPreviewData = {
-  site: string;
-  itemId: string;
-  language: string;
-  editMode: EditMode.Metadata;
-  pageState: Exclude<LayoutServicePageState, 'Normal'>;
-  variantIds: string[];
-  version?: string;
-  layoutKind?: LayoutKind;
-};
-
-/**
- * Data for Design Library rendering mode
- */
-export interface DesignLibraryRenderPreviewData {
-  site: string;
-  itemId: string;
-  renderingId: string;
-  componentUid: string;
-  language: string;
-  pageState: LayoutServicePageState;
-  mode?: DesignLibraryMode;
-  variant?: string;
-  version?: string;
-  dataSourceId?: string;
-}
-
-/**
- * Type guard for EditingMetadataPreviewData
- * @param {object} data preview data to check
- * @returns true if the data is EditingMetadataPreviewData
- * @see EditingMetadataPreviewData
- */
-export const isEditingMetadataPreviewData = (data: unknown): data is EditingMetadataPreviewData => {
-  return (
-    typeof data === 'object' &&
-    data !== null &&
-    'editMode' in data &&
-    (data as EditingMetadataPreviewData).editMode === EditMode.Metadata
-  );
-};
-
-/**
- * Type guard for Design Library mode
- * @param {object} data preview data to check
- * @returns true if the data is EditingMetadataPreviewData
- * @see EditingMetadataPreviewData
- */
-export const isDesignLibraryPreviewData = (
-  data: unknown
-): data is DesignLibraryRenderPreviewData => {
-  return (
-    typeof data === 'object' && data !== null && 'mode' in data && isDesignLibraryMode(data.mode)
-  );
-};
-
-/**
- * Handler for the Editing Metadata GET requests.
- * This handler is responsible for redirecting the request to the page route.
- * The page fetches the layout, dictionary and renders the page.
- */
-export class MetadataHandler {
-  constructor(public config: EditingRenderMiddlewareMetadataConfig) {}
-
-  render(req: MetadataNextApiRequest, res: NextApiResponse) {
-    const { query } = req;
-
-    const startTimestamp = Date.now();
-
-    const mode = query.mode;
-    const metadataDefaultRequiredParams = ['sc_site', 'sc_itemid', 'sc_lang', 'route', 'mode'];
-
-    const metadataComponentRequiredParams = [
-      'sc_site',
-      'sc_itemid',
-      'sc_renderingId',
-      'sc_uid',
-      'sc_lang',
-      'mode',
-    ];
-
-    const requiredQueryParams = isDesignLibraryMode(mode)
-      ? metadataComponentRequiredParams
-      : metadataDefaultRequiredParams;
-
-    const missingQueryParams = requiredQueryParams.filter((param) => !query[param]);
-
-    // Validate query parameters
-    if (missingQueryParams.length) {
-      debug.editing('missing required query parameters: %o', missingQueryParams);
-
-      return res.status(400).json({
-        html: `<html><body>Missing required query parameters: ${missingQueryParams.join(
-          ', '
-        )}</body></html>`,
-      });
-    }
-
-    if (isDesignLibraryMode(mode)) {
-      res.setPreviewData(
-        {
-          itemId: query.sc_itemid,
-          componentUid: query.sc_uid,
-          renderingId: query.sc_renderingId,
-          language: query.sc_lang,
-          site: query.sc_site,
-          pageState: LayoutServicePageState.Normal,
-          mode,
-          dataSourceId: query.dataSourceId,
-          version: query.sc_version,
-        } as DesignLibraryRenderPreviewData,
-        {
-          maxAge: 3,
-        }
-      );
-    } else {
-      res.setPreviewData(
-        {
-          site: query.sc_site,
-          itemId: query.sc_itemid,
-          language: query.sc_lang,
-          // for sc_variantId we may employ multiple variants (page-layout + component level)
-          variantIds: query.sc_variant?.split(',') || [DEFAULT_VARIANT],
-          version: query.sc_version,
-          editMode: EditMode.Metadata,
-          pageState: query.mode,
-          layoutKind: query.sc_layoutKind,
-        } as EditingMetadataPreviewData,
-        // Cache the preview data for 3 seconds to ensure the page is rendered with the correct preview data not the cached one
-        {
-          maxAge: 3,
-        }
-      );
-    }
-
-    // Cookies with the SameSite=Lax policy set by Next.js setPreviewData function causes CORS issue
-    // when Next.js preview mode is activated, resulting the page to render in normal mode instead.
-    // By replacing it with "SameSite=None; Secure", we ensure cookies are correctly sent with
-    // cross-origin requests, allowing the page to be editable. This change should be reverted
-    // once vercel addresses this open issue: https://github.com/vercel/next.js/issues/49927
-    const setCookieHeader = res.getHeader('Set-Cookie');
-
-    if (setCookieHeader && Array.isArray(setCookieHeader)) {
-      const modifiedCookies = setCookieHeader.map((cookie) => {
-        const cookieIdentifiers: { [key: string]: RegExp } = {
-          __prerender_bypass: /^__prerender_bypass=/,
-          __next_preview_data: /^__next_preview_data=/,
-        };
-
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        for (const [_, regex] of Object.entries(cookieIdentifiers)) {
-          if (cookie.match(regex)) {
-            return cookie.replace(/SameSite=Lax/, 'SameSite=None; Secure');
-          }
-        }
-        return cookie;
-      });
-
-      res.setHeader('Set-Cookie', modifiedCookies);
-    }
-
-    const encodedRoute = encodeURI(query.route);
-
-    const route =
-      this.config.resolvePageUrl?.({
-        itemPath: encodedRoute,
-      }) || encodedRoute;
-
-    debug.editing(
-      'editing render middleware end in %dms: redirect %o',
-      Date.now() - startTimestamp,
-      {
-        status: 307,
-        route,
-      }
-    );
-
-    // Restrict the page to be rendered only within the allowed origins
-    res.setHeader('Content-Security-Policy', this.getSCPHeader());
-
-    res.redirect(route);
-  }
-
-  /**
-   * Gets the Content-Security-Policy header value
-   * @returns Content-Security-Policy header value
-   */
-  getSCPHeader() {
-    return `frame-ancestors 'self' ${[
-      ...getAllowedOriginsFromEnv(),
-      ...EDITING_ALLOWED_ORIGINS,
-    ].join(' ')}`;
-  }
-}
-
-/**
  * Middleware / handler for use in the editing render Next.js API route (e.g. '/api/editing/render')
  * which is required for Sitecore editing support.
  */
@@ -512,7 +279,7 @@ export class EditingRenderMiddleware extends RenderMiddlewareBase {
       body,
     });
 
-    if (!enforceCors(req, res, EDITING_ALLOWED_ORIGINS)) {
+    if (!enforceCors(req, res)) {
       debug.editing(
         'invalid origin host - set allowed origins in JSS_ALLOWED_ORIGINS environment variable'
       );
@@ -535,12 +302,6 @@ export class EditingRenderMiddleware extends RenderMiddlewareBase {
     }
 
     switch (req.method) {
-      case 'GET': {
-        const handler = new MetadataHandler({ resolvePageUrl: this.config?.resolvePageUrl });
-
-        await handler.render(req as MetadataNextApiRequest, res);
-        break;
-      }
       case 'POST': {
         const handler = new ChromesHandler(this.config);
 
@@ -554,8 +315,8 @@ export class EditingRenderMiddleware extends RenderMiddlewareBase {
         return res.status(204).send(null);
       }
       default:
-        debug.editing('invalid method - sent %s expected GET/POST', req.method);
-        res.setHeader('Allow', 'GET, POST');
+        debug.editing('invalid method - sent %s expected POST', req.method);
+        res.setHeader('Allow', 'POST');
         return res.status(405).json({
           html: `<html><body>Invalid request method '${req.method}'</body></html>`,
         });

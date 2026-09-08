@@ -4,7 +4,6 @@ import {
   PageInfo,
 } from '@sitecore-jss/sitecore-jss/graphql';
 import { debug } from '@sitecore-jss/sitecore-jss';
-import { getPersonalizedRewrite } from '@sitecore-jss/sitecore-jss/personalize';
 
 /** @private */
 export const languageError = 'The list of languages cannot be empty';
@@ -21,50 +20,38 @@ export function getSiteEmptyError(siteName: string) {
 const languageEmptyError = 'The language must be a non-empty string';
 
 /**
- * GQL query made dynamic based on schema differences between SXP and XM Cloud
- * @param {boolean} usesPersonalize flag to detrmine which variation of a query to run
- * @returns GraphQL query to fetch site paths with
+ * GQL query to fetch site paths with
  */
-const defaultQuery = (usesPersonalize?: boolean) => /* GraphQL */ `
-query ${usesPersonalize ? 'PersonalizeSitemapQuery' : 'DefaultSitemapQuery'}(
-  $siteName: String!
-  $language: String!
-  $includedPaths: [String]
-  $excludedPaths: [String]
-  $pageSize: Int = 100
-  $after: String
-) {
-  site {
-    siteInfo(site: $siteName) {
-      routes(
-        language: $language
-        includedPaths: $includedPaths
-        excludedPaths: $excludedPaths
-        first: $pageSize
-        after: $after
-      ){
-        total
-        pageInfo {
-          endCursor
-          hasNext
-        }
-        results {
-          path: routePath
-          ${
-            usesPersonalize
-              ? `
-              route {
-                personalization {
-                  variantIds
-                }
-              }`
-              : ''
+const defaultQuery = () => /* GraphQL */ `
+  query DefaultSitemapQuery(
+    $siteName: String!
+    $language: String!
+    $includedPaths: [String]
+    $excludedPaths: [String]
+    $pageSize: Int = 100
+    $after: String
+  ) {
+    site {
+      siteInfo(site: $siteName) {
+        routes(
+          language: $language
+          includedPaths: $includedPaths
+          excludedPaths: $excludedPaths
+          first: $pageSize
+          after: $after
+        ) {
+          total
+          pageInfo {
+            endCursor
+            hasNext
+          }
+          results {
+            path: routePath
           }
         }
       }
     }
   }
-}
 `;
 /**
  * type for input variables for the site routes query
@@ -119,11 +106,6 @@ export interface SiteRouteQueryResult<T> {
  */
 export type RouteListQueryResult = {
   path: string;
-  route?: {
-    personalization?: {
-      variantIds: string[];
-    };
-  };
 };
 
 /**
@@ -131,12 +113,6 @@ export type RouteListQueryResult = {
  */
 export interface BaseGraphQLSitemapServiceConfig
   extends Omit<SiteRouteQueryVariables, 'language' | 'siteName'> {
-  /**
-   * A flag for whether to include personalized routes in service output.
-   * Only works on XM Cloud for pages using Embedded Personalization (not Component A/B testing).
-   * Turned off by default.
-   */
-  includePersonalizedRoutes?: boolean;
   /**
    * A GraphQL Request Client Factory is a function that accepts configuration and returns an instance of a GraphQLRequestClient.
    * This factory function is used to create and configure GraphQL clients for making GraphQL API requests.
@@ -182,7 +158,7 @@ export abstract class BaseGraphQLSitemapService {
    * Gets the default query used for fetching the list of site pages
    */
   protected get query(): string {
-    return defaultQuery(this.options.includePersonalizedRoutes);
+    return defaultQuery();
   }
 
   /**
@@ -261,18 +237,6 @@ export abstract class BaseGraphQLSitemapService {
       if (!item) return;
 
       aggregatedPaths.push(formatStaticPath(toSegments(item.path), language));
-
-      const variantIds = item.route?.personalization?.variantIds?.filter(
-        (variantId) => !variantId.includes('_') // exclude component A/B test
-      );
-
-      if (variantIds?.length) {
-        aggregatedPaths.push(
-          ...variantIds.map((varId) =>
-            formatStaticPath(toSegments(getPersonalizedRewrite(item.path, [varId])), language)
-          )
-        );
-      }
     });
 
     return aggregatedPaths;

@@ -1,15 +1,11 @@
 import React from 'react';
-import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
-import { DefaultEmptyFieldEditingComponentText } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface DateFieldProps extends EditableFieldProps<DateFieldProps> {
+export interface DateFieldProps extends EditableFieldProps {
   /** The date field data. */
   [htmlAttributes: string]: unknown;
-  field: FieldMetadata & {
+  field: {
     value?: string;
     editable?: string;
   };
@@ -21,40 +17,41 @@ export interface DateFieldProps extends EditableFieldProps<DateFieldProps> {
   render?: (date: Date | null) => React.ReactNode;
 }
 
-export const DateField: React.FC<DateFieldProps> = withFieldMetadata<DateFieldProps>(
-  withEmptyFieldEditingComponent<DateFieldProps>(
-    ({ field, tag, editable = true, render, ...otherProps }) => {
-      if (!field || (!field.editable && isFieldValueEmpty(field))) {
-        return null;
-      }
+export const DateField: React.FC<DateFieldProps> = ({
+  field,
+  tag,
+  editable = true,
+  render,
+  ...otherProps
+}) => {
+  if (!field || (!field.editable && isFieldValueEmpty(field))) {
+    return null;
+  }
 
-      let children: React.ReactNode;
+  let children: React.ReactNode;
 
-      const htmlProps: {
-        [htmlAttr: string]: unknown;
-        children?: React.ReactNode;
-      } = {
-        ...otherProps,
-      };
+  const htmlProps: {
+    [htmlAttr: string]: unknown;
+    children?: React.ReactNode;
+  } = {
+    ...otherProps,
+  };
 
-      if (field.editable && editable) {
-        htmlProps.dangerouslySetInnerHTML = {
-          __html: field.editable,
-        };
-      } else if (render) {
-        children = render(field.value ? new Date(field.value) : null);
-      } else {
-        children = field.value;
-      }
+  if (field.editable && editable) {
+    htmlProps.dangerouslySetInnerHTML = {
+      __html: field.editable,
+    };
+  } else if (render) {
+    children = render(field.value ? new Date(field.value) : null);
+  } else {
+    children = field.value;
+  }
 
-      if (tag || (field.editable && editable)) {
-        return React.createElement(tag || 'span', htmlProps, children);
-      } else {
-        return <React.Fragment>{children}</React.Fragment>;
-      }
-    },
-    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentText }
-  )
-);
+  if (tag || (field.editable && editable)) {
+    return React.createElement(tag || 'span', htmlProps, children);
+  } else {
+    return <React.Fragment>{children}</React.Fragment>;
+  }
+};
 
 DateField.displayName = 'Date';

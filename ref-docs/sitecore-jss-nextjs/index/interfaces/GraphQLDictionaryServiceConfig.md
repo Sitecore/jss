@@ -190,13 +190,3 @@ Optional. Sitecore template ID(s). Fetch items that inherit from this template(s
 #### Inherited from
 
 `Omit.templates`
-
-***
-
-### useSiteQuery?
-
-> `optional` **useSiteQuery?**: `boolean`
-
-Defined in: sitecore-jss/types/i18n/graphql-dictionary-service.d.ts:34
-
-Optional. Use site query for dictionary fetch instead of search query (XM Cloud only)

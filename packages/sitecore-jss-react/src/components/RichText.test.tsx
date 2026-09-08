@@ -77,6 +77,36 @@ describe('<RichText />', () => {
     expect(rendered[0].innerHTML).to.contain('<span class="scChromeData">');
   });
 
+  it('should not replace rendered DOM content when re-rendered with unchanged value', () => {
+    const field = {
+      value: '<a href="/foo">bar</a>',
+    };
+    const { container, rerender } = render(<RichText field={field} />);
+    const anchor = container.querySelector('a');
+    expect(anchor).to.exist;
+
+    rerender(<RichText field={field} />);
+    expect(container.querySelector('a')).to.equal(anchor);
+
+    // new field object, same value — content reference should still be stable
+    rerender(<RichText field={{ value: '<a href="/foo">bar</a>' }} />);
+    expect(container.querySelector('a')).to.equal(anchor);
+  });
+
+  it('should replace rendered DOM content when value changes', () => {
+    const field = {
+      value: '<a href="/foo">bar</a>',
+    };
+    const { container, rerender } = render(<RichText field={field} />);
+    const anchor = container.querySelector('a');
+
+    rerender(<RichText field={{ value: '<a href="/baz">qux</a>' }} />);
+    const newAnchor = container.querySelector('a');
+    expect(newAnchor).to.exist;
+    expect(newAnchor).to.not.equal(anchor);
+    expect(newAnchor.getAttribute('href')).to.equal('/baz');
+  });
+
   it('should render tag with a tag provided', () => {
     const field = {
       value: 'value',
@@ -96,93 +126,5 @@ describe('<RichText />', () => {
     expect(rendered).to.have.length(1);
     expect(rendered[0].outerHTML).to.contain('<h1 class="cssClass" id="lorem">');
     expect(rendered[0].outerHTML).to.contain('value');
-  });
-
-  describe('editMode metadata', () => {
-    const testMetadata = {
-      contextItem: {
-        id: '{09A07660-6834-476C-B93B-584248D3003B}',
-        language: 'en',
-        revision: 'a0b36ce0a7db49418edf90eb9621e145',
-        version: 1,
-      },
-      fieldId: '{414061F4-FBB1-4591-BC37-BFFA67F745EB}',
-      fieldType: 'single-line',
-      rawValue: 'Test1',
-    };
-
-    it('should render field metadata component when metadata property is present', () => {
-      const field = {
-        value: 'value',
-        metadata: testMetadata,
-      };
-
-      const rendered = render(<RichText field={field} />);
-
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<div>value</div>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render default empty field component when field value is empty', () => {
-      const field = {
-        value: '',
-        metadata: testMetadata,
-      };
-
-      const rendered = render(<RichText field={field} />);
-
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<span>[No text in field]</span>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render custom empty field component when provided, when field value is empty', () => {
-      const field = {
-        value: '',
-        metadata: testMetadata,
-      };
-
-      const EmptyFieldEditingComponent: React.FC = () => (
-        <span className="empty-field-value-placeholder">Custom Empty field value</span>
-      );
-
-      const rendered = render(
-        <RichText field={field} emptyFieldEditingComponent={EmptyFieldEditingComponent} />
-      );
-
-      expect(rendered.container.innerHTML).to.equal(
-        [
-          `<code type="text/sitecore" chrometype="field" class="scpm" kind="open">${JSON.stringify(
-            testMetadata
-          )}</code>`,
-          '<span class="empty-field-value-placeholder">Custom Empty field value</span>',
-          '<code type="text/sitecore" chrometype="field" class="scpm" kind="close"></code>',
-        ].join('')
-      );
-    });
-
-    it('should render nothing when field value is empty, when editing is explicitly disabled ', () => {
-      const field = {
-        value: '',
-        metadata: testMetadata,
-      };
-
-      const rendered = render(<RichText field={field} editable={false} />);
-
-      expect(rendered.container.innerHTML).to.equal('');
-    });
   });
 });

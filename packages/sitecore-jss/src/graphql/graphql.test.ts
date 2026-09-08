@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { getAppRootId, siteNameError, languageError } from './app-root-query';
 import { SearchQueryService } from './search-service';

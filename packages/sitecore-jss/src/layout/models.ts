@@ -18,16 +18,6 @@ export enum LayoutServicePageState {
 }
 
 /**
- * Represents the possible modes for rendering content in Sitecore Editor
- * - chromes - supported by Sitecore Experience Editor / Pages
- * - metadata - supported by Sitecore Pages
- */
-export enum EditMode {
-  Chromes = 'chromes',
-  Metadata = 'metadata',
-}
-
-/**
  * Shape of context data from the Sitecore Layout Service
  */
 export interface LayoutServiceContext {
@@ -40,10 +30,6 @@ export interface LayoutServiceContext {
   site?: {
     name?: string;
   };
-  renderingType?: RenderingType;
-  editMode?: EditMode;
-  clientScripts?: string[];
-  clientData?: Record<string, Record<string, unknown>>;
 }
 
 /**
@@ -128,16 +114,9 @@ export type GenericFieldValue =
   | { [key: string]: unknown }
   | Array<{ [key: string]: unknown }>;
 
-export interface Field<T = GenericFieldValue> extends FieldMetadata {
+export interface Field<T = GenericFieldValue> {
   value: T;
   editable?: string;
-}
-
-/**
- * represents the field metadata provided by layout service in editMode 'metadata'
- */
-export interface FieldMetadata {
-  metadata?: { [key: string]: unknown };
 }
 
 /**
@@ -161,19 +140,3 @@ export interface PlaceholderData {
   path: string;
   elements: Array<HtmlElementRendering | ComponentRendering>;
 }
-
-/**
- * Editing rendering type
- */
-export enum RenderingType {
-  Component = 'component',
-}
-
-/**
- * Static placeholder name used for component rendering
- */
-export const EDITING_COMPONENT_PLACEHOLDER = 'editing-componentmode-placeholder';
-/**
- * Id of wrapper for component rendering
- */
-export const EDITING_COMPONENT_ID = 'editing-component';

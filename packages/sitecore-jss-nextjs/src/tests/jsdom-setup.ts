@@ -1,5 +1,5 @@
 /* eslint-disable spaced-comment */
-/* eslint-disable @typescript-eslint/triple-slash-reference */
+
 // https://github.com/airbnb/enzyme/blob/master/docs/guides/jsdom.md
 
 /// <reference types="../../global" />

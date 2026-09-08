@@ -60,3 +60,8 @@ export const incompatibleAddonsMsg = (source: string, incompatibleAddon: string)
   chalk.yellow(
     `Warning: ${source} add-on is not compatible with ${incompatibleAddon} add-on. This may cause unexpected results.`
   );
+
+export const sitecoreAiNotSupportedMsg = () =>
+  chalk.yellow(
+    'Note: JSS 23 supports Sitecore XP 10.5. Sitecore AI is not supported - use Sitecore Content SDK for that scenario.'
+  );

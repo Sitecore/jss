@@ -4,9 +4,6 @@ import path, { sep } from 'path';
 import { InitializerFactory } from '../../InitializerFactory';
 import { JsonObjectType } from '../processes/transform';
 
-// matched for proxy templates
-export const proxyAppMatcher = /node-headless.+|node-xmcloud.+/g;
-
 /**
  * Returns the default path for proxy app initialized alongside main JSS tempalates.
  * @param {string} mainAppDestination target destination for main app

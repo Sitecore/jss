@@ -2,11 +2,7 @@ import { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 import React from 'react';
 import { addClassName, convertAttributesToReactProps } from '../utils';
 import { getAttributesString } from '../utils';
-import { withFieldMetadata } from '../enhancers/withFieldMetadata';
-import { withEmptyFieldEditingComponent } from '../enhancers/withEmptyFieldEditingComponent';
-import { DefaultEmptyFieldEditingComponentImage } from './DefaultEmptyFieldEditingComponents';
 import { EditableFieldProps } from './sharedTypes';
-import { FieldMetadata } from '@sitecore-jss/sitecore-jss/layout';
 import { isFieldValueEmpty } from '@sitecore-jss/sitecore-jss/layout';
 
 export interface ImageFieldValue {
@@ -38,10 +34,10 @@ export interface ImageSizeParameters {
   sc?: number;
 }
 
-export interface ImageProps extends EditableFieldProps<ImageProps> {
+export interface ImageProps extends EditableFieldProps {
   [attributeName: string]: unknown;
   /** Image field data (consistent with other field types) */
-  field?: (ImageField | ImageFieldValue) & FieldMetadata;
+  field?: ImageField | ImageFieldValue;
 
   /**
    * Parameters that will be attached to Sitecore media URLs
@@ -67,8 +63,10 @@ export interface ImageProps extends EditableFieldProps<ImageProps> {
 const getEditableWrapper = (editableMarkup: string, ...otherProps: unknown[]) => (
   // create an inline wrapper and use dangerouslySetInnerHTML.
   // if we try to parse the EE value, the parser will strip invalid or disallowed attributes from html elements - and EE uses several
+  // Experience Editor rewrites this chrome markup client-side after SSR.
   <span
     className="sc-image-wrapper"
+    suppressHydrationWarning
     {...otherProps}
     dangerouslySetInnerHTML={{ __html: editableMarkup }}
   />
@@ -140,43 +138,39 @@ export const getEEMarkup = (
   return getEditableWrapper(editableMarkup);
 };
 
-export const Image: React.FC<ImageProps> = withFieldMetadata<ImageProps>(
-  withEmptyFieldEditingComponent<ImageProps>(
-    ({ editable = true, imageParams, field, mediaUrlPrefix, ...otherProps }) => {
-      const dynamicMedia = field as ImageField | ImageFieldValue;
+export const Image: React.FC<ImageProps> = ({
+  editable = true,
+  imageParams,
+  field,
+  mediaUrlPrefix,
+  ...otherProps
+}) => {
+  const dynamicMedia = field as ImageField | ImageFieldValue;
 
-      if (!field || (!dynamicMedia.editable && isFieldValueEmpty(dynamicMedia))) {
-        return null;
-      }
+  if (!field || (!dynamicMedia.editable && isFieldValueEmpty(dynamicMedia))) {
+    return null;
+  }
 
-      const imageField = dynamicMedia as ImageField;
+  const imageField = dynamicMedia as ImageField;
 
-      if (editable && imageField.editable) {
-        return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
-      }
+  if (editable && imageField.editable) {
+    return getEEMarkup(imageField, imageParams, mediaUrlPrefix, otherProps);
+  }
 
-      // some wise-guy/gal is passing in a 'raw' image object value
-      const img = (dynamicMedia as ImageFieldValue).src
-        ? field
-        : (dynamicMedia.value as ImageFieldValue);
-      if (!img) {
-        return null;
-      }
+  // some wise-guy/gal is passing in a 'raw' image object value
+  const img = (dynamicMedia as ImageFieldValue).src
+    ? field
+    : (dynamicMedia.value as ImageFieldValue);
+  if (!img) {
+    return null;
+  }
 
-      // prevent metadata from being passed to the img tag
-      if (img.metadata) {
-        delete img.metadata;
-      }
+  const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
+  if (attrs) {
+    return <img {...attrs} />;
+  }
 
-      const attrs = getImageAttrs({ ...img, ...otherProps }, imageParams, mediaUrlPrefix);
-      if (attrs) {
-        return <img {...attrs} />;
-      }
-
-      return null; // we can't handle the truth
-    },
-    { defaultEmptyFieldEditingComponent: DefaultEmptyFieldEditingComponentImage }
-  )
-);
+  return null; // we can't handle the truth
+};
 
 Image.displayName = 'Image';

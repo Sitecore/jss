@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import { FieldMetadata, GenericFieldValue } from '@sitecore-jss/sitecore-jss/layout';
+import { GenericFieldValue } from '@sitecore-jss/sitecore-jss/layout';
 
-export interface RenderingField<V = GenericFieldValue> extends FieldMetadata {
+export interface RenderingField<V = GenericFieldValue> {
   value?: V;
   editable?: string;
 }

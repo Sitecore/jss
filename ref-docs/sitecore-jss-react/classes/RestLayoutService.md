@@ -187,7 +187,7 @@ Resolves layout service url
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `apiType` | `"component"` \| `"placeholder"` \| `"render"` | which layout service API to call ('render' or 'placeholder') |
+| `apiType` | `"placeholder"` \| `"render"` \| `"component"` | which layout service API to call ('render' or 'placeholder') |
 
 #### Returns
 

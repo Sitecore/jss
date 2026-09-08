@@ -35,11 +35,7 @@ export {
   ComponentRendering,
   ComponentFields,
   ComponentParams,
-  getContentStylesheetLink,
-  EditMode,
-  RenderingType,
 } from '@sitecore-jss/sitecore-jss/layout';
-export { RestComponentLayoutService } from '@sitecore-jss/sitecore-jss/editing';
 export { mediaApi } from '@sitecore-jss/sitecore-jss/media';
 export {
   trackingApi,
@@ -58,14 +54,6 @@ export {
   RestDictionaryService,
   RestDictionaryServiceConfig,
 } from '@sitecore-jss/sitecore-jss/i18n';
-export {
-  personalizeLayout,
-  getPersonalizedRewrite,
-  getPersonalizedRewriteData,
-  getGroomedVariantIds,
-  normalizePersonalizedRewrite,
-  CdpHelper,
-} from '@sitecore-jss/sitecore-jss/personalize';
 
 export {
   ComponentPropsCollection,
@@ -121,16 +109,11 @@ export { Link, LinkProps } from './components/Link';
 export { RichText, RichTextProps } from './components/RichText';
 export { Placeholder } from './components/Placeholder';
 export { NextImage } from './components/NextImage';
-import * as FEaaSWrapper from './components/FEaaSWrapper';
-import * as BYOCWrapper from './components/BYOCWrapper';
-export { FEaaSWrapper };
-export { BYOCWrapper };
 
 export { ComponentBuilder, ComponentBuilderConfig } from './ComponentBuilder';
 
 export {
   ComponentFactory,
-  Form,
   Image,
   ImageField,
   ImageFieldValue,
@@ -141,20 +124,9 @@ export {
   TextField,
   DateField,
   EditFrame,
-  FEaaSComponent,
-  FEaaSComponentProps,
-  FEaaSComponentParams,
-  fetchFEaaSComponentServerProps,
-  BYOCComponentParams,
-  BYOCComponent,
-  BYOCComponentProps,
-  getDesignLibraryStylesheetLinks,
   File,
   FileField,
   RichTextField,
-  DesignLibrary,
-  DefaultEmptyFieldEditingComponentImage,
-  DefaultEmptyFieldEditingComponentText,
   VisitorIdentification,
   PlaceholderComponentProps,
   SitecoreContext,
@@ -170,7 +142,4 @@ export {
   WithSitecoreContextOptions,
   WithSitecoreContextProps,
   WithSitecoreContextHocProps,
-  withFieldMetadata,
-  withEmptyFieldEditingComponent,
-  EditingScripts,
 } from '@sitecore-jss/sitecore-jss-react';

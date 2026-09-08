@@ -12,7 +12,6 @@
 - [index](index/README.md)
 - [layout](layout/README.md)
 - [media](media/README.md)
-- [personalize](personalize/README.md)
 - [site](site/README.md)
 - [tracking](tracking/README.md)
 - [utils](utils/README.md)

@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { expect } from 'chai';
-import { constants } from '@sitecore-jss/sitecore-jss';
 import { SitecoreContext } from './SitecoreContext';
 import { ComponentFactory } from './sharedTypes';
 import { WithSitecoreContextProps, withSitecoreContext } from '../enhancers/withSitecoreContext';
@@ -10,17 +9,15 @@ import { useSitecoreContext } from '../enhancers/withSitecoreContext';
 
 describe('SitecoreContext', () => {
   let nestedContext = {};
-  let contextApi: object | undefined = {};
 
   interface NestedComponentProps extends WithSitecoreContextProps {
     anotherProperty?: string;
   }
 
   const NestedComponent: FC<NestedComponentProps> = (props: NestedComponentProps) => {
-    const { sitecoreContext, api } = useSitecoreContext();
+    const { sitecoreContext } = useSitecoreContext();
 
     nestedContext = sitecoreContext;
-    contextApi = api ?? undefined;
 
     <div>{props.sitecoreContext && 'test'}</div>;
   };
@@ -49,30 +46,12 @@ describe('SitecoreContext', () => {
     },
   };
 
-  const api = {
-    edge: {
-      contextId: 'id',
-      edgeUrl: 'url',
-    },
-  };
-
   it('should update context', () => {
     const component = render(
-      <SitecoreContext
-        componentFactory={mockComponentFactory}
-        layoutData={mockLayoutData}
-        api={api}
-      >
+      <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
         <NestedComponentWithContext />
       </SitecoreContext>
     );
-
-    expect(contextApi).to.deep.equal({
-      edge: {
-        contextId: 'id',
-        edgeUrl: 'url',
-      },
-    });
 
     // provide LayoutServiceData type
     const newLayoutData: LayoutServiceData = {
@@ -149,22 +128,6 @@ describe('SitecoreContext', () => {
 
     expect(nestedContext).deep.equal({
       pageEditing: false,
-    });
-    expect(contextApi).to.be.undefined;
-  });
-
-  it('should set default edge url', () => {
-    render(
-      <SitecoreContext componentFactory={mockComponentFactory} api={{ edge: { contextId: 'id' } }}>
-        <NestedComponentWithContext />
-      </SitecoreContext>
-    );
-
-    expect(contextApi).to.deep.equal({
-      edge: {
-        contextId: 'id',
-        edgeUrl: constants.SITECORE_EDGE_URL_DEFAULT,
-      },
     });
   });
 

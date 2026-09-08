@@ -6,40 +6,10 @@
 
 # editing
 
-## Enumerations
-
-- [DesignLibraryMode](enumerations/DesignLibraryMode.md)
-- [DesignLibraryStatus](enumerations/DesignLibraryStatus.md)
-- [LayoutKind](enumerations/LayoutKind.md)
-- [MetadataKind](enumerations/MetadataKind.md)
-
-## Classes
-
-- [GraphQLEditingService](classes/GraphQLEditingService.md)
-- [RestComponentLayoutService](classes/RestComponentLayoutService.md)
-
-## Interfaces
-
-- [ComponentLayoutRequestParams](interfaces/ComponentLayoutRequestParams.md)
-- [ComponentUpdateEventArgs](interfaces/ComponentUpdateEventArgs.md)
-- [DesignLibraryStatusEvent](interfaces/DesignLibraryStatusEvent.md)
-- [RenderComponentQueryParams](interfaces/RenderComponentQueryParams.md)
-- [RenderMetadataQueryParams](interfaces/RenderMetadataQueryParams.md)
-
 ## Variables
 
 - [DEFAULT\_PLACEHOLDER\_UID](variables/DEFAULT_PLACEHOLDER_UID.md)
-- [EDITING\_ALLOWED\_ORIGINS](variables/EDITING_ALLOWED_ORIGINS.md)
-- [PAGES\_EDITING\_MARKER](variables/PAGES_EDITING_MARKER.md)
 - [QUERY\_PARAM\_EDITING\_SECRET](variables/QUERY_PARAM_EDITING_SECRET.md)
-
-## Functions
-
-- [addComponentUpdateHandler](functions/addComponentUpdateHandler.md)
-- [getDesignLibraryScriptLink](functions/getDesignLibraryScriptLink.md)
-- [getDesignLibraryStatusEvent](functions/getDesignLibraryStatusEvent.md)
-- [getJssPagesClientData](functions/getJssPagesClientData.md)
-- [isDesignLibraryMode](functions/isDesignLibraryMode.md)
 
 ## References
 
@@ -97,12 +67,6 @@ Re-exports [handleEditorAnchors](../utils/functions/handleEditorAnchors.md)
 
 ***
 
-### HorizonEditor
-
-Re-exports [HorizonEditor](../utils/classes/HorizonEditor.md)
-
-***
-
 ### isEditorActive
 
 Re-exports [isEditorActive](../utils/functions/isEditorActive.md)
@@ -112,12 +76,6 @@ Re-exports [isEditorActive](../utils/functions/isEditorActive.md)
 ### mapButtonToCommand
 
 Re-exports [mapButtonToCommand](../utils/functions/mapButtonToCommand.md)
-
-***
-
-### Metadata
-
-Re-exports [Metadata](../utils/interfaces/Metadata.md)
 
 ***
 

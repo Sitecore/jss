@@ -12,9 +12,7 @@ class FallbackPlugin implements ConfigPlugin {
   async exec(config: JssConfig) {
     return Object.assign({}, config, {
       defaultLanguage: config.defaultLanguage || 'en',
-      <% if (!locals.xmcloud) { -%>
       layoutServiceConfigurationName: config.layoutServiceConfigurationName || 'default',
-      <% } -%>
     });
   }
 }

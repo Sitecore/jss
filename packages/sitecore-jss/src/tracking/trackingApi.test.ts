@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { expect } from 'chai';
 import { trackEvent } from './trackingApi';
 import { NativeDataFetcher, NativeDataFetcherResponse } from '../native-fetcher';

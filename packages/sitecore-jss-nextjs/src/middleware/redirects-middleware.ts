@@ -21,6 +21,31 @@ type NextURL = NextRequest['nextUrl'];
 import regexParser from 'regex-parser';
 import { MiddlewareBase, MiddlewareBaseConfig, REWRITE_HEADER_NAME } from './middleware';
 
+/**
+ * Compiles a redirect pattern to RegExp; returns null if Sitecore produced a malformed rule
+ * so one bad entry does not fail the entire redirect chain.
+ * @param {string} pattern - Redirect pattern string to compile
+ * @returns {RegExp | null} Compiled regular expression, or null if compilation failed
+ */
+const safeCompileRedirectPattern = (pattern: string): RegExp | null => {
+  try {
+    return regexParser(pattern);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(
+      `RedirectsMiddleware: invalid redirect regex; skipping rule. pattern=${pattern} (${message})`
+    );
+    return null;
+  }
+};
+
+/**
+ * Escape a string for safe use inside a RegExp source (e.g. locale segment).
+ * @param {string} string - String to escape
+ * @returns {string} Escaped string safe for RegExp source
+ */
+const escapeRegExp = (string: string): string => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 const REGEXP_CONTEXT_SITE_LANG = new RegExp(/\$siteLang/, 'i');
 const REGEXP_ABSOLUTE_URL = new RegExp('^(?:[a-z]+:)?//', 'i');
 
@@ -61,7 +86,7 @@ export class RedirectsMiddleware extends MiddlewareBase {
   public getHandler(): (req: NextRequest, res?: NextResponse) => Promise<NextResponse> {
     return async (req, res) => {
       try {
-        return this.processRedirectRequest(req, res);
+        return await this.processRedirectRequest(req, res);
       } catch (error) {
         console.log('Redirect middleware failed:');
         console.log(error);
@@ -123,7 +148,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
           // Modify the redirect pattern to ignore the language prefix in the path
           // And escapes non-special "?" characters in a string or regex.
           redirect.pattern = escapeNonSpecialQuestionMarks(
-            redirect.pattern.replace(new RegExp(`^[^]?/${language}/`, 'gi'), '')
+            redirect.pattern.replace(
+              new RegExp(`^[^]?/${escapeRegExp(String(language))}/`, 'gi'),
+              ''
+            )
           );
 
           // Prepare the redirect pattern as a regular expression, making it more flexible for matching URLs
@@ -133,10 +161,15 @@ export class RedirectsMiddleware extends MiddlewareBase {
             .replace(/^\^|\$$/g, '') // Further cleans up anchors
             .replace(/\$\/gi$/g, '')}[\/]?$/i`; // Ensures the pattern allows an optional trailing slash
 
+          const redirectRegex = safeCompileRedirectPattern(redirect.pattern);
+          if (!redirectRegex) {
+            return false;
+          }
+
           // Redirect pattern matches the full incoming URL with query string present
           matchedQueryString = [
-            regexParser(redirect.pattern).test(`/${localePath}${incomingQS}`),
-            regexParser(redirect.pattern).test(`${normalizedPath}${incomingQS}`),
+            redirectRegex.test(`/${localePath}${incomingQS}`),
+            redirectRegex.test(`${normalizedPath}${incomingQS}`),
           ].some(Boolean)
             ? incomingQS
             : undefined;
@@ -144,8 +177,8 @@ export class RedirectsMiddleware extends MiddlewareBase {
           redirect.matchedQueryString = matchedQueryString || '';
           return (
             !!(
-              regexParser(redirect.pattern).test(`/${req.nextUrl.locale}${incomingURL}`) ||
-              regexParser(redirect.pattern).test(incomingURL) ||
+              redirectRegex.test(`/${req.nextUrl.locale}${incomingURL}`) ||
+              redirectRegex.test(incomingURL) ||
               matchedQueryString
             ) && (redirect.locale ? redirect.locale.toLowerCase() === locale.toLowerCase() : true)
           );
@@ -230,9 +263,10 @@ export class RedirectsMiddleware extends MiddlewareBase {
         let finalTarget = existsRedirect.target;
 
         if (isRegexOrUrl(existsRedirect.pattern) === 'regex') {
-          const matched = url.pathname
-            .replace(/\/*$/gi, '')
-            .match(regexParser(existsRedirect.pattern));
+          const redirectRegex = safeCompileRedirectPattern(existsRedirect.pattern);
+          const matched = redirectRegex
+            ? url.pathname.replace(/\/*$/gi, '').match(redirectRegex)
+            : null;
           if (matched) {
             finalTarget = existsRedirect.target.replace(/\$(\d+)/g, (_, index) => {
               return matched[parseInt(index, 10)] || '';
@@ -257,10 +291,13 @@ export class RedirectsMiddleware extends MiddlewareBase {
 
         const [targetPath, targetQueryString] = isUrl
           ? (targetSegments as string[])
-          : (targetSegments as string)
-              .replace(regexParser(existsRedirect.pattern), existsRedirect.target)
-              .replace(/^\/\//, '/')
-              .split('?');
+          : (() => {
+              const redirectRegex = safeCompileRedirectPattern(existsRedirect.pattern);
+              const pathAfterReplace = redirectRegex
+                ? (targetSegments as string).replace(redirectRegex, existsRedirect.target)
+                : (targetSegments as string);
+              return pathAfterReplace.replace(/^\/\//, '/').split('?');
+            })();
 
         const mergedQueryString = existsRedirect.isQueryStringPreserved
           ? mergeURLSearchParams(

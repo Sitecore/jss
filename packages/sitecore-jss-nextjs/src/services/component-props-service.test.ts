@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss/layout';
 import { expect } from 'chai';
 import { IncomingMessage, ServerResponse } from 'http';
