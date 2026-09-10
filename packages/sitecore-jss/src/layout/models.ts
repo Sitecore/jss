@@ -85,6 +85,12 @@ export interface ComponentParams {
 export interface ComponentRendering<T = ComponentFields> {
   componentName: string;
   dataSource?: string;
+  /**
+   * `true` when Layout Service resolved this rendering's datasource content.
+   * `false` when resolution failed (for example because the item was deleted or archived).
+   * Omitted by older Layout Service versions; absence preserves existing behavior.
+   */
+  isContentResolved?: boolean;
   uid?: string;
   placeholders?: PlaceholdersData;
   fields?: T;

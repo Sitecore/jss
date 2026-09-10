@@ -15,6 +15,10 @@ Our versioning strategy is as follows:
 
 > ⚠️ **JSS 23 supports Sitecore XP 10.5 only. Sitecore AI is not supported - use Sitecore Content SDK for that scenario.**
 
+### 🎉 New Features & Improvements
+
+* `[sitecore-jss]` `[sitecore-jss-react]` Treat Layout Service `isContentResolved` as datasource validity in `withDatasourceCheck()` ([#2219](https://github.com/Sitecore/jss/pull/2219))
+
 ### 🐛 Bug Fixes
 
 * `[sitecore-jss-react]` Suppress hydration mismatch warnings in Experience Editor by adding `suppressHydrationWarning` to SDK chrome paths (ErrorBoundary, placeholders, field components)([#2218](https://github.com/Sitecore/jss/pull/2218))
