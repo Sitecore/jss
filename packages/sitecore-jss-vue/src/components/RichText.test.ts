@@ -141,7 +141,7 @@ describe('<RichText />', () => {
     const props = {
       field: {
         value:
-          '<div id="test"><h1>Hello!</h1><a href="/styleguide">1<span>nested</span></a><a href="/graphql#hash">2</a></div>',
+          '<div id="test"><h1>Hello!</h1><a href="/styleguide">1<span>nested</span></a><a href="/graphql#hash">2</a><a href="/styleguide?query=true">3</a><a href="/styleguide?query=true#hash">4</a></div>',
       },
     };
     const rendered = mount(RichText, {
@@ -155,6 +155,8 @@ describe('<RichText />', () => {
 
     expect(rendered.element.innerHTML).toContain('<a href="/styleguide">1<span>nested</span></a>');
     expect(rendered.element.innerHTML).toContain('<a href="/graphql#hash">2</a>');
+    expect(rendered.element.innerHTML).toContain('<a href="/styleguide?query=true">3</a>');
+    expect(rendered.element.innerHTML).toContain('<a href="/styleguide?query=true#hash">4</a>');
 
     // Make sure eventListener in not passed to wrong element
     await rendered.find('#test').trigger('click');
@@ -164,13 +166,19 @@ describe('<RichText />', () => {
     expect(mockRouter.push).toHaveBeenCalledTimes(1);
     expect(mockRouter.push).toHaveBeenCalledWith('/styleguide');
 
-    const [link1, link2] = rendered.findAll('a');
+    const [link1, link2, link3, link4] = rendered.findAll('a');
     link1 && (await link1.trigger('click'));
     expect(mockRouter.push).toHaveBeenCalledTimes(2);
     expect(mockRouter.push).toHaveBeenCalledWith('/styleguide');
     link2 && (await link2.trigger('click'));
     expect(mockRouter.push).toHaveBeenCalledTimes(3);
     expect(mockRouter.push).toHaveBeenCalledWith('/graphql#hash');
+    link3 && (await link3.trigger('click'));
+    expect(mockRouter.push).toHaveBeenCalledTimes(4);
+    expect(mockRouter.push).toHaveBeenCalledWith('/styleguide?query=true');
+    link4 && (await link4.trigger('click'));
+    expect(mockRouter.push).toHaveBeenCalledTimes(5);
+    expect(mockRouter.push).toHaveBeenCalledWith('/styleguide?query=true#hash');
   });
 
   it('should not initialize links when editable', async () => {

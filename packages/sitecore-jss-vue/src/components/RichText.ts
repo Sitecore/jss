@@ -53,7 +53,9 @@ export const RichText = defineComponent({
         target = target.closest('a') as HTMLAnchorElement;
       }
 
-      const destination = target.hash ? `${target.pathname}${target.hash}` : target.pathname;
+      const search = target.search || '';
+      const hash = target.hash || '';
+      const destination = `${target.pathname}${search}${hash}`;
 
       this.$router.push(destination);
     },
