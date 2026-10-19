@@ -1,5 +1,6 @@
 .pnp.*
 .yarn/*
+.nx/
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
