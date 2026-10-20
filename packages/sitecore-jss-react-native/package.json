@@ -26,6 +26,11 @@
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/jss.git",
+    "directory": "packages/sitecore-jss-react-native"
+  },
   "dependencies": {
     "@sitecore-jss/sitecore-jss": "23.1.0-canary.1",
     "prop-types": "^15.7.2",

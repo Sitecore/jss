@@ -31,6 +31,11 @@
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/jss.git",
+    "directory": "packages/sitecore-jss-cli"
+  },
   "dependencies": {
     "@sitecore-jss/sitecore-jss-dev-tools": "23.1.0-canary.1",
     "chalk": "^4.1.2",

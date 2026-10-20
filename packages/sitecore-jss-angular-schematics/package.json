@@ -21,6 +21,11 @@
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/jss.git",
+    "directory": "packages/sitecore-jss-angular-schematics"
+  },
   "schematics": "./src/collection.json",
   "dependencies": {
     "@angular-devkit/core": "~20.3.9",

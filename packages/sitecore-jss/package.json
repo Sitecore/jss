@@ -22,7 +22,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sitecore/jss"
+    "url": "git+https://github.com/Sitecore/jss.git",
+    "directory": "packages/sitecore-jss"
   },
   "license": "Apache-2.0",
   "homepage": "https://jss.sitecore.com",

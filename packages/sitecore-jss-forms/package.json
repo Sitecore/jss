@@ -25,6 +25,11 @@
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/jss.git",
+    "directory": "packages/sitecore-jss-forms"
+  },
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/chai-string": "^1.4.5",
