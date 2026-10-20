@@ -8,7 +8,7 @@
 
 > `const` **DefaultEditFrameButton**: `object`
 
-Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/003584b793f10239adaf2ec40e2df3add170a57f/packages/sitecore-jss/src/editing/edit-frame.ts#L15)
+Defined in: [packages/sitecore-jss/src/editing/edit-frame.ts:15](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss/src/editing/edit-frame.ts#L15)
 
 ## Type Declaration
 

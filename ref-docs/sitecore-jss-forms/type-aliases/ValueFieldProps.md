@@ -8,7 +8,7 @@
 
 > **ValueFieldProps**\<`TViewModel`\> = [`FieldWithValueProps`](../interfaces/FieldWithValueProps.md)\<`ValueFormField`\<`TViewModel`\>\>
 
-Defined in: [src/FieldProps.ts:65](https://github.com/Sitecore/jss/blob/003584b793f10239adaf2ec40e2df3add170a57f/packages/sitecore-jss-react-forms/src/FieldProps.ts#L65)
+Defined in: [src/FieldProps.ts:65](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss-react-forms/src/FieldProps.ts#L65)
 
 ## Type Parameters
 
