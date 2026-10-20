@@ -1,5 +1,5 @@
 {
   "packages": ["packages/*", "samples/*"],
-  "version": "23.1.0-canary.1",
+  "version": "23.1.0-canary.2",
   "npmClient": "yarn"
 }
