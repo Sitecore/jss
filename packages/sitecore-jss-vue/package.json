@@ -26,6 +26,11 @@
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/jss.git",
+    "directory": "packages/sitecore-jss-vue"
+  },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^24.10.4",
