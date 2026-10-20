@@ -8,7 +8,7 @@
 
 > **RobotsQueryResult** = `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)
+Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)
 
 The schema of data returned in response to robots.txt request
 
@@ -18,7 +18,7 @@ The schema of data returned in response to robots.txt request
 
 > **site**: `object`
 
-Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)
+Defined in: [packages/sitecore-jss/src/site/graphql-robots-service.ts:32](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss/src/site/graphql-robots-service.ts#L32)
 
 #### siteInfo
 

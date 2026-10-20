@@ -6,7 +6,7 @@
 
 # Interface: DisconnectedDictionaryServiceOptions
 
-Defined in: [disconnected-server/dictionary-service.ts:31](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L31)
+Defined in: [disconnected-server/dictionary-service.ts:31](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L31)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [disconnected-server/dictionary-service.ts:31](https://github.com/Si
 
 > `optional` **customizeDictionary?**: (`finalDictionary`, `rawDictionary`, `currentManifest`, `request?`, `response?`) => `DictionaryServiceOutput`
 
-Defined in: [disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
+Defined in: [disconnected-server/dictionary-service.ts:33](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L33)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [disconnected-server/dictionary-service.ts:33](https://github.com/Si
 
 > **manifest**: [`ManifestInstance`](ManifestInstance.md)
 
-Defined in: [disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
+Defined in: [disconnected-server/dictionary-service.ts:32](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L32)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [disconnected-server/dictionary-service.ts:32](https://github.com/Si
 
 > `optional` **manifestLanguageChangeCallback?**: (`language`) => `Promise`\<[`ManifestInstance`](ManifestInstance.md)\>
 
-Defined in: [disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
+Defined in: [disconnected-server/dictionary-service.ts:39](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/disconnected-server/dictionary-service.ts#L39)
 
 #### Parameters
 

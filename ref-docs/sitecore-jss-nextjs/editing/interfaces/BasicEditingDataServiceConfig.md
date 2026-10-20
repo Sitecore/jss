@@ -6,7 +6,7 @@
 
 # Interface: BasicEditingDataServiceConfig
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:56](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L56)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:56](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L56)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:56](https:/
 
 > `optional` **editingDataCache?**: [`EditingDataCache`](EditingDataCache.md)
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:64](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L64)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:64](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L64)
 
 An instance of the `EditingDataCache` implementation to use.
 By default, this is `editingDataDiskCache` (an `EditingDataDiskCache` singleton).

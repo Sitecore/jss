@@ -8,4 +8,4 @@
 
 > `const` **Email**: `React.FunctionComponent`\<[`ValueFieldProps`](../type-aliases/ValueFieldProps.md)\<`StringInputViewModel`\>\>
 
-Defined in: [src/components/field-templates/email.tsx:7](https://github.com/Sitecore/jss/blob/f33619ddf50b2d04e7f866efb2d4fbbce54af6dd/packages/sitecore-jss-react-forms/src/components/field-templates/email.tsx#L7)
+Defined in: [src/components/field-templates/email.tsx:7](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-react-forms/src/components/field-templates/email.tsx#L7)
