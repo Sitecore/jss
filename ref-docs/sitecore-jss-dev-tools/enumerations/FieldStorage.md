@@ -6,7 +6,7 @@
 
 # Enumeration: FieldStorage
 
-Defined in: [manifest/generator/manifest.types.ts:97](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L97)
+Defined in: [manifest/generator/manifest.types.ts:97](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L97)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [manifest/generator/manifest.types.ts:97](https://github.com/Sitecor
 
 > **Shared**: `"shared"`
 
-Defined in: [manifest/generator/manifest.types.ts:99](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L99)
+Defined in: [manifest/generator/manifest.types.ts:99](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L99)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [manifest/generator/manifest.types.ts:99](https://github.com/Sitecor
 
 > **Unversioned**: `"unversioned"`
 
-Defined in: [manifest/generator/manifest.types.ts:100](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L100)
+Defined in: [manifest/generator/manifest.types.ts:100](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L100)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [manifest/generator/manifest.types.ts:100](https://github.com/Siteco
 
 > **Versioned**: `"versioned"`
 
-Defined in: [manifest/generator/manifest.types.ts:98](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L98)
+Defined in: [manifest/generator/manifest.types.ts:98](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L98)

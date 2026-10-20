@@ -6,7 +6,7 @@
 
 # Interface: EditingDataService
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:21](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L21)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:21](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L21)
 
 Defines an editing data service implementation
 
@@ -16,7 +16,7 @@ Defines an editing data service implementation
 
 > **getEditingData**(`previewData`): `Promise`\<[`EditingData`](../type-aliases/EditingData.md) \| `undefined`\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:38](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L38)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:38](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L38)
 
 Retrieves Sitecore editor payload data
 
@@ -38,7 +38,7 @@ The [EditingData](../type-aliases/EditingData.md)
 
 > **setEditingData**(`data`, `serverUrl`, `params?`): `Promise`\<[`EditingPreviewData`](EditingPreviewData.md)\>
 
-Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:28](https://github.com/Sitecore/jss/blob/16422526b0fccc024c0cc66c2f2946a3722333c1/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L28)
+Defined in: [sitecore-jss-nextjs/src/editing/editing-data-service.ts:28](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-nextjs/src/editing/editing-data-service.ts#L28)
 
 Stores Sitecore editor payload data for later retrieval
 
