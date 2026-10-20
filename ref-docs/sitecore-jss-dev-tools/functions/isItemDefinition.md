@@ -8,7 +8,7 @@
 
 > **isItemDefinition**(`obj`): `obj is ItemDefinition`
 
-Defined in: [manifest/generator/manifest.types.ts:369](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L369)
+Defined in: [manifest/generator/manifest.types.ts:369](https://github.com/Sitecore/jss/blob/003584b793f10239adaf2ec40e2df3add170a57f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L369)
 
 ## Parameters
 

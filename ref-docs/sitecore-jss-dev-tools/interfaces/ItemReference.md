@@ -6,7 +6,7 @@
 
 # Interface: ItemReference
 
-Defined in: [manifest/generator/manifest.types.ts:362](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L362)
+Defined in: [manifest/generator/manifest.types.ts:362](https://github.com/Sitecore/jss/blob/003584b793f10239adaf2ec40e2df3add170a57f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L362)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [manifest/generator/manifest.types.ts:362](https://github.com/Siteco
 
 > **id**: `string`
 
-Defined in: [manifest/generator/manifest.types.ts:363](https://github.com/Sitecore/jss/blob/217ee09e2bb877a0daa2bea2caf7b49d38f600a5/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L363)
+Defined in: [manifest/generator/manifest.types.ts:363](https://github.com/Sitecore/jss/blob/003584b793f10239adaf2ec40e2df3add170a57f/packages/sitecore-jss-dev-tools/src/manifest/generator/manifest.types.ts#L363)
