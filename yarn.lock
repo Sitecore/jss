@@ -24842,6 +24842,11 @@ __metadata:
     typedoc-plugin-markdown: "npm:^4.8.0"
     typescript: "npm:~5.6.3"
     typescript-eslint: "npm:^8.18.0"
+  dependenciesMeta:
+    esbuild:
+      built: true
+    ngrok:
+      built: true
   languageName: unknown
   linkType: soft
 

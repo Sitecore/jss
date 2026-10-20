@@ -1,7 +1,6 @@
 name: Publish
 permissions:
   contents: read
-  id-token: write
 
 on:
   push:
@@ -13,6 +12,8 @@ on:
 
 jobs:
   publish:
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     env:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
