@@ -96,7 +96,8 @@ export class LinkDirective extends BaseFieldDirective implements OnChanges {
       const props = field.href ? field : field.value;
 
       const linkText = field.text || field.value?.text || field.href || field.value?.href;
-      const anchor = props?.anchor ? `#${props.anchor}` : '';
+      // Insert Anchor sets linktype to "anchor" and already includes the fragment in href.
+      const anchor = props?.linktype !== 'anchor' && props?.anchor ? `#${props.anchor}` : '';
       const href = `${props?.href}${anchor}`;
 
       const mergedAttrs = { ...props, ...this.attrs, href };
