@@ -351,6 +351,47 @@ describe('<Form />', () => {
         '<span class="fieldWrapper"><h2>Test</h2><button type="submit" class="xxx_css-class" value="xxx_title" name="button-xxx" id="button-xxx">xxx_title</button></span>'
       );
     });
+
+    it('should render form containing a Page element and its nested fields', () => {
+      const props = p();
+      props.form.fields = [
+        {
+          model: {
+            itemId: 'page_item_id',
+            name: 'Page',
+            templateId: '{D819B43E-C136-4392-9393-8BE7FCE32F5E}',
+            fieldTypeItemId: '{D819B43E-C136-4392-9393-8BE7FCE32F5E}',
+            cssClass: 'form-page-container',
+          },
+          fields: [
+            {
+              model: {
+                itemId: 'model_item_id_page_text',
+                isTrackingEnabled: true,
+                text: 'Inside Page Field',
+                name: 'inside-page-field',
+                templateId: 'xxx_templateId',
+                cssClass: 'xxx_css-class',
+                labelCssClass: 'xxx_label-css-class',
+                value: '',
+                fieldTypeItemId: '{983BFA5F-C6B6-4AEE-A3BB-46B95D52E7DF}',
+                validationDataModels: [],
+              },
+              valueField: {
+                id: 'inside_page_text_value_field_id',
+                name: 'inside_page_text_value_field_name',
+                value: 'inside_page_text_value_field_name',
+              },
+            },
+          ],
+        } as any,
+      ];
+
+      const rendered = render(<Form {...props} />);
+      const pageDiv = rendered.container.querySelector('.form-page-container');
+      expect(pageDiv).to.not.be.null;
+      expect(rendered.container.innerHTML).to.contain('Inside Page Field');
+    });
   });
 
   describe('onSubmit', () => {
