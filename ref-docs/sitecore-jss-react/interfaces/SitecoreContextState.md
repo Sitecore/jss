@@ -6,7 +6,7 @@
 
 # Interface: SitecoreContextState
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L12)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:12](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L12)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:12](
 
 > **context**: [`SitecoreContextValue`](../type-aliases/SitecoreContextValue.md)
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L14)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:14](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L14)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:14](
 
 > **setContext**: (`value`) => `void`
 
-Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:13](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L13)
+Defined in: [packages/sitecore-jss-react/src/components/SitecoreContext.tsx:13](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-react/src/components/SitecoreContext.tsx#L13)
 
 #### Parameters
 

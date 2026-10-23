@@ -6,7 +6,7 @@
 
 # Class: ExperienceEditor
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:28](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss/src/editing/utils.ts#L28)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:28](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss/src/editing/utils.ts#L28)
 
 Static utility class for Sitecore Experience Editor
 
@@ -26,7 +26,7 @@ Static utility class for Sitecore Experience Editor
 
 > `static` **isActive**(): `boolean`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:34](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss/src/editing/utils.ts#L34)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:34](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss/src/editing/utils.ts#L34)
 
 Determines whether the current execution context is within a Experience Editor.
 Experience Editor environment can be identified only in the browser
@@ -43,7 +43,7 @@ true if executing within a Experience Editor
 
 > `static` **resetChromes**(): `void`
 
-Defined in: [packages/sitecore-jss/src/editing/utils.ts:42](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss/src/editing/utils.ts#L42)
+Defined in: [packages/sitecore-jss/src/editing/utils.ts:42](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss/src/editing/utils.ts#L42)
 
 #### Returns
 

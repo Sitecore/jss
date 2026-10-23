@@ -6,7 +6,7 @@
 
 # Interface: ManifestManagerOptions
 
-Defined in: [manifest/manifest-manager.ts:12](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L12)
+Defined in: [manifest/manifest-manager.ts:12](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L12)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [manifest/manifest-manager.ts:12](https://github.com/Sitecore/jss/bl
 
 > `optional` **appName?**: `string`
 
-Defined in: [manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L19)
+Defined in: [manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L19)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [manifest/manifest-manager.ts:19](https://github.com/Sitecore/jss/bl
 
 > `optional` **outputPath?**: `string`
 
-Defined in: [manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L17)
+Defined in: [manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L17)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [manifest/manifest-manager.ts:17](https://github.com/Sitecore/jss/bl
 
 > `optional` **pipelinePatchFiles?**: `string`[]
 
-Defined in: [manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L18)
+Defined in: [manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L18)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [manifest/manifest-manager.ts:18](https://github.com/Sitecore/jss/bl
 
 > `optional` **requireArg?**: `string` \| `null`
 
-Defined in: [manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L16)
+Defined in: [manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L16)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [manifest/manifest-manager.ts:16](https://github.com/Sitecore/jss/bl
 
 > `optional` **rootPath?**: `string`
 
-Defined in: [manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L13)
+Defined in: [manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L13)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [manifest/manifest-manager.ts:13](https://github.com/Sitecore/jss/bl
 
 > `optional` **sourceFiles?**: `string`[]
 
-Defined in: [manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L14)
+Defined in: [manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L14)
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [manifest/manifest-manager.ts:14](https://github.com/Sitecore/jss/bl
 
 > `optional` **watchOnlySourceFiles?**: `string`[]
 
-Defined in: [manifest/manifest-manager.ts:15](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L15)
+Defined in: [manifest/manifest-manager.ts:15](https://github.com/Sitecore/jss/blob/9451092469096d02c209539af2e335bae5029765/packages/sitecore-jss-dev-tools/src/manifest/manifest-manager.ts#L15)
