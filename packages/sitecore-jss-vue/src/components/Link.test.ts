@@ -113,6 +113,20 @@ describe('<Link />', () => {
     expect(rendered.text()).toBe('[ipsum]Custom description');
   });
 
+  it('should not add extra hash when linktype is anchor', () => {
+    const props = {
+      field: {
+        linktype: 'anchor',
+        href: '#anchor',
+        text: 'anchor link',
+        anchor: 'anchor',
+      },
+    };
+    const rendered = mount(Link, { props }).find('a');
+    expect(rendered.attributes().href).toBe(props.field.href);
+    expect(rendered.text()).toBe(props.field.text);
+  });
+
   it('should render ee HTML', () => {
     const props = {
       field: {

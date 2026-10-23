@@ -8,6 +8,7 @@ export interface LinkFieldValue {
   title?: string;
   target?: string;
   querystring?: string;
+  linktype?: string;
 }
 
 export interface LinkField {
@@ -101,7 +102,8 @@ export const Link = defineComponent({
     const finalChildren = children ? [linkText, ...children()] : linkText;
 
     const qs = link.querystring ? `?${link.querystring}` : '';
-    const anchor = link.anchor ? `#${link.anchor}` : '';
+    // Insert Anchor sets linktype to "anchor" and already includes the fragment in href.
+    const anchor = link.linktype !== 'anchor' && link.anchor ? `#${link.anchor}` : '';
 
     // this.$data should be passed along to the
     // `createElement` function in order to retain attributes and events
