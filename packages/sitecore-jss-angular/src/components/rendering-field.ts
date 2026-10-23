@@ -33,6 +33,7 @@ export interface LinkFieldValue {
   href?: string;
   text?: string;
   anchor?: string;
+  linktype?: string;
 }
 
 export interface LinkField extends LinkFieldValue, RenderingField {
