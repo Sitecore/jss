@@ -114,6 +114,23 @@ describe('<a *scLink />', () => {
     expect(rendered.innerHTML).toContain('chrometype="field"');
   });
 
+  it('should not add extra hash when linktype is anchor', () => {
+    const field = {
+      value: {
+        linktype: 'anchor',
+        href: '#1123',
+        text: 'anchor link',
+        anchor: '1123',
+      },
+    };
+    comp.field = field;
+    fixture.detectChanges();
+
+    const rendered = de.query(By.css('a'));
+    expect(rendered.nativeElement.getAttribute('href')).toBe(field.value.href);
+    expect(rendered.nativeElement.innerHTML).toBe(field.value.text);
+  });
+
   it('should render all value attributes', () => {
     const field = {
       value: {
@@ -123,6 +140,7 @@ describe('<a *scLink />', () => {
         class: 'my-link',
         title: 'My Link',
         target: '_blank',
+        linktype: 'internal',
       },
     };
     comp.field = field;

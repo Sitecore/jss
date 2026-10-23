@@ -11,6 +11,10 @@ Our versioning strategy is as follows:
 
 ## Unreleased
 
+### 🐛 Bug Fixes
+
+* `[sitecore-jss-angular]` `[sitecore-jss-vue]` Do not append the anchor fragment when `linktype` is `anchor`, so Insert Anchor links render `#id` instead of `#id#id` ([#2225](https://github.com/Sitecore/jss/pull/2225))
+
 ## 23.0.0
 
 > ⚠️ **JSS 23 supports Sitecore XP 10.5 only. Sitecore AI is not supported - use Sitecore Content SDK for that scenario.**
