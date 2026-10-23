@@ -8,7 +8,7 @@
 
 > **clean**(`options`): `void`
 
-Defined in: [clean.ts:12](https://github.com/Sitecore/jss/blob/49f05cc2548832e88b3947a3b5bd5c20e32dc093/packages/sitecore-jss-dev-tools/src/clean.ts#L12)
+Defined in: [clean.ts:12](https://github.com/Sitecore/jss/blob/9e3c92b696008419e69707d989020708dd8162a7/packages/sitecore-jss-dev-tools/src/clean.ts#L12)
 
 ## Parameters
 

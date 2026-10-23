@@ -1,6 +1,6 @@
 {
   "name": "create-sitecore-jss",
-  "version": "23.0.0-canary.20",
+  "version": "23.1.0-canary.5",
   "description": "Sitecore JSS initializer",
   "bin": "./dist/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sitecore/jss.git",
+    "url": "git+https://github.com/Sitecore/jss.git",
     "directory": "packages/create-sitecore-jss"
   },
   "homepage": "https://jss.sitecore.com",

@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-forms",
-  "version": "23.0.0-canary.20",
+  "version": "23.1.0-canary.5",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -25,6 +25,11 @@
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/jss.git",
+    "directory": "packages/sitecore-jss-forms"
+  },
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/chai-string": "^1.4.5",
@@ -42,7 +47,7 @@
     "typescript": "~5.9.2"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "23.0.0-canary.20"
+    "@sitecore-jss/sitecore-jss": "23.1.0-canary.5"
   },
   "description": "",
   "types": "types/index.d.ts",

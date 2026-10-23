@@ -1,4 +1,6 @@
 name: Publish
+permissions:
+  contents: read
 
 on:
   push:
@@ -10,6 +12,8 @@ on:
 
 jobs:
   publish:
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     env:
       YARN_ENABLE_IMMUTABLE_INSTALLS: false
@@ -22,7 +26,7 @@ jobs:
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
@@ -36,9 +40,10 @@ jobs:
           git remote set-url origin https://x-access-token:${{ steps.generate-token.outputs.token }}@github.com/${{ github.repository }}
 
       - name: Use Node.js 24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
+          registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
         run: |
@@ -62,7 +67,4 @@ jobs:
 
       - name: Pre-release canary publish
         run: |
-          echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-          npx lerna publish from-git --exact --canary --pre-dist-tag canary --preid canary --no-verify-access --yes
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          npx lerna publish from-git --exact --canary --pre-dist-tag canary --preid canary --yes

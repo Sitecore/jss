@@ -1,6 +1,6 @@
 {
   "name": "@sitecore-jss/sitecore-jss-nextjs",
-  "version": "23.0.0-canary.20",
+  "version": "23.1.0-canary.5",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -28,6 +28,11 @@
   "homepage": "https://jss.sitecore.com",
   "bugs": {
     "url": "https://github.com/sitecore/jss/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/jss.git",
+    "directory": "packages/sitecore-jss-nextjs"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.1",
@@ -67,9 +72,9 @@
     "react-dom": "^19.1.0"
   },
   "dependencies": {
-    "@sitecore-jss/sitecore-jss": "23.0.0-canary.20",
-    "@sitecore-jss/sitecore-jss-dev-tools": "23.0.0-canary.20",
-    "@sitecore-jss/sitecore-jss-react": "23.0.0-canary.20",
+    "@sitecore-jss/sitecore-jss": "23.1.0-canary.5",
+    "@sitecore-jss/sitecore-jss-dev-tools": "23.1.0-canary.5",
+    "@sitecore-jss/sitecore-jss-react": "23.1.0-canary.5",
     "@upstash/redis": "^1.38.0",
     "regex-parser": "^2.2.11",
     "sync-disk-cache": "^2.1.0"
