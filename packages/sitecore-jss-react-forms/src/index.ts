@@ -19,6 +19,7 @@ import ListBox from './components/field-templates/list-box';
 import MultipleLineText from './components/field-templates/multiple-line-text';
 import Password from './components/field-templates/password';
 import RadioButtonList from './components/field-templates/radio-button-list';
+import Page from './components/field-templates/page';
 import Section from './components/field-templates/section';
 import SingleLineText from './components/field-templates/single-line-text';
 import Telephone from './components/field-templates/telephone';
@@ -41,6 +42,7 @@ export {
   ListBox,
   MultipleLineText,
   NumberField,
+  Page,
   Password,
   RadioButtonList,
   Section,

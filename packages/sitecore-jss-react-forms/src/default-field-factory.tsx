@@ -1,3 +1,4 @@
+import Page from './components/field-templates/page';
 import Section from './components/field-templates/section';
 import TextField from './components/field-templates/text';
 import FileUpload from './components/field-templates/file-upload';
@@ -23,6 +24,7 @@ import FieldFactory from './field-factory';
 export function createDefaultFieldFactory() {
   const defaultFieldFactory = new FieldFactory();
 
+  defaultFieldFactory.setComponent(FieldTypes.Page, Page);
   defaultFieldFactory.setComponent(FieldTypes.Section, Section);
   defaultFieldFactory.setComponent(FieldTypes.TextField, TextField);
   defaultFieldFactory.setComponent(FieldTypes.Button, Button);
