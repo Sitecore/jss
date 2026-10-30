@@ -46,7 +46,8 @@ export const RichText = (props: RichTextProps): JSX.Element => {
   }, [hasText]);
 
   const routeHandler = (ev: MouseEvent) => {
-    if (!ev.currentTarget) return;
+    // Let the browser handle clicks that open a link in a new tab or window.
+    if (!ev.currentTarget || ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.altKey) return;
 
     ev.preventDefault();
 
