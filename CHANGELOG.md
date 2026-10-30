@@ -13,6 +13,7 @@ Our versioning strategy is as follows:
 
 ### 🐛 Bug Fixes
 
+* `[sitecore-jss-nextjs]` Preserve browser behavior for modified clicks on internal RichText links ([#2226](https://github.com/Sitecore/jss/pull/2226))
 * `[sitecore-jss-angular]` `[sitecore-jss-vue]` Do not append the anchor fragment when `linktype` is `anchor`, so Insert Anchor links render `#id` instead of `#id#id` ([#2225](https://github.com/Sitecore/jss/pull/2225))
 
 ## 23.0.0

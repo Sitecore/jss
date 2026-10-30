@@ -105,6 +105,30 @@ describe('RichText', () => {
     document.body.removeChild(app);
   });
 
+  it('should leave modified link clicks to the browser', () => {
+    const router = Router();
+    const { container } = render(
+      <Page value={router}>
+        <RichText field={{ value: '<a href="/contact">Contact</a>' }} prefetchLinks={false} />
+      </Page>
+    );
+    const link = container.querySelector('a')!;
+    const preventedByRichText: boolean[] = [];
+    link.addEventListener('click', (event) => {
+      preventedByRichText.push(event.defaultPrevented);
+      event.preventDefault(); // Prevent jsdom from attempting a real navigation.
+    });
+
+    [{ ctrlKey: true }, { metaKey: true }, { shiftKey: true }, { altKey: true }].forEach(
+      (modifier) => {
+        const event = new MouseEvent('click', { bubbles: true, cancelable: true, ...modifier });
+        link.dispatchEvent(event);
+      }
+    );
+    expect(preventedByRichText).to.deep.equal([false, false, false, false]);
+    expect(router.push).callCount(0);
+  });
+
   it('should re-initialize links when the re-mounting with different content', () => {
     const app = document.createElement('main');
 
