@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, JSX } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import {
   RichText as ReactRichText,
   RichTextProps as ReactRichTextProps,
@@ -35,6 +35,9 @@ export const RichText = (props: RichTextProps): JSX.Element => {
   const hasText = props.field && props.field.value;
   const isEditing = editable && props.field && props.field.editable;
 
+  // `next/compat/router` returns `null` when no Next.js Pages Router is
+  // mounted instead of throwing "NextRouter was not mounted". In that case,
+  // internal-link prefetch/navigation is skipped and links navigate natively.
   const router = useRouter();
   const richTextRef = useRef<HTMLElement>(null);
 
@@ -46,7 +49,7 @@ export const RichText = (props: RichTextProps): JSX.Element => {
   }, [hasText]);
 
   const routeHandler = (ev: MouseEvent) => {
-    if (!ev.currentTarget) return;
+    if (!router || !ev.currentTarget) return;
 
     ev.preventDefault();
 
@@ -56,6 +59,8 @@ export const RichText = (props: RichTextProps): JSX.Element => {
   };
 
   const initializeLinks = () => {
+    if (!router) return;
+
     const node = richTextRef.current;
 
     // selects all links that start with '/'
