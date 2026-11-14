@@ -398,4 +398,23 @@ describe('RichText', () => {
     expect(prefetched['/hoverprefetched1']).to.equal(true);
     expect(prefetched['/hoverprefetched2']).to.equal(true);
   });
+
+  it('should render without throwing when no router is mounted', () => {
+    const props = {
+      field: {
+        value: '<div id="test"><h1>Hello!</h1><a href="/t1">t1</a></div>',
+      },
+    };
+
+    // Renders without a RouterContext provider — the component must degrade
+    // gracefully instead of throwing "NextRouter was not mounted" (see #1979)
+    const c = render(<RichText {...props} />);
+
+    expect(c.container.innerHTML).contains('<div id="test">');
+    expect(c.container.innerHTML).contains('<h1>Hello!</h1>');
+    expect(c.container.innerHTML).contains('<a href="/t1">t1</a>');
+
+    // No router: internal-link prefetch must not run
+    expect(prefetched['/t1']).to.equal(undefined);
+  });
 });
