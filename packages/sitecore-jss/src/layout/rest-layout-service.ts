@@ -10,6 +10,29 @@ import {
 import { HttpDataFetcher, fetchData } from '../data-fetcher';
 import debug from '../debug';
 
+/**
+ * Matches a comma that is directly followed by a cookie name (RFC 6265 `token`), i.e. the
+ * boundary between two `Set-Cookie` headers that have been joined into a single string.
+ *
+ * Cookie names may contain characters outside `\w` — for example `ASP.NET_SessionId` or the
+ * Sitecore language cookie `<siteName>#lang`. Splitting on these boundaries preserves such
+ * cookies, which would otherwise be glued onto the preceding cookie and discarded by the
+ * browser (see https://github.com/Sitecore/jss/issues/2223). Commas inside cookie values —
+ * such as those in `expires` dates — are not followed by a `token=` sequence and are
+ * therefore not treated as boundaries.
+ */
+const SET_COOKIE_SEPARATOR_PATTERN = /,(?=\s*[!#$%&'*+.^_`|~0-9A-Za-z-]+=)/;
+
+/**
+ * Splits a `Set-Cookie` header string that may contain several joined cookies into
+ * individual cookie strings.
+ * @param {string} rawSetCookie One or more `Set-Cookie` header values joined with `,`
+ * @returns {string[]} The individual `Set-Cookie` header values, without leading/trailing whitespace
+ */
+function splitSetCookieString(rawSetCookie: string): string[] {
+  return rawSetCookie.split(SET_COOKIE_SEPARATOR_PATTERN).map((cookie) => cookie.trim());
+}
+
 interface FetchParams {
   [param: string]: string | number | boolean;
   sc_apikey: string;
@@ -260,14 +283,25 @@ export class RestLayoutService extends LayoutServiceBase {
     const headers = serverRes.headers;
 
     if (headers instanceof Headers && headers.has('set-cookie')) {
+      // `getSetCookie()` returns each `Set-Cookie` header separately, without joining them,
+      // so no (lossy) re-splitting is needed (see https://github.com/Sitecore/jss/issues/2223).
+      // Fall back to the joined header string for runtimes without `getSetCookie()`.
       const rawSetCookie = headers.get('set-cookie');
+      const rawCookies =
+        typeof headers.getSetCookie === 'function'
+          ? headers.getSetCookie()
+          : rawSetCookie
+          ? [rawSetCookie]
+          : [];
 
-      if (rawSetCookie) {
-        const cookies =
-          rawSetCookie.includes(', ') && rawSetCookie.includes(';')
-            ? rawSetCookie.split(/,(?=\s*\w+=)/)
-            : [rawSetCookie];
+      // Multiple `Set-Cookie` headers can still arrive joined into a single string;
+      // split those apart again on cookie-name boundaries.
+      const cookies: string[] = [];
+      rawCookies.forEach((rawCookie) => {
+        cookies.push(...splitSetCookieString(rawCookie));
+      });
 
+      if (cookies.length) {
         res.setHeader('Set-Cookie', cookies);
       }
     }

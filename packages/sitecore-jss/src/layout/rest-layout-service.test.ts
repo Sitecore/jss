@@ -215,6 +215,125 @@ describe('RestLayoutService', () => {
     ).to.be.true;
   });
 
+  it('should forward Set-Cookie headers whose names contain non-word characters', async () => {
+    // Regression for https://github.com/Sitecore/jss/issues/2223: the previous splitting logic
+    // glued cookies whose names contain `.` or `#` onto the preceding cookie, so the browser
+    // discarded them — notably `ASP.NET_SessionId` and the `<siteName>#lang` language cookie.
+    const multiCookieHeader =
+      'mysite#lang=en; path=/; secure; SameSite=None, ASP.NET_SessionId=abc123; path=/; secure; HttpOnly; SameSite=None, __RequestVerificationToken=csrfToken123; path=/; secure; HttpOnly; SameSite=None';
+
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=en&tracking=false'
+      )
+      .reply(
+        200,
+        {
+          sitecore: { context: {}, route: { name: 'home' } },
+        },
+        {
+          'Set-Cookie': multiCookieHeader,
+          'Content-Type': 'application/json',
+        }
+      );
+
+    const req = {
+      socket: {
+        remoteAddress: '192.168.1.10',
+      },
+      headers: {
+        cookie: 'existing-cookie=value',
+        referer: 'http://sctest',
+        'user-agent': 'custom-agent',
+      },
+    } as IncomingMessage;
+
+    const setHeaderSpy = (spy() as unknown) as ServerResponse['setHeader'];
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
+
+    const service = new RestLayoutService({
+      apiHost: 'http://sctest',
+      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+      siteName: 'supersite',
+      tracking: false,
+    });
+
+    await service.fetchLayoutData('/home', 'en', req, res);
+
+    const calls = (setHeaderSpy as any).__spy.calls;
+    expect(calls.length).to.be.greaterThan(0);
+
+    const [headerName, headerValue] = calls[0];
+
+    expect(headerName).to.equal('Set-Cookie');
+
+    expect(headerValue).to.be.an('array');
+    expect(headerValue.length).to.equal(3);
+    expect(headerValue.some((cookie: string) => cookie.startsWith('mysite#lang=en;'))).to.be.true;
+    expect(headerValue.some((cookie: string) => cookie.startsWith('ASP.NET_SessionId=abc123;'))).to
+      .be.true;
+  });
+
+  it('should not split a Set-Cookie header on commas inside an expires date', async () => {
+    const cookieHeader =
+      'SC_ANALYTICS_GLOBAL_COOKIE=0f1e2d|False; expires=Sun, 21-Sep-2036 07:26:28 GMT; path=/; secure; HttpOnly; SameSite=None';
+
+    nock('http://sctest')
+      .get(
+        '/sitecore/api/layout/render/jss?item=%2Fhome&sc_apikey=0FBFF61E-267A-43E3-9252-B77E71CEE4BA&sc_site=supersite&sc_lang=en&tracking=false'
+      )
+      .reply(
+        200,
+        {
+          sitecore: { context: {}, route: { name: 'home' } },
+        },
+        {
+          'Set-Cookie': cookieHeader,
+          'Content-Type': 'application/json',
+        }
+      );
+
+    const req = {
+      socket: {
+        remoteAddress: '192.168.1.10',
+      },
+      headers: {
+        cookie: 'existing-cookie=value',
+        referer: 'http://sctest',
+        'user-agent': 'custom-agent',
+      },
+    } as IncomingMessage;
+
+    const setHeaderSpy = (spy() as unknown) as ServerResponse['setHeader'];
+
+    const res = {
+      setHeader: setHeaderSpy,
+    } as ServerResponse;
+
+    const service = new RestLayoutService({
+      apiHost: 'http://sctest',
+      apiKey: '0FBFF61E-267A-43E3-9252-B77E71CEE4BA',
+      siteName: 'supersite',
+      tracking: false,
+    });
+
+    await service.fetchLayoutData('/home', 'en', req, res);
+
+    const calls = (setHeaderSpy as any).__spy.calls;
+    expect(calls.length).to.be.greaterThan(0);
+
+    const [headerName, headerValue] = calls[0];
+
+    expect(headerName).to.equal('Set-Cookie');
+
+    expect(headerValue).to.be.an('array');
+    expect(headerValue.length).to.equal(1);
+    expect(headerValue[0]).to.equal(cookieHeader);
+  });
+
   it('should fetch layout data using custom configuration name', () => {
     nock('http://sctest')
       .get(
